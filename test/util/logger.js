@@ -9,4 +9,8 @@ describe('Logger', function() {
     expect(logger).itself.to.respondTo('createLogger')
   })
 
+  it('should have a setGlobalPrefix method', function() {
+    expect(logger).itself.to.respondTo('setGlobalPrefix')
+  })
+
 })

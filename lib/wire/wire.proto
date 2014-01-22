@@ -74,7 +74,8 @@ message DeviceRequirement {
 
 message GroupMessage {
   required string group = 1;
-  repeated DeviceRequirement requirements = 2;
+  required uint32 timeout = 2;
+  repeated DeviceRequirement requirements = 3;
 }
 
 message JoinGroupMessage {

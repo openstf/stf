@@ -9,6 +9,10 @@ enum MessageType {
   JOIN_GROUP = 6;
   LEAVE_GROUP = 7;
   PROBE = 8;
+  SHELL_COMMAND = 9;
+  DEVICE_DATA = 10;
+  DEVICE_DONE = 11;
+  DEVICE_FAIL = 12;
 }
 
 message Envelope {
@@ -84,4 +88,26 @@ message JoinGroupMessage {
 
 message LeaveGroupMessage {
   required string serial = 1;
+}
+
+// Commands
+
+message ShellCommandMessage {
+  required string channel = 1;
+  repeated string command = 2;
+}
+
+message DeviceDataMessage {
+  required string serial = 1;
+  required uint32 seq = 2;
+  required bytes data = 3;
+}
+
+message DeviceDoneMessage {
+  required string serial = 1;
+}
+
+message DeviceFailMessage {
+  required string serial = 1;
+  required string reason = 2;
 }

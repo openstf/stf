@@ -1,0 +1,86 @@
+// Message wrapper
+
+enum MessageType {
+  DEVICE_POKE = 1;
+  DEVICE_STATUS = 2;
+  DEVICE_TYPE = 3;
+  DEVICE_PROPERTIES = 4;
+  GROUP = 5;
+  JOIN_GROUP = 6;
+  LEAVE_GROUP = 7;
+  PROBE = 8;
+}
+
+message Envelope {
+  required MessageType type = 1;
+  required bytes message = 2;
+}
+
+// Introductions
+
+message DevicePokeMessage {
+  required string serial = 1;
+  required string channel = 2;
+}
+
+message ProbeMessage {
+}
+
+enum DeviceStatus {
+  ABSENT = 1;
+  OFFLINE = 2;
+  UNAUTHORIZED = 3;
+  ONLINE = 4;
+}
+
+message DeviceStatusMessage {
+  required string serial = 1;
+  required DeviceStatus status = 2;
+}
+
+enum DeviceType {
+  PHYSICAL = 1;
+  VIRTUAL = 2;
+}
+
+message DeviceTypeMessage {
+  required string serial = 1;
+  required DeviceType type = 2;
+}
+
+message DeviceProperty {
+  required string name = 1;
+  required string value = 2;
+}
+
+message DevicePropertiesMessage {
+  required string serial = 1;
+  repeated DeviceProperty properties = 2;
+}
+
+// Grouping
+
+enum RequirementType {
+  SEMVER = 1;
+  GLOB = 2;
+  EXACT = 3;
+}
+
+message DeviceRequirement {
+  required string name = 1;
+  required string value = 2;
+  required RequirementType type = 3;
+}
+
+message GroupMessage {
+  required string group = 1;
+  repeated DeviceRequirement requirements = 2;
+}
+
+message JoinGroupMessage {
+  required string serial = 1;
+}
+
+message LeaveGroupMessage {
+  required string serial = 1;
+}

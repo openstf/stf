@@ -1,0 +1,10 @@
+{
+  "name": "stf",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.2.9",
+    "angular-route": "~1.2.9",
+    "requirejs": "~2.1.10"
+  },
+  "private": true
+}

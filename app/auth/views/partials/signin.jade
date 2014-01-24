@@ -1,0 +1,19 @@
+form(name='signin', novalidate, ng-submit='submit()')
+  div(ng-show='error')
+    span(ng-show='error.$invalid') Check errors below.
+    span(ng-show='error.$incorrect') Incorrect login details
+    span(ng-show='error.$system') System error
+  div
+      label(for='f-name') Your name
+      input(type='text', id='f-name', name='name', required, ng-model='name')
+      div(ng-show='signin.name.$dirty && signin.name.$invalid')
+        span Please enter your name
+  div
+      label(for='f-email') Your email
+      input(type='email', id='f-email', name='email', required, ng-model='email')
+      div(ng-show='signin.email.$dirty && signin.email.$invalid')
+        span(ng-show='signin.email.$error.email') Please enter a valid email address
+        span(ng-show='signin.email.$error.required') Please enter your email address
+  div
+    input(type='text', name='redirect', ng-model='redirect')
+    button(type='submit') Sign In

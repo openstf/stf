@@ -1,0 +1,6 @@
+define([
+    './SignInCtrl'
+  ]
+, function() {
+  }
+)

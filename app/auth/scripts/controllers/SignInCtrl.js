@@ -6,7 +6,6 @@ define(['./module'], function(mod) {
       var data = {
         name: $scope.signin.name.$modelValue
       , email: $scope.signin.email.$modelValue
-      , redirect: $scope.signin.redirect.$modelValue
       }
       $scope.invalid = false
       $http.post('/api/v1/auth', data)

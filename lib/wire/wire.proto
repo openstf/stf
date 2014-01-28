@@ -1,18 +1,19 @@
 // Message wrapper
 
 enum MessageType {
-  DEVICE_POKE = 1;
-  DEVICE_STATUS = 2;
-  DEVICE_TYPE = 3;
+  DEVICE_POKE       = 1;
+  DEVICE_STATUS     = 2;
+  DEVICE_TYPE       = 3;
   DEVICE_PROPERTIES = 4;
-  GROUP = 5;
-  JOIN_GROUP = 6;
-  LEAVE_GROUP = 7;
-  PROBE = 8;
-  SHELL_COMMAND = 9;
-  DEVICE_DATA = 10;
-  DEVICE_DONE = 11;
-  DEVICE_FAIL = 12;
+  GROUP             = 5;
+  JOIN_GROUP        = 6;
+  LEAVE_GROUP       = 7;
+  PROBE             = 8;
+  SHELL_COMMAND     = 9;
+  DEVICE_DATA       = 10;
+  DEVICE_DONE       = 11;
+  DEVICE_FAIL       = 12;
+  DEVICE_IDENTITY   = 13;
 }
 
 message Envelope {
@@ -50,6 +51,44 @@ enum DeviceType {
 message DeviceTypeMessage {
   required string serial = 1;
   required DeviceType type = 2;
+}
+
+enum DevicePlatform {
+  ANDROID = 100;
+  IOS     = 200;
+  FIREFOX = 300;
+}
+
+enum DeviceManufacturer {
+  ACER      = 1100;
+  APPLE     = 1200;
+  ASUS      = 1300;
+  CASIO     = 1400;
+  FUJITSU   = 1500;
+  HTC       = 1600;
+  HUAWEI    = 1700;
+  KYOCERA   = 1800;
+  LG        = 1900;
+  MOTOROLA  = 2000;
+  NEC       = 2100;
+  PANASONIC = 2200;
+  PANTECH   = 2300;
+  RIM       = 2400;
+  SAMSUNG   = 2500;
+  SHARP     = 2600;
+  SONY      = 2700;
+  TOSHIBA   = 2800;
+  ZTE       = 2900;
+}
+
+message DeviceIdentityMessage {
+  required string serial = 1;
+  required DevicePlatform platform = 2;
+  required DeviceManufacturer manufacturer = 3;
+  required string model = 4;
+  required string version = 5;
+  required string abi = 6;
+  required string sdk = 7;
 }
 
 message DeviceProperty {

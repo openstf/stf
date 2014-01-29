@@ -31,6 +31,7 @@ message DeviceLogMessage {
   required string tag = 4;
   required uint32 pid = 5;
   required string message = 6;
+  required string identifier = 7;
 }
 
 // Introductions

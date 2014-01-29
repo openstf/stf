@@ -25,7 +25,7 @@
 /-------------\  /-------------\  /-------------\
 |    DEALER   |  |    DEALER   |  |    DEALER   |
 |-------------|  |-------------|  |-------------|
-| coordinator |  | coordinator |  | coordinator |  x N
+|  processor  |  |  processor  |  |  processor  |  x N
 |-------------|  |-------------|  |-------------|
 |    DEALER   |  |    DEALER   |  |    DEALER   |
 \-------------/  \-------------/  \-------------/

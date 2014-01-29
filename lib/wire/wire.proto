@@ -14,11 +14,23 @@ enum MessageType {
   DEVICE_DONE       = 11;
   DEVICE_FAIL       = 12;
   DEVICE_IDENTITY   = 13;
+  DEVICE_LOG        = 14;
 }
 
 message Envelope {
   required MessageType type = 1;
   required bytes message = 2;
+}
+
+// Logging
+
+message DeviceLogMessage {
+  required string serial = 1;
+  required double timestamp = 2;
+  required uint32 priority = 3;
+  required string tag = 4;
+  required uint32 pid = 5;
+  required string message = 6;
 }
 
 // Introductions

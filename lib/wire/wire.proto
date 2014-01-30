@@ -6,6 +6,7 @@ enum MessageType {
   DEVICE_TYPE       = 3;
   DEVICE_PROPERTIES = 4;
   GROUP             = 5;
+  UNGROUP           = 15;
   JOIN_GROUP        = 6;
   LEAVE_GROUP       = 7;
   PROBE             = 8;
@@ -148,6 +149,11 @@ message GroupMessage {
   required string channel = 1;
   required uint32 timeout = 2;
   repeated DeviceRequirement requirements = 3;
+}
+
+message UngroupMessage {
+  required string channel = 1;
+  repeated DeviceRequirement requirements = 2;
 }
 
 message JoinGroupMessage {

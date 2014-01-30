@@ -6,8 +6,8 @@ define(['./app'], function(app) {
         $locationProvider.html5Mode(true)
         $routeProvider
           .when('/', {
-            templateUrl: 'partials/signin'
-          , controller: 'SignInCtrl'
+            templateUrl: 'partials/deviceList'
+          , controller: 'DeviceListCtrl'
           })
           .otherwise({
             redirectTo: '/'

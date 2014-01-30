@@ -1,2 +1,2 @@
-#!/usr/bin/env BLUEBIRD_DEBUG=1 node --harmony
+#!/usr/bin/env node
 require('../lib/cli')

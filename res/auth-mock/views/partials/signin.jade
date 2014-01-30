@@ -13,10 +13,10 @@
         .input-group
           span.input-group-addon
             i.fa.fa-envelope
-          input.form-control(ng-model='email', name='email', required, type='text', placeholder='Username')
+          input.form-control(ng-model='email', name='email', required, type='email', placeholder='E-mail')
         .alert.alert-warning(ng-show='signin.email.$dirty && signin.email.$invalid')
-          span(ng-show='signin.email.$error.email') Please enter a valid user name
-          span(ng-show='signin.email.$error.required') Please enter your user name
+          span(ng-show='signin.email.$error.email') Please enter a valid email
+          span(ng-show='signin.email.$error.required') Please enter your email
 
       .form-group
         .input-group

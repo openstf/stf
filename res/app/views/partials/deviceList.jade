@@ -1,1 +1,5 @@
 h1 Devices
+
+ul
+  li(ng-repeat='device in devices track by device.serial')
+    span {{ device.serial }}

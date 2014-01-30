@@ -106,6 +106,7 @@ message DeviceDisplayMessage {
   required double fps = 7;
   required double density = 8;
   required bool secure = 9;
+  required string url = 10;
 }
 
 message DeviceIdentityMessage {

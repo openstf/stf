@@ -1,0 +1,79 @@
+body {
+    background: #eeeeee;
+}
+
+.login2 {
+    padding: 30px 0 0;
+    background: #eeeeee;
+}
+
+.login2 .login-wrapper {
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login2 .login-wrapper img {
+    margin: 40px auto;
+}
+
+.login2 .login-wrapper .input-group-addon {
+    padding: 8px 0;
+    background: #f4f4f4;
+    min-width: 48px;
+    text-align: center;
+}
+
+.login2 .login-wrapper .input-group-addon i.falock {
+    font-size: 18px;
+}
+
+.login2 .login-wrapper input.form-control {
+    height: 48px;
+    font-size: 15px;
+    box-shadow: none;
+}
+
+.login2 .login-wrapper .checkbox {
+    margin-bottom: 30px;
+}
+
+.login2 .login-wrapper input[type="submit"] {
+    padding: 10px 0 12px;
+    margin: 20px 0 30px;
+}
+
+.login2 .login-wrapper input[type="submit"]:hover {
+    background: transparent;
+}
+
+.login2 .login-wrapper .social-login {
+    margin-bottom: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.login2 .login-wrapper .social-login > .btn {
+    width: 49%;
+    margin: 0;
+}
+
+.login2 .login-wrapper .social-login .facebook {
+    background-color: #335397;
+    border-color: #335397;
+}
+
+.login2 .login-wrapper .social-login .facebook:hover {
+    background-color: transparent;
+    color: #335397;
+}
+
+.login2 .login-wrapper .social-login .twitter {
+    background-color: #00c7f7;
+    border-color: #00c7f7;
+}
+
+.login2 .login-wrapper .social-login .twitter:hover {
+    background-color: transparent;
+    color: #00c7f7;
+}

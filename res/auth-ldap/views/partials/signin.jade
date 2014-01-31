@@ -12,7 +12,7 @@
       .form-group
         .input-group
           span.input-group-addon
-            i.fa.fa-envelope
+            i.fa.fa-user
           input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAP Username')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
           span(ng-show='signin.username.$error.required') Please enter your LDAP username

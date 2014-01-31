@@ -1,0 +1,28 @@
+.login2
+  .login-wrapper
+    a(href='./')
+      img(width='128', height='128', src='/static/images/logo-128.png', title='STF')
+
+    form(name='signin', novalidate, ng-submit='submit()')
+      .alert.alert-danger(ng-show='error')
+        span(ng-show='error.$invalid') Check errors below
+        span(ng-show='error.$incorrect') Incorrect login details
+        span(ng-show='error.$system') System error
+
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.fa.fa-envelope
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAP Username')
+        .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
+          span(ng-show='signin.username.$error.required') Please enter your LDAP username
+
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.fa.fa-lock
+          input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password')
+        .alert.alert-warning(ng-show='signin.password.$dirty && signin.password.$invalid')
+          span Please enter your password
+
+      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Log in')

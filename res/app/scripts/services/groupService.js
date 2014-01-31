@@ -27,7 +27,7 @@ define(['./module', 'lodash'], function(mod, _) {
 
   mod.factory('groupService'
   , [ '$rootScope'
-    , 'socket'
+    , 'socketService'
     , GroupServiceFactory
     ])
 })

@@ -114,11 +114,12 @@ message DeviceIdentityMessage {
   required string serial = 1;
   required DevicePlatform platform = 2;
   required DeviceManufacturer manufacturer = 3;
-  required string model = 4;
-  required string version = 5;
-  required string abi = 6;
-  required string sdk = 7;
-  required DeviceDisplayMessage display = 8;
+  required string operator = 4;
+  required string model = 5;
+  required string version = 6;
+  required string abi = 7;
+  required string sdk = 8;
+  required DeviceDisplayMessage display = 9;
 }
 
 message DeviceProperty {

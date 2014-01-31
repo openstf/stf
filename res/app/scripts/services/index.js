@@ -1,6 +1,8 @@
 define([
-    './io'
-	, './devices'
+    './socketService'
+  , './deviceService'
+  , './groupService'
+  , './userService'
   ]
 , function() {
   }

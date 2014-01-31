@@ -1,12 +1,11 @@
 define(['./module', 'oboe'], function(mod, oboe) {
-  mod.controller('DeviceListCtrl', ['$scope', function($scope) {
-    $scope.devices = []
+  function DeviceListCtrl($scope, deviceService) {
+    $scope.devices = deviceService.devices
+  }
 
-    oboe('/api/v1/devices')
-      .node('$devices[*]', function(devicesLoadedSoFar) {
-        $scope.$apply(function() {
-          $scope.devices = devicesLoadedSoFar
-        })
-      })
-  }])
+  mod.controller('DeviceListCtrl'
+  , [ '$scope'
+    , 'deviceService'
+    , DeviceListCtrl
+    ])
 })

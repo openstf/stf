@@ -1,21 +1,20 @@
 // Message wrapper
 
 enum MessageType {
-  DEVICE_POKE       = 1;
-  DEVICE_STATUS     = 2;
-  DEVICE_TYPE       = 3;
-  DEVICE_PROPERTIES = 4;
-  GROUP             = 5;
-  UNGROUP           = 15;
-  JOIN_GROUP        = 6;
-  LEAVE_GROUP       = 7;
-  PROBE             = 8;
-  SHELL_COMMAND     = 9;
-  DEVICE_DATA       = 10;
-  DEVICE_DONE       = 11;
-  DEVICE_FAIL       = 12;
-  DEVICE_IDENTITY   = 13;
-  DEVICE_LOG        = 14;
+  DevicePokeMessage       = 1;
+  DeviceStatusMessage     = 2;
+  DevicePropertiesMessage = 4;
+  GroupMessage            = 5;
+  UngroupMessage          = 15;
+  JoinGroupMessage        = 6;
+  LeaveGroupMessage       = 7;
+  ProbeMessage            = 8;
+  ShellCommandMessage     = 9;
+  ShellCommandDataMessage = 10;
+  ShellCommandDoneMessage = 11;
+  ShellCommandFailMessage = 12;
+  DeviceIdentityMessage   = 13;
+  DeviceLogMessage        = 14;
 }
 
 message Envelope {

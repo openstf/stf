@@ -6,11 +6,13 @@ define(['./module', 'lodash'], function(mod, _) {
 
     socket.on('group.join', function(data) {
       groupService.members.push(data.serial)
+      console.log('group.join', data)
       $rootScope.$digest()
     })
 
-    socket.on('group.left', function(data) {
+    socket.on('group.leave', function(data) {
       _.pull(groupService.members, data.serial)
+      console.log('group.leave', data)
       $rootScope.$digest()
     })
 

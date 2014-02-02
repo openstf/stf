@@ -74,7 +74,7 @@ message DeviceIdentityMessage {
   required string serial = 1;
   required string platform = 2;
   required string manufacturer = 3;
-  required string operator = 4;
+  optional string operator = 4;
   required string model = 5;
   required string version = 6;
   required string abi = 7;

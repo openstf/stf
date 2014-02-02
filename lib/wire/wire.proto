@@ -132,17 +132,17 @@ message ShellCommandMessage {
   repeated string command = 2;
 }
 
-message DeviceDataMessage {
+message ShellCommandDataMessage {
   required string serial = 1;
   required uint32 seq = 2;
   required bytes data = 3;
 }
 
-message DeviceDoneMessage {
+message ShellCommandDoneMessage {
   required string serial = 1;
 }
 
-message DeviceFailMessage {
+message ShellCommandFailMessage {
   required string serial = 1;
   required string reason = 2;
 }

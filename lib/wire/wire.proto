@@ -17,6 +17,14 @@ enum MessageType {
   DeviceLogMessage        = 14;
   DevicePresentMessage    = 16;
   DeviceAbsentMessage     = 17;
+  TouchDownMessage        = 18;
+  TouchMoveMessage        = 19;
+  TouchUpMessage          = 20;
+  TapMessage              = 21;
+  TypeMessage             = 22;
+  KeyDownMessage          = 23;
+  KeyUpMessage            = 24;
+  KeyPressMessage         = 25;
 }
 
 message Envelope {
@@ -133,6 +141,44 @@ message JoinGroupMessage {
 
 message LeaveGroupMessage {
   required string serial = 1;
+}
+
+// Input
+
+message TouchDownMessage {
+  required uint32 x = 1;
+  required uint32 y = 2;
+}
+
+message TouchMoveMessage {
+  required uint32 x = 1;
+  required uint32 y = 2;
+}
+
+message TouchUpMessage {
+  required uint32 x = 1;
+  required uint32 y = 2;
+}
+
+message TapMessage {
+  required uint32 x = 1;
+  required uint32 y = 2;
+}
+
+message TypeMessage {
+  required string text = 1;
+}
+
+message KeyDownMessage {
+  required uint32 key = 1;
+}
+
+message KeyUpMessage {
+  required uint32 key = 1;
+}
+
+message KeyPressMessage {
+  required uint32 key = 1;
 }
 
 // Commands

@@ -47,6 +47,10 @@ define(['./module', 'oboe'], function(mod, oboe) {
       remove(data)
     })
 
+    socket.on('device.identity', function(data) {
+      modify(get(data), data)
+    })
+
     oboe('/api/v1/devices')
       .node('devices[*]', function(device) {
         // We want to skip other arguments

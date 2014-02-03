@@ -15,6 +15,8 @@ enum MessageType {
   ShellCommandFailMessage = 12;
   DeviceIdentityMessage   = 13;
   DeviceLogMessage        = 14;
+  DevicePresentMessage    = 16;
+  DeviceAbsentMessage     = 17;
 }
 
 message Envelope {
@@ -36,6 +38,16 @@ message DeviceLogMessage {
 
 // Introductions
 
+message DevicePresentMessage {
+  required string serial = 1;
+  required string provider = 2;
+  required DeviceStatus status = 4;
+}
+
+message DeviceAbsentMessage {
+  required string serial = 1;
+}
+
 message DevicePokeMessage {
   required string serial = 1;
   required string channel = 2;
@@ -45,16 +57,14 @@ message ProbeMessage {
 }
 
 enum DeviceStatus {
-  ABSENT = 1;
-  OFFLINE = 2;
-  UNAUTHORIZED = 3;
-  ONLINE = 4;
+  OFFLINE = 1;
+  UNAUTHORIZED = 2;
+  ONLINE = 3;
 }
 
 message DeviceStatusMessage {
   required string serial = 1;
   required DeviceStatus status = 2;
-  required string provider = 3;
 }
 
 message DeviceDisplayMessage {

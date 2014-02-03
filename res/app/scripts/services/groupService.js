@@ -16,6 +16,11 @@ define(['./module', 'lodash'], function(mod, _) {
       $rootScope.$digest()
     })
 
+    socket.on('device.absent', function(data) {
+      _.pull(groupService.members, data.serial)
+      $rootScope.$digest()
+    })
+
     groupService.invite = function(requirements) {
       socket.emit('group.invite', requirements)
     }

@@ -2,6 +2,6 @@ h1 Devices
 
 ul
   li(ng-repeat='device in devices track by device.serial')
-    span {{ device.serial }}
+    span {{ device.serial }} {{ device.present ? 'present' : 'absent' }} {{ device.owner.email }}
     button(ng-click="invite(device)") invite
     button(ng-click="kick(device)") kick

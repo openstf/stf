@@ -51,6 +51,16 @@ define(['./module', 'oboe'], function(mod, oboe) {
       modify(get(data), data)
     })
 
+    socket.on('group.join', function(data) {
+      modify(get(data), data)
+    })
+
+    socket.on('group.leave', function(data) {
+      modify(get(data), {
+        owner: null
+      })
+    })
+
     oboe('/api/v1/devices')
       .node('devices[*]', function(device) {
         // We want to skip other arguments

@@ -124,23 +124,30 @@ message DeviceRequirement {
   required RequirementType type = 3;
 }
 
+message OwnerMessage {
+  required string email = 1;
+  required string name = 2;
+  required string group = 3;
+}
+
 message GroupMessage {
-  required string channel = 1;
+  required OwnerMessage owner = 1;
   required uint32 timeout = 2;
   repeated DeviceRequirement requirements = 3;
 }
 
 message UngroupMessage {
-  required string channel = 1;
   repeated DeviceRequirement requirements = 2;
 }
 
 message JoinGroupMessage {
   required string serial = 1;
+  required OwnerMessage owner = 2;
 }
 
 message LeaveGroupMessage {
   required string serial = 1;
+  required OwnerMessage owner = 2;
 }
 
 // Input

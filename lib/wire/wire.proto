@@ -25,6 +25,7 @@ enum MessageType {
   KeyDownMessage          = 23;
   KeyUpMessage            = 24;
   KeyPressMessage         = 25;
+  DeviceRegisteredMessage = 26;
 }
 
 message Envelope {
@@ -46,10 +47,19 @@ message DeviceLogMessage {
 
 // Introductions
 
+message ProviderMessage {
+  required string channel = 1;
+  required string name = 2;
+}
+
 message DevicePresentMessage {
   required string serial = 1;
-  required string provider = 2;
-  required DeviceStatus status = 4;
+  required DeviceStatus status = 2;
+  required ProviderMessage provider = 3;
+}
+
+message DeviceRegisteredMessage {
+  required string serial = 1;
 }
 
 message DeviceAbsentMessage {

@@ -3,6 +3,7 @@ define([
   , './deviceService'
   , './groupService'
   , './userService'
+  , './controlService'
   ]
 , function() {
   }

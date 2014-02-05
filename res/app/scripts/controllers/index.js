@@ -1,5 +1,6 @@
 define([
     './DeviceListCtrl'
+  , './DeviceControlCtrl'
   ]
 , function() {
   }

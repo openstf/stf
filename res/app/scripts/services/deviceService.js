@@ -1,5 +1,5 @@
 define(['./module', 'oboe'], function(mod, oboe) {
-  function DevicesServiceFactory($rootScope, socket) {
+  function DeviceServiceFactory($rootScope, $http, socket) {
     var deviceService = {
       devices: []
     , devicesBySerial: {}
@@ -67,12 +67,20 @@ define(['./module', 'oboe'], function(mod, oboe) {
         insert(device)
       })
 
+    deviceService.get = function(serial) {
+      return $http.get('/api/v1/devices/' + serial)
+        .then(function(response) {
+          return response.data.device
+        })
+    }
+
     return deviceService
   }
 
   mod.factory('deviceService'
   , [ '$rootScope'
+    , '$http'
     , 'socketService'
-    , DevicesServiceFactory
+    , DeviceServiceFactory
     ])
 })

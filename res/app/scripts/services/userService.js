@@ -1,13 +1,14 @@
 define(['./module'], function(mod) {
   function UserServiceFactory($http) {
     var userService = {
-      info: {}
     }
 
-    $http.get('/api/v1/user')
-      .success(function(data) {
-        userService.info = data.user
-      })
+    userService.user = (function() {
+      var userPromise = $http.get('/api/v1/user')
+      return function() {
+        return userPromise
+      }
+    })()
 
     return userService
   }

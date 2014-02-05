@@ -3,14 +3,18 @@ define(['./app'], function(app) {
       '$routeProvider'
     , '$locationProvider'
     , function($routeProvider, $locationProvider) {
-        $locationProvider.html5Mode(true)
+        $locationProvider.hashPrefix('!')
         $routeProvider
-          .when('/', {
-            templateUrl: 'partials/deviceList'
+          .when('/devices', {
+            templateUrl: 'partials/devices/index'
           , controller: 'DeviceListCtrl'
           })
+          .when('/devices/:serial', {
+            templateUrl: 'partials/devices/control'
+          , controller: 'DeviceControlCtrl'
+          })
           .otherwise({
-            redirectTo: '/'
+            redirectTo: '/devices'
           })
       }
   ])

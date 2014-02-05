@@ -1,4 +1,4 @@
-define(['./module'], function(mod) {
+define(['./_module'], function(controllers) {
   function DeviceListCtrl($scope, deviceService, groupService) {
     $scope.devices = deviceService.devices
 
@@ -21,10 +21,10 @@ define(['./module'], function(mod) {
     }
   }
 
-  mod.controller('DeviceListCtrl'
+  controllers.controller('DeviceListCtrl'
   , [ '$scope'
-    , 'deviceService'
-    , 'groupService'
+    , 'DeviceService'
+    , 'GroupService'
     , DeviceListCtrl
     ])
 })

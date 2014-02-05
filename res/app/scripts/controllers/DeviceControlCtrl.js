@@ -1,4 +1,4 @@
-define(['./module'], function(mod) {
+define(['./_module'], function(controllers) {
   function DeviceControlCtrl($scope, $routeParams, deviceService) {
     $scope.device = null
 
@@ -8,10 +8,10 @@ define(['./module'], function(mod) {
       })
   }
 
-  mod.controller('DeviceControlCtrl'
+  controllers.controller('DeviceControlCtrl'
   , [ '$scope'
     , '$routeParams'
-    , 'deviceService'
+    , 'DeviceService'
     , DeviceControlCtrl
     ])
 })

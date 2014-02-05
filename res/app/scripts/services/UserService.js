@@ -1,4 +1,4 @@
-define(['./module'], function(mod) {
+define(['./_module'], function(services) {
   function UserServiceFactory($http) {
     var userService = {
     }
@@ -13,5 +13,5 @@ define(['./module'], function(mod) {
     return userService
   }
 
-  mod.factory('userService', ['$http', UserServiceFactory])
+  services.factory('UserService', ['$http', UserServiceFactory])
 })

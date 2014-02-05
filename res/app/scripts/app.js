@@ -1,7 +1,7 @@
 define([
     'angular'
-  , './controllers/index'
-  , './services/index'
+  , './controllers/_index'
+  , './services/_index'
   ]
 , function(ng) {
     return ng.module('app', [

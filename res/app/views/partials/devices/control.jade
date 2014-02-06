@@ -14,6 +14,20 @@ style.
     left: 0;
     pointer-events: none; /* MUST HAVE */
   }
+  device-screen .finger {
+    position: absolute;
+    border-radius: 50%;
+    border: 1mm solid lime;
+    width: 4mm;
+    height: 4mm;
+    top: -3mm;
+    left: -3mm;
+    pointer-events: none;
+    display: none;
+  }
+  device-screen.fingering .finger {
+    display: block;
+  }
 
 div(ng-controller='DeviceScreenCtrl')
   device-screen(style='width: 400px; height: 600px; background: gray')

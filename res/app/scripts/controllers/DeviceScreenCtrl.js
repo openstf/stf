@@ -17,6 +17,7 @@ define(['./_module'], function(app) {
         $scope.promiseOfDevice.then(function(device) {
           var loader = new Image()
             , canvas = element.find('canvas')[0]
+            , finger = element.find('span')
             , g = canvas.getContext('2d')
             , displayWidth = 0
             , displayHeight = 0
@@ -84,6 +85,9 @@ define(['./_module'], function(app) {
             , e.offsetY
             )
 
+            finger[0].style.webkitTransform =
+              'translate3d(' + e.offsetX + 'px,' + e.offsetY + 'px,0)'
+
             $scope.control[type](
               scaled.xP * device.display.width
             , scaled.yP * device.display.height
@@ -92,6 +96,7 @@ define(['./_module'], function(app) {
 
           function downListener(e) {
             e.preventDefault()
+            element.addClass('fingering')
             sendTouch('touchDown', e)
             element.bind('mousemove', moveListener)
             $document.bind('mouseup', upListener)
@@ -108,6 +113,7 @@ define(['./_module'], function(app) {
           }
 
           function stop() {
+            element.removeClass('fingering')
             element.unbind('mousemove', moveListener)
             $document.unbind('mouseup', upListener)
             $document.unbind('mouseleave', upListener)
@@ -115,8 +121,7 @@ define(['./_module'], function(app) {
 
           $scope.$on('$destroy', function() {
             loader.onload = loader.onerror = null
-            $document.unbind('mouseup', upListener)
-            $document.unbind('mouseleave', upListener)
+            stop()
           })
 
           element.bind('mousedown', downListener)

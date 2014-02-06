@@ -1,4 +1,4 @@
-define(['./_module', 'oboe'], function(services, oboe) {
+define(['./_module', 'oboe'], function(app, oboe) {
   function DeviceServiceFactory($rootScope, $http, socket) {
     var deviceService = {
       devices: []
@@ -77,7 +77,7 @@ define(['./_module', 'oboe'], function(services, oboe) {
     return deviceService
   }
 
-  services.factory('DeviceService'
+  app.factory('DeviceService'
   , [ '$rootScope'
     , '$http'
     , 'SocketService'

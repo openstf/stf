@@ -1,4 +1,4 @@
-define(['./_module', 'lodash'], function(services, _) {
+define(['./_module', 'lodash'], function(app, _) {
   function GroupServiceFactory($rootScope, socket, userService) {
     var groupService = {
       members: []
@@ -46,7 +46,7 @@ define(['./_module', 'lodash'], function(services, _) {
     return groupService
   }
 
-  services.factory('GroupService'
+  app.factory('GroupService'
   , [ '$rootScope'
     , 'SocketService'
     , 'UserService'

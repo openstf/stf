@@ -1,4 +1,4 @@
-define(['./_module'], function(controllers) {
+define(['./_module'], function(app) {
   function DeviceControlCtrl($scope, $routeParams, deviceService, controlService) {
     $scope.device = null
     $scope.control = null
@@ -10,7 +10,7 @@ define(['./_module'], function(controllers) {
       })
   }
 
-  controllers.controller('DeviceControlCtrl'
+  app.controller('DeviceControlCtrl'
   , [ '$scope'
     , '$routeParams'
     , 'DeviceService'

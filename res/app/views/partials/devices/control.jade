@@ -1,5 +1,23 @@
 h1 {{ device.serial }}
 
+style.
+  device-screen {
+    position: relative;
+    display: block;
+  }
+  device-screen canvas {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none; /* MUST HAVE */
+  }
+
+div(ng-controller='DeviceScreenCtrl')
+  device-screen(style='width: 400px; height: 600px; background: gray')
+
 button(ng-click='control.menu()') Menu
 button(ng-click='control.home()') Home
 button(ng-click='control.back()') Back

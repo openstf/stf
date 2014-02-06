@@ -4,6 +4,7 @@ define([
   , './GroupService'
   , './UserService'
   , './ControlService'
+  , './ScalingService'
   ]
 , function() {
   }

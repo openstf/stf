@@ -3,10 +3,11 @@ define(['./_module'], function(app) {
     $scope.device = null
     $scope.control = null
 
-    deviceService.get($routeParams.serial)
+    $scope.promiseOfDevice = deviceService.get($routeParams.serial)
       .then(function(device) {
         $scope.device = device
         $scope.control = controlService.forChannel(device.channel)
+        return device
       })
   }
 

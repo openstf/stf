@@ -1,3 +1,5 @@
 /node_modules/
 /res/lib/
+/doc/*.png
 /rethinkdb_data/
+/.env

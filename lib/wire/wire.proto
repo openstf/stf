@@ -26,6 +26,8 @@ enum MessageType {
   KeyUpMessage            = 24;
   KeyPressMessage         = 25;
   DeviceRegisteredMessage = 26;
+  DeviceLogcatEntryMessage  = 27;
+  LogcatApplyFiltersMessage = 28;
 }
 
 message Envelope {
@@ -196,6 +198,27 @@ message KeyUpMessage {
 
 message KeyPressMessage {
   required uint32 key = 1;
+}
+
+// Output
+
+message DeviceLogcatEntryMessage {
+  required string serial = 1;
+  required double date = 2;
+  required uint32 pid = 3;
+  required uint32 tid = 4;
+  required uint32 priority = 5;
+  required string tag = 6;
+  required string message = 7;
+}
+
+message LogcatFilter {
+  required string tag = 1;
+  required uint32 priority = 2;
+}
+
+message LogcatApplyFiltersMessage {
+  repeated LogcatFilter filters = 1;
 }
 
 // Commands

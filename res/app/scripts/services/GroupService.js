@@ -1,8 +1,17 @@
 define(['./_module', 'lodash'], function(app, _) {
-  function GroupServiceFactory($rootScope, socket, userService) {
+  function GroupServiceFactory($rootScope, $http, socket, userService) {
     var groupService = {
-      members: []
     }
+
+    groupService.group = (function() {
+      var groupPromise = $http.get('/api/v1/group')
+        .then(function(response) {
+          return response.data.group
+        })
+      return function() {
+        return groupPromise
+      }
+    })()
 
     userService.user().then(function(user) {
       function ownerFilter(listener) {
@@ -14,20 +23,26 @@ define(['./_module', 'lodash'], function(app, _) {
       }
 
       socket.on('group.join', ownerFilter(function(data) {
-        groupService.members.push(data.serial)
-        console.log('group.join', data)
-        $rootScope.$digest()
+        groupService.group().then(function(group) {
+          group.members.push(data.serial)
+          console.log('group.join', data)
+          $rootScope.$digest()
+        })
       }))
 
       socket.on('group.leave', ownerFilter(function(data) {
-        _.pull(groupService.members, data.serial)
-        console.log('group.leave', data)
-        $rootScope.$digest()
+        groupService.group().then(function(group) {
+          _.pull(group.members, data.serial)
+          console.log('group.leave', data)
+          $rootScope.$digest()
+        })
       }))
 
       socket.on('device.absent', /* unfiltered */ function(data) {
-        _.pull(groupService.members, data.serial)
-        $rootScope.$digest()
+        groupService.group().then(function(group) {
+          _.pull(group.members, data.serial)
+          $rootScope.$digest()
+        })
       })
     })
 
@@ -48,6 +63,7 @@ define(['./_module', 'lodash'], function(app, _) {
 
   app.factory('GroupService'
   , [ '$rootScope'
+    , '$http'
     , 'SocketService'
     , 'UserService'
     , GroupServiceFactory

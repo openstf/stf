@@ -1,0 +1,4232 @@
+{
+  "type": "FULL",
+  "keys": [
+    {
+      "key": "A",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "A"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "a"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "A"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "B",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "B"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "b"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "B"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "B"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "C",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "C"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "c"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "C"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "C"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 231
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            },
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 199
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "D",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "D"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "d"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "D"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "E",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "E"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "e"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "E"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "E"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 769
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "F",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "F"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "f"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "F"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "G",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "G"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "g"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "G"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "H",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "H"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "h"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "H"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "H"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "I",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "I"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "i"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "I"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "I"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 770
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "J",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "J"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "j"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "J"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "J"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "K",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "K"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "k"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "K"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "L",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "l"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "L"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "M",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "m"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "M"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "N",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "N"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "n"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "N"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "N"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 771
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "O",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "O"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "o"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "O"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "O"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "P",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "P"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "p"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "P"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "P"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "Q",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Q"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "q"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Q"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Q"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "R",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "R"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "r"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "R"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "S",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "s"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 223
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "T",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "T"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "t"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "T"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "T"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "U",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "U"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "u"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "U"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "U"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 776
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "V",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "V"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "v"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "V"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "V"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "W",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "W"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "w"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "W"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "W"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "X",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "X"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "x"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "X"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "Y",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Y"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "y"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Y"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Y"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "Z",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Z"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "z"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Z"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "capslock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "0",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "1",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "2",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "@"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "3",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "4",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "$"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "5",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "6",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "^"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            },
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 770
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "7",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "7"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "7"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "&"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "8",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "9",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "SPACE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": " "
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": " "
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "SEARCH"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "meta"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "SEARCH"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "ctrl"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "LANGUAGE_SWITCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ENTER",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\n"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TAB",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\t"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "COMMA",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ","
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ","
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "<"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PERIOD",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "."
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "."
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ">"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "SLASH",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "/"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "/"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "GRAVE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "`"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "`"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "~"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 768
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            },
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": 771
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "MINUS",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "_"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "EQUALS",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "="
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "="
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "LEFT_BRACKET",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "["
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "["
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "RIGHT_BRACKET",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BACKSLASH",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\\"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\\"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "|"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "SEMICOLON",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ";"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ";"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ":"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "APOSTROPHE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "'"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "'"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "shift"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_0",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "INSERT"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_1",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "MOVE_END"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_2",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_DOWN"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_3",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "PAGE_DOWN"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_4",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_LEFT"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_5",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_6",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_RIGHT"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_7",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "7"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "MOVE_HOME"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_8",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_UP"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_9",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "PAGE_UP"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_LEFT_PAREN",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "("
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_RIGHT_PAREN",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_DIVIDE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "/"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_MULTIPLY",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "*"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_SUBTRACT",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "-"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_ADD",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "+"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_DOT",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "."
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "FORWARD_DEL"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "numlock"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_COMMA",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ","
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": ","
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_EQUALS",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "="
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NUMPAD_ENTER",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\n"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "\n"
+            },
+            {
+              "type": "fallback",
+              "key": "ENTER"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "ctrl"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            },
+            {
+              "type": "fallback",
+              "key": "ENTER"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            },
+            {
+              "type": "fallback",
+              "key": "ENTER"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "meta"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            },
+            {
+              "type": "fallback",
+              "key": "ENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "AT",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "@"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "@"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "STAR",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "*"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "POUND",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "#"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PLUS",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "label"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "+"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "literal",
+              "value": "+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ESCAPE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "BACK"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "alt"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "HOME"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "meta"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "HOME"
+            }
+          ]
+        },
+        {
+          "modifiers": [
+            {
+              "type": "ctrl"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "MENU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_A",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "BACK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_B",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "BACK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_C",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "BACK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_X",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_Y",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_Z",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_L1",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_R1",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_L2",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_R2",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_THUMBL",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_THUMBR",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_START",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "HOME"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_SELECT",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "MENU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_MODE",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "MENU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_1",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_2",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_3",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_4",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_5",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_6",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_7",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_8",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_9",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_10",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_11",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_12",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_13",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_14",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_15",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BUTTON_16",
+      "rules": [
+        {
+          "modifiers": [
+            {
+              "type": "base"
+            }
+          ],
+          "behaviors": [
+            {
+              "type": "fallback",
+              "key": "DPAD_CENTER"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

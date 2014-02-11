@@ -179,7 +179,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 231
+              "value": "ç"
             }
           ]
         },
@@ -195,7 +195,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 199
+              "value": "Ç"
             }
           ]
         }
@@ -322,7 +322,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 769
+              "value": "́"
             }
           ]
         }
@@ -563,7 +563,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 770
+              "value": "̂"
             }
           ]
         }
@@ -861,7 +861,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 771
+              "value": "̃"
             }
           ]
         }
@@ -1159,7 +1159,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 223
+              "value": "ß"
             }
           ]
         }
@@ -1286,7 +1286,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 776
+              "value": "̈"
             }
           ]
         }
@@ -1895,7 +1895,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 770
+              "value": "̂"
             }
           ]
         }
@@ -2348,7 +2348,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 768
+              "value": "̀"
             }
           ]
         },
@@ -2364,7 +2364,7 @@
           "behaviors": [
             {
               "type": "literal",
-              "value": 771
+              "value": "̃"
             }
           ]
         }

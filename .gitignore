@@ -3,3 +3,4 @@
 /doc/*.png
 /rethinkdb_data/
 /.env
+/tmp

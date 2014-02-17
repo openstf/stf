@@ -29,6 +29,13 @@ style.
   device-screen.fingering .finger {
     display: block;
   }
+  device-screen textarea {
+    position: absolute;
+    z-index: 10;
+    outline: none;
+    pointer-events: none;
+    opacity: 0;
+  }
 
 div(ng-controller='DeviceScreenCtrl')
   device-screen(style='width: 400px; height: 600px; background: gray')

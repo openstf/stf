@@ -3,7 +3,8 @@ html
   head
     meta(charset='utf-8')
     title STF
-  body(ng-cloak)
+  body(ng-app='app', ng-cloak)
+    h1 Test
     div(ng-view)
-    //script(src='/static/lib/requirejs/require.js', data-main='static/scripts/main.js')
+    h2 Test 2
     script(src='/static/build/bundle.js')

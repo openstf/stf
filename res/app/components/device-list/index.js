@@ -1,6 +1,12 @@
-var angular = require('angular');
+require('angular')
+
+require('./device-list.css')
 
 module.exports = angular.module('device-list', [])
-  .constant('template', require('./device-list.jade'))
-  .directive('demoComponent', require('./DemoDirective'))
+  .config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/devices', {
+      template: require('./device-list.jade'),
+      controller: 'DeviceListCtrl'
+    })
+  }])
   .controller('DeviceListCtrl', require('./DeviceListCtrl'));

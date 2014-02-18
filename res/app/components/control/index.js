@@ -1,5 +1,3 @@
-require('angular')
-
 require('./device-list.css')
 
 module.exports = angular.module('device-list', [])

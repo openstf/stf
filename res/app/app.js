@@ -1,9 +1,11 @@
 require('angular')
 require('angular-route')
 
+require('./app-styles')
+
 angular.module('app', [
   'ngRoute',
-  require('./components/device-list').name
+  require('./device-list').name
 ])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {

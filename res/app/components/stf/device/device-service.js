@@ -2,7 +2,8 @@ var oboe = require('oboe')
 
 module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
   var deviceService = {
-    devices: [], devicesBySerial: {}
+    devices: [],
+    devicesBySerial: {}
   }
 
   function get(data) {

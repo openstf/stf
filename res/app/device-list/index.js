@@ -1,8 +1,9 @@
 require('./device-list.css')
 
 module.exports = angular.module('device-list', [
-  require('./../components/socket').name,
-  require('./../components/device').name,
+  require('stf/socket').name,
+  require('stf/control').name,
+  require('stf/device').name,
 
 ])
   .config(['$routeProvider', function ($routeProvider) {

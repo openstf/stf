@@ -2,7 +2,8 @@ require('./device-control.css')
 
 module.exports = angular.module('device-control', [
   require('stf/device').name,
-  require('stf/control').name
+  require('stf/control').name,
+  require('../device-screen').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/devices/:serial', {

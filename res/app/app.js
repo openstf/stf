@@ -6,8 +6,7 @@ require('./app-styles')
 angular.module('app', [
   'ngRoute',
   require('./device-list').name,
-  require('./device-control').name,
-  require('./device-screen').name
+  require('./device-control').name
 ])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {

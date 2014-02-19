@@ -1,4 +1,5 @@
 var oboe = require('oboe')
+var _ = require('lodash')
 
 module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
   var deviceService = {

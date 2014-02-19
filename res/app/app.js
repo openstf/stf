@@ -1,8 +1,6 @@
 require('angular')
 require('angular-route')
 
-require('./app-styles')
-
 angular.module('app', [
   'ngRoute',
   require('./device-list').name,

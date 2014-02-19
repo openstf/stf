@@ -9,7 +9,7 @@ module.exports = function (grunt) {
           data: {
             debug: false,
             files: {
-              'tmp/html/all.html': ['views/**/*.jade']
+              'tmp/html/all.html': ['res/app/**/*.jade']
 
             }
           }
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     nggettext_extract: {
       pot: {
         files: {
-          'lang/po/template.pot': ['tmp/html/all.html', 'public/js/controllers/**/*.js']
+          'res/lang/po/template.pot': ['tmp/html/all.html', 'res/app/**/*.js']
         }
       }
     },
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
     nggettext_compile: {
       all: {
         files: {
-          'public/js/lang/translations.js': ['lang/po/*.po']
+          'res/lang/translations.js': ['res/lang/po/*.po']
         }
       }
     }

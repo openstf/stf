@@ -41,7 +41,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
           }
         })
 
-        scope.$watch('showView', function (val) {
+        scope.$watch('showScreen', function (val) {
           if (val) {
             loadScreen();
           } else {
@@ -70,7 +70,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
         }
 
         loader.onload = function () {
-          if (scope.canView && scope.showView) {
+          if (scope.canView && scope.showScreen) {
             // Sets the size only if updated
             if (cached.displayWidth !== displayWidth ||
               cached.displayHeight !== displayHeight ||

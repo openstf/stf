@@ -1,3 +1,5 @@
+var imageRender = require('./image-render')
+
 module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
   return {
     restrict: 'E',

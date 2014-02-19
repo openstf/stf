@@ -7,11 +7,12 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         var loader = new Image()
           , canvas = element.find('canvas')[0]
           , finger = element.find('span')
+          , input = element.find('textarea')
           , g = canvas.getContext('2d')
           , displayWidth = 0
           , displayHeight = 0
           , scaler = ScalingService.coordinator(
-            device.display.width
+              device.display.width
             , device.display.height
           )
 
@@ -85,6 +86,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
 
         function downListener(e) {
           e.preventDefault()
+          input[0].focus()
           element.addClass('fingering')
           sendTouch('touchDown', e)
           element.bind('mousemove', moveListener)
@@ -111,6 +113,24 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         $scope.$on('$destroy', function () {
           loader.onload = loader.onerror = null
           stop()
+        })
+
+        input.bind('keydown', function (e) {
+          $scope.control.keyDown(e.keyCode)
+        })
+
+        input.bind('keyup', function (e) {
+          $scope.control.keyUp(e.keyCode)
+        })
+
+        input.bind('keypress', function (e) {
+          e.preventDefault() // no need to change value
+          $scope.control.type(String.fromCharCode(e.charCode))
+        })
+
+        input.bind('paste', function (e) {
+          e.preventDefault() // no need to change value
+          $scope.control.type(e.clipboardData.getData('text/plain'))
         })
 
         element.bind('mousedown', downListener)

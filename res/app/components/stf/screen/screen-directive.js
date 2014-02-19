@@ -1,9 +1,9 @@
-module.exports = function DeviceScreenDirective($document, ScalingService) {
+module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
-    link: function ($scope, element, attrs) {
-      $scope.promiseOfDevice.then(function (device) {
+    link: function (scope, element, attrs) {
+      scope.promiseOfDevice.then(function (device) {
         var loader = new Image()
           , canvas = element.find('canvas')[0]
           , finger = element.find('span')
@@ -12,7 +12,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
           , displayWidth = 0
           , displayHeight = 0
           , scaler = ScalingService.coordinator(
-              device.display.width
+            device.display.width
             , device.display.height
           )
           , cached = {
@@ -23,6 +23,32 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
             imageWidth: 0,
             imageHeight: 0
           }
+
+        $rootScope.$on('pageHidden', function () {
+          scope.canView = false
+        })
+
+        $rootScope.$on('pageVisible', function () {
+          scope.canView = true
+        })
+
+        scope.$watch('canView', function (val) {
+          if (val) {
+            loadScreen()
+          } else {
+            scope.fps = null
+            //clearCanvas()
+          }
+        })
+
+        scope.$watch('showView', function (val) {
+          if (val) {
+            loadScreen();
+          } else {
+            scope.fps = null
+            //clearCanvas();
+          }
+        })
 
         function updateDisplaySize() {
           displayWidth = element[0].offsetWidth
@@ -44,47 +70,51 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         }
 
         loader.onload = function () {
+          if (scope.canView && scope.showView) {
+            // Sets the size only if updated
+            if (cached.displayWidth !== displayWidth ||
+              cached.displayHeight !== displayHeight ||
+              cached.imageWidth !== this.width ||
+              cached.imageHeight !== this.height
+              ) {
+              cached.displayWidth = displayWidth
+              cached.displayHeight = displayHeight
+              cached.imageWidth = this.width
+              cached.imageHeight = this.height
 
-          // Sets the size only if updated
-          if (cached.displayWidth !== displayWidth ||
-            cached.displayHeight !== displayHeight ||
-            cached.imageWidth !== this.width ||
-            cached.imageHeight !== this.height
-            ) {
-            cached.displayWidth = displayWidth
-            cached.displayHeight = displayHeight
-            cached.imageWidth = this.width
-            cached.imageHeight = this.height
+              var size = scaler.projectedSize(displayWidth, displayHeight)
 
-            var size = scaler.projectedSize(displayWidth, displayHeight)
+              // Make sure we're rendering pixels 1 to 1
+              canvas.width = this.width
+              canvas.height = this.height
 
-            // Make sure we're rendering pixels 1 to 1
-            canvas.width = this.width
-            canvas.height = this.height
+              // Perhaps we have a massive screen but not enough pixels. Let's
+              // scale up
+              canvas.style.width = size.width + 'px'
+              canvas.style.height = size.height + 'px'
+            }
 
-            // Perhaps we have a massive screen but not enough pixels. Let's
-            // scale up
-            canvas.style.width = size.width + 'px'
-            canvas.style.height = size.height + 'px'
+            // Draw the image
+            g.drawImage(this, 0, 0)
+
+            // Reset error, if any
+            if (scope.displayError) {
+              scope.$apply(function () {
+                scope.displayError = false
+              })
+            }
+
+            // Next please
+            loadScreen()
+          } else {
+            console.log('Nothing to show')
           }
 
-          // Draw the image
-          g.drawImage(this, 0, 0)
-
-          // Reset error, if any
-          if ($scope.displayError) {
-            $scope.$apply(function () {
-              $scope.displayError = false
-            })
-          }
-
-          // Next please
-          loadScreen()
         }
 
         loader.onerror = function () {
-          $scope.$apply(function () {
-            $scope.displayError = true
+          scope.$apply(function () {
+            scope.displayError = true
           })
         }
 
@@ -99,7 +129,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
           finger[0].style.webkitTransform =
             'translate3d(' + e.offsetX + 'px,' + e.offsetY + 'px,0)'
 
-          $scope.control[type](
+          scope.control[type](
               scaled.xP * device.display.width
             , scaled.yP * device.display.height
           )
@@ -131,27 +161,27 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
           $document.unbind('mouseleave', upListener)
         }
 
-        $scope.$on('$destroy', function () {
+        scope.$on('$destroy', function () {
           loader.onload = loader.onerror = null
           stop()
         })
 
         input.bind('keydown', function (e) {
-          $scope.control.keyDown(e.keyCode)
+          scope.control.keyDown(e.keyCode)
         })
 
         input.bind('keyup', function (e) {
-          $scope.control.keyUp(e.keyCode)
+          scope.control.keyUp(e.keyCode)
         })
 
         input.bind('keypress', function (e) {
           e.preventDefault() // no need to change value
-          $scope.control.type(String.fromCharCode(e.charCode))
+          scope.control.type(String.fromCharCode(e.charCode))
         })
 
         input.bind('paste', function (e) {
           e.preventDefault() // no need to change value
-          $scope.control.type(e.clipboardData.getData('text/plain'))
+          scope.control.type(e.clipboardData.getData('text/plain'))
         })
 
         element.bind('mousedown', downListener)

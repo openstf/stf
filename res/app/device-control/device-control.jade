@@ -1,8 +1,11 @@
 h1 {{ device.serial }}
 
+button(ng-click='showScreen = !showScreen') Show/Hide
+
 div(ng-controller='DeviceScreenCtrl')
   device-screen(style='width: 400px; height: 600px; background: gray')
 
 button(ng-click='control.menu()') Menu
 button(ng-click='control.home()') Home
 button(ng-click='control.back()') Back
+

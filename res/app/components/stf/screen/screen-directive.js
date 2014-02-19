@@ -15,6 +15,14 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
               device.display.width
             , device.display.height
           )
+          , cached = {
+            displayWidth: 0,
+            displayHeight: 0,
+            canvasStyleWidth: 0,
+            canvasStyleHeight: 0,
+            imageWidth: 0,
+            imageHeight: 0
+          }
 
         function updateDisplaySize() {
           displayWidth = element[0].offsetWidth
@@ -36,16 +44,29 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         }
 
         loader.onload = function () {
-          var size = scaler.projectedSize(displayWidth, displayHeight)
 
-          // Make sure we're rendering pixels 1 to 1
-          canvas.width = this.width
-          canvas.height = this.height
+          // Sets the size only if updated
+          if (cached.displayWidth !== displayWidth ||
+            cached.displayHeight !== displayHeight ||
+            cached.imageWidth !== this.width ||
+            cached.imageHeight !== this.height
+            ) {
+            cached.displayWidth = displayWidth
+            cached.displayHeight = displayHeight
+            cached.imageWidth = this.width
+            cached.imageHeight = this.height
 
-          // Perhaps we have a massive screen but not enough pixels. Let's
-          // scale up
-          canvas.style.width = size.width + 'px'
-          canvas.style.height = size.height + 'px'
+            var size = scaler.projectedSize(displayWidth, displayHeight)
+
+            // Make sure we're rendering pixels 1 to 1
+            canvas.width = this.width
+            canvas.height = this.height
+
+            // Perhaps we have a massive screen but not enough pixels. Let's
+            // scale up
+            canvas.style.width = size.width + 'px'
+            canvas.style.height = size.height + 'px'
+          }
 
           // Draw the image
           g.drawImage(this, 0, 0)

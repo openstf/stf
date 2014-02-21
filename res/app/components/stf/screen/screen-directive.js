@@ -1,4 +1,4 @@
-var imageRender = require('./image-render')
+var imageRender = require('./fast-image-render')
 
 module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
   return {

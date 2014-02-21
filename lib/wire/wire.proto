@@ -1,33 +1,33 @@
 // Message wrapper
 
 enum MessageType {
-  DevicePokeMessage       = 1;
-  DeviceStatusMessage     = 2;
-  DevicePropertiesMessage = 4;
-  GroupMessage            = 5;
-  UngroupMessage          = 15;
-  JoinGroupMessage        = 6;
-  LeaveGroupMessage       = 7;
-  ProbeMessage            = 8;
-  ShellCommandMessage     = 9;
-  TransactionProgressMessage = 10;
-  TransactionDoneMessage  = 11;
-  DeviceIdentityMessage   = 13;
-  DeviceLogMessage        = 14;
-  DevicePresentMessage    = 16;
-  DeviceAbsentMessage     = 17;
-  TouchDownMessage        = 18;
-  TouchMoveMessage        = 19;
-  TouchUpMessage          = 20;
-  TapMessage              = 21;
-  TypeMessage             = 22;
-  KeyDownMessage          = 23;
-  KeyUpMessage            = 24;
-  KeyPressMessage         = 25;
-  DeviceRegisteredMessage = 26;
-  DeviceLogcatEntryMessage  = 27;
-  LogcatApplyFiltersMessage = 28;
-  ShellKeepAliveMessage = 29;
+  DeviceAbsentMessage        = 1;
+  DeviceIdentityMessage      = 2;
+  DeviceLogcatEntryMessage   = 3;
+  DeviceLogMessage           = 4;
+  DevicePokeMessage          = 5;
+  DevicePresentMessage       = 6;
+  DevicePropertiesMessage    = 7;
+  DeviceRegisteredMessage    = 8;
+  DeviceStatusMessage        = 9;
+  GroupMessage               = 10;
+  JoinGroupMessage           = 11;
+  KeyDownMessage             = 12;
+  KeyPressMessage            = 13;
+  KeyUpMessage               = 14;
+  LeaveGroupMessage          = 15;
+  LogcatApplyFiltersMessage  = 16;
+  ProbeMessage               = 17;
+  ShellCommandMessage        = 18;
+  ShellKeepAliveMessage      = 19;
+  TapMessage                 = 20;
+  TouchDownMessage           = 21;
+  TouchMoveMessage           = 22;
+  TouchUpMessage             = 23;
+  TransactionDoneMessage     = 24;
+  TransactionProgressMessage = 25;
+  TypeMessage                = 26;
+  UngroupMessage             = 27;
 }
 
 message Envelope {

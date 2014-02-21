@@ -1,5 +1,6 @@
 var oboe = require('oboe')
 var _ = require('lodash')
+var Promise = require('bluebird')
 
 module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
   var deviceService = {
@@ -68,6 +69,13 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       // We want to skip other arguments
       insert(device)
     })
+
+  deviceService.list = function () {
+    return $http.get('/api/v1/devices')
+      .then(function(response) {
+        return response.data.devices
+      })
+  }
 
   deviceService.get = function (serial) {
     return $http.get('/api/v1/devices/' + serial)

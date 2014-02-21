@@ -8,7 +8,8 @@
     "se7en-bootstrap-3": "git@ghe.amb.ca.local:stf/se7en-bootstrap-3.git",
     "socket.io-client": "~0.9.16",
     "oboe": "~1.12.2",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "bluebird": "~1.0.6"
   },
   "private": true
 }

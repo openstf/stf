@@ -1,9 +1,16 @@
 h1 Devices4
 
 ul.device-list
-  li(ng-repeat='device in devices track by device.serial')
+  li(ng-repeat='device in devices.value track by device.serial')
     span {{ device.serial }} {{ device.present ? 'present' : 'absent' }} {{ device.owner.email }}
       a(href='#!/devices/{{ device.serial }}') Linky
     button(ng-click="invite(device)") invite
     button(ng-click="kick(device)") kick
-           
+
+div(ng-controller='ShellCommandCtrl')
+  input(type=text, ng-model='command')
+  button(ng-click='run(command)') run
+  table
+    tr(ng-repeat='result in results track by result.device.serial')
+      td {{ result.device.serial }}
+      td {{ result.data }}

@@ -5,7 +5,7 @@ module.exports = function DeviceScreenCtrl($scope, ScalingService) {
   $scope.showScreen = true
   $scope.ScalingService = ScalingService
 
-  $scope.promiseOfDevice.then(function () {
+  $scope.device.promise.then(function() {
     $scope.ready = true
   })
 }

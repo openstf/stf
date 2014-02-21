@@ -10,9 +10,8 @@ enum MessageType {
   LeaveGroupMessage       = 7;
   ProbeMessage            = 8;
   ShellCommandMessage     = 9;
-  ShellCommandDataMessage = 10;
-  ShellCommandDoneMessage = 11;
-  ShellCommandFailMessage = 12;
+  TransactionProgressMessage = 10;
+  TransactionDoneMessage  = 11;
   DeviceIdentityMessage   = 13;
   DeviceLogMessage        = 14;
   DevicePresentMessage    = 16;
@@ -28,11 +27,26 @@ enum MessageType {
   DeviceRegisteredMessage = 26;
   DeviceLogcatEntryMessage  = 27;
   LogcatApplyFiltersMessage = 28;
+  ShellKeepAliveMessage = 29;
 }
 
 message Envelope {
   required MessageType type = 1;
   required bytes message = 2;
+  optional string channel = 3;
+}
+
+message TransactionProgressMessage {
+  required string serial = 1;
+  required uint32 seq = 2;
+  optional string data = 3;
+}
+
+message TransactionDoneMessage {
+  required string serial = 1;
+  required uint32 seq = 2;
+  required bool success = 3;
+  optional string data = 4;
 }
 
 // Logging
@@ -257,21 +271,10 @@ message LogcatApplyFiltersMessage {
 // Commands
 
 message ShellCommandMessage {
-  required string channel = 1;
-  repeated string command = 2;
+  required string command = 1;
+  required uint32 timeout = 2;
 }
 
-message ShellCommandDataMessage {
-  required string serial = 1;
-  required uint32 seq = 2;
-  required bytes data = 3;
-}
-
-message ShellCommandDoneMessage {
-  required string serial = 1;
-}
-
-message ShellCommandFailMessage {
-  required string serial = 1;
-  required string reason = 2;
+message ShellKeepAliveMessage {
+  required uint32 timeout = 1;
 }

@@ -12,3 +12,4 @@ module.exports = angular.module('device-list', [
     })
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
+  .controller('ShellCommandCtrl', require('./shell-controller'))

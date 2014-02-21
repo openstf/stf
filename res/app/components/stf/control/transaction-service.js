@@ -39,9 +39,9 @@ module.exports = function TransactionServiceFactory(socket) {
       .finally(function() {
         socket.removeListener('tx.done', doneListener)
         socket.removeListener('tx.progress', progressListener)
+        socket.emit('tx.cleanup', channel)
       })
       .progressed(function() {
-        console.log('progressing')
         return results
       })
       .then(function() {

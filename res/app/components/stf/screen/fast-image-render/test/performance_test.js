@@ -6,7 +6,7 @@ var width = 300
 var height = 300
 
 var frames = {
-  total: 100,
+  total: 5,
   current: 0
 }
 
@@ -19,6 +19,13 @@ function loadScreen() {
 }
 
 loadScreen()
+
+var imageLoader = new FastImageLoader('screen.jpg?' + Date.now())
+
+imageLoader.onLoad = function (image) {
+  console.log(image)
+}
+
 
 var imageRender = new FastImageRender(canvasElement, {render: 'canvas'})
 

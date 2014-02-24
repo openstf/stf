@@ -5,8 +5,36 @@
 
 // TODO: add ability to resize
 function FastImageLoader(url, size) {
+  var that = this
+  this.loader = new Image()
 
+  if (url) {
+    this.load(url)
+  }
+
+  this.loader.onload = function () {
+
+    if (typeof(this.onLoad) === 'function') {
+      that.onLoad(this)
+    }
+  }
+
+  this.loader.onerror = function () {
+
+    if (typeof(this.onError) === 'function') {
+      that.onError(this)
+    }
+  }
 }
+
+FastImageLoader.prototype.load = function (url) {
+  this.loader.src = url
+}
+
+//FastImageLoader.prototype.onload = function () {
+//
+//}
+
 
 function CanvasRender(canvasElement, options) {
   var checkForCanvasElement = function checkForCanvasElement() {
@@ -155,7 +183,7 @@ WebGLRender.prototype.draw = function (image) {
 //  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_WRAP_T, this.ctx.CLAMP_TO_EDGE);
 
   this.ctx.generateMipmap(this.ctx.TEXTURE_2D)
-  this.ctx.texImage2D(this.ctx.TEXTURE_2D, 0,  this.ctx.RGBA,  this.ctx.RGBA, this.ctx.UNSIGNED_BYTE, image)
+  this.ctx.texImage2D(this.ctx.TEXTURE_2D, 0, this.ctx.RGBA, this.ctx.RGBA, this.ctx.UNSIGNED_BYTE, image)
 
   this.ctx.enableVertexAttribArray(this.vloc)
   this.ctx.bindBuffer(this.ctx.ARRAY_BUFFER, this.vertexBuff)

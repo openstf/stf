@@ -2,6 +2,7 @@
 
 enum MessageType {
   DeviceAbsentMessage        = 1;
+  DeviceHeartbeatMessage     = 28;
   DeviceIdentityMessage      = 2;
   DeviceLogcatEntryMessage   = 3;
   DeviceLogMessage           = 4;
@@ -47,6 +48,12 @@ message TransactionDoneMessage {
   required uint32 seq = 2;
   required bool success = 3;
   optional string data = 4;
+}
+
+// Heartbeat
+
+message DeviceHeartbeatMessage {
+  required string serial = 1;
 }
 
 // Logging

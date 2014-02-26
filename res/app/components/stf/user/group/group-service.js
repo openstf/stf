@@ -57,7 +57,10 @@ module.exports = function GroupServiceFactory($rootScope, $http, socket, UserSer
         }
       })
       return tx.promise.then(function(results) {
-        return results[0].success
+        if (!results[0].success) {
+          throw new Error('Device refused to join the group')
+        }
+        return results[0].device
       })
     })
   }
@@ -72,7 +75,10 @@ module.exports = function GroupServiceFactory($rootScope, $http, socket, UserSer
         }
       })
       return tx.promise.then(function(results) {
-        return results[0].success
+        if (!results[0].success) {
+          throw new Error('Device refused to be kicked from the group')
+        }
+        return results[0].device
       })
     })
   }

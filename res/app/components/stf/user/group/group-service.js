@@ -1,6 +1,6 @@
 var _ = require('lodash')
 
-module.exports = function GroupServiceFactory($rootScope, $http, socket, UserService) {
+module.exports = function GroupServiceFactory($rootScope, $http, socket, UserService, TransactionService) {
   var groupService = {
   }
 
@@ -47,15 +47,33 @@ module.exports = function GroupServiceFactory($rootScope, $http, socket, UserSer
     })
   })
 
-  groupService.invite = function (requirements) {
-    UserService.user().then(function (user) {
-      socket.emit('group.invite', requirements)
+  groupService.invite = function (device) {
+    return UserService.user().then(function (user) {
+      var tx = TransactionService.create([device])
+      socket.emit('group.invite', device.channel, tx.channel, {
+        serial: {
+          value: device.serial
+        , match: 'exact'
+        }
+      })
+      return tx.promise.then(function(results) {
+        return results[0].success
+      })
     })
   }
 
-  groupService.kick = function (requirements) {
-    UserService.user().then(function (user) {
-      socket.emit('group.kick', requirements)
+  groupService.kick = function (device) {
+    return UserService.user().then(function (user) {
+      var tx = TransactionService.create([device])
+      socket.emit('group.kick', device.channel, tx.channel, {
+        serial: {
+          value: device.serial
+        , match: 'exact'
+        }
+      })
+      return tx.promise.then(function(results) {
+        return results[0].success
+      })
     })
   }
 

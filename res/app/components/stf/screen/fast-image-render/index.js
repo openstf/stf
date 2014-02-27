@@ -3,8 +3,7 @@
 // See http://jsperf.com/canvas-drawimage-vs-webgl-drawarrays
 
 
-// TODO: add ability to resize
-function FastImageLoader(url, size) {
+function FastImageLoader(url) {
   var that = this
   this.loader = new Image()
 
@@ -13,20 +12,23 @@ function FastImageLoader(url, size) {
   }
 
   this.loader.onload = function () {
-
-    if (typeof(this.onLoad) === 'function') {
+    if (typeof(that.onLoad) === 'function') {
       that.onLoad(this)
     }
   }
 
   this.loader.onerror = function () {
 
-    if (typeof(this.onError) === 'function') {
+    if (typeof(that.onError) === 'function') {
       that.onError(this)
     }
   }
 }
 
+/**
+ * Loads an URL
+ * @param {string} url
+ */
 FastImageLoader.prototype.load = function (url) {
   this.loader.src = url
 }
@@ -48,15 +50,10 @@ function CanvasRender(canvasElement, options) {
     if (!this.displayWidth || !this.displayHeight) {
       throw new Error('Unable to get display size canvas must have dimensions')
     }
-  }()
+  }
 
   this.options = options
   this.context = canvasElement.getContext('2d')
-}
-
-CanvasRender.prototype.resize = function (width, height) {
-  this.displayWidth = width
-  this.displayHeight = height
 }
 
 CanvasRender.prototype.draw = function (image) {
@@ -80,7 +77,7 @@ function WebGLRender(canvasElement, options) {
     if (!this.displayWidth || !this.displayHeight) {
       throw new Error('Unable to get display size canvas must have dimensions')
     }
-  }()
+  }
 
   this.options = {
 //    alpha: this.transparent,
@@ -167,13 +164,8 @@ WebGLRender.prototype.setup = function () {
 
 }
 
-WebGLRender.prototype.resize = function (width, height) {
-  this.displayWidth = width
-  this.displayHeight = height
-}
-
 WebGLRender.prototype.draw = function (image) {
-  tex = this.ctx.createTexture()
+  var tex = this.ctx.createTexture()
   this.ctx.bindTexture(this.ctx.TEXTURE_2D, tex)
   this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MIN_FILTER, this.ctx.NEAREST)
   this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MAG_FILTER, this.ctx.NEAREST)
@@ -201,15 +193,16 @@ WebGLRender.prototype.clear = function () {
 
 function FastImageRender(canvasElement, options) {
   this.options = options || {}
+  this.canvasElement = canvasElement
+
+
   if (this.options.render === 'webgl') {
     this.render = new WebGLRender(canvasElement, options)
+  } else if (this.options.render === 'pixi') {
+    this.render = new PixiRender(canvasElement, options)
   } else {
     this.render = new CanvasRender(canvasElement, options)
   }
-}
-
-FastImageRender.prototype.resize = function (width, height) {
-  this.render.resize(width, height)
 }
 
 FastImageRender.prototype.draw = function (image) {
@@ -220,8 +213,91 @@ FastImageRender.prototype.clear = function () {
   this.render.clear()
 }
 
+Object.defineProperty(FastImageRender.prototype, 'canvasWidth', {
+  get: function () {
+    return this.canvasElement.width
+  },
+  set: function (width) {
+    if (width) {
+      if (width !== this.canvasElement.width) {
+        this.canvasElement.width = width;
+      }
+    }
+  }
+})
+
+Object.defineProperty(FastImageRender.prototype, 'canvasHeight', {
+  get: function () {
+    return this.canvasElement.height
+  },
+  set: function (height) {
+    if (height) {
+      if (height !== this.canvasElement.height) {
+        this.canvasElement.height = height;
+      }
+    }
+  }
+})
+
+Object.defineProperty(FastImageRender.prototype, 'displayWidth', {
+  get: function () {
+    return this.canvasElement.width
+  },
+  set: function (width) {
+    if (width) {
+      if (width !== this.canvasElement.width) {
+        this.canvasElement.width = width;
+      }
+    }
+  }
+})
+
+Object.defineProperty(FastImageRender.prototype, 'displayHeight', {
+  get: function () {
+    return this.canvasElement.height
+  },
+  set: function (height) {
+    if (height) {
+      if (height !== this.canvasElement.height) {
+        this.canvasElement.height = height;
+      }
+    }
+  }
+})
+
+Object.defineProperty(FastImageRender.prototype, 'canvasStyleWidth', {
+  get: function () {
+    return parseInt(this.canvasElement.style.width, 10)
+  },
+  set: function (width) {
+    if (width) {
+      var styleWidth = width + 'px'
+      if (styleWidth !== this.canvasElement.style.width) {
+        this.canvasElement.style.width = styleWidth;
+      }
+    }
+  }
+})
+
+Object.defineProperty(FastImageRender.prototype, 'canvasStyleHeight', {
+  get: function () {
+    return parseInt(this.canvasElement.style.height, 10)
+  },
+  set: function (height) {
+    if (height) {
+      var styleHeight = height + 'px'
+      if (styleHeight !== this.canvasElement.style.height) {
+        this.canvasElement.style.height = height;
+      }
+    }
+  }
+})
+
+
 // Check for Non CommonJS world
 if (typeof module !== 'undefined') {
-  module.exports = FastImageRender
+  module.exports = {
+    FastImageRender: FastImageRender,
+    FastImageLoader: FastImageLoader
+  }
 }
-

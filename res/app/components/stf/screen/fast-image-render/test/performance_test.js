@@ -1,51 +1,39 @@
 var canvasElement = document.querySelector('canvas')
 var frameNumberElement = document.querySelector('#frame-number')
 
-var loader = new Image()
 var width = 300
 var height = 300
 
-var frames = {
+var frame = {
   total: 5,
   current: 0
 }
 
-
-function loadScreen() {
-//  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' + Date.now()
-//  loader.src = 'http://lorempixel.com/' + width + '/' + height + '/abstract/Frame-' + frames.current + '/?' + Date.now()
-  console.time('load')
-  loader.src = 'screen.jpg?' + Date.now()
-}
-
-loadScreen()
-
-var imageLoader = new FastImageLoader('screen.jpg?' + Date.now())
-
-imageLoader.onLoad = function (image) {
-  console.log(image)
-}
-
+var imageLoader = new FastImageLoader()
 
 var imageRender = new FastImageRender(canvasElement, {render: 'canvas'})
 
+function loadNext() {
+  console.time('load')
+  //  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' + Date.now()
+  //  loader.src = 'http://lorempixel.com/' + width + '/' + height + '/abstract/Frame-' + frames.current + '/?' + Date.now()
+  imageLoader.load('screen.jpg?' + Date.now())
+}
 
-loader.onload = function () {
+loadNext()
+
+imageLoader.onLoad = function (image) {
   console.timeEnd('load')
   console.time('draw')
-  imageRender.draw(this)
+  imageRender.draw(image)
   console.timeEnd('draw')
 
-  frameNumberElement.innerHTML = frames.current
+  frameNumberElement.innerHTML = frame.current
 
-  if (frames.current++ < frames.total) {
-    loadScreen()
+  if (frame.current++ < frame.total) {
+    loadNext()
   } else {
 
   }
-
 }
 
-loader.onerror = function (err) {
-  console.error(err)
-}

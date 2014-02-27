@@ -8,7 +8,7 @@ module.exports = function SocketServiceFactory() {
 
     $scope.$on('$destroy', function() {
       listeners.forEach(function(listener) {
-        socket.removeListener(listener.event, listener.handler)
+        socketService.removeListener(listener.event, listener.handler)
       })
     })
 

@@ -47,7 +47,6 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       var device = get(data)
       if (device) {
         modify(device, data)
-        remove(data)
       }
     })
 

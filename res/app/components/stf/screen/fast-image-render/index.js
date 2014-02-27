@@ -195,7 +195,6 @@ function FastImageRender(canvasElement, options) {
   this.options = options || {}
   this.canvasElement = canvasElement
 
-
   if (this.options.render === 'webgl') {
     this.render = new WebGLRender(canvasElement, options)
   } else if (this.options.render === 'pixi') {

@@ -1,30 +1,25 @@
-var imageRender = require('./fast-image-render')
+var FastImageLoader = require('./fast-image-render').FastImageLoader
+var FastImageRender = require('./fast-image-render').FastImageRender
 
 module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
     link: function (scope, element, attrs) {
-      scope.device.promise.then(function(device) {
-        var loader = new Image()
+      scope.device.promise.then(function (device) {
+        var imageLoader = new FastImageLoader()
           , canvas = element.find('canvas')[0]
+          , imageRender = new FastImageRender(canvas, {render: 'canvas'})
           , finger = element.find('span')
           , input = element.find('textarea')
-          , g = canvas.getContext('2d')
-          , displayWidth = 0
+          , displayWidth = 0  // TODO: cache inside FastImageRender?
           , displayHeight = 0
+          , cachedDisplayWidth = 0
+          , cachedDisplayHeight = 0
           , scaler = ScalingService.coordinator(
             device.display.width
             , device.display.height
           )
-          , cached = {
-            displayWidth: 0,
-            displayHeight: 0,
-            canvasStyleWidth: 0,
-            canvasStyleHeight: 0,
-            imageWidth: 0,
-            imageHeight: 0
-          }
 
         $rootScope.$on('pageHidden', function () {
           scope.canView = false
@@ -39,7 +34,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
             loadScreen()
           } else {
             scope.fps = null
-            //clearCanvas()
+            //imageRender.clear()
           }
         })
 
@@ -48,7 +43,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
             loadScreen();
           } else {
             scope.fps = null
-            //clearCanvas();
+            //imageRender.clear()
           }
         })
 
@@ -65,39 +60,32 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
         }
 
         function loadScreen() {
-          loader.src = device.display.url +
-            '?width=' + displayWidth +
-            '&height=' + displayHeight +
-            '&time=' + Date.now()
+          imageLoader.load(device.display.url +
+              '?width=' + displayWidth +
+              '&height=' + displayHeight +
+              '&time=' + Date.now()
+          )
         }
 
-        loader.onload = function () {
+        imageLoader.onLoad = function (image) {
           if (scope.canView && scope.showScreen) {
-            // Sets the size only if updated
-            if (cached.displayWidth !== displayWidth ||
-              cached.displayHeight !== displayHeight ||
-              cached.imageWidth !== this.width ||
-              cached.imageHeight !== this.height
-              ) {
-              cached.displayWidth = displayWidth
-              cached.displayHeight = displayHeight
-              cached.imageWidth = this.width
-              cached.imageHeight = this.height
+
+            // Check to set the size only if updated
+            if (cachedDisplayWidth !== displayWidth ||
+              cachedDisplayHeight !== displayHeight) {
+
+              cachedDisplayWidth = displayWidth
+              cachedDisplayHeight = displayHeight
+
+              imageRender.canvasWidth = image.width
+              imageRender.canvasHeight = image.height
 
               var size = scaler.projectedSize(displayWidth, displayHeight)
-
-              // Make sure we're rendering pixels 1 to 1
-              canvas.width = this.width
-              canvas.height = this.height
-
-              // Perhaps we have a massive screen but not enough pixels. Let's
-              // scale up
-              canvas.style.width = size.width + 'px'
-              canvas.style.height = size.height + 'px'
+              imageRender.canvasStyleWidth = size.width
+              imageRender.canvasStyleHeight = size.height
             }
 
-            // Draw the image
-            g.drawImage(this, 0, 0)
+            imageRender.draw(image)
 
             // Reset error, if any
             if (scope.displayError) {
@@ -114,7 +102,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
 
         }
 
-        loader.onerror = function () {
+        imageLoader.onError = function () {
           scope.$apply(function () {
             scope.displayError = true
           })

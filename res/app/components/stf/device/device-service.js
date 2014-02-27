@@ -3,78 +3,80 @@ var _ = require('lodash')
 var Promise = require('bluebird')
 
 module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
-  var deviceService = {
-    devices: [],
-    devicesBySerial: {}
-  }
+  var deviceService = {}
 
-  function get(data) {
-    return deviceService.devices[deviceService.devicesBySerial[data.serial]]
-  }
+  function Tracker($scope, options) {
+    var devices = []
+      , devicesBySerial = Object.create(null)
+      , scopedSocket = socket.scoped($scope)
 
-  function insert(data, alter) {
-    deviceService.devicesBySerial[data.serial] =
-      deviceService.devices.push(data) - 1
-    _.assign(data, alter)
-    $rootScope.$digest()
-  }
-
-  function modify(data, properties) {
-    if (data) {
-      _.assign(data, properties)
-      $rootScope.$digest()
+    function get(data) {
+      return devices[devicesBySerial[data.serial]]
     }
-  }
 
-  function remove(data) {
-    var index = deviceService.devicesBySerial[data.serial]
-    if (index >= 0) {
-      deviceService.devices.splice(index, 1)
-      delete deviceService.devicesBySerial[data.serial]
-      $rootScope.$digest()
+    function insert(data) {
+      devicesBySerial[data.serial] = devices.push(data) - 1
+      $scope.$digest()
     }
-  }
 
-  socket.on('device.present', function (data) {
-    remove(data)
-    insert(data, {
-      present: true
+    function modify(oldData, newData) {
+      _.assign(oldData, newData)
+      $scope.$digest()
+    }
+
+    function remove(data) {
+      var index = devicesBySerial[data.serial]
+      if (index >= 0) {
+        devices.splice(index, 1)
+        delete devicesBySerial[data.serial]
+        $scope.$digest()
+      }
+    }
+
+    scopedSocket.on('device.add', function (data) {
+      var device = get(data)
+      if (device) {
+        modify(device, data)
+      }
+      else if (options.auto) {
+        insert(data)
+      }
     })
-  })
 
-  socket.on('device.status', function (data) {
-    modify(get(data), data)
-  })
-
-  socket.on('device.absent', function (data) {
-    remove(data)
-  })
-
-  socket.on('device.identity', function (data) {
-    modify(get(data), data)
-  })
-
-  socket.on('group.join', function (data) {
-    modify(get(data), data)
-  })
-
-  socket.on('group.leave', function (data) {
-    modify(get(data), {
-      owner: null
+    scopedSocket.on('device.remove', function (data) {
+      var device = get(data)
+      if (device) {
+        modify(device, data)
+        remove(data)
+      }
     })
-  })
 
-  oboe('/api/v1/devices')
-    .node('devices[*]', function (device) {
-      // We want to skip other arguments
+    scopedSocket.on('device.change', function (data) {
+      var device = get(data)
+      if (device) {
+        modify(device, data)
+      }
+    })
+
+    this.add = function(device) {
+      remove(device)
       insert(device)
+    }
+
+    this.devices = devices
+  }
+
+  deviceService.trackAll = function ($scope) {
+    var tracker = new Tracker($scope, {
+      auto: true
     })
 
-  deviceService.list = function () {
-    return $http.get('/api/v1/devices')
-      .then(function(response) {
-        return response.data.devices
+    oboe('/api/v1/devices')
+      .node('devices[*]', function (device) {
+        tracker.add(device)
       })
+
+    return tracker
   }
 
   deviceService.get = function (serial) {

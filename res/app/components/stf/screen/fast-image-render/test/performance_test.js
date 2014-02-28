@@ -3,13 +3,11 @@ var frameNumberElement = document.querySelector('#frame-number')
 var totalTimeElement = document.querySelector('#total-time')
 
 var frame = {
-  total: 5000,
+  total: 50,
   current: 0
 }
 
-var imageLoader = new FastImageLoader()
-
-var imageRender = new FastImageRender(canvasElement, {render: 'canvas'})
+var imageRender = new FastImageRender(canvasElement, {render: 'canvas', textureLoader: false})
 
 function loadNext() {
   console.time('load')
@@ -17,14 +15,15 @@ function loadNext() {
 //  var height = 300
   //  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' + Date.now()
   //  loader.src = 'http://lorempixel.com/' + width + '/' + height + '/abstract/Frame-' + frames.current + '/?' + Date.now()
-  imageLoader.load('screen.jpg?' + Date.now())
+  imageRender.load('images/screen.webp?' + Date.now())
+//  imageRender.load('images/screen.jpg')
 }
 
 var startTime = new Date().getTime()
 
 loadNext()
 
-imageLoader.onLoad = function (image) {
+imageRender.onLoad = function (image) {
   console.timeEnd('load')
   console.time('draw')
   imageRender.draw(image)

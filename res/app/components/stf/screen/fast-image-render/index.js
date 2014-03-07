@@ -6,53 +6,6 @@
 // -------------------------------------------------------------------------------------------------
 
 
-function FastPixiRender(canvasElement, options) {
-  this.options = options
-
-  this.stage = new PIXI.Stage(0x000000)
-
-  this.canvasWidth = 643
-  this.canvasHeight = 1149
-
-  switch (this.options.render) {
-    case 'pixi':
-      this.renderer = new PIXI.autoDetectRenderer(this.canvasWidth, this.canvasHeight, canvasElement)
-      break;
-    case 'pixi-canvas':
-      this.renderer = new PIXI.CanvasRenderer(this.canvasWidth, this.canvasHeight, canvasElement)
-      break;
-    case 'pixi-webgl':
-      this.renderer = new PIXI.WebGLRenderer(this.canvasWidth, this.canvasHeight, canvasElement)
-      break;
-  }
-}
-
-
-FastPixiRender.prototype.draw = function (image) {
-
-//  if (this.baseTexture) {
-//    this.baseTexture.destroy()
-//  }
-  this.baseTexture = new PIXI.BaseTexture(image)
-
-  if (this.texture) {
-    this.texture.destroy(true)
-  }
-  this.texture = new PIXI.Texture(this.baseTexture)
-
-  if (this.sprite) {
-    this.sprite.setTexture(this.texture)
-    //this.stage.removeChild(this.sprite)
-  } else {
-    this.sprite = new PIXI.Sprite(this.texture)
-    this.stage.addChild(this.sprite)
-  }
-
-  this.renderer.render(this.stage)
-}
-
-// -------------------------------------------------------------------------------------------------
-
 function CanvasRender(canvasElement, options) {
   var checkForCanvasElement = function checkForCanvasElement() {
     if (!canvasElement) {
@@ -454,8 +407,6 @@ function FastImageRender(canvasElement, options) {
 
   if (this.options.render === 'webgl') {
     this.render = new WebGLRender(canvasElement, options)
-  } else if (this.options.render.indexOf('pixi') !== -1) {
-    this.render = new FastPixiRender(canvasElement, options)
   } else {
     this.render = new CanvasRender(canvasElement, options)
   }

@@ -1,4 +1,3 @@
-var FastImageLoader = require('./fast-image-render').FastImageLoader
 var FastImageRender = require('./fast-image-render').FastImageRender
 
 module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
@@ -7,8 +6,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
     template: require('./screen.jade'),
     link: function (scope, element, attrs) {
       scope.device.promise.then(function (device) {
-        var imageLoader = new FastImageLoader()
-          , canvas = element.find('canvas')[0]
+        var canvas = element.find('canvas')[0]
           , imageRender = new FastImageRender(canvas, {render: 'canvas'})
           , finger = element.find('span')
           , input = element.find('textarea')
@@ -60,14 +58,14 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
         }
 
         function loadScreen() {
-          imageLoader.load(device.display.url +
+          imageRender.load(device.display.url +
               '?width=' + displayWidth +
               '&height=' + displayHeight +
               '&time=' + Date.now()
           )
         }
 
-        imageLoader.onLoad = function (image) {
+        imageRender.onLoad = function (image) {
           if (scope.canView && scope.showScreen) {
 
             // Check to set the size only if updated
@@ -102,7 +100,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
 
         }
 
-        imageLoader.onError = function () {
+        imageRender.onError = function () {
           scope.$apply(function () {
             scope.displayError = true
           })
@@ -152,7 +150,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, $root
         }
 
         scope.$on('$destroy', function () {
-          loader.onload = loader.onerror = null
+          imageRender.onLoad = imageRender.onError = null
           stop()
         })
 

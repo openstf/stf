@@ -391,6 +391,15 @@ function FastImageRender(canvasElement, options) {
   this.options = options || {}
   this.canvasElement = canvasElement
 
+  if (that.options.raf) {
+    that.animLoop = function() {
+      that.raf = that.animLoop)
+
+      // separate render from drawing
+      // render
+    }
+  }
+
   if (true) {
     this.loader = new Image()
     this.loader.onload = function () {
@@ -412,6 +421,13 @@ function FastImageRender(canvasElement, options) {
   }
 
 
+}
+
+FastImageRender.prototype.destroy = function () {
+
+  cancelAnimationFrame(this.raf)
+
+  // delete onLoad & onError
 }
 
 FastImageRender.prototype.load = function (url, type) {
@@ -438,6 +454,7 @@ FastImageRender.prototype.load = function (url, type) {
     }
 
   } else {
+
     this.loader.src = url
   }
 }

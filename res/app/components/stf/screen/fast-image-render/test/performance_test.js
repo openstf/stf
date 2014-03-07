@@ -3,7 +3,7 @@ var frameNumberElement = document.querySelector('#frame-number')
 var totalTimeElement = document.querySelector('#total-time')
 
 var frame = {
-  total: 50,
+  total: 100,
   current: 0
 }
 
@@ -15,7 +15,7 @@ function loadNext() {
 //  var height = 300
   //  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' + Date.now()
   //  loader.src = 'http://lorempixel.com/' + width + '/' + height + '/abstract/Frame-' + frames.current + '/?' + Date.now()
-  imageRender.load('images/screen.webp?' + Date.now())
+  imageRender.load('images/screen.jpg?' + Date.now())
 //  imageRender.load('images/screen.jpg')
 }
 

@@ -393,7 +393,7 @@ function FastImageRender(canvasElement, options) {
 
   if (that.options.raf) {
     that.animLoop = function() {
-      that.raf = that.animLoop)
+      that.raf = requireAnimationFrame(that.animLoop)
 
       // separate render from drawing
       // render

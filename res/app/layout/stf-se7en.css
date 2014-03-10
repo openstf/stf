@@ -1,0 +1,15 @@
+
+.ace_editor ::-webkit-scrollbar-thumb {
+    /*background: #bbbbbb;*/
+    /*background: red;*/
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ace_editor ::-webkit-scrollbar-track {
+    /*background: red;*/
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.input-group-btn .btn {
+    margin-right: 0;
+}

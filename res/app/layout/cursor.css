@@ -1,0 +1,41 @@
+/**
+    Hand pointer
+*/
+.pointer,
+.movement-area-image {
+    cursor: pointer;
+}
+
+/**
+    Default cursor
+*/
+.cursor,
+.console-message-text,
+tab-heading {
+    cursor: default;
+}
+
+/**
+    Text unselectable
+*/
+.unselectable,
+tab-heading {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/**
+    Text selectable
+*/
+.selectable {
+    -webkit-touch-callout: default;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}

@@ -1,0 +1,19 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    /*height: 100%;*/
+    cursor: text;
+    background: #000;
+}
+
+.terminal {
+    font-family: Monaco, FreeMono, monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    cursor: text;
+    /*min-height: 100%;*/
+}

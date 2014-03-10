@@ -1,7 +1,7 @@
 require.config({
   paths: {
-    'angular': '../lib/angular/angular'
-  , 'angular-route': '../lib/angular-route/angular-route'
+    'angular': '../bower_components/angular/angular'
+  , 'angular-route': '../bower_components/angular-route/angular-route'
   }
 , shim: {
     'angular': {

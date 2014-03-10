@@ -8,7 +8,7 @@ module.exports = {
   , filename: 'bundle.js'
   }
 , resolve: {
-    modulesDirectories: ['./res/lib', 'node_modules']
+    modulesDirectories: ['./res/bower_components', 'node_modules']
   }
 , loaders: [
     { test: /\.css$/, loader: 'style!css' }

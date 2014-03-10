@@ -1,7 +1,10 @@
 require('angular')
 require('angular-route')
 
-//require('se7en-bootstrap-3/build/stylesheets/bootstrap.min.css')
+require('style!raw!se7en-bootstrap-3/build/stylesheets/bootstrap.min.css')
+require('style!raw!se7en-bootstrap-3/build/stylesheets/se7en-font.css')
+require('style!raw!se7en-bootstrap-3/build/stylesheets/style.css')
+require('style!raw!se7en-bootstrap-3/build/stylesheets/font-awesome.min.css')
 
 
 

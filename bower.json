@@ -8,7 +8,8 @@
     "se7en-bootstrap-3": "git@ghe.amb.ca.local:stf/se7en-bootstrap-3.git",
     "socket.io-client": "~0.9.16",
     "lodash": "~2.4.1",
-    "oboe": "~1.14.0"
+    "oboe": "~1.14.0",
+    "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git"
   },
   "private": true
 }

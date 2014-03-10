@@ -1,5 +1,5 @@
 /node_modules/
-/res/lib/
+/res/bower_components/
 /doc/*.png
 /rethinkdb_data/
 /.env

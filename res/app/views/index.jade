@@ -3,6 +3,35 @@ html
   head
     meta(charset='utf-8')
     title STF
-  body(ng-app='app', ng-cloak)
-    div(ng-view)
+  body(ng-app='app', ng-cloak).bg-1.fill-height
+    div(ng-controller='LayoutCtrl').fill-height
+      div(pane).fill-height
+        .pane-top-bar(pane, pane-anchor='north', pane-size='46px', pane-min='46px', pane-max='46px', pane-handle='')
+          .navbar
+            .container-fluid.stf-top-bar
+              a.stf-logo(href="/") STF2
+              ul.nav.stf-nav
+                li(ng-cloak)
+                  a(href='/#/control')
+                    span.fa.fa-mobile
+                    | {{"Control"|translate}}
+                  a(href='/#/devices')
+                    span.fa.fa-sitemap
+                    | {{"Devices"|translate}}
+                  a(href='/#/settings')
+                    span.fa.fa-gears
+                    | {{"Settings"|translate}}
+              ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)
+                li.stf-nav-web-native-button
+                  .btn-group
+                    button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
+                    button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
+                li
+                  a(ng-href='/#/help')
+                    i.fa.fa-question-circle
+                    | {{"Help"|translate}}
+        div(pane, pane-anchor='center').fill-height
+          div(ng-view).fill-height
+
+    //div(ng-view)
     script(src='/static/build/bundle.js')

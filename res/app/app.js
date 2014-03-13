@@ -8,7 +8,9 @@ angular.module('app', [
   'gettext',
   require('./layout').name,
   require('./device-list').name,
-  require('./device-control').name
+  require('./device-control').name,
+  require('./settings').name,
+  require('./help').name
 ])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {

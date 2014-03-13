@@ -1,0 +1,78 @@
+.container-fluid.main-content
+  .page-title
+    //h1
+      | Help
+  ul.timeline
+    li
+      .timeline-time
+        strong 使い方が知りたい
+        | どうやって使うの？
+      .timeline-icon
+        .bg-primary
+          i.fa.fa-book
+      .timeline-content
+        h2 マニュアル
+        p マニュアルはBasicとAdvancedに分かれています。
+        p <strong>Basic</strong>は誰でも使える機能の説明になります。
+        p <strong>Advanced</strong>はエンジニア向けの高度な機能の説明になります。
+        p 最新の情報は<strong>コンフルスペース</strong>になります
+        a(ng-href='{{links.manualAdvanced}}', target='_blank', role='button').btn.btn-danger.pull-right
+          i.fa.fa-book
+          |  Advanced
+        a(ng-href='{{links.manualBasic}}', target='_blank', role='button').btn.btn-danger.pull-right
+          i.fa.fa-book
+          |  Basic
+        a(ng-href='{{links.wiki}}', target='_blank', role='button').btn.btn-primary
+          i.fa.fa-book
+          |  コンフルスペース
+        .clearfix
+    li
+      .timeline-time
+        strong 使い方、機能追加、一般な問い合わせ
+        | 新しい機能が欲しい
+      .timeline-icon
+        .bg-warning
+          i.fa.fa-ticket
+      .timeline-content
+        h2 お問い合わせ
+        p お問い合わせはJIRAになります。
+        p 質問や疑問、改善や機能追加などの要望は大歓迎です。
+        p メールでも問い合わせが可能です。
+        a(ng-href='{{links.feedback}}', target='_blank', role='button').btn.btn-warning
+          i.fa.fa-ticket
+          |  JIRAでお問い合わせ
+        a(ng-href='mailto:{{links.mail}}', role='button').btn.btn-default
+          i.fa.fa-envelope
+          |  メールでお問い合わせ
+
+    li
+      .timeline-time
+        strong デバイスが今落ちた、よく分からない助けて
+        | 今すぐ聞きたい
+      .timeline-icon
+        .bg-info
+          i.fa.fa-comments
+      .timeline-content
+        h2 チャットお問い合わせ
+        p リアルタイムお問い合わせはHipChatのSTFルームになります。
+        p 質問や疑問、改善や機能追加などの要望は大歓迎です。
+        a(ng-href='{{links.chat}}', target='_blank', role='button').btn.btn-info.pull-right
+          i.fa.fa-comments
+          |  HipChatでお問い合わせ
+        .clearfix
+    li
+      .timeline-time
+        strong バグを見つかった
+        | あのバグどうなっている？
+      .timeline-icon
+        .bg-success
+          i.fa.fa-bug
+      .timeline-content
+        h2 バグトラッカー
+        p プロジェクトのチケットトラッカーはこちらのJIRAになります。
+        p バグや機能のトラッカーです。
+        a(ng-href='{{links.tracker}}', target='_blank', role='button').btn.btn-success
+          i.fa.fa-bug
+          |  JIRAチケット
+
+

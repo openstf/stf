@@ -1,0 +1,8 @@
+.widget-container.fluid-height
+  .heading
+    i.fa.fa-flag
+    span(translate) Language
+  .widget-content.padded
+    .form-horizontal
+      .form-group
+        select.form-control(ng-model='language', ng-options='l.code as l.name for l in supportedLanguages')

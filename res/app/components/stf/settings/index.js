@@ -1,3 +1,4 @@
+require('localforage')
 require('angular-localForage')
 
 module.exports = angular.module('stf/settings', [

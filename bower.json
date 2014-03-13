@@ -12,7 +12,6 @@
     "Snap.svg": "~0.2.0",
     "angular-localForage": "~0.0.2",
     "ng-table": "~0.3.1",
-    "angular-ui-bootstrap": "~0.10.0",
     "jquery.terminal": "~0.8.4",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git",
     "angular-gettext": "~0.2.5",
@@ -20,7 +19,9 @@
     "ui-bootstrap-alerts": "~0.1.5",
     "angular-sanitize": "~1.2.14",
     "requirejs": "~2.1.11",
-    "stf-graphics": "git@ghe.amb.ca.local:stf/stf-graphics.git"
+    "stf-graphics": "git@ghe.amb.ca.local:stf/stf-graphics.git",
+    "angular-bootstrap": "~0.10.0",
+    "angular-dialog-service": "~3.1.0"
   },
   "private": true,
   "resolutions": {

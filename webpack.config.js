@@ -18,6 +18,7 @@ module.exports = {
       './node_modules'
     ],
     alias: {
+      'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
       'localforage': 'localforage/dist/localforage.js',
       'socket.io': 'socket.io-client/dist/socket.io',
       'oboe': 'oboe/dist/oboe-browser'
@@ -39,7 +40,9 @@ module.exports = {
       { test: /angular\.js/, loader: 'exports?angular'},
       { test: /angular-route\.js/, loader: 'imports?angular=angular'},
       { test: /oboe-browser\.js/, loader: 'imports?define=>false!exports?oboe'},
-      { test: /localforage\.js/, loader: 'script'}
+      { test: /localforage\.js/, loader: 'script'},
+      { test: /ui-bootstrap-tpls\.js/, loader: 'script'},
+      { test: /dialogs\.js/, loader: 'script'}
     ],
     noParse: [
       //  pathutil.resource('bower_components')
@@ -49,6 +52,10 @@ module.exports = {
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
     ),
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
+    )
+
 //    new webpack.ResolverPlugin(
 //      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('package.json', ['main'])
 //    )

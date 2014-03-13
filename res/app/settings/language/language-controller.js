@@ -1,23 +1,23 @@
-module.exports = function ($scope, LanguageService, SettingsService) { //gettextCatalog,
+module.exports = function ($scope, LanguageService, SettingsService) {
 //  SettingsService.sync($scope, 'Language', {
 //    language: LanguageService.detectedLanguage
 //  })
 
-  //SettingsService.set('')
-
-
-  SettingsService.set('valueCrazy', 35)
-  SettingsService.set('valueCrazyNew', {one: 1, two: 35.3, three: '日本語', four: [1, 2, 3, 4]})
-
-
-
-
-  //console.log('he')
-  //console.log(SettingsService.get('valueCrazy'))
-
-//  $scope.$watch('language', function (newValue) {
-//    gettextCatalog.currentLanguage = newValue
+//  SettingsService.bind($scope, {
+//    key: 'language',
+//    defaultValue: LanguageService.selectedLanguage
 //  })
-//
-//  $scope.supportedLanguages = LanguageService.supportedLanguages
+
+  LanguageService.getSelectedLanguage().then(function (data) {
+    $scope.language = data
+    console.log('real', data)
+  })
+
+  $scope.$watch('language', function (newValue, oldValue) {
+    if (newValue !== oldValue) {
+      LanguageService.setSelectedLanguage(newValue)
+    }
+  })
+
+  $scope.supportedLanguages = LanguageService.supportedLanguages
 }

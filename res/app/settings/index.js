@@ -1,4 +1,5 @@
 module.exports = angular.module('ui-settings', [
+  require('./local').name,
   require('./language').name
 ])
   .config(['$routeProvider', function ($routeProvider) {

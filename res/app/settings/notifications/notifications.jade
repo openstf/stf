@@ -1,0 +1,8 @@
+.widget-container.fluid-height
+  .heading
+    i.fa.fa-exclamation-circle
+    span(translate) Notifications
+  .widget-content.padded
+    label.checkbox
+      input(type='checkbox', ng-model='notificationsEnabled', ng-click='enableNotifications()', disabled)
+      span(translate) Enable notifications

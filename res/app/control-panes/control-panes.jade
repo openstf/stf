@@ -1,0 +1,25 @@
+div(pane, pane-anchor='west', pane-size='30% + 2px', pane-min='200px', pane-max='100% + 2px', pane-handle='4')
+  .stf-catch-all-keys(ng-controller='KeysCtrl')
+    catch-all-keys(keys-down='keysDown($event)', keys-up='keysUp($event)')
+  .remote-control
+    //include control-screen
+div(pane, pane-anchor='south', pane-size='30% + 2px', pane-handle='4').pane-bottom-p
+  .widget-container.fluid-height
+    .heading-for-tabs.tabs
+      tabset(direction='"below"')
+        tab(ng-repeat='tab in tabsBottom', active='tab.active')
+          tab-heading
+            i.fa(ng-class='tab.icon')
+            | {{tab.title|translate}}
+          div(ng-if='tab.active')
+            div(ng-include='tab.templateUrl')
+div(pane, pane-anchor='')
+  .widget-container.fluid-height
+    .heading-for-tabs.tabs
+      tabset
+        tab(ng-repeat='tab in tabsTop', active='tab.active')
+          tab-heading
+            i.fa(ng-class='tab.icon')
+            | {{tab.title|translate}}
+          div(ng-if='tab.active')
+            div(ng-include='tab.templateUrl')

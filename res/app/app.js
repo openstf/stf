@@ -9,6 +9,7 @@ angular.module('app', [
   require('./layout').name,
   require('./device-list').name,
   require('./device-control').name,
+  require('./control-panes').name,
   require('./settings').name,
   require('./help').name
 ])

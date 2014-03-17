@@ -2,10 +2,11 @@ h2 Devices list
 
 ul.device-list
   li(ng-repeat='device in tracker.devices track by device.serial')
-    span {{ device.serial }} {{ device.present ? 'present' : 'absent' }} {{ device.owner.email }}
+    span {{ device.serial }} {{ device.name || device.model }} {{ device.present ? 'present' : 'absent' }} {{ device.owner.email }}
       a(href='#!/devices/{{ device.serial }}') Linky
     button(ng-click="invite(device)") invite
     button(ng-click="kick(device)") kick
+    img(ng-src='/static/devices/{{ device.image }}', ng-if='device.image')
 
 div(ng-controller='ShellCommandCtrl')
   input(type=text, ng-model='command')

@@ -1,4 +1,4 @@
-h1 {{ device.value.serial }}
+h1 {{ device.value.serial }} {{ device.value.present ? 'present' : 'absent' }}
 
 button(ng-click='showScreen = !showScreen') Show/Hide
 button(ng-click='control.identify()') Identify

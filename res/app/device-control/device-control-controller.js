@@ -1,7 +1,7 @@
 module.exports = function DeviceControlCtrl($scope, $routeParams, $location, DeviceService, GroupService, ControlService) {
   $scope.control = null
   $scope.device = {
-    promise: DeviceService.get($routeParams.serial)
+    promise: DeviceService.get($routeParams.serial, $scope)
       .then(function(device) {
         return GroupService.invite(device)
       })

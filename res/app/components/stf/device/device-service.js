@@ -10,18 +10,25 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       , devicesBySerial = Object.create(null)
       , scopedSocket = socket.scoped($scope)
 
+    function notify() {
+      // Not great. Consider something else
+      if (!$scope.$$phase) {
+        $scope.$digest()
+      }
+    }
+
     function get(data) {
       return devices[devicesBySerial[data.serial]]
     }
 
     function insert(data) {
       devicesBySerial[data.serial] = devices.push(data) - 1
-      $scope.$digest()
+      notify()
     }
 
     function modify(oldData, newData) {
       _.assign(oldData, newData)
-      $scope.$digest()
+      notify()
     }
 
     function remove(data) {
@@ -29,7 +36,7 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       if (index >= 0) {
         devices.splice(index, 1)
         delete devicesBySerial[data.serial]
-        $scope.$digest()
+        notify()
       }
     }
 
@@ -78,9 +85,14 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
     return tracker
   }
 
-  deviceService.get = function (serial) {
+  deviceService.get = function (serial, $scope) {
+    var tracker = new Tracker($scope, {
+      auto: false
+    })
+
     return $http.get('/api/v1/devices/' + serial)
       .then(function (response) {
+        tracker.add(response.data.device)
         return response.data.device
       })
   }

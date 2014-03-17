@@ -81,6 +81,12 @@ module.exports = function ControlServiceFactory($rootScope, socket, TransactionS
       })
       return tx
     }
+
+    this.identify = function() {
+      var tx = TransactionService.create(devices)
+      socket.emit('device.identify', channel, tx.channel)
+      return tx
+    }
   }
 
   controlService.forOne = function(device, channel) {

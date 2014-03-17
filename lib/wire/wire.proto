@@ -12,6 +12,7 @@ enum MessageType {
   DeviceRegisteredMessage    = 8;
   DeviceStatusMessage        = 9;
   GroupMessage               = 10;
+  PhysicalIdentifyMessage    = 29;
   JoinGroupMessage           = 11;
   KeyDownMessage             = 12;
   KeyPressMessage            = 13;
@@ -184,6 +185,9 @@ message LeaveGroupMessage {
 }
 
 // Input
+
+message PhysicalIdentifyMessage {
+}
 
 message TouchDownMessage {
   required uint32 x = 1;

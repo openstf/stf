@@ -14,7 +14,7 @@ div
                 li(ng-repeat='device in tracker.devices track by device.serial', ng-disabled='!isControllable(device)', ng-click='toggle(device)',
                 ng-class='{"device-is-busy": deviceStatus(device) == "busy"}').cursor-select.pointer.thumbnail
                   .device-photo-small
-                    img(ng-src='/static/devices/{{ device.image || "/static/bower_components/stf-graphics/small/default.jpg" }}')
+                    img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                   .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name }}
                   raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                 .clear-fix
@@ -85,7 +85,7 @@ div
                     td(width='10%', data-title='"User"', ng-show='showDeviceUsers')
                       a(ng-href='{{deviceUser(device).link}}', target='_blank') {{ deviceUser(device).name }}
 
-//ul
+ul
   li(ng-repeat='device in tracker.devices track by device.serial')
     pre {{device|json}}
 

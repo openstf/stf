@@ -17,17 +17,27 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       }
     }
 
+    function sync(data) {
+      // usable IF device is physically present AND device is online AND
+      // preparations are ready AND the device has no owner or we are the
+      // owner
+      data.usable = data.present && data.status === 3 && data.ready &&
+        (!data.owner || data.isOwnedByUser)
+    }
+
     function get(data) {
       return devices[devicesBySerial[data.serial]]
     }
 
     function insert(data) {
       devicesBySerial[data.serial] = devices.push(data) - 1
+      sync(data)
       notify()
     }
 
-    function modify(oldData, newData) {
-      _.assign(oldData, newData)
+    function modify(data, newData) {
+      _.assign(data, newData)
+      sync(data)
       notify()
     }
 

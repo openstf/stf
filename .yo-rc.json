@@ -1,0 +1,8 @@
+{
+  "generator-stf": {
+    "partialDirectory": "res/app/",
+    "directiveDirectory": "res/app/components/stf/",
+    "filterDirectory": "res/app/components/stf/",
+    "serviceDirectory": "res/app/components/stf/"
+  }
+}

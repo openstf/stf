@@ -1,0 +1,23 @@
+.navbar.stf-menu
+  .container-fluid.stf-top-bar
+    a.stf-logo(href="/") STF 2
+    ul.nav.stf-nav
+      li(ng-cloak)
+        a(href='/#!/control')
+          span.fa.fa-mobile
+          | {{"Control"|translate}}
+        a(href='/#!/devices')
+          span.fa.fa-sitemap
+          | {{"Devices"|translate}}
+        a(href='/#!/settings')
+          span.fa.fa-gears
+          | {{"Settings"|translate}}
+    ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)
+      li.stf-nav-web-native-button
+        .btn-group
+          button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
+          button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
+      li
+        a(ng-href='/#!/help')
+          i.fa.fa-question-circle
+          | {{"Help"|translate}}

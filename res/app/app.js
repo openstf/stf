@@ -10,6 +10,7 @@ angular.module('app', [
   require('./device-list').name,
   require('./device-control').name,
   require('./control-panes').name,
+  require('./menu').name,
   require('./settings').name,
   require('./help').name
 ])

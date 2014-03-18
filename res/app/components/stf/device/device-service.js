@@ -22,7 +22,7 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       // preparations are ready AND the device has no owner or we are the
       // owner
       data.usable = data.present && data.status === 3 && data.ready &&
-        (!data.owner || data.isOwnedByUser)
+        (!data.owner || data.using)
     }
 
     function get(data) {

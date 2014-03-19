@@ -114,7 +114,7 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
   }
 
   deviceService.get = function (serial, $scope) {
-    var tracker = new Tracker($scope)
+    var tracker = new Tracker($scope, {})
 
     return $http.get('/api/v1/devices/' + serial)
       .then(function (response) {

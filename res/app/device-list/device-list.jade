@@ -37,17 +37,14 @@ div.stf-device-list
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
-              nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!devices.length')
+              nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
-              //p
-                strong Sorting
-                pre {{tableParams.sorting() | json}}
-                pre {{tableParams.filter() | json}}
-                button(ng-click="tableParams.sorting({})", class="btn btn-default pull-right") Clear sorting
+              p
+                button(ng-click="tableParams.sorting({}); tableParams.filter({})").btn.btn-default-outline.btn-sm.pull-right Clear
 
-              table.table.table-hover(ng-table='tableParams', ng-show='devices.length')
+              table.table.table-hover(ng-table='tableParams', show-filter='true', ng-show='tracker.devices.length')
                 //.cursor.selectable
-                thead
+                //thead
                   tr
                     th
                       div {{"Use"|translate}}
@@ -70,8 +67,34 @@ div.stf-device-list
                     th
                       div {{"User"|translate}}
 
-                tbody
-                  tr(ng-repeat='device in $data')
+                //tbody
+                tr(ng-repeat='device in $data')
+                  td(data-title="'Use'", sortable='"state"')
+                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
+                      ng-click='toggle(device)').btn.btn-xs.device-status {{statusName(device)}}
+                  td(data-title="'Model'", sortable='"model"', filter='{"model": "text"}')
+                    span {{device.model}}
+                  td(data-title="'Product'", sortable='"name"', filter='{"name": "text"}')
+                    span {{device.name}}
+                  td(data-title="'Carrier'", sortable='"operator"', filter='{"operator": "text"}')
+                    span {{device.operator}}
+                  td(data-title="'Release'", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
+                    span {{device.releasedAt | date:'yyyy/MM/dd'}}
+                  td(data-title="'OS'", sortable='"version"', filter='{"version": "text"}')
+                    span {{device.version}}
+                  td(data-title="'Screen'", sortable='"display.width"', filter='{"display.width": "text"}')
+                    span {{device.display.width}}x{{device.display.height}}
+                  td(data-title="'Location'", sortable='"provider.name"', filter='{"provider.name": "text"}')
+                    span {{device.provider.name}}
+                  td(data-title="'User'", sortable='"owner.name"', filter='{"owner.name": "text"}')
+                    span {{device.owner.name}}
+              
+              p
+                strong Sorting
+                pre {{tableParams.sorting() | json}}
+                pre {{tableParams.filter() | json}}
+
+    //tr(ng-repeat='device in $data')
                     td(width='5%', data-title='"Use"', sortable='control')
                       button(ng-model='device.control', ng-click='toggle(device)', btn-checkbox,
                       ng-class='{"btn-primary-outline": !device.control, "btn-danger-outline": device.control}',
@@ -100,11 +123,11 @@ div.stf-device-list
                       a(ng-href='{{deviceUser(device).link}}', target='_blank') {{ deviceUser(device).name }}
 
 
-ul
+//ul
   li(ng-repeat='device in tracker.devices track by device.serial')
     pre {{device|json}}
 
-ul.device-list
+//ul.device-list
   li(ng-repeat='device in tracker.devices track by device.serial')
     span {{ device.serial }} {{ device.name || device.model }} {{ device.present ? 'present' : 'absent' }} {{ device.usable ? 'usable' : 'unusable' }} {{ device.isOwnedByUser ? 'owned by me' : '' }} {{ device.owner.email }}
       a(href='#!/devices/{{ device.serial }}') Linky
@@ -112,11 +135,3 @@ ul.device-list
     button(ng-click="kick(device)") kick
     img(ng-src='/static/devices/{{ device.image }}', ng-if='device.image')
 
-
-div(ng-controller='ShellCommandCtrl')
-  input(type=text, ng-model='command')
-  button(ng-click='run(command)') run
-  table
-    tr(ng-repeat='result in results track by result.device.serial')
-      td {{ result.device.serial }}
-      td {{ result.data }}

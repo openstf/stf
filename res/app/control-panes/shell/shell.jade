@@ -1,0 +1,12 @@
+.widget-container.fluid-height.stf-shell
+  .heading
+    i.fa
+    span(translate) Shell
+  .widget-content.padded
+    div
+      input(type=text, ng-model='command')
+      button(ng-click='run(command)') run
+      table
+        tr(ng-repeat='result in results track by result.device.serial')
+          td {{ result.device.serial }}
+          td {{ result.data }}

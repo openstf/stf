@@ -14,6 +14,10 @@
   margin: 0;
 }
 
+.stf-device-list .device-status {
+  margin-top: 4px;
+}
+
 ul.devices-icon-view {
   margin: 0;
   display: inline-block;

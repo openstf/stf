@@ -18,7 +18,7 @@ div.stf-device-list
                     img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                   .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                   //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  p {{statusName(device)}}
+                  button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{statusName(device)}}
                 .clear-fix
               .clear-fix
               .line
@@ -30,7 +30,7 @@ div.stf-device-list
                     img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                   .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                   //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  p {{statusName(device)}}
+                  button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
                 .clear-fix
 
             tab(heading='Details')

@@ -1,6 +1,5 @@
 module.exports = function UserServiceFactory($http) {
-  var userService = {
-  }
+  var userService = {}
 
   userService.user = (function () {
     var userPromise = $http.get('/api/v1/user')

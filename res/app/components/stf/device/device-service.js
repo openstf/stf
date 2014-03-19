@@ -48,7 +48,7 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
                   data.state = 'busy'
                 }
                 else {
-                  data.state = 'usable'
+                  data.state = 'available'
                 }
               }
             }

@@ -1,7 +1,18 @@
 .device-list {
-    color: deepskyblue;
+  color: deepskyblue;
 }
 
+.stf-device-list .devices-not-available {
+  background: #f6f6f6;
+}
+
+.stf-device-list .line {
+  height: 1px;
+  width: 100%;
+  /*padding: 10px 15px 12px 2px;*/
+  border-bottom: 1px solid #e2e2e2;
+  margin: 0;
+}
 
 ul.devices-icon-view {
   margin: 0;

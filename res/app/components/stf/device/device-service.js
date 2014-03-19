@@ -23,6 +23,38 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       // owner
       data.usable = data.present && data.status === 3 && data.ready &&
         (!data.owner || data.using)
+
+      // For convenience, formulate an aggregate state property that covers
+      // every possible state.
+      data.state = 'absent'
+      if (data.present) {
+        data.state = 'present'
+        switch (data.status) {
+          case 1:
+            data.state = 'offline'
+            break
+          case 2:
+            data.state = 'unauthorized'
+            break
+          case 3:
+            data.state = 'preparing'
+            if (data.ready) {
+              data.state = 'ready'
+              if (data.using) {
+                data.state = 'using'
+              }
+              else {
+                if (data.owner) {
+                  data.state = 'busy'
+                }
+                else {
+                  data.state = 'usable'
+                }
+              }
+            }
+            break
+        }
+      }
     }
 
     function get(data) {

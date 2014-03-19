@@ -17,7 +17,7 @@ module.exports = function (grunt) {
       }
     },
 
-    nggettext_extract: {
+    'nggettext_extract': {
       pot: {
         files: {
           'res/lang/po/template.pot': ['tmp/html/all.html', 'res/app/**/*.js']
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       }
     },
 
-    nggettext_compile: {
+    'nggettext_compile': {
       all: {
         files: {
           'res/lang/translations.js': ['res/lang/po/*.po']
@@ -34,6 +34,10 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.registerTask('translate', ['jade:translate', 'nggettext_extract', 'nggettext_compile'])
+  grunt.registerTask('translate', [
+    'jade:translate'
+  , 'nggettext_extract'
+  , 'nggettext_compile'
+  ])
   grunt.registerTask('default', ['translate'])
 }

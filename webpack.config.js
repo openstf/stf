@@ -1,6 +1,5 @@
 var pathutil = require('./lib/util/pathutil')
 var webpack = require('webpack')
-var path = require('path')
 
 module.exports = {
   cache: true,
@@ -30,12 +29,18 @@ module.exports = {
       { test: /\.jpg$/, loader: "url-loader?limit=5000&mimetype=image/jpeg" },
       { test: /\.png$/, loader: "url-loader?limit=5000&mimetype=image/png" },
       { test: /\.gif$/, loader: "url-loader?limit=5000&mimetype=image/gif" },
-      { test: /\.svg$/, loader: "url-loader?limit=5000&mimetype=image/svg+xml" },
-      { test: /\.woff$/, loader: "url-loader?limit=5000&mimetype=application/font-woff" },
-      { test: /\.otf$/, loader: "url-loader?limit=5000&mimetype=application/font-woff" },
-      { test: /\.ttf$/, loader: "url-loader?limit=5000&mimetype=application/font-woff" },
-      { test: /\.eot$/, loader: "url-loader?limit=5000&mimetype=vnd.ms-fontobject" },
-      { test: /\.jade/, loader: 'template-html-loader' },
+      { test: /\.svg$/
+      , loader: "url-loader?limit=5000&mimetype=image/svg+xml" },
+      { test: /\.woff$/
+      , loader: "url-loader?limit=5000&mimetype=application/font-woff" },
+      { test: /\.otf$/
+      , loader: "url-loader?limit=5000&mimetype=application/font-woff" },
+      { test: /\.ttf$/
+      , loader: "url-loader?limit=5000&mimetype=application/font-woff" },
+      { test: /\.eot$/
+      , loader: "url-loader?limit=5000&mimetype=vnd.ms-fontobject" },
+      { test: /\.jade/
+      , loader: 'template-html-loader' },
       { test: /\.html/, loader: 'html-loader' },
       { test: /angular\.js/, loader: 'exports?angular'},
       { test: /angular-route\.js/, loader: 'imports?angular=angular'},
@@ -50,15 +55,16 @@ module.exports = {
   },
   plugins: [
     new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(
+        'bower.json'
+      , ['main']
+      )
     ),
     new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(
+        '.bower.json'
+      , ['main']
+      )
     )
-
-//    new webpack.ResolverPlugin(
-//      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('package.json', ['main'])
-//    )
-//    ,new webpack.optimize.UglifyJsPlugin({mangle: false})
   ]
 }

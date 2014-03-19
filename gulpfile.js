@@ -3,7 +3,7 @@ var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
 
 gulp.task('jshint', function() {
-  gulp.src(['lib/**/*.js', '*.js'])
+  return gulp.src(['lib/**/*.js', '*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
 })

@@ -4,7 +4,7 @@ div.stf-device-list
       .widget-container.fluid-height
         .widget-content.padded
           tabset.unselectable
-            tab
+            tab(active='activeTabs.devices')
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
@@ -33,16 +33,19 @@ div.stf-device-list
                   button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
                 .clear-fix
 
-            tab(heading='Details')
+            tab(active='activeTabs.details')
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
               nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
-              p
-                button(ng-click="tableParams.sorting({}); tableParams.filter({})").btn.btn-default-outline.btn-sm.pull-right Clear
+              div
+                clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
+                filter-button(ng-model='filterEnabled')
 
-              table.table.table-hover(ng-table='tableParams', show-filter='true', ng-show='tracker.devices.length')
+
+              table.table.table-hover(ng-table='tableParams',
+              show-filter='filterEnabled', ng-show='tracker.devices.length')
                 //.cursor.selectable
                 //thead
                   tr
@@ -69,8 +72,12 @@ div.stf-device-list
 
                 //tbody
                 tr(ng-repeat='device in $data')
-                  td(data-title="'Use'", sortable='"state"')
-                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
+                  td(data-title="'Status'",
+                  sortable='"state"',
+                  filter="{ 'usable': 'select' }",
+                  filter-data="statusFilter($column)")
+                    button(ng-class='{"btn-primary": device.state == "using", \
+                    "btn-primary-outline": device.state == "available"}',
                       ng-click='toggle(device)').btn.btn-xs.device-status {{statusName(device)}}
                   td(data-title="'Model'", sortable='"model"', filter='{"model": "text"}')
                     span {{device.model}}

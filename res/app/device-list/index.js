@@ -6,7 +6,7 @@ require('ng-table/ng-table.css')
 module.exports = angular.module('device-list', [
   require('stf/device').name,
   require('stf/user/group').name,
-  require('stf/common/nothing-to-show').name,
+  require('stf/common-ui').name,
   'ngTable'
 ])
   .config(['$routeProvider', function ($routeProvider) {
@@ -16,4 +16,3 @@ module.exports = angular.module('device-list', [
     })
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
-  .controller('ShellCommandCtrl', require('./shell-controller'))

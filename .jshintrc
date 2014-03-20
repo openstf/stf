@@ -24,6 +24,7 @@
     "beforeEach": false,
     "after": false,
     "afterEach": false,
-    "inject": false
+    "inject": false,
+    "angular": false
   }
 }

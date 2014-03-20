@@ -9,6 +9,7 @@ html
         .pane-top-bar(pane, pane-anchor='north', pane-size='46px', pane-min='46px', pane-max='46px', pane-handle='')
           div(ng-include='"menu.jade"')
         div(pane, pane-anchor='center').fill-height
+          socket-state
           div(ng-view).fill-height
 
     script(src='/static/build/bundle.js')

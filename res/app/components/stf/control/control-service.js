@@ -1,4 +1,4 @@
-module.exports = function ControlServiceFactory($rootScope, socket, TransactionService) {
+module.exports = function ControlServiceFactory($rootScope, $upload, socket, TransactionService) {
   var controlService = {
   }
 
@@ -86,6 +86,28 @@ module.exports = function ControlServiceFactory($rootScope, socket, TransactionS
       var tx = TransactionService.create(devices)
       socket.emit('device.identify', channel, tx.channel)
       return tx
+    }
+
+    this.install = function(files) {
+      return $upload.upload({
+          url: '/api/v1/resources'
+        , method: 'POST'
+        , file: files[0]
+        })
+        .success(function(data) {
+          console.log('success', arguments)
+          var tx = TransactionService.create(devices)
+          socket.emit('device.install', channel, tx.channel, {
+            url: data.url
+          })
+          return tx
+        })
+        .error(function() {
+          console.log('error', arguments)
+        })
+        .progress(function() {
+          console.log('progress', arguments)
+        })
     }
   }
 

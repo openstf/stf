@@ -1,6 +1,6 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
 
-module.exports = function DeviceScreenDirective($document, ScalingService, $rootScope) {
+module.exports = function DeviceScreenDirective($document, ScalingService) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),

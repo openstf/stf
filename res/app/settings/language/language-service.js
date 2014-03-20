@@ -25,7 +25,7 @@ module.exports = function LanguageServiceFactory(SettingsService, $q, gettextCat
     if (LanguageService.selectedLanguage) {
       deferred.resolve(LanguageService.selectedLanguage)
     } else {
-      SettingsService.get('Language.selected').then(function (data) {
+      SettingsService.getItem('Language.selected').then(function (data) {
         if (data) {
           deferred.resolve(data)
         } else {
@@ -46,7 +46,7 @@ module.exports = function LanguageServiceFactory(SettingsService, $q, gettextCat
     var deferred = $q.defer()
     LanguageService.selectedLanguage = lang
     gettextCatalog.currentLanguage = lang
-    SettingsService.set('Language.selected', lang).then(function () {
+    SettingsService.setItem('Language.selected', lang).then(function () {
       deferred.resolve(lang)
     })
     return deferred.promise

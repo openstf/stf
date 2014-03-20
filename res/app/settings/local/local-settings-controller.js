@@ -1,10 +1,10 @@
 module.exports = function ($scope, SettingsService) {
 
   $scope.resetSettings = function () {
-    SettingsService.clearAll()
+    SettingsService.clear()
   }
 
-  $scope.savedTo = SettingsService.getDriver()
+  $scope.savedTo = SettingsService.driver()
 
 //  $scope.resetSettings = function () {
 //    var title = 'Reset Settings';

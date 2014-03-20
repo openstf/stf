@@ -88,7 +88,7 @@ div.stf-device-list
                     span {{device.provider.name}}
                   td(data-title="'User'", sortable='"owner.name"', filter='{"owner.name": "text"}')
                     span {{device.owner.name}}
-              
+
               p
                 strong Sorting
                 pre {{tableParams.sorting() | json}}

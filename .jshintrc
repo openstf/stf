@@ -16,5 +16,14 @@
   "asi": true,
   "esnext": true,
   "laxcomma": true,
-  "node": true
+  "node": true,
+  "globals": {
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+    "inject": false
+  }
 }

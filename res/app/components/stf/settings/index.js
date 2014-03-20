@@ -5,6 +5,12 @@ module.exports = angular.module('stf/settings', [
   'LocalForageModule'
 ])
   .config(['$localForageProvider', function ($localForageProvider) {
-    $localForageProvider.setPrefix('stf.v0');
+    $localForageProvider.config({
+      name        : 'stf-v0',
+      version     : 1.0,
+      storeName   : 'settings',
+      description : 'STF Local Settings'
+    })
+
   }])
   .factory('SettingsService', require('./settings-service'))

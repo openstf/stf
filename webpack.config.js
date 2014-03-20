@@ -20,7 +20,8 @@ module.exports = {
       'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
       'localforage': 'localforage/dist/localforage.js',
       'socket.io': 'socket.io-client/dist/socket.io',
-      'oboe': 'oboe/dist/oboe-browser'
+      'oboe': 'oboe/dist/oboe-browser',
+      'ng-file-upload': 'ng-file-upload/angular-file-upload'
     }
   },
   module: {

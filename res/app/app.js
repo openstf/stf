@@ -2,10 +2,12 @@ require('angular')
 require('angular-route')
 
 require('angular-gettext')
+require('ng-file-upload')
 
 angular.module('app', [
   'ngRoute',
   'gettext',
+  'angularFileUpload',
   require('./layout').name,
   require('./device-list').name,
   require('./device-control').name,

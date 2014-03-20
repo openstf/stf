@@ -1,14 +1,14 @@
 var io = require('socket.io')
 
-module.exports = function SocketServiceFactory() {
-  var socketService = io.connect()
+module.exports = function SocketFactory() {
+  var socket = io.connect()
 
-  socketService.scoped = function($scope) {
+  socket.scoped = function($scope) {
     var listeners = []
 
     $scope.$on('$destroy', function() {
       listeners.forEach(function(listener) {
-        socketService.removeListener(listener.event, listener.handler)
+        socket.removeListener(listener.event, listener.handler)
       })
     })
 
@@ -18,11 +18,11 @@ module.exports = function SocketServiceFactory() {
           event: event
         , handler: handler
         })
-        socketService.on(event, handler)
+        socket.on(event, handler)
         return this
       }
     }
   }
 
-  return socketService
+  return socket
 }

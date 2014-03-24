@@ -21,7 +21,8 @@
     "requirejs": "~2.1.11",
     "stf-graphics": "git@ghe.amb.ca.local:stf/stf-graphics.git",
     "angular-bootstrap": "~0.10.0",
-    "angular-dialog-service": "~3.1.0"
+    "angular-dialog-service": "~3.1.0",
+    "ng-file-upload": "~1.2.9"
   },
   "private": true,
   "resolutions": {

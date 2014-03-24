@@ -3,7 +3,7 @@ h1 {{ device.serial }} {{ device.present ? 'present' : 'absent' }}
 button(ng-click='showScreen = !showScreen') Show/Hide
 button(ng-click='control.identify()') Identify
 
-div(ng-controller='DeviceScreenCtrl')
+div(ng-controller='DeviceScreenCtrl', ng-file-drop='control.install($files)')
   device-screen(style='width: 400px; height: 600px; background: gray')
 
 button(ng-click='control.menu()') Menu

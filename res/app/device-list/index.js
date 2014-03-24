@@ -1,13 +1,9 @@
 require('./device-list.css')
 
-require('script!ng-table/ng-table')
-require('ng-table/ng-table.css')
-
 module.exports = angular.module('device-list', [
   require('stf/device').name,
   require('stf/user/group').name,
-  require('stf/common-ui').name,
-  'ngTable'
+  require('stf/common-ui').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/devices', {

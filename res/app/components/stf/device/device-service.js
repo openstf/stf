@@ -11,6 +11,8 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       , scopedSocket = socket.scoped($scope)
 
     function notify() {
+      $scope.$broadcast('devices.update', true)
+
       // Not great. Consider something else
       if (!$scope.$$phase) {
         $scope.$digest()

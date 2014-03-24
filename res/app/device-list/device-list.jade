@@ -44,7 +44,7 @@ div.stf-device-list
                 filter-button(ng-model='filterEnabled')
 
 
-              table.table.table-hover(ng-table='tableParams',
+              table.table.table-hover.dataTable(ng-table='tableParams',
               show-filter='filterEnabled', ng-show='tracker.devices.length')
                 //.cursor.selectable
                 //thead

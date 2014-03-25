@@ -10,6 +10,7 @@ html
           div(ng-include='"menu.jade"')
         div(pane, pane-anchor='center').fill-height
           socket-state
+          div(growl)
           div(ng-view).fill-height
 
     script(src='/static/build/bundle.js')

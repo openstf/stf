@@ -18,6 +18,8 @@ module.exports = {
     ]
   , alias: {
       'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls'
+    , 'angular-growl': 'angular-growl-v2/build/angular-growl.js'
+    , 'angular-growl-css': 'angular-growl-v2/build/angular-growl.min.css'
     , 'localforage': 'localforage/dist/localforage.js'
     , 'socket.io': 'socket.io-client/dist/socket.io'
     , 'oboe': 'oboe/dist/oboe-browser'
@@ -45,6 +47,8 @@ module.exports = {
     , { test: /\.html/, loader: 'html-loader' }
     , { test: /angular\.js/, loader: 'exports?angular'}
     , { test: /angular-route\.js/, loader: 'imports?angular=angular'}
+    , { test: /angular-animate\.js/, loader: 'imports?angular=angular'}
+    , { test: /angular-growl\.js/, loader: 'imports?angular=angular'}
     , { test: /oboe-browser\.js/, loader: 'imports?define=>false!exports?oboe'}
     , { test: /localforage\.js/, loader: 'script'}
     , { test: /ui-bootstrap-tpls\.js/, loader: 'script'}

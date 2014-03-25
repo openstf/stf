@@ -1,6 +1,7 @@
 require('angular')
 require('angular-route')
 
+
 require('angular-gettext')
 require('ng-file-upload')
 

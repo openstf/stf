@@ -1,0 +1,26 @@
+.growl {
+  position: fixed;
+  top: 60px;
+  right: 15px;
+  float: right;
+  width: 250px;
+  z-index: 9999;
+}
+
+.growl-item.ng-enter,
+.growl-item.ng-leave {
+  -webkit-transition: 0.3s linear all;
+  -moz-transition: 0.3s linear all;
+  -o-transition: 0.3s linear all;
+  transition: 0.3s linear all;
+}
+
+.growl-item.ng-enter,
+.growl-item.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.growl-item.ng-leave,
+.growl-item.ng-enter.ng-enter-active {
+  opacity: 1;
+}

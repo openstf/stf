@@ -2,6 +2,10 @@
   color: deepskyblue;
 }
 
+.stf-device-list .filtering-buttons {
+  margin-top: -32px;
+}
+
 .stf-device-list .devices-not-available {
   background: #f6f6f6;
 }

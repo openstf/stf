@@ -71,7 +71,7 @@ div.stf-device-list
                       div {{"User"|translate}}
 
                 //tbody
-                tr(ng-repeat='device in $data')
+                tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
                   td(data-title="'Status'",
                   sortable='"state"',
                   filter="{ 'usable': 'select' }",
@@ -130,7 +130,7 @@ div.stf-device-list
                       a(ng-href='{{deviceUser(device).link}}', target='_blank') {{ deviceUser(device).name }}
 
 
-ul
+//ul
   li(ng-repeat='device in tracker.devices track by device.serial')
     pre {{device|json}}
 

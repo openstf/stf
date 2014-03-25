@@ -33,15 +33,15 @@ module.exports = {
     , { test: /\.png$/, loader: "url-loader?limit=5000&mimetype=image/png" }
     , { test: /\.gif$/, loader: "url-loader?limit=5000&mimetype=image/gif" }
     , { test: /\.svg$/
-      , loader: "url-loader?limit=5000&mimetype=image/svg+xml" }
+      , loader: "url-loader?limit=1&mimetype=image/svg+xml" }
     , { test: /\.woff$/
-      , loader: "url-loader?limit=5000&mimetype=application/font-woff" }
+      , loader: "url-loader?limit=1&mimetype=application/font-woff" }
     , { test: /\.otf$/
-      , loader: "url-loader?limit=5000&mimetype=application/font-woff" }
+      , loader: "url-loader?limit=1&mimetype=application/font-woff" }
     , { test: /\.ttf$/
-      , loader: "url-loader?limit=5000&mimetype=application/font-woff" }
+      , loader: "url-loader?limit=1&mimetype=application/font-woff" }
     , { test: /\.eot$/
-      , loader: "url-loader?limit=5000&mimetype=vnd.ms-fontobject" }
+      , loader: "url-loader?limit=1&mimetype=vnd.ms-fontobject" }
     , { test: /\.jade/
       , loader: 'template-html-loader' }
     , { test: /\.html/, loader: 'html-loader' }

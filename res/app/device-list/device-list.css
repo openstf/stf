@@ -6,6 +6,11 @@
   margin-top: -32px;
 }
 
+.stf-device-list .device-not-usable {
+  /*background: rgb(245, 245, 245);*/
+  opacity: 0.7;
+}
+
 .stf-device-list .devices-not-available {
   background: #f6f6f6;
 }

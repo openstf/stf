@@ -6,6 +6,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-weight: bold;
 }
 
 .ng-table th.sortable {

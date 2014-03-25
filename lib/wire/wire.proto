@@ -18,6 +18,7 @@ enum MessageType {
   KeyDownMessage             = 12;
   KeyPressMessage            = 13;
   KeyUpMessage               = 14;
+  LaunchActivityMessage      = 31;
   LeaveGroupMessage          = 15;
   LogcatApplyFiltersMessage  = 16;
   ProbeMessage               = 17;
@@ -293,4 +294,12 @@ message ShellKeepAliveMessage {
 
 message InstallMessage {
   required string url = 1;
+  optional LaunchActivityMessage launchActivity = 2;
+}
+
+message LaunchActivityMessage {
+  required string action = 1;
+  required string component = 2;
+  repeated string category = 3;
+  optional uint32 flags = 4;
 }

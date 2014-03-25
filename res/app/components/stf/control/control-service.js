@@ -96,10 +96,21 @@ module.exports = function ControlServiceFactory($rootScope, $upload, socket, Tra
         })
         .success(function(data) {
           console.log('success', arguments)
+          var app = data.manifest.application
           var tx = TransactionService.create(devices)
-          socket.emit('device.install', channel, tx.channel, {
+          var params = {
             url: data.url
-          })
+          }
+          if (app.launcherActivities.length) {
+            var activity = app.launcherActivities[0]
+            params.launchActivity = {
+              action: 'android.intent.action.MAIN'
+            , component: data.manifest.package + '/' + activity.name
+            , category: ['android.intent.category.LAUNCHER']
+            , flags: 0x10200000
+            }
+          }
+          socket.emit('device.install', channel, tx.channel, params)
           return tx
         })
         .error(function() {

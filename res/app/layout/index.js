@@ -16,6 +16,7 @@ require('./small.css')
 
 module.exports = angular.module('layout', [
   'fa.directive.borderLayout',
-  require('stf/common-ui').name
+  require('stf/common-ui').name,
+  require('stf/socket/socket-state').name
 ])
   .controller('LayoutCtrl', require('./layout-controller'))

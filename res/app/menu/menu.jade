@@ -1,15 +1,15 @@
 .navbar.stf-menu
   .container-fluid.stf-top-bar
     a.stf-logo(href="/") STF 2
-    ul.nav.stf-nav(nav-menu)
+    ul.nav.stf-nav(nav-menu='current')
       li(ng-cloak)
-        a(href='/#!/control')
+        a(ng-href='/#!/control')
           span.fa.fa-mobile
           | {{"Control"|translate}}
-        a(href='/#!/devices')
+        a(ng-href='/#!/devices')
           span.fa.fa-sitemap
           | {{"Devices"|translate}}
-        a(href='/#!/settings')
+        a(ng-href='/#!/settings')
           span.fa.fa-gears
           | {{"Settings"|translate}}
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)

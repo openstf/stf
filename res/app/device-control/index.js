@@ -6,7 +6,7 @@ module.exports = angular.module('device-control', [
   require('stf/screen').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/devices/:serial', {
+    $routeProvider.when('/control/:serial', {
       template: require('./device-control.jade'),
       controller: 'DeviceControlCtrl'
     })

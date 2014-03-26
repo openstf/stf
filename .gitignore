@@ -4,5 +4,6 @@
 /rethinkdb_data/
 /.env
 /tmp
+/temp
 .idea/
 .DS_Store

@@ -6,3 +6,5 @@
 /tmp
 .idea/
 .DS_Store
+*.mo
+/res/build/*

@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid ""
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Carrier"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
+msgid "Clear"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Control"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Details"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+msgid "Device Port"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Devices"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
+msgid "Enable notifications"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+msgid "Example: 3000"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/filter-button/filter-button.html
+msgid "Filter"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Help"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
+msgid "Language"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
+msgid "Local Settings"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Location"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Model"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Native"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "No devices connected"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
+msgid "Notifications"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "OS"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Product"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
+msgid "Refresh"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Release Date"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
+msgid "Reset Settings"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
+msgid "Saved to: {{savedTo}}"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Screen"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Settings"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/shell/shell.html
+msgid "Shell"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Start Using"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Status"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Stop Using"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+msgid "Target IP / Hostname"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+msgid "Target Port"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+msgid "Target host (detect if blank)"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Use"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "User"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Web"
+msgstr ""

@@ -15,7 +15,8 @@ angular.module('app', [
   require('./control-panes').name,
   require('./menu').name,
   require('./settings').name,
-  require('./help').name
+  require('./help').name,
+  require('./../common/lang').name
 ])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {

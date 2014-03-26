@@ -24,7 +24,8 @@
     "angular-bootstrap": "~0.10.0",
     "angular-dialog-service": "~3.1.0",
     "ng-file-upload": "~1.2.10",
-    "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3"
+    "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3",
+    "bluebird": "~1.1.1"
   },
   "private": true,
   "resolutions": {

@@ -1,10 +1,10 @@
 module.exports = angular.module('stf/socket/socket-state', [
   require('stf/socket').name,
   require('stf/common-ui/safe-apply').name,
-  require('stf/common-ui/notifications').name
+  require('stf/common-ui/notifications').name,
+  require('stf/common-ui/refresh-page').name
 ])
   .directive('socketState', require('./socket-state-directive'))
-  .controller('SocketStateCtrl', require('./socket-state-controller'))
   .config([
     '$provide', function ($provide) {
       return $provide.decorator('$rootScope', [

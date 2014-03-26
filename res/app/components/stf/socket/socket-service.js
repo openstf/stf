@@ -1,7 +1,9 @@
 var io = require('socket.io')
 
-module.exports = function SocketFactory($rootScope) {
-  var socket = io.connect()
+module.exports = function SocketFactory() {
+  var socket = io.connect(null, {
+    reconnect: false
+  })
 
   socket.scoped = function($scope) {
     var listeners = []

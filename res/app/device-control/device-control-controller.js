@@ -9,6 +9,24 @@ module.exports = function DeviceControlCtrl(
   $scope.control = null
   $scope.device = null
   $scope.control = null
+  $scope.installation = null
+
+  $scope.install = function($files) {
+    return $scope.control.install($files)
+      .then(function(tx) {
+        return tx.promise
+          .progressed(function(results) {
+            $scope.$apply(function() {
+              $scope.installation = results[0]
+            })
+          })
+          .then(function(results) {
+            $scope.$apply(function() {
+              $scope.installation = results[0]
+            })
+          })
+      })
+  }
 
   DeviceService.get($routeParams.serial, $scope)
     .then(function(device) {

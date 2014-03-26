@@ -1,3 +1,3 @@
-module.exports = function MenuCtrl($scope) {
+module.exports = function MenuCtrl() {
 
 }

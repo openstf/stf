@@ -1,4 +1,9 @@
-module.exports = function ControlServiceFactory($rootScope, $upload, socket, TransactionService) {
+module.exports = function ControlServiceFactory(
+  $rootScope
+, $upload
+, socket
+, TransactionService
+) {
   var controlService = {
   }
 

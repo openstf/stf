@@ -1,4 +1,11 @@
-module.exports = function DeviceControlCtrl($scope, $routeParams, $location, DeviceService, GroupService, ControlService) {
+module.exports = function DeviceControlCtrl(
+  $scope
+, $routeParams
+, $location
+, DeviceService
+, GroupService
+, ControlService
+) {
   $scope.control = null
   $scope.device = null
   $scope.control = null
@@ -12,7 +19,7 @@ module.exports = function DeviceControlCtrl($scope, $routeParams, $location, Dev
       $scope.control = ControlService.forOne(device, device.channel)
       return device
     })
-    .catch(function(err) {
+    .catch(function() {
       $location.path('/')
     })
 }

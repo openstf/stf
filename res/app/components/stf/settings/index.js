@@ -6,10 +6,10 @@ module.exports = angular.module('stf/settings', [
 ])
   .config(['$localForageProvider', function ($localForageProvider) {
     $localForageProvider.config({
-      name        : 'stf-v0',
-      version     : 1.0,
-      storeName   : 'settings',
-      description : 'STF Local Settings'
+      name: 'stf-v0',
+      version: 1.0,
+      storeName: 'settings',
+      description: 'STF Local Settings'
     })
 
   }])

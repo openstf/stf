@@ -11,7 +11,6 @@ module.exports = function TransactionServiceFactory(socket) {
     var pending = Object.create(null)
       , results = []
       , channel = createChannel()
-      , resolver = Promise.defer()
 
     function doneListener(someChannel, data) {
       if (someChannel === channel) {
@@ -54,7 +53,6 @@ module.exports = function TransactionServiceFactory(socket) {
       , result = new TransactionResult(device)
       , seq = 0
       , last = null
-      , error = null
       , unplaced = []
 
     resolver.promise.finally(function() {
@@ -65,7 +63,7 @@ module.exports = function TransactionServiceFactory(socket) {
       var message
         , foundAny = false
 
-      while (message = unplaced[seq]) {
+      while ((message = unplaced[seq])) {
         unplaced[seq] = void 0
 
         if (seq === last) {

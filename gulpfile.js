@@ -29,7 +29,7 @@ gulp.task('jsonlint', function () {
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint'])
 
-gulp.task('build', ['webpack:build'], function () {
+gulp.task('build', ['translate', 'webpack:build'], function () {
 })
 
 // For production
@@ -61,65 +61,34 @@ gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'],
   function () {
   })
 
-gulp.task('jade', function () {
-  return gulp.src(['./res/**/*.jade', '!./res/bower_components/**'])
+gulp.task('jade', function (callback) {
+  gulp.src(['./res/**/*.jade', '!./res/bower_components/**'])
     .pipe(jade())
     .pipe(gulp.dest('./tmp/html/'))
+
+  callback()
 })
 
-gulp.task('translate:extract', function () {
-  //'./res/**/*.js'
-  return gulp.src(['./tmp/html/**/*.html',
+gulp.task('translate:extract', function (callback) {
+  gulp.src(['./tmp/html/**/*.html', './res/**/*.js',
     '!./res/bower_components/**'])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))
+
+  callback()
 })
 
-gulp.task('translate:compile', function () {
-  return gulp.src('./res/common/lang/po/**/*.po')
+gulp.task('translate:compile', function (callback) {
+  gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
     }))
     .pipe(gulp.dest('./res/common/lang/translations/'))
+
+  callback()
 })
 
 gulp.task('clean', function () {
   gulp.src('./tmp', {read: false})
     .pipe(clean())
-});
-
-
-// TODO: convert this to gulp
-// 1. extract task: jade->html+js->pot
-// 2. compile task: po->js
-//grunt.initConfig({
-//  jade: {
-//    translate: {
-//      options: {
-//        data: {
-//          debug: false,
-//          files: {
-//            'tmp/html/all.html': ['res/app/**/*.jade']
-//
-//          }
-//        }
-//      }
-//    }
-//  },
-//
-//  'nggettext_extract': {
-//    pot: {
-//      files: {
-//        'res/lang/po/template.pot': ['tmp/html/all.html', 'res/app/**/*.js']
-//      }
-//    }
-//  },
-//
-//  'nggettext_compile': {
-//    all: {
-//      files: {
-//        'res/lang/translations.js': ['res/lang/po/*.po']
-//      }
-//    }
-//  }
-//})
+})

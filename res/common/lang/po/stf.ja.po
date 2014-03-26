@@ -14,7 +14,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Carrier"
-msgstr ""
+msgstr "キャリア"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
 msgid "Clear"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
 msgid "Language"

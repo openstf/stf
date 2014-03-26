@@ -1,5 +1,9 @@
 var _ = require('lodash')
 
+// TODO: Implement this
+var supportedLanguages = require('./../../../common/lang/langs.json')
+
+
 module.exports = function LanguageServiceFactory(
   SettingsService
 , $q

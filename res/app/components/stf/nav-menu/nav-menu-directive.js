@@ -1,12 +1,11 @@
-// Based from https://ryankaskel.com/blog/2013/05/27/a-different-approach-to-angularjs-navigation-menus
-
+/* Based on https://ryankaskel.com/blog/2013/05/27/
+    a-different-approach-to-angularjs-navigation-menus */
 
 module.exports = function ($location) {
   return function (scope, element, attrs) {
     var links = element.find('a')
     var onClass = attrs.navMenu || 'current'
     var routePattern
-    var routeBasePattern = /\/#[^/]*/ // TODO: add regex to remove last part of the url
     var link
     var url
     var currentLink

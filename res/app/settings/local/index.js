@@ -8,6 +8,9 @@ module.exports = angular.module('ui-local-settings', [
   //'dialogs'
 ])
   .run(["$templateCache", function ($templateCache) {
-    $templateCache.put('settings/local/local-settings.jade', require('./local-settings.jade'))
+    $templateCache.put(
+      'settings/local/local-settings.jade'
+    , require('./local-settings.jade')
+    )
   }])
   .controller('LocalSettingsCtrl', require('./local-settings-controller'))

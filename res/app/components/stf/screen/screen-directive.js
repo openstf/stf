@@ -4,7 +4,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas'})
         , finger = element.find('span')

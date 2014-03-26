@@ -7,19 +7,6 @@
 
 
 function CanvasRender(canvasElement, options) {
-  var checkForCanvasElement = function checkForCanvasElement() {
-    if (!canvasElement) {
-      throw new Error('Needs a canvas element')
-    }
-
-    this.displayWidth = canvasElement.offsetWidth
-    this.displayHeight = canvasElement.offsetHeight
-
-    if (!this.displayWidth || !this.displayHeight) {
-      throw new Error('Unable to get display size canvas must have dimensions')
-    }
-  }
-
   this.options = options
   this.context = canvasElement.getContext('2d')
 }
@@ -35,7 +22,9 @@ CanvasRender.prototype.clear = function () {
 
 // -------------------------------------------------------------------------------------------------
 
-// Based on http://www-cs-students.stanford.edu/~eparker/files/crunch/renderer.js
+/*
+Based on http://www-cs-students.stanford.edu/~eparker/files/crunch/renderer.js
+*/
 
 /**
  * Constructs a renderer object.
@@ -114,13 +103,15 @@ var Renderer = function (gl) {
   var count = gl.getProgramParameter(this.program_, gl.ACTIVE_UNIFORMS);
   for (var i = 0; i < /** @type {number} */(count); i++) {
     var infoU = gl.getActiveUniform(this.program_, i);
-    this.uniformLocations_[infoU.name] = gl.getUniformLocation(this.program_, infoU.name);
+    this.uniformLocations_[infoU.name] =
+      gl.getUniformLocation(this.program_, infoU.name);
   }
 
   count = gl.getProgramParameter(this.program_, gl.ACTIVE_ATTRIBUTES);
   for (var j = 0; j < /** @type {number} */(count); j++) {
     var infoA = gl.getActiveAttrib(this.program_, j);
-    this.attribLocations_[infoA.name] = gl.getAttribLocation(this.program_, infoA.name);
+    this.attribLocations_[infoA.name] =
+      gl.getAttribLocation(this.program_, infoA.name);
   }
 };
 
@@ -130,7 +121,12 @@ Renderer.prototype.finishInit = function () {
 };
 
 
-Renderer.prototype.createDxtTexture = function (dxtData, width, height, format) {
+Renderer.prototype.createDxtTexture = function (
+  dxtData
+, width
+, height
+, format
+) {
   var gl = this.gl_;
   var tex = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, tex);
@@ -242,20 +238,7 @@ Renderer.fragmentShaderSource_ = [
 // -------------------------------------------------------------------------------------------------
 
 
-function WebGLRender(canvasElement, options) {
-  var checkForCanvasElement = function checkForCanvasElement() {
-    if (!canvasElement) {
-      throw new Error('Needs a canvas element')
-    }
-
-    this.displayWidth = canvasElement.offsetWidth
-    this.displayHeight = canvasElement.offsetHeight
-
-    if (!this.displayWidth || !this.displayHeight) {
-      throw new Error('Unable to get display size canvas must have dimensions')
-    }
-  }
-
+function WebGLRender(canvasElement) {
   this.options = {
 //    alpha: this.transparent,
 //    antialias: !!antialias,
@@ -270,7 +253,8 @@ function WebGLRender(canvasElement, options) {
       this.ctx = canvasElement.getContext('webgl', this.options)
     } catch (e2) {
       // fail, not able to get a context
-      throw new Error('This browser does not support webGL. Try using the canvas renderer' + this)
+      throw new Error('This browser does not support webGL. Try using the' +
+        'canvas renderer' + this)
     }
   }
 
@@ -332,9 +316,19 @@ WebGLRender.prototype.setup = function () {
   this.vertexBuff = this.ctx.createBuffer()
   this.ctx.bindBuffer(this.ctx.ARRAY_BUFFER, this.vertexBuff)
   this.ctx.bufferData(
-    this.ctx.ARRAY_BUFFER,
-    new Float32Array([-1 / 8, 1 / 6, -1 / 8, -1 / 6, 1 / 8, -1 / 6, 1 / 8, 1 / 6]),
-    this.ctx.STATIC_DRAW)
+    this.ctx.ARRAY_BUFFER
+  , new Float32Array([
+      -1 / 8
+    , 1 / 6
+    , -1 / 8
+    , -1 / 6
+    , 1 / 8
+    , -1 / 6
+    , 1 / 8
+    , 1 / 6
+    ])
+  , this.ctx.STATIC_DRAW
+  )
 
   this.texBuff = this.ctx.createBuffer()
   this.ctx.bindBuffer(this.ctx.ARRAY_BUFFER, this.texBuff)
@@ -358,15 +352,43 @@ WebGLRender.prototype.draw = function (image) {
 WebGLRender.prototype.drawOld = function (image) {
   var tex = this.ctx.createTexture()
   this.ctx.bindTexture(this.ctx.TEXTURE_2D, tex)
-  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MIN_FILTER, this.ctx.NEAREST)
-  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MAG_FILTER, this.ctx.NEAREST)
-//  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MIN_FILTER, this.ctx.LINEAR);
+  this.ctx.texParameteri(
+    this.ctx.TEXTURE_2D
+  , this.ctx.TEXTURE_MIN_FILTER
+  , this.ctx.NEAREST
+  )
+  this.ctx.texParameteri(
+    this.ctx.TEXTURE_2D
+  , this.ctx.TEXTURE_MAG_FILTER
+  , this.ctx.NEAREST
+  )
+/*
+  this.ctx.texParameteri(
+    this.ctx.TEXTURE_2D
+  , this.ctx.TEXTURE_MIN_FILTER
+  , this.ctx.LINEAR
+  )
 
-//  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_WRAP_S, this.ctx.CLAMP_TO_EDGE);
-//  this.ctx.texParameteri(this.ctx.TEXTURE_2D, this.ctx.TEXTURE_WRAP_T, this.ctx.CLAMP_TO_EDGE);
-
+  this.ctx.texParameteri(
+    this.ctx.TEXTURE_2D
+  , this.ctx.TEXTURE_WRAP_S
+  , this.ctx.CLAMP_TO_EDGE
+  )
+  this.ctx.texParameteri(
+    this.ctx.TEXTURE_2D
+  , this.ctx.TEXTURE_WRAP_T
+  , this.ctx.CLAMP_TO_EDGE
+  )
+*/
   this.ctx.generateMipmap(this.ctx.TEXTURE_2D)
-  this.ctx.texImage2D(this.ctx.TEXTURE_2D, 0, this.ctx.RGBA, this.ctx.RGBA, this.ctx.UNSIGNED_BYTE, image)
+  this.ctx.texImage2D(
+    this.ctx.TEXTURE_2D
+  , 0
+  , this.ctx.RGBA
+  , this.ctx.RGBA
+  , this.ctx.UNSIGNED_BYTE
+  , image
+  )
 
   this.ctx.enableVertexAttribArray(this.vloc)
   this.ctx.bindBuffer(this.ctx.ARRAY_BUFFER, this.vertexBuff)
@@ -440,7 +462,7 @@ FastImageRender.prototype.load = function (url, type) {
     var texture = null
     if (type) {
       texture = this.render.ctx.createTexture();
-      this.textureLoader.loadEx(url, texture, true, function (tex) {
+      this.textureLoader.loadEx(url, texture, true, function () {
         if (typeof(that.onLoad) === 'function') {
           that.onLoad(texture)
         }

@@ -1,6 +1,10 @@
 var _ = require('lodash')
 
-module.exports = function LanguageServiceFactory(SettingsService, $q, gettextCatalog) {
+module.exports = function LanguageServiceFactory(
+  SettingsService
+, $q
+, gettextCatalog
+) {
   var LanguageService = {}
 
   LanguageService.supportedLanguages = [
@@ -10,7 +14,10 @@ module.exports = function LanguageServiceFactory(SettingsService, $q, gettextCat
 
   var browserLocale = navigator.language || navigator.userLanguage || 'en-US'
   var browserLanguage = browserLocale.substring(0, 2)
-  var detectedLanguage = _.some(LanguageService.supportedLanguages, {code: browserLanguage}) ? browserLanguage : 'en'
+  var detectedLanguage =
+    _.some(LanguageService.supportedLanguages, {code: browserLanguage}) ?
+      browserLanguage :
+      'en'
   var defaultLanguage = 'ja'
   LanguageService.detectedLanguage = defaultLanguage
   LanguageService.selectedLanguage = null
@@ -29,9 +36,10 @@ module.exports = function LanguageServiceFactory(SettingsService, $q, gettextCat
         if (data) {
           deferred.resolve(data)
         } else {
-          LanguageService.setSelectedLanguage(LanguageService.detectedLanguage).then(function () {
-            deferred.resolve(LanguageService.detectedLanguage)
-          })
+          LanguageService.setSelectedLanguage(LanguageService.detectedLanguage)
+            .then(function () {
+              deferred.resolve(LanguageService.detectedLanguage)
+            })
         }
       })
     }

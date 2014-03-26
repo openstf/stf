@@ -5,7 +5,7 @@ module.exports = function refreshPageDirective() {
     scope: {
     },
     template: require('./refresh-page.jade'),
-    link: function (scope, element, attrs) {
+    link: function () {
       // TODO: reload with $route.reload()
     }
   }

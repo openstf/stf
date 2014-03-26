@@ -7,14 +7,22 @@ var frame = {
   current: 0
 }
 
-var imageRender = new FastImageRender(canvasElement, {render: 'canvas', textureLoader: false})
+var imageRender = new FastImageRender(
+  canvasElement
+, {
+    render: 'canvas'
+  , textureLoader: false
+  }
+)
 
 function loadNext() {
   console.time('load')
 //  var width = 300
 //  var height = 300
-  //  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' + Date.now()
-  //  loader.src = 'http://lorempixel.com/' + width + '/' + height + '/abstract/Frame-' + frames.current + '/?' + Date.now()
+  //  loader.src = 'http://placehold.it/' + width + 'x' + height + '?' +
+  //    Date.now()
+  //  loader.src = 'http://lorempixel.com/' + width + '/' + height +
+  //    '/abstract/Frame-' + frames.current + '/?' + Date.now()
   imageRender.load('images/screen.jpg?' + Date.now())
 //  imageRender.load('images/screen.jpg')
 }
@@ -39,4 +47,3 @@ imageRender.onLoad = function (image) {
     totalTimeElement.innerHTML = totalTime / 1000 + ' seconds'
   }
 }
-

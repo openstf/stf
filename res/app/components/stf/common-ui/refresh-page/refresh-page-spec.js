@@ -11,9 +11,9 @@ describe('refreshPage', function () {
 
   it('should ...', function () {
 
-    /* 
-     To test your directive, you need to create some html that would use your directive,
-     send that through compile() then compare the results.
+    /*
+     To test your directive, you need to create some html that would use your
+     directive, send that through compile() then compare the results.
 
      var element = compile('<div refresh-page name="name">hi</div>')(scope);
      expect(element.text()).toBe('hello, world');

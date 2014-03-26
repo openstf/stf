@@ -8,7 +8,8 @@ module.exports = function ($scope, SettingsService) {
 
 //  $scope.resetSettings = function () {
 //    var title = 'Reset Settings';
-//    var msg = 'Are you sure you want to revert all settings to their default values?';
+//    var msg = 'Are you sure you want to revert all settings to ' +
+//      'their default values?';
 //    var btns = [
 //      {result: 'cancel', label: 'Cancel'},
 //      {result: 'ok', label: 'OK', cssClass: 'btn-primary'}

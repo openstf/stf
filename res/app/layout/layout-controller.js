@@ -1,2 +1,2 @@
-module.exports = function LayoutCtrl($scope) {
+module.exports = function LayoutCtrl() {
 }

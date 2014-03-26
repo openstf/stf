@@ -4,7 +4,7 @@
   "freeze": true,
   "immed": true,
   "latedef": "nofunc",
-  "newcap": true,
+  "newcap": false,
   "noarg": true,
   "noempty": true,
   "nonbsp": true,
@@ -24,6 +24,7 @@
     "beforeEach": false,
     "after": false,
     "afterEach": false,
+    "expect": true,
     "inject": false,
     "angular": false
   }

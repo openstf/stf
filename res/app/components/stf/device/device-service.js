@@ -1,6 +1,5 @@
 var oboe = require('oboe')
 var _ = require('lodash')
-var Promise = require('bluebird')
 
 module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
   var deviceService = {}

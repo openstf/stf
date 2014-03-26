@@ -1,10 +1,11 @@
 var Promise = require('bluebird')
+var uuid = require('node-uuid')
 
 module.exports = function TransactionServiceFactory(socket) {
   var transactionService = {}
 
   function createChannel() {
-    return 'tx' + Date.now() // @todo UUID
+    return 'tx.' + uuid.v4()
   }
 
   function Transaction(devices) {

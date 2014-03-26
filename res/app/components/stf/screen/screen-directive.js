@@ -191,7 +191,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
 
       scope.$watch('device.using', function(using) {
         if (using) {
-          //on()
+          on()
         }
         else {
           off()

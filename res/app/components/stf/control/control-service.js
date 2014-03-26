@@ -99,30 +99,24 @@ module.exports = function ControlServiceFactory(
         , method: 'POST'
         , file: files[0]
         })
-        .success(function(data) {
-          console.log('success', arguments)
-          var app = data.manifest.application
+        .then(function(response) {
+          var manifest = response.data.manifest
+          var app = manifest.application
           var tx = TransactionService.create(devices)
           var params = {
-            url: data.url
+            url: response.data.url
           }
           if (app.launcherActivities.length) {
             var activity = app.launcherActivities[0]
             params.launchActivity = {
               action: 'android.intent.action.MAIN'
-            , component: data.manifest.package + '/' + activity.name
+            , component: manifest.package + '/' + activity.name
             , category: ['android.intent.category.LAUNCHER']
             , flags: 0x10200000
             }
           }
           socket.emit('device.install', channel, tx.channel, params)
           return tx
-        })
-        .error(function() {
-          console.log('error', arguments)
-        })
-        .progress(function() {
-          console.log('progress', arguments)
         })
     }
   }

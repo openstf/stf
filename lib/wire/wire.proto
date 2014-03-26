@@ -44,6 +44,7 @@ message TransactionProgressMessage {
   required string serial = 1;
   required uint32 seq = 2;
   optional string data = 3;
+  optional uint32 progress = 4 [default = 0];
 }
 
 message TransactionDoneMessage {

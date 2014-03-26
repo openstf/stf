@@ -58,6 +58,7 @@ module.exports = function TransactionServiceFactory(socket) {
 
     resolver.promise.finally(function() {
       result.settled = true
+      result.progress = 100
     })
 
     function readQueue() {
@@ -72,19 +73,24 @@ module.exports = function TransactionServiceFactory(socket) {
 
           if (message.success) {
             if (message.data) {
-              result.data[seq] = message.data
+              result.lastData = result.data[seq] = message.data
             }
           }
           else {
-            result.error = message.data
+            result.lastData = result.error = message.data
           }
 
           resolver.resolve(result)
           return
         }
+        else {
+          if (message.progress) {
+            result.progress = message.progress
+          }
+        }
 
         foundAny = true
-        result.data[seq++] = message.data
+        result.lastData = result.data[seq++] = message.data
       }
 
       if (foundAny) {
@@ -111,8 +117,10 @@ module.exports = function TransactionServiceFactory(socket) {
     this.device = device
     this.settled = false
     this.success = false
+    this.progress = 0
     this.error = null
     this.data = []
+    this.lastData = null
   }
 
   transactionService.create = function(devices) {

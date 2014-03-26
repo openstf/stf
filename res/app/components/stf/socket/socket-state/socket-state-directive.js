@@ -72,22 +72,22 @@ module.exports = function SocketStateDirectiveFactory(socket, growl, gettext) {
           } else {
             switch (newValue) {
               case 'disconnect':
-                growl.error('<h4>WebSocket</h4>' + gettext('Disconnected.'), {ttl: 2000})
+                growl.error('<h4>WebSocket</h4>' + gettext('Disconnected.<br />Socket connection was lost, try again reloading the page.'), {ttl: -1})
                 break;
               case 'connect_failed':
-                growl.error('<h4>WebSocket</h4>' + gettext('Error while connecting.'), {ttl: 2000})
+                growl.error('<h4>WebSocket</h4>' + gettext('Error while connecting.'), {ttl: -1})
                 break;
               case 'error':
-                growl.error('<h4>WebSocket</h4>' + gettext('Error.'), {ttl: 2000})
+                growl.error('<h4>WebSocket</h4>' + gettext('Error.'), {ttl: -1})
                 break;
               case 'reconnect_failed':
-                growl.error('<h4>WebSocket</h4>' + gettext('Error while reconnecting.'), {ttl: 2000})
+                growl.error('<h4>WebSocket</h4>' + gettext('Error while reconnecting.'), {ttl: -1})
                 break;
               case 'reconnect':
-                growl.success('<h4>WebSocket</h4>' + gettext('Reconnected successfully.'), {ttl: 10000})
+                growl.success('<h4>WebSocket</h4>' + gettext('Reconnected successfully.'), {ttl: -1})
                 break;
               case 'reconnecting':
-                growl.error('<h4>WebSocket</h4>' + gettext('Reconnecting...') + '<refresh-page></refresh-page>', {ttl: 10000})
+                growl.error('<h4>WebSocket</h4>' + gettext('Reconnecting...') + '<refresh-page></refresh-page>', {ttl: -1})
                 break;
             }
           }

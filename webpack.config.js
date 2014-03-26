@@ -50,6 +50,7 @@ module.exports = {
     , { test: /angular-animate\.js/, loader: 'imports?angular=angular'}
     , { test: /angular-growl\.js/, loader: 'imports?angular=angular'}
     , { test: /oboe-browser\.js/, loader: 'imports?define=>false!exports?oboe'}
+    , { test: /uuid\.js/, loader: 'imports?require=>false'}
     , { test: /localforage\.js/, loader: 'script'}
     , { test: /ui-bootstrap-tpls\.js/, loader: 'script'}
     , { test: /dialogs\.js/, loader: 'script'}

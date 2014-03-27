@@ -6,7 +6,6 @@ module.exports = function DeviceControlCtrl(
 , GroupService
 , ControlService
 ) {
-  $scope.control = null
   $scope.device = null
   $scope.control = null
   $scope.installation = null

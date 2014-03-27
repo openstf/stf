@@ -2,23 +2,41 @@ module.exports = function ControlPanesCtrl($scope, gettext) {
 
   var sharedTabs = [
     {
-      title: gettext('OneShared'),
-      icon: 'fa-laptop',
+      title: gettext('Screenshots'),
+      icon: 'fa-camera',
+      templateUrl: 'settings/notifications/notifications.jade',
+      filters: ['native', 'web']
+    },
+    {
+      title: gettext('Inspect'),
+      icon: 'fa-pencil',
       templateUrl: 'settings/notifications/notifications.jade',
       filters: ['web']
     },
     {
-      title: gettext('TwoShared'),
-      icon: 'fa-pencil',
-      templateUrl: 'settings/local/local-settings.jade',
+      title: gettext('Resources'),
+      icon: 'fa-globe',
+      templateUrl: 'settings/notifications/notifications.jade',
+      filters: ['web']
+    },
+    {
+      title: gettext('CPU'),
+      icon: 'fa-bar-chart-o',
+      templateUrl: 'settings/notifications/notifications.jade',
+      filters: ['native', 'web']
+    },
+    {
+      title: gettext('Advanced'),
+      icon: 'fa-bolt',
+      templateUrl: 'settings/notifications/notifications.jade',
       filters: ['native', 'web']
     }
   ]
 
   $scope.topTabs = [
     {
-      title: gettext('1stTop'),
-      icon: 'fa-laptop',
+      title: gettext('Dashboard'),
+      icon: 'fa-dashboard fa-fw',
       templateUrl: 'settings/notifications/notifications.jade',
       filters: ['native', 'web']
     }
@@ -26,16 +44,10 @@ module.exports = function ControlPanesCtrl($scope, gettext) {
 
   $scope.belowTabs = [
     {
-      title: gettext('1stBelow'),
-      icon: 'fa-pencil',
+      title: gettext('Logs'),
+      icon: 'fa-list-alt',
       templateUrl: 'settings/local/local-settings.jade',
       filters: ['native', 'web']
-    },
-    {
-      title: gettext('2ndBelow'),
-      icon: 'fa-rocket',
-      templateUrl: 'settings/language/language.jade',
-      filters: ['native']
     }
   ].concat(angular.copy(sharedTabs))
 

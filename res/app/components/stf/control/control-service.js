@@ -7,7 +7,7 @@ module.exports = function ControlServiceFactory(
   var controlService = {
   }
 
-  function ControlService(devices, channel) {
+  function ControlService(target, channel) {
     var keyCodes = {
       8: 8 // backspace
     , 13: 13 // enter
@@ -79,7 +79,7 @@ module.exports = function ControlServiceFactory(
     }
 
     this.shell = function(command) {
-      var tx = TransactionService.create(devices)
+      var tx = TransactionService.create(target)
       socket.emit('shell.command', channel, tx.channel, {
         command: command
       , timeout: 10000
@@ -88,7 +88,7 @@ module.exports = function ControlServiceFactory(
     }
 
     this.identify = function() {
-      var tx = TransactionService.create(devices)
+      var tx = TransactionService.create(target)
       socket.emit('device.identify', channel, tx.channel)
       return tx
     }
@@ -102,7 +102,7 @@ module.exports = function ControlServiceFactory(
         .then(function(response) {
           var manifest = response.data.manifest
           var app = manifest.application
-          var tx = TransactionService.create(devices)
+          var tx = TransactionService.create(target)
           var params = {
             url: response.data.url
           }
@@ -121,12 +121,8 @@ module.exports = function ControlServiceFactory(
     }
   }
 
-  controlService.forOne = function(device, channel) {
-    return new ControlService([device], channel)
-  }
-
-  controlService.forMany = function(devices, channel) {
-    return new ControlService(devices, channel)
+  controlService.create = function(target, channel) {
+    return new ControlService(target, channel)
   }
 
   return controlService

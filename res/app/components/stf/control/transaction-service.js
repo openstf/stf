@@ -8,7 +8,7 @@ module.exports = function TransactionServiceFactory(socket) {
     return 'tx.' + uuid.v4()
   }
 
-  function Transaction(devices) {
+  function MultiDeviceTransaction(devices) {
     var pending = Object.create(null)
       , results = []
       , channel = createChannel()
@@ -46,6 +46,43 @@ module.exports = function TransactionServiceFactory(socket) {
       })
       .then(function() {
         return results
+      })
+  }
+
+  function SingleDeviceTransaction(device) {
+    var pending = new PendingTransactionResult(device)
+      , result = pending.result
+      , channel = createChannel()
+
+    function doneListener(someChannel, data) {
+      if (someChannel === channel) {
+        pending.done(data)
+      }
+    }
+
+    function progressListener(someChannel, data) {
+      if (someChannel === channel) {
+        pending.progress(data)
+      }
+    }
+
+    socket.on('tx.done', doneListener)
+    socket.on('tx.progress', progressListener)
+
+    this.channel = channel
+    this.result = result
+    this.results = [result]
+    this.promise = pending.promise
+      .finally(function() {
+        socket.removeListener('tx.done', doneListener)
+        socket.removeListener('tx.progress', progressListener)
+        socket.emit('tx.cleanup', channel)
+      })
+      .progressed(function() {
+        return result
+      })
+      .then(function() {
+        return result
       })
   }
 
@@ -123,8 +160,13 @@ module.exports = function TransactionServiceFactory(socket) {
     this.lastData = null
   }
 
-  transactionService.create = function(devices) {
-    return new Transaction(devices)
+  transactionService.create = function(target) {
+    if (Array.isArray(target)) {
+      return new MultiDeviceTransaction(target)
+    }
+    else {
+      return new SingleDeviceTransaction(target)
+    }
   }
 
   return transactionService

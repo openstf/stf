@@ -15,14 +15,14 @@ module.exports = function DeviceControlCtrl(
     return $scope.control.install($files)
       .then(function(tx) {
         return tx.promise
-          .progressed(function(results) {
+          .progressed(function(result) {
             $scope.$apply(function() {
-              $scope.installation = results[0]
+              $scope.installation = result
             })
           })
-          .then(function(results) {
+          .then(function(result) {
             $scope.$apply(function() {
-              $scope.installation = results[0]
+              $scope.installation = result
             })
           })
       })
@@ -34,7 +34,7 @@ module.exports = function DeviceControlCtrl(
     })
     .then(function(device) {
       $scope.device = device
-      $scope.control = ControlService.forOne(device, device.channel)
+      $scope.control = ControlService.create(device, device.channel)
       return device
     })
     .catch(function() {

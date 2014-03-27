@@ -5,21 +5,7 @@ div(pane, pane-anchor='west', pane-size='30% + 2px', pane-min='200px', pane-max=
     //include control-screen
 div(pane, pane-anchor='south', pane-size='30% + 2px', pane-handle='4').pane-bottom-p
   .widget-container.fluid-height
-    .heading-for-tabs.tabs
-      tabset(direction='"below"')
-        tab(ng-repeat='tab in tabsBottom', active='tab.active')
-          tab-heading
-            i.fa(ng-class='tab.icon')
-            | {{tab.title|translate}}
-          div(ng-if='tab.active')
-            div(ng-include='tab.templateUrl')
+    nice-tabs(key='ControlBottomTabs', direction='below', tabs='belowTabs', filter='$root.platform')
 div(pane, pane-anchor='')
   .widget-container.fluid-height
-    .heading-for-tabs.tabs
-      tabset
-        tab(ng-repeat='tab in tabsTop', active='tab.active')
-          tab-heading
-            i.fa(ng-class='tab.icon')
-            | {{tab.title|translate}}
-          div(ng-if='tab.active')
-            div(ng-include='tab.templateUrl')
+    nice-tabs(key='ControlBottomTabs', tabs='topTabs', filter='$root.platform')

@@ -4,6 +4,7 @@ require('fa-borderlayout/build-0.3.1/stf-style.css')
 
 
 module.exports = angular.module('control-panes', [
+  require('stf/common-ui/nice-tabs').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/control-panes', {

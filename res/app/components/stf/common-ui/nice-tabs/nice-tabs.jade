@@ -1,0 +1,8 @@
+.heading-for-tabs.tabs
+  tabset
+    tab(ng-repeat='tab in tabs', active='tab.active', ng-hide='!tabFound(tab)')
+      tab-heading
+        i.fa(ng-class='tab.icon')
+        span {{tab.title}}
+      div(ng-if='tab.active')
+        div(ng-include='tab.templateUrl')

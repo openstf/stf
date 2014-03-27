@@ -1,27 +1,18 @@
 var _ = require('lodash')
-
-// TODO: Implement this
 var supportedLanguages = require('./../../../common/lang/langs.json')
 
-
-module.exports = function LanguageServiceFactory(
-  SettingsService
-, $q
-, gettextCatalog
-) {
+module.exports = function (SettingsService, $q, gettextCatalog) {
   var LanguageService = {}
 
-  LanguageService.supportedLanguages = [
-    {code: 'en', name: 'English'},
-    {code: 'ja', name: '日本語'}
-  ]
+  LanguageService.supportedLanguages = supportedLanguages
 
   var browserLocale = navigator.language || navigator.userLanguage || 'en-US'
   var browserLanguage = browserLocale.substring(0, 2)
-  var detectedLanguage =
-    _.some(LanguageService.supportedLanguages, {code: browserLanguage}) ?
-      browserLanguage :
-      'en'
+  var isLanguageMatched = _.some(supportedLanguages, function (value, key) {
+    return key === browserLanguage
+  })
+  var detectedLanguage = isLanguageMatched ? browserLanguage : 'en'
+
   var defaultLanguage = 'ja'
   LanguageService.detectedLanguage = defaultLanguage
   LanguageService.selectedLanguage = null

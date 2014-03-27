@@ -5,4 +5,4 @@
   .widget-content.padded
     .form-horizontal
       .form-group
-        select.form-control(ng-model='language', ng-options='l.code as l.name for l in supportedLanguages')
+        select.form-control(ng-model='language', ng-options='key as value for (key, value) in supportedLanguages')

@@ -37,7 +37,7 @@ module.exports = function ControlPanesCtrl($scope, gettext) {
     {
       title: gettext('Dashboard'),
       icon: 'fa-dashboard fa-fw',
-      templateUrl: 'settings/notifications/notifications.jade',
+      templateUrl: 'control-panes/dashboard/dashboard.jade',
       filters: ['native', 'web']
     }
   ].concat(angular.copy(sharedTabs))

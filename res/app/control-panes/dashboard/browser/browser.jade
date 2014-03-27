@@ -1,0 +1,21 @@
+.widget-container.fluid-height
+  .heading
+    i.fa.fa-gear
+    span(translate) Browser
+    button.btn.btn-xs.btn-danger-outline.pull-right(ng-click='clearSettings()', title='{{"Reset all browser settings"|translate}}')
+      i.fa.fa-trash-o
+      span(translate) Reset
+    button.btn.btn-xs.btn-primary-outline.pull-right(ng-click='relaunch()', title='{{"Relaunch the browser"|translate}}')
+      i.fa.fa-refresh
+      span(translate) Relaunch
+  .widget-content.padded
+    .btn-group
+      button.btn.btn-default-outline.dropdown-toggle
+        //img(ng-src='/img/platforms/{{$root.browser}}.png').browser-icon
+        //| {{$root.browser | browserName}}
+        span.caret
+      ul.dropdown-menu
+        li(ng-repeat='b in browsers')
+          a(ng-click='selectBrowser(b)').pointer
+            //img(ng-src='/img/platforms/{{b}}.png').browser-icon.pointer
+            //| {{ b | browserName }}

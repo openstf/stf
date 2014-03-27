@@ -1,0 +1,15 @@
+.widget-container.fluid-height.stf-shell(ng-controller='ShellCtrl')
+  .heading
+    i.fa.fa-terminal
+    span(translate) Shell
+  .widget-content.padded
+    a(href='https://github.com/jackpal/Android-Terminal-Emulator/wiki/Android-Shell-Command-Reference', target='_href') Reference
+    .input-group.form-inline
+      input(type=text, ng-model='command').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='run(command)')
+          i.fa.fa-play
+    table
+      tr(ng-repeat='result in results track by result.device.serial')
+        td {{ result.device.serial }}
+        td {{ result.data }}

@@ -1,0 +1,17 @@
+.widget-container.fluid-height
+  .heading
+    i.fa.fa-gear
+    span(translate) Keyboard Input
+    button(title='{{"Switch Charset"|translate}}', ng-click='press("KEYCODE_SWITCH_CHARSET")').btn.btn-sm.btn-primary-outline.pull-right
+      span(translate)  Aa
+    button(tooltip='{{"Power Button"|translate}}', ng-click='press("KEYCODE_POWER")').btn.btn-sm.btn-danger-outline.pull-right
+      i.fa.fa-power-off
+
+  .widget-content.padded
+    .input-group.form-inline
+      textarea.form-control(rows='1', ng-model='textType', ng-keydown='textTypeKeydown($event)'
+      ng-focus='$parent.textTypeIsFocused = true', ng-blur='$parent.textTypeIsFocused = false',
+      title='{{"Types text. Only ASCII characters are supported."|translate}}')
+      span.input-group-btn
+        button(title='{{"Type text"|translate', type='button', ng-click='type(textType)', ng-disabled='!textType').btn.btn-primary-outline
+          i.fa.fa-keyboard-o

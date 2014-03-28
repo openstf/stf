@@ -1,0 +1,32 @@
+.widget-container.fluid-height(ng-controller='ScreenshotsCtrl')
+  .heading
+    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShot()', title='{{"Take Screenshot"|translate}}')
+      i.fa.fa-camera
+      span(translate) Screenshot
+    button.btn.btn-sm.btn-info-outline(ng-click='takePageShot()', title='{{"Take Pageshot (Needs WebView running)"|translate}}',
+    ng-if='$root.platform == "web" && $root.browser == "webview"')
+      i.fa.fa-camera-retro(translate)
+      span(translate) Pageshot
+
+    clear-button(ng-click='clear()', ng-disabled='!screenshots.length')
+
+    .btn-group.pull-right
+      button(type='button', ng-model='shotSize', btn-radio="'small'", title='{{"Low"|translate}}').btn.btn-sm.btn-primary-outline
+        span.fa.fa-fw(translate) L
+      button(type='button', ng-model='shotSize', btn-radio="'medium'", title='{{"Medium"|translate}}').btn.btn-sm.btn-primary-outline
+        span.fa.fa-fw(translate) M
+      button(type='button', ng-model='shotSize', btn-radio="'large'", title='{{"High"|translate}}').btn.btn-sm.btn-primary-outline
+        span.fa.fa-fw(translate) H
+      button(type='button', ng-model='shotSize', btn-radio="'original'", title='{{"Original"|translate}}').btn.btn-sm.btn-primary-outline
+        i.fa.fa-picture-o.fa-fw
+
+  .widget-content.padded
+    nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshots.length')
+    ul.screenshots-icon-view.clear-fix
+      li(ng-repeat='shot in screenshots').cursor-select
+        h4 {{ shot.device.capabilities.info.name.id || shot.device.capabilities.model }}
+        h5 {{ shot.value.date | date:'yyyy/MM/dd HH:mm:ss'  }}
+        a(ng-href='{{ shot.value.screenshotUrl }}', target='_blank')
+          img(ng-src='{{ shot.value.screenshotUrl + shotSizeUrlParameter() }}')
+
+    .clearfix

@@ -1,0 +1,90 @@
+.stf-run.js(ng-if='$root.platform == "web" && $root.browser == "webview"')
+  .widget-container.fluid-height(ng-controller='InjectJavaScriptCtrl')
+    .heading
+      i.fa.fa-code
+      span(translate) Run JavaScript
+      //form.form-inline
+      .btn-group
+        //button(ng-disabled='true').btn.btn-sm.btn-default-outline
+          i.fa.fa-upload
+          | Load File...
+        script(type='text/ng-template', id='saveSnippetModal.html')
+          .modal-header
+            h2 Save snippet
+          .modal-body
+            p Save as:
+              input(type='text', ng-model='result', required, autofocus, ng-autoselect='true')
+          .modal-footer
+            button(ng-click='$dismiss("cancel")').btn.btn-default Cancel
+            button(ng-click='$close(result)', ng-disabled='!result').btn.btn-primary Save
+        button(ng-click='saveDialog()', ng-disabled='!snippet.editorText').btn.btn-sm.btn-default-outline
+          i.fa.fa-save
+          span(translate)  Save...
+        button(type='button',
+        ng-disabled='!hasSnippets()').btn.btn-sm.btn-default-outline.dropdown-toggle
+          span.caret
+        ul.dropdown-menu.pull-right
+          li(ng-repeat='snip in snippets')
+            a(ng-click='openSnippet(snip)').btn-link {{snip.name}}
+          li.divider
+          li
+            a(ng-click='clearSnippets()', type='button', translate).btn-link Clear
+      //span.form-inline.form-group.unselectable
+        .checkbox
+          label
+            input(type='checkbox', ng-model='snippet.safe')
+            span(tooltip='Execute code in a safe way') Safe
+        span
+        .checkbox
+          label
+            input(type='checkbox', nxg-model='snippet.evaluate')
+            span(tooltip='Evaluate code') Evaluate
+        .checkbox
+          label
+            input(type='checkbox', ng-model='snippet.async')
+            span(tooltip='Execute code in an async way') Async
+        .checkbox
+          label
+            input(type='checkbox', ng-model='snippet.scriptTag', ng-disabled='true')
+            span(tooltip='{{scriptTagPopover}}') Script tag
+      .btn-group.pull-right
+        button.btn.btn-sm.btn-primary-outline(ng-click='injectJS()', ng-disabled='!snippet.editorText')
+          i.fa.fa-play
+          span(translate)  Run
+    .widget-content.padded
+      p
+        div(ui-ace="aceOptions", scope-instance='editorInstance', ng-model='snippet.editorText').stf-ace-editor
+      div(ng-controller='ReturnJavaScriptCtrl')
+        tabset.unselectable(ng-show='results.length')
+          tab(heading='Results')
+            table.table.table-hover(ng-table='tableParams').selectable
+              tr(ng-repeat='result in $data')
+                td(width='30%', title="'Device'", sortable='deviceName')
+                  img(ng-src='{{ result.deviceImage }}').device-icon-smallest
+                  span {{ result.deviceName }}
+                td(width='30%', title="'Returns'", sortable='prettyValue')
+                  div(ng-show='result.isObject')
+                    //ace-json-viewer(ng-model='result.prettyValue')
+                    //div(ui-ace="miniAceOptions", ng-model='result.prettyValue').stf-mini-ace-viewer
+                    code.value-next-to-progress {{ result.prettyValue }}
+                  div(ng-hide='result.isObject')
+                    .value-next-to-progress {{ result.value }}
+                td(width='40%', ng-show='result.isSpecialValue')
+                  div(ng-show='result.isNumber')
+                    //progressbar.table-progress(value='result.percentage', max='100')
+                  div(ng-show='result.isObject')
+                    div.label.label-info Object
+                  div(ng-show='result.isFunction')
+                    div.label.label-info Function
+                  div(ng-show='result.isArray')
+                    div.label.label-info Array
+                  div(ng-show='result.isNull')
+                    div.label Null
+                  div(ng-show='result.isBoolean')
+                    div.label(style='width=100%', ng-class="{'label-success': result.value, 'label-important': !result.value}")
+                      i.fa(ng-class="{'fa-check': result.value, 'fa-times-circle': !result.value }")
+                      span {{ result.value.toString() }}
+                      //span {{ result.value.toString() | capitalize }}
+          tab(heading='Raw')
+            pre.selectable {{results | json}}
+          clear-button(ng-click='clear()', ng-disabled='!results.length')

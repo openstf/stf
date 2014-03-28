@@ -1,9 +1,11 @@
-#logcatSingle {
+.stf-logs {
+
+  #logcatSingle {
     height: 600px;
     overflow-y: auto;
-}
+  }
 
-#logcatParent {
+  #logcatParent {
     background: #fff;
     position: absolute;
     top: 69px;
@@ -13,83 +15,85 @@
     overflow-y: auto;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     /*z-index: -10;*/
-}
+  }
 
-#logcatTable {
+  #logcatTable {
     table-layout: fixed !important;
-}
+  }
 
-.logcat-filters-table {
+  .logcat-filters-table {
     margin-bottom: 0;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.logcat-filters-table .btn {
+  .logcat-filters-table .btn {
     margin: 0;
-}
+  }
 
-.logcat-filters-table thead>tr>th,
-.logcat-filters-table tbody>tr>th,
-.logcat-filters-table tfoot>tr>th,
-.logcat-filters-table thead>tr>td,
-.logcat-filters-table tbody>tr>td,
-.logcat-filters-table tfoot>tr>td {
+  .logcat-filters-table thead > tr > th,
+  .logcat-filters-table tbody > tr > th,
+  .logcat-filters-table tfoot > tr > th,
+  .logcat-filters-table thead > tr > td,
+  .logcat-filters-table tbody > tr > td,
+  .logcat-filters-table tfoot > tr > td {
     border-top: none;
-}
+  }
 
-#logcatBody tr {
+  #logcatBody tr {
     border-bottom: 1px solid rgb(240, 240, 240);
-}
+  }
 
-#logcatBody td {
+  #logcatBody td {
     padding-left: 5px;
     padding-right: 5px;
-}
+  }
 
-.console-message-text {
+  .console-message-text {
     font-size: 11px !important;
     font-family: Menlo, monospace;
     white-space: pre-wrap;
-}
+  }
 
-.console-message-text td {
+  .console-message-text td {
     /*color: rgb(48, 57, 66);*/
-}
+  }
 
-/**
-  Logging colors
-*/
+  /**
+    Logging colors
+  */
 
-.log-unknown {
+  .log-unknown {
     color: bisque;
-}
+  }
 
-.log-default, .log-silent {
+  .log-default, .log-silent {
     color: darkolivegreen;
-}
+  }
 
-.log-verbose {
+  .log-verbose {
     color: blueviolet;
-}
+  }
 
-.log-debug {
+  .log-debug {
     color: rgb(48, 57, 66);
-}
+  }
 
-.log-info {
+  .log-info {
     color: blue;
-}
+  }
 
-.log-warn {
+  .log-warn {
     color: coral;
-}
+  }
 
-.log-error {
+  .log-error {
     color: red;
-}
+  }
 
-.log-fatal {
+  .log-fatal {
     color: darkcyan;
+  }
+
 }
 
 /*#logcatMax {*/

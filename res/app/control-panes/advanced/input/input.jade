@@ -1,0 +1,114 @@
+.widget-container.fluid-height(ng-controller='InputAdvancedCtrl')
+  .heading
+    i.fa.fa-gear
+    span(translate) Advanced Input
+  .widget-content.padded
+    div
+      h6(translate) Special Keys
+      div.special-keys-buttons
+        button(title='Power', ng-click='press("KEYCODE_POWER")').btn.btn-danger
+          i.fa.fa-power-off
+        button(title='Camera', ng-click='press("KEYCODE_CAMERA")').btn.btn-primary
+          i.fa.fa-camera
+        button(title='Switch Charset', ng-click='press("KEYCODE_SWITCH_CHARSET")').btn.btn-primary.btn-info
+          i.fa  Aa
+        button(title='Search', ng-click='press("KEYCODE_SEARCH")').btn.btn-primary
+          i.fa.fa-search
+
+        h6(translate) Volume
+        .btn-group
+          button(title='Mute', ng-click='press("KEYCODE_MUTE")').btn.btn-primary.btn-xs
+            i.fa.fa-volume-off
+          button(title='Volume Down', ng-click='press("KEYCODE_VOLUME_DOWN")').btn.btn-primary.btn-xs
+            i.fa.fa-volume-down
+          button(title='Volume Up', ng-click='press("KEYCODE_VOLUME_UP")').btn.btn-primary.btn-xs
+            i.fa.fa-volume-up
+
+        h6(translate) Media
+        .btn-group
+          button(title='Rewind', ng-click='press("KEYCODE_MEDIA_REWIND")').btn.btn-primary.btn-xs
+            i.fa.fa-fast-backward
+          button(title='Previous', ng-click='press("KEYCODE_MEDIA_PREVIOUS")').btn.btn-primary.btn-xs
+            i.fa.fa-step-backward
+          button(title='Play/Pause', ng-click='press("KEYCODE_MEDIA_PLAY_PAUSE")').btn.btn-primary.btn-xs
+            i.fa.fa-youtube-play
+          button(title='Stop', ng-click='press("KEYCODE_MEDIA_STOP")').btn.btn-primary.btn-xs
+            i.fa.fa-stop
+          button(title='Next', ng-click='press("KEYCODE_MEDIA_NEXT")').btn.btn-primary.btn-xs
+            i.fa.fa-step-forward
+          button(title='Fast Forward', ng-click='press("KEYCODE_MEDIA_FAST_FORWARD")').btn.btn-primary.btn-xs
+            i.fa.fa-fast-forward
+        //h6 Physical Media
+        //.btn-group
+          button(title='Play', ng-click='press("KEYCODE_MEDIA_PLAY")').btn.btn-primary.btn-xs
+            i.fa.fa-play
+          button(title='Pause', ng-click='press("KEYCODE_MEDIA_PAUSE")').btn.btn-primary.btn-xs
+            i.fa.fa-pause
+          button(title='Close', ng-click='press("KEYCODE_MEDIA_CLOSE")').btn.btn-primary.btn-xs
+            i.fa.fa-sign-out
+          button(title='Eject', ng-click='press("KEYCODE_MEDIA_EJECT")').btn.btn-primary.btn-xs
+            i.fa.fa-eject
+          button(title='Record', ng-click='press("KEYCODE_MEDIA_RECORD")').btn.btn-primary.btn-xs
+            i.fa.fa-circle
+      h6(translate) Other Keys
+      div.special-other-keys-buttons
+        button(ng-click='press("KEYCODE_APP_SWITCH")').btn.btn-default.btn-xs
+          i.fa  App Switch
+        button(ng-click='press("KEYCODE_MANNER_MODE")').btn.btn-default.btn-xs
+          i.fa  Manner Mode
+        button(ng-click='press("KEYCODE_3D_MODE")').btn.btn-default.btn-xs
+          i.fa  3D Mode
+        button(ng-click='press("KEYCODE_CONTACTS")').btn.btn-default.btn-xs
+          i.fa  Contacts
+        button(ng-click='press("KEYCODE_CALENDAR")').btn.btn-default.btn-xs
+          i.fa  Calendar
+        button(ng-click='press("KEYCODE_MUSIC")').btn.btn-default.btn-xs
+          i.fa  Music
+        button(ng-click='press("KEYCODE_CALCULATOR")').btn.btn-default.btn-xs
+          i.fa  Calculator
+        button(ng-click='press("KEYCODE_ZENKAKU_HANKAKU")').btn.btn-default.btn-xs
+          i.fa  全角／半角
+        button(ng-click='press("KEYCODE_EISU")').btn.btn-default.btn-xs
+          i.fa  英数
+        button(ng-click='press("KEYCODE_MUHENKAN")').btn.btn-default.btn-xs
+          i.fa  無変換
+        button(ng-click='press("KEYCODE_HENKAN")').btn.btn-default.btn-xs
+          i.fa  変換
+        button(ng-click='press("KEYCODE_KATAKANA_HIRAGANA")').btn.btn-default.btn-xs
+          i.fa  カタかナ／ひらがな
+        button(ng-click='press("KEYCODE_YEN")').btn.btn-default.btn-xs
+          i.fa  ¥
+        button(ng-click='press("KEYCODE_RO")').btn.btn-default.btn-xs
+          i.fa  RO
+        button(ng-click='press("KEYCODE_KANA")').btn.btn-default.btn-xs
+          i.fa  かな
+        button(ng-click='press("KEYCODE_ASSIST")').btn.btn-default.btn-xs
+          i.fa  Assist
+    //button(title='Switch Charset', ng-click='press(80)').btn.btn-primary
+        i.fa  TST
+    //button(ng-click='press("KEYCODE_CLEAR")').btn.btn-primary.btn-sm
+        i.fa  Clear
+    h6 D-pad
+    table.special-keys-dpad-buttons
+      tr
+        td
+        td
+          button(title='D-pad Up', ng-click='press("KEYCODE_DPAD_UP")').btn.btn-info.btn-xs
+            i.fa.fa-chevron-up
+        td
+      tr
+        td
+          button(title='D-pad Left', ng-click='press("KEYCODE_DPAD_LEFT")').btn.btn-info.btn-xs
+            i.fa.fa-chevron-left
+        td
+          button(title='D-pad Center', ng-click='press("KEYCODE_DPAD_CENTER")').btn.btn-info.btn-xs
+            i.fa.fa-circle-o
+        td
+          button(title='D-pad Right', ng-click='press("KEYCODE_DPAD_RIGHT")').btn.btn-info.btn-xs
+            i.fa.fa-chevron-right
+      tr
+        td
+        td
+          button(title='D-pad Down', ng-click='press("KEYCODE_DPAD_DOWN")').btn.btn-info.btn-xs
+            i.fa.fa-chevron-down
+        td

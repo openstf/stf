@@ -1,0 +1,10 @@
+.widget-container.fluid-height.stf-cpu(ng-controller='CpuCtrl')
+  .widget-content.padded
+    //nothing-to-show(show='!data', message='No CPU info', icon='fa-bar-chart-o')
+    div.overflow-x
+      ul
+        li(ng-repeat="(id, stats) in data")
+          span {{ stats.deviceName }}
+          ul
+            li(ng-repeat="(cpu, load) in stats.loads")
+              span {{cpu}}: {{load.user + load.nice + load.system}}%

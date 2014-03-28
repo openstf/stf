@@ -1,0 +1,65 @@
+.widget-container.fluid-height(ng-controller='ResourcesCtrl')
+  .heading
+    i.fa.fa-certificate
+      span(translate)  Cookies
+    button.btn.btn-sm.btn-primary-outline(ng-click='getCookies()')
+      i.fa.fa-download
+      span(translate) Get
+
+    button.btn.btn-sm.btn-danger-outline(ng-click='deleteAllCookies()', ng-disabled='true')
+      i.fa.fa-times(translate)
+      span(translate) Delete
+
+    button.btn.btn-sm.btn-primary-outline(ng-click='enableAddCookie()', ng-disabled='true')
+      i.fa(ng-class="newCookieEnabled ? 'fa-chevron-circle-up' : 'fa-chevron-circle-down'")
+      span(translate) Set
+
+    clear-button(ng-click='clearResults()', ng-disabled='!cookieContainer.results.length')
+
+  .widget-content.padded.overflow-x
+    nothing-to-show(ng-show='!cookieContainer.results.length', message='{{"No cookies to show"|translate}}', icon='fa-certificate')
+
+    div(ng-show='cookieContainer.results.length')
+      ul.cookies-list(ng-show='newCookieEnabled')
+        li
+          h4
+            span(translate) Set Cookie
+          form
+            table.table.table-condensed(ng-table='cookieContainer.tableParams').selectable
+              tr
+                td(width='20%', data-title="'Name'|translate", required='true')
+                  input(select-on-click, ng-model='newCookie.name')
+                td(width='50%', data-title="'Value'|translate", ng-required='true')
+                  input(select-on-click, ng-model='newCookie.value')
+                td(width='15%', data-title="'Domain'|translate")
+                  input(select-on-click, ng-model='newCookie.domain', placeholder='http')
+                td(width='10%', data-title="'Path'|translate")
+                  input(select-on-click, ng-model='newCookie.path', placeholder='/')
+                //td(width='5%', data-title="'Expires'")
+                  span(contenteditable="true") {{ newCookie.expiry }}
+                td(width='5%', data-title="'Secure'|translate")
+                  input(type='checkbox', indeterminate='true', ng-model='newCookie.secure')
+                td(title="'Add'|translate")
+                  button.btn.btn-default(ng-click='addCookie()')
+                    i.fa.fa-plus-circle
+                    //|  Add
+
+      //table.table.table-hover.table-condensed(ng-table='tableParams')
+        tbody(ng-repeat='group in $groups')
+          tr.ng-table-group
+            td(colspan='{{$columns.length}}').unselectable.pointer
+              a(ng-click='group.$hideRows = !group.$hideRows')
+                img(ng-src='{{ group.data[0].deviceImage }}').device-icon-smallest
+                //i.fa(ng-class='{"fa-chevron-right": group.$hideRows, "fa-chevron-down": !group.$hideRows}')
+                strong  {{group.value}}
+          tr(ng-hide='group.$hideRows', ng-repeat='cookie in group.data')
+            td(sortable='name', data-title="'Name'|translate")
+              strong {{cookie.name}}
+            td(width='50%', sortable='value', data-title="'Value'|translate")
+              span {{cookie.value}}
+            td(width='15%', sortable='domain', data-title="'Domain'|translate")
+              span {{cookie.domain}}
+            td(idth='10%', sortable='path', data-title="'Path'|translate")
+              span {{cookie.path}}
+            td(idth='5%', sortable='secure', data-title="'Secure'|translate")
+              span {{cookie.secure ? 'Yes' : 'No'}}

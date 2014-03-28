@@ -1,0 +1,22 @@
+.stf-inspect(ng-controller='InspectCtrl')
+  nothing-to-show(ng-if='$root.browser != "webview"', message='{{"Inspecting is currently only supported in WebView"|translate}}', icon='fa-search-plus')
+  .something-white(ng-if='$root.browser == "webview"')
+    //.btn-group.padded
+      button.btn.btn-sm.btn-primary(ng-click='inspect()')
+        i.fa.fa-bug
+        span(translate) Inspect Current Page
+    nothing-to-show(ng-if='!results.length', message='{{"Nothing to inspect"|translate}}', icon='fa-search-plus')
+
+    table.table.table-striped(ng-table='tableParams', ng-show='results.length').selectable
+      tr(ng-repeat='result in $data')
+        td(title='"Device"|translate', sortable='deviceName')
+          img(ng-src='{{ result.deviceImage }}').device-icon-smallest
+          span {{ result.deviceName }}
+        td(title='"Inspector"|translate')
+          button(ng-click='setUrl(result.value.clientUrl)').btn.btn-primary
+            i.fa.fa-search-plus
+            span(translate) Inspect Device
+          //a.btn.btn-primary(href='{{ result.value.clientUrl}}', target='_blank')
+            i.fa.fa-share-alt  Launch
+  .weinre-window(ng-show='urlToShow')
+    iframe.weinre-content(type='text/html', width='100%', height='100%', ng-src='{{trustSrc(urlToShow)}}', frameborder='0')

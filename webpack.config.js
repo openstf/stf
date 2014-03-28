@@ -30,6 +30,7 @@ module.exports = {
 , module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' }
+    , { test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
     , { test: /\.json$/, loader: 'json' }
     , { test: /\.jpg$/, loader: "url-loader?limit=5000&mimetype=image/jpeg" }
     , { test: /\.png$/, loader: "url-loader?limit=5000&mimetype=image/png" }

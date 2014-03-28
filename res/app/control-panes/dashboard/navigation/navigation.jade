@@ -2,7 +2,7 @@
   .heading
     i.fa.fa-globe
     span(translate) Navigation
-    span(ng-controller='NavigationCtrl')
+    span
       i.fa.fa-refresh.pull-right(ng-click='refresh()', title='{{"Reload"|translate}}', ng-if='$root.browser == "webview"')
       i.fa.fa-step-forward.pull-right(ng-click='forward()', title='{{"Go Forward"|translate}}', ng-if='$root.browser == "webview"')
       i.fa.fa-step-backward.pull-right(ng-click='back()', title='{{"Go Back"|translate}}', ng-if='$root.browser == "webview"')
@@ -12,7 +12,7 @@
         input(type='text', placeholder='http://...', autocomplete='off', ng-model='textURL',
         typeahead='url for url in urlHistory | filter:$viewValue').form-control
         .input-group-btn
-          button(ng-click='openURL()', ng-disabled='!textURL').btn.btn-primary-outline(translate) Open
+          button(ng-click='openURL()', ng-disabled='!textURL', translate).btn.btn-primary-outline Open
           button(type='button', ng-disabled='!hasHistory()').btn.btn-primary-outline.dropdown-toggle
             span.caret
           ul.dropdown-menu
@@ -20,4 +20,4 @@
               a(ng-click='insertURL(url)').btn-link {{url}}
             li.divider
             li
-              a(ng-click='clearHistory()', type='button').btn-link(translate) Clear
+              a(ng-click='clearHistory()', type='button', translate).btn-link Clear

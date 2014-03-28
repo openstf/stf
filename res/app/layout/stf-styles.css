@@ -310,8 +310,9 @@ svg {
 
 /* For se7en bootstrap */
 
-.btn [class^="fa"], .btn[class*="fa"] {
-    margin-right: 0;
+.btn [class^="fa"],
+.btn [class*="fa"] {
+    margin-right: 0 !important;
 }
 
 /*.btn [class^="fa"]+span i,*/

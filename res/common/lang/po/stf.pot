@@ -3,224 +3,137 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid ""
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Absent"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Advanced"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Available"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Busy"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Carrier"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "CPU"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
-msgid "Clear"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Connected successfully."
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Connecting..."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Control"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Dashboard"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Details"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
-msgid "Device Port"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Devices"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Disconnected.<br />Socket connection was lost, try again reloading the page."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Enable notifications"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error while connecting."
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error while reconnecting."
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
-msgid "Example: 3000"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Inspect"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/filter-button/filter-button.html
-msgid "Filter"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Logs"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Help"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
-msgid "Language"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Local Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Location"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Model"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "N/A"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Native"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "No devices connected"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Notifications"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "OS"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Offline"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Preparing"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Present"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Product"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Ready"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Reconnected successfully."
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Reconnecting..."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
-msgid "Refresh"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Resources"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Release Date"
+#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Screenshots"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Reset Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Saved to: {{savedTo}}"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Screen"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/shell/shell.html
-msgid "Shell"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Start Using"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Status"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Stop Using"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
-msgid "Target IP / Hostname"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
-msgid "Target Port"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
-msgid "Target host (detect if blank)"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Unauthorized"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Unknown"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Use"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "User"
-msgstr ""
-
+#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Using"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Web"
 msgstr ""

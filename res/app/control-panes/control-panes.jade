@@ -1,11 +1,14 @@
-div(pane, pane-anchor='west', pane-size='30% + 2px', pane-min='200px', pane-max='100% + 2px', pane-handle='4')
-  //.stf-catch-all-keys(ng-controller='KeysCtrl')
-    catch-all-keys(keys-down='keysDown($event)', keys-up='keysUp($event)')
-  .remote-control
-    //include control-screen
-div(pane, pane-anchor='south', pane-size='30% + 2px', pane-handle='4').pane-bottom-p
-  .widget-container.fluid-height
-    nice-tabs(key='ControlBottomTabs', direction='below', tabs='belowTabs', filter='$root.platform')
-div(pane, pane-anchor='')
-  .widget-container.fluid-height
-    nice-tabs(key='ControlBottomTabs', tabs='topTabs', filter='$root.platform')
+div
+  div(pane, pane-anchor='west', pane-size='30% + 2px', pane-min='200px', pane-max='100% + 2px', pane-handle='4')
+    //.stf-catch-all-keys(ng-controller='KeysCtrl')
+      catch-all-keys(keys-down='keysDown($event)', keys-up='keysUp($event)')
+    .remote-control
+      //include control-screen
+      div(ng-include='"control-panes/device-control/device-control.jade"')
+
+  div(pane, pane-anchor='south', pane-size='30% + 2px', pane-handle='4').pane-bottom-p
+    .widget-container.fluid-height
+      nice-tabs(key='ControlBottomTabs', direction='below', tabs='belowTabs', filter='$root.platform')
+  div(pane, pane-anchor='')
+    .widget-container.fluid-height
+      nice-tabs(key='ControlBottomTabs', tabs='topTabs', filter='$root.platform')

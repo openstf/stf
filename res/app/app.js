@@ -11,7 +11,6 @@ angular.module('app', [
   'angularFileUpload',
   require('./layout').name,
   require('./device-list').name,
-  require('./device-control').name,
   require('./control-panes').name,
   require('./menu').name,
   require('./settings').name,

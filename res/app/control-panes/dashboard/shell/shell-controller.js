@@ -1,8 +1,8 @@
-module.exports = function ShellCtrl($scope) {
+module.exports = function ShellCtrl($scope, $rootScope) {
   $scope.results = []
 
   $scope.run = function(command) {
-    var cmd = $scope.control.shell(command)
+    var cmd = $rootScope.control.shell(command)
     return cmd.promise
       .progressed(function(results) {
         $scope.results = results

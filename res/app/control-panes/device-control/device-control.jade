@@ -1,14 +1,28 @@
-h1 {{ device.serial }} {{ device.present ? 'present' : 'absent' }}
+.interact-control.fill-height.as-table
 
-button(ng-click='showScreen = !showScreen') Show/Hide
-button(ng-click='control.identify()') Identify
+  .as-cell.fill-height
+    .as-table.fill-height
+      .stf-vnc-navbar.as-row
+        a.stf-vnc-device-name.cursor.dropdown-toggle
+          p {{ device.serial }} {{ device.present ? 'present' : 'absent' }}
+        button(ng-click='showScreen = !showScreen') Show/Hide
+        button(ng-click='control.identify()') Identify
 
-div(ng-if='installation')
-  strong Installation status: {{ installation.progress}}% ({{ installation.lastData }})
 
-div(ng-controller='DeviceScreenCtrl', ng-file-drop='install($files)')
-  device-screen(style='width: 400px; height: 600px; background: gray')
 
-button(ng-click='control.menu()') Menu
-button(ng-click='control.home()') Home
-button(ng-click='control.back()') Back
+      div(ng-if='installation')
+        strong Installation status: {{ installation.progress}}% ({{ installation.lastData }})
+
+      .as-row.fill-height
+        div(ng-controller='DeviceScreenCtrl', ng-file-drop='install($files)')
+          device-screen(style='width: 400px; height: 600px; background: gray')
+
+      .stf-vnc-bottom.as-row
+        .controls
+          .btn-group.btn-group-justified
+            a(ng-click='control.menu()', title='{{"Menu"|translate}}').btn.btn-primary.btn-lg
+              i.fa.fa-bars
+            a(ng-click='control.home()', title='{{"Home"|translate}}').btn.btn-primary.btn-lg
+              i.fa.fa-home
+            a(ng-click='control.back()', title='{{"Back"|translate}}').btn.btn-primary.btn-lg
+              i.fa.fa-mail-reply

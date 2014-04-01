@@ -1,3 +1,5 @@
-.stf-shell {
-
+.stf-shell .shell-results {
+  font-size: 12px;
+  color: #fefefe;
+  background: #444;
 }

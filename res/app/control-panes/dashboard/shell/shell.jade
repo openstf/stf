@@ -2,14 +2,20 @@
   .heading
     i.fa.fa-terminal
     span(translate) Shell
+    clear-button(ng-click='clear()', ng-disabled='!command && !data').btn-xs
+    a(ng-href='{{referenceUrl}}', target='_href').btn.btn-xs.btn-primary-outline.pull-right
+      i.fa.fa-book
+      span(translate) Reference
   .widget-content.padded
-    a(href='https://github.com/jackpal/Android-Terminal-Emulator/wiki/Android-Shell-Command-Reference', target='_href') Reference
+
     .input-group.form-inline
       input(type=text, ng-model='command', ng-enter='run(command)').form-control
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='run(command)')
+        button.btn.btn-primary-outline(ng-click='run(command)', tooltip-html-unsafe='{{"Run Command"|translate}}<br /><br /><code>Enter</code>')
           i.fa.fa-play
-    table
+    pre.shell-results(ng-show='data') {{data}}
+
+   // table
       tr(ng-repeat='result in results track by result.device.serial')
         td {{ result.device.serial }}
         td {{ result.data }}

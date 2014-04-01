@@ -78,6 +78,20 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.paste = function(text) {
+      var tx = TransactionService.create(target)
+      socket.emit('clipboard.paste', channel, tx.channel, {
+        text: text
+      })
+      return tx
+    }
+
+    this.copy = function() {
+      var tx = TransactionService.create(target)
+      socket.emit('clipboard.copy', channel, tx.channel)
+      return tx
+    }
+
     this.shell = function(command) {
       var tx = TransactionService.create(target)
       socket.emit('shell.command', channel, tx.channel, {

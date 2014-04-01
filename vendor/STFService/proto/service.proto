@@ -1,0 +1,92 @@
+package jp.co.cyberagent.stf.proto;
+
+option java_outer_classname = "ServiceProto";
+
+enum RequestType {
+  VERSION = 0;
+  SET_KEYGUARD_STATE = 1;
+  SET_WAKE_LOCK = 2;
+  SET_CLIPBOARD = 3;
+  GET_CLIPBOARD = 4;
+  GET_PROPERTIES = 6;
+  IDENTIFY = 7;
+}
+
+message RequestEnvelope {
+	required RequestType type = 1;
+	required bytes request = 2;
+}
+
+message ResponseEnvelope {
+  required bool success = 1;
+  required bytes response = 2;
+}
+
+message VersionRequest {
+}
+
+message VersionResponse {
+	required bool success = 1;
+	optional string version = 2;
+}
+
+message SetKeyguardStateRequest {
+  required bool enabled = 1;
+}
+
+message SetKeyguardStateResponse {
+  required bool success = 1;
+}
+
+message SetWakeLockRequest {
+  required bool enabled = 1;
+}
+
+message SetWakeLockResponse {
+  required bool success = 1;
+}
+
+enum ClipboardType {
+  TEXT = 1;
+}
+
+message SetClipboardRequest {
+  required ClipboardType type = 1;
+  optional string text = 2;
+}
+
+message SetClipboardResponse {
+  required bool success = 1;
+}
+
+message GetClipboardRequest {
+  required ClipboardType type = 1;
+}
+
+message GetClipboardResponse {
+  required bool success = 1;
+  optional ClipboardType type = 2;
+  optional string text = 3;
+}
+
+message Property {
+	required string name = 1;
+	required string value = 2;
+}
+
+message GetPropertiesRequest {
+	repeated string properties = 1;
+}
+
+message GetPropertiesResponse {
+	required bool success = 1;
+  repeated Property properties = 2;
+}
+
+message IdentifyRequest {
+	required string serial = 1;
+}
+
+message IdentifyResponse {
+	required bool success = 1;
+}

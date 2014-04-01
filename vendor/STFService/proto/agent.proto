@@ -1,4 +1,4 @@
-package jp.co.cyberagent.stf.input.agent.proto;
+package jp.co.cyberagent.stf.proto;
 
 option java_outer_classname = "AgentProto";
 

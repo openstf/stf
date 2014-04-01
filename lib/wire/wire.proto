@@ -1,6 +1,7 @@
 // Message wrapper
 
 enum MessageType {
+  CopyMessage                = 33;
   DeviceAbsentMessage        = 1;
   DeviceHeartbeatMessage     = 28;
   DeviceIdentityMessage      = 2;
@@ -21,6 +22,7 @@ enum MessageType {
   LaunchActivityMessage      = 31;
   LeaveGroupMessage          = 15;
   LogcatApplyFiltersMessage  = 16;
+  PasteMessage               = 32;
   ProbeMessage               = 17;
   ShellCommandMessage        = 18;
   ShellKeepAliveMessage      = 19;
@@ -214,6 +216,13 @@ message TapMessage {
 
 message TypeMessage {
   required string text = 1;
+}
+
+message PasteMessage {
+  required string text = 1;
+}
+
+message CopyMessage {
 }
 
 enum KeyCode {

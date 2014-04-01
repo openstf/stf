@@ -86,7 +86,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
 
       function pasteListener(e) {
         e.preventDefault() // no need to change value
-        scope.control.type(e.clipboardData.getData('text/plain'))
+        scope.control.paste(e.clipboardData.getData('text/plain'))
       }
 
       function maybeLoadScreen() {

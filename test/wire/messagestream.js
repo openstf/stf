@@ -21,11 +21,15 @@ describe('MessageStream', function() {
       var ds = new ms.DelimitedStream()
       var spy = sinon.spy()
       ds.on('data', spy)
-      ds.write(new Buffer([1]))
+      ds.write(new Buffer([3]))
       expect(spy).to.not.have.been.called
       ds.write(new Buffer([0x66]))
+      expect(spy).to.not.have.been.called
+      ds.write(new Buffer([0x65]))
+      expect(spy).to.not.have.been.called
+      ds.write(new Buffer([0x64]))
       expect(spy).to.have.been.calledOnce
-      expect(spy.firstCall.args).to.eql([new Buffer([0x66])])
+      expect(spy.firstCall.args).to.eql([new Buffer([0x66, 0x65, 0x64])])
     })
 
     it('should read varint32 properly', function() {

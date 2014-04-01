@@ -127,6 +127,18 @@ message DeviceDisplayMessage {
   required string url = 10;
 }
 
+message DeviceBrowserAppMessage {
+  required string name = 1;
+  required string component = 2;
+  required bool selected = 3;
+  required string icon = 4;
+}
+
+message DeviceBrowsersMessage {
+  required bool selected = 1;
+  repeated DeviceBrowserAppMessage apps = 2;
+}
+
 message DeviceIdentityMessage {
   required string serial = 1;
   required string platform = 2;
@@ -137,6 +149,7 @@ message DeviceIdentityMessage {
   required string abi = 7;
   required string sdk = 8;
   required DeviceDisplayMessage display = 9;
+  required DeviceBrowsersMessage browsers = 10;
 }
 
 message DeviceProperty {

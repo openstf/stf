@@ -8,6 +8,7 @@ enum RequestType {
   SET_WAKE_LOCK = 2;
   SET_CLIPBOARD = 3;
   GET_CLIPBOARD = 4;
+  GET_BROWSERS = 5;
   GET_PROPERTIES = 6;
   IDENTIFY = 7;
 }
@@ -15,11 +16,6 @@ enum RequestType {
 message RequestEnvelope {
 	required RequestType type = 1;
 	required bytes request = 2;
-}
-
-message ResponseEnvelope {
-  required bool success = 1;
-  required bytes response = 2;
 }
 
 message VersionRequest {
@@ -67,6 +63,22 @@ message GetClipboardResponse {
   required bool success = 1;
   optional ClipboardType type = 2;
   optional string text = 3;
+}
+
+message BrowserApp {
+  required string name = 1;
+  required string component = 2;
+  required bool selected = 3;
+  required bytes icon = 4;
+}
+
+message GetBrowsersRequest {
+}
+
+message GetBrowsersResponse {
+  required bool success = 1;
+  required bool selected = 2;
+  repeated BrowserApp apps = 3;
 }
 
 message Property {

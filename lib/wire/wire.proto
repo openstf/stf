@@ -139,6 +139,11 @@ message DeviceBrowsersMessage {
   repeated DeviceBrowserAppMessage apps = 2;
 }
 
+message DevicePhoneMessage {
+  optional string imei = 1;
+  optional string phoneNumber = 2;
+}
+
 message DeviceIdentityMessage {
   required string serial = 1;
   required string platform = 2;
@@ -150,6 +155,7 @@ message DeviceIdentityMessage {
   required string sdk = 8;
   required DeviceDisplayMessage display = 9;
   required DeviceBrowsersMessage browsers = 10;
+  required DevicePhoneMessage phone = 11;
 }
 
 message DeviceProperty {

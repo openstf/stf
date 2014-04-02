@@ -6,4 +6,4 @@
   .widget-content.padded
     div(ng-if='installation')
       strong {{ installation.lastData }}
-      progressbar(max='100', value='installation.progress') {{installation.progress}}%
+      progressbar(max='100', value='installation.progress', ng-if='!installation.settled') {{installation.progress}}%

@@ -14,8 +14,7 @@
 
 
 
-      div(ng-if='installation')
-        strong Installation status: {{ installation.progress}}% ({{ installation.lastData }})
+
 
       .as-row.fill-height
         div(ng-controller='DeviceScreenCtrl', ng-file-drop='$root.install($files)')

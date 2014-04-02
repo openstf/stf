@@ -1,9 +1,13 @@
-module.exports = function UploadCtrl($scope) {
+module.exports = function UploadCtrl($scope, $rootScope) {
 
   $scope.installation = null
 
-  $scope.install = function ($files) {
-    return $scope.control.install($files)
+  $scope.clear = function () {
+    $scope.installation = null
+  }
+
+  $rootScope.install = function ($files) {
+    return $rootScope.control.install($files)
       .then(function (tx) {
         return tx.promise
           .progressed(function (result) {

@@ -5,5 +5,5 @@
     clear-button(ng-click='clear()', ng-disabled='!installation').btn-xs
   .widget-content.padded
     div(ng-if='installation')
-      strong {{ installation.lastData }}
-      progressbar(max='100', value='installation.progress', ng-if='!installation.settled') {{installation.progress}}%
+      strong {{ installation.lastData }} ({{installation.progress}}%)
+      progressbar(max='100', value='installation.progress', ng-if='!installation.settled')

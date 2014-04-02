@@ -7,6 +7,7 @@ module.exports = function UploadCtrl($scope, $rootScope) {
   }
 
   $rootScope.install = function ($files) {
+
     return $rootScope.control.install($files)
       .then(function (tx) {
         return tx.promise

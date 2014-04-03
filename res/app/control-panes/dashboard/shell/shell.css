@@ -3,3 +3,7 @@
   color: #fefefe;
   background: #444;
 }
+
+.stf-shell .shell-results-empty {
+  font-style: italic;
+}

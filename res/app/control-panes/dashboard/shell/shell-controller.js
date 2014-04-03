@@ -1,4 +1,4 @@
-module.exports = function ShellCtrl($scope, $rootScope) {
+module.exports = function ShellCtrl($scope, $rootScope, gettext) {
   // TODO: implement multiple devices
 //  $scope.results = []
   $scope.result = null
@@ -16,13 +16,13 @@ module.exports = function ShellCtrl($scope, $rootScope) {
 
     return cmd.promise
       .progressed(function(result) {
-        //$scope.result = result
+        $scope.result = result
         $scope.data = result.data.join('')
         $scope.$digest()
       })
       .then(function(result) {
+        $scope.result = result
         $scope.data = result.data.join('')
-//        $scope.result = result
         $scope.$digest()
       })
   }
@@ -30,5 +30,6 @@ module.exports = function ShellCtrl($scope, $rootScope) {
   $scope.clear = function () {
     $scope.command = ''
     $scope.data = ''
+    $scope.result = null
   }
 }

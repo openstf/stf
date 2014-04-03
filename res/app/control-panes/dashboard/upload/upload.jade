@@ -3,7 +3,35 @@
     i.fa.fa-upload
     span(translate) Upload
     clear-button(ng-click='clear()', ng-disabled='!installation').btn-xs
+    label.checkbox-inline.pull-right
+      input(type='checkbox', ng-model='launchEnabled', ng-disabled='true')
+      span Launch
+    label.checkbox-inline.pull-right
+      input(type='checkbox', ng-model='installEnabled', ng-disabled='true')
+      span Install
+
   .widget-content.padded
+
+    .input-group.form-inline
+      input(type=text, ng-model='url', ng-enter='$root.install(url)', placeholder='http://...').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='$root.install(url)', tooltip='Upload From Link')
+          i.fa.fa-upload
+
+    .drop-area(ng-file-drop='$root.install($files)')
+      i.fa.fa-2x.fa-upload.drop-area-icon
+      p.drop-area-text Drop here
+
+    .drop-area-buttons
+      .btn.btn-primary-outline.file-input.btn-file.btn-sm
+        i.fa.fa-file
+        span Choose File
+        input(type='file', ng-file-select='$root.install($files)')
+
+      button.btn.btn-primary-outline.btn-sm
+        i.fa.fa-link
+        span Use Link
+
     div(ng-if='installation')
       p
         strong {{ installation.lastData }}

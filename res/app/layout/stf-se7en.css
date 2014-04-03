@@ -13,3 +13,9 @@
 .input-group-btn .btn {
     margin-right: 0;
 }
+
+
+.widget-container .heading .checkbox-inline {
+  margin-left: 5px;
+  margin-right: 10px;
+}

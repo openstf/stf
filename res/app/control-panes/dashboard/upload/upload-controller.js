@@ -1,4 +1,4 @@
-module.exports = function UploadCtrl($scope, $rootScope) {
+module.exports = function UploadCtrl($scope, $rootScope, SettingsService) {
 
   $scope.installation = null
 
@@ -25,4 +25,17 @@ module.exports = function UploadCtrl($scope, $rootScope) {
           })
       })
   }
+//
+//  $scope.installEnabled = true
+//  SettingsService.bind($scope, {
+//    key: 'installEnabled',
+//    storeName: 'Upload'
+//  })
+//
+//  //$scope.launchEnabled = true
+//  SettingsService.bind($scope, {
+//    key: 'launchEnabled',
+//    storeName: 'Upload'
+//  })
+
 }

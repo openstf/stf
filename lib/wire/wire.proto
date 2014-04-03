@@ -34,6 +34,7 @@ enum MessageType {
   TransactionProgressMessage = 25;
   TypeMessage                = 26;
   UngroupMessage             = 27;
+  UninstallMessage           = 33;
 }
 
 message Envelope {

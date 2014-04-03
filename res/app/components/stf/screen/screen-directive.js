@@ -15,6 +15,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         , cachedDisplayHeight = 0
         , loading = false
         , scaler
+        , seq = 0
 
       function sendTouch(type, e) {
         var scaled = scaler.coords(
@@ -28,7 +29,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
           'translate3d(' + e.offsetX + 'px,' + e.offsetY + 'px,0)'
 
         scope.control[type](
-            scaled.xP * scope.device.display.width
+            seq++
+          , scaled.xP * scope.device.display.width
           , scaled.yP * scope.device.display.height
         )
       }
@@ -38,6 +40,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         element.unbind('mousemove', moveListener)
         $document.unbind('mouseup', upListener)
         $document.unbind('mouseleave', upListener)
+        seq = 0
       }
 
       function updateDisplaySize() {

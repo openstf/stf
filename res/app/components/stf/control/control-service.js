@@ -40,9 +40,10 @@ module.exports = function ControlServiceFactory(
     }
 
     function touchSender(type) {
-      return function(x, y) {
+      return function(seq, x, y) {
         socket.emit(type, channel, {
-          x: x
+          seq: seq
+        , x: x
         , y: y
         })
       }

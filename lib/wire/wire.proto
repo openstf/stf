@@ -329,6 +329,10 @@ message InstallMessage {
   optional LaunchActivityMessage launchActivity = 2;
 }
 
+message UninstallMessage {
+  required string package = 1;
+}
+
 message LaunchActivityMessage {
   required string action = 1;
   required string component = 2;

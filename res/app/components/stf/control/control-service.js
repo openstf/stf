@@ -137,6 +137,14 @@ module.exports = function ControlServiceFactory(
           return tx
         })
     }
+
+    this.uninstall = function(pkg) {
+      var tx = TransactionService.create(target)
+      socket.emit('device.uninstall', channel, tx.channel, {
+        package: pkg
+      })
+      return tx
+    }
   }
 
   controlService.create = function(target, channel) {

@@ -12,20 +12,22 @@
 
   .widget-content.padded
 
+    //.col-md-10.col-md-offset-1
+    .input-group.form-inline
+      input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)',
+      placeholder='http://...').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)',
+        tooltip='Upload From Link', ng-disabled='!remoteUrl')
+          i.fa.fa-upload
+
     .drop-area(ng-file-drop='$root.install($files)').file-input.btn-file
       input(type='file', ng-file-select='$root.install($files)')
 
       i.fa.fa-2x.fa-download.drop-area-icon
-      p.drop-area-text Drop file to upload, or from link
+      p.drop-area-text(translate) Drop file to upload
 
-      .col-md-10.col-md-offset-1
-        .input-group.form-inline
-          input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)',
-            placeholder='http://...').form-control
-          span.input-group-btn
-            button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)',
-              tooltip='Upload From Link', ng-disabled='!remoteUrl')
-              i.fa.fa-upload
+
 
     //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
       span employee: {{node.name}} age {{node.age}}

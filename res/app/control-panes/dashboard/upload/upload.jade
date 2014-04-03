@@ -12,12 +12,6 @@
 
   .widget-content.padded
 
-    //.input-group.form-inline
-      input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)', placeholder='http://...').form-control
-      span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)', tooltip='Upload From Link', ng-disabled='!remoteUrl')
-          i.fa.fa-upload
-
     .drop-area(ng-file-drop='$root.install($files)').file-input.btn-file
       input(type='file', ng-file-select='$root.install($files)')
 
@@ -26,13 +20,34 @@
 
       .col-md-10.col-md-offset-1
         .input-group.form-inline
-          input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)', placeholder='http://...').form-control
+          input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)',
+            placeholder='http://...').form-control
           span.input-group-btn
-            button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)', tooltip='Upload From Link', ng-disabled='!remoteUrl')
+            button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)',
+              tooltip='Upload From Link', ng-disabled='!remoteUrl')
               i.fa.fa-upload
 
     .upload-status(ng-if='installation')
-      p
-        strong {{ progressMessage(installation.lastData) }}
-        span  ({{installation.progress}}%)
-      progressbar(max='100', value='installation.progress', ng-if='!installation.settled')
+
+      accordion(close-others='false')
+        accordion-group(is-open='true')
+          accordion-heading
+            i.fa.fa-file-o
+            span  {{installation.manifest.application.name}}
+
+          div(ng-switch='installation.lastData')
+            strong(ng-switch-when='pushing_app')
+              span(translate) Pushing app...
+            strong(ng-switch-when='installing_app')
+              span(translate) Installing app...
+            strong(ng-switch-when='launching_app')
+              span(translate) Launching activity...
+            strong(ng-switch-when='success')
+              //pre {{ installation.manifest }}
+
+            strong(ng-switch-when='fail')
+              span(translate) Installation failed
+            span(ng-hide='installation.settled')  ({{installation.progress}}%)
+
+          progressbar(max='100', value='installation.progress', ng-if='!installation.settled',
+            ng-class='{"active": !installation.settled}').progress-striped

@@ -118,6 +118,8 @@ module.exports = function ControlServiceFactory(
           var manifest = response.data.manifest
           var app = manifest.application
           var tx = TransactionService.create(target)
+          console.log('resp',response)
+          console.log(manifest)
           var params = {
             url: response.data.url
           }

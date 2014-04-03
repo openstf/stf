@@ -20,21 +20,13 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
           .then(function (result) {
             $scope.$apply(function () {
               result.manifest = manifest
+              console.log(manifest)
               $scope.installation = result
             })
           })
       })
   }
 
-  $scope.progressMessage = function (code) {
-    return {
-      'pushing_app': gettext('Pushing app...'),
-      'installing_app': gettext('Installing app...'),
-      'launching_app': gettext('Launching activity...'),
-      'success': gettext('Installation complete'),
-      'fail': gettext('Installation failed')
-    }[code]
-  }
 //
 //  $scope.installEnabled = true
 //  SettingsService.bind($scope, {

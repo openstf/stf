@@ -130,6 +130,7 @@ module.exports = function ControlServiceFactory(
             }
           }
           socket.emit('device.install', channel, tx.channel, params)
+          tx.manifest = manifest
           return tx
         })
     }

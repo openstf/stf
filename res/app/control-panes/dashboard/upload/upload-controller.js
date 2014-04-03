@@ -7,6 +7,11 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
   }
 
   $rootScope.install = function ($files) {
+    $scope.installation = {
+      progress: 0,
+      lastData: 'uploading'
+    }
+
     return $rootScope.control.install($files)
       .then(function (tx) {
         var manifest = tx.manifest
@@ -20,11 +25,23 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
           .then(function (result) {
             $scope.$apply(function () {
               result.manifest = manifest
-              console.log(manifest)
+              $scope.treeData = manifest
               $scope.installation = result
             })
           })
       })
+  }
+
+  $scope.uninstall = function (packageName) {
+    console.log('first')
+    var tx = $rootScope.control.uninstall(packageName)
+    return tx.promise.then(function (result) {
+      if (result.success) {
+        //$scope.clear()
+      } else {
+        console.error(result.error)
+      }
+    })
   }
 
 //

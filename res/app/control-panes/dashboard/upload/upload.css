@@ -39,3 +39,7 @@
 .stf-upload .upload-status {
   margin-top: 15px;
 }
+
+.stf-upload .manifest-text {
+  font-size: 10px;
+}

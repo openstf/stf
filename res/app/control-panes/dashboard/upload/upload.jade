@@ -27,15 +27,20 @@
               tooltip='Upload From Link', ng-disabled='!remoteUrl')
               i.fa.fa-upload
 
+    //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
+      span employee: {{node.name}} age {{node.age}}
+
     .upload-status(ng-if='installation')
 
       accordion(close-others='false')
         accordion-group(is-open='true')
           accordion-heading
             i.fa.fa-file-o
-            span  {{installation.manifest.application.name}}
+            span  {{installation.manifest.package || "App" }}
 
           div(ng-switch='installation.lastData')
+            strong(ng-switch-when='uploading')
+              span(translate) Starting to upload...
             strong(ng-switch-when='pushing_app')
               span(translate) Pushing app...
             strong(ng-switch-when='installing_app')
@@ -43,7 +48,18 @@
             strong(ng-switch-when='launching_app')
               span(translate) Launching activity...
             strong(ng-switch-when='success')
-              //pre {{ installation.manifest }}
+              button.btn.btn-sm.btn-danger-outline.pull-right(
+                ng-click='uninstall(installation.manifest.package)', ng-show='installation.settled')
+                i.fa.fa-trash-o
+                span(translate) Uninstall
+
+              button.btn.btn-sm.btn-primary-outline(btn-checkbox, ng-model='showManifest')
+                i.fa.fa-list
+                span(ng-if='showManifest') Hide Manifest
+                span(ng-if='!showManifest') Show Manifest
+              pre.manifest-text(ng-if='showManifest') {{ installation.manifest | json }}
+
+
 
             strong(ng-switch-when='fail')
               span(translate) Installation failed

@@ -331,7 +331,7 @@ message InstallMessage {
 }
 
 message UninstallMessage {
-  required string package = 1;
+  required string packageName = 1;
 }
 
 message LaunchActivityMessage {

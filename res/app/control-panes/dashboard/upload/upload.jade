@@ -12,28 +12,27 @@
 
   .widget-content.padded
 
-    .input-group.form-inline
-      input(type=text, ng-model='url', ng-enter='$root.install(url)', placeholder='http://...').form-control
+    //.input-group.form-inline
+      input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)', placeholder='http://...').form-control
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='$root.install(url)', tooltip='Upload From Link')
+        button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)', tooltip='Upload From Link', ng-disabled='!remoteUrl')
           i.fa.fa-upload
 
-    .drop-area(ng-file-drop='$root.install($files)')
-      i.fa.fa-2x.fa-upload.drop-area-icon
-      p.drop-area-text Drop here
+    .drop-area(ng-file-drop='$root.install($files)').file-input.btn-file
+      input(type='file', ng-file-select='$root.install($files)')
 
-    .drop-area-buttons
-      .btn.btn-primary-outline.file-input.btn-file.btn-sm
-        i.fa.fa-file
-        span Choose File
-        input(type='file', ng-file-select='$root.install($files)')
+      i.fa.fa-2x.fa-download.drop-area-icon
+      p.drop-area-text Drop file to upload, or from link
 
-      button.btn.btn-primary-outline.btn-sm
-        i.fa.fa-link
-        span Use Link
+      .col-md-10.col-md-offset-1
+        .input-group.form-inline
+          input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)', placeholder='http://...').form-control
+          span.input-group-btn
+            button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)', tooltip='Upload From Link', ng-disabled='!remoteUrl')
+              i.fa.fa-upload
 
-    div(ng-if='installation')
+    .upload-status(ng-if='installation')
       p
-        strong {{ installation.lastData }}
+        strong {{ progressMessage(installation.lastData) }}
         span  ({{installation.progress}}%)
       progressbar(max='100', value='installation.progress', ng-if='!installation.settled')

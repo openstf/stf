@@ -1,4 +1,4 @@
-module.exports = function UploadCtrl($scope, $rootScope, SettingsService) {
+module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettext) {
 
   $scope.installation = null
 
@@ -24,6 +24,16 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService) {
             })
           })
       })
+  }
+
+  $scope.progressMessage = function (code) {
+    return {
+      'pushing_app': gettext('Pushing app...'),
+      'installing_app': gettext('Installing app...'),
+      'launching_app': gettext('Launching activity...'),
+      'success': gettext('Installation complete'),
+      'fail': gettext('Installation failed')
+    }[code]
   }
 //
 //  $scope.installEnabled = true

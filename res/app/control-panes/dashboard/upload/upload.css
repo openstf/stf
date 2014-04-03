@@ -19,5 +19,28 @@
 }
 
 .stf-upload .drop-area {
+  text-align: center;
+  color: #b7b7b7;
 
+  /*height: 100px;*/
+  padding: 10px;
+  border: 3px #ccc dashed;
+  /*color: #aaa;*/
+  border-radius: 3px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
+.stf-upload .drop-area .drop-area-text {
+  /*min-height: 130px;*/
+  font-size: 18px;
+}
+
+.stf-upload .dragover {
+  /*color: #157afb !important;*/
+  border-color: #157afb !important;
+}
+
+.stf-upload .upload-status {
+  margin-top: 15px;
 }

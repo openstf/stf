@@ -1,39 +1,43 @@
 device-screen {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 
 device-screen canvas {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none; /* MUST HAVE */
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none; /* MUST HAVE */
 }
 
 device-screen .finger {
-    position: absolute;
-    border-radius: 50%;
-    background: lime;
-    opacity: 0.5;
-    width: 6mm;
-    height: 6mm;
-    top: -3mm;
-    left: -3mm;
-    pointer-events: none;
-    display: none;
+  position: absolute;
+  border-radius: 50%;
+  background: lime;
+  opacity: 0.5;
+  width: 6mm;
+  height: 6mm;
+  top: -3mm;
+  left: -3mm;
+  pointer-events: none;
+  display: none;
 }
 
 device-screen.fingering .finger {
-    display: block;
+  display: block;
 }
 
 device-screen textarea {
-    position: absolute;
-    z-index: 10;
-    outline: none;
-    pointer-events: none;
-    opacity: 0;
+  position: absolute;
+  z-index: 10;
+  outline: none;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.stf-device-control .dragover {
+  opacity: 0.7;
 }

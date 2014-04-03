@@ -1,4 +1,4 @@
-.interact-control.fill-height.as-table
+.interact-control.fill-height.as-table.stf-device-control
 
   .as-cell.fill-height
     .as-table.fill-height
@@ -16,8 +16,8 @@
 
 
 
-      .as-row.fill-height
-        div(ng-controller='DeviceScreenCtrl', ng-file-drop='$root.install($files)')
+      .as-row.fill-height(ng-file-drop='$root.install($files)')
+        div(ng-controller='DeviceScreenCtrl')
           device-screen(style='width: 400px; height: 600px; background: gray')
 
       .stf-vnc-bottom.as-row

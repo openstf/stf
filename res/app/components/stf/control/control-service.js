@@ -1,6 +1,7 @@
 module.exports = function ControlServiceFactory(
   $rootScope
 , $upload
+, $http
 , socket
 , TransactionService
 ) {
@@ -108,34 +109,49 @@ module.exports = function ControlServiceFactory(
       return tx
     }
 
+    function install(options) {
+      var app = options.manifest.application
+      var tx = TransactionService.create(target)
+      var params = {
+        url: options.url
+      }
+      if (app.launcherActivities.length) {
+        var activity = app.launcherActivities[0]
+        params.launchActivity = {
+          action: 'android.intent.action.MAIN'
+        , component: options.manifest.package + '/' + activity.name
+        , category: ['android.intent.category.LAUNCHER']
+        , flags: 0x10200000
+        }
+      }
+      socket.emit('device.install', channel, tx.channel, params)
+      tx.manifest = options.manifest
+      return tx
+    }
+
     this.install = function(files) {
-      return $upload.upload({
-          url: '/api/v1/resources'
-        , method: 'POST'
-        , file: files[0]
-        })
-        .then(function(response) {
-          var manifest = response.data.manifest
-          var app = manifest.application
-          var tx = TransactionService.create(target)
-          console.log('resp',response)
-          console.log(manifest)
-          var params = {
-            url: response.data.url
-          }
-          if (app.launcherActivities.length) {
-            var activity = app.launcherActivities[0]
-            params.launchActivity = {
-              action: 'android.intent.action.MAIN'
-            , component: manifest.package + '/' + activity.name
-            , category: ['android.intent.category.LAUNCHER']
-            , flags: 0x10200000
+      if (typeof files === 'string') {
+        return $http({
+            url: '/api/v1/resources'
+          , method: 'POST'
+          , data: {
+              url: files
             }
-          }
-          socket.emit('device.install', channel, tx.channel, params)
-          tx.manifest = manifest
-          return tx
-        })
+          })
+          .then(function(response) {
+            return install(response.data)
+          })
+      }
+      else {
+        return $upload.upload({
+            url: '/api/v1/resources'
+          , method: 'POST'
+          , file: files[0]
+          })
+          .then(function(response) {
+            return install(response.data)
+          })
+      }
     }
 
     this.uninstall = function(pkg) {

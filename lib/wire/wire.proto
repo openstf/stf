@@ -44,17 +44,18 @@ message Envelope {
 }
 
 message TransactionProgressMessage {
-  required string serial = 1;
+  required string source = 1;
   required uint32 seq = 2;
   optional string data = 3;
   optional uint32 progress = 4 [default = 0];
 }
 
 message TransactionDoneMessage {
-  required string serial = 1;
+  required string source = 1;
   required uint32 seq = 2;
   required bool success = 3;
   optional string data = 4;
+  optional string body = 5;
 }
 
 // Heartbeat

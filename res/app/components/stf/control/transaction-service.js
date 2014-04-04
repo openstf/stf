@@ -8,20 +8,20 @@ module.exports = function TransactionServiceFactory(socket) {
     return 'tx.' + uuid.v4()
   }
 
-  function MultiDeviceTransaction(devices) {
+  function MultiTargetTransaction(targets, options) {
     var pending = Object.create(null)
       , results = []
       , channel = createChannel()
 
     function doneListener(someChannel, data) {
       if (someChannel === channel) {
-        pending[data.serial].done(data)
+        pending[data.source].done(data)
       }
     }
 
     function progressListener(someChannel, data) {
       if (someChannel === channel) {
-        pending[data.serial].progress(data)
+        pending[data.source].progress(data)
       }
     }
 
@@ -30,10 +30,11 @@ module.exports = function TransactionServiceFactory(socket) {
 
     this.channel = channel
     this.results = results
-    this.promise = Promise.settle(devices.map(function(device) {
-        var pendingResult = new PendingTransactionResult(device)
-        pending[device.serial] = pendingResult
-        results.push(pendingResult.result)
+    this.promise = Promise.settle(targets.map(function(target) {
+        var result = new options.result(target)
+        var pendingResult = new PendingTransactionResult(result)
+        pending[options.id ? target[options.id] : target.id] = pendingResult
+        results.push(result)
         return pendingResult.promise
       }))
       .finally(function() {
@@ -49,9 +50,9 @@ module.exports = function TransactionServiceFactory(socket) {
       })
   }
 
-  function SingleDeviceTransaction(device) {
-    var pending = new PendingTransactionResult(device)
-      , result = pending.result
+  function SingleTargetTransaction(target, options) {
+    var result = new options.result(target)
+      , pending = new PendingTransactionResult(result)
       , channel = createChannel()
 
     function doneListener(someChannel, data) {
@@ -86,9 +87,8 @@ module.exports = function TransactionServiceFactory(socket) {
       })
   }
 
-  function PendingTransactionResult(device) {
+  function PendingTransactionResult(result) {
     var resolver = Promise.defer()
-      , result = new TransactionResult(device)
       , seq = 0
       , last = null
       , unplaced = []
@@ -111,6 +111,9 @@ module.exports = function TransactionServiceFactory(socket) {
           if (message.success) {
             if (message.data) {
               result.lastData = result.data[seq] = message.data
+            }
+            if (message.body) {
+              result.body = JSON.parse(message.body)
             }
           }
           else {
@@ -150,24 +153,42 @@ module.exports = function TransactionServiceFactory(socket) {
     this.promise = resolver.promise
   }
 
-  function TransactionResult(device) {
-    this.device = device
+  function TransactionResult(source) {
+    this.source = source
     this.settled = false
     this.success = false
     this.progress = 0
     this.error = null
     this.data = []
     this.lastData = null
+    this.body = null
   }
 
-  transactionService.create = function(target) {
+  function DeviceTransactionResult(device) {
+    TransactionResult.call(this, device)
+    this.device = this.source
+  }
+
+  transactionService.create = function(target, options) {
+    if (options && !options.result) {
+      options.result = TransactionResult
+    }
+
     if (Array.isArray(target)) {
-      return new MultiDeviceTransaction(target)
+      return new MultiTargetTransaction(target, options || {
+        result: DeviceTransactionResult
+      , id: 'serial'
+      })
     }
     else {
-      return new SingleDeviceTransaction(target)
+      return new SingleTargetTransaction(target, options || {
+        result: DeviceTransactionResult
+      , id: 'serial'
+      })
     }
   }
+
+  transactionService.TransactionResult = TransactionResult
 
   return transactionService
 }

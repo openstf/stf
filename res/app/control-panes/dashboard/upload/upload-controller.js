@@ -63,6 +63,50 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     })
   }
 
+  $scope.taskFinished = function () {
+    if ($scope.installEnabled) {
+      if ($scope.upload && $scope.upload.settled &&
+        $scope.installation && $scope.installation.settled) {
+        return true
+      }
+    } else {
+      if ($scope.upload && $scope.upload.settled) {
+        return true
+      }
+    }
+    return false
+  }
+
+  $scope.taskProgressMax = function () {
+    return $scope.taskProgressMaxDivisor() * 100
+  }
+
+  $scope.taskProgressMaxDivisor = function () {
+    if ($scope.installEnabled) {
+      return 2
+    } else {
+      return 1
+    }
+  }
+
+  $scope.taskProgress = function () {
+    if ($scope.installEnabled) {
+      var sum = 0
+      if ($scope.upload) {
+        sum += $scope.upload.progress
+      }
+      if ($scope.installation) {
+        sum += $scope.installation.progress
+      }
+      return sum
+    } else {
+      if ($scope.upload) {
+        return $scope.upload.progress
+      }
+    }
+    return 0
+  }
+
 //
 //  $scope.installEnabled = true
 //  SettingsService.bind($scope, {

@@ -40,6 +40,11 @@
             i.fa.fa-file-o
             span  {{installation.manifest.package || "App" }}
 
+            button.btn.btn-xs.btn-danger-outline.pull-right(
+            ng-click='uninstall(installation.manifest.package)', ng-show='installation.settled')
+              i.fa.fa-trash-o
+              span(translate) Uninstall
+
           div(ng-switch='installation.lastData')
             strong(ng-switch-when='uploading')
               span(translate) Starting to upload...
@@ -50,10 +55,8 @@
             strong(ng-switch-when='launching_app')
               span(translate) Launching activity...
             strong(ng-switch-when='success')
-              button.btn.btn-sm.btn-danger-outline.pull-right(
-                ng-click='uninstall(installation.manifest.package)', ng-show='installation.settled')
-                i.fa.fa-trash-o
-                span(translate) Uninstall
+
+              div(ng-include='"control-panes/dashboard/upload/activities/activities.jade"')
 
               button.btn.btn-sm.btn-primary-outline(btn-checkbox, ng-model='showManifest')
                 i.fa.fa-list

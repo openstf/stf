@@ -36,7 +36,9 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     var tx = $rootScope.control.uninstall(packageName)
     return tx.promise.then(function (result) {
       if (result.success) {
-        //$scope.clear()
+        $scope.$apply(function () {
+          $scope.clear()
+        })
       } else {
         console.error(result.error)
       }

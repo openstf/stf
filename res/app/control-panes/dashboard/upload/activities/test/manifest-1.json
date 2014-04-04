@@ -1,0 +1,376 @@
+{
+  "versionCode": 20,
+  "versionName": "1.0.18",
+  "installLocation": 0,
+  "package": "jp.ameba.palette",
+  "usesPermissions": [
+    {
+      "name": "android.permission.INTERNET"
+    },
+    {
+      "name": "android.permission.ACCESS_NETWORK_STATE"
+    },
+    {
+      "name": "android.permission.WRITE_EXTERNAL_STORAGE"
+    },
+    {
+      "name": "jp.ameba.palette.permission.C2D_MESSAGE"
+    },
+    {
+      "name": "com.google.android.c2dm.permission.RECEIVE"
+    },
+    {
+      "name": "android.permission.GET_ACCOUNTS"
+    },
+    {
+      "name": "android.permission.WAKE_LOCK"
+    },
+    {
+      "name": "android.permission.VIBRATE"
+    }
+  ],
+  "permissions": [
+    {
+      "name": "jp.ameba.palette.permission.C2D_MESSAGE",
+      "protectionLevel": 2
+    }
+  ],
+  "permissionTrees": [],
+  "permissionGroups": [],
+  "instrumentation": null,
+  "usesSdk": {
+    "minSdkVersion": 10
+  },
+  "usesConfiguration": null,
+  "usesFeatures": [],
+  "supportsScreens": {
+    "xlargeScreens": false
+  },
+  "compatibleScreens": [],
+  "supportsGlTextures": [],
+  "application": {
+    "theme": "resourceId:0x7f0d005c",
+    "label": "resourceId:0x7f090019",
+    "icon": "resourceId:0x7f0200b4",
+    "name": "jp.ameba.palette.LaPaletteApplication",
+    "debuggable": true,
+    "allowBackup": true,
+    "hardwareAccelerated": true,
+    "activities": [
+      {
+        "theme": "resourceId:0x7f0d0055",
+        "label": "resourceId:0x7f090023",
+        "name": "jp.ameba.palette.SplashActivity",
+        "screenOrientation": 1,
+        "configChanges": 160,
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.MAIN"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.LAUNCHER"
+              }
+            ],
+            "data": []
+          },
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.DEFAULT"
+              }
+            ],
+            "data": []
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "theme": "resourceId:0x7f0d0055",
+        "label": "resourceId:0x7f090023",
+        "name": "jp.ameba.palette.MainActivity",
+        "screenOrientation": 1,
+        "configChanges": 160,
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.BROWSABLE"
+              },
+              {
+                "name": "android.intent.category.DEFAULT"
+              }
+            ],
+            "data": [
+              {
+                "scheme": "jp-ajmp-6333"
+              }
+            ]
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "theme": "resourceId:0x1030006",
+        "label": "resourceId:0x7f090019",
+        "name": "jp.ameba.palette.DecoEditorActivity",
+        "screenOrientation": 1,
+        "configChanges": 160,
+        "windowSoftInputMode": 16,
+        "intentFilters": [],
+        "metaData": []
+      },
+      {
+        "name": "jp.ameba.palette.GateWayActivity",
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.DEFAULT"
+              },
+              {
+                "name": "android.intent.category.BROWSABLE"
+              }
+            ],
+            "data": [
+              {
+                "scheme": "ca-palette"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.DEFAULT"
+              },
+              {
+                "name": "android.intent.category.BROWSABLE"
+              }
+            ],
+            "data": [
+              {
+                "scheme": "https",
+                "host": "ca-palette.jp"
+              },
+              {
+                "scheme": "http",
+                "host": "ca-palette.jp"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.DEFAULT"
+              },
+              {
+                "name": "android.intent.category.BROWSABLE"
+              }
+            ],
+            "data": [
+              {
+                "scheme": "https",
+                "host": "stg-ca-palette.jp"
+              },
+              {
+                "scheme": "http",
+                "host": "stg-ca-palette.jp"
+              }
+            ]
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "theme": "resourceId:0x1030006",
+        "label": "resourceId:0x7f090019",
+        "name": "jp.ameba.palette.CredibleSiteActivity",
+        "screenOrientation": 1,
+        "configChanges": 160,
+        "intentFilters": [],
+        "metaData": []
+      }
+    ],
+    "activityAliases": [],
+    "launcherActivities": [
+      {
+        "theme": "resourceId:0x7f0d0055",
+        "label": "resourceId:0x7f090023",
+        "name": "jp.ameba.palette.SplashActivity",
+        "screenOrientation": 1,
+        "configChanges": 160,
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.MAIN"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.LAUNCHER"
+              }
+            ],
+            "data": []
+          },
+          {
+            "actions": [
+              {
+                "name": "android.intent.action.VIEW"
+              }
+            ],
+            "categories": [
+              {
+                "name": "android.intent.category.DEFAULT"
+              }
+            ],
+            "data": []
+          }
+        ],
+        "metaData": []
+      }
+    ],
+    "services": [
+      {
+        "name": "jp.ameba.palette.service.DecoResourceService",
+        "intentFilters": [],
+        "metaData": []
+      },
+      {
+        "name": "jp.ameba.palette.service.PushSynchronizeService",
+        "intentFilters": [],
+        "metaData": []
+      },
+      {
+        "name": ".GCMIntentService",
+        "intentFilters": [],
+        "metaData": []
+      },
+      {
+        "name": "jp.co.CAReward_Ack.CARAck",
+        "intentFilters": [],
+        "metaData": []
+      },
+      {
+        "name": "com.appanalyzerseed.ReferrerService",
+        "intentFilters": [],
+        "metaData": []
+      }
+    ],
+    "receivers": [
+      {
+        "name": "com.google.android.gcm.GCMBroadcastReceiver",
+        "permission": "com.google.android.c2dm.permission.SEND",
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "com.google.android.c2dm.intent.RECEIVE"
+              },
+              {
+                "name": "com.google.android.c2dm.intent.REGISTRATION"
+              }
+            ],
+            "categories": [
+              {
+                "name": "jp.ameba.palette"
+              }
+            ],
+            "data": []
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "name": "jp.ameba.palette.push.GrowthPushReceiver",
+        "permission": "com.google.android.c2dm.permission.SEND",
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "com.google.android.c2dm.intent.RECEIVE"
+              },
+              {
+                "name": "com.google.android.c2dm.intent.REGISTRATION"
+              }
+            ],
+            "categories": [
+              {
+                "name": "jp.ameba.palette"
+              }
+            ],
+            "data": []
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "name": "jp.co.CAReward_Receiver.CARReceiver",
+        "exported": true,
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "com.android.vending.INSTALL_REFERRER"
+              }
+            ],
+            "categories": [],
+            "data": []
+          }
+        ],
+        "metaData": []
+      },
+      {
+        "name": "com.appanalyzerseed.ReferrerReceiver",
+        "exported": true,
+        "intentFilters": [
+          {
+            "actions": [
+              {
+                "name": "com.android.vending.INSTALL_REFERRER"
+              }
+            ],
+            "categories": [],
+            "data": []
+          }
+        ],
+        "metaData": [
+          {
+            "name": " com.appanalyzerseed.FORWARD_REFERRER",
+            "value": "jp.co.CAReward_Receiver.CARReceiver"
+          }
+        ]
+      }
+    ],
+    "providers": [],
+    "usesLibraries": []
+  }
+}

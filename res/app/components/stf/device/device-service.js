@@ -25,6 +25,11 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       data.usable = data.present && data.status === 3 && data.ready &&
         (!data.owner || data.using)
 
+      // Make sure we don't mistakenly think we still have the device
+      if (!data.usable) {
+        data.using = false
+      }
+
       // For convenience, formulate an aggregate state property that covers
       // every possible state.
       data.state = 'absent'

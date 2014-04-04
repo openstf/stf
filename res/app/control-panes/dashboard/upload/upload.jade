@@ -32,6 +32,22 @@
     //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
       span employee: {{node.name}} age {{node.age}}
 
+    .upload-status(ng-if='upload && !upload.settled')
+
+      div(ng-switch='upload.lastData')
+        strong(ng-switch-when='uploading')
+          span(translate) Uploading...
+        strong(ng-switch-when='processing')
+          span(translate) Processing...
+        strong(ng-switch-when='storing')
+          span(translate) Storing...
+        strong(ng-switch-when='fail')
+          span(translate) Upload failed
+        span(ng-hide='upload.settled')  ({{upload.progress}}%)
+
+      progressbar(max='100', value='upload.progress', ng-if='!upload.settled',
+        ng-class='{"active": !upload.settled}').progress-striped
+
     .upload-status(ng-if='installation')
 
       accordion(close-others='false')
@@ -46,8 +62,6 @@
               span(translate) Uninstall
 
           div(ng-switch='installation.lastData')
-            strong(ng-switch-when='uploading')
-              span(translate) Starting to upload...
             strong(ng-switch-when='pushing_app')
               span(translate) Pushing app...
             strong(ng-switch-when='installing_app')

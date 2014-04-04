@@ -1,34 +1,48 @@
 module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettext) {
 
+  $scope.upload = null
   $scope.installation = null
 
   $scope.clear = function () {
+    $scope.upload = null
     $scope.installation = null
   }
 
   $rootScope.install = function ($files) {
-    $scope.installation = {
+    $scope.upload = {
       progress: 0,
       lastData: 'uploading'
     }
 
-    return $rootScope.control.install($files)
-      .then(function (tx) {
-        var manifest = tx.manifest
-        return tx.promise
-          .progressed(function (result) {
-            $scope.$apply(function () {
-              result.manifest = manifest
-              $scope.installation = result
+    var upload = $rootScope.control.upload($files)
+    $scope.installation = null
+    return upload.promise
+      .progressed(function(uploadResult) {
+        $scope.$apply(function() {
+          $scope.upload = uploadResult
+        })
+      })
+      .then(function(uploadResult) {
+        $scope.$apply(function() {
+          $scope.upload = uploadResult
+        })
+        if (uploadResult.success) {
+          var install = $rootScope.control.install(uploadResult.body)
+          return install.promise
+            .progressed(function(installResult) {
+              $scope.$apply(function() {
+                installResult.manifest = uploadResult.body.manifest
+                $scope.installation = installResult
+              })
             })
-          })
-          .then(function (result) {
-            $scope.$apply(function () {
-              result.manifest = manifest
-              $scope.treeData = manifest
-              $scope.installation = result
+            .then(function(installResult) {
+              $scope.$apply(function() {
+                installResult.manifest = uploadResult.body.manifest
+                $scope.treeData = installResult.manifest
+                $scope.installation = installResult
+              })
             })
-          })
+        }
       })
   }
 

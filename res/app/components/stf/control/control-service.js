@@ -109,7 +109,29 @@ module.exports = function ControlServiceFactory(
       return tx
     }
 
-    function install(options) {
+    this.upload = function(files) {
+      var tx = TransactionService.create({
+        id: 'storage'
+      })
+      if (typeof files === 'string') {
+        socket.emit('storage.upload', channel, tx.channel, {
+          url: files
+        })
+        return tx
+      }
+      else {
+        return $upload.upload({
+            url: '/api/v1/resources'
+          , method: 'POST'
+          , file: files[0]
+          })
+          .then(function(response) {
+            return install(response.data)
+          })
+      }
+    }
+
+    this.install = function(options) {
       var app = options.manifest.application
       var tx = TransactionService.create(target)
       var params = {
@@ -127,31 +149,6 @@ module.exports = function ControlServiceFactory(
       socket.emit('device.install', channel, tx.channel, params)
       tx.manifest = options.manifest
       return tx
-    }
-
-    this.install = function(files) {
-      if (typeof files === 'string') {
-        return $http({
-            url: '/api/v1/resources'
-          , method: 'POST'
-          , data: {
-              url: files
-            }
-          })
-          .then(function(response) {
-            return install(response.data)
-          })
-      }
-      else {
-        return $upload.upload({
-            url: '/api/v1/resources'
-          , method: 'POST'
-          , file: files[0]
-          })
-          .then(function(response) {
-            return install(response.data)
-          })
-      }
     }
 
     this.uninstall = function(pkg) {

@@ -7,7 +7,7 @@
       input(type='checkbox', ng-model='launchEnabled', ng-disabled='true')
       span Launch
     label.checkbox-inline.pull-right
-      input(type='checkbox', ng-model='installEnabled', ng-disabled='true')
+      input(type='checkbox', ng-model='installEnabled')
       span Install
 
   .widget-content.padded
@@ -31,6 +31,8 @@
 
     //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
       span employee: {{node.name}} age {{node.age}}
+
+    pre(ng-if='upload.error') Error: {{ upload.error }}
 
     .upload-status(ng-if='upload && !upload.settled')
 

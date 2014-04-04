@@ -2,6 +2,8 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
 
   $scope.upload = null
   $scope.installation = null
+  $scope.installEnabled = true
+  $scope.launchEnabled = true
 
   $scope.clear = function () {
     $scope.upload = null
@@ -17,31 +19,33 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     var upload = $rootScope.control.upload($files)
     $scope.installation = null
     return upload.promise
-      .progressed(function(uploadResult) {
-        $scope.$apply(function() {
+      .progressed(function (uploadResult) {
+        $scope.$apply(function () {
           $scope.upload = uploadResult
         })
       })
-      .then(function(uploadResult) {
-        $scope.$apply(function() {
+      .then(function (uploadResult) {
+        $scope.$apply(function () {
           $scope.upload = uploadResult
         })
         if (uploadResult.success) {
-          var install = $rootScope.control.install(uploadResult.body)
-          return install.promise
-            .progressed(function(installResult) {
-              $scope.$apply(function() {
-                installResult.manifest = uploadResult.body.manifest
-                $scope.installation = installResult
+          if ($scope.installEnabled) {
+            var install = $rootScope.control.install(uploadResult.body)
+            return install.promise
+              .progressed(function (installResult) {
+                $scope.$apply(function () {
+                  installResult.manifest = uploadResult.body.manifest
+                  $scope.installation = installResult
+                })
               })
-            })
-            .then(function(installResult) {
-              $scope.$apply(function() {
-                installResult.manifest = uploadResult.body.manifest
-                $scope.treeData = installResult.manifest
-                $scope.installation = installResult
+              .then(function (installResult) {
+                $scope.$apply(function () {
+                  installResult.manifest = uploadResult.body.manifest
+                  $scope.treeData = installResult.manifest
+                  $scope.installation = installResult
+                })
               })
-            })
+          }
         }
       })
   }

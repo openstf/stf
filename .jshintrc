@@ -16,6 +16,7 @@
   "asi": true,
   "esnext": true,
   "laxcomma": true,
+  "laxbreak": true,
   "node": true,
   "globals": {
     "describe": false,

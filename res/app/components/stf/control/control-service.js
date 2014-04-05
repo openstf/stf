@@ -158,6 +158,12 @@ module.exports = function ControlServiceFactory(
       })
       return tx
     }
+
+    this.rotate = function(rotation) {
+      socket.emit('display.rotate', channel, {
+        rotation: rotation
+      })
+    }
   }
 
   controlService.create = function(target, channel) {

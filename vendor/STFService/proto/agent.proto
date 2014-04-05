@@ -8,6 +8,8 @@ enum InputAction {
   KEYPRESS = 2;
   TYPE = 3;
   WAKE = 4;
+  FREEZE_ROTATION = 5;
+  THAW_ROTATION = 6;
 }
 
 message InputEvent {
@@ -23,4 +25,5 @@ message InputEvent {
   optional bool scrollLockKey = 10;
   optional bool numLockKey = 11;
   optional string text = 12;
+  optional int32 rotation = 13;
 }

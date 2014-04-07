@@ -43,8 +43,15 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     var upload = $rootScope.control.uploadFile($files)
     $scope.installation = null
     return upload.promise
+      .progressed(function (uploadResult) {
+        $scope.$apply(function () {
+          $scope.upload = uploadResult
+        })
+      })
       .then(function (uploadResult) {
-        $scope.upload = uploadResult
+        $scope.$apply(function () {
+          $scope.upload = uploadResult
+        })
         if (uploadResult.success) {
           return $scope.maybeInstall(uploadResult.body)
         }

@@ -188,6 +188,25 @@ module.exports = function TransactionServiceFactory(socket) {
     }
   }
 
+  transactionService.punch = function(channel) {
+    var resolver = Promise.defer()
+
+    function punchListener(someChannel) {
+      if (channel === someChannel) {
+        resolver.resolve(channel)
+      }
+    }
+
+    socket.on('tx.punch', punchListener)
+    socket.emit('tx.punch', channel)
+
+    return resolver.promise
+      .timeout(5000)
+      .finally(function() {
+        socket.removeListener('tx.punch', punchListener)
+      })
+  }
+
   transactionService.TransactionResult = TransactionResult
 
   return transactionService

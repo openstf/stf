@@ -120,37 +120,21 @@ module.exports = function ControlServiceFactory(
     }
 
     this.uploadFile = function(files) {
-      // Let's fake it till we can make it
-      var result = new TransactionService.TransactionResult({
+      if (files.length !== 1) {
+        throw new Error('Can only upload one file')
+      }
+      var tx = TransactionService.create({
         id: 'storage'
       })
-      return {
-        promise:
+      TransactionService.punch(tx.channel)
+        .then(function() {
           $upload.upload({
-            url: '/api/v1/resources'
+            url: '/api/v1/resources?channel=' + tx.channel
           , method: 'POST'
           , file: files[0]
           })
-          .then(
-            function(response) {
-              result.settled = true
-              result.progress = 100
-              result.success = true
-              result.lastData = 'success'
-              result.data.push(result.lastData)
-              result.body = response.data
-              return result
-            }
-          , function(err) {
-              result.settled = true
-              result.progress = 100
-              result.success = false
-              result.error = result.lastData = 'fail'
-              result.data.push(result.lastData)
-              return result
-            }
-          )
-      }
+        })
+      return tx
     }
 
     this.install = function(options) {

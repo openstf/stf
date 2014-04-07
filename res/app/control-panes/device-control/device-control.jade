@@ -5,12 +5,23 @@
       .stf-vnc-navbar.as-row
         a.stf-vnc-device-name.cursor.dropdown-toggle
           p {{ $root.device.serial }} {{ $root.device.present ? 'present' : 'absent' }}
+
         .pull-right
+          button(ng-click='$root.control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline
+            i.fa.fa-info
+
+          span
+            button(type='button', ng-click='$root.control.rotate(0)', tooltip='Rotate Left', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
+              i.fa.fa-rotate-left
+            button(type='button', ng-click='$root.control.rotate(90)', tooltip='Rotate Right', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
+              i.fa.fa-rotate-right
+
           button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Just control device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"View device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye-slash
         //button(ng-click='showScreen = !showScreen') Show/Hide
-        button(ng-click='$root.control.identify()') Identify
+
+
 
 
 

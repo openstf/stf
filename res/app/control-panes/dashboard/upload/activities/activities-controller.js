@@ -1,17 +1,17 @@
 var _ = require('lodash')
 
 module.exports = function ActivitiesCtrl($scope, $rootScope) {
-  $scope.activityActions = []
-  $scope.activityCategories = []
-  $scope.activityData = []
-  $scope.packageNames = []
-  $scope.activityNames = []
-
   $scope.selectedAction = ''
   $scope.selectedCategory = ''
   $scope.selectedData = ''
-  $scope.selectedPackageName = ''
+  $scope.selectedPackageName = $scope.installation.manifest.package || ''
   $scope.selectedActivityName = ''
+
+  $scope.activityActions = []
+  $scope.activityCategories = []
+  $scope.activityData = []
+  $scope.packageNames = [$scope.selectedPackageName]
+  $scope.activityNames = []
 
   $scope.$watch('installation.manifest.application', function (newValue) {
     if (newValue.activities) {
@@ -67,9 +67,6 @@ module.exports = function ActivitiesCtrl($scope, $rootScope) {
       $scope.activityCategories = _.uniq(activityCategories)
       $scope.activityData = _.uniq(activityData)
       $scope.activityNames = _.uniq(activityNames)
-      $scope.packageNames.push(newValue.name)
-
-      $scope.selectedPackageName = newValue.name
     }
   })
 

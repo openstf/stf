@@ -50,9 +50,9 @@
 
     .upload-status(ng-if='upload || installation')
 
-      accordion(close-others='false')
+      accordion(close-others='false').pointer
         accordion-group(is-open='true')
-          accordion-heading
+          accordion-heading.pointer
             i.fa.fa-file-o
             span  {{installation.manifest.package || "App" }}
 

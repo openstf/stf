@@ -98,34 +98,22 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     return false
   }
 
-  $scope.taskProgressMax = function () {
-    return $scope.taskProgressMaxDivisor() * 100
-  }
-
-  $scope.taskProgressMaxDivisor = function () {
-    if ($scope.installEnabled) {
-      return 2
-    } else {
-      return 1
-    }
-  }
-
   $scope.taskProgress = function () {
+    var progress = 0
     if ($scope.installEnabled) {
-      var sum = 0
       if ($scope.upload) {
-        sum += $scope.upload.progress
+        progress += $scope.upload.progress
       }
       if ($scope.installation) {
-        sum += $scope.installation.progress
+        progress += $scope.installation.progress
       }
-      return sum
+      progress = Math.floor(progress / 2)
     } else {
       if ($scope.upload) {
-        return $scope.upload.progress
+        progress = $scope.upload.progress
       }
     }
-    return 0
+    return progress
   }
 
 //

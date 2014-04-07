@@ -2,7 +2,7 @@
   .heading
     i.fa.fa-upload
     span(translate) Upload
-    clear-button(ng-click='clear()', ng-disabled='!installation').btn-xs
+    clear-button(ng-click='clear()', ng-disabled='!installation && !upload').btn-xs
     label.checkbox-inline.pull-right
       input(type='checkbox', ng-model='launchEnabled', ng-disabled='true')
       span Launch
@@ -72,7 +72,7 @@
               strong(ng-switch-when='fail')
                 span(translate) Upload failed
               strong(ng-switch-when='success')
-                span(translate) Upload complete
+                span(ng-show='!installation', translate) Upload complete
 
             span(ng-switch='installation.lastData')
               strong(ng-switch-when='pushing_app')
@@ -93,7 +93,7 @@
               strong(ng-switch-when='fail')
                 span(translate) Installation failed
 
-            span(ng-hide='taskFinished()')  ({{taskProgress()/taskProgressMaxDivisor()}}%)
+            span(ng-hide='taskFinished()')  ({{taskProgress()}}%)
 
-          progressbar(max='taskProgressMax()', value='taskProgress()', ng-if='!taskFinished()',
-            ng-class='{"active": taskFinished()}').progress-striped
+          progressbar(max='100', value='taskProgress()', ng-if='!taskFinished()',
+            ng-class='{"active": !taskFinished()}').progress-striped

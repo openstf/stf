@@ -1,2 +1,27 @@
 div(ng-controller='ActivitiesCtrl')
-h3 Activities
+  form
+    fieldset
+      .form-group
+        label(for='selectedActivityName') Package Name
+        input.form-control(type='text', placeholder='', ng-model='selectedPackageName',
+          typeahead='packageName for packageName in packageNames', id='selectedPackageName')
+      .form-group
+        label(for='selectedActivityName') Activity Name
+        input.form-control(type='text', placeholder='', ng-model='selectedActivityName',
+          typeahead='activityName for activityName in activityNames', id='selectedActivityName')
+      .form-group
+        label(for='selectedActivityName') Action
+        input.form-control(type='text', placeholder='', ng-model='selectedAction',
+          typeahead='action for action in activityActions', id='selectedAction')
+      .form-group
+        label(for='selectedActivityName') Category
+        input.form-control(type='text', placeholder='', ng-model='selectedCategory',
+          typeahead='category for category in activityCategories', id='selectedCategory')
+      .form-group
+        label(for='selectedActivityName') Data
+        input.form-control(type='text', placeholder='', ng-model='selectedData',
+          typeahead='data for data in activityData', id='selectedData')
+
+      button.btn.btn-sm.btn-primary-outline(ng-click='runActivity()')
+        i.fa.fa-play
+        span(translate) Launch Activity

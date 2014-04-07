@@ -1,7 +1,7 @@
 require('./activities.css')
 
 module.exports = angular.module('stf.activities', [
-
+  require('stf/common-ui').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(

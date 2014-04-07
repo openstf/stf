@@ -10,13 +10,13 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     $scope.installation = null
   }
 
-  $rootScope.install = function ($files) {
+  $rootScope.installUrl = function (url) {
     $scope.upload = {
       progress: 0,
       lastData: 'uploading'
     }
 
-    var upload = $rootScope.control.upload($files)
+    var upload = $rootScope.control.uploadUrl(url)
     $scope.installation = null
     return upload.promise
       .progressed(function (uploadResult) {
@@ -29,25 +29,46 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
           $scope.upload = uploadResult
         })
         if (uploadResult.success) {
-          if ($scope.installEnabled) {
-            var install = $rootScope.control.install(uploadResult.body)
-            return install.promise
-              .progressed(function (installResult) {
-                $scope.$apply(function () {
-                  installResult.manifest = uploadResult.body.manifest
-                  $scope.installation = installResult
-                })
-              })
-              .then(function (installResult) {
-                $scope.$apply(function () {
-                  installResult.manifest = uploadResult.body.manifest
-                  $scope.treeData = installResult.manifest
-                  $scope.installation = installResult
-                })
-              })
-          }
+          return $scope.maybeInstall(uploadResult.body)
         }
       })
+  }
+
+  $rootScope.installFile = function ($files) {
+    $scope.upload = {
+      progress: 0,
+      lastData: 'uploading'
+    }
+
+    var upload = $rootScope.control.uploadFile($files)
+    $scope.installation = null
+    return upload.promise
+      .then(function (uploadResult) {
+        $scope.upload = uploadResult
+        if (uploadResult.success) {
+          return $scope.maybeInstall(uploadResult.body)
+        }
+      })
+  }
+
+  $scope.maybeInstall = function (options) {
+    if ($scope.installEnabled) {
+      var install = $rootScope.control.install(options)
+      return install.promise
+        .progressed(function (installResult) {
+          $scope.$apply(function () {
+            installResult.manifest = options.manifest
+            $scope.installation = installResult
+          })
+        })
+        .then(function (installResult) {
+          $scope.$apply(function () {
+            installResult.manifest = options.manifest
+            $scope.treeData = installResult.manifest
+            $scope.installation = installResult
+          })
+        })
+    }
   }
 
   $scope.uninstall = function (packageName) {

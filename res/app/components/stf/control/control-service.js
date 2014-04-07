@@ -109,25 +109,47 @@ module.exports = function ControlServiceFactory(
       return tx
     }
 
-    this.upload = function(files) {
+    this.uploadUrl = function(url) {
       var tx = TransactionService.create({
         id: 'storage'
       })
-      if (typeof files === 'string') {
-        socket.emit('storage.upload', channel, tx.channel, {
-          url: files
-        })
-        return tx
-      }
-      else {
-        return $upload.upload({
+      socket.emit('storage.upload', channel, tx.channel, {
+        url: url
+      })
+      return tx
+    }
+
+    this.uploadFile = function(files) {
+      // Let's fake it till we can make it
+      var result = new TransactionService.TransactionResult({
+        id: 'storage'
+      })
+      return {
+        promise:
+          $upload.upload({
             url: '/api/v1/resources'
           , method: 'POST'
           , file: files[0]
           })
-          .then(function(response) {
-            return install(response.data)
-          })
+          .then(
+            function(response) {
+              result.settled = true
+              result.progress = 100
+              result.success = true
+              result.lastData = 'success'
+              result.data.push(result.lastData)
+              result.body = response.data
+              return result
+            }
+          , function(err) {
+              result.settled = true
+              result.progress = 100
+              result.success = false
+              result.error = result.lastData = 'fail'
+              result.data.push(result.lastData)
+              return result
+            }
+          )
       }
     }
 

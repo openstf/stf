@@ -14,15 +14,15 @@
 
     //.col-md-10.col-md-offset-1
     .input-group.form-inline
-      input(type=text, ng-model='remoteUrl', ng-enter='$root.install(remoteUrl)',
+      input(type=text, ng-model='remoteUrl', ng-enter='$root.installUrl(remoteUrl)',
       placeholder='http://...').form-control
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='$root.install(remoteUrl)',
+        button.btn.btn-primary-outline(ng-click='$root.installUrl(remoteUrl)',
         tooltip='Upload From Link', ng-disabled='!remoteUrl')
           i.fa.fa-upload
 
-    .drop-area(ng-file-drop='$root.install($files)').file-input.btn-file
-      input(type='file', ng-file-select='$root.install($files)')
+    .drop-area(ng-file-drop='$root.installFile($files)').file-input.btn-file
+      input(type='file', ng-file-select='$root.installFile($files)')
 
       i.fa.fa-2x.fa-download.drop-area-icon
       p.drop-area-text(translate) Drop file to upload
@@ -71,6 +71,8 @@
                 span(translate) Storing...
               strong(ng-switch-when='fail')
                 span(translate) Upload failed
+              strong(ng-switch-when='success')
+                span(translate) Upload complete
 
             span(ng-switch='installation.lastData')
               strong(ng-switch-when='pushing_app')

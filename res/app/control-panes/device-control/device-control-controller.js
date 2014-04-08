@@ -1,4 +1,24 @@
-//module.exports = function DeviceControlCtrl(
+module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService, $location) {
+
+  $scope.groupTracker = DeviceService.trackGroup($scope)
+
+  $scope.groupDevices = $scope.groupTracker.devices
+
+  $scope.kickDevice = function (device) {
+    // if current device
+    // no more: go to devices
+    // more: go to first
+
+    return GroupService.kick(device).then(function () {
+      $scope.$digest()
+    })
+  }
+
+  $scope.controlDevice = function (device) {
+    $location.path('/control/' + device.serial)
+  }
+
+}
 //  $scope
 //, $routeParams
 //, $location

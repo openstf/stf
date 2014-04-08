@@ -41,3 +41,85 @@ device-screen textarea {
 .stf-device-control .dragover {
   opacity: 0.7;
 }
+
+.stf-device-control .dropdown-menu {
+  top: auto;
+}
+
+.stf-device-control .device-small-image {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.stf-device-control .device-small-image img {
+  width: 100%;
+}
+
+.stf-device-control .kick-device {
+  color: gray;
+  margin-left: 25px;
+}
+
+.stf-device-control .kick-device:hover {
+  color: red;
+}
+
+.stf-device-control .kick-device i {
+  margin-right: 0;
+}
+
+/* VNC buttons */
+.stf-vnc-bottom .btn-primary:hover {
+  background: rgba(255, 255, 255, 1.0);
+  /*border-color: rgba(255, 255, 255, 1.0);*/
+  border: none;
+}
+
+.stf-vnc-bottom .btn {
+  border-radius: 0;
+}
+
+/*.stf-vnc-bottom .btn-primary:active,*/
+.stf-vnc-bottom .btn-primary.active {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  /*border-color: rgba(255, 255, 255, 0.7);*/
+}
+
+.stf-vnc-navbar-buttons {
+  padding-top: 2px;
+  padding-bottom: 32px;
+}
+
+.stf-vnc-navbar-buttons .btn {
+  margin-bottom: 0;
+  min-width: 37px;
+}
+
+.stf-vnc-device-name {
+  /*padding: 6px 2px 6px 15px;*/
+  /*float: left;*/
+  font-size: 16px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #858585;
+}
+
+.stf-vnc-navbar {
+  background: #fff;
+  margin-bottom: 2px;
+}
+
+.stf-vnc-fps {
+  line-height: 28px;
+  color: #D1D1D1;
+  font-family: monospace;
+  display: inline-block;
+  width: 28px;
+  min-height: 10px;
+  text-align: center;
+}

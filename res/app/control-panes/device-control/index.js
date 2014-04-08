@@ -10,4 +10,4 @@ module.exports = angular.module('device-control', [
       require('./device-control.jade')
     )
   }])
-//  .controller('DeviceControlCtrl', require('./device-control-controller'))
+  .controller('DeviceControlCtrl', require('./device-control-controller'))

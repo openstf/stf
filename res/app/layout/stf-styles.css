@@ -365,60 +365,7 @@ svg {
     margin-top: 8px !important;
 }
 
-/* VNC buttons */
-.stf-vnc-bottom .btn-primary:hover {
-    background: rgba(255, 255, 255, 1.0);
-    /*border-color: rgba(255, 255, 255, 1.0);*/
-    border: none;
-}
 
-.stf-vnc-bottom .btn {
-    border-radius: 0;
-}
-
-/*.stf-vnc-bottom .btn-primary:active,*/
-.stf-vnc-bottom .btn-primary.active {
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    /*border-color: rgba(255, 255, 255, 0.7);*/
-}
-
-.stf-vnc-navbar-buttons {
-    padding-top: 2px;
-    padding-bottom: 32px;
-}
-
-.stf-vnc-navbar-buttons .btn {
-    margin-bottom: 0;
-    min-width: 37px;
-}
-
-.stf-vnc-device-name {
-    padding: 6px 2px 6px 15px;
-    float: left;
-    font-size: 16px;
-    line-height: 20px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    /*color: #E4E4E4;*/
-    color: #858585;
-}
-
-.stf-vnc-navbar {
-    background: #fff;
-    margin-bottom: 2px;
-}
-
-.stf-vnc-fps {
-    line-height: 28px;
-    color: #D1D1D1;
-    font-family: monospace;
-    display: inline-block;
-    width: 28px;
-    min-height: 10px;
-    text-align: center;
-}
 
 a.active {
     color: #007aff !important;

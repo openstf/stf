@@ -1,11 +1,8 @@
-.interact-control.fill-height.as-table.stf-device-control
+.interact-control.fill-height.as-table.stf-device-control(ng-controller='DeviceControlCtrl')
 
   .as-cell.fill-height
     .as-table.fill-height
       .stf-vnc-navbar.as-row
-        a.stf-vnc-device-name.cursor.dropdown-toggle
-          p {{ $root.device.name }}
-          span(ng-show='$root.device && !$root.device.present', translate) (Absent)
 
         .pull-right
           button(ng-click='$root.control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline
@@ -20,7 +17,25 @@
           button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Just control device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"View device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye-slash
-        //button(ng-click='showScreen = !showScreen') Show/Hide
+
+        div
+
+
+          a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle(ng-class='{"pointer": groupDevices.length > 1, "cursor": groupDevices.length <= 1}')
+            p {{ $root.device.name }}
+              span.caret(ng-show='groupDevices.length > 1')
+            span(ng-show='$root.device && !$root.device.present', translate) (Absent)
+
+          ul.dropdown-menu.pointer.unselectable(ng-show='groupDevices.length > 1')
+            li(ng-repeat='groupDevice in groupDevices')
+              a(ng-click='controlDevice(groupDevice); $event.stopPropagation();')
+                .device-small-image
+                  img(ng-src='{{groupDevice.image ? "/static/devices/" + groupDevice.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                span {{ groupDevice.name }}
+
+                span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
+                  i.fa.fa-times
+
 
 
       .as-row.fill-height(ng-file-drop='$root.install($files)')

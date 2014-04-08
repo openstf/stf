@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 module.exports = function DeviceControlCtrl($scope, $rootScope, DeviceService, GroupService, $location) {
 
   $scope.groupTracker = DeviceService.trackGroup($scope)

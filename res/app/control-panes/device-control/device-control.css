@@ -58,12 +58,12 @@ device-screen textarea {
 }
 
 .stf-device-control .kick-device {
-  color: gray;
+  color: #9c9c9c;
   margin-left: 25px;
 }
 
 .stf-device-control .kick-device:hover {
-  color: red;
+  color: #d9534f;
 }
 
 .stf-device-control .kick-device i {
@@ -107,6 +107,14 @@ device-screen textarea {
   overflow: hidden;
   white-space: nowrap;
   color: #858585;
+}
+
+.stf-device-control .stf-vnc-device-name .device-small-image {
+  margin-left: 10px;
+}
+
+.stf-device-control .current-device {
+  font-weight: bold;
 }
 
 .stf-vnc-navbar {

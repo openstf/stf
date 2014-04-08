@@ -32,12 +32,10 @@
               a(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .device-small-image
                   img(ng-src='{{groupDevice.image ? "/static/devices/" + groupDevice.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-                span {{ groupDevice.name }}
+                span(ng-class='{"current-device": groupDevice.serial === $root.device.serial }') {{ groupDevice.name }}
 
                 span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
                   i.fa.fa-times
-
-
 
       .as-row.fill-height(ng-file-drop='$root.install($files)')
         div(ng-controller='DeviceScreenCtrl')

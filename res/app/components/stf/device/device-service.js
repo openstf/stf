@@ -88,34 +88,59 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
       }
     }
 
-    scopedSocket.on('device.add', function (data) {
+    function fetch(data) {
+      deviceService.load(data.serial)
+        .then(changeListener)
+        .catch(function() {})
+    }
+
+    function addListener(data) {
       var device = get(data)
       if (device) {
         modify(device, data)
       }
-      else if (options.insertPresent) {
+      else if (options.filter(data)) {
         insert(data)
       }
-    })
+    }
 
-    scopedSocket.on('device.remove', function (data) {
+    function removeListener(data) {
       var device = get(data)
       if (device) {
         modify(device, data)
-      }
-    })
-
-    scopedSocket.on('device.change', function (data) {
-      var device = get(data)
-      if (device) {
-        if (options.removeAbsent) {
+        if (!options.filter(device)) {
           remove(device)
         }
-        else {
-          modify(device, data)
+      }
+      else {
+        if (options.filter(data)) {
+          insert(data)
+          // We've only got partial data
+          fetch(data)
         }
       }
-    })
+    }
+
+    function changeListener(data) {
+      var device = get(data)
+      if (device) {
+        modify(device, data)
+        if (!options.filter(device)) {
+          remove(device)
+        }
+      }
+      else {
+        if (options.filter(data)) {
+          insert(data)
+          // We've only got partial data
+          fetch(data)
+        }
+      }
+    }
+
+    scopedSocket.on('device.add', addListener)
+    scopedSocket.on('device.remove', removeListener)
+    scopedSocket.on('device.change', changeListener)
 
     this.add = function(device) {
       remove(device)
@@ -127,7 +152,9 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
 
   deviceService.trackAll = function ($scope) {
     var tracker = new Tracker($scope, {
-      insertPresent: true
+      filter: function(device) {
+        return true
+      }
     })
 
     oboe('/api/v1/devices')
@@ -140,7 +167,9 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
 
   deviceService.trackGroup = function ($scope) {
     var tracker = new Tracker($scope, {
-      removeAbsent: true
+      filter: function(device) {
+        return device.using
+      }
     })
 
     oboe('/api/v1/group')
@@ -151,13 +180,24 @@ module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
     return tracker
   }
 
-  deviceService.get = function (serial, $scope) {
-    var tracker = new Tracker($scope, {})
-
+  deviceService.load = function(serial) {
     return $http.get('/api/v1/devices/' + serial)
       .then(function (response) {
-        tracker.add(response.data.device)
         return response.data.device
+      })
+  }
+
+  deviceService.get = function (serial, $scope) {
+    var tracker = new Tracker($scope, {
+      filter: function(device) {
+        return device.serial === serial
+      }
+    })
+
+    return deviceService.load(serial)
+      .then(function(device) {
+        tracker.add(device)
+        return device
       })
   }
 

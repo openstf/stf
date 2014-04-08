@@ -98,7 +98,7 @@ device-screen textarea {
   min-width: 37px;
 }
 
-.stf-vnc-device-name {
+.stf-device-control .stf-vnc-device-name {
   /*padding: 6px 2px 6px 15px;*/
   /*float: left;*/
   font-size: 16px;

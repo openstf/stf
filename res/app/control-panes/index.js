@@ -21,11 +21,5 @@ module.exports = angular.module('control-panes', [
       controller: 'ControlPanesCtrl'
     })
   }])
-//  .config(['$routeProvider', function ($routeProvider) {
-//    $routeProvider.when('/control-panes', {
-//      template: require('./control-panes.jade'),
-//      controller: 'ControlPanesCtrl'
-//    })
-//  }])
   .factory('ControlPanesService', require('./control-panes-service'))
   .controller('ControlPanesCtrl', require('./control-panes-controller'))

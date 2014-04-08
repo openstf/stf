@@ -1,4 +1,4 @@
-module.exports = function ($scope, gettext, $rootScope, $routeParams, $location,
+module.exports = function ($scope, gettext, $routeParams, $location,
                            DeviceService, GroupService, ControlService) {
 
   var sharedTabs = [
@@ -52,18 +52,18 @@ module.exports = function ($scope, gettext, $rootScope, $routeParams, $location,
     }
   ].concat(angular.copy(sharedTabs))
 
+  $scope.device = null
+  $scope.control = null
 
-  $rootScope.device = null
-  $rootScope.control = null
 
-
-  DeviceService.get($routeParams.serial, $rootScope)
+  DeviceService.get($routeParams.serial, $scope)
     .then(function (device) {
       return GroupService.invite(device)
     })
     .then(function (device) {
-      $rootScope.device = device
-      $rootScope.control = ControlService.create(device, device.channel)
+      $scope.device = device
+      $scope.control = ControlService.create(device, device.channel)
+
       return device
     })
     .catch(function () {

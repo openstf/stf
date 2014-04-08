@@ -1,6 +1,5 @@
 module.exports = function ControlServiceFactory(
-  $rootScope
-, $upload
+  $upload
 , $http
 , socket
 , TransactionService

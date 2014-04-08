@@ -1,4 +1,4 @@
-module.exports = function ShellCtrl($scope, $rootScope, gettext) {
+module.exports = function ShellCtrl($scope, gettext) {
   // TODO: implement multiple devices
 //  $scope.results = []
   $scope.result = null
@@ -11,7 +11,7 @@ module.exports = function ShellCtrl($scope, $rootScope, gettext) {
       return
     }
 
-    var cmd = $rootScope.control.shell(command)
+    var cmd = $scope.control.shell(command)
     $scope.command = ''
 
     return cmd.promise

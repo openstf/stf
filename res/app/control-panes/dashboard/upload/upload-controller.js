@@ -1,4 +1,4 @@
-module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettext) {
+module.exports = function UploadCtrl($scope, SettingsService, gettext) {
 
   $scope.upload = null
   $scope.installation = null
@@ -10,13 +10,13 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
     $scope.installation = null
   }
 
-  $rootScope.installUrl = function (url) {
+  $scope.installUrl = function (url) {
     $scope.upload = {
       progress: 0,
       lastData: 'uploading'
     }
 
-    var upload = $rootScope.control.uploadUrl(url)
+    var upload = $scope.control.uploadUrl(url)
     $scope.installation = null
     return upload.promise
       .progressed(function (uploadResult) {
@@ -34,13 +34,13 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
       })
   }
 
-  $rootScope.installFile = function ($files) {
+  $scope.installFile = function ($files) {
     $scope.upload = {
       progress: 0,
       lastData: 'uploading'
     }
 
-    var upload = $rootScope.control.uploadFile($files)
+    var upload = $scope.control.uploadFile($files)
     $scope.installation = null
     return upload.promise
       .progressed(function (uploadResult) {
@@ -60,7 +60,7 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
 
   $scope.maybeInstall = function (options) {
     if ($scope.installEnabled) {
-      var install = $rootScope.control.install(options)
+      var install = $scope.control.install(options)
       return install.promise
         .progressed(function (installResult) {
           $scope.$apply(function () {
@@ -79,7 +79,7 @@ module.exports = function UploadCtrl($scope, $rootScope, SettingsService, gettex
   }
 
   $scope.uninstall = function (packageName) {
-    var tx = $rootScope.control.uninstall(packageName)
+    var tx = $scope.control.uninstall(packageName)
     return tx.promise.then(function (result) {
       if (result.success) {
         $scope.$apply(function () {

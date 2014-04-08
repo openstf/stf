@@ -1,4 +1,4 @@
-module.exports = function SettingsServiceFactory($rootScope, $localForage) {
+module.exports = function SettingsServiceFactory($localForage) {
 
   return $localForage
 }

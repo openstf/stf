@@ -5,13 +5,13 @@
       .stf-vnc-navbar.as-row
 
         .pull-right
-          button(ng-click='$root.control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline
+          button(ng-click='control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline
             i.fa.fa-info
 
           span
-            button(type='button', ng-click='$root.control.rotate(0)', tooltip='Portrait', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
+            button(type='button', ng-click='control.rotate(0)', tooltip='Portrait', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
               i.fa.fa-mobile
-            button(type='button', ng-click='$root.control.rotate(90)', tooltip='Landscape', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
+            button(type='button', ng-click='control.rotate(90)', tooltip='Landscape', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
               i.fa.fa-mobile.fa-rotate-90
 
           button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
@@ -22,31 +22,31 @@
           a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle
             p
               .device-small-image
-                img(ng-src='{{$root.device.image ? "/static/devices/" + $root.device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-              span {{ $root.device.name }}
+                img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+              span {{ device.name }}
               span.caret(ng-show='groupDevices.length > 0')
-            span(ng-show='$root.device && !$root.device.present', translate) (Absent)
+            span(ng-show='device && !device.present', translate) (Absent)
 
           ul.dropdown-menu.pointer.unselectable(ng-show='groupDevices.length > 0')
             li(ng-repeat='groupDevice in groupDevices')
               a(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .device-small-image
                   img(ng-src='{{groupDevice.image ? "/static/devices/" + groupDevice.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-                span(ng-class='{"current-device": groupDevice.serial === $root.device.serial }') {{ groupDevice.name }}
+                span(ng-class='{"current-device": groupDevice.serial === device.serial }') {{ groupDevice.name }}
 
                 span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
                   i.fa.fa-times
 
-      .as-row.fill-height(ng-file-drop='$root.install($files)')
+      .as-row.fill-height(ng-file-drop='controll.install($files)')
         div(ng-controller='DeviceScreenCtrl')
           device-screen(style='width: 400px; height: 600px; background: gray')
 
       .stf-vnc-bottom.as-row
         .controls
           .btn-group.btn-group-justified
-            a(ng-click='$root.control.menu()', title='{{"Menu"|translate}}').btn.btn-primary.btn-lg
+            a(ng-click='control.menu()', title='{{"Menu"|translate}}').btn.btn-primary.btn-lg
               i.fa.fa-bars
-            a(ng-click='$root.control.home()', title='{{"Home"|translate}}').btn.btn-primary.btn-lg
+            a(ng-click='control.home()', title='{{"Home"|translate}}').btn.btn-primary.btn-lg
               i.fa.fa-home
-            a(ng-click='$root.control.back()', title='{{"Back"|translate}}').btn.btn-primary.btn-lg
+            a(ng-click='control.back()', title='{{"Back"|translate}}').btn.btn-primary.btn-lg
               i.fa.fa-mail-reply

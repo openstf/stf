@@ -1,6 +1,6 @@
 var _ = require('lodash')
 
-module.exports = function ActivitiesCtrl($scope, $rootScope) {
+module.exports = function ActivitiesCtrl($scope) {
   $scope.selectedAction = ''
   $scope.selectedCategory = ''
   $scope.selectedData = ''
@@ -82,10 +82,11 @@ module.exports = function ActivitiesCtrl($scope, $rootScope) {
       command += ' -d ' + $scope.selectedData
     }
     if ($scope.selectedPackageName && $scope.selectedActivityName) {
-      command += ' -n ' + $scope.selectedPackageName + '/' + $scope.selectedActivityName
+      command += ' -n ' +
+        $scope.selectedPackageName + '/' + $scope.selectedActivityName
     }
 
-    var cmd = $rootScope.control.shell(command)
+    var cmd = $scope.control.shell(command)
     return cmd.promise.then(function (result) {
       console.log(result)
     })

@@ -1,7 +1,7 @@
 var oboe = require('oboe')
 var _ = require('lodash')
 
-module.exports = function DeviceServiceFactory($rootScope, $http, socket) {
+module.exports = function DeviceServiceFactory($http, socket) {
   var deviceService = {}
 
   function Tracker($scope, options) {

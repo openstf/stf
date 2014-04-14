@@ -4,7 +4,7 @@ div
       catch-all-keys(keys-down='keysDown($event)', keys-up='keysUp($event)')
     .remote-control
       //include control-screen
-      div(ng-include='"control-panes/device-control/device-control.jade"')
+      div(ng-include='"control-panes/device-control/device-control.jade"').fill-height
 
   div(pane, pane-anchor='south', pane-size='30% + 2px', pane-handle='4').pane-bottom-p
     .widget-container.fluid-height

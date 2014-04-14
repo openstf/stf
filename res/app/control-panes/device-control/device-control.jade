@@ -38,8 +38,8 @@
                   i.fa.fa-times
 
       .as-row.fill-height(ng-file-drop='controll.install($files)')
-        div(ng-controller='DeviceScreenCtrl')
-          device-screen(style='width: 400px; height: 600px; background: gray')
+        div(ng-controller='DeviceScreenCtrl').fill-height
+          device-screen(style='width: 100%; height: 100%; background: gray')
 
       .stf-vnc-bottom.as-row
         .controls

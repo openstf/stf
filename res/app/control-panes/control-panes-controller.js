@@ -1,5 +1,4 @@
-module.exports = function ($scope, gettext, $routeParams, $location,
-                           DeviceService, GroupService, ControlService) {
+module.exports = function ($scope, gettext, $routeParams, $location, DeviceService, GroupService, ControlService) {
 
   var sharedTabs = [
     {
@@ -54,6 +53,48 @@ module.exports = function ($scope, gettext, $routeParams, $location,
 
   $scope.device = null
   $scope.control = null
+
+
+  $scope.installFileForced = function ($files) {
+    $scope.upload = {
+      progress: 0,
+      lastData: 'uploading'
+    }
+
+    var upload = $scope.control.uploadFile($files)
+    return upload.promise
+      .progressed(function (uploadResult) {
+        $scope.$apply(function () {
+          $scope.upload = uploadResult
+        })
+      })
+      .then(function (uploadResult) {
+        $scope.$apply(function () {
+          $scope.upload = uploadResult
+        })
+        if (uploadResult.success) {
+          return $scope.maybeInstallForced(uploadResult.body)
+        }
+      })
+  }
+
+  $scope.maybeInstallForced = function (options) {
+    var install = $scope.control.install(options)
+    return install.promise
+      .progressed(function (installResult) {
+        $scope.$apply(function () {
+          installResult.manifest = options.manifest
+          $scope.installation = installResult
+        })
+      })
+      .then(function (installResult) {
+        $scope.$apply(function () {
+          installResult.manifest = options.manifest
+          $scope.treeData = installResult.manifest
+          $scope.installation = installResult
+        })
+      })
+  }
 
 
   DeviceService.get($routeParams.serial, $scope)

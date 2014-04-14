@@ -1,0 +1,39 @@
+.widget-container.fluid-height.stf-port-forwarding(ng-controller='PortForwardingCtrl')
+  .heading
+    i.fa.fa-random
+    span(translate) Port forwarding
+
+    button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary.btn-xs.pull-right
+      i.fa(ng-class="{'fa-arrow-circle-right': !forwarding, 'fa-times-circle': forwarding}")
+      span(ng-show='forwarding', translate) Unforward Ports
+      span(ng-hide='forwarding', translate) Forward Ports
+  .widget-content.padded
+
+
+    table(ng-table='portsTable').table
+      thead
+        tr
+          th
+            div {{"Target IP / Hostname"|translate}}
+          th
+            div {{"Target Port"|translate}}
+          th
+            div {{"Device Port"|translate}}
+      tbody
+        tr(ng-repeat='result in $data')
+          td(data-title="'Target IP / Hostname'")
+            input(type='text', ng-model='result.targetHost', placeholder='{{"Target host (detect if blank)"|translate}}')
+          td(data-title="'Target Port'")
+            input(type='number', ng-model='result.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Example: 3000"|translate}}')
+          td(data-title="'Device Port'")
+            input(type='number', ng-model='result.devicePort', placeholder='{{"Example: 3000"|translate}}')
+          //td(titlew)
+
+    table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
+      tr(ng-repeat='result in $data')
+        td(title="'Device'")
+          p {{ result.deviceId }}
+        td(title="'Reachable'")
+          i(ng-class="{'text-status-on': result.value.connectable, 'text-status-off': !result.value.connectable}").fa.fa-circle
+        td(title="'Connected'")
+          i(ng-class="{'text-status-on': result.value.connected, 'text-status-off': !result.value.connected}").fa.fa-circle

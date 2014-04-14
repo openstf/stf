@@ -1,3 +1,7 @@
+device-screen canvas {
+  transition: width 80ms linear;
+}
+
 device-screen {
   position: relative;
   display: block;

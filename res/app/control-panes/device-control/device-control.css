@@ -116,6 +116,11 @@ device-screen textarea {
   color: #858585;
 }
 
+.stf-device-control .device-name-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .stf-device-control .stf-vnc-device-name .device-small-image {
   margin-left: 10px;
 }

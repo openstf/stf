@@ -18,12 +18,12 @@
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Just control device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"View device"|translate}}<br /><code>⌘-⇧-O</code>', tooltip-placement='left').fa.fa-eye-slash
 
-        div
+        .device-name-containerX
           a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle
             p
               .device-small-image
                 img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-              span {{ device.name }}
+              span.device-name-text {{ device.name }}
               span.caret(ng-show='groupDevices.length > 0')
             span(ng-show='device && !device.present', translate) (Absent)
 

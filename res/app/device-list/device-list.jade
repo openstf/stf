@@ -98,7 +98,7 @@ div.stf-device-list
                   td(data-title="'Location'", sortable='"provider.name"', filter='{"provider.name": "text"}')
                     span {{device.provider.name}}
                   td(data-title="'User'", sortable='"owner.name"', filter='{"owner.name": "text"}')
-                    a(ng-if='device.owner', ng-href='mailto:{{device.owner.email}}', role='button') {{device.owner.name || "No name"}}
+                    a(ng-if='device.owner', ng-href='{{userContactUrl(device.owner.email)}}', role='button', target='_href') {{device.owner.name || "No name"}}
                     a(ng-if='!device.owner') -
               //p
                 strong Sorting

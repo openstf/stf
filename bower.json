@@ -12,11 +12,11 @@
     "oboe": "~1.14.3",
     "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git",
     "Snap.svg": "~0.2.0",
-    "angular-localForage": "~0.1.0",
+    "angular-localForage": "~0.1.4",
     "ng-table": "git://github.com/esvit/ng-table.git#880fbb26eda602c873b1448c92bdcf813296a72a",
     "jquery.terminal": "~0.8.7",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git",
-    "angular-gettext": "~0.2.7",
+    "angular-gettext": "~0.2.8",
     "angular-ui-ace": "~0.1.0",
     "ui-bootstrap-alerts": "~0.1.5",
     "requirejs": "~2.1.11",
@@ -25,8 +25,8 @@
     "angular-dialog-service": "~3.1.0",
     "ng-file-upload": "~1.2.11",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3",
-    "bluebird": "~1.1.1",
-    "angular-tree-control": "~0.1.4"
+    "bluebird": "~1.2.2",
+    "angular-tree-control": "~0.1.5"
   },
   "private": true,
   "resolutions": {

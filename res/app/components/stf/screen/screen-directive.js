@@ -13,6 +13,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         , displayHeight = 0
         , cachedDisplayWidth = 0
         , cachedDisplayHeight = 0
+        , cachedImageWidth = 0
+        , cachedImageHeight = 0
         , loading = false
         , scaler
         , seq = 0
@@ -116,13 +118,18 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
 
             // Check to set the size only if updated
             if (cachedDisplayWidth !== displayWidth ||
-              cachedDisplayHeight !== displayHeight) {
+              cachedDisplayHeight !== displayHeight ||
+              cachedImageWidth !== image.width ||
+              cachedImageHeight !== image.height) {
 
               cachedDisplayWidth = displayWidth
               cachedDisplayHeight = displayHeight
 
-              imageRender.canvasWidth = image.width
-              imageRender.canvasHeight = image.height
+              cachedImageWidth = image.width
+              cachedImageHeight = image.height
+
+              imageRender.canvasWidth = cachedImageWidth
+              imageRender.canvasHeight = cachedImageHeight
 
               var size = scaler.projectedSize(displayWidth, displayHeight)
               imageRender.canvasStyleWidth = size.width

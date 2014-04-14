@@ -1,6 +1,7 @@
 device-screen {
   position: relative;
   display: block;
+  overflow: hidden;
 }
 
 device-screen canvas {

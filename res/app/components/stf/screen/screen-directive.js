@@ -19,6 +19,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         , scaler
         , seq = 0
 
+      scope.$on('panelsResized', updateDisplaySize)
+
       function sendTouch(type, e) {
         var scaled = scaler.coords(
           displayWidth

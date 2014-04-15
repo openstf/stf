@@ -39,9 +39,19 @@ module.exports = function ControlServiceFactory(
     , 144: 144 // num lock
     }
 
+    function sendOneWay(action, data) {
+      socket.emit(action, channel, data)
+    }
+
+    function sendTwoWay(action, data) {
+      var tx = TransactionService.create(target)
+      socket.emit(action, channel, tx.channel, data)
+      return tx
+    }
+
     function touchSender(type) {
       return function(seq, x, y) {
-        socket.emit(type, channel, {
+        sendOneWay(type, {
           seq: seq
         , x: x
         , y: y
@@ -53,7 +63,7 @@ module.exports = function ControlServiceFactory(
       return function(key) {
         var mapped = fixedKey || keyCodes[key]
         if (mapped) {
-          socket.emit(type, channel, {
+          sendOneWay(type, {
             key: mapped
           })
         }
@@ -74,38 +84,30 @@ module.exports = function ControlServiceFactory(
     this.back = keySender('input.keyPress', 4)
 
     this.type = function(text) {
-      socket.emit('input.type', channel, {
+      return sendOneWay('input.type', {
         text: text
       })
     }
 
     this.paste = function(text) {
-      var tx = TransactionService.create(target)
-      socket.emit('clipboard.paste', channel, tx.channel, {
+      return sendTwoWay('clipboard.paste', {
         text: text
       })
-      return tx
     }
 
     this.copy = function() {
-      var tx = TransactionService.create(target)
-      socket.emit('clipboard.copy', channel, tx.channel)
-      return tx
+      return sendTwoWay('clipboard.copy')
     }
 
     this.shell = function(command) {
-      var tx = TransactionService.create(target)
-      socket.emit('shell.command', channel, tx.channel, {
+      return sendTwoWay('shell.command', {
         command: command
       , timeout: 10000
       })
-      return tx
     }
 
     this.identify = function() {
-      var tx = TransactionService.create(target)
-      socket.emit('device.identify', channel, tx.channel)
-      return tx
+      return sendTwoWay('device.identify')
     }
 
     this.uploadUrl = function(url) {
@@ -138,7 +140,6 @@ module.exports = function ControlServiceFactory(
 
     this.install = function(options) {
       var app = options.manifest.application
-      var tx = TransactionService.create(target)
       var params = {
         url: options.url
       }
@@ -151,43 +152,40 @@ module.exports = function ControlServiceFactory(
         , flags: 0x10200000
         }
       }
-      socket.emit('device.install', channel, tx.channel, params)
-      tx.manifest = options.manifest
-      return tx
+      return sendTwoWay('device.install', params)
     }
 
     this.uninstall = function(pkg) {
-      var tx = TransactionService.create(target)
-      socket.emit('device.uninstall', channel, tx.channel, {
+      return sendTwoWay('device.uninstall', {
         packageName: pkg
       })
-      return tx
     }
 
     this.rotate = function(rotation) {
-      socket.emit('display.rotate', channel, {
+      return sendOneWay('display.rotate', {
         rotation: rotation
       })
     }
 
     this.testForward = function(forward) {
-      var tx = TransactionService.create(target)
-      socket.emit('forward.test', channel, tx.channel, forward)
-      return tx
+      return sendTwoWay('forward.test', {
+        targetHost: forward.targetHost
+      , targetPort: forward.targetPort
+      })
     }
 
     this.createForward = function(forward) {
-      var tx = TransactionService.create(target)
-      socket.emit('forward.create', channel, tx.channel, forward)
-      return tx
+      return sendTwoWay('forward.create', {
+        devicePort: forward.devicePort
+      , targetHost: forward.targetHost
+      , targetPort: forward.targetPort
+      })
     }
 
     this.removeForward = function(forward) {
-      var tx = TransactionService.create(target)
-      socket.emit('forward.remove', channel, tx.channel, {
+      return sendTwoWay('forward.remove', {
         devicePort: forward.devicePort
       })
-      return tx
     }
   }
 

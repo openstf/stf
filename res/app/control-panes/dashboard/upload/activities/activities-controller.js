@@ -86,9 +86,9 @@ module.exports = function ActivitiesCtrl($scope) {
         $scope.selectedPackageName + '/' + $scope.selectedActivityName
     }
 
-    var cmd = $scope.control.shell(command)
-    return cmd.promise.then(function (result) {
-      console.log(result)
-    })
+    return $scope.control.shell(command)
+      .then(function (result) {
+        console.log(result)
+      })
   }
 }

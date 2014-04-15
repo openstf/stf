@@ -11,10 +11,9 @@ module.exports = function ShellCtrl($scope, gettext) {
       return
     }
 
-    var cmd = $scope.control.shell(command)
     $scope.command = ''
 
-    return cmd.promise
+    return $scope.control.shell(command)
       .progressed(function(result) {
         $scope.result = result
         $scope.data = result.data.join('')

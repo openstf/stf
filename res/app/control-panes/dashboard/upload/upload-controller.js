@@ -16,9 +16,8 @@ module.exports = function UploadCtrl($scope, SettingsService, gettext) {
       lastData: 'uploading'
     }
 
-    var upload = $scope.control.uploadUrl(url)
     $scope.installation = null
-    return upload.promise
+    return $scope.control.uploadUrl(url)
       .progressed(function (uploadResult) {
         $scope.$apply(function () {
           $scope.upload = uploadResult
@@ -40,9 +39,8 @@ module.exports = function UploadCtrl($scope, SettingsService, gettext) {
       lastData: 'uploading'
     }
 
-    var upload = $scope.control.uploadFile($files)
     $scope.installation = null
-    return upload.promise
+    return $scope.control.uploadFile($files)
       .progressed(function (uploadResult) {
         $scope.$apply(function () {
           $scope.upload = uploadResult
@@ -60,8 +58,7 @@ module.exports = function UploadCtrl($scope, SettingsService, gettext) {
 
   $scope.maybeInstall = function (options) {
     if ($scope.installEnabled) {
-      var install = $scope.control.install(options)
-      return install.promise
+      return $scope.control.install(options)
         .progressed(function (installResult) {
           $scope.$apply(function () {
             installResult.manifest = options.manifest
@@ -79,16 +76,16 @@ module.exports = function UploadCtrl($scope, SettingsService, gettext) {
   }
 
   $scope.uninstall = function (packageName) {
-    var tx = $scope.control.uninstall(packageName)
-    return tx.promise.then(function (result) {
-      if (result.success) {
-        $scope.$apply(function () {
-          $scope.clear()
-        })
-      } else {
-        console.error(result.error)
-      }
-    })
+    return $scope.control.uninstall(packageName)
+      .then(function (result) {
+        if (result.success) {
+          $scope.$apply(function () {
+            $scope.clear()
+          })
+        } else {
+          console.error(result.error)
+        }
+      })
   }
 
   $scope.taskFinished = function () {

@@ -61,8 +61,7 @@ module.exports = function ($scope, gettext, $routeParams, $location, DeviceServi
       lastData: 'uploading'
     }
 
-    var upload = $scope.control.uploadFile($files)
-    return upload.promise
+    return $scope.control.uploadFile($files)
       .progressed(function (uploadResult) {
         $scope.$apply(function () {
           $scope.upload = uploadResult
@@ -79,8 +78,7 @@ module.exports = function ($scope, gettext, $routeParams, $location, DeviceServi
   }
 
   $scope.maybeInstallForced = function (options) {
-    var install = $scope.control.install(options)
-    return install.promise
+    return $scope.control.install(options)
       .progressed(function (installResult) {
         $scope.$apply(function () {
           installResult.manifest = options.manifest

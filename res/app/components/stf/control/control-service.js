@@ -46,7 +46,7 @@ module.exports = function ControlServiceFactory(
     function sendTwoWay(action, data) {
       var tx = TransactionService.create(target)
       socket.emit(action, channel, tx.channel, data)
-      return tx
+      return tx.promise
     }
 
     function touchSender(type) {
@@ -117,7 +117,7 @@ module.exports = function ControlServiceFactory(
       socket.emit('storage.upload', channel, tx.channel, {
         url: url
       })
-      return tx
+      return tx.promise
     }
 
     this.uploadFile = function(files) {
@@ -135,7 +135,7 @@ module.exports = function ControlServiceFactory(
           , file: files[0]
           })
         })
-      return tx
+      return tx.promise
     }
 
     this.install = function(options) {

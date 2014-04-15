@@ -36,11 +36,9 @@ enum MessageType {
   UngroupMessage             = 27;
   UninstallMessage           = 34;
   RotateMessage              = 35;
-  ForwardMessage             = 36;
-  ForwardTestMessage         = 37;
-  ForwardListMessage         = 38;
-  ForwardRemoveMessage       = 39;
-  DeviceForwardsMessage      = 40;
+  ForwardTestMessage         = 36;
+  ForwardCreateMessage       = 37;
+  ForwardRemoveMessage       = 38;
 }
 
 message Envelope {
@@ -357,25 +355,11 @@ message ForwardTestMessage {
   required uint32 targetPort = 2;
 }
 
-message ForwardMessage {
+message ForwardCreateMessage {
   required uint32 devicePort = 1;
   required string targetHost = 2;
   required uint32 targetPort = 3;
-  required bool system = 4;
-}
-
-message ForwardListMessage {
-}
-
-message DeviceForward {
-  required uint32 devicePort = 1;
-  required string targetHost = 2;
-  required uint32 targetPort = 3;
-  required bool system = 4;
-}
-
-message DeviceForwardsMessage {
-  repeated DeviceForward forwards = 1;
+  optional bool system = 4;
 }
 
 message ForwardRemoveMessage {

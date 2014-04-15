@@ -1,6 +1,6 @@
 var io = require('socket.io')
 
-module.exports = function SocketFactory() {
+module.exports = function SocketFactory($rootScope) {
   var socket = io.connect(null, {
     reconnect: false
   })
@@ -25,6 +25,12 @@ module.exports = function SocketFactory() {
       }
     }
   }
+
+  socket.on('socket.ip', function(ip) {
+    $rootScope.$apply(function() {
+      socket.ip = ip
+    })
+  })
 
   return socket
 }

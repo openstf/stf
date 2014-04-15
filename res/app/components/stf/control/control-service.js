@@ -169,6 +169,26 @@ module.exports = function ControlServiceFactory(
         rotation: rotation
       })
     }
+
+    this.testForward = function(forward) {
+      var tx = TransactionService.create(target)
+      socket.emit('forward.test', channel, tx.channel, forward)
+      return tx
+    }
+
+    this.createForward = function(forward) {
+      var tx = TransactionService.create(target)
+      socket.emit('forward.create', channel, tx.channel, forward)
+      return tx
+    }
+
+    this.removeForward = function(forward) {
+      var tx = TransactionService.create(target)
+      socket.emit('forward.remove', channel, tx.channel, {
+        devicePort: forward.devicePort
+      })
+      return tx
+    }
   }
 
   controlService.create = function(target, channel) {

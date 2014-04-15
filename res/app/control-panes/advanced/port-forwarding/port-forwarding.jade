@@ -1,16 +1,32 @@
 .widget-container.fluid-height.stf-port-forwarding(ng-controller='PortForwardingCtrl')
   .heading
-    i.fa.fa-random
-    span(translate) Port forwarding
+    span(ng-click='isCollapsed = !isCollapsed')
+      i.fa.fa-random
+      span(translate).pointer Port forwarding
 
     button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary.btn-xs.pull-right
       i.fa(ng-class="{'fa-arrow-circle-right': !forwarding, 'fa-times-circle': forwarding}")
       span(ng-show='forwarding', translate) Unforward Ports
       span(ng-hide='forwarding', translate) Forward Ports
-  .widget-content.padded
+  .widget-content.padded(collapse='isCollapsed')
+
+    table(ng-table='portsTable').table.table-striped
+      tr(ng-repeat='ports in $data')
+        td(data-title='"Local"').check
+          label
+            input(type='checkbox', ng-model='ports.targetLocal')
+            span
+
+        td(data-title='"Host"')
+          input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
+        td
+          input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
+
+        td(data-title='"Device"')
+          input.form-control(type='number', min='0', ng-model='ports.devicePort', placeholder='{{"Port"|translate}}')
 
 
-    table(ng-table='portsTable').table
+    //table(ng-table='portsTable').table
       thead
         tr
           th

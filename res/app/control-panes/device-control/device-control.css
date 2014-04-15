@@ -1,7 +1,7 @@
 device-screen canvas {
-  transition: width 80ms linear;
-  -ms-transform: width 80ms linear;
-  -webkit-transform: width 80ms linear;
+  transition: width 100ms linear;
+  -ms-transform: width 100ms linear;
+  -webkit-transform: width 100ms linear;
 }
 
 device-screen {

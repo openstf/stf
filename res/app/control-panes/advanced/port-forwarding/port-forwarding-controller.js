@@ -33,7 +33,7 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams) {
         targetLocal: null,
         targetHost: null,
         targetPort: null,
-        devicePort: null,
+        devicePort: null
       }
       $scope.portSets.push(empty)
     }

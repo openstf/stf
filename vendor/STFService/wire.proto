@@ -1,6 +1,6 @@
-package jp.co.cyberagent.stf.proto;
+package jp.co.cyberagent.stf;
 
-option java_outer_classname = "ServiceProto";
+option java_outer_classname = "Wire";
 
 enum RequestType {
   VERSION = 0;
@@ -11,12 +11,18 @@ enum RequestType {
   GET_BROWSERS = 5;
   GET_PROPERTIES = 6;
   IDENTIFY = 7;
+	KEYEVENT = 8;
+	TYPE = 9;
+	WAKE = 10;
+	SET_ROTATION = 11;
 }
 
 message RequestEnvelope {
 	required RequestType type = 1;
 	required bytes request = 2;
 }
+
+// Service
 
 message VersionRequest {
 }
@@ -101,4 +107,38 @@ message IdentifyRequest {
 
 message IdentifyResponse {
 	required bool success = 1;
+}
+
+// Agent
+
+enum KeyEvent {
+	DOWN = 0;
+	UP = 1;
+	PRESS = 2;
+}
+
+message KeyEventRequest {
+	required KeyEvent event = 1;
+	required int32 keyCode = 2;
+	optional bool shiftKey = 3;
+	optional bool ctrlKey = 4;
+	optional bool altKey = 5;
+	optional bool metaKey = 6;
+	optional bool symKey = 7;
+	optional bool functionKey = 8;
+	optional bool capsLockKey = 9;
+	optional bool scrollLockKey = 10;
+	optional bool numLockKey = 11;
+}
+
+message TypeRequest {
+	required string text = 1;
+}
+
+message SetRotationRequest {
+	required int32 rotation = 1;
+	required bool lock = 2;
+}
+
+message WakeRequest {
 }

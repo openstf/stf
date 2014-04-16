@@ -148,7 +148,7 @@ message DeviceBrowsersMessage {
 message DevicePhoneMessage {
   optional string imei = 1;
   optional string phoneNumber = 2;
-  optional string simSerial = 3;
+  optional string iccid = 3;
 }
 
 message DeviceIdentityMessage {

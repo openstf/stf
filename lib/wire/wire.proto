@@ -39,6 +39,8 @@ enum MessageType {
   ForwardTestMessage         = 36;
   ForwardCreateMessage       = 37;
   ForwardRemoveMessage       = 38;
+  LogcatStartMessage         = 39;
+  LogcatStopMessage          = 40;
 }
 
 message Envelope {
@@ -314,6 +316,13 @@ message DeviceLogcatEntryMessage {
 message LogcatFilter {
   required string tag = 1;
   required uint32 priority = 2;
+}
+
+message LogcatStartMessage {
+  repeated LogcatFilter filters = 1;
+}
+
+message LogcatStopMessage {
 }
 
 message LogcatApplyFiltersMessage {

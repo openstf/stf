@@ -187,6 +187,16 @@ module.exports = function ControlServiceFactory(
         devicePort: forward.devicePort
       })
     }
+
+    this.startLogcat = function(filters) {
+      return sendTwoWay('logcat.start', {
+        filters: filters
+      })
+    }
+
+    this.stopLogcat = function() {
+      return sendTwoWay('logcat.stop')
+    }
   }
 
   controlService.create = function(target, channel) {

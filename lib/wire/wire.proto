@@ -151,6 +151,7 @@ message DevicePhoneMessage {
   optional string imei = 1;
   optional string phoneNumber = 2;
   optional string iccid = 3;
+  optional string network = 4;
 }
 
 message DeviceIdentityMessage {

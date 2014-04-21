@@ -9,6 +9,9 @@ module.exports = {
   , publicPath: '/static/build/'
   , filename: 'bundle.js'
   }
+, stats: {
+    colors: true
+  }
 , resolve: {
     modulesDirectories: [
       pathutil.resource('bower_components')

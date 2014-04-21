@@ -197,6 +197,13 @@ module.exports = function ControlServiceFactory(
     this.stopLogcat = function() {
       return sendTwoWay('logcat.stop')
     }
+
+    this.openBrowser = function(browser, url) {
+      return sendTwoWay('browser.open', {
+        url: url
+      , browser: browser.id
+      })
+    }
   }
 
   controlService.create = function(target, channel) {

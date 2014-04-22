@@ -43,19 +43,14 @@ div.stf-device-list
                 clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
                 filter-button(ng-model='filterEnabled')
                 .button-spacer.pull-right
-                button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
+                button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-default-outline.pull-right
                   i.fa.fa-list-alt
                   span {{"Show All"|translate}}
 
-              table.table.table-hover.dataTable(ng-table='tableParams',
-              show-filter='filterEnabled', ng-show='tracker.devices.length')
+              table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length')
                 tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
-                  td(data-title="'Status'",
-                  sortable='"state"',
-                  filter="{ 'usable': 'select' }",
-                  filter-data="statusFilter($column)")
-                    button(ng-class='{"btn-primary": device.state == "using", \
-                    "btn-primary-outline": device.state == "available"}',
+                  td(data-title="'Status'", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
+                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
                       ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{statusName(device)}}
                   td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
                     span {{device.model}}

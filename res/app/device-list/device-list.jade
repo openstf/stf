@@ -47,36 +47,8 @@ div.stf-device-list
                   i.fa.fa-list-alt
                   span {{"Show All"|translate}}
 
-
               table.table.table-hover.dataTable(ng-table='tableParams',
               show-filter='filterEnabled', ng-show='tracker.devices.length')
-                //.cursor.selectable
-                //thead
-                  tr
-                    th
-                      div {{"Use"|translate}}
-                    th
-                      div {{"Status"|translate}}
-                    th
-                      div {{"Model"|translate}}
-                    th
-                      div {{"Product"|translate}}
-                    th
-                      div {{"Carrier"|translate}}
-                    th
-                      div {{"Phone number"}}
-                    th
-                      div {{"Release Date"|translate}}
-                    th
-                      div {{"OS"|translate}}
-                    th
-                      div {{"Screen"|translate}}
-                    th
-                      div {{"Location"|translate}}
-                    th
-                      div {{"User"|translate}}
-
-                //tbody
                 tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
                   td(data-title="'Status'",
                   sortable='"state"',
@@ -111,44 +83,7 @@ div.stf-device-list
                 pre {{tableParams.sorting() | json}}
                 pre {{tableParams.filter() | json}}
 
-    //tr(ng-repeat='device in $data')
-                    td(width='5%', data-title='"Use"', sortable='control')
-                      button(ng-model='device.control', ng-click='toggle(device)', btn-checkbox,
-                      ng-class='{"btn-primary-outline": !device.control, "btn-danger-outline": device.control}',
-                      ng-disabled='!isControllable(device)').btn.btn-xs
-                        span(ng-if='device.control') {{"Stop Using"|translate}}
-                        span(ng-if='!device.control') {{"Start Using"|translate}}
-
-                      //input(type='checkbox', ng-click='toggle(device)', ng-checked='device.control', ng-disabled='!isControllable(device)')
-                    td(width='2%', data-title='"Status"', sortable='"status"')
-                      span(ng-class='deviceStatusClass(device)') {{ deviceStatusText(device)|translate }}
-                    td(width='18%', data-title='"Model"', sortable='capabilities.info.name.id', filter="{ 'capabilities.info.name.id': 'text' }")
-                      div.unselectable.cursor(title='{{device.capabilities.info.name.id}}', ui-event="{ 'dblclick' : 'clickModelName(device)' }") {{ device.capabilities.info.name.id || device.capabilities.model }}
-                      //a(ng-href='/#/devices/{{device.capabilities.id}}', title='{{device.capabilities.id}}') {{ device.capabilities.info.name.id || device.capabilities.model }}
-                    td(width='12%', data-title='"Product"', sortable='capabilities.model') {{ device.capabilities.model }}
-                    td(width='8%', data-title='"Carrier"', sortable='capabilities.info.carrier.name') {{ device.capabilities.info.carrier.name }}
-                    td(width='8%', data-title='"Phone number"', sortable='capabilities.info.carrier.name') {{ device.capabilities.info.carrier.name }}
-                    td(width='9%', data-title='"Release"', sortable='capabilities.info.date') {{ device.capabilities.info.date | date:'yyyy/MM/dd' }}
-                    td(width='4%', data-title='"OS"', sortable='capabilities.version') {{ device.capabilities.version }}
-                    td(width='6%', data-title='"Screen"', sortable='capabilities.info.display.w') {{ device.capabilities.info.display.w }}x{{ device.capabilities.info.display.h }}
-                    td(width='6%', data-title='"Location"')
-                      a(ng-href='{{deviceLocation(device).link}}', target='_blank') {{ deviceLocation(device).name }}
-                    td(width='5%', data-title='"Control"', sortable='')
-                      span(ng-controller='ToolBarCtrl')
-                        button(ng-click='openControl(device.capabilities.id)', ng-disabled='!device.control').btn.btn-primary.btn-sm
-                          i.fa.fa-external-link-square
-                    td(width='10%', data-title='"User"', ng-show='showDeviceUsers')
-                      a(ng-href='{{deviceUser(device).link}}', target='_blank') {{ deviceUser(device).name }}
-
 
 //ul
   li(ng-repeat='device in tracker.devices track by device.serial')
     pre {{device|json}}
-
-//ul.device-list
-  li(ng-repeat='device in tracker.devices track by device.serial')
-    span {{ device.serial }} {{ device.name || device.model }} {{ device.present ? 'present' : 'absent' }} {{ device.usable ? 'usable' : 'unusable' }} {{ device.isOwnedByUser ? 'owned by me' : '' }} {{ device.owner.email }}
-      a(href='#!/devices/{{ device.serial }}') Linky
-    button(ng-click="invite(device)") invite
-    button(ng-click="kick(device)") kick
-    img(ng-src='/static/devices/{{ device.image }}', ng-if='device.image')

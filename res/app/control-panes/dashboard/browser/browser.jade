@@ -9,15 +9,16 @@
       i.fa.fa-refresh
       span(translate) Relaunch
   .widget-content.padded
+    //pre {{device.browser|json}}
     .btn-group
       button.btn.btn-default-outline.dropdown-toggle
         //img(ng-src='/img/platforms/{{$root.browser}}.png').browser-icon
         //| {{$root.browser | browserName}}
-        span {{$root.browser.type}}
-        span.caret
-      ul.dropdown-menu
+        span(ng-show='$root.browser') {{$root.browser.name}} ({{$root.browser.type}})
+        span.caret(ng-show='device.browser.apps.length > 1')
+      ul.dropdown-menu(ng-show='device.browser.apps.length > 1')
         li(ng-repeat='b in device.browser.apps')
           a(ng-click='$root.browser = b').pointer
-            span {{b.type}}
+            span {{b.name}} ({{b.type}})
             //img(ng-src='/img/platforms/{{b}}.png').browser-icon.pointer
             //| {{ b | browserName }}

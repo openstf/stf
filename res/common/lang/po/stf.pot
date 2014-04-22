@@ -9,6 +9,10 @@ msgstr ""
 msgid ""
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
+msgid "(Absent)"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/input/input.html
 msgid "Aa"
 msgstr ""
@@ -58,6 +62,10 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Cannot access specified URL"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Carrier"
 msgstr ""
@@ -105,7 +113,7 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Device Port"
 msgstr ""
 
@@ -123,8 +131,16 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Drop file to upload"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
 msgid "Enable notifications"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Error"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/build/bundle.js
@@ -142,12 +158,20 @@ msgstr ""
 msgid "Error."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Example: 3000"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Failed to download file"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/filter-button/filter-button.html
 msgid "Filter"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Forward Ports"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
@@ -179,6 +203,10 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Hostname"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Inspect"
@@ -196,6 +224,14 @@ msgstr ""
 msgid "Inspector"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Installation failed"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Installing app..."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
 msgid "Just control device"
 msgstr ""
@@ -210,6 +246,14 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
 msgid "Language"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+msgid "Launch Activity"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Launching activity..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
@@ -323,6 +367,14 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Port"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Port forwarding"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/input/input.html
 msgid "Power Button"
 msgstr ""
@@ -337,8 +389,16 @@ msgstr ""
 msgid "Present"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Processing..."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Product"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Pushing app..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/build/bundle.js
@@ -474,6 +534,10 @@ msgstr ""
 msgid "Stop Using"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Storing..."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/input/input.html
 msgid "Switch Charset"
 msgstr ""
@@ -494,15 +558,15 @@ msgstr ""
 msgid "Take Screenshot"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Target IP / Hostname"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Target Port"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Target host (detect if blank)"
 msgstr ""
 
@@ -523,6 +587,14 @@ msgstr ""
 msgid "Unauthorized"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Unforward Ports"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Uninstall"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Unknown"
@@ -530,6 +602,22 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Upload"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Upload complete"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Upload failed"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Uploaded file is not valid"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Uploading..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html

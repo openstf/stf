@@ -19,6 +19,12 @@ body {
     overflow: visible;
 }
 
+.button-spacer {
+  display: inline-block;
+  width: 24px;
+  height: 12px;
+}
+
 /* Overflow */
 
 .overflow-x {

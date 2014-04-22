@@ -42,6 +42,10 @@ div.stf-device-list
               .filtering-buttons
                 clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
                 filter-button(ng-model='filterEnabled')
+                .button-spacer.pull-right
+                button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
+                  i.fa.fa-list-alt
+                  span {{"Show All"|translate}}
 
 
               table.table.table-hover.dataTable(ng-table='tableParams',
@@ -81,25 +85,27 @@ div.stf-device-list
                     button(ng-class='{"btn-primary": device.state == "using", \
                     "btn-primary-outline": device.state == "available"}',
                       ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{statusName(device)}}
-                  td(data-title="'Model'", sortable='"model"', filter='{"model": "text"}')
+                  td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
                     span {{device.model}}
-                  td(data-title="'Product'", sortable='"name"', filter='{"name": "text"}')
+                  td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}')
                     span {{device.name}}
-                  td(data-title="'Carrier'", sortable='"operator"', filter='{"operator": "text"}')
+                  td(data-title="'Carrier'|translate", sortable='"operator"', filter='{"operator": "text"}')
                     span {{device.operator}}
-                  td(data-title="'Phone number'", sortable='"phone.phoneNumber"', filter='{"phone.phoneNumber": "text"}')
-                    span {{device.phone.phoneNumber}}
-                  td(data-title="'Release'", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
+                  td(data-title="'Release'|translate", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
                     span {{device.releasedAt | date:'yyyy/MM/dd'}}
-                  td(data-title="'OS'", sortable='"version"', filter='{"version": "text"}')
+                  td(data-title="'OS'|translate", sortable='"version"', filter='{"version": "text"}')
                     span {{device.version}}
-                  td(data-title="'Screen'", sortable='"display.width"', filter='{"display.width": "text"}')
+                  td(data-title="'Screen'|translate", sortable='"display.width"', filter='{"display.width": "text"}')
                     span {{device.display.width}}x{{device.display.height}}
-                  td(data-title="'Location'", sortable='"provider.name"', filter='{"provider.name": "text"}')
+                  td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
                     span {{device.provider.name}}
-                  td(data-title="'User'", sortable='"owner.name"', filter='{"owner.name": "text"}')
+                  td(data-title="'User'|translate", sortable='"owner.name"', filter='{"owner.name": "text"}')
                     a(ng-if='device.owner', ng-href='{{userContactUrl(device.owner.email)}}', role='button', target='_href') {{device.owner.name || "No name"}}
                     a(ng-if='!device.owner') -
+                  td(ng-show='showAll', data-title="'Phone number'", sortable='"phone.phoneNumber"', filter='{"phone.phoneNumber": "text"}')
+                    span {{device.phone.phoneNumber}}
+
+
               //p
                 strong Sorting
                 pre {{tableParams.sorting() | json}}

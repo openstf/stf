@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: stf\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gunther Brunner <gunta85@gmail.com>\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/settings.html
 msgid "Device Port"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Model"
-msgstr ""
+msgstr "型番"
 
 #: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
 msgid "Native"

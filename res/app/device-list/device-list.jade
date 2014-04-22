@@ -47,6 +47,17 @@ div.stf-device-list
                   i.fa.fa-list-alt
                   span {{"Show All"|translate}}
 
+              //table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled')
+                thead
+                  tr
+                    th(ng-repeat='column in columns', ng-show='column.visible',
+                    ng-class="{'sort-asc': tableParams.isSortBy(column.field, 'asc'), 'sort-desc': tableParams.isSortBy(column.field, 'desc')}",
+                    ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')").text-center.sortable {{column.title}}
+                tbody
+                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
+                    td(ng-repeat='column in columns', ng-show='column.visible', sortable='column.sortable', filter='column.filter')
+                      span {{ device[column.field] }}
+
               table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length')
                 tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
                   td(data-title="'Status'", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
@@ -71,7 +82,8 @@ div.stf-device-list
                     a(ng-if='!device.owner') -
                   td(ng-show='showAll', data-title="'Phone number'", sortable='"phone.phoneNumber"', filter='{"phone.phoneNumber": "text"}')
                     span {{device.phone.phoneNumber}}
-
+                  td(ng-show='showAll', data-title="'Serial'", sortable='"serial"', filter='{"serial": "text"}')
+                    span {{device.serial}}
 
               //p
                 strong Sorting

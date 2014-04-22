@@ -143,7 +143,7 @@ message DeviceBrowserAppMessage {
   required bool selected = 4;
 }
 
-message DeviceBrowsersMessage {
+message DeviceBrowserMessage {
   required bool selected = 1;
   repeated DeviceBrowserAppMessage apps = 2;
 }
@@ -165,7 +165,7 @@ message DeviceIdentityMessage {
   required string abi = 7;
   required string sdk = 8;
   required DeviceDisplayMessage display = 9;
-  required DeviceBrowsersMessage browsers = 10;
+  required DeviceBrowserMessage browser = 10;
   required DevicePhoneMessage phone = 11;
 }
 

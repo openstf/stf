@@ -8,6 +8,8 @@
       i.fa.fa-power-off
 
   .widget-content.padded
+    .button-spacer
+
     .input-group.form-inline
       textarea.form-control(rows='1', ng-model='textType', ng-keydown='textTypeKeydown($event)'
       ng-focus='$parent.textTypeIsFocused = true', ng-blur='$parent.textTypeIsFocused = false',
@@ -15,3 +17,6 @@
       span.input-group-btn
         button(title='{{"Type text"|translate', type='button', ng-click='type(textType)', ng-disabled='!textType').btn.btn-primary-outline
           i.fa.fa-keyboard-o
+
+    .button-spacer
+

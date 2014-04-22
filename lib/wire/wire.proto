@@ -42,6 +42,7 @@ enum MessageType {
   LogcatStartMessage         = 39;
   LogcatStopMessage          = 40;
   BrowserOpenMessage         = 41;
+  BrowserClearMessage        = 42;
 }
 
 message Envelope {
@@ -381,4 +382,8 @@ message ForwardRemoveMessage {
 message BrowserOpenMessage {
   required string url = 1;
   optional string browser = 2;
+}
+
+message BrowserClearMessage {
+  optional string browser = 1;
 }

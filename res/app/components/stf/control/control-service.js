@@ -204,6 +204,12 @@ module.exports = function ControlServiceFactory(
       , browser: browser ? browser.id : null
       })
     }
+
+    this.clearBrowser = function(browser) {
+      return sendTwoWay('browser.clear', {
+        browser: browser.id
+      })
+    }
   }
 
   controlService.create = function(target, channel) {

@@ -29,6 +29,10 @@ body {
     overflow-y: auto;
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 /* Fix btn-group */
 .btn-group.pull-right {
 margin-right: 10px;

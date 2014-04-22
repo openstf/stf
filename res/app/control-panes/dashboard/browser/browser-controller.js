@@ -25,4 +25,9 @@ module.exports = function BrowserCtrl($scope, $rootScope) {
     }
   })
 
+  $scope.clearSettings = function () {
+    var browser = $scope.browser
+    $scope.control.clearBrowser(browser)
+  }
+
 }

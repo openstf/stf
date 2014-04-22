@@ -13,7 +13,7 @@
     "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git",
     "Snap.svg": "~0.2.0",
     "angular-localForage": "~0.1.4",
-    "ng-table": "git://github.com/esvit/ng-table.git#880fbb26eda602c873b1448c92bdcf813296a72a",
+    "ng-table": "git://github.com/esvit/ng-table.git#93b4846c346acb81f60032a00f8cbc99c98f6bf4",
     "jquery.terminal": "~0.8.7",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git",
     "angular-gettext": "~0.2.8",

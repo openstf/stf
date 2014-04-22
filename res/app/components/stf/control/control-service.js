@@ -198,10 +198,10 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('logcat.stop')
     }
 
-    this.openBrowser = function(browser, url) {
+    this.openBrowser = function(url, browser) {
       return sendTwoWay('browser.open', {
         url: url
-      , browser: browser.id
+      , browser: browser ? browser.id : null
       })
     }
   }

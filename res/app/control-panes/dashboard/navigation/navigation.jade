@@ -1,4 +1,4 @@
-.widget-container.fluid-height.stf-navigation
+.widget-container.fluid-height.stf-navigation(ng-controller='NavigationCtrl')
   .heading
     i.fa.fa-globe
     span(translate) Navigation
@@ -8,6 +8,12 @@
       i.fa.fa-step-backward.pull-right(ng-click='back()', title='{{"Go Back"|translate}}', ng-if='$root.browser == "webview"')
   .widget-content.padded
     form
+      ul
+        li(ng-repeat='browser in device.browser.apps')
+          label
+            input(type='radio', ng-model='activeBrowser', ng-value='browser')
+            span {{ browser.type }}
+
       .input-group
         input(type='text', placeholder='http://...', autocomplete='off', ng-model='textURL',
         typeahead='url for url in urlHistory | filter:$viewValue').form-control

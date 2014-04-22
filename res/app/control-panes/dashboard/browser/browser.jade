@@ -1,4 +1,4 @@
-.widget-container.fluid-height
+.widget-container.fluid-height(ng-controller='BrowserCtrl')
   .heading
     i.fa.fa-gear
     span(translate) Browser
@@ -13,9 +13,11 @@
       button.btn.btn-default-outline.dropdown-toggle
         //img(ng-src='/img/platforms/{{$root.browser}}.png').browser-icon
         //| {{$root.browser | browserName}}
+        span {{$root.browser.type}}
         span.caret
       ul.dropdown-menu
-        li(ng-repeat='b in browsers')
-          a(ng-click='selectBrowser(b)').pointer
+        li(ng-repeat='b in device.browser.apps')
+          a(ng-click='$root.browser = b').pointer
+            span {{b.type}}
             //img(ng-src='/img/platforms/{{b}}.png').browser-icon.pointer
             //| {{ b | browserName }}

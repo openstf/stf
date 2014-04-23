@@ -1,6 +1,10 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
 
-module.exports = function DeviceScreenDirective($document, ScalingService) {
+module.exports = function DeviceScreenDirective(
+  $document
+, ScalingService
+, VendorUtil
+) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
@@ -18,19 +22,17 @@ module.exports = function DeviceScreenDirective($document, ScalingService) {
         , loading = false
         , scaler
         , seq = 0
+        , cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
       scope.$on('panelsResized', updateDisplaySize)
 
       function sendTouch(type, e) {
-        var scaled = scaler.coords(
-          displayWidth
-        , displayHeight
-        , e.offsetX
-        , e.offsetY
-        )
+        var x = e.offsetX || e.layerX || 0
+          , y = e.offsetY || e.layerY || 0
+          , scaled = scaler.coords(displayWidth, displayHeight, x, y)
 
-        finger[0].style.webkitTransform =
-          'translate3d(' + e.offsetX + 'px,' + e.offsetY + 'px,0)'
+        finger[0].style[cssTransform] =
+          'translate3d(' + x + 'px,' + y + 'px,0)'
 
         scope.control[type](
             seq++

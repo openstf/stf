@@ -1,31 +1,44 @@
-.widget-container.scrollableX.list.rating-widget.stf-activity(ng-controller='ActivityCtrl')
+.widget-container.scrollableX.messages.stf-activity(ng-controller='ActivityCtrl')
   //.heading
     i.fa
     span(translate) Activity
   .widget-content.padded
-    ul.activity-list
-      li
-        .reviewer-info
-          i.fa.fa-exclamation-triangle.fa-2x.activity-icon
-          //img(width='30', height='30', src='images/avatar-male.jpg')
-          h5.activity-title WebSocket Disconnected
-          em.activity-date.pull-right 2014/04/30 18:33:22
-        .review-text
-          p.pull-left Socket connection was lost, try again reloading the page.
-          .activity-buttons.pull-right
-            refresh-page
-          .clearfix
-      li
-        .reviewer-info
-          i.fa.fa-mobile.fa-2x.activity-icon
-          h5.activity-title 'Nexus 5' Disconnected
-          em.activity-date.pull-right 2014/04/30 15:33:22
-        .review-text
-          p.pull-left Device was disconnected because it timed out.
-          .activity-buttons.pull-right
-            button.btn.btn-sm.btn-primary-outline(ng-click='')
-              i.fa.fa-refresh
-              span(translate) Reconnect device
 
-    .clearfix
+      ul.timeline.activity-list
+        li.active
+          .timeline-time
+            strong Oct 3
+            span 4:53 PM
+          .timeline-icon
+            .bg-primary
+              i.fa.fa-exclamation-circle.fa-1x
+          .timeline-content
+            h2 WebSocket Disconnected
+            p Socket connection was lost, try again reloading the page.
+            div
+              refresh-page
+
+
+          //a(href='/')
+            .status.unread
+            //i.fa.fa-exclamation-triangle.fa-2x.activity-icon
+            h2.activity-title WebSocket Disconnected
+              span.activity-date 2014/04/30 18:33:22
+
+            p.pull-left Socket connection was lost, try again reloading the page.
+            .activity-buttons.pull-right
+              refresh-page
+            .clearfix
+        //li.list-group-item
+          .reviewer-info
+            i.fa.fa-mobile.fa-2x.activity-icon
+            h5.activity-title 'Nexus 5' Disconnected
+            em.activity-date.pull-right 2014/04/30 15:33:22
+          .review-text
+            p.pull-left Device was disconnected because it timed out.
+            .activity-buttons.pull-right
+              button.btn.btn-sm.btn-primary-outline(ng-click='')
+                i.fa.fa-refresh
+                span(translate) Reconnect device
+
 

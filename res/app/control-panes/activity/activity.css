@@ -1,0 +1,19 @@
+.stf-activity .activity-list .activity-date,
+.stf-activity .activity-list .activity-buttons {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.stf-activity .activity-list li:hover .activity-date,
+.stf-activity .activity-list li:hover .activity-buttons {
+  opacity: 1;
+}
+
+.stf-activity .activity-title {
+  display: inline-block;
+}
+
+.stf-activity .activity-icon {
+  width: 30px;
+  height: 30px;
+}

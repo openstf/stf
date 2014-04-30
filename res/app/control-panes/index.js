@@ -11,6 +11,7 @@ module.exports = angular.module('control-panes', [
   require('./cpu').name,
   require('./dashboard').name,
   require('./inspect').name,
+  require('./activity').name,
   require('./logs').name,
   require('./resources').name,
   require('./screenshots').name

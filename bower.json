@@ -25,7 +25,7 @@
     "angular-dialog-service": "~3.1.0",
     "ng-file-upload": "~1.2.11",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3",
-    "bluebird": "~1.2.2",
+    "bluebird": "~1.2.4",
     "angular-tree-control": "~0.1.5"
   },
   "private": true,

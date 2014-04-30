@@ -28,10 +28,6 @@
   cursor: pointer;
 }
 
-.stf-upload .drop-area .drop-area-text {
-  font-size: 18px;
-}
-
 .stf-upload .dragover {
   border-color: #157afb !important;
 }
@@ -42,4 +38,15 @@
 
 .stf-upload .manifest-text {
   font-size: 10px;
+}
+
+.stf-upload .drop-area-text {
+  /*border-top: 1px solid #e2e2e2;*/
+  opacity: 0;
+  font-size: 16px;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.stf-upload .drop-area:hover .drop-area-text {
+  opacity: 1;
 }

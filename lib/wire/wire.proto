@@ -43,6 +43,12 @@ enum MessageType {
   LogcatStopMessage          = 40;
   BrowserOpenMessage         = 41;
   BrowserClearMessage        = 42;
+  AirplaneModeEvent          = 43;
+  BatteryEvent               = 44;
+  BrowserPackageEvent        = 45;
+  ConnectivityEvent          = 46;
+  PhoneStateEvent            = 47;
+  RotationEvent              = 48;
 }
 
 message Envelope {
@@ -386,4 +392,55 @@ message BrowserOpenMessage {
 
 message BrowserClearMessage {
   optional string browser = 1;
+}
+
+// Events, these must be kept in sync with STFService/wire.proto
+
+message AirplaneModeEvent {
+  required string serial = 1;
+  required bool enabled = 2;
+}
+
+message BatteryEvent {
+  required string serial = 1;
+  required string status = 2;
+  required string health = 3;
+  required string source = 4;
+  required uint32 level = 5;
+  required uint32 scale = 6;
+  required double temp = 7;
+  required double voltage = 8;
+}
+
+message BrowserApp {
+  required string name = 1;
+  required string component = 2;
+  required bool selected = 3;
+}
+
+message BrowserPackageEvent {
+  required string serial = 1;
+  required bool selected = 2;
+  repeated BrowserApp apps = 3;
+}
+
+message ConnectivityEvent {
+  required string serial = 1;
+  required bool connected = 2;
+  optional string type = 3;
+  optional string subtype = 4;
+  optional bool failover = 5;
+  optional bool roaming = 6;
+}
+
+message PhoneStateEvent {
+  required string serial = 1;
+  required string state = 2;
+  required bool manual = 3;
+  optional string operator = 4;
+}
+
+message RotationEvent {
+  required string serial = 1;
+  required int32 rotation = 2;
 }

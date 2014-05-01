@@ -74,7 +74,7 @@ module.exports = function DeviceServiceFactory($http, socket) {
     }
 
     function modify(data, newData) {
-      _.assign(data, newData)
+      _.merge(data, newData)
       sync(data)
       notify()
     }

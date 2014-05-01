@@ -45,7 +45,7 @@ enum MessageType {
   BrowserClearMessage        = 42;
   AirplaneModeEvent          = 43;
   BatteryEvent               = 44;
-  BrowserPackageEvent        = 45;
+  DeviceBrowserMessage       = 45;
   ConnectivityEvent          = 46;
   PhoneStateEvent            = 47;
   RotationEvent              = 48;
@@ -151,8 +151,9 @@ message DeviceBrowserAppMessage {
 }
 
 message DeviceBrowserMessage {
-  required bool selected = 1;
-  repeated DeviceBrowserAppMessage apps = 2;
+  required string serial = 1;
+  required bool selected = 2;
+  repeated DeviceBrowserAppMessage apps = 3;
 }
 
 message DevicePhoneMessage {
@@ -172,7 +173,6 @@ message DeviceIdentityMessage {
   required string abi = 7;
   required string sdk = 8;
   required DeviceDisplayMessage display = 9;
-  required DeviceBrowserMessage browser = 10;
   required DevicePhoneMessage phone = 11;
 }
 
@@ -411,18 +411,6 @@ message BatteryEvent {
   required uint32 scale = 6;
   required double temp = 7;
   required double voltage = 8;
-}
-
-message BrowserApp {
-  required string name = 1;
-  required string component = 2;
-  required bool selected = 3;
-}
-
-message BrowserPackageEvent {
-  required string serial = 1;
-  required bool selected = 2;
-  repeated BrowserApp apps = 3;
 }
 
 message ConnectivityEvent {

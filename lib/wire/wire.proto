@@ -269,6 +269,7 @@ enum KeyCode {
   HOME        = 3;
   BACK        = 4;
   BACKSPACE   = 8;
+  TAB         = 9;
   ENTER       = 13;
   CAPS_LOCK   = 20;
   ESC         = 27;

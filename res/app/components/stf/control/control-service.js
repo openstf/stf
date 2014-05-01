@@ -10,6 +10,7 @@ module.exports = function ControlServiceFactory(
   function ControlService(target, channel) {
     var keyCodes = {
       8: 8 // backspace
+    , 9: 9 // tab
     , 13: 13 // enter
     , 20: 20 // caps lock
     , 27: 27 // esc

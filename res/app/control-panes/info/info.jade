@@ -1,0 +1,70 @@
+.row.stf-info(ng-controller='InfoCtrl')
+  .col-md-6
+    .widget-container.fluid-height
+      .heading
+        i.fa.fa-bolt
+        span(translate) Battery
+      .widget-content.padded
+        dl
+          dt(translate) Health
+          dd {{device.battery.health | batteryHealth}}
+        dl
+          dt(translate) Source
+          dd {{device.battery.source | batterySource}}
+        dl
+          dt(translate) Status
+          dd {{device.battery.status | batteryStatus}}
+        dl
+          dt(translate) Level
+          dd
+            progressbar(value='device.battery.level', max='device.battery.scale', type='success')
+              span {{ device.battery.level / device.battery.scale * 100 }}%
+        dl
+          dt(translate) Temperature
+          dd {{device.battery.temp}}°C
+        dl
+          dt(translate) Voltage
+          dd {{device.battery.voltage}}v
+  .col-md-6
+    .widget-container.fluid-height
+      .heading
+        i.fa.fa-tablet
+        span(translate) Display
+      .widget-content.padded
+        table.table.table-bordered
+          tbody
+            tr
+              td Density
+              td {{device.display.density}}
+            tr
+              td FPS
+              td {{device.display.fps}}
+
+
+        dl
+          dt(translate) Density
+          dd {{device.display.density}}
+        dl
+          dt(translate) FPS
+          dd {{device.display.fps}}
+        dl
+          dt(translate) Width
+          dd {{device.display.width}}
+        dl
+          dt(translate) Height
+          dd {{device.display.height}}
+        dl
+          dt(translate) Id
+          dd {{device.display.id}}
+        dl
+          dt(translate) Orientation
+          dd {{device.display.orientation}}°
+        dl
+          dt(translate) Secure
+          dd {{device.display.secure}}
+        dl
+          dt(translate) DPI X
+          dd {{device.display.xdpi}}
+        dl
+          dt(translate) DPI Y
+          dd {{device.display.ydpi}}

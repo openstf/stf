@@ -40,7 +40,15 @@ module.exports = function ($scope, gettext, $routeParams, $location, DeviceServi
       templateUrl: 'control-panes/dashboard/dashboard.jade',
       filters: ['native', 'web']
     }
-  ].concat(angular.copy(sharedTabs))
+  ].concat(angular.copy(sharedTabs), [
+      {
+        title: gettext('Info'),
+        icon: 'fa-info',
+        templateUrl: 'control-panes/info/info.jade',
+        filters: ['native', 'web']
+      }
+    ])
+
 
   $scope.belowTabs = [
     {

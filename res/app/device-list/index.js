@@ -3,8 +3,7 @@ require('./device-list.css')
 module.exports = angular.module('device-list', [
   require('stf/device').name,
   require('stf/user/group').name,
-  require('stf/common-ui').name,
-  require('./device-status').name
+  require('stf/common-ui').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/devices', {

@@ -45,28 +45,28 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
   }
 
 
-  function setCurrentBrowser(device) {
-    if (device && device.browser && device.browser.apps) {
+  function setCurrentBrowser(browser) {
+    if (browser && browser.apps) {
       var currentBrowser = {}
-      if (device.browser.selected) {
-        var selectedBrowser = _.first(device.browser.apps, 'selected')
+      if (browser.selected) {
+        var selectedBrowser = _.first(browser.apps, 'selected')
         if (!_.isEmpty(selectedBrowser)) {
           currentBrowser = selectedBrowser[0]
         }
       } else {
-        currentBrowser = _.first(device.browser.apps)
+        currentBrowser = _.first(browser.apps)
       }
       $rootScope.browser = currentBrowser
     }
   }
 
-  setCurrentBrowser($scope.device)
+  setCurrentBrowser($scope.device ? $scope.device.browser : null)
 
-  $scope.$watch('device', function (newValue, oldValue) {
+  $scope.$watch('device.browser', function (newValue, oldValue) {
     if (newValue !== oldValue) {
       setCurrentBrowser(newValue)
     }
-  })
+  }, true)
 
   $scope.clearSettings = function () {
     var browser = $scope.browser

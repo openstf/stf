@@ -49,6 +49,7 @@ enum MessageType {
   ConnectivityEvent          = 46;
   PhoneStateEvent            = 47;
   RotationEvent              = 48;
+  StoreOpenMessage           = 49;
 }
 
 message Envelope {
@@ -393,6 +394,9 @@ message BrowserOpenMessage {
 
 message BrowserClearMessage {
   optional string browser = 1;
+}
+
+message StoreOpenMessage {
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

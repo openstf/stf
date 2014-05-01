@@ -211,6 +211,12 @@ module.exports = function ControlServiceFactory(
         browser: browser.id
       })
     }
+
+    this.openStore = function() {
+      return sendTwoWay('store.open')
+    }
+
+    window.cc = this
   }
 
   controlService.create = function(target, channel) {

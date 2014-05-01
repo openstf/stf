@@ -12,9 +12,12 @@ require('./stf-se7en.css')
 require('./small.css')
 require('./stf-styles.css')
 
+require('angular-loading-bar/src/loading-bar.js')
+require('angular-loading-bar/src/loading-bar.css')
 
 module.exports = angular.module('layout', [
   'fa.directive.borderLayout',
+  'angular-loading-bar',
   require('stf/common-ui').name,
   require('stf/socket/socket-state').name
 ])

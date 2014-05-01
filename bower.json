@@ -26,7 +26,8 @@
     "ng-file-upload": "~1.2.11",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3",
     "bluebird": "~1.2.4",
-    "angular-tree-control": "~0.1.5"
+    "angular-tree-control": "~0.1.5",
+    "angular-loading-bar": "~0.4.0"
   },
   "private": true,
   "resolutions": {

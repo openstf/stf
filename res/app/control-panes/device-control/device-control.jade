@@ -8,6 +8,8 @@
           button(ng-click='control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline
             i.fa.fa-info
 
+          span.orientation-degree {{device.display.orientation}}°
+
           span
             button(type='button', ng-click='control.rotate(0)', tooltip='Portrait', tooltip-placement='bottom').btn.btn-sm.btn-primary-outline
               i.fa.fa-mobile

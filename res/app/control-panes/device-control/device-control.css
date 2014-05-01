@@ -77,6 +77,11 @@ device-screen textarea {
   margin-right: 0;
 }
 
+.stf-device-control .orientation-degree {
+  min-width: 34px;
+  display: inline-block;
+}
+
 /* VNC buttons */
 .stf-vnc-bottom .btn-primary:hover {
   background: rgba(255, 255, 255, 1.0);

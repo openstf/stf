@@ -18,7 +18,7 @@ div.stf-device-list
                     img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                   .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                   //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{statusName(device)}}
+                  button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
                 .clear-fix
               .clear-fix
               .line
@@ -97,9 +97,16 @@ div.stf-device-list
                   td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"', filter='{"battery.health": "text"}')
                     span {{device.battery.health | batteryHealth}}
                   td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"', filter='{"battery.source": "text"}')
-                    span {{device.battery.source}}
-
-
+                    span {{device.battery.source | batterySource}}
+                  td(ng-show='showAll', data-title="'Battery Status'", sortable='"battery.status"', filter='{"battery.status": "text"}')
+                    span {{device.battery.status | batteryStatus}}
+                  td(ng-show='showAll', data-title="'Battery Level'", sortable='"battery.level"', filter='{"battery.level": "text"}')
+                    progressbar(value='device.battery.level', max='device.battery.scale', type='success')
+                      span {{ device.battery.level / device.battery.scale * 100 }}%
+                  td(ng-show='showAll', data-title="'Battery Temperature'", sortable='"battery.temp"', filter='{"battery.temp": "text"}')
+                    span {{device.battery.temp}}°C
+                  td(ng-show='showAll', data-title="'Battery Voltage'", sortable='"battery.voltage"', filter='{"battery.voltage": "text"}')
+                    span {{device.battery.voltage}}v
 
                   td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
                     span {{device.provider.name}}

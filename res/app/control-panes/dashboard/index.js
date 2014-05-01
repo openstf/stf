@@ -3,7 +3,8 @@ module.exports = angular.module('stf.dashboard', [
   require('./browser/index').name,
   require('./input/index').name,
   require('./shell/index').name,
-  require('./upload/index').name
+  require('./upload/index').name,
+  require('./apps/index').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(

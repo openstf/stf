@@ -1,0 +1,11 @@
+.widget-container.fluid-height.stf-apps(ng-controller='AppsCtrl')
+  .heading
+    i.fa.fa-th-large
+    span(translate) Apps
+    div.pull-right
+      button.btn.btn-sm.btn-primary-outline(ng-click='control.openStore()',
+      tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
+        i.fa.fa-android.fa-1x
+
+  .widget-content.padded
+

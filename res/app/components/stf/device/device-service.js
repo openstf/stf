@@ -74,7 +74,10 @@ module.exports = function DeviceServiceFactory($http, socket) {
     }
 
     function modify(data, newData) {
-      _.merge(data, newData)
+      _.merge(data, newData, function(a, b) {
+        // New Arrays overwrite old Arrays
+        return _.isArray(b) ? b : undefined
+      })
       sync(data)
       notify()
     }

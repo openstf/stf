@@ -30,7 +30,8 @@ div.stf-device-list
                     img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                   .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                   //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
+                  //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
+                  button.btn.btn-default.btn-xs.device-status {{device.state|statusName}}
                 .clear-fix
 
             tab(active='activeTabs.details')
@@ -62,7 +63,7 @@ div.stf-device-list
                 tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
                   td(data-title="'Status'", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
                     button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
-                      ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{statusName(device)}}
+                      ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName}}
                   td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
                     span {{device.model}}
                   td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}')
@@ -92,9 +93,13 @@ div.stf-device-list
                     span {{device.phone.imei}}
                   td(ng-show='showAll', data-title="'Phone ICCID'", sortable='"phone.iccid"', filter='{"phone.iccid": "text"}')
                     span {{device.phone.iccid}}
-                  //td(ng-show='showAll', data-title="'Browsers'")
-                    span(ng-repeat='browsers in device.browser.apps')
-                      span  {{browsers.name}}
+
+                  td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"', filter='{"battery.health": "text"}')
+                    span {{device.battery.health | batteryHealth}}
+                  td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"', filter='{"battery.source": "text"}')
+                    span {{device.battery.source}}
+
+
 
                   td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
                     span {{device.provider.name}}

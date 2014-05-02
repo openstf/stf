@@ -48,12 +48,12 @@ module.exports = angular.module('stf.device-status', [])
   .filter('displayDensity', function (gettext) {
     return function (text) {
       return {
-        '0.5': 'LDPI (120 dpi)',
-        '1': 'MDPI (160 dpi)',
-        '1.5': 'HDPI (240 dpi)',
-        '2': 'XHDPI (320 dpi)',
-        '3': 'XXHDPI (480 dpi)',
-        '4': 'XXXHDPI (640 dpi)'
+        '0.5': 'LDPI', // (120 dpi)
+        '1': 'MDPI', // (160 dpi)
+        '1.5': 'HDPI', // (240 dpi)
+        '2': 'XHDPI', // (320 dpi)
+        '3': 'XXHDPI', // (480 dpi)
+        '4': 'XXXHDPI' // (640 dpi)
       }[text] || text
     }
   })

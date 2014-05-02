@@ -100,7 +100,7 @@
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
-              td(translate) Operator
+              td(translate) Carrier
               td {{device.operator}}
             tr
               td(translate) Network
@@ -109,11 +109,13 @@
               td(translate) Number
               td {{device.phone.phoneNumber}}
             tr
-              td(translate) ICCID
-              td {{device.phone.iccid}}
-            tr
               td(translate) IMEI
               td {{device.phone.imei}}
+            tr
+              td(translate) ICCID
+              td
+                small {{device.phone.iccid}}
+
 
   .col-md-4
     .widget-container.fluid-height
@@ -142,7 +144,7 @@
   .col-md-4
     .widget-container.fluid-height
       .heading
-        i.fa.fa-phone
+        i.fa.fa-mobile
         span(translate) Platform
       .widget-content.padded
         table.table.table-condensed.table-hover.table-infocard

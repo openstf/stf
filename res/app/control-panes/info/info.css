@@ -13,10 +13,12 @@
 .stf-info .table-infocard tbody > tr > td:first-child {
   text-align: right;
   margin-right: 20px;
+  /*color: #111111;*/
+  font-weight: bold;
 }
 
 .stf-info .table-infocard tbody > tr > td:last-child {
-  font-weight: bold;
+  /*color: #555;*/
 }
 
 .stf-info .progress {

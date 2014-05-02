@@ -1,21 +1,24 @@
 
 .ace_editor ::-webkit-scrollbar-thumb {
-    /*background: #bbbbbb;*/
-    /*background: red;*/
-    background: rgba(255, 255, 255, 0.15);
+  /*background: #bbbbbb;*/
+  /*background: red;*/
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .ace_editor ::-webkit-scrollbar-track {
-    /*background: red;*/
-    background: rgba(255, 255, 255, 0.05);
+  /*background: red;*/
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .input-group-btn .btn {
-    margin-right: 0;
+  margin-right: 0;
 }
-
 
 .widget-container .heading .checkbox-inline {
   margin-left: 5px;
   margin-right: 10px;
+}
+
+.padded-small {
+  padding: 5px;
 }

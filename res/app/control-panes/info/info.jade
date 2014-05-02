@@ -1,10 +1,10 @@
 .row.stf-info(ng-controller='InfoCtrl')
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-bolt
         span(translate) Battery
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
@@ -28,12 +28,12 @@
               td Voltage
               td {{device.battery.voltage}} v
 
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-tablet
         span(translate) Display
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
@@ -64,12 +64,12 @@
               td Y DPI
               td {{device.display.ydpi}}
 
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-signal
         span(translate) Network
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
@@ -91,12 +91,12 @@
               td Sub Type
               td {{device.network.subtype | networkSubType}}
 
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-credit-card
         span(translate) SIM
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
@@ -117,12 +117,12 @@
                 small {{device.phone.iccid}}
 
 
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-phone
         span(translate) Hardware
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
@@ -141,12 +141,12 @@
               td(translate) Released
               td {{device.releasedAt | date:longDate}}
 
-  .col-md-4
+  .col-md-3
     .widget-container.fluid-height
       .heading
         i.fa.fa-mobile
         span(translate) Platform
-      .widget-content.padded
+      .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr

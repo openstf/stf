@@ -1,3 +1,25 @@
-.stf-info {
 
+.stf-info .table.table-infocard thead > tr > th,
+.stf-info .table.table-infocard tbody > tr > th,
+.stf-info .table.table-infocard tfoot > tr > th,
+.stf-info .table.table-infocard thead > tr > td,
+.stf-info .table.table-infocard tbody > tr > td,
+.stf-info .table.table-infocard tfoot > tr > td {
+  border-top: 0;
+}
+
+
+
+.stf-info .table-infocard tbody > tr > td:first-child {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.stf-info .table-infocard tbody > tr > td:last-child {
+  font-weight: bold;
+}
+
+.stf-info .progress {
+  margin-bottom: 0;
+  height: 15px;
 }

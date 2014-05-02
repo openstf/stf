@@ -49,6 +49,7 @@ message BrowserApp {
     required string name = 1;
     required string component = 2;
     required bool selected = 3;
+    required bool system = 4;
 }
 
 message BrowserPackageEvent {

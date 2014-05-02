@@ -149,6 +149,7 @@ message DeviceBrowserAppMessage {
   required string type = 2;
   required string name = 3;
   required bool selected = 4;
+  required bool system = 5;
 }
 
 message DeviceBrowserMessage {

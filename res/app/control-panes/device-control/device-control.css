@@ -11,6 +11,9 @@ device-screen {
 }
 
 device-screen canvas {
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-transform: rotate(0deg);
   position: absolute;
   margin: auto;
   top: 0;

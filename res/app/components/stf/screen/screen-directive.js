@@ -13,23 +13,26 @@ module.exports = function DeviceScreenDirective(
         , imageRender = new FastImageRender(canvas, {render: 'canvas'})
         , finger = element.find('span')
         , input = element.find('textarea')
-        , displayWidth = 0  // TODO: cache inside FastImageRender?
-        , displayHeight = 0
-        , cachedDisplayWidth = 0
-        , cachedDisplayHeight = 0
+        , boundingWidth = 0  // TODO: cache inside FastImageRender?
+        , boundingHeight = 0
+        , cachedBoundingWidth = 0
+        , cachedBoundingHeight = 0
         , cachedImageWidth = 0
         , cachedImageHeight = 0
+        , cachedRotation = 0
+        , rotation = 0
         , loading = false
         , scaler
         , seq = 0
         , cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
-      scope.$on('panelsResized', updateDisplaySize)
+      scope.$on('panelsResized', updateBounds)
 
       function sendTouch(type, e) {
         var x = e.offsetX || e.layerX || 0
           , y = e.offsetY || e.layerY || 0
-          , scaled = scaler.coords(displayWidth, displayHeight, x, y)
+          , r = scope.device.display.orientation
+          , scaled = scaler.coords(boundingWidth, boundingHeight, x, y, r)
 
         finger[0].style[cssTransform] =
           'translate3d(' + x + 'px,' + y + 'px,0)'
@@ -49,12 +52,12 @@ module.exports = function DeviceScreenDirective(
         seq = 0
       }
 
-      function updateDisplaySize() {
-        displayWidth = element[0].offsetWidth
-        displayHeight = element[0].offsetHeight
+      function updateBounds() {
+        boundingWidth = element[0].offsetWidth
+        boundingHeight = element[0].offsetHeight
 
         // Developer error, let's try to reduce debug time
-        if (!displayWidth || !displayHeight) {
+        if (!boundingWidth || !boundingHeight) {
           throw new Error(
             'Unable to update display size; container must have dimensions'
           )
@@ -102,8 +105,8 @@ module.exports = function DeviceScreenDirective(
         if (!loading && scope.canView && scope.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-            '?width=' + displayWidth +
-            '&height=' + displayHeight +
+            '?width=' + boundingWidth +
+            '&height=' + boundingHeight +
             '&time=' + Date.now()
           )
         }
@@ -121,23 +124,49 @@ module.exports = function DeviceScreenDirective(
           if (scope.canView && scope.showScreen) {
 
             // Check to set the size only if updated
-            if (cachedDisplayWidth !== displayWidth ||
-              cachedDisplayHeight !== displayHeight ||
+            if (cachedBoundingWidth !== boundingWidth ||
+              cachedBoundingHeight !== boundingHeight ||
               cachedImageWidth !== image.width ||
-              cachedImageHeight !== image.height) {
+              cachedImageHeight !== image.height ||
+              cachedRotation !== rotation) {
 
-              cachedDisplayWidth = displayWidth
-              cachedDisplayHeight = displayHeight
+              cachedBoundingWidth = boundingWidth
+              cachedBoundingHeight = boundingHeight
 
               cachedImageWidth = image.width
               cachedImageHeight = image.height
 
+              cachedRotation = rotation
+
               imageRender.canvasWidth = cachedImageWidth
               imageRender.canvasHeight = cachedImageHeight
 
-              var size = scaler.projectedSize(displayWidth, displayHeight)
+              var size = scaler.projectedSize(
+                boundingWidth
+              , boundingHeight
+              , rotation
+              )
+
               imageRender.canvasStyleWidth = size.width
               imageRender.canvasStyleHeight = size.height
+
+              // @todo Make sure that each position is able to rotate smoothly
+              // to the next one. This current setup doesn't work if rotation
+              // changes from 180 to 270 (it will do a reverse rotation).
+              switch (rotation) {
+                case 0:
+                  canvas.style[cssTransform] = 'rotate(0deg)'
+                  break
+                case 90:
+                  canvas.style[cssTransform] = 'rotate(-90deg)'
+                  break
+                case 180:
+                  canvas.style[cssTransform] = 'rotate(-180deg)'
+                  break
+                case 270:
+                  canvas.style[cssTransform] = 'rotate(90deg)'
+                  break
+              }
             }
 
             imageRender.draw(image)
@@ -164,7 +193,7 @@ module.exports = function DeviceScreenDirective(
           })
         }
 
-        updateDisplaySize()
+        updateBounds()
         maybeLoadScreen()
 
         input.bind('keydown', keydownListener)
@@ -210,6 +239,10 @@ module.exports = function DeviceScreenDirective(
         else {
           off()
         }
+      })
+
+      scope.$watch('device.display.orientation', function(r) {
+        rotation = r || 0
       })
 
       scope.$on('$destroy', off)

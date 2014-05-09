@@ -5,17 +5,87 @@ module.exports = function ScalingServiceFactory() {
   scalingService.coordinator = function (realWidth, realHeight) {
     var realRatio = realWidth / realHeight
 
+    /**
+     * Rotation affects the screen as follows:
+     *
+     *                   0deg
+     *                 |------|
+     *                 | MENU |
+     *                 |------|
+     *            -->  |      |  --|
+     *            |    |      |    v
+     *                 |      |
+     *                 |      |
+     *                 |------|
+     *        |----|-|          |-|----|
+     *        |----|M|          | |----|
+     *        |----|E|          | |----|
+     *  90deg |----|N|          |U|----| 270deg
+     *        |----|U|          |N|----|
+     *        |----| |          |E|----|
+     *        |----| |          |M|----|
+     *        |----|-|          |-|----|
+     *                 |------|
+     *            ^    |      |    |
+     *            |--  |      |  <--
+     *                 |      |
+     *                 |      |
+     *                 |------|
+     *                 | UNEM |
+     *                 |------|
+     *                  180deg
+     *
+     * Which leads to the following mapping:
+     *
+     * |--------------|------|---------|---------|---------|
+     * |              | 0deg |  90deg  |  180deg |  270deg |
+     * |--------------|------|---------|---------|---------|
+     * | CSS rotate() | 0deg | -90deg  | -180deg |  90deg  |
+     * | bounding w   |  w   |    h    |    w    |   h     |
+     * | bounding h   |  h   |    w    |    h    |   w     |
+     * | pos x        |  x   |   h-y   |   w-x   |   y     |
+     * | pos y        |  y   |    x    |   h-y   |   x     |
+     * |--------------|------|---------|---------|---------|
+     */
     return {
-      coords: function (width, height, x, y) {
-        var ratio = width / height
-          , scaledValue
+      coords: function (boundingW, boundingH, relX, relY, rotation) {
+        var w, h, x, y, ratio, scaledValue
+
+        switch (rotation) {
+        case 0:
+          w = boundingW
+          h = boundingH
+          x = relX
+          y = relY
+          break
+        case 90:
+          w = boundingH
+          h = boundingW
+          x = boundingH - relY
+          y = relX
+          break
+        case 180:
+          w = boundingW
+          h = boundingH
+          x = boundingW - relX
+          y = boundingH - relY
+          break
+        case 270:
+          w = boundingH
+          h = boundingW
+          x = relY
+          y = relX
+          break
+        }
+
+        ratio = w / h
 
         if (realRatio > ratio) {
           // covers the area horizontally
-          scaledValue = width / realRatio
+          scaledValue = w / realRatio
 
           // adjust y to start from the scaled top edge
-          y -= (height - scaledValue) / 2
+          y -= (h - scaledValue) / 2
 
           // not touching the screen, but we want to trigger certain events
           // (like touchup) anyway, so let's do it on the edges.
@@ -30,18 +100,18 @@ module.exports = function ScalingServiceFactory() {
           if (x < 0) {
             x = 0
           }
-          else if (x > width) {
-            x = width
+          else if (x > w) {
+            x = w
           }
 
-          height = scaledValue
+          h = scaledValue
         }
         else {
           // covers the area vertically
-          scaledValue = height * realRatio
+          scaledValue = h * realRatio
 
           // adjust x to start from the scaled left edge
-          x -= (width - scaledValue) / 2
+          x -= (w - scaledValue) / 2
 
           // not touching the screen, but we want to trigger certain events
           // (like touchup) anyway, so let's do it on the edges.
@@ -56,16 +126,16 @@ module.exports = function ScalingServiceFactory() {
           if (y < 0) {
             y = 0
           }
-          else if (y > height) {
-            y = height
+          else if (y > h) {
+            y = h
           }
 
-          width = scaledValue
+          w = scaledValue
         }
 
         return {
-          xP: x / width
-        , yP: y / height
+          xP: x / w
+        , yP: y / h
         }
       }
     , size: function (width, height) {
@@ -101,20 +171,35 @@ module.exports = function ScalingServiceFactory() {
         , height: height
         }
       }
-    , projectedSize: function (width, height) {
-        var ratio = width / height
+    , projectedSize: function (boundingW, boundingH, rotation) {
+        var w, h
+
+        switch (rotation) {
+        case 0:
+        case 180:
+          w = boundingW
+          h = boundingH
+          break
+        case 90:
+        case 270:
+          w = boundingH
+          h = boundingW
+          break
+        }
+
+        var ratio = w / h
 
         if (realRatio > ratio) {
           // covers the area horizontally
-          height = Math.floor(width / realRatio)
+          h = Math.floor(w / realRatio)
         }
         else {
-          width = Math.floor(height * realRatio)
+          w = Math.floor(h * realRatio)
         }
 
         return {
-          width: width
-        , height: height
+          width: w
+        , height: h
         }
       }
     }

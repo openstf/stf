@@ -12,7 +12,7 @@ module.exports = function ScalingServiceFactory() {
 
         if (realRatio > ratio) {
           // covers the area horizontally
-          scaledValue = width / realRatio;
+          scaledValue = width / realRatio
 
           // adjust y to start from the scaled top edge
           y -= (height - scaledValue) / 2
@@ -64,9 +64,11 @@ module.exports = function ScalingServiceFactory() {
         }
 
         return {
-          xP: x / width, yP: y / height
+          xP: x / width
+        , yP: y / height
         }
-      }, size: function (width, height) {
+      }
+    , size: function (width, height) {
         var ratio = width / height
 
         if (realRatio > ratio) {
@@ -95,9 +97,11 @@ module.exports = function ScalingServiceFactory() {
         }
 
         return {
-          width: width, height: height
+          width: width
+        , height: height
         }
-      }, projectedSize: function (width, height) {
+      }
+    , projectedSize: function (width, height) {
         var ratio = width / height
 
         if (realRatio > ratio) {
@@ -109,7 +113,8 @@ module.exports = function ScalingServiceFactory() {
         }
 
         return {
-          width: width, height: height
+          width: width
+        , height: height
         }
       }
     }

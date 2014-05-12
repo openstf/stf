@@ -27,14 +27,7 @@
               a(ng-click='clearHistory()', type='button', translate).btn-link Clear
 
     .btn-group(ng-if='$root.browser')
-      button.btn.btn-smx.btn-default-outline.dropdown-toggle
-        img(ng-src='/static/browsers/icon/16x16/{{$root.browser.type}}.png').browser-icon
-        //| {{$root.browser | browserName}}
-        span(ng-show='$root.browser') {{$root.browser.name}} ({{$root.browser.developer}})
-        span.caret(ng-show='device.browser.apps.length > 1')
-      ul.dropdown-menu(ng-show='device.browser.apps.length > 1')
-        li(ng-repeat='b in device.browser.apps')
-          a(ng-click='$root.browser = b').pointer
-            img(ng-src='/static/browsers/icon/16x16/{{b.type}}.png').browser-icon.pointer
-            span {{b.name}} ({{b.developer}})
-            //| {{ b | browserName }}
+      .btn-group
+        label.btn.btn-default-outline(ng-repeat='b in device.browser.apps', ng-model='$root.browser', btn-radio='b',
+        tooltip-append-to-body='true', tooltip='{{b.name}} ({{b.developer}})')
+          img(ng-src='/static/browsers/icon/24x24/{{b.type}}.png', ng-show='b.type').browser-icon.pointer

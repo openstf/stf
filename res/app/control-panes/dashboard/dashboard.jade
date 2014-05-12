@@ -5,9 +5,13 @@
     div(ng-include='"control-panes/dashboard/browser/browser.jade"')
   .col-md-6
     div(ng-include='"control-panes/dashboard/input/input.jade"')
+.row
   .col-md-6(ng-if='$root.platform == "native"')
     div(ng-include='"control-panes/dashboard/upload/upload.jade"')
   .col-md-6(ng-if='$root.platform == "native"')
     div(ng-include='"control-panes/dashboard/shell/shell.jade"')
+.row
+  .col-md-6
+    div(ng-include='"control-panes/dashboard/clipboard/clipboard.jade"')
   .col-md-6(ng-if='$root.platform == "native"')
     div(ng-include='"control-panes/dashboard/apps/apps.jade"')

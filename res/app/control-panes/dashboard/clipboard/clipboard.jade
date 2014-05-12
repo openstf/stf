@@ -1,0 +1,15 @@
+.widget-container.fluid-height.stf-clipboard(ng-controller='ClipboardCtrl')
+  .heading
+    i.fa.fa-copy
+    span(translate) Clipboard
+  .widget-content.padded
+    .input-group.form-inline
+      textarea(rows='1', ng-model='clipboardContent').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='getClipboardContent()')
+          i.fa.fa-refresh
+
+      //      .input-group.form-inline
+      //textarea.form-control(rows='1', ng-model='textType', ng-keydown='textTypeKeydown($event)'
+      //ng-focus='$parent.textTypeIsFocused = true', ng-blur='$parent.textTypeIsFocused = false',
+      //title='{{"Types text. Only ASCII characters are supported."|translate}}')

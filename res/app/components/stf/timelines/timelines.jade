@@ -1,0 +1,5 @@
+div.stf-timelines
+  ui.list-unstyled
+    li(ng-repeat='(id, notification) in notifications')
+      div(ng-class='{{cssPrefix}} {{cssPrefix}}-{{notification.type}}')
+        div(ng-bind-html='notification.message')

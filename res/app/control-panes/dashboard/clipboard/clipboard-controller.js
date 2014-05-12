@@ -8,7 +8,6 @@ module.exports = function ClipboardCtrl($scope, gettext) {
         if (result.success) {
           if (result.lastData) {
             $scope.clipboardContent = result.lastData
-            console.log(result)
           } else {
             $scope.clipboardContent = gettext('No clipboard data')
           }

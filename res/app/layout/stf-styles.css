@@ -342,12 +342,7 @@ svg {
     margin: 0;
 }
 
-/* Browser Icon */
-.browser-icon {
-    width: 16px;
-    height: auto;
-    margin-right: 5px;
-}
+
 
 /* Make text input on tables be 100% */
 .table td input[type="number"],

@@ -7,5 +7,4 @@ module.exports = angular.module('stf/common-ui/notifications', [
   'ngAnimate',
   'angular-growl'
 ]).config(['growlProvider', function (growlProvider) {
-  growlProvider.globalEnableHtml(true)
 }])

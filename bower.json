@@ -2,36 +2,36 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "~1.3.0-beta.2",
-    "angular-route": "~1.3.0-beta.2",
-    "angular-sanitize": "~1.3.0-beta.2",
-    "angular-animate": "~1.3.0-beta.2",
+    "angular": "~1.3.0-beta.8",
+    "angular-route": "~1.3.0-beta.8",
+    "angular-sanitize": "~1.3.0-beta.8",
+    "angular-animate": "~1.3.0-beta.8",
     "se7en-bootstrap-3": "git@ghe.amb.ca.local:stf/se7en-bootstrap-3.git#7a90ef40be7e944afae38e195dc4a74ec34cc258",
     "socket.io-client": "~0.9.16",
     "lodash": "~2.4.1",
     "oboe": "~1.14.3",
     "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git",
     "Snap.svg": "~0.2.0",
-    "angular-localForage": "~0.1.4",
+    "angular-localForage": "~0.2.1",
     "ng-table": "git://github.com/esvit/ng-table.git#93b4846c346acb81f60032a00f8cbc99c98f6bf4",
     "jquery.terminal": "~0.8.7",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git",
     "angular-gettext": "~0.2.8",
-    "angular-ui-ace": "~0.1.0",
+    "angular-ui-ace": "~0.1.1",
     "ui-bootstrap-alerts": "~0.1.5",
     "requirejs": "~2.1.11",
     "stf-graphics": "git@ghe.amb.ca.local:stf/stf-graphics.git",
-    "angular-bootstrap": "~0.10.0",
-    "angular-dialog-service": "~3.1.0",
+    "angular-bootstrap": "~0.11.0",
+    "angular-dialog-service": "~5.0.0",
     "ng-file-upload": "~1.2.11",
-    "angular-growl-v2": "JanStevens/angular-growl-2#~0.5.3",
+    "angular-growl-v2": "JanStevens/angular-growl-2#~0.6.0",
     "bluebird": "~1.2.4",
     "angular-tree-control": "~0.1.5",
-    "angular-loading-bar": "~0.4.0"
+    "angular-loading-bar": "~0.4.2"
   },
   "private": true,
   "resolutions": {
-    "angular": "~1.3.0-beta.2",
-    "angular-sanitize": "~1.3.0-beta.2"
+    "angular": "~1.3.0-beta.8",
+    "angular-sanitize": "~1.3.0-beta.8"
   }
 }

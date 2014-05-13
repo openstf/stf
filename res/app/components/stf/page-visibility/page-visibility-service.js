@@ -1,8 +1,11 @@
 module.exports = function PageVisibilityServiceFactory($rootScope) {
-  var service = {}
+  var service = {
+    hidden: false
+  }
 
   function visibilityChangeListener() {
-    $rootScope.$broadcast('visibilitychange', document.hidden)
+    service.hidden = document.hidden
+    $rootScope.$broadcast('visibilitychange', service.hidden)
   }
 
   document.addEventListener(

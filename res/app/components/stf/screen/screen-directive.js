@@ -233,23 +233,18 @@ module.exports = function DeviceScreenDirective(
         }
       })
 
-      scope.$watch('device.using', function(using) {
-        if (using) {
+      function checkEnabled() {
+        var using = scope.device && scope.device.using
+        if (using && !PageVisibilityService.hidden) {
           on()
         }
         else {
           off()
         }
-      })
+      }
 
-      scope.$on('visibilitychange', function(e, hidden) {
-        if (hidden) {
-          off()
-        }
-        else {
-          on()
-        }
-      })
+      scope.$watch('device.using', checkEnabled)
+      scope.$on('visibilitychange', checkEnabled)
 
       scope.$watch('device.display.orientation', function(r) {
         rotation = r || 0

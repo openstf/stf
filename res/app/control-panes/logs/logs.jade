@@ -17,7 +17,10 @@
 
       //table.table.table-condensed(ng-show='filtering.show')
 
+      //
+
       table.table.table-condensed.logcat-filters-table(ng-show='true')
+
         //tr
           th(width='4%')//Line
           th(width='10%') Device
@@ -71,5 +74,5 @@
               th(width='16%')
               th(width='46%')
           tbody#logcatBody
-
+            pre {{ logEntries | json }}
             br

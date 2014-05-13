@@ -1,10 +1,8 @@
-module.exports = function LogsCtrl($scope, socket) {
+module.exports = function LogsCtrl($scope, LogcatService) {
 
   var filters = []
 
-  socket.scoped($scope).on('logcat.entry', function (entry) {
-    console.log(entry)
-  })
+  $scope.logEntries = LogcatService.entries
 
 
   $scope.$watch('started', function (newValue, oldValue) {
@@ -19,6 +17,9 @@ module.exports = function LogsCtrl($scope, socket) {
       }
 
     }
+  })
 
-  });
+  $scope.clear = function () {
+    LogcatService.clear()
+  }
 }

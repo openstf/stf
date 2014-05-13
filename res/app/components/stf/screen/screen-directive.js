@@ -39,8 +39,8 @@ module.exports = function DeviceScreenDirective(
 
         scope.control[type](
             seq++
-          , scaled.xP * scope.device.display.width
-          , scaled.yP * scope.device.display.height
+          , scaled.xP
+          , scaled.yP
         )
       }
 

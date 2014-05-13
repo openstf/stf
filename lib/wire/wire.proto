@@ -235,25 +235,25 @@ message PhysicalIdentifyMessage {
 
 message TouchDownMessage {
   required uint32 seq = 1;
-  required uint32 x = 2;
-  required uint32 y = 3;
+  required float x = 2;
+  required float y = 3;
 }
 
 message TouchMoveMessage {
   required uint32 seq = 1;
-  required uint32 x = 2;
-  required uint32 y = 3;
+  required float x = 2;
+  required float y = 3;
 }
 
 message TouchUpMessage {
   required uint32 seq = 1;
-  required uint32 x = 2;
-  required uint32 y = 3;
+  required float x = 2;
+  required float y = 3;
 }
 
 message TapMessage {
-  required uint32 x = 1;
-  required uint32 y = 2;
+  required float x = 1;
+  required float y = 2;
 }
 
 message TypeMessage {

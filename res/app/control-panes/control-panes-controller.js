@@ -1,4 +1,4 @@
-module.exports = function ($scope, gettext, $routeParams, $location, DeviceService, GroupService, ControlService) {
+module.exports = function ($scope, gettext, $routeParams, $location, DeviceService, GroupService, ControlService, FatalMessageService) {
 
   var sharedTabs = [
     {
@@ -122,4 +122,15 @@ module.exports = function ($scope, gettext, $routeParams, $location, DeviceServi
     .catch(function () {
       $location.path('/')
     })
+
+
+  $scope.$watch('device.state', function (newValue, oldValue) {
+    if (newValue !== oldValue) {
+      if (oldValue === 'using') {
+        FatalMessageService.open(angular.copy($scope.device))
+      } else {
+
+      }
+    }
+  }, true)
 }

@@ -1,2 +1,3 @@
-module.exports = function LayoutCtrl() {
+module.exports = function LayoutCtrl(FatalMessageService) {
+
 }

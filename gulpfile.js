@@ -10,12 +10,12 @@ var clean = require('gulp-clean')
 
 gulp.task('jshint', function () {
   return gulp.src([
-    'lib/**/*.js'
+      'lib/**/*.js'
     , 'res/app/**/*.js'
     , 'res/auth-ldap/**/*.js'
     , 'res/auth-mock/**/*.js'
     , '*.js'
-  ])
+    ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
 })
@@ -34,9 +34,7 @@ gulp.task('jsonlint', function () {
 
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint'])
-
-gulp.task('build', ['translate', 'webpack:build'], function () {
-})
+gulp.task('build', ['translate', 'webpack:build'])
 
 // For production
 gulp.task("webpack:build", function (callback) {
@@ -63,38 +61,36 @@ gulp.task("webpack:build", function (callback) {
   })
 })
 
-gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'],
-  function () {
-  })
+gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
-gulp.task('jade', function (callback) {
-  gulp.src(['./res/**/*.jade', '!./res/bower_components/**'])
+gulp.task('jade', function () {
+  return gulp.src([
+      './res/**/*.jade'
+    , '!./res/bower_components/**'
+    ])
     .pipe(jade())
     .pipe(gulp.dest('./tmp/html/'))
-
-  callback()
 })
 
-gulp.task('translate:extract', function (callback) {
-  gulp.src(['./tmp/html/**/*.html', './res/**/*.js',
-    '!./res/bower_components/**'])
+gulp.task('translate:extract', function () {
+  return gulp.src([
+      './tmp/html/**/*.html'
+    , './res/**/*.js'
+    , '!./res/bower_components/**'
+    ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))
-
-  callback()
 })
 
-gulp.task('translate:compile', function (callback) {
-  gulp.src('./res/common/lang/po/**/*.po')
+gulp.task('translate:compile', function () {
+  return gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
     }))
     .pipe(gulp.dest('./res/common/lang/translations/'))
-
-  callback()
 })
 
 gulp.task('clean', function () {
-  gulp.src('./tmp', {read: false})
+  return gulp.src('./tmp', {read: false})
     .pipe(clean())
 })

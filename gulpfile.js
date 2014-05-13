@@ -21,7 +21,13 @@ gulp.task('jshint', function () {
 })
 
 gulp.task('jsonlint', function () {
-  return gulp.src(['.jshintrc', '.bowerrc', '.yo-rc.json', '*.json'])
+  return gulp.src([
+      '.jshintrc'
+    , 'res/.jshintrc'
+    , '.bowerrc'
+    , '.yo-rc.json'
+    , '*.json'
+    ])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter())
 })

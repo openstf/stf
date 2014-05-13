@@ -1,3 +1,71 @@
 .stf-logcat-table {
+  background: #fff;
+  position: absolute;
+  top: 69px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  /*z-index: -10;*/
+}
 
+.stf-logcat-table table {
+  table-layout: fixed !important;
+}
+
+.stf-logcat-table tbody tr {
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.stf-logcat-table tbody td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.stf-logcat-table .console-message-text {
+  font-size: 11px !important;
+  font-family: Menlo, monospace;
+  white-space: pre-wrap;
+}
+
+.stf-logcat-table .console-message-text td {
+  /*color: rgb(48, 57, 66);*/
+}
+
+/**
+  Logging colors
+*/
+
+.stf-logcat-table .log-unknown {
+  color: bisque;
+}
+
+.stf-logcat-table .log-default,
+.stf-logcat-table .log-silent {
+  color: darkolivegreen;
+}
+
+.stf-logcat-table .log-verbose {
+  color: blueviolet;
+}
+
+.stf-logcat-table .log-debug {
+  color: rgb(48, 57, 66);
+}
+
+.stf-logcat-table .log-info {
+  color: blue;
+}
+
+.stf-logcat-table .log-warn {
+  color: coral;
+}
+
+.stf-logcat-table .log-error {
+  color: red;
+}
+
+.stf-logcat-table .log-fatal {
+  color: darkcyan;
 }

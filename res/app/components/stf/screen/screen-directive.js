@@ -4,6 +4,7 @@ module.exports = function DeviceScreenDirective(
   $document
 , ScalingService
 , VendorUtil
+, PageVisibilityService
 ) {
   return {
     restrict: 'E',
@@ -238,6 +239,15 @@ module.exports = function DeviceScreenDirective(
         }
         else {
           off()
+        }
+      })
+
+      scope.$on('visibilitychange', function(e, hidden) {
+        if (hidden) {
+          off()
+        }
+        else {
+          on()
         }
       })
 

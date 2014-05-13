@@ -4,12 +4,13 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
 
   var ModalInstanceCtrl = function ($scope, $modalInstance, device) {
     $scope.ok = function () {
-      $modalInstance.close(5)
+      $modalInstance.close(true)
       $route.reload()
       //$location.path('/control/' + device.serial)
     }
 
     $scope.second = function () {
+      $modalInstance.dismiss()
       $location.path('/devices/')
     }
 
@@ -23,17 +24,14 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
       template: require('./fatal-message.jade'),
       controller: ModalInstanceCtrl,
       resolve: {
-        device: device,
-        items: function () {
-          return 10
-        }
+        device: device
       }
     })
 
     modalInstance.result.then(function (selectedItem) {
       console.log(selectedItem)
     }, function () {
-      console.log('Modal dismissed at: ' + new Date())
+
     })
   }
 

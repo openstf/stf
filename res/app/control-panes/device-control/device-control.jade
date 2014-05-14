@@ -30,7 +30,7 @@
               span.caret(ng-show='groupDevices.length > 0')
             span(ng-show='device && !device.present', translate) (Absent)
 
-          ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.unselectable(ng-show='groupDevices.length > 0')
+          ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
             li(ng-repeat='groupDevice in groupDevices')
               a(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .device-small-image

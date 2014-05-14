@@ -8,111 +8,113 @@ div.stf-device-list
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
-              nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
+              div(ng-if='activeTabs.devices')
+                nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
-              ul.devices-icon-view
-                li(ng-repeat='device in tracker.devices | filter:{usable:true} | orderBy:"name" track by device.serial',
-                ng-click='toggle(device)',
-                ).cursor-select.pointer.thumbnail
-                  .device-photo-small
-                    img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-                  .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
-                  //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
+                ul.devices-icon-view
+                  li(ng-repeat='device in tracker.devices | filter:{usable:true} | orderBy:"name" track by device.serial',
+                  ng-click='toggle(device)',
+                  ).cursor-select.pointer.thumbnail
+                    .device-photo-small
+                      img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                    .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
+                    //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
+                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
+                  .clear-fix
                 .clear-fix
-              .clear-fix
-              .line
-              ul.devices-icon-view
-                li(ng-repeat='device in tracker.devices | filter:{usable:false} | orderBy:"name" track by device.serial',
-                ng-disabled='true',
-                ).cursor-select.pointer.thumbnail.device-is-busy
-                  .device-photo-small
-                    img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
-                  .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
-                  //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                  //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
-                  button.btn.btn-default.btn-xs.device-status {{device.state|statusName}}
-                .clear-fix
+                .line
+                ul.devices-icon-view
+                  li(ng-repeat='device in tracker.devices | filter:{usable:false} | orderBy:"name" track by device.serial',
+                  ng-disabled='true',
+                  ).cursor-select.pointer.thumbnail.device-is-busy
+                    .device-photo-small
+                      img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                    .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
+                    //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
+                    //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
+                    button.btn.btn-default.btn-xs.device-status {{device.state|statusName}}
+                  .clear-fix
 
             tab(active='activeTabs.details')
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
-              nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
+              div
+                nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
-              .filtering-buttons
-                clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
-                filter-button(ng-model='filterEnabled')
-                .button-spacer.pull-right
-                button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
-                  i.fa.fa-list-alt
-                  span {{"Show All"|translate}}
+                .filtering-buttons
+                  clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
+                  filter-button(ng-model='filterEnabled')
+                  .button-spacer.pull-right
+                  button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
+                    i.fa.fa-list-alt
+                    span {{"Show All"|translate}}
 
-              //table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled')
-                thead
-                  tr
-                    th(ng-repeat='column in columns', ng-show='column.visible',
-                    ng-class="{'sort-asc': tableParams.isSortBy(column.field, 'asc'), 'sort-desc': tableParams.isSortBy(column.field, 'desc')}",
-                    ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')").text-center.sortable {{column.title}}
-                tbody
+                //table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled')
+                  thead
+                    tr
+                      th(ng-repeat='column in columns', ng-show='column.visible',
+                      ng-class="{'sort-asc': tableParams.isSortBy(column.field, 'asc'), 'sort-desc': tableParams.isSortBy(column.field, 'desc')}",
+                      ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')").text-center.sortable {{column.title}}
+                  tbody
+                    tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
+                      td(ng-repeat='column in columns', ng-show='column.visible', sortable='column.sortable', filter='column.filter')
+                        span {{ device[column.field] }}
+
+                table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length')
                   tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
-                    td(ng-repeat='column in columns', ng-show='column.visible', sortable='column.sortable', filter='column.filter')
-                      span {{ device[column.field] }}
+                    td(data-title="'Status'", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
+                      button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
+                        ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName}}
+                    td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
+                      span {{device.model}}
+                    td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}')
+                      span {{device.name}}
+                    td(data-title="'Carrier'|translate", sortable='"operator"', filter='{"operator": "text"}')
+                      span {{device.operator}}
+                    td(data-title="'Release'|translate", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
+                      span {{device.releasedAt | date:'yyyy/MM/dd'}}
+                    td(data-title="'OS'|translate", sortable='"version"', filter='{"version": "text"}')
+                      span {{device.version}}
+                    td(data-title="'Network'|translate", sortable='"phone.network"', filter='{"phone.network": "text"}')
+                      span {{device.phone.network}}
 
-              table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length')
-                tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
-                  td(data-title="'Status'", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
-                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
-                      ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName}}
-                  td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
-                    span {{device.model}}
-                  td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}')
-                    span {{device.name}}
-                  td(data-title="'Carrier'|translate", sortable='"operator"', filter='{"operator": "text"}')
-                    span {{device.operator}}
-                  td(data-title="'Release'|translate", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
-                    span {{device.releasedAt | date:'yyyy/MM/dd'}}
-                  td(data-title="'OS'|translate", sortable='"version"', filter='{"version": "text"}')
-                    span {{device.version}}
-                  td(data-title="'Network'|translate", sortable='"phone.network"', filter='{"phone.network": "text"}')
-                    span {{device.phone.network}}
+                    td(ng-show='showAll', data-title="'Screen'|translate", sortable='"display.width"', filter='{"display.width": "text"}')
+                      span {{device.display.width}}x{{device.display.height}}
+                    td(ng-show='showAll', data-title="'Serial'", sortable='"serial"', filter='{"serial": "text"}')
+                      span {{device.serial}}
+                    td(ng-show='showAll', data-title="'Manufacturer'", sortable='"manufacturer"', filter='{"manufacturer": "text"}')
+                      span {{device.manufacturer}}
+                    td(ng-show='showAll', data-title="'SDK'", sortable='"sdk"', filter='{"sdk": "text"}')
+                      span {{device.sdk}}
+                    td(ng-show='showAll', data-title="'ABI'", sortable='"abi"', filter='{"abi": "text"}')
+                      span {{device.abi}}
+                    td(ng-show='showAll', data-title="'Phone'", sortable='"phone.phoneNumber"', filter='{"phone.phoneNumber": "text"}')
+                      span {{device.phone.phoneNumber}}
+                    td(ng-show='showAll', data-title="'Phone IMEI'", sortable='"phone.imei"', filter='{"phone.imei": "text"}')
+                      span {{device.phone.imei}}
+                    td(ng-show='showAll', data-title="'Phone ICCID'", sortable='"phone.iccid"', filter='{"phone.iccid": "text"}')
+                      span {{device.phone.iccid}}
 
-                  td(ng-show='showAll', data-title="'Screen'|translate", sortable='"display.width"', filter='{"display.width": "text"}')
-                    span {{device.display.width}}x{{device.display.height}}
-                  td(ng-show='showAll', data-title="'Serial'", sortable='"serial"', filter='{"serial": "text"}')
-                    span {{device.serial}}
-                  td(ng-show='showAll', data-title="'Manufacturer'", sortable='"manufacturer"', filter='{"manufacturer": "text"}')
-                    span {{device.manufacturer}}
-                  td(ng-show='showAll', data-title="'SDK'", sortable='"sdk"', filter='{"sdk": "text"}')
-                    span {{device.sdk}}
-                  td(ng-show='showAll', data-title="'ABI'", sortable='"abi"', filter='{"abi": "text"}')
-                    span {{device.abi}}
-                  td(ng-show='showAll', data-title="'Phone'", sortable='"phone.phoneNumber"', filter='{"phone.phoneNumber": "text"}')
-                    span {{device.phone.phoneNumber}}
-                  td(ng-show='showAll', data-title="'Phone IMEI'", sortable='"phone.imei"', filter='{"phone.imei": "text"}')
-                    span {{device.phone.imei}}
-                  td(ng-show='showAll', data-title="'Phone ICCID'", sortable='"phone.iccid"', filter='{"phone.iccid": "text"}')
-                    span {{device.phone.iccid}}
+                    td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"', filter='{"battery.health": "text"}')
+                      span {{device.battery.health | batteryHealth}}
+                    td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"', filter='{"battery.source": "text"}')
+                      span {{device.battery.source | batterySource}}
+                    td(ng-show='showAll', data-title="'Battery Status'", sortable='"battery.status"', filter='{"battery.status": "text"}')
+                      span {{device.battery.status | batteryStatus}}
+                    td(ng-show='showAll', data-title="'Battery Level'", sortable='"battery.level"', filter='{"battery.level": "text"}')
+                      progressbar(value='device.battery.level', max='device.battery.scale', type='success')
+                        span {{ device.battery.level / device.battery.scale * 100 }}%
+                    td(ng-show='showAll', data-title="'Battery Temperature'", sortable='"battery.temp"', filter='{"battery.temp": "text"}')
+                      span {{device.battery.temp}}°C
+                    td(ng-show='showAll', data-title="'Battery Voltage'", sortable='"battery.voltage"', filter='{"battery.voltage": "text"}')
+                      span {{device.battery.voltage}}v
 
-                  td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"', filter='{"battery.health": "text"}')
-                    span {{device.battery.health | batteryHealth}}
-                  td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"', filter='{"battery.source": "text"}')
-                    span {{device.battery.source | batterySource}}
-                  td(ng-show='showAll', data-title="'Battery Status'", sortable='"battery.status"', filter='{"battery.status": "text"}')
-                    span {{device.battery.status | batteryStatus}}
-                  td(ng-show='showAll', data-title="'Battery Level'", sortable='"battery.level"', filter='{"battery.level": "text"}')
-                    progressbar(value='device.battery.level', max='device.battery.scale', type='success')
-                      span {{ device.battery.level / device.battery.scale * 100 }}%
-                  td(ng-show='showAll', data-title="'Battery Temperature'", sortable='"battery.temp"', filter='{"battery.temp": "text"}')
-                    span {{device.battery.temp}}°C
-                  td(ng-show='showAll', data-title="'Battery Voltage'", sortable='"battery.voltage"', filter='{"battery.voltage": "text"}')
-                    span {{device.battery.voltage}}v
-
-                  td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
-                    span {{device.provider.name}}
-                  td(data-title="'User'|translate", sortable='"owner.name"', filter='{"owner.name": "text"}')
-                    a(ng-if='device.owner', ng-href='{{userContactUrl(device.owner.email)}}', role='button', target='_href') {{device.owner.name || "No name"}}
-                    a(ng-if='!device.owner') -
+                    td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
+                      span {{device.provider.name}}
+                    td(data-title="'User'|translate", sortable='"owner.name"', filter='{"owner.name": "text"}')
+                      a(ng-if='device.owner', ng-href='{{userContactUrl(device.owner.email)}}', role='button', target='_href') {{device.owner.name || "No name"}}
+                      a(ng-if='!device.owner') -
 
 
 

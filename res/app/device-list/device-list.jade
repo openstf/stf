@@ -39,7 +39,7 @@ div.stf-device-list
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
-              div(ng-if='activeTabs.details', ng-controller='DeviceListDetailsCtrl')
+              div(ng-show='activeTabs.details', ng-controller='DeviceListDetailsCtrl')
                 nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
                 .filtering-buttons

@@ -35,5 +35,6 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
     })
   }
 
+
   return FatalMessageService
 }

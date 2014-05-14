@@ -51,12 +51,12 @@ module.exports = function ($scope, gettext, $routeParams, $location, DeviceServi
 
 
   $scope.belowTabs = [
-    {
-      title: gettext('Activity'),
-      icon: 'fa-clock-o',
-      templateUrl: 'control-panes/activity/activity.jade',
-      filters: ['native', 'web']
-    },
+//    {
+//      title: gettext('Activity'),
+//      icon: 'fa-clock-o',
+//      templateUrl: 'control-panes/activity/activity.jade',
+//      filters: ['native', 'web']
+//    },
     {
       title: gettext('Logs'),
       icon: 'fa-list-alt',

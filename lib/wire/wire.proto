@@ -210,7 +210,7 @@ message OwnerMessage {
 
 message GroupMessage {
   required OwnerMessage owner = 1;
-  required uint32 timeout = 2;
+  optional uint32 timeout = 2;
   repeated DeviceRequirement requirements = 3;
 }
 

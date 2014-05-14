@@ -8,9 +8,11 @@ module.exports = function GroupServiceFactory(
   groupService.invite = function (device) {
     var tx = TransactionService.create(device)
     socket.emit('group.invite', device.channel, tx.channel, {
-      serial: {
-        value: device.serial
-      , match: 'exact'
+      requirements: {
+        serial: {
+          value: device.serial
+        , match: 'exact'
+        }
       }
     })
     return tx.promise.then(function(result) {
@@ -24,9 +26,11 @@ module.exports = function GroupServiceFactory(
   groupService.kick = function (device) {
     var tx = TransactionService.create(device)
     socket.emit('group.kick', device.channel, tx.channel, {
-      serial: {
-        value: device.serial
-      , match: 'exact'
+      requirements: {
+        serial: {
+          value: device.serial
+        , match: 'exact'
+        }
       }
     })
     return tx.promise.then(function(result) {

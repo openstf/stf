@@ -3,7 +3,7 @@ div.stf-device-list
     .col-md-12
       .widget-container.fluid-height
         .widget-content.padded
-          tabset.overflow-auto
+          tabset.overflow-auto(ng-if='activeTabs')
             tab(active='activeTabs.devices')
               tab-heading
                 i.fa.fa-th-large
@@ -39,7 +39,7 @@ div.stf-device-list
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
-              div
+              div(ng-if='activeTabs.details', ng-controller='DeviceListDetailsCtrl')
                 nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
                 .filtering-buttons

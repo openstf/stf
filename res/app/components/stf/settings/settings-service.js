@@ -1,57 +1,56 @@
+var Promise = require('bluebird')
+
 module.exports = function SettingsServiceFactory($localForage) {
+  var SettingsService = {}
+
   var loadedInMemory = false
 
-  $localForage.memoryData = {}
+  var memoryData = Object.create(null)
 
   function setItemMemory(key, value) {
-    $localForage.memoryData[key] = value
+    memoryData[key] = value
   }
 
   function getItemMemory(key) {
-    var ret
-    if (typeof $localForage.memoryData[key] !== 'undefined') {
-      ret = $localForage.memoryData[key]
-    }
-    return ret
+    return memoryData[key]
   }
 
-  $localForage.setItemSync = function (key, value) {
+  SettingsService.setItem = function (key, value) {
     setItemMemory(key, value)
-
-    $localForage.setItem(key, value, function () {
-      console.log('Finished saving to local forage', key, value)
-    })
+    return $localForage.setItem(key, value)
   }
 
-  $localForage.getAllItemsSync = function () {
-    $localForage.getKeys().then(function (keys) {
-      for (var i = 0; i < keys.length; ++i) {
-        $localForage.getItem(keys[i]).then(setItemMemory.bind(null, keys[i]))
-      }
-    })
-    // FIX: This is not sync
-    loadedInMemory = true
-  }
-
-  $localForage.getItemSync = function (key) {
-    if (!loadedInMemory) {
-      console.log('Loading for the first time')
-      $localForage.getAllItemsSync(function () {
-        console.log(getItemMemory(key))
-      })
+  function loadAllItems() {
+    if (loadedInMemory) {
+      return Promise.resolve()
     }
 
-    setTimeout(function () {
-      console.log(getItemMemory(key))
-    }, 1000)
-
-    return getItemMemory(key)
+    return $localForage.getKeys().then(function (keys) {
+      return Promise.all(keys.map(function (key) {
+        return $localForage.getItem(key).then(setItemMemory.bind(null, key))
+      }))
+    }).then(function () {
+      loadedInMemory = true
+    })
   }
 
-  $localForage.bindSync = function (scope, opts) {
-
+  SettingsService.getItem = function (key) {
+    return loadAllItems().then(function () {
+      return getItemMemory(key)
+    })
   }
 
+  SettingsService.bind = function () {
 
-  return $localForage
+
+
+    return $localForage.bind.apply($localForage, arguments)
+  }
+
+  SettingsService.clear = function () {
+    memoryData = Object.create(null)
+    return $localForage.clear.apply($localForage, arguments)
+  }
+
+  return SettingsService
 }

@@ -16,7 +16,7 @@ CanvasRender.prototype.draw = function (image) {
 }
 
 CanvasRender.prototype.clear = function () {
-  this.context.clearRect(0, 0, this.displayWidth, this.displayHeight)
+  this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height)
 }
 
 

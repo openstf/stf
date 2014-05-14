@@ -103,7 +103,7 @@ module.exports = function DeviceScreenDirective(
       }
 
       function maybeLoadScreen() {
-        if (!loading && scope.canView && scope.showScreen && scope.device) {
+        if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
             '?width=' + boundingWidth +
@@ -122,7 +122,7 @@ module.exports = function DeviceScreenDirective(
         imageRender.onLoad = function (image) {
           loading = false
 
-          if (scope.canView && scope.showScreen) {
+          if (scope.$parent.showScreen) {
 
             // Check to set the size only if updated
             if (cachedBoundingWidth !== boundingWidth ||
@@ -215,21 +215,13 @@ module.exports = function DeviceScreenDirective(
         element.unbind('mousedown', downListener)
       }
 
-      scope.$watch('canView', function (val) {
+      scope.$watch('$parent.showScreen', function (val) {
         if (val) {
           maybeLoadScreen()
         } else {
           scope.fps = null
-          //imageRender.clear()
-        }
-      })
+          imageRender.clear()
 
-      scope.$watch('showScreen', function (val) {
-        if (val) {
-          maybeLoadScreen()
-        } else {
-          scope.fps = null
-          //imageRender.clear()
         }
       })
 

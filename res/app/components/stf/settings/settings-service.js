@@ -47,6 +47,10 @@ module.exports = function SettingsServiceFactory($localForage) {
     return $localForage.bind.apply($localForage, arguments)
   }
 
+  SettingsService.driver = function () {
+    return $localForage.driver.apply($localForage, arguments) + ' with memory cache'
+  }
+
   SettingsService.clear = function () {
     memoryData = Object.create(null)
     return $localForage.clear.apply($localForage, arguments)

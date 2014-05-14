@@ -2,6 +2,7 @@ module.exports = function ($scope, SettingsService) {
 
   $scope.resetSettings = function () {
     SettingsService.clear()
+    console.log('Settings cleared')
   }
 
   $scope.savedTo = SettingsService.driver()

@@ -7,7 +7,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas'})
-        , displayDensity = BrowserInfo.retina ? 2 : 1
+        , guestDisplayDensity = BrowserInfo.retina ? 2 : 1
+        , guestDisplayRotation = 0
         , finger = element.find('span')
         , input = element.find('textarea')
         , boundingWidth = 0  // TODO: cache inside FastImageRender?
@@ -118,8 +119,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-              '?width=' + boundingWidth * displayDensity +
-              '&height=' + boundingHeight * displayDensity +
+              '?width=' + boundingWidth * guestDisplayDensity +
+              '&height=' + boundingHeight * guestDisplayDensity +
               '&time=' + Date.now()
           )
         }
@@ -236,6 +237,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         } else {
           element.unbind('mousedown', downListener)
         }
+
+        if (BrowserInfo.deviceorientation) {
+          window.unbind('deviceorientation', guestDisplayRotatated)
+        }
       }
 
       scope.$watch('$parent.showScreen', function (val) {
@@ -264,6 +269,22 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       scope.$watch('device.display.orientation', function (r) {
         rotation = r || 0
       })
+
+      function guestDisplayRotatated(eventData) {
+        // gamma is the left-to-right tilt in degrees, where right is positive
+        var tiltLR = eventData.gamma;
+
+        // beta is the front-to-back tilt in degrees, where front is positive
+        var tiltFB = eventData.beta;
+
+        // alpha is the compass direction the device is facing in degrees
+        var dir = eventData.alpha
+        console.log(eventData)
+      }
+
+      if (BrowserInfo.deviceorientation) {
+        window.addEventListener('deviceorientation', guestDisplayRotatated, true)
+      }
 
       scope.$on('$destroy', off)
     }

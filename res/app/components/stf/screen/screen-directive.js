@@ -1,17 +1,13 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
 
-module.exports = function DeviceScreenDirective(
-  $document
-, ScalingService
-, VendorUtil
-, PageVisibilityService
-) {
+module.exports = function DeviceScreenDirective($document, ScalingService, VendorUtil, PageVisibilityService, BrowserInfo) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas'})
+        , displayDensity = BrowserInfo.retina ? 2 : 1
         , finger = element.find('span')
         , input = element.find('textarea')
         , boundingWidth = 0  // TODO: cache inside FastImageRender?
@@ -39,7 +35,7 @@ module.exports = function DeviceScreenDirective(
           'translate3d(' + x + 'px,' + y + 'px,0)'
 
         scope.control[type](
-            seq++
+          seq++
           , scaled.xP
           , scaled.yP
         )
@@ -47,9 +43,15 @@ module.exports = function DeviceScreenDirective(
 
       function stopTouch() {
         element.removeClass('fingering')
-        element.unbind('mousemove', moveListener)
-        $document.unbind('mouseup', upListener)
-        $document.unbind('mouseleave', upListener)
+        if (BrowserInfo.touch) {
+          element.unbind('mousemove', moveListener)
+          $document.unbind('mouseup', upListener)
+          $document.unbind('mouseleave', upListener)
+        } else {
+          element.unbind('touchmove', moveListener)
+          $document.unbind('touchend', upListener)
+          $document.unbind('touchleave', upListener)
+        }
         seq = 0
       }
 
@@ -67,12 +69,22 @@ module.exports = function DeviceScreenDirective(
 
       function downListener(e) {
         e.preventDefault()
-        input[0].focus()
-        element.addClass('fingering')
+        if (!BrowserInfo.touch) {
+          input[0].focus()
+          element.addClass('fingering')
+        }
+
         sendTouch('touchDown', e)
-        element.bind('mousemove', moveListener)
-        $document.bind('mouseup', upListener)
-        $document.bind('mouseleave', upListener)
+
+        if (BrowserInfo.touch) {
+          element.bind('touchmove', moveListener)
+          $document.bind('touchend', upListener)
+          $document.bind('touchleave', upListener)
+        } else {
+          element.bind('mousemove', moveListener)
+          $document.bind('mouseup', upListener)
+          $document.bind('mouseleave', upListener)
+        }
       }
 
       function moveListener(e) {
@@ -106,9 +118,9 @@ module.exports = function DeviceScreenDirective(
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-            '?width=' + boundingWidth +
-            '&height=' + boundingHeight +
-            '&time=' + Date.now()
+              '?width=' + boundingWidth * displayDensity +
+              '&height=' + boundingHeight * displayDensity +
+              '&time=' + Date.now()
           )
         }
       }
@@ -116,7 +128,7 @@ module.exports = function DeviceScreenDirective(
       function on() {
         scaler = ScalingService.coordinator(
           scope.device.display.width
-        , scope.device.display.height
+          , scope.device.display.height
         )
 
         imageRender.onLoad = function (image) {
@@ -144,8 +156,8 @@ module.exports = function DeviceScreenDirective(
 
               var size = scaler.projectedSize(
                 boundingWidth
-              , boundingHeight
-              , rotation
+                , boundingHeight
+                , rotation
               )
 
               imageRender.canvasStyleWidth = size.width
@@ -201,7 +213,13 @@ module.exports = function DeviceScreenDirective(
         input.bind('keyup', keyupListener)
         input.bind('keypress', keypressListener)
         input.bind('paste', pasteListener)
-        element.bind('mousedown', downListener)
+
+        if (BrowserInfo.touch) {
+          element.bind('touchstart', downListener)
+        } else {
+          element.bind('mousedown', downListener)
+        }
+
       }
 
       function off() {
@@ -212,7 +230,12 @@ module.exports = function DeviceScreenDirective(
         input.unbind('keyup', keyupListener)
         input.unbind('keypress', keypressListener)
         input.unbind('paste', pasteListener)
-        element.unbind('mousedown', downListener)
+
+        if (BrowserInfo.touch) {
+          element.unbind('touchstart', downListener)
+        } else {
+          element.unbind('mousedown', downListener)
+        }
       }
 
       scope.$watch('$parent.showScreen', function (val) {
@@ -238,7 +261,7 @@ module.exports = function DeviceScreenDirective(
       scope.$watch('device.using', checkEnabled)
       scope.$on('visibilitychange', checkEnabled)
 
-      scope.$watch('device.display.orientation', function(r) {
+      scope.$watch('device.display.orientation', function (r) {
         rotation = r || 0
       })
 

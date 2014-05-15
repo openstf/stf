@@ -1,6 +1,6 @@
-describe('GuestBrowser', function() {
+describe('BrowserInfo', function() {
 
-  beforeEach(module('stf.guest-browser'));
+  beforeEach(module('stf.browser-info'));
 
   it('should ...', inject(function(GuestDeviceService) {
 

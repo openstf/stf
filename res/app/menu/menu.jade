@@ -5,19 +5,19 @@
       li(ng-cloak)
         a(ng-href='/#!/control')
           span.fa.fa-mobile
-          | {{"Control"|translate}}
+          | {{ !$root.basicMode ? "Control" : '' | translate }}
         a(ng-href='/#!/devices')
           span.fa.fa-sitemap
-          | {{"Devices"|translate}}
+          | {{ !$root.basicMode ? "Devices" : '' | translate }}
         a(ng-href='/#!/settings')
           span.fa.fa-gears
-          | {{"Settings"|translate}}
+          | {{ !$root.basicMode ? "Settings" : '' | translate }}
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)
-      li.stf-nav-web-native-button
+      li.stf-nav-web-native-button(ng-if='!$root.basicMode')
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
       li
         a(ng-href='/#!/help')
           i.fa.fa-question-circle
-          | {{"Help"|translate}}
+          | {{ !$root.basicMode ? "Help" : '' | translate }}

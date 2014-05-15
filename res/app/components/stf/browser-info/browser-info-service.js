@@ -1,8 +1,6 @@
 // NOTE: Most of the detections stuff from Modernizr 3.0
-
-module.exports = function GuestBrowserServiceFactory() {
-  var service = {
-  }
+module.exports = function BrowserInfoServiceFactory() {
+  var service = {}
 
   var domPrefixes = 'Webkit Moz O ms'.toLowerCase().split(' ')
 
@@ -51,7 +49,7 @@ module.exports = function GuestBrowserServiceFactory() {
   addTest('small', function () {
     var windowWidth = window.screen.width < window.outerWidth ?
       window.screen.width : window.outerWidth
-    return windowWidth < 500
+    return windowWidth < 800
 //    return !!(window.matchMedia &&
 //      window.matchMedia('only screen and (max-width: 760px)').matches)
   })

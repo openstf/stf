@@ -35,7 +35,7 @@ div.stf-device-list
                     button.btn.btn-default.btn-xs.device-status {{device.state|statusName}}
                   .clear-fix
 
-            tab(active='activeTabs.details')
+            tab(active='activeTabs.details', ng-if='!$root.basicMode')
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details

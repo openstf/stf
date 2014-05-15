@@ -23,7 +23,7 @@ module.exports = angular.module('layout', [
   'angular-loading-bar',
   require('stf/common-ui').name,
   require('stf/socket/socket-state').name,
-  require('stf/guest-browser').name
+  require('stf/browser-info').name
 ])
   .config(['$tooltipProvider', function ($tooltipProvider) {
     $tooltipProvider.options({

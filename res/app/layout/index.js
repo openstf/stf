@@ -22,7 +22,8 @@ module.exports = angular.module('layout', [
   'fa.directive.borderLayout',
   'angular-loading-bar',
   require('stf/common-ui').name,
-  require('stf/socket/socket-state').name
+  require('stf/socket/socket-state').name,
+  require('stf/guest-browser').name
 ])
   .config(['$tooltipProvider', function ($tooltipProvider) {
     $tooltipProvider.options({

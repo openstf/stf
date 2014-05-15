@@ -1,3 +1,3 @@
-module.exports = function LayoutCtrl(FatalMessageService) {
-
+module.exports = function LayoutCtrl(FatalMessageService, GuestBrowser, $scope) {
+  $scope.guestBrowser = GuestBrowser
 }

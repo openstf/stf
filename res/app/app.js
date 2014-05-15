@@ -1,12 +1,13 @@
 require('angular')
 require('angular-route')
-
+require('angular-touch')
 
 require('angular-gettext')
 require('ng-file-upload')
 
 angular.module('app', [
   'ngRoute',
+  'ngTouch',
   'gettext',
   'angularFileUpload',
   require('./layout').name,

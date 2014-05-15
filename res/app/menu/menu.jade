@@ -17,7 +17,7 @@
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
-      li
+      li(ng-if='!$root.basicMode')
         a(ng-href='/#!/help')
           i.fa.fa-question-circle
-          | {{ !$root.basicMode ? "Help" : '' | translate }}
+          | {{ "Help" | translate }}

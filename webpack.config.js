@@ -53,6 +53,7 @@ module.exports = {
     , { test: /\.html/, loader: 'html-loader' }
     , { test: /angular\.js/, loader: 'exports?angular'}
     , { test: /angular-route\.js/, loader: 'imports?angular=angular'}
+    , { test: /angular-touch\.js/, loader: 'imports?angular=angular'}
     , { test: /angular-animate\.js/, loader: 'imports?angular=angular'}
     , { test: /angular-growl\.js/, loader: 'imports?angular=angular'}
     , { test: /oboe-browser\.js/, loader: 'imports?define=>false!exports?oboe'}

@@ -239,7 +239,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         }
 
         if (BrowserInfo.deviceorientation) {
-          window.unbind('deviceorientation', guestDisplayRotatated)
+          //window.unbind('deviceorientation', guestDisplayRotatated)
         }
       }
 

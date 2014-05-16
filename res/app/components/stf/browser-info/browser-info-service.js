@@ -90,21 +90,6 @@ module.exports = function BrowserInfoServiceFactory() {
 
   addTest('ua', navigator.userAgent)
 
-  addTest('websocketsbinary', function () {
-    var protocol = 'https:' == location.protocol ? 'wss' : 'ws',
-      protoBin
-    if ('WebSocket' in window) {
-      if (protoBin = 'binaryType' in WebSocket.prototype) {
-        return protoBin
-      }
-      try {
-        return !!(new WebSocket(protocol + '://.').binaryType)
-      } catch (e) {
-      }
-    }
-    return false
-  })
-
 //  addTest('pointerevents', function () {
 //    var bool = false
 //    var i = domPrefixes.length

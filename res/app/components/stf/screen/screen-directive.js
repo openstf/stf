@@ -283,7 +283,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       }
 
       if (BrowserInfo.deviceorientation) {
-        window.addEventListener('deviceorientation', guestDisplayRotatated, true)
+      //  window.addEventListener('deviceorientation', guestDisplayRotatated, true)
       }
 
       scope.$on('$destroy', off)

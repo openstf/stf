@@ -3,6 +3,6 @@
 //require('angular-tree-control')
 
 module.exports = angular.module('stf.tree', [
-  'treeControl'
+//  'treeControl'
 ])
   .factory('TreeService', require('./tree-service'))

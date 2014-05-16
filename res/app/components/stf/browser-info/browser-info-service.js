@@ -78,16 +78,6 @@ module.exports = function BrowserInfoServiceFactory() {
     return !!window.WebGLRenderingContext
   })
 
-  addTest('generators', function () {
-    try {
-      /* jshint evil: true */
-      new Function('function* test() {}')()
-    } catch (e) {
-      return false
-    }
-    return true
-  })
-
   addTest('ua', navigator.userAgent)
 
 //  addTest('pointerevents', function () {

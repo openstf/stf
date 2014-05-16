@@ -6,6 +6,7 @@ module.exports = angular.module('stf/settings', [
 ])
   .config(['$localForageProvider', function ($localForageProvider) {
     $localForageProvider.config({
+      driver: 'localStorageWrapper',
       name: 'stf-v0',
       version: 1.0,
       storeName: 'settings',

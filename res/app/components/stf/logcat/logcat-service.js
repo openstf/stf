@@ -3,51 +3,19 @@ var _s = require('underscore.string')
 
 module.exports = function LogcatServiceFactory(socket, DeviceService) {
   var service = {}
-
   service.started = false
-
-  service.maxBuffer = 5000
-
+  service.maxEntriesBuffer = 5000
   service.numberOfEntries = 0
 
   service.filters = {
     numberOfEntries: 0,
     entries: [
-      {
-        "serial": "1cd49783",
-        "date": 1399964036.984,
-        "pid": 9246,
-        "tid": 9540,
-        "priority": 3,
-        "tag": "MobileDataStateTracker",
-        "message": "default:(enabled=true)"
-      }
     ],
     levelNumber: null,
     levelNumbers: []
   }
 
-
   service.entries = [
-    {
-      "serial": "1cd49783",
-      "date": 1399964036.984,
-      "pid": 9246,
-      "tid": 9540,
-      "priority": 3,
-      "tag": "MobileDataStateTracker",
-      "message": "default:(enabled=true)"
-    },
-    {
-      "serial": "1dcvafaasfafcd49783",
-      "date": 1399964036.984,
-      "pid": 9246,
-      "tid": 9540,
-      "priority": 2,
-      "tag": "MobileDataStateTracker",
-      "message": "default: setPolicyDataEnable(enabled=true)"
-    }
-
   ]
 
   service.logLevels = [
@@ -91,7 +59,6 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
   socket.on('logcat.entry', function (data) {
     service.numberOfEntries++
 
-//    console.log(enhanceEntry(data))
     service.entries.push(enhanceEntry(data))
 
     if (true) {
@@ -106,4 +73,3 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
 
   return service
 }
-

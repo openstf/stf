@@ -8,9 +8,6 @@ module.exports = function LogsCtrl($scope, LogcatService) {
 
   $scope.started = LogcatService.started
 
-
-
-
   $scope.$watch('started', function (newValue, oldValue) {
     if (newValue !== oldValue) {
       LogcatService.started = newValue
@@ -31,17 +28,4 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     LogcatService.clear()
   }
 
-  $scope.addFastRow = function (val) {
-    var e = {
-      "serial": "1cd49783",
-      "date": 1399964036.984,
-      "pid": 9246,
-      "tid": 9540,
-      "priority": 3,
-      "tag": "MobileDataStateTracker",
-      "message": "default: setPolicyDataEnable(enabled=true)"
-    }
-
-    //console.log(val)
-  }
 }

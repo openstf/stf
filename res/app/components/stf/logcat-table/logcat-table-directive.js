@@ -29,9 +29,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         scrollPosition = event.target.scrollTop + event.target.clientHeight
         scrollHeight = event.target.scrollHeight
       }
-
       var throttledScrollListener = _.throttle(scrollListener, 100)
-
       parent.addEventListener('scroll', throttledScrollListener, false)
 
       function scrollToBottom() {
@@ -87,45 +85,6 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
       scope.$on('$destroy', function () {
         parent.removeEventListener('scroll', throttledScrollListener)
       })
-
-
-//      addRow({
-//        "serial": "1cd49783",
-//        "date": 1399964036.984,
-//        "pid": 9246,
-//        "tid": 9540,
-//        "priority": 3,
-//        "tag": "MobileDataStateTracker",
-//        "message": "default: setPolicyDataEnable(enabled=true)"
-//      })
-//
-//      for (var i = 0; i < 50; i++) {
-//        addRow({
-//          "serial": "14141cd49783",
-//          "date": 1399964036.984,
-//          "pid": 9246,
-//          "tid": 9540,
-//          "priority": 3,
-//          "tag": "MobileDataStateTracker",
-//          "message": "XXdefault: setPolicyDataEnable(enabled=true)"
-//        })
-//      }
-//
-//      $timeout(function () {
-//        for (var i = 0; i < 10; i++) {
-//          addRow({
-//            "serial": "14141cd49783",
-//            "date": 1399964036.984,
-//            "pid": 9246,
-//            "tid": 9540,
-//            "priority": 3,
-//            "tag": "MobileDataStateTracker",
-//            "message": "XXdefault: setPolicyDataEnable(enabled=true)"
-//          })
-//        }
-//      }, 1000)
-
-
     }
   }
 }

@@ -41,7 +41,7 @@
             select(ng-model='filtering.deviceName', ng-options='d for d in filtering.devicesList')
               option(value='') {{"Device"|translate}}
           td(width='6%')
-            select(ng-model='filtering.levelNumber', ng-options='l.name for l in filtering.levelNumbers')
+            select(ng-model='filters.levelNumber', ng-options='l.name for l in filters.levelNumbers')
               option(value='') {{"Level"|translate}}
           td(width='10%')
             input(ng-model='filtering.date', type='text', placeholder='{{"Time"|translate}}')
@@ -49,18 +49,18 @@
             input(ng-model='filtering.pid', type='text', placeholder='{{"PID"|translate}}')
           td(width='8%', ng-if='$root.platform == "native"')
             input(ng-model='filtering.tid', type='text', placeholder='{{"TID"|translate}}')
-          td(width='14%', ng-if='$root.platform == "native"')
+          //td(width='14%', ng-if='$root.platform == "native"')
             input(ng-model='filtering.app', type='text', placeholder='{{"App"|translate}}')
           td(width='14%', ng-if='$root.platform == "native"')
             input(ng-model='filtering.tag', type='text', placeholder='{{"Tag"|translate}}')
           td(width='40%')
             input(ng-model='filtering.message', type='text', placeholder='{{"Text"|translate}}')
           td(width='0')
-            button(ng-click='clear()', ng-disabled='false', title='{{"Clear"|translate}}').btn.btn-xs.btn-danger-outline
+            button(ng-click='clearTable()', ng-disabled='false', title='{{"Clear"|translate}}').btn.btn-xs.btn-danger-outline
               i.fa.fa-trash-o
               span(translate)  Clear
 
-      logcat-table
+      logcat-table(add-row='lastEntry')
       //#logcatParent.force-gpu
         table#logcatTable.console-message-text.tableX.table-condensedX.selectableX
           //thead

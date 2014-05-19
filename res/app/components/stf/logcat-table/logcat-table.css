@@ -33,39 +33,45 @@
   /*color: rgb(48, 57, 66);*/
 }
 
+.stf-logcat-table tr td:first-child {
+  background: #f3f3f3;
+  color: #800000;
+  text-align: right;
+}
+
 /**
   Logging colors
 */
 
-.stf-logcat-table .log-unknown {
+.stf-logcat-table .log-Unknown {
   color: bisque;
 }
 
-.stf-logcat-table .log-default,
-.stf-logcat-table .log-silent {
+.stf-logcat-table .log-Default,
+.stf-logcat-table .log-Silent {
   color: darkolivegreen;
 }
 
-.stf-logcat-table .log-verbose {
+.stf-logcat-table .log-Verbose {
   color: blueviolet;
 }
 
-.stf-logcat-table .log-debug {
-  color: rgb(48, 57, 66);
+.stf-logcat-table .log-Debug {
+  color: #020c7d;
 }
 
-.stf-logcat-table .log-info {
-  color: blue;
+.stf-logcat-table .log-Info {
+  color: #177d1c;
 }
 
-.stf-logcat-table .log-warn {
+.stf-logcat-table .log-Warn {
   color: coral;
 }
 
-.stf-logcat-table .log-error {
+.stf-logcat-table .log-Error {
   color: red;
 }
 
-.stf-logcat-table .log-fatal {
+.stf-logcat-table .log-Fatal {
   color: darkcyan;
 }

@@ -28,7 +28,8 @@
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.6.0",
     "bluebird": "~1.2.4",
     "angular-tree-control": "~0.1.5",
-    "angular-loading-bar": "~0.4.2"
+    "angular-loading-bar": "~0.4.2",
+    "underscore.string": "~2.3.3"
   },
   "private": true,
   "resolutions": {

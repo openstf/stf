@@ -1,3 +1,16 @@
+.enter-fade {
+  -webkit-transition: 1s linear opacity;
+  -moz-transition: 1s linear opacity;
+  -o-transition: 1s linear opacity;
+  transition: 1s linear opacity;
+
+  opacity: 0;
+}
+
+.enter-fade.enter-fade-active {
+  opacity: 1;
+}
+
 device-screen canvas {
   transition: width 100ms linear, -webkit-transform 250ms ease-in-out;
   -webkit-transform-origin: 50% 50%;

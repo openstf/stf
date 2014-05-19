@@ -45,13 +45,13 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       function stopTouch() {
         element.removeClass('fingering')
         if (BrowserInfo.touch) {
-          element.unbind('mousemove', moveListener)
-          $document.unbind('mouseup', upListener)
-          $document.unbind('mouseleave', upListener)
-        } else {
           element.unbind('touchmove', moveListener)
           $document.unbind('touchend', upListener)
           $document.unbind('touchleave', upListener)
+        } else {
+          element.unbind('mousemove', moveListener)
+          $document.unbind('mouseup', upListener)
+          $document.unbind('mouseleave', upListener)
         }
         seq = 0
       }

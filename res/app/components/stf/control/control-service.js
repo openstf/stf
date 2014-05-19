@@ -216,6 +216,10 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('store.open')
     }
 
+    this.screenshot = function() {
+      return sendTwoWay('screen.capture')
+    }
+
     window.cc = this
   }
 

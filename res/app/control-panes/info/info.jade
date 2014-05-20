@@ -1,5 +1,22 @@
 .row.stf-info(ng-controller='InfoCtrl')
-  .col-md-3
+
+  .col-md-4
+    .widget-container.fluid-height
+      .heading
+        i.fa.fa-location-arrow
+        span(translate) Location
+        .pull-right
+          button(ng-click='control.identify()').btn.btn-xs.btn-primary-outline
+            i.fa.fa-info
+            span  Find Device
+      .widget-content.padded-small
+        table.table.table-condensed.table-hover.table-infocard
+          tbody
+            tr
+              td(translate) Place
+              td {{device.provider.name}}
+
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-bolt
@@ -28,7 +45,7 @@
               td Voltage
               td {{device.battery.voltage}} v
 
-  .col-md-3
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-tablet
@@ -64,7 +81,7 @@
               td Y DPI
               td {{device.display.ydpi}}
 
-  .col-md-3
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-signal
@@ -91,7 +108,7 @@
               td Sub Type
               td {{device.network.subtype | networkSubType}}
 
-  .col-md-3
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-credit-card
@@ -117,7 +134,7 @@
                 small {{device.phone.iccid}}
 
 
-  .col-md-3
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-phone
@@ -141,7 +158,7 @@
               td(translate) Released
               td {{device.releasedAt | date:longDate}}
 
-  .col-md-3
+  .col-md-4
     .widget-container.fluid-height
       .heading
         i.fa.fa-mobile

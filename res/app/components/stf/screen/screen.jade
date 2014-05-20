@@ -1,5 +1,15 @@
 canvas(ng-show='device')
 div(ng-if='displayError').screen-error
-  nothing-to-show(message='{{"No device screen"|translate}}', icon='fa-eye-slash', ng-show='true')
+  .screen-error-message
+    nothing-to-show(message='{{"No device screen"|translate}}', icon='fa-eye-slash', ng-show='true')
+
+    // TODO: PING here to check for connectivity http://172.19.9.107:7401/api/v1/displays/0
+    .well
+      .screen-error-alert This might be caused by a network error, or you might be trying to access a secure view.
+
+    .well
+      button(ng-click='retryLoadingScreen()', style='text-align: center;').btn.btn-primary.btn-block
+        i.fa.fa-refresh
+        span(translate) Retry
 textarea(tabindex='-1')
 span.finger

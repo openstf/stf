@@ -1,13 +1,25 @@
 .screen-error {
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   z-index: 100;
-  pointer-events: none; /* MUST HAVE */
+  position: absolute;
+  /*pointer-events: none; */
 }
 
 .screen-error .nothing-to-show {
   color: #eee;
+}
+
+.screen-error .screen-error-message {
+  position: relative;
+  top: 35%;
+  transform: translateY(-35%);
+  text-align: center;
+}
+
+.screen-error .screen-error-alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #ccc;
 }

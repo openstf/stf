@@ -115,6 +115,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         scope.control.paste(e.clipboardData.getData('text/plain'))
       }
 
+      scope.retryLoadingScreen = function () {
+        maybeLoadScreen()
+      }
+
       function maybeLoadScreen() {
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true

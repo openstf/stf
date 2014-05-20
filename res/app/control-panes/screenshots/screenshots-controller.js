@@ -1,6 +1,6 @@
 module.exports = function ScreenshotsCtrl($scope, SettingsService) {
   $scope.screenshots = []
-  $scope.shotSize = 'original'
+  $scope.shotSize = 'small'
 
   $scope.clear = function () {
     $scope.screenshots = []

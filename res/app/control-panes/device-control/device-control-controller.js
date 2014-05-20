@@ -1,6 +1,6 @@
 var _ = require('lodash')
 
-module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService, $location) {
+module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService, $location, $timeout, gettext, $filter) {
 
   $scope.showScreen = true
 
@@ -42,5 +42,63 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.controlDevice = function (device) {
     $location.path('/control/' + device.serial)
+  }
+
+  function isPortrait(value) {
+    if (typeof value === 'undefined' && $scope.device) {
+      value = $scope.device.display.orientation
+    }
+    return (value === 0 || value === 180)
+  }
+
+  function isLandscape(value) {
+    if (typeof value === 'undefined' && $scope.device) {
+      value = $scope.device.display.orientation
+    }
+    return (value === 90 || value === 270)
+  }
+
+  $scope.tryToRotate = function (rotation) {
+    if (rotation === 'portrait') {
+      $scope.control.rotate(0)
+      $timeout(function () {
+        if (isLandscape()) {
+          $scope.currentRotation = 'landscape'
+        }
+      }, 400)
+    } else if (rotation === 'landscape') {
+      $scope.control.rotate(90)
+      $timeout(function () {
+        if (isPortrait()) {
+          $scope.currentRotation = 'portrait'
+        }
+      }, 400)
+    }
+  }
+
+  $scope.currentRotation = 'portrait'
+
+  $scope.$watch('device.display.orientation', function (newValue, oldValue) {
+    if (isPortrait(newValue)) {
+      $scope.currentRotation = 'portrait'
+    } else if (isLandscape(newValue)) {
+      $scope.currentRotation = 'landscape'
+    }
+  })
+
+  $scope.tooltipPortrait = function () {
+    var angle = 0
+    if (isPortrait()) {
+      angle = $scope.device.display.orientation
+    }
+    return gettext($filter('sprintf')('Portrait (%s°)', angle))
+  }
+
+  $scope.tooltipLandscape = function () {
+    var angle = 90
+    if (isLandscape()) {
+      angle = $scope.device.display.orientation
+    }
+    return gettext($filter('sprintf')('Landscape (%s°)', angle))
   }
 }

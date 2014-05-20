@@ -1,4 +1,5 @@
 canvas(ng-show='device')
-div(ng-if='displayError') Screen error
+div(ng-if='displayError').screen-error
+  nothing-to-show(message='{{"No device screen"|translate}}', icon='fa-eye-slash', ng-show='true')
 textarea(tabindex='-1')
 span.finger

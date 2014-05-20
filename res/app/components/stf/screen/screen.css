@@ -1,0 +1,13 @@
+.screen-error {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  pointer-events: none; /* MUST HAVE */
+}
+
+.screen-error .nothing-to-show {
+  color: #eee;
+}

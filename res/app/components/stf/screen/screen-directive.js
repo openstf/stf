@@ -249,7 +249,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         } else {
           scope.fps = null
           imageRender.clear()
-
         }
       })
 

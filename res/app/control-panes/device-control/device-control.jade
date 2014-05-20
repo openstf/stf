@@ -1,8 +1,7 @@
 .interact-control.fill-height.as-table.stf-device-control(ng-controller='DeviceControlCtrl')
-
   .as-cell.fill-height
     .as-table.fill-height
-      .stf-vnc-navbar.as-row(ng-if='!$root.basicMode')
+      .stf-vnc-navbar.as-row(ng-show='!$root.basicMode')
 
         .pull-right
           button(ng-click='control.identify()', tooltip='Find Device', tooltip-placement='bottom').btn.btn-sm.btn-info-outline

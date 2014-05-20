@@ -66,7 +66,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
           .appendChild(document.createTextNode(data.message))
 
         if (autoScroll && shouldAutoScroll() && !batchRequest) {
-          _.throttle(scrollToBottom, 10)()
+          _.throttle(scrollToBottom, 30)()
         }
       }
 

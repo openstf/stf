@@ -44,7 +44,8 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
 
   function enhanceEntry(data) {
     var date = new Date(data.date * 1000)
-    data.dateLabel = _s.pad(date.getHours(), 2, '0') + ':' +
+    data.dateLabel =
+      _s.pad(date.getHours(), 2, '0') + ':' +
       _s.pad(date.getMinutes(), 2, '0') + ':' +
       _s.pad(date.getSeconds(), 2, '0') + '.' +
       _s.pad(date.getMilliseconds(), 3, '0')

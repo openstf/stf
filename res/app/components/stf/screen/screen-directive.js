@@ -1,6 +1,6 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
 
-module.exports = function DeviceScreenDirective($document, ScalingService, VendorUtil, PageVisibilityService, BrowserInfo) {
+module.exports = function DeviceScreenDirective($document, ScalingService, VendorUtil, PageVisibilityService, BrowserInfo, $timeout) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
@@ -116,7 +116,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       }
 
       scope.retryLoadingScreen = function () {
-        maybeLoadScreen()
+        scope.control.home()
+        $timeout(maybeLoadScreen, 1000)
       }
 
       function maybeLoadScreen() {

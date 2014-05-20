@@ -5,7 +5,7 @@ div(ng-if='displayError').screen-error
 
     // TODO: PING here to check for connectivity http://172.19.9.107:7401/api/v1/displays/0
     .well
-      .screen-error-alert This might be caused by a network error, or you might be trying to access a secure view.
+      .screen-error-alert(translate) This might be caused by a network error, or you might be trying to access a secure view.
 
     .well
       button(ng-click='retryLoadingScreen()', style='text-align: center;').btn.btn-primary.btn-block

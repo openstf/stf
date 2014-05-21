@@ -1,7 +1,7 @@
 var _ = require('lodash')
 var _s = require('underscore.string')
 
-module.exports = function LogcatServiceFactory(socket, DeviceService) {
+module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStringService) {
   var service = {}
   service.started = false
   service.maxEntriesBuffer = 5000
@@ -11,9 +11,35 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
     numberOfEntries: 0,
     entries: [
     ],
-    levelNumber: null,
     levelNumbers: []
   }
+
+  var _filters = {}
+
+  function defineFilterProperties(properties) {
+    _.forEach(properties, function (prop) {
+      Object.defineProperty(service.filters, prop, {
+        get: function () {
+          return _filters[prop]
+        },
+        set: function (value) {
+          _filters[prop] = value ? value : null
+          service.filters.filterLines()
+        }
+      })
+    })
+  }
+
+  defineFilterProperties([
+    'levelNumber',
+    'message',
+    'pid',
+    'tid',
+    'dateLabel',
+    'date',
+    'tag',
+    'priority'
+  ])
 
   service.entries = [
   ]
@@ -57,13 +83,15 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
     return data
   }
 
-  socket.on('logcat.entry', function (data) {
+  socket.on('logcat.entry', function (rawData) {
     service.numberOfEntries++
 
-    service.entries.push(enhanceEntry(data))
+    service.entries.push(enhanceEntry(rawData))
 
-    if (true) {
-      service.addEntryListener(data)
+    if (typeof(service.addEntryListener) === 'function') {
+      if (filterLine(rawData)) {
+        service.addEntryListener(rawData)
+      }
     }
   })
 
@@ -71,6 +99,44 @@ module.exports = function LogcatServiceFactory(socket, DeviceService) {
     service.numberOfEntries = 0
     service.entries = []
   }
+
+  service.filters.filterLines = function () {
+    console.log(_filters)
+    service.filters.entries = _.filter(service.entries, filterLine)
+
+    console.log(service.filters.entries)
+  }
+
+  function filterLine(line) {
+    const enabled = true
+    var filters = service.filters
+
+    var matched = true
+    if (enabled) {
+      if (!_.isEmpty(filters.priority)) {
+        matched &= line.priority >= filters.priority.number
+      }
+      if (!_.isEmpty(filters.date)) {
+        matched &= FilterStringService.filterString(filters.date, line.dateLabel)
+      }
+      if (!_.isEmpty(filters.pid)) {
+        matched &= FilterStringService.filterInteger(filters.pid, line.pid)
+      }
+      if (!_.isEmpty(filters.tid)) {
+        matched &= FilterStringService.filterInteger(filters.tid, line.tid)
+      }
+      if (!_.isEmpty(filters.tag)) {
+        matched &= FilterStringService.filterString(filters.tag, line.tag)
+      }
+      if (!_.isEmpty(filters.message)) {
+        matched &= FilterStringService.filterString(filters.message, line.message)
+      }
+    } else {
+      matched = true
+    }
+    return matched
+  }
+
 
   return service
 }

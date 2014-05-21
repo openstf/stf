@@ -15,7 +15,7 @@
     .widget-content
       //nothing-to-show(ng-show='!hasLines', message='No logs captured', icon='fa-list-alt')
 
-      //table.table.table-condensed(ng-show='filtering.show')
+      //table.table.table-condensed(ng-show='filters.show')
 
       //
 
@@ -38,23 +38,23 @@
               span(ng-if='started') {{"Stop"|translate}}
               span(ng-if='!started') {{"Get"|translate}}
           //td(width='10%')
-            select(ng-model='filtering.deviceName', ng-options='d for d in filtering.devicesList')
+            select(ng-model='filters.deviceName', ng-options='d for d in filters.devicesList')
               option(value='') {{"Device"|translate}}
           td(width='6%')
-            select(ng-model='filters.levelNumber', ng-options='l.name for l in filters.levelNumbers')
-              option(value='') {{"Level"|translate}}
+            select(ng-model='filters.priority', ng-options='l.name for l in filters.levelNumbers')
+              option(value='', disabled, selected) {{"Level"|translate}}
           td(width='10%')
-            input(ng-model='filtering.date', type='text', placeholder='{{"Time"|translate}}')
+            input(ng-model='filters.date', type='text', placeholder='{{"Time"|translate}}')
           td(width='8%', ng-if='$root.platform == "native"')
-            input(ng-model='filtering.pid', type='text', placeholder='{{"PID"|translate}}')
+            input(ng-model='filters.pid', type='text', placeholder='{{"PID"|translate}}')
           td(width='8%', ng-if='$root.platform == "native"')
-            input(ng-model='filtering.tid', type='text', placeholder='{{"TID"|translate}}')
+            input(ng-model='filters.tid', type='text', placeholder='{{"TID"|translate}}')
           //td(width='14%', ng-if='$root.platform == "native"')
-            input(ng-model='filtering.app', type='text', placeholder='{{"App"|translate}}')
+            input(ng-model='filters.app', type='text', placeholder='{{"App"|translate}}')
           td(width='14%', ng-if='$root.platform == "native"')
-            input(ng-model='filtering.tag', type='text', placeholder='{{"Tag"|translate}}')
+            input(ng-model='filters.tag', type='text', placeholder='{{"Tag"|translate}}')
           td(width='40%')
-            input(ng-model='filtering.message', type='text', placeholder='{{"Text"|translate}}')
+            input(ng-model='filters.message', type='text', placeholder='{{"Text"|translate}}')
           td(width='0')
             button(ng-click='clearTable()', ng-disabled='false', title='{{"Clear"|translate}}').btn.btn-xs.btn-danger-outline
               i.fa.fa-trash-o

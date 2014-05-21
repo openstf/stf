@@ -19,8 +19,9 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
 
       LogcatService.addFilteredEntriesListener = function (entries) {
         clearTable()
-        var fragment = document.createDocumentFragment()
+        //var fragment = document.createDocumentFragment()
         _.each(entries, function (entry) {
+          // TODO: This is not adding all the entries after first scope creation
           addRow(body, entry, true)
         })
       }
@@ -77,6 +78,8 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         if (autoScroll && shouldAutoScroll() && !batchRequest) {
           _.throttle(scrollToBottom, 30)()
         }
+
+        console.log(data.message)
       }
 
       function clearTable() {

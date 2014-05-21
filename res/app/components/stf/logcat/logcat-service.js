@@ -111,7 +111,9 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
     service.filters.entries = _.filter(service.entries, filterLine)
 
     if (typeof(service.addFilteredEntriesListener) === 'function') {
-      service.addFilteredEntriesListener(service.filters.entries)
+      if (!_.isEmpty(service.filters.entries)) {
+        service.addFilteredEntriesListener(service.filters.entries)
+      }
     }
   }
 

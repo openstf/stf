@@ -1,12 +1,12 @@
 module.exports = function LogsCtrl($scope, LogcatService) {
 
-  $scope.logEntries = LogcatService.entries
-
   $scope.started = LogcatService.started
 
   $scope.filters = {}
 
   $scope.filters.levelNumbers = LogcatService.filters.levelNumbers
+
+  LogcatService.filters.filterLines()
 
   $scope.$watch('started', function (newValue, oldValue) {
     if (newValue !== oldValue) {

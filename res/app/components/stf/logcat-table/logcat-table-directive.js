@@ -12,8 +12,18 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
       var scrollHeight = 0
       var parent = element[0]
       var body = element.find('tbody')[0]
+      const maxEntriesBuffer = 3000
+      var numberOfEntries = 0
+
+      function incrementNumberEntry() {
+        numberOfEntries++
+        if (numberOfEntries > maxEntriesBuffer) {
+          scope.clearTable()
+        }
+      }
 
       LogcatService.addEntryListener = function (entry) {
+        incrementNumberEntry()
         addRow(body, entry)
       }
 
@@ -22,6 +32,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         //var fragment = document.createDocumentFragment()
         _.each(entries, function (entry) {
           // TODO: This is not adding all the entries after first scope creation
+          incrementNumberEntry()
           addRow(body, entry, true)
         })
       }
@@ -78,8 +89,6 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         if (autoScroll && shouldAutoScroll() && !batchRequest) {
           _.throttle(scrollToBottom, 30)()
         }
-
-        console.log(data.message)
       }
 
       function clearTable() {
@@ -91,6 +100,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
 
       scope.clearTable = function () {
         LogcatService.clear()
+        numberOfEntries = 0
         clearTable()
       }
 

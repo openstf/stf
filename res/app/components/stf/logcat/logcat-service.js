@@ -4,7 +4,6 @@ var _s = require('underscore.string')
 module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStringService) {
   var service = {}
   service.started = false
-  service.maxEntriesBuffer = 5000
   service.numberOfEntries = 0
 
   service.serverFilters = [

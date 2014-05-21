@@ -7,6 +7,13 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
   service.maxEntriesBuffer = 5000
   service.numberOfEntries = 0
 
+  service.serverFilters = [
+    {
+      tag: '',
+      priority: 2
+    }
+  ]
+
   service.filters = {
     numberOfEntries: 0,
     entries: [
@@ -24,6 +31,7 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
         },
         set: function (value) {
           _filters[prop] = value ? value : null
+          service.serverFilters[0][prop] = value ? value : undefined
           service.filters.filterLines()
         }
       })
@@ -85,7 +93,6 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
 
   socket.on('logcat.entry', function (rawData) {
     service.numberOfEntries++
-
     service.entries.push(enhanceEntry(rawData))
 
     if (typeof(service.addEntryListener) === 'function') {

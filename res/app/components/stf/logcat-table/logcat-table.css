@@ -33,11 +33,11 @@
   /*color: rgb(48, 57, 66);*/
 }
 
-.stf-logcat-table tr td:first-child {
-  background: #f3f3f3;
-  color: #800000;
-  text-align: right;
-}
+/*.stf-logcat-table tr td:first-child {*/
+  /*background: #f3f3f3;*/
+  /*color: #800000;*/
+  /*text-align: right;*/
+/*}*/
 
 /**
   Logging colors

@@ -10,7 +10,15 @@
 
     clear-button(ng-click='clear()', ng-disabled='!screenshots.length')
 
+    .pull-right
+      i.fa.fa-minus(tooltip='Zoom Out')
+      input(type='range', ng-model='shotSizeRange', min='100', max='2000', step='25', style='width: 200px;')
+      i.fa.fa-plus(tooltip='Zoom In')
+    small {{ shotSizeRange }}
+
     .btn-group.pull-right
+
+
       button(type='button', ng-model='shotSize', btn-radio="'small'", title='{{"Low"|translate}}').btn.btn-sm.btn-primary-outline
         span.fa.fa-fw(translate) L
       button(type='button', ng-model='shotSize', btn-radio="'medium'", title='{{"Medium"|translate}}').btn.btn-sm.btn-primary-outline

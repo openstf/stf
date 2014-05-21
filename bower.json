@@ -29,11 +29,15 @@
     "bluebird": "~1.2.4",
     "angular-tree-control": "~0.1.5",
     "angular-loading-bar": "~0.4.2",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "angular-isotope": "~0.1.14",
+    "angular-deckgrid": "~0.4.4",
+    "venturocket-angular-slider": "~0.3.2"
   },
   "private": true,
   "resolutions": {
     "angular": "~1.3.0-beta.8",
-    "angular-sanitize": "~1.3.0-beta.8"
+    "angular-sanitize": "~1.3.0-beta.8",
+    "angular-touch": "~1.3.0-beta.8"
   }
 }

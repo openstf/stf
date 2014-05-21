@@ -26,6 +26,6 @@
       li(ng-repeat='shot in screenshots').cursor-select
         h5 {{ shot.body.date | date:'yyyy/MM/dd HH:mm:ss'  }}
         a(ng-href='{{ shot.body.url }}', target='_blank')
-          img(ng-src='{{ shot.body.url + shotSizeUrlParameter() }}')
+          img(ng-src='{{ shot.body.href + shotSizeUrlParameter() }}')
 
     .clearfix

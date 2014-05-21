@@ -32,12 +32,12 @@
           th(width='16%') Tag
           th(width='46%') Text
         tr
-          td(width='0')
+          td(width='1%')
             button(ng-model='started', btn-checkbox, title='{{"Start/Stop Logging"|translate}}').btn.btn-xs.btn-primary-outline
               i.fa.fa-list-alt
               span(ng-if='started') {{"Stop"|translate}}
               span(ng-if='!started') {{"Get"|translate}}
-          td(width='10%')
+          //td(width='10%')
             select(ng-model='filtering.deviceName', ng-options='d for d in filtering.devicesList')
               option(value='') {{"Device"|translate}}
           td(width='6%')

@@ -412,6 +412,7 @@ function FastImageRender(canvasElement, options) {
   var that = this
   this.options = options || {}
   this.canvasElement = canvasElement
+  this.timeoutId = null
 
   if (that.options.raf) {
     that.animLoop = function() {
@@ -425,11 +426,17 @@ function FastImageRender(canvasElement, options) {
   if (true) {
     this.loader = new Image()
     this.loader.onload = function () {
+      if (that.options.timeout) {
+        clearTimeout(that.timeoutId)
+      }
       if (typeof(that.onLoad) === 'function') {
         that.onLoad(this)
       }
     }
     this.loader.onerror = function () {
+      if (that.options.timeout) {
+        clearTimeout(that.timeoutId)
+      }
       if (typeof(that.onError) === 'function') {
         that.onError(this)
       }
@@ -454,6 +461,14 @@ FastImageRender.prototype.destroy = function () {
 
 FastImageRender.prototype.load = function (url, type) {
   var that = this
+
+  if (that.options.timeout) {
+    that.timeoutId = setTimeout(function () {
+      if (typeof(that.onError) === 'function') {
+        that.onError('timeout')
+      }
+    }, that.options.timeout)
+  }
 
   if (this.options.textureLoader) {
     if (!this.textureLoader) {

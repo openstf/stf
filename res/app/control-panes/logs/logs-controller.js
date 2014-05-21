@@ -22,9 +22,9 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     }
   })
 
-  $scope.$on('$destroy', function () {
-//    $scope.control.stopLogcat()
-  })
+  window.onbeforeunload = function () {
+    $scope.control.stopLogcat()
+  }
 
   $scope.clear = function () {
     LogcatService.clear()

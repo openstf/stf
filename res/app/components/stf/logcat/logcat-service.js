@@ -101,10 +101,11 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
   }
 
   service.filters.filterLines = function () {
-    console.log(_filters)
     service.filters.entries = _.filter(service.entries, filterLine)
 
-    console.log(service.filters.entries)
+    if (typeof(service.addFilteredEntriesListener) === 'function') {
+      service.addFilteredEntriesListener(service.filters.entries)
+    }
   }
 
   function filterLine(line) {

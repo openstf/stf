@@ -14,7 +14,15 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
       var body = element.find('tbody')[0]
 
       LogcatService.addEntryListener = function (entry) {
-        addRow(entry)
+        addRow(body, entry)
+      }
+
+      LogcatService.addFilteredEntriesListener = function (entries) {
+        clearTable()
+        var fragment = document.createDocumentFragment()
+        _.each(entries, function (entry) {
+          addRow(body, entry, true)
+        })
       }
 
       function shouldAutoScroll() {
@@ -29,6 +37,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         scrollPosition = event.target.scrollTop + event.target.clientHeight
         scrollHeight = event.target.scrollHeight
       }
+
       var throttledScrollListener = _.throttle(scrollListener, 100)
       parent.addEventListener('scroll', throttledScrollListener, false)
 
@@ -39,8 +48,8 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
         }, 10)
       }
 
-      function addRow(data, batchRequest) {
-        var newRow = body.insertRow(-1)
+      function addRow(rowParent, data, batchRequest) {
+        var newRow = rowParent.insertRow(-1)
 
         newRow.classList.add('log-' + data.priorityLabel)
 

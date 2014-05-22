@@ -33,7 +33,9 @@
     "angular-isotope": "~0.1.14",
     "angular-deckgrid": "~0.4.4",
     "venturocket-angular-slider": "~0.3.2",
-    "font-awesome-bower": "~4.1.0"
+    "font-awesome-bower": "~4.1.0",
+    "bootstrap": "~3.1.1",
+    "font-lato-2-subset": "*"
   },
   "private": true,
   "resolutions": {

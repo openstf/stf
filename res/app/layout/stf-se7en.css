@@ -22,3 +22,11 @@
 .padded-small {
   padding: 5px;
 }
+
+/*
+Focus button problem
+*/
+.btn:hover,
+.btn:focus {
+  color: none !important;
+}

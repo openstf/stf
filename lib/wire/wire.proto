@@ -50,6 +50,7 @@ enum MessageType {
   PhoneStateEvent            = 47;
   RotationEvent              = 48;
   StoreOpenMessage           = 49;
+  ScreenCaptureMessage       = 50;
 }
 
 message Envelope {
@@ -353,8 +354,9 @@ message ShellKeepAliveMessage {
 }
 
 message InstallMessage {
-  required string url = 1;
-  optional LaunchActivityMessage launchActivity = 2;
+  required string href = 1;
+  required bool launch = 2;
+  optional string manifest = 3;
 }
 
 message UninstallMessage {
@@ -398,6 +400,9 @@ message BrowserClearMessage {
 }
 
 message StoreOpenMessage {
+}
+
+message ScreenCaptureMessage {
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

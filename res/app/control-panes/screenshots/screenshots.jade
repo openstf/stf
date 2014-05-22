@@ -24,9 +24,8 @@
     nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshots.length')
     ul.screenshots-icon-view.clear-fix
       li(ng-repeat='shot in screenshots').cursor-select
-        h4 {{ shot.device.capabilities.info.name.id || shot.device.capabilities.model }}
-        h5 {{ shot.value.date | date:'yyyy/MM/dd HH:mm:ss'  }}
-        a(ng-href='{{ shot.value.screenshotUrl }}', target='_blank')
-          img(ng-src='{{ shot.value.screenshotUrl + shotSizeUrlParameter() }}')
+        h5 {{ shot.body.date | date:'yyyy/MM/dd HH:mm:ss'  }}
+        a(ng-href='{{ shot.body.href }}', target='_blank')
+          img(ng-src='{{ shot.body.href + shotSizeUrlParameter() }}')
 
     .clearfix

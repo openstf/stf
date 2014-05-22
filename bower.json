@@ -24,7 +24,7 @@
     "stf-graphics": "git@ghe.amb.ca.local:stf/stf-graphics.git",
     "angular-bootstrap": "~0.11.0",
     "angular-dialog-service": "~5.0.0",
-    "ng-file-upload": "~1.2.11",
+    "ng-file-upload": "~1.4.0",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.6.0",
     "bluebird": "~1.2.4",
     "angular-tree-control": "~0.1.5",

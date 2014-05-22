@@ -3,9 +3,9 @@
     i.fa.fa-upload
     span(translate) Upload
     clear-button(ng-click='clear()', ng-disabled='!installation && !upload').btn-xs
-    //label.checkbox-inline.pull-right
-      input(type='checkbox', ng-model='launchEnabled', ng-disabled='true')
-      span(translate) Launch
+    label.checkbox-inline.pull-right
+      input(type='checkbox', ng-model='launchEnabled')
+      span Launch
     label.checkbox-inline.pull-right
       input(type='checkbox', ng-model='installEnabled')
       span(translate) Install
@@ -65,8 +65,6 @@
                 span(translate) Uploading...
               strong(ng-switch-when='processing')
                 span(translate) Processing...
-              strong(ng-switch-when='storing')
-                span(translate) Storing...
               strong(ng-switch-when='fail')
                 span(translate) Upload failed
               strong(ng-switch-when='success')

@@ -26,7 +26,8 @@ module.exports = {
     , 'localforage': 'localforage/dist/localforage.js'
     , 'socket.io': 'socket.io-client/dist/socket.io'
     , 'oboe': 'oboe/dist/oboe-browser'
-    , 'ng-file-upload': 'ng-file-upload/angular-file-upload'
+    , 'ng-file-upload-shim5': 'ng-file-upload/angular-file-upload-html5-shim'
+    , 'ng-file-upload-main': 'ng-file-upload/angular-file-upload'
     , 'bluebird': 'bluebird/js/browser/bluebird'
     }
   }

@@ -38,25 +38,35 @@ module.exports = function UploadCtrl(
   }
 
   $scope.installFile = function ($files) {
-    $scope.upload = {
-      progress: 0
-    , lastData: 'uploading'
-    }
+    $scope.$apply(function () {
+      $scope.upload = {
+        progress: 0
+      , lastData: 'uploading'
+      }
+    })
 
-    return StorageService.storeFile('apk', $files)
+    return StorageService.storeFile('apk', $files, {
+        filter: function(file) {
+          return /\.apk$/i.test(file.name)
+        }
+      })
       .progressed(function(e) {
         if (e.lengthComputable) {
-          $scope.upload = {
-            progress: e.loaded / e.total * 100
-          , lastData: 'uploading'
-          }
+          $scope.$apply(function () {
+            $scope.upload = {
+              progress: e.loaded / e.total * 100
+            , lastData: 'uploading'
+            }
+          })
         }
       })
       .then(function(res) {
-        $scope.upload = {
-          progress: 100
-        , lastData: 'processing'
-        }
+        $scope.$apply(function () {
+          $scope.upload = {
+            progress: 100
+          , lastData: 'processing'
+          }
+        })
 
         var href = res.data.resources.file0.href
         return $http.get(href + '/manifest')
@@ -77,12 +87,20 @@ module.exports = function UploadCtrl(
           })
       })
       .catch(function(err) {
-        console.log('Upload error', err)
-        $scope.upload = {
-          progress: 100
-        , lastData: 'fail'
-        , settled: true
-        }
+        $scope.$apply(function () {
+          if (err.code === 'no_input_files') {
+            $scope.upload = null
+          }
+          else {
+            console.log('Upload error', err)
+            $scope.upload = {
+              progress: 100
+            , lastData: 'fail'
+            , settled: true
+            , error: err.message
+            }
+          }
+        })
       })
   }
 
@@ -103,6 +121,9 @@ module.exports = function UploadCtrl(
           })
         })
     }
+    else {
+      return Promise.reject(new Error('Installation not enabled'))
+    }
   }
 
   $scope.uninstall = function (packageName) {
@@ -120,14 +141,10 @@ module.exports = function UploadCtrl(
 
   $scope.taskFinished = function () {
     if ($scope.installEnabled) {
-      if ($scope.upload && $scope.upload.settled &&
-        $scope.installation && $scope.installation.settled) {
-        return true
-      }
+      return $scope.upload && ($scope.upload.error || $scope.upload.settled &&
+        $scope.installation && $scope.installation.settled)
     } else {
-      if ($scope.upload && $scope.upload.settled) {
-        return true
-      }
+      return $scope.upload && $scope.upload.settled
     }
     return false
   }

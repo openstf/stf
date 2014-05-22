@@ -18,6 +18,7 @@
   "laxcomma": true,
   "laxbreak": true,
   "browser": true,
+  "devel": true,
   "globals": {
     "describe": false,
     "it": false,

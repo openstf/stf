@@ -13,25 +13,33 @@ module.exports = function StorageServiceFactory($http, $upload) {
     })
   }
 
-  service.storeFile = function(type, files) {
+  service.storeFile = function(type, files, options) {
     var resolver = Promise.defer()
+    var input = options.filter ? files.filter(options.filter) : files
 
-    $upload.upload({
-        url: '/api/v1/s/' + type
-      , method: 'POST'
-      , file: files
-      })
-      .then(
-        function(value) {
-          resolver.resolve(value)
-        }
-      , function(err) {
-          resolver.reject(err)
-        }
-      , function(progressEvent) {
-          resolver.progress(progressEvent)
-        }
-      )
+    if (input.length) {
+      $upload.upload({
+          url: '/api/v1/s/' + type
+        , method: 'POST'
+        , file: input
+        })
+        .then(
+          function(value) {
+            resolver.resolve(value)
+          }
+        , function(err) {
+            resolver.reject(err)
+          }
+        , function(progressEvent) {
+            resolver.progress(progressEvent)
+          }
+        )
+    }
+    else {
+      var err = new Error('No input files')
+      err.code = 'no_input_files'
+      resolver.reject(err)
+    }
 
     return resolver.promise
   }

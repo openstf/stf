@@ -1,12 +1,12 @@
 .widget-container.fluid-height.stf-upload(ng-controller='UploadCtrl')
   .heading
     i.fa.fa-upload
-    span(translate) Upload
+    span(translate) App Upload
     clear-button(ng-click='clear()', ng-disabled='!installation && !upload').btn-xs
     label.checkbox-inline.pull-right
       input(type='checkbox', ng-model='launchEnabled')
       span Launch
-    label.checkbox-inline.pull-right
+    //label.checkbox-inline.pull-right
       input(type='checkbox', ng-model='installEnabled')
       span(translate) Install
 

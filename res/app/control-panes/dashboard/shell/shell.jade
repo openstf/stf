@@ -9,9 +9,10 @@
   .widget-content.padded
 
     .input-group.form-inline
-      input(type=text, ng-model='command', ng-enter='run(command)').form-control
+      input(type=text, ng-model='command', ng-enter='run(command)').form-control.shell-input
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command', tooltip-html-unsafe='{{"Run Command"|translate}}<br /><br /><code>Enter</code>')
+        // , tooltip='{{"Run Command"|translate}}'
+        button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
           i.fa.fa-play
     pre.shell-results(ng-show='data') {{data}}
     pre.shell-results(ng-show='result.settled && !data').shell-results-empty No output

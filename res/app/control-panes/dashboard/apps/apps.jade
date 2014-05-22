@@ -5,7 +5,24 @@
     div.pull-right
       button.btn.btn-sm.btn-primary-outline(ng-click='control.openStore()',
       tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-android.fa-1x
+        i.fa.fa-shopping-cart
+
+      button.btn.btn-sm.btn-primary-outline(ng-click='openSettings()',
+      tooltip='{{"Settings" | translate}}', tooltip-placement="bottom")
+        i.fa.fa-gear
+
+      button.btn.btn-sm.btn-primary-outline(ng-click='openWiFiSettings()',
+      tooltip='{{"WiFi Settings" | translate}}', tooltip-placement="bottom")
+        i.fa.fa-signal
+
+      button.btn.btn-sm.btn-primary-outline(ng-click='openManageApps()',
+      tooltip='{{"Manage Apps" | translate}}', tooltip-placement="bottom")
+        i.fa.fa-list
+
+      button.btn.btn-sm.btn-primary-outline(ng-click='openDeveloperSettings()',
+      tooltip='{{"Developer Settings" | translate}}', tooltip-placement="bottom")
+        i.fa.fa-bug
+
 
   .widget-content.padded
 

@@ -32,7 +32,8 @@
     "underscore.string": "~2.3.3",
     "angular-isotope": "~0.1.14",
     "angular-deckgrid": "~0.4.4",
-    "venturocket-angular-slider": "~0.3.2"
+    "venturocket-angular-slider": "~0.3.2",
+    "font-awesome-bower": "~4.1.0"
   },
   "private": true,
   "resolutions": {

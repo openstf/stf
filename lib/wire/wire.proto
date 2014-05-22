@@ -354,8 +354,9 @@ message ShellKeepAliveMessage {
 }
 
 message InstallMessage {
-  required string url = 1;
-  optional LaunchActivityMessage launchActivity = 2;
+  required string href = 1;
+  required bool launch = 2;
+  optional string manifest = 3;
 }
 
 message UninstallMessage {

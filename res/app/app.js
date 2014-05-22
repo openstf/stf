@@ -3,7 +3,8 @@ require('angular-route')
 require('angular-touch')
 
 require('angular-gettext')
-require('ng-file-upload')
+require('ng-file-upload-shim5')
+require('ng-file-upload-main')
 
 angular.module('app', [
   'ngRoute',

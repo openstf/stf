@@ -111,49 +111,8 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('device.identify')
     }
 
-    this.uploadUrl = function(url) {
-      var tx = TransactionService.create({
-        id: 'storage'
-      })
-      socket.emit('storage.upload', channel, tx.channel, {
-        url: url
-      })
-      return tx.promise
-    }
-
-    this.uploadFile = function(files) {
-      if (files.length !== 1) {
-        throw new Error('Can only upload one file')
-      }
-      var tx = TransactionService.create({
-        id: 'storage'
-      })
-      TransactionService.punch(tx.channel)
-        .then(function() {
-          $upload.upload({
-            url: '/api/v1/resources?channel=' + tx.channel
-          , method: 'POST'
-          , file: files[0]
-          })
-        })
-      return tx.promise
-    }
-
     this.install = function(options) {
-      var app = options.manifest.application
-      var params = {
-        url: options.url
-      }
-      if (app.launcherActivities.length) {
-        var activity = app.launcherActivities[0]
-        params.launchActivity = {
-          action: 'android.intent.action.MAIN'
-        , component: options.manifest.package + '/' + activity.name
-        , category: ['android.intent.category.LAUNCHER']
-        , flags: 0x10200000
-        }
-      }
-      return sendTwoWay('device.install', params)
+      return sendTwoWay('device.install', options)
     }
 
     this.uninstall = function(pkg) {

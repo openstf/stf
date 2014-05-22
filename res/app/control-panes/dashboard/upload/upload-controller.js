@@ -1,5 +1,9 @@
-module.exports = function UploadCtrl($scope, SettingsService, gettext) {
-
+module.exports = function UploadCtrl(
+  $scope
+, $http
+, SettingsService
+, StorageService
+) {
   $scope.upload = null
   $scope.installation = null
   $scope.installEnabled = true
@@ -35,23 +39,49 @@ module.exports = function UploadCtrl($scope, SettingsService, gettext) {
 
   $scope.installFile = function ($files) {
     $scope.upload = {
-      progress: 0,
-      lastData: 'uploading'
+      progress: 0
+    , lastData: 'uploading'
     }
 
-    $scope.installation = null
-    return $scope.control.uploadFile($files)
-      .progressed(function (uploadResult) {
-        $scope.$apply(function () {
-          $scope.upload = uploadResult
-        })
+    return StorageService.storeFile('apk', $files)
+      .progressed(function(e) {
+        if (e.lengthComputable) {
+          $scope.upload = {
+            progress: e.loaded / e.total * 100
+          , lastData: 'uploading'
+          }
+        }
       })
-      .then(function (uploadResult) {
-        $scope.$apply(function () {
-          $scope.upload = uploadResult
-        })
-        if (uploadResult.success) {
-          return $scope.maybeInstall(uploadResult.body)
+      .then(function(res) {
+        $scope.upload = {
+          progress: 100
+        , lastData: 'processing'
+        }
+
+        var href = res.data.resources.file0.href
+        return $http.get(href + '/manifest')
+          .then(function(res) {
+            $scope.upload = {
+              progress: 100
+            , lastData: 'success'
+            , settled: true
+            }
+
+            if (res.data.success) {
+              return $scope.maybeInstall({
+                href: href
+              , launch: $scope.launchEnabled
+              , manifest: res.data.manifest
+              })
+            }
+          })
+      })
+      .catch(function(err) {
+        console.log('Upload error', err)
+        $scope.upload = {
+          progress: 100
+        , lastData: 'fail'
+        , settled: true
         }
       })
   }

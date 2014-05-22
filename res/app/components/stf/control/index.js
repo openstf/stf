@@ -3,3 +3,4 @@ module.exports = angular.module('stf/control', [
 ])
   .factory('TransactionService', require('./transaction-service'))
   .factory('ControlService', require('./control-service'))
+  .factory('StorageService', require('./storage-service'))

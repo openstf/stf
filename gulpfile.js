@@ -3,6 +3,7 @@ var gutil = require('gulp-util')
 var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
 var webpack = require('webpack')
+var ngminPlugin = require('ngmin-webpack-plugin')
 var webpackConfig = require('./webpack.config.js')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
@@ -46,8 +47,10 @@ gulp.task("webpack:build", function (callback) {
       }
     }),
     new webpack.optimize.DedupePlugin(),
+    new ngminPlugin(),
     new webpack.optimize.UglifyJsPlugin()
   )
+  myConfig.devtool = false
 
   webpack(myConfig, function (err, stats) {
     if (err) {

@@ -94,6 +94,6 @@ gulp.task('translate:compile', function () {
 })
 
 gulp.task('clean', function () {
-  return gulp.src('./tmp', {read: false})
+  return gulp.src(['./tmp', './res/build'], {read: false})
     .pipe(clean())
 })

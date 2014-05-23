@@ -21,8 +21,8 @@
 .stf-upload .drop-area {
   text-align: center;
   color: #b7b7b7;
-  padding: 10px;
-  border: 2px #e8e8e8 dashed;
+  padding-top: 10px;
+  border: 2px transparent dashed;
   border-radius: 2px;
   /*background-color: #f6f6f6;*/
   cursor: pointer;
@@ -43,7 +43,8 @@
 .stf-upload .drop-area-text {
   /*border-top: 1px solid #e2e2e2;*/
   /*opacity: 0;*/
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 300;
   /*transition: opacity 0.25s ease-in-out;*/
 }
 

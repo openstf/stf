@@ -115,6 +115,7 @@ module.exports = function UploadCtrl(
         })
         .then(function (installResult) {
           $scope.$apply(function () {
+            $scope.accordionOpen = false
             installResult.manifest = options.manifest
             $scope.treeData = installResult.manifest
             $scope.installation = installResult
@@ -166,6 +167,8 @@ module.exports = function UploadCtrl(
     }
     return progress
   }
+
+  $scope.accordionOpen = true
 
 //
 //  $scope.installEnabled = true

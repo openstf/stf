@@ -102,3 +102,22 @@ ul.devices-icon-view .device-is-busy {
 ul.devices-icon-view .device-is-busy .device-photo-small img {
   opacity: 0.5;
 }
+
+.stf-device-list .device-small-image {
+  margin-right: 8px;
+}
+.stf-device-list .device-small-image img {
+  height: 20px;
+}
+
+
+.device-list-active-tabs.ng-enter {
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  margin-top: -100%;
+}
+
+.device-list-active-tabs.ng-enter-active {
+  margin-top: 0;
+}
+

@@ -3,12 +3,12 @@ div.stf-device-list
     .col-md-12
       .widget-container.fluid-height
         .widget-content.padded
-          tabset.overflow-auto(ng-if='activeTabs')
+          tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
             tab(active='activeTabs.devices')
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
-              div(ng-if='activeTabs.devices')
+              div(ng-if='activeTabs.devices').device-list-devices-content
                 nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
                 ul.devices-icon-view
@@ -39,7 +39,7 @@ div.stf-device-list
               tab-heading
                 i.fa.fa-list(translate)
                 span(translate) Details
-              div(ng-show='activeTabs.details', ng-controller='DeviceListDetailsCtrl')
+              div(ng-show='activeTabs.details', ng-controller='DeviceListDetailsCtrl').device-list-details-content
                 nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
                 .filtering-buttons
@@ -67,6 +67,10 @@ div.stf-device-list
                       button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}',
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName}}
                     td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
+
+                      span.device-small-image
+                        img(ng-src='/static/devices/icon/x24/{{ device.image || "_default.jpg" }}')
+
                       span {{device.model}}
                     td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}')
                       span {{device.name}}

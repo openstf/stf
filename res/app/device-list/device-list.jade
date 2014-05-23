@@ -16,7 +16,7 @@ div.stf-device-list
                   ng-click='toggle(device)',
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small
-                      img(ng-src='{{device.image ? "/static/devices/icon/x120/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                      img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                     button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
@@ -28,7 +28,7 @@ div.stf-device-list
                   ng-disabled='true',
                   ).cursor-select.pointer.thumbnail.device-is-busy
                     .device-photo-small
-                      img(ng-src='{{device.image ? "/static/devices/icon/x120/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                      img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                     //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}

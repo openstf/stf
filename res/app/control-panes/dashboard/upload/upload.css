@@ -42,11 +42,11 @@
 
 .stf-upload .drop-area-text {
   /*border-top: 1px solid #e2e2e2;*/
-  opacity: 0;
+  /*opacity: 0;*/
   font-size: 16px;
-  transition: opacity 0.25s ease-in-out;
+  /*transition: opacity 0.25s ease-in-out;*/
 }
 
 .stf-upload .drop-area:hover .drop-area-text {
-  opacity: 1;
+  /*opacity: 1;*/
 }

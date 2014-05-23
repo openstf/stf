@@ -6,6 +6,10 @@
   margin-top: -32px;
 }
 
+.stf-device-list .clear-filtering-buttons {
+  margin-top: 0px;
+}
+
 .stf-device-list .device-not-usable {
   /*background: rgb(245, 245, 245);*/
   opacity: 0.7;
@@ -112,12 +116,14 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 
 .device-list-active-tabs.ng-enter {
-  -webkit-transition: 150ms;
-  transition: 150ms;
-  margin-top: -100%;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  /*margin-top: -100%;*/
+  opacity: 0;
 }
 
 .device-list-active-tabs.ng-enter-active {
-  margin-top: 0;
+  /*margin-top: 0;*/
+  opacity: 1;
 }
 

@@ -11,8 +11,19 @@ div.stf-device-list
               div(ng-if='activeTabs.devices').device-list-devices-content
                 nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
 
+                .filtering-buttons.pull-right
+                  input(type='search',results='5', autosave='deviceSearch'
+                  name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()', autofocus).xform-control
+
+                  //.input-group
+                    input(type='text').form-control
+                    //span.input-group-btn
+                      button.btn.btn-primary-outline(type='button') Search
+                  //clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
+                .clear-filtering-buttons
+
                 ul.devices-icon-view
-                  li(ng-repeat='device in tracker.devices | filter:{usable:true} | orderBy:"name" track by device.serial',
+                  li(ng-repeat='device in tracker.devices | filter:{usable:true} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-click='toggle(device)',
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small
@@ -24,7 +35,7 @@ div.stf-device-list
                 .clear-fix
                 .line
                 ul.devices-icon-view
-                  li(ng-repeat='device in tracker.devices | filter:{usable:false} | orderBy:"name" track by device.serial',
+                  li(ng-repeat='device in tracker.devices | filter:{usable:false} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-disabled='true',
                   ).cursor-select.pointer.thumbnail.device-is-busy
                     .device-photo-small
@@ -49,6 +60,7 @@ div.stf-device-list
                   button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
                     i.fa.fa-list-alt
                     span {{"Show All"|translate}}
+
 
                 //table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled')
                   thead

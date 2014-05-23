@@ -170,3 +170,11 @@ device-screen textarea {
   min-height: 10px;
   text-align: center;
 }
+
+.stf-vnc-right-buttons {
+  margin-top: 6px;
+}
+
+.stf-vnc-right-buttons .button-spacer {
+  width: 12px;
+}

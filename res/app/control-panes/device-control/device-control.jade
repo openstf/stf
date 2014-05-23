@@ -20,7 +20,7 @@
           a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle
             p
               .device-small-image
-                img(ng-src='{{device.image ? "/static/devices/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                img(ng-src='{{device.image ? "/static/devices/icon/x24/" + device.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
               span.device-name-text {{ device.name }}
               span.caret(ng-show='groupDevices.length > 0')
             span(ng-show='device && !device.present', translate) (Absent)
@@ -29,7 +29,7 @@
             li(ng-repeat='groupDevice in groupDevices')
               a(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .device-small-image
-                  img(ng-src='{{groupDevice.image ? "/static/devices/" + groupDevice.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
+                  img(ng-src='{{groupDevice.image ? "/static/devices/icon/x24/" + groupDevice.image : "/static/bower_components/stf-graphics/devices/small/default.jpg" }}')
                 span(ng-class='{"current-device": groupDevice.serial === device.serial }') {{ groupDevice.name }}
 
                 span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device

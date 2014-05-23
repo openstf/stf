@@ -25,10 +25,12 @@ div.stf-device-list
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:true} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-click='toggle(device)',
+                  popover='{{ device.model }}', popover-trigger='mouseenter', popover-popup-delay='1000',
+                  popover-title='{{ device.name || device.model }}', popover-placement='top'
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
-                    .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
+                    .device-name {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                     button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
                   .clear-fix

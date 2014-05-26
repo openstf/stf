@@ -125,8 +125,6 @@ div.stf-device-list
                         span {{ device.battery.level / device.battery.scale * 100 }}%
                     td(ng-show='showAll', data-title="'Battery Temperature'", sortable='"battery.temp"', filter='{"battery.temp": "text"}')
                       span {{device.battery.temp}}°C
-                    td(ng-show='showAll', data-title="'Battery Voltage'", sortable='"battery.voltage"', filter='{"battery.voltage": "text"}')
-                      span {{device.battery.voltage}}v
 
                     td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider.name": "text"}')
                       span {{device.provider.name}}

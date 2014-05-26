@@ -5,25 +5,29 @@ module.exports = function angularPackeryDirective(PackeryService, DraggabillySer
     restrict: 'AE',
     link: function (scope, element, attrs) {
       var container = element[0]
-      var pckry
       var parsedAttrs = $parse(attrs.angularPackery)()
       if (typeof parsedAttrs !== 'object') {
         parsedAttrs = {}
       }
 
       var options = angular.extend({
+        isInitLayout: false,
         itemSelector: '.packery-item',
         columnWidth: '.packery-item',
         transitionDuration: '300ms'
       }, parsedAttrs)
 
+      var pckry = new PackeryService(container, options)
+      pckry.on('layoutComplete', onLayoutComplete)
+      pckry.bindResize()
+      bindDraggable()
+
       $timeout(function () {
-        pckry = new PackeryService(container, options)
-        pckry.on('layoutComplete', onLayoutComplete)
         pckry.layout()
-        pckry.bindResize()
-        bindDraggable()
-      }, 50)
+      }, 0)
+      $timeout(function () {
+        pckry.layout()
+      }, 100)
 
       function bindDraggable() {
         if (options.draggable) {
@@ -51,10 +55,9 @@ module.exports = function angularPackeryDirective(PackeryService, DraggabillySer
       scope.$on('panelsResized', _.throttle(onPanelsResized, 300))
 
       scope.$on('$destroy', function () {
-        if (pckry) {
-          pckry.unbindResize()
-          pckry.off('layoutComplete', onLayoutComplete)
-        }
+        pckry.unbindResize()
+        pckry.off('layoutComplete', onLayoutComplete)
+        pckry.destroy()
       })
     }
   }

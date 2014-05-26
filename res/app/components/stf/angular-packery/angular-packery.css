@@ -13,6 +13,12 @@ div[angular-packery] {
   overflow-x: hidden;
 }
 
+div[angular-packery]:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
 .col-md-4-x.packery-item {
   width: 33.33333333333333%;
 }
@@ -33,4 +39,11 @@ div[angular-packery] {
   .col-md-4-x.packery-item {
     width: 100%;
   }
+}
+
+.packery-item.is-dragging,
+.packery-item.is-positioning-post-drag {
+  /*border-color: red;*/
+  /*background: #09F;*/
+  /*z-index: 2;*/
 }

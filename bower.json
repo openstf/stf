@@ -35,7 +35,9 @@
     "venturocket-angular-slider": "~0.3.2",
     "font-awesome-bower": "~4.1.0",
     "bootstrap": "~3.1.1",
-    "font-lato-2-subset": "*"
+    "font-lato-2-subset": "*",
+    "packery": "~1.2.2",
+    "draggabilly": "~1.1.0"
   },
   "private": true,
   "resolutions": {

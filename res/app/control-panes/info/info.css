@@ -8,8 +8,6 @@
   border-top: 0;
 }
 
-
-
 .stf-info .table-infocard tbody > tr > td:first-child {
   text-align: right;
   margin-right: 20px;
@@ -25,3 +23,5 @@
   margin-bottom: 0;
   height: 15px;
 }
+
+

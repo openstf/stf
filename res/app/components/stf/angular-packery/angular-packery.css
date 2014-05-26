@@ -1,0 +1,36 @@
+/*
+  Screen Breakpoints:
+
+  screen-xs: 480px
+  screen-sm: 768px
+  screen-md: 992px
+  screen-lg: 1200px
+  screen-xl: 1500px
+*/
+
+div[angular-packery] {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.col-md-4-x.packery-item {
+  width: 33.33333333333333%;
+}
+
+@media screen and (min-width: 1500px) {
+  .col-md-4-x.packery-item {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .col-md-4-x.packery-item {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .col-md-4-x.packery-item {
+    width: 100%;
+  }
+}

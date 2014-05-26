@@ -114,13 +114,13 @@ div.stf-device-list
                     td(ng-show='showAll', data-title="'Phone ICCID'", sortable='"phone.iccid"', filter='{"phone.iccid": "text"}')
                       span {{device.phone.iccid}}
 
-                    td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"', filter='{"battery.health": "text"}')
+                    td(ng-show='showAll', data-title="'Battery Health'", sortable='"battery.health"')
                       span {{device.battery.health | batteryHealth}}
-                    td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"', filter='{"battery.source": "text"}')
+                    td(ng-show='showAll', data-title="'Battery Source'", sortable='"battery.source"')
                       span {{device.battery.source | batterySource}}
-                    td(ng-show='showAll', data-title="'Battery Status'", sortable='"battery.status"', filter='{"battery.status": "text"}')
+                    td(ng-show='showAll', data-title="'Battery Status'", sortable='"battery.status"')
                       span {{device.battery.status | batteryStatus}}
-                    td(ng-show='showAll', data-title="'Battery Level'", sortable='"battery.level"', filter='{"battery.level": "text"}')
+                    td(ng-show='showAll', data-title="'Battery Level'", sortable='"battery.level"')
                       progressbar(value='device.battery.level', max='device.battery.scale', type='success')
                         span {{ device.battery.level / device.battery.scale * 100 }}%
                     td(ng-show='showAll', data-title="'Battery Temperature'", sortable='"battery.temp"', filter='{"battery.temp": "text"}')

@@ -1,6 +1,7 @@
-.row.stf-info(ng-controller='InfoCtrl')
+.row.stf-info(ng-controller='InfoCtrl',
+angular-packery='{draggable: true, draggableHandle: ".heading i"}')
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-location-arrow
@@ -16,7 +17,7 @@
               td(translate) Place
               td {{device.provider.name}}
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-bolt
@@ -45,7 +46,7 @@
               td Voltage
               td {{device.battery.voltage}} v
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-tablet
@@ -81,7 +82,7 @@
               td Y DPI
               td {{device.display.ydpi}}
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-signal
@@ -108,7 +109,7 @@
               td Sub Type
               td {{device.network.subtype | networkSubType}}
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-credit-card
@@ -134,7 +135,7 @@
                 small {{device.phone.iccid}}
 
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-phone
@@ -158,7 +159,7 @@
               td(translate) Released
               td {{device.releasedAt | date:longDate}}
 
-  .col-md-4
+  .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-mobile

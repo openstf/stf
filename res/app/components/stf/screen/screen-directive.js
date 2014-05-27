@@ -115,6 +115,19 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         scope.control.paste(e.clipboardData.getData('text/plain'))
       }
 
+      function getTextDiffered() {
+        return 'new text' + 5
+      }
+
+      function copyListener(e) {
+        scope.control.getClipboardContent()
+        // @TODO: OK, this basically copies last clipboard content
+        if (scope.control.clipboardContent) {
+          e.clipboardData.setData("text/plain", scope.control.clipboardContent)
+        }
+        e.preventDefault()
+      }
+
       scope.retryLoadingScreen = function () {
         if (scope.displayError === 'secure') {
           scope.control.home()
@@ -225,6 +238,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         input.bind('keyup', keyupListener)
         input.bind('keypress', keypressListener)
         input.bind('paste', pasteListener)
+        input.bind('copy', copyListener)
 
         if (BrowserInfo.touch) {
           element.bind('touchstart', downListener)
@@ -242,6 +256,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         input.unbind('keyup', keyupListener)
         input.unbind('keypress', keypressListener)
         input.unbind('paste', pasteListener)
+        input.unbind('copy', copyListener)
 
         if (BrowserInfo.touch) {
           element.unbind('touchstart', downListener)

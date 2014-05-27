@@ -4,12 +4,7 @@
     span(translate) Clipboard
   .widget-content.padded
     .input-group.form-inline
-      textarea(rows='1', ng-model='clipboardContent', msd-elastic).form-control.clipboard-textarea
+      textarea(rows='1', ng-model='control.clipboardContent', msd-elastic).form-control.clipboard-textarea
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='getClipboardContent()')
+        button.btn.btn-primary-outline(ng-click='control.getClipboardContent()')
           i.fa.fa-refresh
-
-      //      .input-group.form-inline
-      //textarea.form-control(rows='1', ng-model='textType', ng-keydown='textTypeKeydown($event)'
-      //ng-focus='$parent.textTypeIsFocused = true', ng-blur='$parent.textTypeIsFocused = false',
-      //title='{{"Types text. Only ASCII characters are supported."|translate}}')

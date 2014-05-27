@@ -3,6 +3,8 @@ module.exports = function ControlServiceFactory(
 , $http
 , socket
 , TransactionService
+, $rootScope
+, gettext
 ) {
   var controlService = {
   }
@@ -98,6 +100,24 @@ module.exports = function ControlServiceFactory(
 
     this.copy = function() {
       return sendTwoWay('clipboard.copy')
+    }
+
+    //@TODO: Refactor this please
+    var that = this
+    this.getClipboardContent = function () {
+      that.copy().then(function (result) {
+        $rootScope.$apply(function () {
+          if (result.success) {
+            if (result.lastData) {
+              that.clipboardContent = result.lastData
+            } else {
+              that.clipboardContent = gettext('No clipboard data')
+            }
+          } else {
+            that.clipboardContent = gettext('Error while getting data')
+          }
+        })
+      })
     }
 
     this.shell = function(command) {

@@ -81,6 +81,11 @@ module.exports = function ControlServiceFactory(
     this.keyDown   = keySender('input.keyDown')
     this.keyUp     = keySender('input.keyUp')
     this.keyPress  = keySender('input.keyPress')
+    this.rawKeyPress  = function (fixedKey) {
+      return sendOneWay('input.keyPress', {
+        key: fixedKey
+      })
+    }
 
     this.home = keySender('input.keyPress', 3)
     this.menu = keySender('input.keyPress', 93)

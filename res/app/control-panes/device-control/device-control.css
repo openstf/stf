@@ -23,6 +23,7 @@ device-screen {
   position: relative;
   display: block;
   overflow: hidden;
+  /*cursor: pointer;*/
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;

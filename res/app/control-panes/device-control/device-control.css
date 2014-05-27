@@ -117,9 +117,10 @@ device-screen textarea {
 }
 
 /*.stf-vnc-bottom .btn-primary:active,*/
-.stf-vnc-bottom .btn-primary.active {
-  background: rgba(255, 255, 255, 0.7);
+.stf-vnc-bottom .btn-primary:active {
+  background: rgba(250, 250, 250, 0.75);
   border: none;
+  color: #0d3fa4;
   /*border-color: rgba(255, 255, 255, 0.7);*/
 }
 
@@ -178,4 +179,12 @@ device-screen textarea {
 
 .stf-vnc-right-buttons .button-spacer {
   width: 12px;
+}
+
+.no-transition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }

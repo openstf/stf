@@ -268,50 +268,16 @@ message PasteMessage {
 message CopyMessage {
 }
 
-enum KeyCode {
-  HOME        = 3;
-  BACK        = 4;
-  BACKSPACE   = 8;
-  TAB         = 9;
-  ENTER       = 13;
-  CAPS_LOCK   = 20;
-  ESC         = 27;
-  PAGE_UP     = 33;
-  PAGE_DOWN   = 34;
-  MOVE_END    = 35;
-  MOVE_HOME   = 36;
-  LEFT_ARROW  = 37;
-  UP_ARROW    = 38;
-  RIGHT_ARROW = 39;
-  DOWN_ARROW  = 40;
-  INSERT      = 45;
-  DELETE      = 46;
-  MENU        = 93;
-  F1          = 112;
-  F2          = 113;
-  F3          = 114;
-  F4          = 115;
-  F5          = 116;
-  F6          = 117;
-  F7          = 118;
-  F8          = 119;
-  F9          = 120;
-  F10         = 121;
-  F11         = 122;
-  F12         = 123;
-  NUM_LOCK    = 144;
-}
-
 message KeyDownMessage {
-  required KeyCode keyCode = 1;
+  required string key = 1;
 }
 
 message KeyUpMessage {
-  required KeyCode keyCode = 1;
+  required string key = 1;
 }
 
 message KeyPressMessage {
-  required KeyCode keyCode = 1;
+  required string key = 1;
 }
 
 // Output

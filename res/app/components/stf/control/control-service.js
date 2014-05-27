@@ -11,35 +11,35 @@ module.exports = function ControlServiceFactory(
 
   function ControlService(target, channel) {
     var keyCodes = {
-      8: 8 // backspace
-    , 9: 9 // tab
-    , 13: 13 // enter
-    , 20: 20 // caps lock
-    , 27: 27 // esc
-    , 33: 33 // page up
-    , 34: 34 // page down
-    , 35: 35 // end
-    , 36: 36 // home
-    , 37: 37 // left arrow
-    , 38: 38 // up arrow
-    , 39: 39 // right arrow
-    , 40: 40 // down arrow
-    , 45: 45 // insert
-    , 46: 46 // delete
-    , 93: 93 // windows menu key
-    , 112: 112 // f1
-    , 113: 113 // f2
-    , 114: 114 // f3
-    , 115: 115 // f4
-    , 116: 116 // f5
-    , 117: 117 // f6
-    , 118: 118 // f7
-    , 119: 119 // f8
-    , 120: 120 // f9
-    , 121: 121 // f10
-    , 122: 122 // f11
-    , 123: 123 // f12
-    , 144: 144 // num lock
+      8: 'del' // backspace
+    , 9: 'tab' // tab
+    , 13: 'enter' // enter
+    , 20: 'caps_lock' // caps lock
+    , 27: 'escape' // esc
+    , 33: 'page_up' // page up
+    , 34: 'page_down' // page down
+    , 35: 'move_end' // end
+    , 36: 'move_home' // home
+    , 37: 'dpad_left' // left arrow
+    , 38: 'dpad_up' // up arrow
+    , 39: 'dpad_right' // right arrow
+    , 40: 'dpad_down' // down arrow
+    , 45: 'insert' // insert
+    , 46: 'forward_del' // delete
+    , 93: 'menu' // windows menu key
+    , 112: 'f1' // f1
+    , 113: 'f2' // f2
+    , 114: 'f3' // f3
+    , 115: 'f4' // f4
+    , 116: 'f5' // f5
+    , 117: 'f6' // f6
+    , 118: 'f7' // f7
+    , 119: 'f8' // f8
+    , 120: 'f9' // f9
+    , 121: 'f10' // f10
+    , 122: 'f11' // f11
+    , 123: 'f12' // f12
+    , 144: 'num_lock' // num lock
     }
 
     function sendOneWay(action, data) {
@@ -87,9 +87,9 @@ module.exports = function ControlServiceFactory(
       })
     }
 
-    this.home = keySender('input.keyPress', 3)
-    this.menu = keySender('input.keyPress', 93)
-    this.back = keySender('input.keyPress', 4)
+    this.home = keySender('input.keyPress', 'home')
+    this.menu = keySender('input.keyPress', 'menu')
+    this.back = keySender('input.keyPress', 'back')
 
     this.type = function(text) {
       return sendOneWay('input.type', {

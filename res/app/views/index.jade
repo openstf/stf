@@ -13,13 +13,13 @@ html
     title STF
   body(ng-app='app', ng-cloak).bg-1.fill-height
     div(ng-controller='LayoutCtrl', basic-mode).fill-height
-      div(pane).fill-height
+      .pane-top(pane).fill-height
         .pane-top-bar(pane, pane-anchor='north', pane-size='44px', pane-min='44px', pane-max='44px', pane-handle='')
           div(ng-include='"menu.jade"')
           socket-state
           div(growl)
 
-        div(pane, pane-anchor='center').fill-height
+        .pane-center(pane, pane-anchor='center').fill-height
           div(ng-view).fill-height
 
     script(src='/static/build/bundle.js')

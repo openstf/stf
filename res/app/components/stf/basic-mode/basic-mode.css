@@ -15,7 +15,6 @@
   font-size: 12px;
 }
 
-
 .basic-mode .stf-vnc-bottom .btn-primary:hover,
 .basic-mode .stf-vnc-bottom .btn-primary.active {
   background: #007aff;
@@ -24,4 +23,26 @@
 
 .basic-mode .stf-menu .stf-top-bar {
   overflow: hidden;
+}
+
+.basic-mode .basic-remote-control {
+  width: 100%;
+  /*width: 320px;*/
+  /*height: 485px;*/
+}
+
+.guest-landscape .basic-mode .stf-vnc-bottom {
+  display: none;
+}
+
+.guest-landscape .basic-mode .pane-top-bar {
+  display: none;
+}
+
+.guest-landscape .basic-mode .pane-center {
+  top: 0 !important;
+}
+
+.guest-landscape .basic-mode .fill-height {
+  width: 100%;
 }

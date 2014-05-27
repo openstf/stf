@@ -1,6 +1,6 @@
-div(ng-if='$root.basicMode')
-  div(style='width: 320px; height: 482px;')
-    .remote-control
+div(ng-if='$root.basicMode').fill-height
+  div.fill-height.basic-remote-control
+    .remote-control.fill-height
       div(ng-include='"control-panes/device-control/device-control.jade"').fill-height
 
 div(ng-if='!$root.basicMode')

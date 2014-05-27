@@ -24,6 +24,7 @@ require('angular-loading-bar/src/loading-bar.js')
 require('angular-loading-bar/src/loading-bar.css')
 
 module.exports = angular.module('layout', [
+  require('stf/landscape').name,
   require('stf/basic-mode').name,
   'ui.bootstrap',
   'fa.directive.borderLayout',

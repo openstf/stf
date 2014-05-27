@@ -274,10 +274,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         } else {
           element.unbind('mousedown', downListener)
         }
-
-        if (BrowserInfo.deviceorientation) {
-          window.removeEventListener('orientationchange', guestDisplayRotatated)
-        }
       }
 
       scope.$watch('$parent.showScreen', function (val) {
@@ -305,23 +301,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       scope.$watch('device.display.orientation', function (r) {
         rotation = r || 0
       })
-
-      function guestDisplayRotatated(eventData) {
-        var isPortrait = (window.innerHeight > window.innerWidth)
-        if (isPortrait) {
-          scope.control.rotate(0)
-          angular.element($document[0].body).addClass('guest-portrait')
-          angular.element($document[0].body).removeClass('guest-landscape')
-        } else {
-          scope.control.rotate(90)
-          angular.element($document[0].body).addClass('guest-landscape')
-          angular.element($document[0].body).removeClass('guest-portrait')
-        }
-      }
-
-      if (BrowserInfo.deviceorientation) {
-        window.addEventListener('orientationchange', guestDisplayRotatated, true)
-      }
 
       scope.$on('$destroy', off)
     }

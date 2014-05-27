@@ -17,18 +17,18 @@ module.exports = function ControlPanesController(
       templateUrl: 'control-panes/screenshots/screenshots.jade',
       filters: ['native', 'web']
     },
-    {
-      title: gettext('Inspect'),
-      icon: 'fa-pencil',
-      templateUrl: 'control-panes/inspect/inspect.jade',
-      filters: ['web']
-    },
-    {
-      title: gettext('Resources'),
-      icon: 'fa-globe',
-      templateUrl: 'control-panes/resources/resources.jade',
-      filters: ['web']
-    },
+//    {
+//      title: gettext('Inspect'),
+//      icon: 'fa-pencil',
+//      templateUrl: 'control-panes/inspect/inspect.jade',
+//      filters: ['web']
+//    },
+//    {
+//      title: gettext('Resources'),
+//      icon: 'fa-globe',
+//      templateUrl: 'control-panes/resources/resources.jade',
+//      filters: ['web']
+//    },
     {
       title: gettext('CPU'),
       icon: 'fa-bar-chart-o',

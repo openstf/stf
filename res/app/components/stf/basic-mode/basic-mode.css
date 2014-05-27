@@ -9,3 +9,19 @@
 .basic-mode .devices-icon-view li {
   margin: 3px;
 }
+
+.basic-mode .stf-vnc-bottom .btn-lg {
+  padding: 5px;
+  font-size: 12px;
+}
+
+
+.basic-mode .stf-vnc-bottom .btn-primary:hover,
+.basic-mode .stf-vnc-bottom .btn-primary.active {
+  background: #007aff;
+  color: #fff;
+}
+
+.basic-mode .stf-menu .stf-top-bar {
+  overflow: hidden;
+}

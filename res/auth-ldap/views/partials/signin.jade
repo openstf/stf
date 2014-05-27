@@ -13,7 +13,8 @@
         .input-group
           span.input-group-addon
             i.fa.fa-user
-          input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAP Username')
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAP Username',
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
           span(ng-show='signin.username.$error.required') Please enter your LDAP username
 
@@ -21,7 +22,8 @@
         .input-group
           span.input-group-addon
             i.fa.fa-lock
-          input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password')
+          input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password',
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
         .alert.alert-warning(ng-show='signin.password.$dirty && signin.password.$invalid')
           span Please enter your password
 

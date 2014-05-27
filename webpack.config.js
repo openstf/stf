@@ -36,9 +36,9 @@ module.exports = {
       { test: /\.css$/, loader: 'style!css' }
     , { test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
     , { test: /\.json$/, loader: 'json' }
-    , { test: /\.jpg$/, loader: "url-loader?limit=5000&mimetype=image/jpeg" }
-    , { test: /\.png$/, loader: "url-loader?limit=5000&mimetype=image/png" }
-    , { test: /\.gif$/, loader: "url-loader?limit=5000&mimetype=image/gif" }
+    , { test: /\.jpg$/, loader: "url-loader?limit=1000&mimetype=image/jpeg" }
+    , { test: /\.png$/, loader: "url-loader?limit=1000&mimetype=image/png" }
+    , { test: /\.gif$/, loader: "url-loader?limit=1000&mimetype=image/gif" }
     , { test: /\.svg$/
       , loader: "url-loader?limit=1&mimetype=image/svg+xml" }
     , { test: /\.woff$/

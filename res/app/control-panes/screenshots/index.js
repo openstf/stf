@@ -1,7 +1,7 @@
 require('./screenshots.css')
 
 module.exports = angular.module('stf.screenshots', [
-
+  require('stf/image-onload').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put('control-panes/screenshots/screenshots.jade',

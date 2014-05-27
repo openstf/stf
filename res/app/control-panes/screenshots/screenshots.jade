@@ -1,4 +1,4 @@
-.widget-container.fluid-height(ng-controller='ScreenshotsCtrl')
+.widget-container.fluid-height(ng-controller='ScreenshotsCtrl').stf-screenshots
   .heading
     button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShot()', title='{{"Take Screenshot"|translate}}')
       i.fa.fa-camera
@@ -30,10 +30,11 @@
 
   .widget-content.padded
     nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshots.length')
+
     ul.screenshots-icon-view.clear-fix
-      li(ng-repeat='shot in screenshots').cursor-select
+      li.screenshots-icon-item(ng-repeat='shot in screenshots').cursor-select
         h5 {{ shot.body.date | date:'yyyy/MM/dd HH:mm:ss'  }}
         a(ng-href='{{ shot.body.href }}', target='_blank')
-          img(ng-src='{{ shot.body.href + shotSizeUrlParameter() }}')
+          img(ng-src='{{ shot.body.href + shotSizeUrlParameter() }}', image-onload-animate).screenshot-image
 
     .clearfix

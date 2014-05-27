@@ -24,8 +24,13 @@ module.exports = function ScreenshotsCtrl($scope, SettingsService) {
   $scope.takeScreenShot = function () {
     $scope.control.screenshot().then(function(result) {
       $scope.$apply(function() {
-        $scope.screenshots.push(result)
+        $scope.screenshots.unshift(result)
       })
     })
+  }
+
+  $scope.imageLoaded = function (shot) {
+    shot.ready = true
+    console.log('[called')
   }
 }

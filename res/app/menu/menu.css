@@ -4,13 +4,13 @@
   height: 32px;
   float: left;
   text-indent: -9999em;
-  margin: 7px 10px 0 0;
+  margin: 6px 10px 0 0;
   background-size: 100% auto;
   -webkit-background-size: 100% auto;
 }
 
 .stf-menu .stf-top-bar {
-  height: 46px;
+  height: 44px;
   /*border-bottom: 1px solid #e6e6e6;*/
   padding: 0 10px 0 20px;
   width: 100%;
@@ -41,11 +41,10 @@
   padding-left: 14px !important;
   font-size: 16px;
   line-height: 44px;
-  height: 46px;
   color: #777777;
   /*border-bottom: 1px solid #eee;*/
   font-weight: 400;
-  height: 45px;
+  height: 44px;
   position: relative;
 }
 
@@ -62,4 +61,9 @@
   color: #007aff;
   /*border-bottom: 1px solid #eee;*/
   /*border-bottom-color: #007aff;*/
+}
+
+.stf-menu.navbar {
+  height: 44px !important;
+  min-height: 44px !important;
 }

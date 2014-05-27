@@ -7,7 +7,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 1000})
-        , guestDisplayDensity = BrowserInfo.retina ? 2 : 1
+        , guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? 2 : 1
         , guestDisplayRotation = 0
         , finger = element.find('span')
         , input = element.find('textarea')
@@ -276,7 +276,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         }
 
         if (BrowserInfo.deviceorientation) {
-          //window.unbind('deviceorientation', guestDisplayRotatated)
+          window.removeEventListener('orientationchange', guestDisplayRotatated)
         }
       }
 
@@ -307,19 +307,20 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       })
 
       function guestDisplayRotatated(eventData) {
-        // gamma is the left-to-right tilt in degrees, where right is positive
-        var tiltLR = eventData.gamma;
-
-        // beta is the front-to-back tilt in degrees, where front is positive
-        var tiltFB = eventData.beta;
-
-        // alpha is the compass direction the device is facing in degrees
-        var dir = eventData.alpha
-        console.log(eventData)
+        var isPortrait = (window.innerHeight > window.innerWidth)
+        if (isPortrait) {
+          scope.control.rotate(0)
+          angular.element($document[0].body).addClass('guest-portrait')
+          angular.element($document[0].body).removeClass('guest-landscape')
+        } else {
+          scope.control.rotate(90)
+          angular.element($document[0].body).addClass('guest-landscape')
+          angular.element($document[0].body).removeClass('guest-portrait')
+        }
       }
 
       if (BrowserInfo.deviceorientation) {
-      //  window.addEventListener('deviceorientation', guestDisplayRotatated, true)
+        window.addEventListener('orientationchange', guestDisplayRotatated, true)
       }
 
       scope.$on('$destroy', off)

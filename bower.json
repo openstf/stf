@@ -37,7 +37,8 @@
     "bootstrap": "~3.1.1",
     "font-lato-2-subset": "*",
     "packery": "~1.2.2",
-    "draggabilly": "~1.1.0"
+    "draggabilly": "~1.1.0",
+    "angular-elastic": "~2.3.3"
   },
   "private": true,
   "resolutions": {

@@ -4,7 +4,7 @@
     span(translate) Clipboard
   .widget-content.padded
     .input-group.form-inline
-      textarea(rows='1', ng-model='clipboardContent').form-control
+      textarea(rows='1', ng-model='clipboardContent', msd-elastic).form-control.clipboard-textarea
       span.input-group-btn
         button.btn.btn-primary-outline(ng-click='getClipboardContent()')
           i.fa.fa-refresh

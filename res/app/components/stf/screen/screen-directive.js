@@ -202,7 +202,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
             // Next please
             maybeLoadScreen()
           } else {
-            console.log('Nothing to show')
+            // Nothing to show
           }
         }
 

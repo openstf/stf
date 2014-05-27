@@ -1,7 +1,9 @@
 require('./clipboard.css')
 
-module.exports = angular.module('stf.clipboard', [
+require('angular-elastic')
 
+module.exports = angular.module('stf.clipboard', [
+  'monospaced.elastic'
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put('control-panes/dashboard/clipboard/clipboard.jade',

@@ -1,3 +1,7 @@
 .stf-clipboard {
 
 }
+
+.stf-clipboard .clipboard-textarea {
+  resize: none;
+}

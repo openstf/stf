@@ -1,40 +1,44 @@
 .widget-container.fluid-height(ng-controller='ScreenshotsCtrl').stf-screenshots
   .heading
-    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShot()', title='{{"Take Screenshot"|translate}}')
+    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShot()',
+    title='{{"Take Screenshot"|translate}}')
       i.fa.fa-camera
       span(translate) Screenshot
-    button.btn.btn-sm.btn-info-outline(ng-click='takePageShot()', title='{{"Take Pageshot (Needs WebView running)"|translate}}',
+    button.btn.btn-sm.btn-info-outline(ng-click='takePageShot()',
+    title='{{"Take Pageshot (Needs WebView running)"|translate}}',
     ng-if='$root.platform == "web" && $root.browser == "webview"')
       i.fa.fa-camera-retro(translate)
       span(translate) Pageshot
 
+    .button-spacer
+
     clear-button(ng-click='clear()', ng-disabled='!screenshots.length')
 
+    .button-spacer
+
     .pull-right
-      i.fa.fa-minus(tooltip='Zoom Out')
-      input(type='range', ng-model='shotSizeRange', min='100', max='2000', step='25', style='width: 200px;')
-      i.fa.fa-plus(tooltip='Zoom In')
-    small {{ shotSizeRange }}
+      button.btn.btn-primary-outline.btn-sm.zoom-button(
+        ng-click='zoom({min: 80, step: -50})',
+        ng-disabled='!screenshots.length')
+        i.fa.fa-minus
 
-    .btn-group.pull-right
+      input(type='range', ng-model='shotSizeRange', min='80', max='480', step='10',
+      ng-model-options='{ updateOn: "default blur", debounce: { default: 100, blur: 0} }',
+      ng-disabled='!screenshots.length').zoom-range
 
-
-      button(type='button', ng-model='shotSize', btn-radio="'small'", title='{{"Low"|translate}}').btn.btn-sm.btn-primary-outline
-        span.fa.fa-fw(translate) L
-      button(type='button', ng-model='shotSize', btn-radio="'medium'", title='{{"Medium"|translate}}').btn.btn-sm.btn-primary-outline
-        span.fa.fa-fw(translate) M
-      button(type='button', ng-model='shotSize', btn-radio="'large'", title='{{"High"|translate}}').btn.btn-sm.btn-primary-outline
-        span.fa.fa-fw(translate) H
-      button(type='button', ng-model='shotSize', btn-radio="'original'", title='{{"Original"|translate}}').btn.btn-sm.btn-primary-outline
-        i.fa.fa-picture-o.fa-fw
+      button.btn.btn-primary-outline.btn-sm.zoom-button(
+        ng-click='zoom({max: 480, step: 50})',
+        ng-disabled='!screenshots.length')
+        i.fa.fa-plus
 
   .widget-content.padded
     nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshots.length')
 
     ul.screenshots-icon-view.clear-fix
       li.screenshots-icon-item(ng-repeat='shot in screenshots').cursor-select
-        h5 {{ shot.body.date | date:'yyyy/MM/dd HH:mm:ss'  }}
+        h5 {{ device.name }}
+        h6 {{ shot.body.date | date:'HH:mm:ss' }}
         a(ng-href='{{ shot.body.href }}', target='_blank')
-          img(ng-src='{{ shot.body.href + shotSizeUrlParameter() }}', image-onload-animate).screenshot-image
+          img(ng-src='{{ shot.body.href + shotSizeUrlParameter(480) }}', image-onload-animate).screenshot-image
 
     .clearfix

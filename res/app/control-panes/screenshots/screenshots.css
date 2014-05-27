@@ -2,13 +2,15 @@
 
 }
 
-.screenshot-image {
-  display:block!important;
+.stf-screenshots .screenshot-image {
+  display: block !important;
 }
 
 .stf-screenshots .screenshot-image {
   -webkit-transition: 1000ms;
   transition: 1000ms;
+  /*-webkit-transition: width 2s; */
+  /*transition: width 2s;*/
 }
 
 .stf-screenshots .screenshot-image.ng-image-not-loaded {
@@ -17,4 +19,13 @@
 
 .stf-screenshots .screenshot-image {
   opacity: 1;
+}
+
+.stf-screenshots .zoom-button {
+  border: 1px solid transparent;
+}
+
+.stf-screenshots .zoom-range {
+  width: 180px;
+  margin-right: 5px;
 }

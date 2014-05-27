@@ -28,9 +28,20 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
 
       function sendTouch(type, e) {
         var x = e.offsetX || e.layerX || 0
-          , y = e.offsetY || e.layerY || 0
-          , r = scope.device.display.orientation
-          , scaled = scaler.coords(boundingWidth, boundingHeight, x, y, r)
+        var y = e.offsetY || e.layerY || 0
+        var r = scope.device.display.orientation
+
+        if (BrowserInfo.touch) {
+          if (e.touches && e.touches.length) {
+            x = e.touches[0].pageX
+            y = e.touches[0].pageY
+          } else if (e.changedTouches && e.changedTouches.length) {
+            x = e.changedTouches[0].pageX
+            y = e.changedTouches[0].pageY
+          }
+        }
+
+        var scaled = scaler.coords(boundingWidth, boundingHeight, x, y, r)
 
         finger[0].style[cssTransform] =
           'translate3d(' + x + 'px,' + y + 'px,0)'

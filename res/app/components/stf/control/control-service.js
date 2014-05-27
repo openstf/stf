@@ -64,11 +64,18 @@ module.exports = function ControlServiceFactory(
 
     function keySender(type, fixedKey) {
       return function(key) {
-        var mapped = fixedKey || keyCodes[key]
-        if (mapped) {
+        if (typeof key === 'string') {
           sendOneWay(type, {
-            key: mapped
+            key: key
           })
+        }
+        else {
+          var mapped = fixedKey || keyCodes[key]
+          if (mapped) {
+            sendOneWay(type, {
+              key: mapped
+            })
+          }
         }
       }
     }

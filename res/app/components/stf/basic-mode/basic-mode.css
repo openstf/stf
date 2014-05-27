@@ -1,0 +1,11 @@
+.basic-mode {
+  /*background: red;*/
+}
+
+.basic-mode .devices-icon-view {
+  padding: 0;
+}
+
+.basic-mode .devices-icon-view li {
+  margin: 3px;
+}

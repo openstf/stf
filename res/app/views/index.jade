@@ -5,7 +5,7 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui')
     title STF
   body(ng-app='app', ng-cloak).bg-1.fill-height
-    div(ng-controller='LayoutCtrl').fill-height
+    div(ng-controller='LayoutCtrl', basic-mode).fill-height
       div(pane).fill-height
         .pane-top-bar(pane, pane-anchor='north', pane-size='46px', pane-min='46px', pane-max='46px', pane-handle='')
           div(ng-include='"menu.jade"')

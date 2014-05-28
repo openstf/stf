@@ -8,13 +8,44 @@ module.exports = function DeviceServiceFactory($http, socket) {
     var devices = []
       , devicesBySerial = Object.create(null)
       , scopedSocket = socket.scoped($scope)
+      , digestTimer
+      , lastDigest
 
-    function notify() {
+    $scope.$on('$destroy', function() {
+      clearTimeout(digestTimer)
+    })
+
+    function digest() {
       $scope.$broadcast('devices.update', true)
 
       // Not great. Consider something else
       if (!$scope.$$phase) {
         $scope.$digest()
+      }
+
+      lastDigest = Date.now()
+      digestTimer = null
+    }
+
+    function notify(event) {
+      if (event.important) {
+        // Handle important updates immediately.
+        digest()
+      }
+      else {
+        if (!digestTimer) {
+          var delta = Date.now() - lastDigest
+          if (delta > 1000) {
+            // It's been a while since the last update, so let's just update
+            // right now even though it's low priority.
+            digest()
+          }
+          else {
+            // It hasn't been long since the last update. Let's wait for a
+            // while so that the UI doesn't get stressed out.
+            digestTimer = setTimeout(digest, delta)
+          }
+        }
       }
     }
 
@@ -70,7 +101,6 @@ module.exports = function DeviceServiceFactory($http, socket) {
     function insert(data) {
       devicesBySerial[data.serial] = devices.push(data) - 1
       sync(data)
-      notify()
     }
 
     function modify(data, newData) {
@@ -79,7 +109,6 @@ module.exports = function DeviceServiceFactory($http, socket) {
         return _.isArray(b) ? b : undefined
       })
       sync(data)
-      notify()
     }
 
     function remove(data) {
@@ -87,67 +116,64 @@ module.exports = function DeviceServiceFactory($http, socket) {
       if (index >= 0) {
         devices.splice(index, 1)
         delete devicesBySerial[data.serial]
-        notify()
       }
     }
 
     function fetch(data) {
       deviceService.load(data.serial)
-        .then(changeListener)
+        .then(function(device) {
+          return changeListener({
+            important: true
+          , data: device
+          })
+        })
         .catch(function() {})
     }
 
-    function addListener(data) {
-      var device = get(data)
+    function addListener(event) {
+      var device = get(event.data)
       if (device) {
-        modify(device, data)
-      }
-      else if (options.filter(data)) {
-        insert(data)
-      }
-    }
-
-    function removeListener(data) {
-      var device = get(data)
-      if (device) {
-        modify(device, data)
-        if (!options.filter(device)) {
-          remove(device)
-        }
+        modify(device, event.data)
+        notify(event)
       }
       else {
-        if (options.filter(data)) {
-          insert(data)
-          // We've only got partial data
-          fetch(data)
+        if (options.filter(event.data)) {
+          insert(event.data)
+          notify(event)
         }
       }
     }
 
-    function changeListener(data) {
-      var device = get(data)
+    function changeListener(event) {
+      var device = get(event.data)
       if (device) {
-        modify(device, data)
+        modify(device, event.data)
         if (!options.filter(device)) {
           remove(device)
         }
+        notify(event)
       }
       else {
-        if (options.filter(data)) {
-          insert(data)
+        if (options.filter(event.data)) {
+          insert(event.data)
           // We've only got partial data
-          fetch(data)
+          fetch(event.data)
+          notify(event)
         }
       }
     }
 
     scopedSocket.on('device.add', addListener)
-    scopedSocket.on('device.remove', removeListener)
+    scopedSocket.on('device.remove', changeListener)
     scopedSocket.on('device.change', changeListener)
 
     this.add = function(device) {
       remove(device)
       insert(device)
+      notify({
+        important: true
+      , data: device
+      })
     }
 
     this.devices = devices
@@ -155,7 +181,7 @@ module.exports = function DeviceServiceFactory($http, socket) {
 
   deviceService.trackAll = function ($scope) {
     var tracker = new Tracker($scope, {
-      filter: function(device) {
+      filter: function() {
         return true
       }
     })

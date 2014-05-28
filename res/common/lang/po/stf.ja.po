@@ -895,8 +895,8 @@ msgid ""
 "This might be caused by a network error, or you might be trying to access a "
 "secure view."
 msgstr ""
-"これはネットワークエラーに起因するか、暗号化されたビューに起因するかもしれま"
-"せん。"
+"起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化され"
+"たビュー"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 msgid "Time"

@@ -22,3 +22,7 @@
 .padded-small {
   padding: 5px;
 }
+
+::-webkit-scrollbar {
+  height: 8px;
+}

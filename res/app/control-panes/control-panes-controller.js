@@ -18,12 +18,12 @@ module.exports = function ControlPanesController($scope, $http, gettext, $routeP
 //      templateUrl: 'control-panes/resources/resources.jade',
 //      filters: ['web']
 //    },
-    {
-      title: gettext('CPU'),
-      icon: 'fa-bar-chart-o',
-      templateUrl: 'control-panes/cpu/cpu.jade',
-      filters: ['native', 'web']
-    },
+//    {
+//      title: gettext('CPU'),
+//      icon: 'fa-bar-chart-o',
+//      templateUrl: 'control-panes/cpu/cpu.jade',
+//      filters: ['native', 'web']
+//    },
     {
       title: gettext('Advanced'),
       icon: 'fa-bolt',

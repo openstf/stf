@@ -107,6 +107,10 @@ ul.devices-icon-view .device-is-busy {
   cursor: not-allowed;
 }
 
+ul.devices-icon-view .device-is-busy .btn {
+  cursor: not-allowed;
+}
+
 ul.devices-icon-view .device-is-busy .device-photo-small img {
   opacity: 0.5;
 }

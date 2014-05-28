@@ -92,6 +92,23 @@ module.exports = function DeviceServiceFactory($http, socket) {
             break
         }
       }
+
+      data.stateSorting = getStateSorting(data.state)
+    }
+
+    // For convenience, add the sorting priority to each state
+    function getStateSorting(state) {
+      return {
+        'using': 1,
+        'available': 2,
+        'ready': 3,
+        'present': 4,
+        'busy': 5,
+        'absent': 6,
+        'preparing': 7,
+        'unauthorized': 8,
+        'offline': 9
+      }[state] || 10
     }
 
     function get(data) {

@@ -32,7 +32,11 @@ div.stf-device-list
                     .device-photo-small
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name {{ device.name || device.model }}
-                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}'
+                    button(ng-class='{\
+                      "btn-primary": device.state == "using",\
+                      "btn-primary-outline": device.state == "available",\
+                      "btn-warning": device.state == "busy"\
+                      }'
                     ).btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
                 .clear-fix
@@ -46,7 +50,12 @@ div.stf-device-list
                     .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                     //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
-                    button.btn.btn-default.btn-xs.device-status {{device.state|statusName|translate}}
+                    button(ng-class='{\
+                      "btn-primary": device.state == "using",\
+                      "btn-primary-outline": device.state == "available",\
+                      "btn-warning": device.state == "busy"\
+                      }'
+                    ).btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
 
             tab(active='activeTabs.details', ng-show='!$root.basicMode')
@@ -78,12 +87,16 @@ div.stf-device-list
 
                 table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length').device-list-details
                   tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
-                    td(data-title="'Status'|translate", sortable='"state"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
+
+                    td(data-title="'Status'|translate", sortable='"stateSorting"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
+
                       button(ng-class='{\
                       "btn-primary": device.state == "using",\
-                      "btn-primary-outline": device.state == "available"\
+                      "btn-primary-outline": device.state == "available",\
+                      "btn-warning": device.state == "busy"\
                       }',
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName|translate}}
+
                     td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
 
                       span.device-small-image

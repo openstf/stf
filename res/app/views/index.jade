@@ -16,10 +16,10 @@ html
       .pane-top(pane).fill-height
         .pane-top-bar(pane, pane-anchor='north', pane-size='44px', pane-min='44px', pane-max='44px', pane-handle='')
           div(ng-include='"menu.jade"')
-          socket-state
-          div(growl)
 
         .pane-center(pane, pane-anchor='center').fill-height
+          socket-state
+          div(growl)
           div(ng-view).fill-height
 
     script(src='/static/build/bundle.js')

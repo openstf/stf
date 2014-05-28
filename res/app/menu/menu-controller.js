@@ -1,5 +1,5 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService) {
-  $rootScope.platform = 'web'
+  $rootScope.platform = 'native'
   SettingsService.bind($rootScope, {
     key: 'platform',
     storeName: 'Platform'

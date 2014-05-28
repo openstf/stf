@@ -4,9 +4,9 @@
     title='{{"Take Screenshot"|translate}}')
       i.fa.fa-camera
       span(translate) Screenshot
-    button.btn.btn-sm.btn-info-outline(ng-click='takePageShot()',
-    title='{{"Take Pageshot (Needs WebView running)"|translate}}',
-    ng-if='$root.platform == "web" && $root.browser == "webview"')
+    //button.btn.btn-sm.btn-info-outline(ng-click='takePageShot()',
+      title='{{"Take Pageshot (Needs WebView running)"|translate}}',
+      ng-if='$root.platform == "web" && $root.browser == "webview"')
       i.fa.fa-camera-retro(translate)
       span(translate) Pageshot
 

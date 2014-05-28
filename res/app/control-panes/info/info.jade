@@ -9,7 +9,7 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
         .pull-right
           button(ng-click='control.identify()').btn.btn-xs.btn-primary-outline
             i.fa.fa-info
-            span  Find Device
+            span(translate)  Find Device
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
@@ -29,21 +29,21 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
               td(translate) Health
               td {{device.battery.health | batteryHealth}}
             tr
-              td Power Source
+              td(translate) Power Source
               td {{device.battery.source | batterySource}}
             tr
-              td Status
+              td(translate) Status
               td {{device.battery.status | batteryStatus}}
             tr
-              td Level
+              td(translate) Level
               td
                 progressbar(value='device.battery.level', animate='false', max='device.battery.scale', type='success')
                   span {{ device.battery.level / device.battery.scale * 100 }}%
             tr
-              td Temperature
+              td(translate) Temperature
               td {{device.battery.temp}} °C
             tr
-              td Voltage
+              td(translate) Voltage
               td {{device.battery.voltage}} v
 
   .col-md-4-x.packery-item
@@ -61,25 +61,25 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
               td(translate) FPS
               td {{device.display.fps}}
             tr
-              td Width
+              td(translate) Width
               td {{device.display.width}} px
             tr
-              td Height
+              td(translate) Height
               td {{device.display.height}} px
             tr
-              td ID
+              td(translate) ID
               td {{device.display.id}}
             tr
-              td Orientation
+              td(translate) Orientation
               td {{device.display.orientation}}°
             tr
-              td Encrypted
+              td(translate) Encrypted
               td {{device.display.secure | humanizedBool}}
             tr
-              td X DPI
+              td(translate) X DPI
               td {{device.display.xdpi}}
             tr
-              td Y DPI
+              td(translate) Y DPI
               td {{device.display.ydpi}}
 
   .col-md-4-x.packery-item
@@ -100,13 +100,13 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
               td(translate) Using Fallback
               td {{device.network.failover | humanizedBool}}
             tr
-              td Roaming
+              td(translate) Roaming
               td {{device.network.roaming | humanizedBool}}
             tr
-              td Type
+              td(translate) Type
               td {{device.network.type | networkType}}
             tr
-              td Sub Type
+              td(translate) Sub Type
               td {{device.network.subtype | networkSubType}}
 
   .col-md-4-x.packery-item

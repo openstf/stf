@@ -3,27 +3,27 @@ div(ng-controller='ActivitiesCtrl')
     table.table.table-condensed
       tbody
         tr
-          td Package
+          td(translate) Package
           td
             input.form-control(type='text', placeholder='', ng-model='selectedPackageName',
             typeahead='packageName for packageName in packageNames')
         tr
-          td Activity
+          td(translate) Activity
           td
             input.form-control(type='text', placeholder='', ng-model='selectedActivityName',
             typeahead='activityName for activityName in activityNames')
         tr
-          td Action
+          td(translate) Action
           td
             input.form-control(type='text', placeholder='', ng-model='selectedAction',
             typeahead='action for action in activityActions')
         tr
-          td Category
+          td(translate) Category
           td
             input.form-control(type='text', placeholder='', ng-model='selectedCategory',
             typeahead='category for category in activityCategories')
         tr
-          td Data
+          td(translate) Data
           td
             input.form-control(type='text', placeholder='', ng-model='selectedData',
             typeahead='data for data in activityData', id='selectedData')

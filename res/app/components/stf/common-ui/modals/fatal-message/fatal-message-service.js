@@ -29,7 +29,6 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
     })
 
     modalInstance.result.then(function (selectedItem) {
-      console.log(selectedItem)
     }, function () {
 
     })

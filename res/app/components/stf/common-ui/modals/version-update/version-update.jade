@@ -1,0 +1,11 @@
+.stf-fatal-message.stf-modal
+  .modal-header.dialog-header-notify
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title.text-danger
+      i.fa.fa-exclamation-circle.fa-fw
+      span(translate) Version Update
+  .modal-body(translate) A new version of STF is available
+  .modal-footer
+    button.btn.btn-primary(type='button', ng-click='ok()')
+      i.fa.fa-refresh
+      span(translate) Reload

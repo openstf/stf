@@ -1,18 +1,18 @@
-.stf-fatal-message
+.stf-fatal-message.stf-modal
   .modal-header.dialog-header-error
     button(type='button', ng-click='cancel()').close &times;
     h4.modal-title.text-danger
       i.fa.fa-warning
-      span  Device was disconnected
-  .modal-body.text-danger Device is not in use anymore
+      span(translate)  Device was disconnected
+  .modal-body.text-danger(translate) Device is not in use anymore
   .modal-footer
     button.btn.btn-primary(type='button', ng-click='ok()')
       i.fa.fa-refresh
-      span Try to reconnect
+      span(translate) Try to reconnect
     button.btn.btn-success(ng-click='second()')
       i.fa.fa-sitemap
-      span Go to Device List
-    //button.btn.btn-warning(translate, ng-click='cancel()') Close
+      span(translate) Go to Device List
+    //button.btn.btn-warning(ng-click='cancel()') Close
 
       //'<div class="modal-header dialog-header-error">
       //  <button type="button" class="close" ng-click="close()">&times;</button>

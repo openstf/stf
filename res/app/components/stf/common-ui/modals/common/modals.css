@@ -1,0 +1,28 @@
+.stf-modal {
+
+}
+
+.stf-modal .dialog-header-error {
+  background-color: #d2322d;
+}
+
+.stf-modal .dialog-header-wait {
+  background-color: #428bca;
+}
+
+.stf-modal .dialog-header-notify {
+  background-color: #eeeeee;
+}
+
+.stf-modal .dialog-header-confirm {
+  background-color: #333333;
+}
+
+.stf-modal .dialog-header-error span,
+.stf-modal .dialog-header-error h4,
+.stf-modal .dialog-header-wait span,
+.stf-modal .dialog-header-wait h4,
+.stf-modal .dialog-header-confirm span,
+.stf-modal .dialog-header-confirm h4 {
+  color: #ffffff;
+}

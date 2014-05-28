@@ -1,6 +1,6 @@
 var io = require('socket.io')
 
-module.exports = function SocketFactory($rootScope) {
+module.exports = function SocketFactory($rootScope, VersionUpdateService) {
   var socket = io.connect(null, {
     reconnect: false
   })
@@ -25,6 +25,10 @@ module.exports = function SocketFactory($rootScope) {
       }
     }
   }
+
+  socket.on('outdated', function () {
+    VersionUpdateService.open()
+  })
 
   socket.on('socket.ip', function(ip) {
     $rootScope.$apply(function() {

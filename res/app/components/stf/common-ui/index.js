@@ -8,5 +8,5 @@ module.exports = angular.module('stf/common-ui', [
   require('./ng-enter').name,
   require('./tooltips').name,
   //require('./tree').name,
-  require('./fatal-message').name
+  require('./modals').name
 ])

@@ -15,15 +15,22 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
 
   function forwardPorts() {
     _.forEach(getPortSets(), function (portSet) {
-      console.log(portSet)
-      $scope.control.createForward(portSet).then(function (e) {
-        console.log(e)
+      $scope.control.createForward(portSet).then(function (result) {
+        console.log(result)
+      }).catch(function (err) {
+        console.error(err)
       })
     })
   }
 
   function unforwardPorts() {
-
+    _.forEach(getPortSets(), function (portSet) {
+      $scope.control.removeForward(portSet).then(function (result) {
+        console.log(result)
+      }).catch(function (err) {
+        console.error(err)
+      })
+    })
   }
 
   $scope.$watch('forwarding', function (newValue, oldValue) {

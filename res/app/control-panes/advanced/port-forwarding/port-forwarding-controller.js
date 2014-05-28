@@ -2,12 +2,12 @@ var _ = require('lodash')
 
 module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsService) {
 
-  //$scope.forwarding = false
+  $scope.forwarding = false
 
-  SettingsService.bind($scope, {
-    key: 'forwarding',
-    storeName: 'PortForwarding.forwarding'
-  })
+//  SettingsService.bind($scope, {
+//    key: 'forwarding',
+//    storeName: 'PortForwarding.forwarding'
+//  })
 
 //  SettingsService.bind($scope, {
 //    key: 'portSets',

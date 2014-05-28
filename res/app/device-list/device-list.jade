@@ -33,7 +33,7 @@ div.stf-device-list
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
-                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName}}
+                    button(ng-class='{"btn-primary": device.state == "using", "btn-primary-outline": device.state == "available"}').btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
                 .clear-fix
                 .line
@@ -91,7 +91,7 @@ div.stf-device-list
                       span {{device.name}}
                     td(data-title="'Carrier'|translate", sortable='"operator"', filter='{"operator": "text"}')
                       span {{device.operator}}
-                    td(data-title="'Release'|translate", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
+                    td(data-title="'Released'|translate", sortable='"releasedAt"', filter='{"releasedAt": "text"}')
                       span {{device.releasedAt | date:'yyyy/MM/dd'}}
                     td(data-title="'OS'|translate", sortable='"version"', filter='{"version": "text"}')
                       span {{device.version}}

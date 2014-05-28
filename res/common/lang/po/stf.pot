@@ -231,10 +231,6 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Device Port"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Device is not in use anymore"
 msgstr ""
@@ -305,10 +301,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ethernet"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Example: 3000"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -449,10 +441,6 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Local"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
 msgid "Local Settings"
 msgstr ""
@@ -466,15 +454,12 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Maker"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "Manage Apps"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Manufacturer"
 msgstr ""
 
@@ -523,7 +508,6 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Name"
 msgstr ""
@@ -691,6 +675,7 @@ msgid "Processing..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Product"
 msgstr ""
 
@@ -731,9 +716,6 @@ msgid "Relaunch the browser"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Release"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Released"
 msgstr ""
@@ -895,18 +877,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
 msgid "Take Screenshot"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target IP / Hostname"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target Port"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target host (detect if blank)"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html

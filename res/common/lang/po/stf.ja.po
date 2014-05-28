@@ -165,6 +165,7 @@ msgid "Cold"
 msgstr "コールド"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Connected"
 msgstr "接続中"
 
@@ -233,10 +234,6 @@ msgstr "開発者向け設定"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Device"
 msgstr "デバイス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Device Port"
-msgstr "端末側のポート"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Device is not in use anymore"
@@ -312,10 +309,6 @@ msgstr "エラー"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ethernet"
 msgstr "イーサーネット"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Example: 3000"
-msgstr "例：3000"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "FPS"
@@ -455,10 +448,6 @@ msgstr "アクティビティを起動中..."
 msgid "Level"
 msgstr "レベル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Local"
-msgstr "ローカル"
-
 #: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
 msgid "Local Settings"
 msgstr "ローカル設定"
@@ -472,15 +461,12 @@ msgstr "場所"
 msgid "Logs"
 msgstr "ログ"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Maker"
-msgstr "メーカー"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "Manage Apps"
 msgstr "アプリ管理"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Manufacturer"
 msgstr "メーカー"
 
@@ -529,7 +515,6 @@ msgstr "音を消す"
 msgid "N/A"
 msgstr "適用なし"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Name"
 msgstr "ネーム"
@@ -697,6 +682,7 @@ msgid "Processing..."
 msgstr "処理中..."
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Product"
 msgstr "型番"
 
@@ -737,12 +723,9 @@ msgid "Relaunch the browser"
 msgstr "ブラウザを再起動する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Release"
-msgstr "リリース"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Released"
-msgstr "リリース"
+msgstr "発売日"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
@@ -903,18 +886,6 @@ msgstr "ページ全体ショットを撮る（現在はWebViewのみ対応）"
 msgid "Take Screenshot"
 msgstr "スクリーンショットを撮る"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target IP / Hostname"
-msgstr "ローカル側のIP / ホスト名"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target Port"
-msgstr "ローカル側のポート"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Target host (detect if blank)"
-msgstr "対象ホスト（空のときは自動検知）"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Temperature"
 msgstr "温度"
@@ -1066,6 +1037,30 @@ msgstr "Y DPI"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
 msgstr "はい"
+
+#~ msgid "Device Port"
+#~ msgstr "端末側のポート"
+
+#~ msgid "Example: 3000"
+#~ msgstr "例：3000"
+
+#~ msgid "Local"
+#~ msgstr "ローカル"
+
+#~ msgid "Maker"
+#~ msgstr "メーカー"
+
+#~ msgid "Release"
+#~ msgstr "リリース"
+
+#~ msgid "Target IP / Hostname"
+#~ msgstr "ローカル側のIP / ホスト名"
+
+#~ msgid "Target Port"
+#~ msgstr "ローカル側のポート"
+
+#~ msgid "Target host (detect if blank)"
+#~ msgstr "対象ホスト（空のときは自動検知）"
 
 #~ msgid "Using"
 #~ msgstr "利用中"

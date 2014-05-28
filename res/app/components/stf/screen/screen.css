@@ -13,8 +13,8 @@
 
 .screen-error .screen-error-message {
   position: relative;
-  top: 35%;
-  transform: translateY(-35%);
+  top: 15%;
+  transform: translateY(-15%);
   text-align: center;
 }
 

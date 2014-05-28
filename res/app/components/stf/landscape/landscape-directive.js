@@ -4,8 +4,6 @@ module.exports = function landscapeDirective(BrowserInfo, $document, $window, $r
     link: function (scope, element, attrs) {
       var body = angular.element($document[0].body)
 
-      console.log($window.orientation)
-
       if (typeof $window.orientation !== 'undefined') {
         if ($window.orientation === 0) {
           rotateGuest(true)

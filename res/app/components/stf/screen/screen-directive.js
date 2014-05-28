@@ -150,8 +150,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-              '?width=' + boundingWidth * guestDisplayDensity +
-              '&height=' + boundingHeight * guestDisplayDensity +
+              '?width=' + Math.floor(boundingWidth * guestDisplayDensity) +
+              '&height=' + Math.floor(boundingHeight * guestDisplayDensity) +
               '&time=' + Date.now()
           )
         }
@@ -300,6 +300,16 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
 
       scope.$watch('device.display.orientation', function (r) {
         rotation = r || 0
+      })
+
+      scope.$on('guest-portrait', function () {
+        scope.control.rotate(0)
+//        updateBounds()
+      })
+
+      scope.$on('guest-landscape', function () {
+        scope.control.rotate(90)
+//        updateBounds()
       })
 
       scope.$on('$destroy', off)

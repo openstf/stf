@@ -2,36 +2,37 @@ module.exports = function landscapeDirective(BrowserInfo, $document, $window, $r
   return {
     restrict: 'A',
     link: function (scope, element, attrs) {
+      var body = angular.element($document[0].body)
+
       console.log($window.orientation)
 
       if (typeof $window.orientation !== 'undefined') {
         if ($window.orientation === 0) {
-          rotateHostAndGuest(true)
+          rotateGuest(true)
         } else {
-          rotateHostAndGuest(false)
+          rotateGuest(false)
         }
       }
 
-      function rotateHostAndGuest(portrait) {
-        //console.log(scope.control)
+      function rotateGuest(portrait) {
         if (portrait) {
-          if (scope.control) {
-            scope.control.rotate(0)
-          }
-          angular.element($document[0].body).addClass('guest-portrait')
-          angular.element($document[0].body).removeClass('guest-landscape')
+          body.addClass('guest-portrait')
+          body.removeClass('guest-landscape')
+
+          scope.$broadcast('guest-portrait')
         } else {
-          if (scope.control) {
-            scope.control.rotate(90)
-          }
-          angular.element($document[0].body).addClass('guest-landscape')
-          angular.element($document[0].body).removeClass('guest-portrait')
+          body.addClass('guest-landscape')
+          body.removeClass('guest-portrait')
+
+          scope.$broadcast('guest-landscape')
+
+          $window.scrollTo(0,0)
         }
       }
 
       function guestDisplayRotatated(eventData) {
         var isPortrait = (window.innerHeight > window.innerWidth)
-        rotateHostAndGuest(isPortrait)
+        rotateGuest(isPortrait)
       }
 
       if (BrowserInfo.deviceorientation) {
@@ -45,8 +46,6 @@ module.exports = function landscapeDirective(BrowserInfo, $document, $window, $r
       }
 
       scope.$on('$destroy', off)
-
-
     }
   }
 }

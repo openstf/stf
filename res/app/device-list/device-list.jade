@@ -98,11 +98,12 @@ div.stf-device-list
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName|translate}}
 
                     td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
-
                       span.device-small-image
                         img(ng-src='/static/devices/icon/x24/{{ device.image || "_default.jpg" }}')
 
-                      span {{device.model}}
+                      span(ng-if='device.state !== "using"') {{device.model}}
+                      a(ng-if='device.state === "using"', ng-href='/#!/control/{{ device.serial }}') {{device.model}}
+
                     td(data-title="'Product'|translate", sortable='"name"', filter='{"name": "text"}').device-list-product
                       span {{device.name}}
                     td(data-title="'Carrier'|translate", sortable='"operator"', filter='{"operator": "text"}').device-list-carrier

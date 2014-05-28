@@ -7,7 +7,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 1000})
-        , guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? 2 : 1
+        , guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? 1.5 : 1
         , guestDisplayRotation = 0
         , finger = element.find('span')
         , input = element.find('textarea')
@@ -304,12 +304,12 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
 
       scope.$on('guest-portrait', function () {
         scope.control.rotate(0)
-//        updateBounds()
+        updateBounds()
       })
 
       scope.$on('guest-landscape', function () {
         scope.control.rotate(90)
-//        updateBounds()
+        updateBounds()
       })
 
       scope.$on('$destroy', off)

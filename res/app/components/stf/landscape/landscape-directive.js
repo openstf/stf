@@ -6,7 +6,7 @@ module.exports = function landscapeDirective(BrowserInfo, $document, $window, $r
 
       if (typeof $window.orientation !== 'undefined') {
         if ($window.orientation === 0) {
-          rotateGuest(true)
+          //rotateGuest(true)
         } else {
           rotateGuest(false)
         }

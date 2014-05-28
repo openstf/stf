@@ -27,13 +27,13 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
           tbody
             tr
               td(translate) Health
-              td {{device.battery.health | batteryHealth}}
+              td {{device.battery.health | batteryHealth | translate}}
             tr
               td(translate) Power Source
-              td {{device.battery.source | batterySource}}
+              td {{device.battery.source | batterySource | translate}}
             tr
               td(translate) Status
-              td {{device.battery.status | batteryStatus}}
+              td {{device.battery.status | batteryStatus | translate}}
             tr
               td(translate) Level
               td
@@ -104,10 +104,10 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
               td {{device.network.roaming | humanizedBool}}
             tr
               td(translate) Type
-              td {{device.network.type | networkType}}
+              td {{device.network.type | networkType | translate}}
             tr
               td(translate) Sub Type
-              td {{device.network.subtype | networkSubType}}
+              td {{device.network.subtype | networkSubType | translate}}
 
   .col-md-4-x.packery-item
     .widget-container.fluid-height

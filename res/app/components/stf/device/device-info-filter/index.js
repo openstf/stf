@@ -8,7 +8,7 @@ module.exports = angular.module('stf.device-status', [])
         'unauthorized': gettext('Unauthorized'),
         'preparing': gettext('Preparing'),
         'ready': gettext('Ready'),
-        'using': gettext('Using'),
+        'using': gettext('Stop Using'),
         'busy': gettext('Busy'),
         'available': gettext('Use')
       }[text] || gettext('Unknown')

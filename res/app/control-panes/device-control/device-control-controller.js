@@ -85,20 +85,4 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
       $scope.currentRotation = 'landscape'
     }
   })
-
-  $scope.tooltipPortrait = function () {
-    var angle = 0
-    if (isPortrait()) {
-      angle = $scope.device.display.orientation
-    }
-    return gettext($filter('sprintf')('Portrait (%s°)', angle))
-  }
-
-  $scope.tooltipLandscape = function () {
-    var angle = 90
-    if (isLandscape()) {
-      angle = $scope.device.display.orientation
-    }
-    return gettext($filter('sprintf')('Landscape (%s°)', angle))
-  }
 }

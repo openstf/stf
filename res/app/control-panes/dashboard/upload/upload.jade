@@ -18,7 +18,7 @@
       placeholder='http://...').form-control
       span.input-group-btn
         button.btn.btn-primary-outline(ng-click='installUrl(remoteUrl)',
-        tooltip='Upload From Link', ng-disabled='!remoteUrl')
+        tooltip='{{ "Upload From Link" | translate }}', ng-disabled='!remoteUrl')
           i.fa.fa-upload
 
     .drop-area(ng-file-drop='installFile($files)').file-input.btn-file

@@ -121,10 +121,6 @@ msgstr "ブラウザ"
 msgid "Busy"
 msgstr "貸し出し中"
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
-msgid "CPU"
-msgstr "CPU"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Camera"
 msgstr "カメラ"
@@ -338,6 +334,10 @@ msgstr "フル"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Get"
 msgstr "取得"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
+msgid "Get clipboard contents"
+msgstr "クリップボードの中身を取得する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Go Back"
@@ -740,7 +740,7 @@ msgstr "すべての設定をリセット"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset all browser settings"
-msgstr "ブラウザの設定をリセット"
+msgstr "ブラウザの設定をリセットする"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "Retrieving the device screen has timed out."
@@ -769,6 +769,10 @@ msgstr "コマンドを実行"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
 msgid "Run JavaScript"
 msgstr "JavaScript注入"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
+msgid "Run command"
+msgstr "コマンドを実行する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -1037,6 +1041,9 @@ msgstr "はい"
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "You are no longer controlling the device."
 msgstr "この実機のリモート操作ができなくなりました。"
+
+#~ msgid "CPU"
+#~ msgstr "CPU"
 
 #~ msgid "Device is not in use anymore"
 #~ msgstr "実機が使われなくなりました"

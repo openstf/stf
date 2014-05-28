@@ -1,4 +1,6 @@
-module.exports = angular.module('help', [])
+module.exports = angular.module('help', [
+  require('./shell').name
+])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/help', {
       template: require('./help.jade'),

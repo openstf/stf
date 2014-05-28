@@ -117,10 +117,6 @@ msgstr ""
 msgid "Busy"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
-msgid "CPU"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Camera"
 msgstr ""
@@ -330,6 +326,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Get"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
+msgid "Get clipboard contents"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
@@ -761,6 +761,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
 msgid "Run JavaScript"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
+msgid "Run command"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html

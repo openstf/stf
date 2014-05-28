@@ -6,5 +6,5 @@
     .input-group.form-inline
       textarea(rows='1', ng-model='control.clipboardContent', msd-elastic).form-control.clipboard-textarea
       span.input-group-btn
-        button.btn.btn-primary-outline(ng-click='control.getClipboardContent()')
+        button.btn.btn-primary-outline(ng-click='control.getClipboardContent()', tooltip='{{ "Get clipboard contents" | translate }}')
           i.fa.fa-refresh

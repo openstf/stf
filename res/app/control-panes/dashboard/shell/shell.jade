@@ -13,6 +13,7 @@
       span.input-group-btn
         // , tooltip='{{"Run Command"|translate}}'
         button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
+          //, tooltip='{{ "Run command" | translate }}')
           i.fa.fa-play
     pre.shell-results(ng-show='data') {{data}}
     pre.shell-results(ng-show='result.settled && !data').shell-results-empty No output

@@ -1,8 +1,8 @@
 module.exports = function basicModeDirective($rootScope, BrowserInfo) {
   return {
     restrict: 'AE',
-    link: function (scope, element, attrs) {
-      $rootScope.basicMode = !!BrowserInfo.small // TODO: use .mobile
+    link: function (scope, element) {
+      $rootScope.basicMode = !!BrowserInfo.mobile // CHECK: use .mobile instead of .small
       if ($rootScope.basicMode) {
         element.addClass('basic-mode')
       }

@@ -3,7 +3,7 @@ module.exports = function ShellCtrl($scope, gettext) {
 //  $scope.results = []
   $scope.result = null
 
-  $scope.referenceUrl = 'https://github.com/jackpal/Android-Terminal-Emulator/wiki/Android-Shell-Command-Reference'
+  $scope.referenceUrl = '/#!/help/shell'
 
   $scope.run = function(command) {
     if (command === 'clear') {

@@ -9,8 +9,14 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     storeName: 'PortForwarding.forwarding'
   })
 
+//  SettingsService.bind($scope, {
+//    key: 'portSets',
+//    storeName: 'PortForwarding.portSets'
+//  })
+
+
   function getPortSets() {
-    return $scope.portSets.slice(0,-1) // Last item is empty
+    return $scope.portSets.slice(0, -1) // Last item is empty
   }
 
   function forwardPorts() {
@@ -48,6 +54,11 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     }
   })
 
+
+  function portFieldsAreEmpty(ports) {
+    return (_.isEmpty(ports.targetHost) && _.isEmpty(ports.targetPort) && _.isEmpty(ports.devicePort))
+  }
+
   $scope.portSets = [
     {
       targetHost: 'localhost',
@@ -56,29 +67,46 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     }
   ]
 
-  function portFieldsAreEmpty(ports) {
-    return (_.isEmpty(ports.targetHost) && _.isEmpty(ports.targetPort) && _.isEmpty(ports.devicePort))
-  }
+//  SettingsService.getItem('PortForwarding.portSets').then(function (result) {
+//    if (result) {
+//      $scope.portSets = result
+//    } else {
+//      console.log('here')
+//    }
+//    console.log(result)
+//  })
 
+  function createEmptyField() {
+    if (!$scope.portSets) {
+      $scope.portSets = []
+    }
+    var empty = {
+      targetHost: null,
+      targetPort: null,
+      devicePort: null
+    }
+
+    $scope.portSets.push(empty)
+  }
 
   // Adds a new row whenever necessary
   $scope.$watch('portSets', function (newValue, oldValue) {
-    // Remove all empty sets from the middle
-    _.remove(newValue, function (ports, index) {
-      // Skip last and remove empty fields
-      return !!(newValue.length !== index + 1 && portFieldsAreEmpty(ports))
-    })
+    if (newValue) {
+      // Remove all empty sets from the middle
+      _.remove(newValue, function (ports, index) {
+        // Skip last and remove empty fields
+        return !!(newValue.length !== index + 1 && portFieldsAreEmpty(ports))
+      })
 
-    var last = _.last(newValue)
-    if (!portFieldsAreEmpty(last)) {
-      var empty = {
-        //targetLocal: null,
-        targetHost: null,
-        targetPort: null,
-        devicePort: null
+      var last = _.last(newValue)
+      if (!portFieldsAreEmpty(last)) {
+        createEmptyField()
       }
-      $scope.portSets.push(empty)
+    } else {
+     // createEmptyField()
     }
+
+    //SettingsService.setItem('PortForwarding.portSets', angular.copy($scope.portSets))
 
   }, true)
 

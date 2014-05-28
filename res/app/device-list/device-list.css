@@ -127,3 +127,6 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
   opacity: 1;
 }
 
+.device-list-details-content table {
+  white-space: nowrap;
+}

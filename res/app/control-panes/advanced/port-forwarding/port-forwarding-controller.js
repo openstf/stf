@@ -4,14 +4,9 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams) {
 
   $scope.portSets = [
     {
-      targetHost: 'local',
-      targetPort: '23',
-      devicePort: '444'
-    },
-    {
-      targetHost: '111',
-      targetPort: '222',
-      devicePort: '333'
+      targetHost: 'localhost',
+      targetPort: 8080,
+      devicePort: 8080
     }
   ]
 
@@ -30,7 +25,7 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams) {
     var last = _.last(newValue)
     if (!portFieldsAreEmpty(last)) {
       var empty = {
-        targetLocal: null,
+        //targetLocal: null,
         targetHost: null,
         targetPort: null,
         devicePort: null

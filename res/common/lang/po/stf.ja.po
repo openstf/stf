@@ -230,6 +230,7 @@ msgstr "開発者向け設定"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Device"
 msgstr "デバイス"
 
@@ -390,6 +391,10 @@ msgid "Home"
 msgstr "ホーム"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Host"
+msgstr "ホスト"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Hostname"
 msgstr "ホスト名"
 
@@ -407,7 +412,7 @@ msgstr "IMEI"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Info"
-msgstr "インフォ"
+msgstr "情報"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
 msgid "Inspect Device"
@@ -430,8 +435,8 @@ msgid "Installing app..."
 msgstr "アプリをインストール中..."
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Landscape&quot; + device.display.orientation + &quot;)"
-msgstr ""
+msgid "Landscape"
+msgstr "横"
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
 msgid "Language"
@@ -449,6 +454,10 @@ msgstr "アクティビティを起動中..."
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 msgid "Level"
 msgstr "レベル"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Local"
+msgstr "ローカル"
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
 msgid "Local Settings"
@@ -660,8 +669,8 @@ msgid "Port forwarding"
 msgstr "ポートフォワーディング"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Portrait&quot; + device.display.orientation + &quot;)"
-msgstr ""
+msgid "Portrait"
+msgstr "縦"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Power"
@@ -733,7 +742,7 @@ msgstr "リリース"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Released"
-msgstr "解放"
+msgstr "リリース"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
@@ -842,7 +851,7 @@ msgstr "シェル"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Show All"
-msgstr "全てを表示"
+msgstr "すべてを表示"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
 msgid "Show Screen"
@@ -948,7 +957,7 @@ msgstr "ポートフォワード解除"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Uninstall"
-msgstr "アンインストール"
+msgstr "削除"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unknown"

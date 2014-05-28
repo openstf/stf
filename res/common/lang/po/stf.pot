@@ -161,6 +161,7 @@ msgid "Cold"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Connected"
 msgstr ""
 
@@ -226,6 +227,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Device"
 msgstr ""
 
@@ -383,6 +385,10 @@ msgid "Home"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Host"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Hostname"
 msgstr ""
 
@@ -423,7 +429,7 @@ msgid "Installing app..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Landscape&quot; + device.display.orientation + &quot;°)"
+msgid "Landscape"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
@@ -441,6 +447,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 msgid "Level"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+msgid "Local"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
@@ -653,7 +663,7 @@ msgid "Port forwarding"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Portrait&quot; + device.display.orientation + &quot;°)"
+msgid "Portrait"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html

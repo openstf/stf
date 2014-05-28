@@ -1,3 +1,7 @@
 .stf-port-forwarding {
 
 }
+
+.stf-port-forwarding table {
+  white-space: nowrap;
+}

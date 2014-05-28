@@ -4,52 +4,61 @@
       i.fa.fa-random
       span(translate).pointer Port forwarding
 
-    button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary.btn-xs.pull-right
+    button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary-outline.btn-xs.pull-right
       i.fa(ng-class="{'fa-arrow-circle-right': !forwarding, 'fa-times-circle': forwarding}")
       span(ng-show='forwarding', translate) Unforward Ports
       span(ng-hide='forwarding', translate) Forward Ports
   .widget-content.padded(collapse='isCollapsed')
 
     table(ng-table='portsTable').table.table-striped
+      thead
+        tr
+          th(width='28%')
+            span(translate) Device
+            .button-spacer
+            i.fa.fa-arrow-right.fa-fw
+          th(width='44%')
+            span(translate) Host
+          th(width='28%')
+      tbody
+        tr(ng-repeat='ports in $data')
+          //td(data-title='"Local" | translate').check
+            label
+              input(type='checkbox', ng-model='ports.targetLocal')
+              span
+          td
+            input.form-control(type='number', min='0', ng-model='ports.devicePort', placeholder='{{"Port"|translate}}')
+          td
+            input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
+          td
+            input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
+
+
+
+   // table(ng-table='portsTable').table.table-striped
+
       tr(ng-repeat='ports in $data')
-        td(data-title='"Local"').check
+        //td(data-title='"Local" | translate').check
           label
             input(type='checkbox', ng-model='ports.targetLocal')
             span
 
-        td(data-title='"Host"')
-          input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
-        td
-          input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
-
-        td(data-title='"Device"')
+        td(data-title='"Device"|translate', width='28%')
+          i.fa.fa-arrow-right
           input.form-control(type='number', min='0', ng-model='ports.devicePort', placeholder='{{"Port"|translate}}')
 
+        td(data-title='"Host"|translate', width='44%')
+          input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
 
-    //table(ng-table='portsTable').table
-      thead
-        tr
-          th
-            div {{"Target IP / Hostname"|translate}}
-          th
-            div {{"Target Port"|translate}}
-          th
-            div {{"Device Port"|translate}}
-      tbody
-        tr(ng-repeat='result in $data')
-          td(data-title="'Target IP / Hostname'")
-            input(type='text', ng-model='result.targetHost', placeholder='{{"Target host (detect if blank)"|translate}}')
-          td(data-title="'Target Port'")
-            input(type='number', ng-model='result.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Example: 3000"|translate}}')
-          td(data-title="'Device Port'")
-            input(type='number', ng-model='result.devicePort', placeholder='{{"Example: 3000"|translate}}')
-          //td(titlew)
+        td(width='28%')
+          input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
+
 
     table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
       tr(ng-repeat='result in $data')
-        td(title="'Device'")
+        td(data-title="'Device'|translate")
           p {{ result.deviceId }}
-        td(title="'Reachable'")
+        td(data-title="'Reachable'|translate")
           i(ng-class="{'text-status-on': result.value.connectable, 'text-status-off': !result.value.connectable}").fa.fa-circle
-        td(title="'Connected'")
+        td(data-title="'Connected'|translate")
           i(ng-class="{'text-status-on': result.value.connected, 'text-status-off': !result.value.connected}").fa.fa-circle

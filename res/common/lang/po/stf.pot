@@ -232,10 +232,6 @@ msgid "Device"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device is not in use anymore"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Device was disconnected"
 msgstr ""
 
@@ -1025,4 +1021,8 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "You are no longer controlling the device."
 msgstr ""

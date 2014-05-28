@@ -1,3 +1,5 @@
+var Promise = require('bluebird')
+
 module.exports = function GroupServiceFactory(
   socket
 , TransactionService
@@ -6,6 +8,10 @@ module.exports = function GroupServiceFactory(
   }
 
   groupService.invite = function (device) {
+    if (!device.usable) {
+      return Promise.reject(new Error('Device is not usable'))
+    }
+
     var tx = TransactionService.create(device)
     socket.emit('group.invite', device.channel, tx.channel, {
       requirements: {
@@ -24,6 +30,10 @@ module.exports = function GroupServiceFactory(
   }
 
   groupService.kick = function (device) {
+    if (!device.usable) {
+      return Promise.reject(new Error('Device is not usable'))
+    }
+
     var tx = TransactionService.create(device)
     socket.emit('group.kick', device.channel, tx.channel, {
       requirements: {

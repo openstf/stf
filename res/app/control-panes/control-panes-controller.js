@@ -1,15 +1,4 @@
-module.exports = function ControlPanesController(
-  $scope
-, $http
-, gettext
-, $routeParams
-, $location
-, DeviceService
-, GroupService
-, ControlService
-, StorageService
-, FatalMessageService
-) {
+module.exports = function ControlPanesController($scope, $http, gettext, $routeParams, $timeout, $location, DeviceService, GroupService, ControlService, StorageService, FatalMessageService) {
   var sharedTabs = [
     {
       title: gettext('Screenshots'),
@@ -83,53 +72,46 @@ module.exports = function ControlPanesController(
   $scope.installFileForced = function ($files) {
     $scope.$apply(function () {
       $scope.upload = {
-        progress: 0
-      , lastData: 'uploading'
+        progress: 0, lastData: 'uploading'
       }
     })
 
     return StorageService.storeFile('apk', $files, {
-        filter: function(file) {
-          return /\.apk$/i.test(file.name)
-        }
-      })
-      .progressed(function(e) {
+      filter: function (file) {
+        return /\.apk$/i.test(file.name)
+      }
+    })
+      .progressed(function (e) {
         if (e.lengthComputable) {
           $scope.$apply(function () {
             $scope.upload = {
-              progress: e.loaded / e.total * 100
-            , lastData: 'uploading'
+              progress: e.loaded / e.total * 100, lastData: 'uploading'
             }
           })
         }
       })
-      .then(function(res) {
+      .then(function (res) {
         $scope.$apply(function () {
           $scope.upload = {
-            progress: 100
-          , lastData: 'processing'
+            progress: 100, lastData: 'processing'
           }
         })
 
         var href = res.data.resources.file0.href
         return $http.get(href + '/manifest')
-          .then(function(res) {
+          .then(function (res) {
             $scope.upload = {
-              progress: 100
-            , lastData: 'success'
-            , settled: true
+              progress: 100, lastData: 'success', settled: true
             }
 
             if (res.data.success) {
               return $scope.installForced({
-                href: href
-              , launch: true
-              , manifest: res.data.manifest
+                href: href, launch: true, manifest: res.data.manifest
               })
             }
           })
       })
-      .catch(function(err) {
+      .catch(function (err) {
         $scope.$apply(function () {
           if (err.code === 'no_input_files') {
             $scope.upload = null
@@ -137,10 +119,7 @@ module.exports = function ControlPanesController(
           else {
             console.log('Upload error', err)
             $scope.upload = {
-              progress: 100
-            , lastData: 'fail'
-            , settled: true
-            , error: err.message
+              progress: 100, lastData: 'fail', settled: true, error: err.message
             }
           }
         })
@@ -175,17 +154,22 @@ module.exports = function ControlPanesController(
       return device
     })
     .catch(function () {
-      $location.path('/')
+      $timeout(function () {
+        $location.path('/')
+      })
     })
+
+  $scope.$watch('device')
 
 
   $scope.$watch('device.state', function (newValue, oldValue) {
+
     if (newValue !== oldValue) {
       if (oldValue === 'using') {
         FatalMessageService.open(angular.copy($scope.device))
-      } else {
-
       }
+    } else if (typeof newValue === 'undefined' && typeof oldValue === 'undefined') {
+      //FatalMessageService.open(angular.copy($scope.device))
     }
   }, true)
 }

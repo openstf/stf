@@ -236,12 +236,8 @@ msgid "Device"
 msgstr "デバイス"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device is not in use anymore"
-msgstr "実機が使われなくなりました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Device was disconnected"
-msgstr "デバイスがオフラインになりました"
+msgstr "デバイスへの接続が切れました"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
@@ -1037,6 +1033,13 @@ msgstr "Y DPI"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
 msgstr "はい"
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "You are no longer controlling the device."
+msgstr "この実機のリモート操作ができなくなりました。"
+
+#~ msgid "Device is not in use anymore"
+#~ msgstr "実機が使われなくなりました"
 
 #~ msgid "Device Port"
 #~ msgstr "端末側のポート"

@@ -3,8 +3,9 @@
     button(type='button', ng-click='cancel()').close &times;
     h4.modal-title.text-danger
       i.fa.fa-warning
-      span(translate)  Device was disconnected
-  .modal-body.text-danger(translate) Device is not in use anymore
+      .button-spacer
+      span(translate) Device was disconnected
+  .modal-body.text-danger(translate) You are no longer controlling the device.
   .modal-footer
     button.btn.btn-primary(type='button', ng-click='ok()')
       i.fa.fa-refresh

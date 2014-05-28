@@ -1,4 +1,4 @@
-module.exports = function FatalMessageServiceFactory($modal, $location) {
+module.exports = function ServiceFactory($modal, $location) {
   var service = {}
 
   var ModalInstanceCtrl = function ($scope, $modalInstance) {

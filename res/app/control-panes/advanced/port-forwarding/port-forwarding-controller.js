@@ -27,10 +27,9 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
   }
 
   $scope.$watch('forwarding', function (newValue, oldValue) {
-    console.log(newValue, oldValue)
     if (newValue !== oldValue) {
       if (newValue) {
-        //forwardPorts()
+        forwardPorts()
       } else {
         if (typeof oldValue !== 'undefined') {
           unforwardPorts()
@@ -41,7 +40,6 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
       $scope.forwarding = false
     }
   })
-
 
   $scope.portSets = [
     {

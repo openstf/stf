@@ -1,7 +1,7 @@
-module.exports = function FatalMessageServiceFactory($modal, $location, socket) {
+module.exports = function FatalMessageServiceFactory($modal, $location) {
   var service = {}
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance, device) {
+  var ModalInstanceCtrl = function ($scope, $modalInstance) {
     $scope.ok = function () {
       $modalInstance.close(true)
       $location.path('/')

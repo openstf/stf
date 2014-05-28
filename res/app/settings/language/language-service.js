@@ -42,7 +42,13 @@ module.exports = function (SettingsService, $q, gettextCatalog) {
   }
 
   // Initialize gettextCatalog
-  LanguageService.getSelectedLanguage()
+  //LanguageService.getSelectedLanguage()
+
+  LanguageService.init = function () {
+    LanguageService.getSelectedLanguage().then(function (data) {
+      LanguageService.setSelectedLanguage(data)
+    })
+  }
 
 
   LanguageService.setSelectedLanguage = function (lang) {

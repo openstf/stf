@@ -12,7 +12,11 @@
 
 .stf-device-list .device-not-usable {
   /*background: rgb(245, 245, 245);*/
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+.stf-device-list .device-not-usable .btn {
+  cursor: not-allowed;
 }
 
 .stf-device-list .devices-not-available {
@@ -129,4 +133,14 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 .device-list-details-content table {
   white-space: nowrap;
+}
+
+.device-list-details-content .device-list-product,
+.device-list-details-content .device-list-carrier {
+  white-space: normal;
+}
+
+.device-list-details-content .progress {
+  margin-bottom: 0 !important;
+  height: 17px !important;
 }

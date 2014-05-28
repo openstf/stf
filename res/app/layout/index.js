@@ -20,15 +20,16 @@ require('./stf-se7en.css')
 require('./small.css')
 require('./stf-styles.css')
 
-require('angular-loading-bar/src/loading-bar.js')
-require('angular-loading-bar/src/loading-bar.css')
+//require('angular-loading-bar/src/loading-bar.js')
+//require('angular-loading-bar/src/loading-bar.css')
 
 module.exports = angular.module('layout', [
+  require('../settings/language').name,
   require('stf/landscape').name,
   require('stf/basic-mode').name,
   'ui.bootstrap',
   'fa.directive.borderLayout',
-  'angular-loading-bar',
+  //'angular-loading-bar',
   require('stf/common-ui').name,
   require('stf/socket/socket-state').name,
   require('stf/browser-info').name

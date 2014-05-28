@@ -13,7 +13,7 @@
     "oboe": "~1.14.6",
     "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git",
     "Snap.svg": "~0.2.0",
-    "angular-localForage": "~0.2.3",
+    "angular-localForage": "~0.2.5",
     "ng-table": "git://github.com/esvit/ng-table.git#85fd295467211556bad433565ab332ce75ff40b7",
     "jquery.terminal": "~0.8.7",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git",

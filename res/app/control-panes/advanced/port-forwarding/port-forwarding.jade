@@ -34,26 +34,6 @@
             input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
 
 
-
-   // table(ng-table='portsTable').table.table-striped
-
-      tr(ng-repeat='ports in $data')
-        //td(data-title='"Local" | translate').check
-          label
-            input(type='checkbox', ng-model='ports.targetLocal')
-            span
-
-        td(data-title='"Device"|translate', width='28%')
-          i.fa.fa-arrow-right
-          input.form-control(type='number', min='0', ng-model='ports.devicePort', placeholder='{{"Port"|translate}}')
-
-        td(data-title='"Host"|translate', width='44%')
-          input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
-
-        td(width='28%')
-          input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
-
-
     table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
       tr(ng-repeat='result in $data')
         td(data-title="'Device'|translate")

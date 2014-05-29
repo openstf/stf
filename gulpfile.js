@@ -48,7 +48,7 @@ gulp.task("webpack:build", function (callback) {
     }),
     new webpack.optimize.DedupePlugin(),
     new ngminPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({mangle: false})
   )
   myConfig.devtool = false
 

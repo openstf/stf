@@ -54,7 +54,8 @@ div.stf-device-list
                       "btn-primary": device.state == "using",\
                       "btn-primary-outline": device.state == "available",\
                       "btn-warning": device.state == "busy"\
-                      }'
+                      }',
+                    ng-dblclick='tryToKick(device)',
                     ).btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
 
@@ -95,6 +96,7 @@ div.stf-device-list
                       "btn-primary-outline": device.state == "available",\
                       "btn-warning": device.state == "busy"\
                       }',
+                        ng-dblclick='tryToKick(device)',
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName|translate}}
 
                     td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')

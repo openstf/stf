@@ -79,6 +79,14 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     }
   }
 
+  $scope.tryToKick = function (device) {
+    if (device.state === 'busy') {
+      if (confirm(gettext('Are you sure you want to kick this device?\nCurrently it is being used by ') + device.owner.name)) {
+        $scope.kick(device, true)
+      }
+    }
+  }
+
   $scope.columns = [
     { title: 'Model', field: 'model', sortable: 'model', filter: {model: 'text'}, visible: true
     }

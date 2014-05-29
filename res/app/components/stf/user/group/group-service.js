@@ -29,8 +29,8 @@ module.exports = function GroupServiceFactory(
     })
   }
 
-  groupService.kick = function (device) {
-    if (!device.usable) {
+  groupService.kick = function (device, force) {
+    if (!force && !device.usable) {
       return Promise.reject(new Error('Device is not usable'))
     }
 

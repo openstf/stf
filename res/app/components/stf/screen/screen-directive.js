@@ -7,7 +7,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
         , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 1000})
-        , guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? 1.5 : 1
+        , guestDisplayDensity = setDisplayDensity(1.5)
         , guestDisplayRotation = 0
         , finger = element.find('span')
         , input = element.find('textarea')
@@ -25,6 +25,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         , cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
       scope.$on('panelsResized', updateBounds)
+
+      function setDisplayDensity(forRetina) {
+        return guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? forRetina : 1
+      }
 
       function sendTouch(type, e) {
         var x = e.offsetX || e.layerX || 0
@@ -150,8 +154,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-              '?width=' + Math.floor(boundingWidth * guestDisplayDensity) +
-              '&height=' + Math.floor(boundingHeight * guestDisplayDensity) +
+              '?width=' + Math.ceil(boundingWidth * guestDisplayDensity) +
+              '&height=' + Math.ceil(boundingHeight * guestDisplayDensity) +
               '&time=' + Date.now()
           )
         }
@@ -309,6 +313,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
 
       scope.$on('guest-landscape', function () {
         scope.control.rotate(90)
+        setDisplayDensity(2)
         updateBounds()
       })
 

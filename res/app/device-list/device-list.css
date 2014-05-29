@@ -35,6 +35,10 @@
   margin-top: 4px;
 }
 
+.stf-device-list .device-search {
+  width: 150px;
+}
+
 ul.devices-icon-view {
   margin: 0;
   display: inline-block;

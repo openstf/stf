@@ -27,6 +27,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       scope.$on('panelsResized', updateBounds)
 
       function setDisplayDensity(forRetina) {
+        // FORCE
+        forRetina = 1.2
         return guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? forRetina : 1
       }
 

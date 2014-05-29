@@ -1,4 +1,4 @@
-module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupService, ControlService, ngTableParams, SettingsService, $filter, $location, gettext, $q) {
+module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupService, ControlService, ngTableParams, SettingsService, $filter, $location, gettext, $q, $filter) {
 
   // TODO: this is not working, why?
   $scope.filterEnabled = false
@@ -11,7 +11,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
   $scope.statusFilter = function () {
     var def = $q.defer()
     var statuses = [
-      { id: true, title: gettext('Available')
+      { id: true, title: $filter('translate')(gettext('Available'))
       }
       ,
       { id: false, title: gettext('N/A')

@@ -41,8 +41,10 @@ module.exports = function (SettingsService, $q, gettextCatalog) {
     return deferred.promise
   }
 
+  // TODO: this is to prevent initial text flashing from ja
+  gettextCatalog.currentLanguage = LanguageService.detectedLanguage
+
   // Initialize gettextCatalog
-  //LanguageService.getSelectedLanguage()
 
   LanguageService.init = function () {
     LanguageService.getSelectedLanguage().then(function (data) {

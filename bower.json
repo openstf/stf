@@ -17,6 +17,7 @@
     "ng-table": "git://github.com/esvit/ng-table.git#85fd295467211556bad433565ab332ce75ff40b7",
     "jquery.terminal": "~0.8.7",
     "stf-site": "git@ghe.amb.ca.local:stf/stf-site.git#e6e70d61521cc4f45792ad430b71e6990488f619",
+    "stf-analytics": "git@ghe.amb.ca.local:stf/stf-analytics.git#3de2141db2d674537670b2708cbab13ebf42fa0c",
     "angular-gettext": "~0.2.8",
     "angular-ui-ace": "~0.1.1",
     "ui-bootstrap-alerts": "~0.1.5",

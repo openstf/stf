@@ -12,4 +12,5 @@ module.exports = angular.module('device-list', [
     })
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
-  .controller('DeviceListDetailsCtrl', require('./device-list-details-controller'))
+  .controller('DeviceListDetailsCtrl',
+  require('./device-list-details-controller'))

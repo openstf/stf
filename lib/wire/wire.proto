@@ -3,7 +3,6 @@
 enum MessageType {
   CopyMessage                = 33;
   DeviceAbsentMessage        = 1;
-  DeviceHeartbeatMessage     = 28;
   DeviceIdentityMessage      = 2;
   DeviceLogcatEntryMessage   = 3;
   DeviceLogMessage           = 4;
@@ -51,6 +50,7 @@ enum MessageType {
   RotationEvent              = 48;
   StoreOpenMessage           = 49;
   ScreenCaptureMessage       = 50;
+  ProviderHeartbeatMessage   = 51;
 }
 
 message Envelope {
@@ -74,12 +74,6 @@ message TransactionDoneMessage {
   optional string body = 5;
 }
 
-// Heartbeat
-
-message DeviceHeartbeatMessage {
-  required string serial = 1;
-}
-
 // Logging
 
 message DeviceLogMessage {
@@ -97,6 +91,10 @@ message DeviceLogMessage {
 message ProviderMessage {
   required string channel = 1;
   required string name = 2;
+}
+
+message ProviderHeartbeatMessage {
+  required string channel = 1;
 }
 
 message DevicePresentMessage {

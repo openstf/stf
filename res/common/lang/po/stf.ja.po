@@ -12,10 +12,6 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "(Absent)"
-msgstr "（オフライン）"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "-"
 msgstr "-"
@@ -32,10 +28,6 @@ msgstr "ABI"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "AC"
 msgstr "AC"
-
-#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
-msgid "Absent"
-msgstr "オフライン"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
 msgid "Action"
@@ -76,6 +68,12 @@ msgstr "アプリアップロード"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "Apps"
 msgstr "アプリ"
+
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+msgid "Are you sure you want to kick this device?Currently it is being used by"
+msgstr ""
+"このデバイスをキックしますか？\n"
+"只今、次のユーザが使用中です："
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Available"
@@ -162,6 +160,7 @@ msgstr "コールド"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr "接続中"
 
@@ -242,6 +241,10 @@ msgstr "端末リスト"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Discharging"
 msgstr "放電中"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Disconnected"
+msgstr "切断中"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid ""
@@ -665,10 +668,6 @@ msgstr "電力源"
 msgid "Preparing"
 msgstr "準備中"
 
-#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
-msgid "Present"
-msgstr "存在する"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Previous"
 msgstr "前"
@@ -1041,6 +1040,15 @@ msgstr "はい"
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "You are no longer controlling the device."
 msgstr "この実機のリモート操作ができなくなりました。"
+
+#~ msgid "(Absent)"
+#~ msgstr "（オフライン）"
+
+#~ msgid "Absent"
+#~ msgstr "不在"
+
+#~ msgid "Present"
+#~ msgstr "存在する"
 
 #~ msgid "CPU"
 #~ msgstr "CPU"

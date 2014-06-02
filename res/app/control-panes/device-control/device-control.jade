@@ -23,7 +23,7 @@
                 img(ng-src='/static/devices/icon/x24/{{ device.image || "_default.jpg" }}')
               span.device-name-text {{ device.name }}
               span.caret(ng-show='groupDevices.length > 0')
-            span(ng-show='device && !device.present', translate) (Absent)
+            //span(ng-show='device && !device.present', translate) (Absent)
 
           ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
             li(ng-repeat='groupDevice in groupDevices')

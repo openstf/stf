@@ -2,8 +2,8 @@ module.exports = angular.module('stf.device-status', [])
   .filter('statusName', function (gettext) {
     return function (text) {
       return {
-        'absent': gettext('Absent'),
-        'present': gettext('Present'),
+        'absent': gettext('Disconnected'),
+        'present': gettext('Connected'),
         'offline': gettext('Offline'),
         'unauthorized': gettext('Unauthorized'),
         'preparing': gettext('Preparing'),

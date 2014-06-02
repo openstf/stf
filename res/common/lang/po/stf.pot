@@ -8,10 +8,6 @@ msgstr ""
 msgid ""
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "(Absent)"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "-"
 msgstr ""
@@ -27,10 +23,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "AC"
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
-msgid "Absent"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
@@ -71,6 +63,12 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "Apps"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+msgid ""
+"Are you sure you want to kick this device?"
+"Currently it is being used by"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
@@ -158,6 +156,7 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr ""
 
@@ -237,6 +236,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Discharging"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Disconnected"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
@@ -656,10 +659,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Preparing"
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
-msgid "Present"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html

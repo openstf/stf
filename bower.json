@@ -10,7 +10,7 @@
     "se7en-bootstrap-3": "git@ghe.amb.ca.local:stf/se7en-bootstrap-3.git#46b7dd0792cfdc66bf01e351cd680de88740d60c",
     "socket.io-client": "~0.9.16",
     "lodash": "~2.4.1",
-    "oboe": "~1.14.6",
+    "oboe": "~1.14.7",
     "fa-borderlayout": "git@ghe.amb.ca.local:gunther-brunner/fa-borderlayout.git",
     "Snap.svg": "~0.2.0",
     "angular-localForage": "~0.2.5",

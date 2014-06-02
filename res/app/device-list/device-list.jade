@@ -43,7 +43,7 @@ div.stf-device-list
                 .line
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:false} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
-                  ng-disabled='true', ng-show='device.state == "busy"'
+                  ng-disabled='true',
                   ).cursor-select.pointer.thumbnail.device-is-busy
                     .device-photo-small
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
@@ -87,8 +87,7 @@ div.stf-device-list
                         span {{ device[column.field] }}
 
                 table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length').device-list-details
-                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }',
-                    ng-show='device.usable || device.state == "busy"')
+                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
 
                     td(data-title="'Status'|translate", sortable='"stateSorting"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
 

@@ -11,7 +11,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
   $scope.statusFilter = function () {
     var def = $q.defer()
     var statuses = [
-      { id: true, title: $filter('translate')(gettext('Available'))
+      { id: true, title: gettext('Available')
       }
       ,
       { id: false, title: gettext('N/A')

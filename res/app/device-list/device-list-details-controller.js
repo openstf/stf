@@ -1,4 +1,4 @@
-module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupService, ControlService, ngTableParams, SettingsService, $filter, $location, gettext, $q, $filter) {
+module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupService, ControlService, ngTableParams, SettingsService, $filter, $location, gettext, $q) {
 
   // TODO: this is not working, why?
   $scope.filterEnabled = false
@@ -69,7 +69,8 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
 
   $scope.userContactUrl = function (mail) {
     var config = {
-      hipchatEnabled: true, hipchatUrl: 'https://cyberagent.hipchat.com/chat?focus_jid='
+      hipchatEnabled: true,
+      hipchatUrl: 'https://cyberagent.hipchat.com/chat?focus_jid='
     }
 
     if (config.hipchatEnabled) {
@@ -80,9 +81,16 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
   }
 
   $scope.tryToKick = function (device) {
-    if (device.state === 'busy') {
-      if (confirm(gettext('Are you sure you want to kick this device?\nCurrently it is being used by ') + device.owner.name)) {
-        $scope.kick(device, true)
+    var config = {
+      kickingEnabled: true
+    }
+
+    if (config.kickingEnabled) {
+      if (device.state === 'busy') {
+        if (confirm($filter('translate')(
+          gettext('Are you sure you want to kick this device?\nCurrently it is being used by ')) + device.owner.name)) {
+          $scope.kick(device, true)
+        }
       }
     }
   }

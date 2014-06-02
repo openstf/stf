@@ -27,7 +27,7 @@ describe('STF App', function () {
 
   var Common = {
     login: function () {
-      
+
     }
   }
 

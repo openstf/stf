@@ -1,6 +1,6 @@
 # STF
 
-### Requeriments
+### Requirements
 
 - NodeJS
 - Bower

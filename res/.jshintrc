@@ -35,6 +35,8 @@
     "browser": false,
     "element": false,
     "by": false,
-    "Promise": true
+    "Promise": true,
+    "$": false,
+    "$$": false
   }
 }

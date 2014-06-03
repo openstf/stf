@@ -124,6 +124,7 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 }
 .stf-device-list .device-small-image img {
   height: 20px;
+  min-width: 10px;
 }
 
 

@@ -5,7 +5,7 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
   $scope.urlHistory = []
 
   function addToHistory() {
-    const HISTORY_LIMIT = 20
+    var HISTORY_LIMIT = 20
 
     var history = $scope.urlHistory
     history.unshift($scope.textURL)

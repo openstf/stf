@@ -115,7 +115,7 @@ module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStri
   }
 
   function filterLine(line) {
-    const enabled = true
+    var enabled = true
     var filters = service.filters
 
     var matched = true

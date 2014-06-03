@@ -12,7 +12,7 @@ module.exports = function logcatTableDirective($rootScope, $timeout, LogcatServi
       var scrollHeight = 0
       var parent = element[0]
       var body = element.find('tbody')[0]
-      const maxEntriesBuffer = 3000
+      var maxEntriesBuffer = 3000
       var numberOfEntries = 0
 
       function incrementNumberEntry() {

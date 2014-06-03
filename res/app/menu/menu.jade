@@ -13,7 +13,7 @@
           span.fa.fa-gears
           | {{ !$root.basicMode ? "Settings" : '' | translate }}
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)
-      li.stf-nav-web-native-button(ng-if='!$root.basicMode')
+      li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native

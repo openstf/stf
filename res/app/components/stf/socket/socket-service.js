@@ -1,8 +1,9 @@
 var io = require('socket.io')
 
 module.exports = function SocketFactory($rootScope, VersionUpdateService) {
-  var socket = io.connect(null, {
-    reconnect: false
+  var socket = io('/', {
+    reconnection: false
+  , transports: ['websocket']
   })
 
   socket.scoped = function($scope) {

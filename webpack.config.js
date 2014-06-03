@@ -24,7 +24,7 @@ module.exports = {
     , 'angular-growl': 'angular-growl-v2/build/angular-growl.js'
     , 'angular-growl-css': 'angular-growl-v2/build/angular-growl.min.css'
     , 'localforage': 'localforage/dist/localforage.js'
-    , 'socket.io': 'socket.io-client/dist/socket.io'
+    , 'socket.io': 'socket.io-client/socket.io.js'
     , 'oboe': 'oboe/dist/oboe-browser'
     , 'ng-file-upload-shim5': 'ng-file-upload/angular-file-upload-html5-shim'
     , 'ng-file-upload-main': 'ng-file-upload/angular-file-upload'
@@ -63,6 +63,7 @@ module.exports = {
     , { test: /ui-bootstrap-tpls\.js/, loader: 'script'}
     , { test: /dialogs\.js/, loader: 'script'}
     , { test: /bluebird\.js/, loader: 'imports?require=>undefined'}
+    , { test: /socket\.io\.js/, loader: 'imports?require=>undefined'}
     ]
   , noParse: [
       // pathutil.resource('bower_components')

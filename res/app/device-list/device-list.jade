@@ -26,7 +26,7 @@ div.stf-device-list
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:true} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-click='device.usable && toggle(device)',
-                  popover='{{ "Model: " | translate }}{{ device.model }}', popover-trigger='mouseenter', popover-popup-delay='2000',
+                  popover='{{ "Model: " | translate }}{{ device.model }}', popover-trigger='mouseenter', popover-popup-delay='0',
                   popover-title='{{ device.name || device.model }}', popover-placement='top'
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small

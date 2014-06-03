@@ -99,16 +99,16 @@ module.exports = function DeviceServiceFactory($http, socket) {
     // For convenience, add the sorting priority to each state
     function getStateSorting(state) {
       return {
-        'using': 10,
-        'available': 9,
-        'ready': 8,
-        'present': 7,
-        'busy': 6,
-        'unauthorized': 5,
-        'offline': 4,
-        'preparing': 3,
-        'absent': 2
-      }[state] || 1
+        'using': 1,
+        'available': 2,
+        'ready': 3,
+        'present': 4,
+        'busy': 5,
+        'unauthorized': 6,
+        'offline': 7,
+        'preparing': 8,
+        'absent': 9
+      }[state] || 10
     }
 
     function get(data) {

@@ -27,34 +27,26 @@ div.stf-device-list
                   li(ng-repeat='device in tracker.devices | filter:{usable:true} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-click='device.usable && toggle(device)',
                   popover='{{ "Model: " | translate }}{{ device.model }}', popover-trigger='mouseenter', popover-popup-delay='0',
-                  popover-title='{{ device.name || device.model }}', popover-placement='top'
+                  popover-title='{{ device.name || device.model }}', popover-placement='top', ng-hide='!device.model'
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name {{ device.name || device.model }}
-                    button(ng-class='{\
-                      "btn-primary": device.state == "using",\
-                      "btn-primary-outline": device.state == "available",\
-                      "btn-warning": device.state == "busy"\
-                      }'
+                    button(ng-class='controlButtonClass(device.state)'
                     ).btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
                 .clear-fix
                 .line
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:false} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
-                  ng-disabled='true',
+                  ng-disabled='true', ng-hide='!device.model'
                   ).cursor-select.pointer.thumbnail.device-is-busy
                     .device-photo-small
                       img(ng-src='/static/devices/icon/x120/{{ device.image || "_default.jpg" }}')
                     .device-name(title='{{device.serial}} - {{device.model}}') {{ device.name || device.model }}
                     //raphael-status-icon.device-status-button(status='{{ deviceStatus(device) }}', title="{{ deviceStatusText(device) }}", tooltip='{{ deviceStatusText(device)|translate }}')
                     //button.btn.btn-default.btn-xs.device-status {{statusName(device)}}
-                    button(ng-class='{\
-                      "btn-primary": device.state == "using",\
-                      "btn-primary-outline": device.state == "available",\
-                      "btn-warning": device.state == "busy"\
-                      }',
+                    button(ng-class='controlButtonClass(device.state)',
                     ng-dblclick='tryToKick(device)',
                     ).btn.btn-xs.device-status {{device.state|statusName|translate}}
                   .clear-fix
@@ -87,13 +79,9 @@ div.stf-device-list
                         span {{ device[column.field] }}
 
                 table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length').device-list-details
-                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
+                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }', ng-hide='!device.model')
 
-                    td
-                      pre {{device.state}}
                     td(data-title="'Status'|translate", sortable='"stateSorting"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
-
-
 
                       button(ng-class='controlButtonClass(device.state)',
                         ng-dblclick='tryToKick(device)',

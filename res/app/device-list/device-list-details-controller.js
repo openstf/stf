@@ -30,7 +30,8 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
 //  })
 
   $scope.tableSorting = {
-    stateSorting: 'desc'     // initial sorting
+    stateSorting: 'asc',     // initial sorting
+    name: 'asc'     // initial sorting
   }
 //  SettingsService.bind($scope, {
 //    key: 'tableSorting',

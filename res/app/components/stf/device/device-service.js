@@ -104,10 +104,10 @@ module.exports = function DeviceServiceFactory($http, socket) {
         'ready': 8,
         'present': 7,
         'busy': 6,
-        'absent': 5,
-        'preparing': 4,
-        'unauthorized': 3,
-        'offline': 2
+        'unauthorized': 5,
+        'offline': 4,
+        'preparing': 3,
+        'absent': 2
       }[state] || 1
     }
 

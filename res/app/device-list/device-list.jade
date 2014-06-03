@@ -89,13 +89,13 @@ div.stf-device-list
                 table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length').device-list-details
                   tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
 
+                    td
+                      pre {{device.state}}
                     td(data-title="'Status'|translate", sortable='"stateSorting"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
 
-                      button(ng-class='{\
-                      "btn-primary": device.state == "using",\
-                      "btn-primary-outline": device.state == "available",\
-                      "btn-warning": device.state == "busy"\
-                      }',
+
+
+                      button(ng-class='controlButtonClass(device.state)',
                         ng-dblclick='tryToKick(device)',
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName|translate}}
 

@@ -8,34 +8,50 @@ var webpackConfig = require('./webpack.config.js')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
+var protractor = require("gulp-protractor")
+
 
 gulp.task('jshint', function () {
   return gulp.src([
-      'lib/**/*.js'
+    'lib/**/*.js'
     , 'res/app/**/*.js'
     , 'res/auth-ldap/**/*.js'
     , 'res/auth-mock/**/*.js'
     , '*.js'
-    ])
+  ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
 })
 
 gulp.task('jsonlint', function () {
   return gulp.src([
-      '.jshintrc'
+    '.jshintrc'
     , 'res/.jshintrc'
     , '.bowerrc'
     , '.yo-rc.json'
     , '*.json'
-    ])
+  ])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter())
 })
 
 gulp.task('lint', ['jshint', 'jsonlint'])
-gulp.task('test', ['lint'])
+gulp.task('test', ['lint', 'protractor'])
 gulp.task('build', ['translate', 'webpack:build'])
+
+gulp.task('webdriver_update', protractor.webdriver_update)
+gulp.task('webdriver_standalone', protractor.webdriver_standalone)
+
+gulp.task('protractor', ['webdriver_update'], function (callback) {
+  gulp.src(["./res/test/**/*.js"])
+    .pipe(protractor.protractor({
+      configFile: './res/test/protractor.conf.js'
+    }))
+    .on('error', function (e) {
+      console.log(e)
+    }).on('end', callback)
+})
+
 
 // For production
 gulp.task("webpack:build", function (callback) {
@@ -68,19 +84,19 @@ gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
 gulp.task('jade', function () {
   return gulp.src([
-      './res/**/*.jade'
+    './res/**/*.jade'
     , '!./res/bower_components/**'
-    ])
+  ])
     .pipe(jade())
     .pipe(gulp.dest('./tmp/html/'))
 })
 
 gulp.task('translate:extract', function () {
   return gulp.src([
-      './tmp/html/**/*.html'
+    './tmp/html/**/*.html'
     , './res/**/*.js'
     , '!./res/bower_components/**'
-    ])
+  ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))
 })

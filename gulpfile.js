@@ -5,6 +5,7 @@ var jsonlint = require('gulp-jsonlint')
 var webpack = require('webpack')
 var ngminPlugin = require('ngmin-webpack-plugin')
 var webpackConfig = require('./webpack.config.js')
+var webpackStatusConfig = require('./res/common/status/webpack.config.js')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
@@ -64,6 +65,7 @@ gulp.task("webpack:build", function (callback) {
     }),
     new webpack.optimize.DedupePlugin(),
     new ngminPlugin(),
+    // TODO: mangle when ngmin works
     new webpack.optimize.UglifyJsPlugin({mangle: false})
   )
   myConfig.devtool = false
@@ -74,6 +76,32 @@ gulp.task("webpack:build", function (callback) {
     }
 
     gutil.log("[webpack:build]", stats.toString({
+      colors: true
+    }))
+    callback()
+  })
+})
+
+gulp.task("webpack:others", function (callback) {
+  var myConfig = Object.create(webpackStatusConfig)
+  myConfig.plugins = myConfig.plugins.concat(
+    new webpack.DefinePlugin({
+      "process.env": {
+        "NODE_ENV": JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.DedupePlugin()
+//    new ngminPlugin(),
+//    new webpack.optimize.UglifyJsPlugin({mangle: false})
+  )
+  myConfig.devtool = false
+
+  webpack(myConfig, function (err, stats) {
+    if (err) {
+      throw new gutil.PluginError('webpack:others', err)
+    }
+
+    gutil.log("[webpack:others]", stats.toString({
       colors: true
     }))
     callback()

@@ -1,0 +1,160 @@
+
+<div ng-controller="AppVsRepeatCtrl" class="vs-repeat-sample">
+
+    <div id="hh"></div>
+    <h1>
+        Angular-vs-repeat
+        <small>angular virtual scroll for ng-repeat</small>
+    </h1>
+    <div class="row" ng-init="tab = 6">
+        <div ng-class="{'col-xs-7': tab != 6, 'col-xs-12': tab == 6}">
+            <h3>
+                <small class="pull-right" style="line-height: 34px;" ng-show="tab < 6">
+                    <span ng-show="tab != 4 && tab != 5"><span class="glyphicon glyphicon-resize-vertical"></span>scroll it vertically</span>
+                    <span ng-show="tab == 4"><span class="glyphicon glyphicon-resize-horizontal"></span>&nbsp;scroll it horizontally</span>
+                            <span ng-show="tab == 5">
+                                <span class="glyphicon glyphicon-resize-vertical"></span>
+                                <span class="glyphicon glyphicon-resize-horizontal"></span>
+                            &nbsp;scroll it in both directions</span>
+                </small>
+                Array size: <span ng-show="tab === 5">30 x </span>{{items.collection.length}}
+            </h3>
+            <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+                <li ng-class="{active: tab == 1}"><a ng-click="tab = 1">Simple</a></li>
+                <li ng-class="{active: tab == 2}"><a ng-click="tab = 2">Nested</a></li>
+                <li ng-class="{active: tab == 3}"><a ng-click="tab = 3">Offsets</a></li>
+                <li ng-class="{active: tab == 4}"><a ng-click="tab = 4">Horizontal</a></li>
+                <li ng-class="{active: tab == 5}"><a ng-click="tab = 5">Two dimensional</a></li>
+                <li class="imp" ng-class="{active: tab == 6}"><a ng-click="tab = 6">Performance</a></li>
+            </ul>
+            <div ng-if="tab == 1" ng-init="shown = false;" class="tab-1">
+                <label><input type="checkbox" ng-model="shown" /><span>is content visible</span></label>
+                <div ng-hide="shown">
+                    <small>
+                        To show the contents check the checkbox above. Mind how the "actual elements in DOM" changes when you toggle the checkbox. The visibility of the content is controlled via ngShow directive.
+                    </small>
+                </div>
+                <div ng-show="shown">
+                    <div class="repeater-container" vs-repeat>
+                        <div class="item-element well" ng-repeat="item in items.collection">
+                            <span>{{item.text}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="tab == 2">
+                <div ng-repeat="foo in outerArray" class="enclosing-ng-repeat">
+                    <div class="repeater-container" vs-repeat>
+                        <div class="item-element well" ng-repeat="item in items.collection">
+                            <span>{{item.text}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="tab == 3" ng-init="beforeOffset = 50; afterOffset = 50;">
+                <div>
+                            <span>
+                                Top offset:
+                            </span>
+                    <input type="range" min="0" max="100" step="1" value="50" ng-model="beforeOffset" />
+                </div>
+                <div>
+                            <span>
+                                Bottom offset:
+                            </span>
+                    <input type="range" min="0" max="100" step="1" value="50" ng-model="afterOffset" />
+                </div>
+                <div class="repeater-container ranges" vs-repeat vs-offset-before="{{beforeOffset}}" vs-offset-after="{{afterOffset}}">
+                    <div class="ranges-inner-wrapper" ng-repeat="item in items.collection">
+                        <div class="item-element well">
+                            <span>{{item.text}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="tab == 4">
+                <div class="repeater-container horizontal" vs-repeat vs-horizontal>
+                    <div class="item-element well" ng-repeat="item in items.collection">
+                        <span>{{item.text}}</span>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="tab == 5">
+                <div style="overflow: auto; height: 454px;" vs-repeat class="combined-vs" vs-offset-after="20">
+                    <div ng-repeat="foo in thirdArray" class="third-array-ng-repeat">
+                        <div>
+                            <div class="repeater-container horizontal combined" vs-repeat vs-horizontal vs-scroll-parent=".combined-vs">
+                                <div class="item-element well" ng-repeat="item in items.collection">
+                                    <span>{{item.text}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="tab == 6">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>
+                            The following example shows the performance benefits of using <b>angular-vs-repeat</b>
+                        </p>
+                        <p>
+                            If you don't look under the hood both lists look exactly the same. On the left size the <b>vs-repeat</b> directive
+                            was used, whereas on the right side there is a plain regular ng-repeat. Above each of those lists the $digest cycle duration
+                            gauge is placed (updates every second) so you can see how many milliseconds it takes to run a $digest with and without vs-repeat.
+                        </p>
+                        <p>
+                            Try with a 10 000 elements array size (using the form below, and be careful, <b>note that the UI will stall for a significant amout of time</b>).
+                            You can see that the $digest duration with vs-repeat stays on the same level (it actually depends on the container size), while the $digest duration on the right side (without vs-repeat) increases dramatically. Also note that each of those repeated elements consist of just two inputs and a binding, but if there were more complex elements inside, with other directives, watchers etc. the array size threshold for experiencing a 'laggy' UI would be much smaller.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" ng-controller="PerfVsRepeatCtrl">
+                        <div class="perf-summary">[with vs-repeat] $digest duration: <span class="success"><b>{{digestDuration}}</b> milliseconds</span></div>
+                        <div class="perf-container" vs-repeat>
+                            <div ng-repeat="foo in bar" class="perf-elem">
+                                <input ng-model="foo.a" placeholder="a"/>
+                                <input ng-model="foo.b" placeholder="b"/>
+                                <span><small>a+b: </small>{{foo.a + ' ' + foo.b}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6" ng-controller="PerfVsRepeatCtrl">
+                        <div class="perf-summary">[without vs-repeat] $digest duration: <span class="danger"><b>{{digestDuration}}</b> milliseconds</span></div>
+                        <div class="perf-container">
+                            <div ng-repeat="foo in bar" class="perf-elem">
+                                <input ng-model="foo.a" placeholder="a"/>
+                                <input ng-model="foo.b" placeholder="b"/>
+                                <span><small>a+b: </small>{{foo.a + ' ' + foo.b}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5" ng-show="tab != 6">
+            <h3>
+                Actual elements in DOM ({{getDomElementsDesc().length}}):
+            </h3>
+            <div id="dom-preview-container">
+                        <pre>
+                            <code style="white-space: pre-line;" class="language-html">
+                                <div ng-repeat="el in getDomElementsDesc() track by $index">
+                                    {{el}}
+                                </div>
+                            </code>
+                        </pre>
+            </div>
+        </div>
+    </div>
+    <h3>
+        You can try different array sizes using the form below
+    </h3>
+    <div class="input-group array-switch-form">
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="button" ng-click="switchCollection()">Replace array</button>
+              </span>
+        <input ng-model="newArray.size" type="text" class="form-control" placeholder="type new array size" ng-keydown="inputKeyDown($event)">
+    </div>
+</div>

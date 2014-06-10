@@ -37,7 +37,9 @@
     "font-lato-2-subset": "~0.3.5",
     "packery": "~1.2.3",
     "draggabilly": "~1.1.0",
-    "angular-elastic": "~2.3.3"
+    "angular-elastic": "~2.3.3",
+    "quick-ng-repeat": "~0.0.1",
+    "angular-vs-repeat": "~1.0.0-rc2"
   },
   "private": true,
   "resolutions": {

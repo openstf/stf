@@ -39,7 +39,8 @@
     "draggabilly": "~1.1.0",
     "angular-elastic": "~2.3.4",
     "quick-ng-repeat": "~0.0.1",
-    "angular-vs-repeat": "~1.0.0-rc2"
+    "angular-vs-repeat": "~1.0.0-rc2",
+    "checklist-model": "~0.1.3"
   },
   "private": true,
   "resolutions": {

@@ -62,6 +62,17 @@ div.stf-device-list
                   clear-button(ng-click="clearSorting()")
                   filter-button(ng-model='filterEnabled')
                   .button-spacer.pull-right
+                  .btn-group(dropdown).pull-right
+                    button.btn.btn-sm.btn-primary-outline.dropdown-toggle
+                      i.fa.fa-list-alt
+                      span {{"Customize"|translate}}
+
+                    ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.unselectable
+                      li(ng-repeat='column in dynamicColumns', ng-click='$event.stopPropagation()')
+                        label.checkbox
+                          input(type='checkbox', checklist-model='selectedColumns', checklist-value='column')
+                          span(ng-bind='column.title')
+
                   button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
                     i.fa.fa-list-alt
                     span {{"Show All"|translate}}
@@ -87,7 +98,7 @@ div.stf-device-list
                         ng-dblclick='tryToKick(device)',
                         ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.state|statusName|translate}}
 
-                    td(data-title="'Model'|translate", sortable='"model"', filter='{"model": "text"}')
+                    td(data-title="'ModelX'|translate", sortable='"model"', filter='{"model": "text"}')
                       span.device-small-image
                         img(ng-src='/static/devices/icon/x24/{{ device.image || "_default.jpg" }}')
 

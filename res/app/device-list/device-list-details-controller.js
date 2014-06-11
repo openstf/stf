@@ -7,7 +7,6 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
   })
 
 
-
   $scope.statusFilter = function () {
     var def = $q.defer()
     var statuses = [
@@ -29,10 +28,17 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
 //    storeName: 'DeviceList.tableFilter'
 //  })
 
-  $scope.tableSorting = {
-    stateSorting: 'asc',     // initial sorting
-    name: 'asc'     // initial sorting
+  var initialSorting = {
+    stateSorting: 'asc',
+    name: 'asc'
   }
+  $scope.tableSorting = initialSorting
+
+  $scope.clearSorting = function () {
+    $scope.tableParams.sorting(initialSorting)
+    $scope.tableParams.filter({})
+  }
+
 //  SettingsService.bind($scope, {
 //    key: 'tableSorting',
 //    storeName: 'DeviceList.tableSorting'

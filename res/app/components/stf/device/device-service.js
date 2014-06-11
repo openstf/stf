@@ -30,7 +30,8 @@ module.exports = function DeviceServiceFactory($http, socket) {
     function notify(event) {
       if (event.important) {
         // Handle important updates immediately.
-        digest()
+        //digest()
+        window.requestAnimationFrame(digest)
       }
       else {
         if (!digestTimer) {

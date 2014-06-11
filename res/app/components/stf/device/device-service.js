@@ -1,7 +1,7 @@
 var oboe = require('oboe')
 var _ = require('lodash')
 
-module.exports = function DeviceServiceFactory($http, socket) {
+module.exports = function DeviceServiceFactory($http, socket, $filter) {
   var deviceService = {}
 
   function Tracker($scope, options) {
@@ -94,7 +94,11 @@ module.exports = function DeviceServiceFactory($http, socket) {
         }
       }
 
+      // NOTE: For overall performance reasons, put all the filters here:
       data.stateSorting = getStateSorting(data.state)
+      // TODO: i18n shortDate
+      data.releasedAtFormatted = $filter('date')(data.releasedAt, 'yyyy/MM/dd - X')
+
     }
 
     // For convenience, add the sorting priority to each state

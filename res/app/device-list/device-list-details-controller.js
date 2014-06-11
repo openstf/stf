@@ -102,6 +102,8 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     }
   }
 
+  // TODO: Implement real dynamic colums! Using showAll is too slow
+
   $scope.columns = [
     { title: 'Model', field: 'model', sortable: 'model', filter: {model: 'text'}, visible: true
     }

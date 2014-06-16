@@ -1,7 +1,7 @@
 module.exports = angular.module('stf.device-status', [])
-  .filter('statusName', function (gettext) {
+  .filter('statusName', function (gettext, $filter) {
     return function (text) {
-      return {
+      return $filter('translate')({
         'absent': gettext('Disconnected'),
         'present': gettext('Connected'),
         'offline': gettext('Offline'),
@@ -11,9 +11,10 @@ module.exports = angular.module('stf.device-status', [])
         'using': gettext('Stop Using'),
         'busy': gettext('Busy'),
         'available': gettext('Use')
-      }[text] || gettext('Unknown')
+      }[text] || gettext('Unknown'))
     }
   })
+  // TODO: translate here the rest
   .filter('batteryHealth', function (gettext) {
     return function (text) {
       return {

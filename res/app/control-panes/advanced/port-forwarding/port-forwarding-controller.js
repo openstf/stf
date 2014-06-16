@@ -119,7 +119,7 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     getData: function ($defer, params) {
 
 
-      $defer.resolve($scope.portSets);
+      $defer.resolve($scope.portSets)
     }
   })
 }

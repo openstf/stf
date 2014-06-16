@@ -34,7 +34,7 @@
             input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
 
 
-    table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
+    //table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
       tr(ng-repeat='result in $data')
         td(data-title="'Device'|translate")
           p {{ result.deviceId }}

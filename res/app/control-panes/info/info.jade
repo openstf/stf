@@ -179,3 +179,36 @@ angular-packery='{draggable: true, draggableHandle: ".heading i"}')
             tr
               td(translate) ABI
               td {{device.abi}}
+
+  .col-md-4-x.packery-item
+    .widget-container.fluid-height
+      .heading
+        i.fa.fa-slack
+        span(translate) CPU
+      .widget-content.padded-small
+        table.table.table-condensed.table-hover.table-infocard
+          tbody
+            tr
+              td(translate) Name
+              td {{device.cpu.name}}
+            tr
+              td(translate) Cores
+              td {{device.cpu.cores}}
+            tr
+              td(translate) Frequency
+              td {{device.cpu.freq}} GHz
+
+  .col-md-4-x.packery-item
+    .widget-container.fluid-height
+      .heading
+        i.fa.fa-database
+        span(translate) Memory
+      .widget-content.padded-small
+        table.table.table-condensed.table-hover.table-infocard
+          tbody
+            tr
+              td(translate) RAM
+              td {{device.memory.ram}} MB
+            tr
+              td(translate) ROM
+              td {{device.memory.rom}} MB

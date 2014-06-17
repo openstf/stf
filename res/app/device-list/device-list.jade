@@ -32,8 +32,7 @@ div.stf-device-list
                     .device-photo-small
                       img(ng-src='{{ ::device.enhancedImage120 }}')
                     .device-name(ng-bind='::device.enhancedName')
-                    button(ng-class='device.enhancedButtonClass'
-                    ).btn.btn-xs.device-status(ng-bind='device.enhancedState')
+                    button(ng-class='device.enhancedButtonClass', ng-bind='device.enhancedState').btn.btn-xs.device-status
                   .clear-fix
                 .clear-fix
                 .line
@@ -47,7 +46,8 @@ div.stf-device-list
                     .device-name(ng-bind='::device.enhancedName')
                     button(ng-class='device.enhancedButtonClass',
                     ng-dblclick='tryToKick(device)',
-                    ).btn.btn-xs.device-status(ng-bind='device.enhancedState')
+                    ng-bind='device.enhancedState'
+                    ).btn.btn-xs.device-status
                   .clear-fix
 
             tab(active='activeTabs.details', ng-show='!$root.basicMode')

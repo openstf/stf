@@ -94,28 +94,9 @@ module.exports = function DeviceServiceFactory($http, socket, $filter) {
         }
       }
 
-      // NOTE: For overall performance reasons, put all the filters here:
-      data.stateSorting = getStateSorting(data.state)
-      // TODO: i18n shortDate
-      data.releasedAtFormatted = $filter('date')(data.releasedAt, 'yyyy/MM/dd')
-
       $scope.$broadcast('device.synced', data)
     }
 
-    // For convenience, add the sorting priority to each state
-    function getStateSorting(state) {
-      return {
-        'using': 1,
-        'available': 2,
-        'ready': 3,
-        'present': 4,
-        'busy': 5,
-        'unauthorized': 6,
-        'offline': 7,
-        'preparing': 8,
-        'absent': 9
-      }[state] || 10
-    }
 
     function get(data) {
       return devices[devicesBySerial[data.serial]]

@@ -15,35 +15,35 @@ module.exports = angular.module('stf.device-status', [])
     }
   })
   // TODO: translate here the rest
-  .filter('batteryHealth', function (gettext) {
+  .filter('batteryHealth', function (gettext, $filter) {
     return function (text) {
-      return {
+      return $filter('translate')({
         'cold': gettext('Cold'),
         'good': gettext('Good'),
         'dead': gettext('Dead'),
         'over_voltage': gettext('Over Voltage'),
         'overheat': gettext('Overheat'),
         'unspecified_failure': gettext('Unspecified Failure')
-      }[text] || gettext('-')
+      }[text] || gettext('-'))
     }
   })
-  .filter('batterySource', function (gettext) {
+  .filter('batterySource', function (gettext, $filter) {
     return function (text) {
-      return {
+      return $filter('translate')({
         'ac': gettext('AC'),
         'usb': gettext('USB'),
         'wireless': gettext('Wireless')
-      }[text] || gettext('-')
+      }[text] || gettext('-'))
     }
   })
-  .filter('batteryStatus', function (gettext) {
+  .filter('batteryStatus', function (gettext, $filter) {
     return function (text) {
-      return {
+      return $filter('translate')({
         'charging': gettext('Charging'),
         'discharging': gettext('Discharging'),
         'full': gettext('Full'),
         'not_charging': gettext('Not Charging')
-      }[text] || gettext('-')
+      }[text] || gettext('-'))
     }
   })
   .filter('displayDensity', function (gettext) {
@@ -58,9 +58,9 @@ module.exports = angular.module('stf.device-status', [])
       }[text] || text
     }
   })
-  .filter('networkType', function (gettext) {
+  .filter('networkType', function (gettext, $filter) {
     return function (text) {
-      return {
+      return $filter('translate')({
         'bluetooth': gettext('Bluetooth'),
         'dummy': gettext('Dummy'),
         'ethernet': gettext('Ethernet'),
@@ -71,17 +71,17 @@ module.exports = angular.module('stf.device-status', [])
         'mobile_supl': gettext('Mobile SUPL'),
         'mobile_wifi': gettext('WiFi'),
         'wimax': gettext('WiMAX')
-      }[text] || text
+      }[text] || text)
     }
   })
-  .filter('networkSubType', function (gettext) {
+  .filter('networkSubType', function (gettext, $filter) {
     return function (text) {
-      return {
-        'mobile_wifi': gettext('WiFi'),
-      }[text] || text
+      return $filter('translate')({
+        'mobile_wifi': gettext('WiFi')
+      }[text] || text)
     }
   })
-  .filter('humanizedBool', function (gettext) {
+  .filter('humanizedBool', function (gettext, $filter) {
     return function (text) {
       switch (text) {
         case true:

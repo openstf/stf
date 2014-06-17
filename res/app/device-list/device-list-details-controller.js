@@ -29,8 +29,8 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
 //  })
 
   var initialSorting = {
-    stateSorting: 'asc',
-    name: 'asc'
+    enhancedStateSorting: 'asc',
+    enhancedName: 'asc'
   }
   $scope.tableSorting = initialSorting
 
@@ -102,14 +102,16 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     }
   }
 
+
+
   // TODO: Implement real dynamic colums! Using showAll is too slow
 
 
   $scope.dynamicColumns = [
-    { title: 'Model', field: 'model', sortable: 'model', filter: {model: 'text'}, visible: true
+    { title: 'Model', field: 'enhancedModel', sortable: 'enhancedModel', filter: {enhancedModel: 'text'}, visible: true
     }
     ,
-    { title: 'Product', field: 'name', sortable: 'name', filter: {name: 'text'}, visible: true
+    { title: 'Product', field: 'enhancedName', sortable: 'enhancedName', filter: {enhancedName: 'text'}, visible: true
     }
     ,
     { title: 'Carrier', field: 'operator', sortable: 'operator', filter: {operator: 'text'}, visible: true

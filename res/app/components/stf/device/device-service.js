@@ -97,7 +97,7 @@ module.exports = function DeviceServiceFactory($http, socket, $filter) {
       // NOTE: For overall performance reasons, put all the filters here:
       data.stateSorting = getStateSorting(data.state)
       // TODO: i18n shortDate
-      data.releasedAtFormatted = $filter('date')(data.releasedAt, 'yyyy/MM/dd - X')
+      data.releasedAtFormatted = $filter('date')(data.releasedAt, 'yyyy/MM/dd')
 
       $scope.$broadcast('device.synced', data)
     }

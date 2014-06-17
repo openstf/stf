@@ -20,7 +20,7 @@
           a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle
             p
               .device-small-image
-                img(ng-src='/static/devices/icon/x24/{{ device.image || "_default.jpg" }}')
+                img(ng-src='/static/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')
               span.device-name-text {{ device.name }}
               span.caret(ng-show='groupDevices.length > 0')
             //span(ng-show='device && !device.present', translate) (Absent)
@@ -29,7 +29,7 @@
             li(ng-repeat='groupDevice in groupDevices')
               a(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .device-small-image
-                  img(ng-src='/static/devices/icon/x24/{{ groupDevice.image || "_default.jpg" }}')
+                  img(ng-src='/static/devices/icon/x24/{{ groupDevice.image || "E30HT.jpg" }}')
                 span(ng-class='{"current-device": groupDevice.serial === device.serial }') {{ groupDevice.name }}
 
                 span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device

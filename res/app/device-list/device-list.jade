@@ -26,8 +26,8 @@ div.stf-device-list
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:true} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
                   ng-click='device.usable && toggle(device)',
-                  popover='{{ ::"Model: " | translate }}{{ ::device.model }}', popover-trigger='mouseenter', popover-popup-delay='0',
-                  popover-title='{{ ::device.enhancedName }}', popover-placement='top', ng-hide='!device.model'
+                  popover='{{ ::"Model: " | translate }}{{ ::device.enhancedModel }}', popover-trigger='mouseenter', popover-popup-delay='0',
+                  popover-title='{{ ::device.enhancedName }}', popover-placement='top'
                   ).cursor-select.pointer.thumbnail
                     .device-photo-small
                       img(ng-src='{{ ::device.enhancedImage120 }}')
@@ -39,7 +39,9 @@ div.stf-device-list
 
                 ul.devices-icon-view
                   li(ng-repeat='device in tracker.devices | filter:{usable:false} | filter:{name:deviceSearch} | orderBy:"name" track by device.serial',
-                  ng-disabled='true', ng-hide='!device.model'
+                  ng-disabled='true',
+                  popover='{{ ::"Model: " | translate }}{{ ::device.enhancedModel }}', popover-trigger='mouseenter', popover-popup-delay='0',
+                  popover-title='{{ ::device.enhancedName }}', popover-placement='top'
                   ).cursor-select.pointer.thumbnail.device-is-busy
                     .device-photo-small
                       img(ng-src='{{ ::device.enhancedImage120 }}')
@@ -99,7 +101,7 @@ div.stf-device-list
 
                     td(data-title="::'Model'|translate", sortable='"model"', filter='{"model": "text"}')
                       span.device-small-image
-                        img(ng-src='/static/devices/icon/x24/{{ ::device.image || "_default.jpg" }}')
+                        img(ng-src='/static/devices/icon/x24/{{ ::device.image || "E30HT.jpg" }}')
 
                       span(ng-if='device.state !== "using"') {{device.model}}
                       a(ng-if='device.state === "using"', ng-href='/#!/control/{{ device.serial }}') {{device.model}}

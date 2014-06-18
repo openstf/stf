@@ -160,8 +160,10 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 }
 
 .stf-stats-container.ng-enter {
-  -webkit-transition: 2000ms ease 1s;
-  transition: 2000ms ease 1s;
+  /*-webkit-transition: 2000ms ease 1s;*/
+  /*transition: 2000ms ease 1s;*/
+  -webkit-transition: 550ms ease 0ms;
+  transition: 550ms ease 0ms;
   opacity: 0;
 }
 

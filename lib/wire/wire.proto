@@ -172,10 +172,10 @@ message DeviceIdentityMessage {
   required string model = 5;
   required string version = 6;
   required string abi = 7;
-  required string name = 12;
   required string sdk = 8;
   required DeviceDisplayMessage display = 9;
   required DevicePhoneMessage phone = 11;
+  optional string product = 12;
 }
 
 message DeviceProperty {

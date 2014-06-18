@@ -1,21 +1,28 @@
 .row.stf-info(ng-controller='InfoCtrl',
-angular-packery='{draggable: true, draggableHandle: ".heading i"}')
+  angular-packery='{draggable: true, draggableHandle: ".heading i"}')
 
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
         i.fa.fa-location-arrow
-        span(translate) Location
+        span(translate) Physical Device
         .pull-right
           button(ng-click='control.identify()').btn.btn-xs.btn-primary-outline
             i.fa.fa-info
-            span(translate)  Find Device
+            span(translate) Find Device
+
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
             tr
               td(translate) Place
               td {{device.provider.name}}
+            tr
+              td
+              td
+                button(ng-click='openDevicePhoto(device)').btn.btn-xs.btn-primary-outline
+                  i.fa.fa-picture-o
+                  span(translate) Device Photo
 
   .col-md-4-x.packery-item
     .widget-container.fluid-height

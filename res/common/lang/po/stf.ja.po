@@ -17,6 +17,10 @@ msgstr ""
 msgid "-"
 msgstr "-"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
+msgid "A new version of STF is available"
+msgstr "STFの新しいバージョンがリリースされました"
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "ABI"
@@ -250,10 +254,18 @@ msgstr "開発者向け設定"
 msgid "Device"
 msgstr "デバイス"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+msgid "Device Photo"
+msgstr "実機写真"
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "Device was disconnected"
+msgstr "デバイスへの接続が切れました"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
@@ -384,6 +396,10 @@ msgstr "戻る"
 msgid "Go Forward"
 msgstr "進む"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "Go to Device List"
+msgstr "端末リストへ"
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Good"
@@ -484,7 +500,6 @@ msgid "Local Settings"
 msgstr "ローカル設定"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Location"
 msgstr "場所"
 
@@ -596,6 +611,10 @@ msgstr "画面が表示できません"
 msgid "No devices connected"
 msgstr "端末が接続されていません"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
+msgid "No photo available"
+msgstr "写真はありません"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
 msgid "No screenshots taken"
 msgstr "キャプチャはありません"
@@ -672,6 +691,10 @@ msgstr "携帯ICCID"
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Phone IMEI"
 msgstr "携帯IMEI"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+msgid "Physical Device"
+msgstr "物理デバイス"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Place"
@@ -779,6 +802,7 @@ msgid "Released"
 msgstr "発売日"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
 msgid "Reload"
 msgstr "再読込"
 
@@ -962,6 +986,10 @@ msgstr ""
 msgid "Time"
 msgstr "時刻"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "Try to reconnect"
+msgstr "再接続する"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Type"
 msgstr "タイプ"
@@ -1039,6 +1067,10 @@ msgstr "値"
 msgid "Version"
 msgstr "バージョン"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
+msgid "Version Update"
+msgstr "バージョンアップ"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Voltage"
 msgstr "電圧"
@@ -1095,26 +1127,12 @@ msgstr "Y DPI"
 msgid "Yes"
 msgstr "はい"
 
-#~ msgid "A new version of STF is available"
-#~ msgstr "STFの新しいバージョンがリリースされました"
-
-#~ msgid "Device was disconnected"
-#~ msgstr "デバイスへの接続が切れました"
-
-#~ msgid "Go to Device List"
-#~ msgstr "端末リストへ"
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "You are no longer controlling the device."
+msgstr "この実機のリモート操作ができなくなりました。"
 
 #~ msgid "Model:"
 #~ msgstr "機種名："
-
-#~ msgid "Try to reconnect"
-#~ msgstr "再接続する"
-
-#~ msgid "Version Update"
-#~ msgstr "バージョンアップ"
-
-#~ msgid "You are no longer controlling the device."
-#~ msgstr "この実機のリモート操作ができなくなりました。"
 
 #~ msgid "(Absent)"
 #~ msgstr "（オフライン）"
@@ -1127,9 +1145,6 @@ msgstr "はい"
 
 #~ msgid "Device is not in use anymore"
 #~ msgstr "実機が使われなくなりました"
-
-#~ msgid "Device Port"
-#~ msgstr "端末側のポート"
 
 #~ msgid "Example: 3000"
 #~ msgstr "例：3000"

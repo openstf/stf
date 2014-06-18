@@ -1,0 +1,10 @@
+.stf-lightbox-image.stf-modal
+  .modal-header
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title
+      i.fa.fa-mobile.fa-fw
+      span {{ title }}
+  .modal-body
+    img(ng-if='imageUrl', ng-src='{{imageUrl}}')
+    nothing-to-show(message='{{"No photo available"|translate}}', icon='fa-picture-o', ng-if='!imageUrl')
+    // TODO: replace !imageUrl here with a image-not-available='imageIsNotPresent = true' directive

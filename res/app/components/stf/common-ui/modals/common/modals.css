@@ -26,3 +26,8 @@
 .stf-modal .dialog-header-confirm h4 {
   color: #ffffff;
 }
+
+.modal-size-xl .modal-dialog  {
+  width: 860px;
+}
+

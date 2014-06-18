@@ -249,6 +249,10 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+msgid "Device Photo"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Device cannot get kicked from the group"
@@ -488,7 +492,6 @@ msgid "Local Settings"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Location"
 msgstr ""
 
@@ -600,6 +603,10 @@ msgstr ""
 msgid "No devices connected"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
+msgid "No photo available"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
 msgid "No screenshots taken"
 msgstr ""
@@ -675,6 +682,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Phone IMEI"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+msgid "Physical Device"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html

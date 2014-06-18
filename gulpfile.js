@@ -110,7 +110,7 @@ gulp.task("webpack:others", function (callback) {
 
 gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
-gulp.task('jade', function (callback) {
+gulp.task('jade', function () {
   return gulp.src([
     './res/**/*.jade'
     , '!./res/bower_components/**'
@@ -119,7 +119,7 @@ gulp.task('jade', function (callback) {
     .pipe(gulp.dest('./tmp/html/'))
 })
 
-gulp.task('translate:extract', function (callback) {
+gulp.task('translate:extract', function () {
   return gulp.src([
     './tmp/html/**/*.html'
     , './res/**/*.js'
@@ -129,7 +129,7 @@ gulp.task('translate:extract', function (callback) {
     .pipe(gulp.dest('./res/common/lang/po/'))
 })
 
-gulp.task('translate:compile', function (callback) {
+gulp.task('translate:compile', function () {
   return gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'

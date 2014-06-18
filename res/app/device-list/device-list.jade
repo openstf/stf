@@ -152,15 +152,25 @@ div.stf-device-list
                     td(data-title="'User'|translate", sortable='"owner.name"', filter='{"owner": "text"}')
                       a(ng-if='device.owner', ng-href='{{ device.enhancedUserContactUrl }}', role='button', target='_href') {{ device.enhancedUserName }}
                       a(ng-if='!device.owner') -
-
-
-
               //p
                 strong Sorting
                 pre {{tableParams.sorting() | json}}
                 pre {{tableParams.filter() | json}}
-
-
-//ul
-  li(ng-repeat='device in tracker.devices track by device.serial')
-    pre {{device|json}}
+  .row.stf-stats-container(ng-if='tracker.devices.length')
+    .col-md-12
+      .widget-container.stats-container
+        .col-md-4
+          .number
+            .icon.fa.fa-globe.visitors
+            span {{ tracker.devices.length }}
+          .text(translate) Total devices
+        .col-md-4
+          .number
+            .icon.fa.fa-check.visitors
+            span {{ (tracker.devices | filter:{usable:true}).length }}
+          .text(translate) Usable devices
+        .col-md-4
+          .number
+            .icon.fa.fa-users.visitors
+            span {{ (tracker.devices | filter:{state:"busy"}).length }}
+          .text(translate) Busy devices

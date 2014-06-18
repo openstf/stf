@@ -126,6 +126,10 @@ msgstr "ブラウザ"
 msgid "Busy"
 msgstr "貸し出し中"
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Busy devices"
+msgstr "貸し出し中"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "CPU"
 msgstr "CPU"
@@ -986,6 +990,10 @@ msgstr ""
 msgid "Time"
 msgstr "時刻"
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Total devices"
+msgstr "全機種"
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Try to reconnect"
 msgstr "再接続する"
@@ -1041,6 +1049,10 @@ msgstr "アップロードされたファイル"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Uploading..."
 msgstr "アップロード中..."
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Usable devices"
+msgstr "利用可能"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html
 msgid "Usb speed"
@@ -1200,9 +1212,6 @@ msgstr "この実機のリモート操作ができなくなりました。"
 #~ msgid "Inspect"
 #~ msgstr "要素の検証"
 
-#~ msgid "Just control device"
-#~ msgstr "端末を操作のみする"
-
 #~ msgid "Keyboard Input"
 #~ msgstr "キーボード入力"
 
@@ -1259,9 +1268,6 @@ msgstr "この実機のリモート操作ができなくなりました。"
 
 #~ msgid "USB Speed Benchmark"
 #~ msgstr "USBベンチマーク"
-
-#~ msgid "View device"
-#~ msgstr "デバイスを表示する"
 
 #~ msgid "{{ started ? 'Stop' : 'Start' }}"
 #~ msgstr "{{ started ? '停止' : '取得' }}"

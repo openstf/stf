@@ -12,10 +12,6 @@ msgstr ""
 msgid "-"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "A new version of STF is available"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "ABI"
@@ -119,6 +115,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Busy devices"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -258,10 +258,6 @@ msgstr ""
 msgid "Device cannot get kicked from the group"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device was disconnected"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
 msgstr ""
@@ -386,10 +382,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Go Forward"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Go to Device List"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/build/bundle.js
@@ -603,10 +595,6 @@ msgstr ""
 msgid "No devices connected"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
-msgid "No photo available"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
 msgid "No screenshots taken"
 msgstr ""
@@ -794,7 +782,6 @@ msgid "Released"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
 msgid "Reload"
 msgstr ""
 
@@ -974,8 +961,8 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Try to reconnect"
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Total devices"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -1030,6 +1017,10 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+msgid "Usable devices"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html
 msgid "Usb speed"
 msgstr ""
@@ -1053,10 +1044,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Version"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "Version Update"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -1113,8 +1100,4 @@ msgstr ""
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "You are no longer controlling the device."
 msgstr ""

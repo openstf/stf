@@ -12,7 +12,7 @@
   "undef": true,
   "unused": true,
   "trailing": true,
-  "maxlen": 80,
+  "maxlen": 100,
   "asi": true,
   "esnext": true,
   "laxcomma": true,

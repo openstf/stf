@@ -1,7 +1,7 @@
 var oboe = require('oboe')
 var _ = require('lodash')
 
-module.exports = function DeviceServiceFactory($http, socket, $filter) {
+module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceService) {
   var deviceService = {}
 
   function Tracker($scope, options) {
@@ -62,39 +62,7 @@ module.exports = function DeviceServiceFactory($http, socket, $filter) {
         data.using = false
       }
 
-      // For convenience, formulate an aggregate state property that covers
-      // every possible state.
-      data.state = 'absent'
-      if (data.present) {
-        data.state = 'present'
-        switch (data.status) {
-          case 1:
-            data.state = 'offline'
-            break
-          case 2:
-            data.state = 'unauthorized'
-            break
-          case 3:
-            data.state = 'preparing'
-            if (data.ready) {
-              data.state = 'ready'
-              if (data.using) {
-                data.state = 'using'
-              }
-              else {
-                if (data.owner) {
-                  data.state = 'busy'
-                }
-                else {
-                  data.state = 'available'
-                }
-              }
-            }
-            break
-        }
-      }
-
-      $scope.$broadcast('device.synced', data)
+      EnhanceDeviceService.enhance(data)
     }
 
 

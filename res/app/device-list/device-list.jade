@@ -150,7 +150,7 @@ div.stf-device-list
                     td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider": "text"}')
                       span {{::device.provider.name}}
                     td(data-title="'User'|translate", sortable='"owner.name"', filter='{"owner": "text"}')
-                      a(ng-if='device.owner', ng-href='{{userContactUrl(device.owner.email)}}', role='button', target='_href') {{device.owner.name || "No name"}}
+                      a(ng-if='device.owner', ng-href='{{ device.enhancedUserContactUrl }}', role='button', target='_href') {{ device.enhancedUserName }}
                       a(ng-if='!device.owner') -
 
 

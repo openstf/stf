@@ -74,18 +74,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     $scope.tableParams.reload()
   })
 
-  $scope.userContactUrl = function (mail) {
-    var config = {
-      hipchatEnabled: true,
-      hipchatUrl: 'https://cyberagent.hipchat.com/chat?focus_jid='
-    }
 
-    if (config.hipchatEnabled) {
-      return config.hipchatUrl + mail
-    } else {
-      return 'mailto:' + mail
-    }
-  }
 
   $scope.tryToKick = function (device) {
     var config = {

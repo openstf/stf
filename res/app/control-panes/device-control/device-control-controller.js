@@ -46,14 +46,14 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   function isPortrait(value) {
     if (typeof value === 'undefined' && $scope.device) {
-      value = $scope.device.display.orientation
+      value = $scope.device.display.rotation
     }
     return (value === 0 || value === 180)
   }
 
   function isLandscape(value) {
     if (typeof value === 'undefined' && $scope.device) {
-      value = $scope.device.display.orientation
+      value = $scope.device.display.rotation
     }
     return (value === 90 || value === 270)
   }
@@ -78,7 +78,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.currentRotation = 'portrait'
 
-  $scope.$watch('device.display.orientation', function (newValue, oldValue) {
+  $scope.$watch('device.display.rotation', function (newValue, oldValue) {
     if (isPortrait(newValue)) {
       $scope.currentRotation = 'portrait'
     } else if (isLandscape(newValue)) {

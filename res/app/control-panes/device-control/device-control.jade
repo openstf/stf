@@ -6,10 +6,10 @@
           .btn-group
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',
             ng-model='currentRotation', btn-radio='"portrait"').pointer
-              i.fa.fa-mobile(tooltip='{{ "Portrait" | translate }} ({{ device.display.orientation }}°)', tooltip-placement='bottom')
+              i.fa.fa-mobile(tooltip='{{ "Portrait" | translate }} ({{ device.display.rotation }}°)', tooltip-placement='bottom')
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("landscape")',
               ng-model='currentRotation', btn-radio='"landscape"').pointer
-              i.fa.fa-mobile.fa-rotate-90(tooltip='{{ "Landscape" | translate }} ({{ device.display.orientation }}°)', tooltip-placement='bottom')
+              i.fa.fa-mobile.fa-rotate-90(tooltip='{{ "Landscape" | translate }} ({{ device.display.rotation }}°)', tooltip-placement='bottom')
           .button-spacer
           // NOTE: ui-bootstrap bug: tooltip breaks btn-checkbox so don't put in the same button
           button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger

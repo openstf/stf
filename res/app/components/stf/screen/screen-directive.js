@@ -35,7 +35,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       function sendTouch(type, e) {
         var x = e.offsetX || e.layerX || 0
         var y = e.offsetY || e.layerY || 0
-        var r = scope.device.display.orientation
+        var r = scope.device.display.rotation
 
         if (BrowserInfo.touch) {
           if (e.touches && e.touches.length) {
@@ -304,7 +304,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       scope.$watch('device.using', checkEnabled)
       scope.$on('visibilitychange', checkEnabled)
 
-      scope.$watch('device.display.orientation', function (r) {
+      scope.$watch('device.display.rotation', function (r) {
         rotation = r || 0
       })
 

@@ -9,6 +9,7 @@ enum MessageType {
     DO_WAKE = 4;
     GET_BROWSERS = 5;
     GET_CLIPBOARD = 6;
+    GET_DISPLAY = 19;
     GET_PROPERTIES = 7;
     GET_VERSION = 8;
     SET_CLIPBOARD = 9;
@@ -131,6 +132,22 @@ message GetBrowsersResponse {
     required bool success = 1;
     required bool selected = 2;
     repeated BrowserApp apps = 3;
+}
+
+message GetDisplayRequest {
+    required int32 id = 1;
+}
+
+message GetDisplayResponse {
+    required bool success = 1;
+    optional int32 width = 2;
+    optional int32 height = 3;
+    optional float xdpi = 4;
+    optional float ydpi = 5;
+    optional float fps = 6;
+    optional float density = 7;
+    optional int32 rotation = 8;
+    optional bool secure = 9;
 }
 
 message Property {

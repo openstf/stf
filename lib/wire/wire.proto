@@ -131,14 +131,14 @@ message DeviceStatusMessage {
 }
 
 message DeviceDisplayMessage {
-  required uint32 id = 1;
-  required uint32 width = 2;
-  required uint32 height = 3;
-  required uint32 orientation = 4;
-  required uint32 xdpi = 5;
-  required uint32 ydpi = 6;
-  required double fps = 7;
-  required double density = 8;
+  required int32 id = 1;
+  required int32 width = 2;
+  required int32 height = 3;
+  required int32 rotation = 4;
+  required float xdpi = 5;
+  required float ydpi = 6;
+  required float fps = 7;
+  required float density = 8;
   required bool secure = 9;
   required string url = 10;
 }

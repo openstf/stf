@@ -63,7 +63,8 @@ div.stf-device-list
                   clear-button(ng-click="clearSorting()")
                   filter-button(ng-model='filterEnabled')
                   .button-spacer.pull-right
-                  .btn-group(dropdown).pull-right
+
+                  //.btn-group(dropdown).pull-right
                     button.btn.btn-sm.btn-primary-outline.dropdown-toggle
                       i.fa.fa-list-alt
                       span {{"Customize"|translate}}
@@ -91,7 +92,7 @@ div.stf-device-list
                         span {{ device[column.field] }}
 
                 table.table.table-hover.dataTable(ng-table='tableParams', show-filter='filterEnabled', ng-show='tracker.devices.length').device-list-details
-                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }', ng-hide='!device.model')
+                  tr(ng-repeat='device in $data', ng-class='{ "device-not-usable": !device.usable }')
 
                     td(data-title="'Status'|translate", sortable='"enhancedStateSorting"', filter="{ 'usable': 'select' }", filter-data="statusFilter($column)")
 

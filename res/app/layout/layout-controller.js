@@ -1,3 +1,3 @@
-module.exports = function LayoutCtrl(FatalMessageService, LanguageService) {
+module.exports = function LayoutCtrl(LanguageService) {
   LanguageService.init()
 }

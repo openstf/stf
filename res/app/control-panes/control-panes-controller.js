@@ -151,6 +151,8 @@ module.exports = function ControlPanesController($scope, $http, gettext, $routeP
       $scope.device = device
       $scope.control = ControlService.create(device, device.channel)
 
+      //FatalMessageService.open($scope.device)
+
       return device
     })
     .catch(function () {
@@ -159,14 +161,17 @@ module.exports = function ControlPanesController($scope, $http, gettext, $routeP
       })
     })
 
+  // TODO: WHAT???
   $scope.$watch('device')
+
+
 
 
   $scope.$watch('device.state', function (newValue, oldValue) {
 
     if (newValue !== oldValue) {
       if (oldValue === 'using') {
-        FatalMessageService.open(angular.copy($scope.device))
+        FatalMessageService.open($scope.device)
       }
     } else if (typeof newValue === 'undefined' && typeof oldValue === 'undefined') {
       //FatalMessageService.open(angular.copy($scope.device))

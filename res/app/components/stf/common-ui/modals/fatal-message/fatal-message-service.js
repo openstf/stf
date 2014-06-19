@@ -1,6 +1,7 @@
-module.exports = function FatalMessageServiceFactory($modal, $location, $route) {
+module.exports = function FatalMessageServiceFactory($modal, $location, $route, $interval) {
   var FatalMessageService = {}
 
+  var intervalDeviceInfo
 
   var ModalInstanceCtrl = function ($scope, $modalInstance, device) {
     $scope.ok = function () {
@@ -8,6 +9,18 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
       $route.reload()
       //$location.path('/control/' + device.serial)
     }
+
+    // TODO: this is ugly, find why its not updated correctly (also on the device list)
+    intervalDeviceInfo = $interval(function () {
+      $scope.device = device
+
+      if (device.usable) {
+        // Try to reconnect
+        $scope.ok()
+      }
+    }, 1000, 500)
+
+    $scope.device = device
 
     $scope.second = function () {
       $modalInstance.dismiss()
@@ -17,6 +30,17 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel')
     }
+
+    var destroyInterval = function () {
+      if (angular.isDefined(intervalDeviceInfo)) {
+        $interval.cancel(intervalDeviceInfo)
+        intervalDeviceInfo = undefined
+      }
+    }
+
+    $scope.$on('$destroy', function () {
+      destroyInterval()
+    })
   }
 
   FatalMessageService.open = function (device) {
@@ -24,11 +48,13 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route) 
       template: require('./fatal-message.jade'),
       controller: ModalInstanceCtrl,
       resolve: {
-        device: device
+        device: function () {
+          return device
+        }
       }
     })
 
-    modalInstance.result.then(function (selectedItem) {
+    modalInstance.result.then(function () {
     }, function () {
 
     })

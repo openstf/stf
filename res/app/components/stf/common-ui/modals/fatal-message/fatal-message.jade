@@ -4,8 +4,13 @@
     h4.modal-title.text-danger
       i.fa.fa-warning
       .button-spacer
-      span(translate) Device was disconnected
-  .modal-body.text-danger(translate) You are no longer controlling the device.
+      span(translate) {{ device.enhancedName }} was disconnected
+  .modal-body
+    .text-danger(translate) You are no longer controlling the device.
+    br
+    h4(translate).pull-right {{ device.enhancedName }} current status:
+      //span(ng-class='device.enhancedButtonClass').btn.btn-xs.device-status {{device.enhancedState }}
+      span  {{ device.enhancedState }}
   .modal-footer
     button.btn.btn-primary(type='button', ng-click='ok()')
       i.fa.fa-refresh
@@ -13,18 +18,3 @@
     button.btn.btn-success(ng-click='second()')
       i.fa.fa-sitemap
       span(translate) Go to Device List
-    //button.btn.btn-warning(ng-click='cancel()') Close
-
-      //'<div class="modal-header dialog-header-error">
-      //  <button type="button" class="close" ng-click="close()">&times;</button>
-      //  <h4 class="modal-title text-danger">
-      //    <span class="glyphicon glyphicon-warning-sign"></span>
-      //    <span ng-bind-html="header"></span>
-      //  </h4>
-      //</div>
-      //
-      //<div class="modal-body text-danger" ng-bind-html="msg"></div>
-      //<div class="modal-footer">
-      //  <button type="button" class="btn btn-default" ng-click="close()">
-      //'+startSym+'"DIALOGS_CLOSE" | translate'+endSym+'</button>
-      //</div>'

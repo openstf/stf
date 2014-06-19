@@ -57,7 +57,7 @@ div.stf-device-list
                     .device-photo-small
                       img(ng-src='{{ ::device.enhancedImage120 }}')
                     .device-name(ng-bind='::device.enhancedName')
-                    button(ng-class='device.enhancedButtonClass', ng-bind='device.enhancedState').btn.btn-xs.device-status
+                    button(ng-class='device.enhancedButtonClass', ng-bind='device.enhancedStateAction | translate').btn.btn-xs.device-status
                   .clear-fix
                 .clear-fix
                 .line
@@ -73,7 +73,7 @@ div.stf-device-list
                     .device-name(ng-bind='::device.enhancedName')
                     button(ng-class='device.enhancedButtonClass',
                     ng-dblclick='tryToKick(device)',
-                    ng-bind='device.enhancedState'
+                    ng-bind='device.enhancedStateAction | translate'
                     ).btn.btn-xs.device-status
                   .clear-fix
 
@@ -123,7 +123,7 @@ div.stf-device-list
 
                       button(ng-class='device.enhancedButtonClass',
                         ng-dblclick='tryToKick(device)',
-                        ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.enhancedState}}
+                        ng-click='device.usable && toggle(device)').btn.btn-xs.device-status {{device.enhancedStateAction | translate}}
 
                     td(data-title="::'Model'|translate", sortable='"model"', filter='{"model": "text"}')
                       span.device-small-image
@@ -144,7 +144,7 @@ div.stf-device-list
                       span {{device.phone.network}}
 
                     td(ng-show='showAll', data-title="'Screen'|translate", sortable='"enhanceDisplayRes"', filter='{"enhanceDisplayRes": "text"}')
-                      span {{device.enhanceDisplayRes}}
+                      span {{device.enhanceDisplayRes }}
                     td(ng-show='showAll', data-title="'Serial'|translate", sortable='"serial"', filter='{"serial": "text"}')
                       span {{::device.serial}}
                     td(ng-show='showAll', data-title="'Manufacturer'|translate", sortable='"manufacturer"', filter='{"manufacturer": "text"}')
@@ -154,23 +154,23 @@ div.stf-device-list
                     td(ng-show='showAll', data-title="'ABI'|translate", sortable='"abi"', filter='{"abi": "text"}')
                       span {{::device.abi}}
                     td(ng-show='showAll', data-title="'Phone'|translate", sortable='"phone.phoneNumber"')
-                      span {{device.phone.phoneNumber}}
+                      span {{device.phone.phoneNumber }}
                     td(ng-show='showAll', data-title="'Phone IMEI'|translate", sortable='"phone.imei"')
                       span {{device.phone.imei}}
                     td(ng-show='showAll', data-title="'Phone ICCID'|translate", sortable='"phone.iccid"')
                       span {{device.phone.iccid}}
 
-                    td(ng-show='showAll', data-title="'Battery Health'|translate", sortable='"battery.health"')
-                      span {{ enhancedBatteryHealth }}
-                    td(ng-show='showAll', data-title="'Battery Source'|translate", sortable='"battery.source"')
-                      span {{ enhancedBatterySource }}
-                    td(ng-show='showAll', data-title="'Battery Status'|translate", sortable='"battery.status"')
-                      span {{ enhancedBatteryStatus }}
+                    td(ng-show='showAll', data-title="'Battery Health'|translate", sortable='"enhancedBatteryHealth"')
+                      span {{ device.enhancedBatteryHealth | translate }}
+                    td(ng-show='showAll', data-title="'Battery Source'|translate", sortable='"enhancedBatterySource"')
+                      span {{ device.enhancedBatterySource | translate }}
+                    td(ng-show='showAll', data-title="'Battery Status'|translate", sortable='"enhancedBatteryStatus"')
+                      span {{ device.enhancedBatteryStatus | translate }}
                     td(ng-show='showAll', data-title="'Battery Level'|translate", sortable='"battery.level"')
                       progressbar(value='device.battery.level', max='device.battery.scale', type='success')
                         span {{ device.enhancedBatteryPercentage }}
                     td(ng-show='showAll', data-title="'Battery Temperature'|translate", sortable='"battery.temp"')
-                      span {{device.enhancedBatteryTemp}}
+                      span {{ device.enhancedBatteryTem }}
 
                     td(data-title="'Location'|translate", sortable='"provider.name"', filter='{"provider": "text"}')
                       span {{::device.provider.name}}

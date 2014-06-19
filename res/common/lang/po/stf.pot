@@ -74,8 +74,13 @@ msgid ""
 "Currently it is being used by"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
+msgid "Are you sure you want to reboot this device?"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
 msgstr ""
 
@@ -149,6 +154,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Chat"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
@@ -262,10 +271,6 @@ msgstr ""
 msgid "Device cannot get kicked from the group"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device was disconnected"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
 msgstr ""
@@ -363,7 +368,7 @@ msgid "Find Device"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Forward Ports"
+msgid "Forward"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -502,6 +507,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Logs"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
+msgid "Maintenance"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
@@ -816,6 +825,10 @@ msgstr ""
 msgid "Reset all browser settings"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
+msgid "Restart Device"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "Retrieving the device screen has timed out."
 msgstr ""
@@ -970,6 +983,10 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
+msgid "The device will be unavailable for a moment."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "This might be caused by a network error, or you might be trying to access a secure view."
 msgstr ""
@@ -1001,7 +1018,7 @@ msgid "Unauthorized"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Unforward Ports"
+msgid "Unforward"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
@@ -1053,6 +1070,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "User"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Using"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -1129,4 +1150,12 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "You are no longer controlling the device."
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "{{ device.enhancedName }} current status:"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "{{ device.enhancedName }} was disconnected"
 msgstr ""

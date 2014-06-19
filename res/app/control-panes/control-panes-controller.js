@@ -162,7 +162,7 @@ module.exports = function ControlPanesController($scope, $http, gettext, $routeP
     })
 
   // TODO: WHAT???
-  $scope.$watch('device')
+  //$scope.$watch('device')
 
 
 

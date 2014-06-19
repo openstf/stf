@@ -8,9 +8,12 @@
   .modal-body
     .text-danger(translate) You are no longer controlling the device.
     br
-    h4(translate).pull-right {{ device.enhancedName }} current status:
-      //span(ng-class='device.enhancedButtonClass').btn.btn-xs.device-status {{device.enhancedState }}
-      span  {{ device.enhancedState }}
+    h4(translate).pull-right  {{ device.enhancedName }} current status:
+    br
+    br
+    h4.pull-right {{ device.enhancedStatePassive | translate }}
+
+
   .modal-footer
     button.btn.btn-primary(type='button', ng-click='ok()')
       i.fa.fa-refresh

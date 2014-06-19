@@ -79,8 +79,13 @@ msgstr ""
 "このデバイスをキックしますか？\n"
 "只今、次のユーザが使用中です："
 
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
+msgid "Are you sure you want to reboot this device?"
+msgstr "この端末を再起動しますか？"
+
 #: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
 msgstr "利用可能"
 
@@ -155,6 +160,10 @@ msgstr "カテゴリー"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
 msgstr "充電中"
+
+#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
+msgid "Chat"
+msgstr "チャット"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
@@ -267,10 +276,6 @@ msgstr "実機写真"
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device was disconnected"
-msgstr "デバイスへの接続が切れました"
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
 msgstr "端末リスト"
@@ -371,8 +376,8 @@ msgid "Find Device"
 msgstr "実機を探す"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Forward Ports"
-msgstr "ポートフォワード"
+msgid "Forward"
+msgstr "フォーワード"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Frequency"
@@ -511,6 +516,10 @@ msgstr "場所"
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Logs"
 msgstr "ログ"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
+msgid "Maintenance"
+msgstr "メンテナンス"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "Manage Apps"
@@ -824,6 +833,10 @@ msgstr "すべての設定をリセット"
 msgid "Reset all browser settings"
 msgstr "ブラウザの設定をリセットする"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
+msgid "Restart Device"
+msgstr "端末を再起動"
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "Retrieving the device screen has timed out."
 msgstr "実機画面の取得はタイムアウトになりました。"
@@ -978,6 +991,10 @@ msgstr "温度"
 msgid "Text"
 msgstr "テキスト"
 
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
+msgid "The device will be unavailable for a moment."
+msgstr "しばらく端末が利用できなくなります。"
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid ""
 "This might be caused by a network error, or you might be trying to access a "
@@ -1013,8 +1030,8 @@ msgid "Unauthorized"
 msgstr "権限外"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Unforward Ports"
-msgstr "ポートフォワード解除"
+msgid "Unforward"
+msgstr "フォーワード解除"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Uninstall"
@@ -1066,6 +1083,10 @@ msgstr "利用する"
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "User"
 msgstr "ユーザ"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Using"
+msgstr "利用中"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Using Fallback"
@@ -1143,6 +1164,17 @@ msgstr "はい"
 msgid "You are no longer controlling the device."
 msgstr "この実機のリモート操作ができなくなりました。"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "{{ device.enhancedName }} current status:"
+msgstr "{{ device.enhancedName }}のステータス："
+
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+msgid "{{ device.enhancedName }} was disconnected"
+msgstr "{{ device.enhancedName }}への接続が切れました"
+
+#~ msgid "Forward Ports"
+#~ msgstr "ポートフォワード"
+
 #~ msgid "Model:"
 #~ msgstr "機種名："
 
@@ -1178,9 +1210,6 @@ msgstr "この実機のリモート操作ができなくなりました。"
 
 #~ msgid "Target host (detect if blank)"
 #~ msgstr "対象ホスト（空のときは自動検知）"
-
-#~ msgid "Using"
-#~ msgstr "利用中"
 
 #~ msgid "(Needs refreshing the page)"
 #~ msgstr "（ページの再読込が必要）"

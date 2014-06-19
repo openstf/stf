@@ -6,8 +6,9 @@ module.exports = function ($scope, gettext, $filter) {
     }
 
     if (config.rebootEnabled) {
-      if (confirm($filter('translate')(
-        gettext('Are you sure you want to reboot this device? \nThe device will be unavailable for a moment.')))) {
+      var line1 = $filter('translate')(gettext('Are you sure you want to reboot this device?'))
+      var line2 = $filter('translate')(gettext('The device will be unavailable for a moment.'))
+      if (confirm(line1 + '\n' + line2)) {
         $scope.control.reboot().then(function (result) {
           console.error(result)
         })

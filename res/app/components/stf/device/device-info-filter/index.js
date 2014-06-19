@@ -1,7 +1,7 @@
 module.exports = angular.module('stf.device-status', [])
-  .filter('statusName', function (gettext, $filter) {
+  .filter('statusNameAction', function (gettext) {
     return function (text) {
-      return $filter('translate')({
+      return {
         'absent': gettext('Disconnected'),
         'present': gettext('Connected'),
         'offline': gettext('Offline'),
@@ -11,39 +11,53 @@ module.exports = angular.module('stf.device-status', [])
         'using': gettext('Stop Using'),
         'busy': gettext('Busy'),
         'available': gettext('Use')
-      }[text] || gettext('Unknown'))
+      }[text] || gettext('Unknown')
     }
   })
-  // TODO: translate here the rest
-  .filter('batteryHealth', function (gettext, $filter) {
+  .filter('statusNamePassive', function (gettext) {
     return function (text) {
-      return $filter('translate')({
+      return {
+        'absent': gettext('Disconnected'),
+        'present': gettext('Connected'),
+        'offline': gettext('Offline'),
+        'unauthorized': gettext('Unauthorized'),
+        'preparing': gettext('Preparing'),
+        'ready': gettext('Ready'),
+        'using': gettext('Using'),
+        'busy': gettext('Busy'),
+        'available': gettext('Available')
+      }[text] || gettext('Unknown')
+    }
+  })
+  .filter('batteryHealth', function (gettext) {
+    return function (text) {
+      return {
         'cold': gettext('Cold'),
         'good': gettext('Good'),
         'dead': gettext('Dead'),
         'over_voltage': gettext('Over Voltage'),
         'overheat': gettext('Overheat'),
         'unspecified_failure': gettext('Unspecified Failure')
-      }[text] || gettext('-'))
+      }[text] || gettext('-')
     }
   })
-  .filter('batterySource', function (gettext, $filter) {
+  .filter('batterySource', function (gettext) {
     return function (text) {
-      return $filter('translate')({
+      return {
         'ac': gettext('AC'),
         'usb': gettext('USB'),
         'wireless': gettext('Wireless')
-      }[text] || gettext('-'))
+      }[text] || gettext('-')
     }
   })
-  .filter('batteryStatus', function (gettext, $filter) {
+  .filter('batteryStatus', function (gettext) {
     return function (text) {
-      return $filter('translate')({
+      return {
         'charging': gettext('Charging'),
         'discharging': gettext('Discharging'),
         'full': gettext('Full'),
         'not_charging': gettext('Not Charging')
-      }[text] || gettext('-'))
+      }[text] || gettext('-')
     }
   })
   .filter('displayDensity', function (gettext) {
@@ -58,9 +72,9 @@ module.exports = angular.module('stf.device-status', [])
       }[text] || text
     }
   })
-  .filter('networkType', function (gettext, $filter) {
+  .filter('networkType', function (gettext) {
     return function (text) {
-      return $filter('translate')({
+      return {
         'bluetooth': gettext('Bluetooth'),
         'dummy': gettext('Dummy'),
         'ethernet': gettext('Ethernet'),
@@ -71,17 +85,17 @@ module.exports = angular.module('stf.device-status', [])
         'mobile_supl': gettext('Mobile SUPL'),
         'mobile_wifi': gettext('WiFi'),
         'wimax': gettext('WiMAX')
-      }[text] || text)
+      }[text] || text
     }
   })
-  .filter('networkSubType', function (gettext, $filter) {
+  .filter('networkSubType', function (gettext) {
     return function (text) {
-      return $filter('translate')({
-        'mobile_wifi': gettext('WiFi')
-      }[text] || text)
+      return {
+        'mobile_wifi': gettext('WiFi'),
+      }[text] || text
     }
   })
-  .filter('humanizedBool', function (gettext, $filter) {
+  .filter('humanizedBool', function (gettext) {
     return function (text) {
       switch (text) {
         case true:

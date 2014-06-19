@@ -1,4 +1,4 @@
-module.exports = function MenuCtrl($scope, $rootScope, SettingsService, $location) {
+module.exports = function MenuCtrl($scope, $rootScope, SettingsService, $location, ExternalUrlModalService) {
   $rootScope.platform = 'native'
   SettingsService.bind($rootScope, {
     key: 'platform',
@@ -8,4 +8,9 @@ module.exports = function MenuCtrl($scope, $rootScope, SettingsService, $locatio
   $scope.$on('$routeChangeSuccess', function () {
     $scope.isControlRoute = $location.path().search('/control') !== -1
   })
+
+  $scope.openChat = function () {
+    var hipChatUrl = 'https://cyberagent.hipchat.com/chat?focus_jid=44808_stf@conf.hipchat.com&minimal=true'
+    ExternalUrlModalService.open(hipChatUrl, 'HipChat #STF', 'fa-comment')
+  }
 }

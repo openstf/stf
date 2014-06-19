@@ -1,7 +1,7 @@
 .navbar.stf-menu(ng-controller='MenuCtrl')
   .container-fluid.stf-top-bar
     a.stf-logo(href="/") STF 2
-    ul.nav.stf-nav(nav-menu='current')
+    ul.nav.stf-nav(nav-menu='current').unselectable
       li(ng-cloak)
         a(ng-href='/#!/control', ng-click='$event.preventDefault()').cursor
           span.fa.fa-mobile
@@ -12,11 +12,15 @@
         a(ng-href='/#!/settings')
           span.fa.fa-gears
           | {{ !$root.basicMode ? "Settings" : '' | translate }}
-    ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak)
+    ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak).unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
+      //li(ng-if='!$root.basicMode')
+        a(ng-click='openChat()').pointer
+          i.fa.fa-comment.fa-fw
+          | {{ "Chat" | translate }}
       li(ng-if='!$root.basicMode')
         a(ng-href='/#!/help')
           i.fa.fa-question-circle.fa-fw

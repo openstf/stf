@@ -1,0 +1,8 @@
+.stf-external-url-modal.stf-modal
+  .modal-header
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title(ng-show='title')
+      i.fa.fa-fw(ng-class='icon')
+      span(ng-bind='title')
+  .modal-body
+    iframe(ng-src='{{url}}', width='100%', height='100%', frameborder='0')

@@ -6,8 +6,8 @@
 
     button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary-outline.btn-xs.pull-right
       i.fa(ng-class="{'fa-arrow-circle-right': !forwarding, 'fa-times-circle': forwarding}")
-      span(ng-show='forwarding', translate) Unforward Ports
-      span(ng-hide='forwarding', translate) Forward Ports
+      span(ng-show='forwarding', translate) Unforward
+      span(ng-hide='forwarding', translate) Forward
   .widget-content.padded(collapse='isCollapsed')
 
     table(ng-table='portsTable').table.table-striped

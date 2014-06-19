@@ -1,0 +1,9 @@
+.widget-container.fluid-height(ng-controller='MaintenanceCtrl')
+  .heading
+    i.fa.fa-gears
+    span(translate) Maintenance
+    .pull-right
+  .widget-content.padded
+    button(ng-click='reboot()').btn.btn-sm.btn-danger
+      i.fa.fa-refresh
+      span(translate) Restart Device

@@ -148,6 +148,10 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.reboot = function() {
+      return sendTwoWay('device.reboot')
+    }
+
     this.rotate = function(rotation) {
       return sendOneWay('display.rotate', {
         rotation: rotation

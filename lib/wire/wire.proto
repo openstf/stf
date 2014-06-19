@@ -51,6 +51,7 @@ enum MessageType {
   StoreOpenMessage           = 49;
   ScreenCaptureMessage       = 50;
   ProviderHeartbeatMessage   = 51;
+  RebootMessage              = 52;
 }
 
 message Envelope {
@@ -277,6 +278,9 @@ message KeyUpMessage {
 
 message KeyPressMessage {
   required string key = 1;
+}
+
+message RebootMessage {
 }
 
 // Output

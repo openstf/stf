@@ -28,7 +28,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
 //    $scope.tableFilter = data
 //  })
 
-  if ($scope.ngTableEnabled) {
+  //if ($scope.ngTableEnabled) {
 
     $scope.statusFilter = function () {
       var def = $q.defer()
@@ -78,7 +78,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     $scope.$on('devices.update', function () {
       $scope.tableParams.reload()
     })
-  }
+  //}
 
   if (!$scope.ngTableEnabled) {
     $scope.tableLimit = 1000

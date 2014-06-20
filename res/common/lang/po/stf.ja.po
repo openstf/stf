@@ -23,6 +23,7 @@ msgstr "STFの新しいバージョンがリリースされました"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "ABI"
 msgstr "ABI"
 
@@ -98,22 +99,27 @@ msgid "Battery"
 msgstr "バッテリー"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Battery Health"
 msgstr "バッテリー健康状態"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Battery Level"
 msgstr "バッテリーレベル"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Battery Source"
 msgstr "バッテリー電力源"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Battery Status"
 msgstr "バッテリー状態"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Battery Temperature"
 msgstr "バッテリー温度"
 
@@ -149,6 +155,7 @@ msgstr "指定されたURLはアクセスできません"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Carrier"
 msgstr "キャリア"
 
@@ -509,6 +516,7 @@ msgid "Local Settings"
 msgstr "ローカル設定"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Location"
 msgstr "場所"
 
@@ -527,6 +535,7 @@ msgstr "アプリ管理"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Manufacturer"
 msgstr "メーカー"
 
@@ -568,6 +577,7 @@ msgid "Mobile SUPL"
 msgstr "モバイルSUPL"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Model"
 msgstr "機種名"
 
@@ -595,6 +605,7 @@ msgstr "ブラウジング"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Network"
 msgstr "ネットワーク"
 
@@ -651,6 +662,7 @@ msgstr "番号"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "OS"
 msgstr "OS"
 
@@ -694,14 +706,17 @@ msgid "Pause"
 msgstr "停止"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Phone"
 msgstr "電話番号"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Phone ICCID"
 msgstr "携帯ICCID"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Phone IMEI"
 msgstr "携帯IMEI"
 
@@ -760,6 +775,7 @@ msgstr "処理中..."
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Product"
 msgstr "型番"
 
@@ -811,6 +827,7 @@ msgstr "ブラウザを再起動する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Released"
 msgstr "発売日"
 
@@ -818,6 +835,10 @@ msgstr "発売日"
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
 msgid "Reload"
 msgstr "再読込"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
+msgid "Remote debug"
+msgstr "リモートデバッグ"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
@@ -869,8 +890,13 @@ msgstr "JavaScript注入"
 msgid "Run command"
 msgstr "コマンドを実行する"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
+msgid "Run the following on your command line:"
+msgstr "次のコマンドをコマンドラインで実行してください。"
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "SDK"
 msgstr "SDK"
 
@@ -887,6 +913,7 @@ msgid "Saved to: {{savedTo}}"
 msgstr "保存先: {{savedTo}}"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Screen"
 msgstr "解像度"
 
@@ -909,6 +936,7 @@ msgstr "セキュア"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Serial"
 msgstr "シリアル"
 
@@ -946,6 +974,7 @@ msgstr "ログ取得の開始／停止"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "Status"
 msgstr "ステータス"
 
@@ -1081,6 +1110,7 @@ msgid "Use"
 msgstr "利用する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "User"
 msgstr "ユーザ"
 

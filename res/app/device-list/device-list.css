@@ -122,11 +122,11 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 .stf-device-list .device-small-image {
   margin-right: 8px;
 }
+
 .stf-device-list .device-small-image img {
   height: 20px;
   min-width: 10px;
 }
-
 
 .device-list-active-tabs.ng-enter {
   -webkit-transition: 250ms;
@@ -154,7 +154,6 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
   height: 17px !important;
 }
 
-
 .stf-stats-container .fa {
   font-size: 0.8em;
 }
@@ -169,4 +168,14 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 .stf-stats-container.ng-enter-active {
   opacity: 1;
+}
+
+.device-list-details-content .stf-device-details-customize {
+  white-space: nowrap;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.device-list-details-content {
+  min-height: 300px;
 }

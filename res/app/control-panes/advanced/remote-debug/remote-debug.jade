@@ -1,6 +1,6 @@
-.widget-container.fluid-height.stf-remote-debug
+.widget-container.fluid-height.stf-remote-debug(ng-controller='RemoteDebugCtrl')
   .heading
-    i.fa
+    i.fa.fa-bug
     span(translate) Remote debug
   .widget-content.padded
-    div
+    pre(ng-bind='remoteDebugCommand()')

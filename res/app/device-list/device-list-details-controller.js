@@ -80,7 +80,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
     })
   //}
 
-  if (!$scope.ngTableEnabled) {
+  //if (!$scope.ngTableEnabled) {
     $scope.tableLimit = 1000
 
     $scope.dynamicColumns = [
@@ -108,7 +108,6 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
       { title: gettext('User'), field: 'enhancedUserName', templateUrl: 'device-list/details/user.jade', visible: true }
     ]
 
-    //$scope.selectedColumns = [$scope.dynamicColumns[1], $scope.dynamicColumns[2]]
     $scope.selectedColumns = [
       $scope.dynamicColumns[0],
       $scope.dynamicColumns[1],
@@ -120,7 +119,7 @@ module.exports = function DeviceListCtrlDetails($scope, DeviceService, GroupServ
       $scope.dynamicColumns[20],
       $scope.dynamicColumns[21]
     ]
-  }
+  //}
 
 
   $scope.tryToKick = function (device) {

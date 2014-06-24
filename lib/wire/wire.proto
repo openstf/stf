@@ -52,6 +52,8 @@ enum MessageType {
   ScreenCaptureMessage       = 50;
   ProviderHeartbeatMessage   = 51;
   RebootMessage              = 52;
+  ConnectStartMessage        = 53;
+  ConnectStopMessage         = 54;
 }
 
 message Envelope {
@@ -372,6 +374,12 @@ message StoreOpenMessage {
 }
 
 message ScreenCaptureMessage {
+}
+
+message ConnectStartMessage {
+}
+
+message ConnectStopMessage {
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

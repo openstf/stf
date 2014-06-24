@@ -189,6 +189,14 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('logcat.stop')
     }
 
+    this.startRemoteConnect = function() {
+      return sendTwoWay('connect.start')
+    }
+
+    this.stopRemoteConnect = function() {
+      return sendTwoWay('connect.stop')
+    }
+
     this.openBrowser = function(url, browser) {
       return sendTwoWay('browser.open', {
         url: url

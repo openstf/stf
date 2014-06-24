@@ -6,27 +6,42 @@ div(ng-controller='ActivitiesCtrl')
           td(translate) Package
           td
             input.form-control(type='text', placeholder='', ng-model='selectedPackageName',
-            typeahead='packageName for packageName in packageNames')
+              list='packageList')
+            datalist(id='packageList')
+              option(ng-repeat='packageName in packageNames', ng-value='packageName')
+            //typeahead='packageName for packageName in packageNames')
         tr
           td(translate) Activity
           td
             input.form-control(type='text', placeholder='', ng-model='selectedActivityName',
-            typeahead='activityName for activityName in activityNames')
+              list='activityList')
+            datalist(id='activityList')
+              option(ng-repeat='activityName in activityNames', ng-value='activityName')
+            //typeahead='activityName for activityName in activityNames')
         tr
           td(translate) Action
           td
             input.form-control(type='text', placeholder='', ng-model='selectedAction',
-            typeahead='action for action in activityActions')
+            list='actionList')
+            datalist(id='actionList')
+              option(ng-repeat='action in activityActions', ng-value='action')
+            //typeahead='action for action in activityActions')
         tr
           td(translate) Category
           td
             input.form-control(type='text', placeholder='', ng-model='selectedCategory',
-            typeahead='category for category in activityCategories')
+            list='categoryList')
+            datalist(id='categoryList')
+              option(ng-repeat='category in activityCategories', ng-value='category')
+            //typeahead='category for category in activityCategories')
         tr
           td(translate) Data
           td
             input.form-control(type='text', placeholder='', ng-model='selectedData',
-            typeahead='data for data in activityData', id='selectedData')
+            list='dataList')
+            datalist(id='dataList')
+              option(ng-repeat='data in activityData', ng-value='data')
+            //typeahead='data for data in activityData', id='selectedData')
 
     button.btn.btn-sm.btn-primary-outline(ng-click='runActivity()').pull-right
       i.fa.fa-play

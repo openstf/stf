@@ -1,6 +1,6 @@
 var _ = require('lodash')
 
-module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsService) {
+module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsService, gettext) {
 
   $scope.forwarding = false
 
@@ -23,6 +23,9 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     _.forEach(getPortSets(), function (portSet) {
       $scope.control.createForward(portSet).then(function (result) {
         console.log(result)
+        if (result.error === 'fail_forward') {
+          alert(gettext('Error: Forwarding ports failed.'))
+        }
       }).catch(function (err) {
         console.error(err)
       })
@@ -33,6 +36,9 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
     _.forEach(getPortSets(), function (portSet) {
       $scope.control.removeForward(portSet).then(function (result) {
         console.log(result)
+        if (result.error) {
+          alert(result.error)
+        }
       }).catch(function (err) {
         console.error(err)
       })

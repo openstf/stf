@@ -54,6 +54,7 @@ enum MessageType {
   RebootMessage              = 52;
   ConnectStartMessage        = 53;
   ConnectStopMessage         = 54;
+  AccountRemoveMessage       = 55;
 }
 
 message Envelope {
@@ -380,6 +381,9 @@ message ConnectStartMessage {
 }
 
 message ConnectStopMessage {
+}
+
+message AccountRemoveMessage {
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

@@ -22,6 +22,7 @@ enum MessageType {
     EVENT_PHONE_STATE = 16;
     EVENT_ROTATION = 17;
     EVENT_BROWSER_PACKAGE = 18;
+    REMOVE_ACCOUNT = 20;
 }
 
 message Envelope {
@@ -169,6 +170,13 @@ message DoIdentifyRequest {
 }
 
 message DoIdentifyResponse {
+    required bool success = 1;
+}
+
+message RemoveAccountRequest {
+}
+
+message RemoveAccountResponse {
     required bool success = 1;
 }
 

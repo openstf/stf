@@ -218,6 +218,10 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('screen.capture')
     }
 
+    this.removeAccount = function() {
+      return sendTwoWay('account.remove')
+    }
+
     window.cc = this
   }
 

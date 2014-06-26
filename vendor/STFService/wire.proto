@@ -14,8 +14,9 @@ enum MessageType {
     GET_VERSION = 8;
     SET_CLIPBOARD = 9;
     SET_KEYGUARD_STATE = 10;
-    SET_WAKE_LOCK = 11;
+    SET_RINGER_MODE = 21;
     SET_ROTATION = 12;
+    SET_WAKE_LOCK = 11;
     EVENT_AIRPLANE_MODE = 13;
     EVENT_BATTERY = 14;
     EVENT_CONNECTIVITY = 15;
@@ -177,6 +178,20 @@ message RemoveAccountRequest {
 }
 
 message RemoveAccountResponse {
+    required bool success = 1;
+}
+
+enum RingerMode {
+    SILENT = 0;
+    VIBRATE = 1;
+    NORMAL = 2;
+}
+
+message SetRingerModeRequest {
+    required RingerMode mode = 1;
+}
+
+message SetRingerModeResponse {
     required bool success = 1;
 }
 

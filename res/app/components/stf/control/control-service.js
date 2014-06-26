@@ -222,6 +222,12 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('account.remove')
     }
 
+    this.setRingerMode = function(mode) {
+      return sendTwoWay('ringer.set', {
+        mode: mode
+      })
+    }
+
     window.cc = this
   }
 

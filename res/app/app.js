@@ -30,3 +30,6 @@ angular.module('app', [
         })
     }
   ])
+  .config(function(hotkeysProvider) {
+    hotkeysProvider.includeCheatSheet = false
+  })

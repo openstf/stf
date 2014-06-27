@@ -16,18 +16,14 @@ module.exports = {
     modulesDirectories: [
       pathutil.resource('bower_components')
     , pathutil.resource('app/components')
-    , 'web_modules'
+    , pathutil.resource('web_modules')
     , './node_modules'
     ]
   , alias: {
       'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls'
-    , 'angular-growl': 'angular-growl-v2/build/angular-growl.js'
-    , 'angular-growl-css': 'angular-growl-v2/build/angular-growl.min.css'
     , 'localforage': 'localforage/dist/localforage.js'
     , 'socket.io': 'socket.io-client/socket.io.js'
     , 'oboe': 'oboe/dist/oboe-browser'
-    , 'ng-file-upload-shim5': 'ng-file-upload/angular-file-upload-html5-shim'
-    , 'ng-file-upload-main': 'ng-file-upload/angular-file-upload'
     , 'bluebird': 'bluebird/js/browser/bluebird'
     }
   }

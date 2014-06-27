@@ -1,5 +1,6 @@
 var oboe = require('oboe')
 var _ = require('lodash')
+var EventEmitter = require('eventemitter3')
 
 module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceService) {
   var deviceService = {}
@@ -16,8 +17,6 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     })
 
     function digest() {
-      $scope.$broadcast('devices.update', true)
-
       // Not great. Consider something else
       if (!$scope.$$phase) {
         $scope.$digest()
@@ -28,6 +27,10 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     }
 
     function notify(event) {
+      if (!options.digest) {
+        return
+      }
+
       if (event.important) {
         // Handle important updates immediately.
         //digest()
@@ -65,29 +68,31 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       EnhanceDeviceService.enhance(data)
     }
 
-
     function get(data) {
       return devices[devicesBySerial[data.serial]]
     }
 
-    function insert(data) {
+    var insert = function insert(data) {
       devicesBySerial[data.serial] = devices.push(data) - 1
       sync(data)
-    }
+      this.emit('add', data)
+    }.bind(this)
 
-    function modify(data, newData) {
+    var modify = function modify(data, newData) {
       _.merge(data, newData, function(a, b) {
         // New Arrays overwrite old Arrays
         return _.isArray(b) ? b : undefined
       })
       sync(data)
-    }
+      this.emit('change', data)
+    }.bind(this)
 
-    function remove(data) {
+    var remove = function remove(data) {
       var index = devicesBySerial[data.serial]
       if (index >= 0) {
         devices.splice(index, 1)
         delete devicesBySerial[data.serial]
+        this.emit('remove', data)
       }
     }
 
@@ -151,11 +156,14 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     this.devices = devices
   }
 
+  Tracker.prototype = new EventEmitter()
+
   deviceService.trackAll = function ($scope) {
     var tracker = new Tracker($scope, {
       filter: function() {
         return true
       }
+    , digest: false
     })
 
     oboe('/api/v1/devices')
@@ -171,6 +179,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       filter: function(device) {
         return device.using
       }
+    , digest: true
     })
 
     oboe('/api/v1/group')
@@ -193,6 +202,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       filter: function(device) {
         return device.serial === serial
       }
+    , digest: true
     })
 
     return deviceService.load(serial)

@@ -28,7 +28,11 @@ div.stf-device-list
     .col-md-12
       .widget-container.fluid-height
         .widget-content.padded
-          tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
+          label(ng-repeat='column in columns')
+            input(type='checkbox', ng-model='column.selected')
+            span {{ column.name }}
+          device-list-details(tracker='tracker', columns='columns')
+          //tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
             tab(active='activeTabs.devices')
               tab-heading
                 i.fa.fa-th-large

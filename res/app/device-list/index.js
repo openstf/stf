@@ -22,5 +22,8 @@ module.exports = angular.module('device-list', [
     $templateCache.put('device-list/details/user.jade', require('./details/user.jade'))
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
-  .controller('DeviceListDetailsCtrl',
-  require('./device-list-details-controller'))
+  .controller(
+    'DeviceListDetailsCtrl'
+  , require('./device-list-details-controller')
+  )
+  .directive('deviceListDetails', require('./device-list-details-directive'))

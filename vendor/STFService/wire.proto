@@ -17,6 +17,7 @@ enum MessageType {
     SET_RINGER_MODE = 21;
     SET_ROTATION = 12;
     SET_WAKE_LOCK = 11;
+    SET_WIFI_ENABLED = 22;
     EVENT_AIRPLANE_MODE = 13;
     EVENT_BATTERY = 14;
     EVENT_CONNECTIVITY = 15;
@@ -192,6 +193,14 @@ message SetRingerModeRequest {
 }
 
 message SetRingerModeResponse {
+    required bool success = 1;
+}
+
+message SetWifiEnabledRequest {
+    required bool enabled = 1;
+}
+
+message SetWifiEnabledResponse {
     required bool success = 1;
 }
 

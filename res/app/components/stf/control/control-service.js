@@ -228,12 +228,6 @@ module.exports = function ControlServiceFactory(
       })
     }
 
-    this.setWifiEnabled = function(enabled) {
-      return sendTwoWay('wifi.set', {
-        enabled: enabled
-      })
-    }
-
     window.cc = this
   }
 

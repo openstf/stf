@@ -56,7 +56,6 @@ enum MessageType {
   ConnectStopMessage         = 54;
   AccountRemoveMessage       = 55;
   RingerSetMessage           = 56;
-  WifiSetEnabledMessage      = 57;
 }
 
 message Envelope {
@@ -390,10 +389,6 @@ message AccountRemoveMessage {
 
 message RingerSetMessage {
   required int32 mode = 1;
-}
-
-message WifiSetEnabledMessage {
-  required bool enabled = 1;
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

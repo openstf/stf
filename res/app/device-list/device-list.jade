@@ -30,8 +30,10 @@ div.stf-device-list
         .widget-content.padded
           label(ng-repeat='column in columns')
             input(type='checkbox', ng-model='column.selected')
-            span {{ column.name }}
-          device-list-details(tracker='tracker', columns='columns')
+            span {{ column.title | translate }}
+          button(ng-click='columns.push(columns.shift())') swap ends
+          button(ng-click='sort.user[0].order = sort.user[0].order * -1') toggle user sort
+          device-list-details(tracker='tracker', columns='columns', builders='builders', fixed-sort='sort.fixed', user-sort='sort.user')
           //tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
             tab(active='activeTabs.devices')
               tab-heading

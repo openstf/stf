@@ -15,12 +15,6 @@ module.exports = angular.module('device-list', [
         controller: 'DeviceListCtrl'
       })
   }])
-  .run(["$templateCache", function ($templateCache) {
-    $templateCache.put('device-list/details/battery-level.jade', require('./details/battery-level.jade'))
-    $templateCache.put('device-list/details/model.jade', require('./details/model.jade'))
-    $templateCache.put('device-list/details/status.jade', require('./details/status.jade'))
-    $templateCache.put('device-list/details/user.jade', require('./details/user.jade'))
-  }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
   .controller(
     'DeviceListDetailsCtrl'

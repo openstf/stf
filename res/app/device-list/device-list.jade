@@ -32,8 +32,7 @@ div.stf-device-list
             input(type='checkbox', ng-model='column.selected')
             span {{ column.title | translate }}
           button(ng-click='columns.push(columns.shift())') swap ends
-          button(ng-click='sort.user[0].order = sort.user[0].order * -1') toggle user sort
-          device-list-details(tracker='tracker', columns='columns', builders='builders', fixed-sort='sort.fixed', user-sort='sort.user')
+          device-list-details(tracker='tracker', columns='columns', sort='sort')
           //tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
             tab(active='activeTabs.devices')
               tab-heading

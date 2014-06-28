@@ -1,5 +1,5 @@
 table.table.table-hover.dataTable
   thead
     tr
-      th(ng-repeat='column in columns()', ng-if='column.selected', ng-click='sortBy(column)')
-        span {{ column.title | translate }}
+      th(ng-repeat='column in columns()', ng-if='column.selected', ng-click='sortBy(column, $event.shiftKey)')
+        span {{ columnDefinitions[column.name].title | translate }}

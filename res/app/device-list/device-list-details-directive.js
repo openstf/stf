@@ -1,32 +1,211 @@
-module.exports = function DeviceListDetailsDirective() {
+var directive = module.exports = function DeviceListDetailsDirective(
+  $filter
+, gettext
+) {
   return {
     restrict: 'E'
   , template: require('./device-list-details.jade')
   , scope: {
       tracker: '&tracker'
     , columns: '&columns'
-    , builders: '&builders'
-    , fixedSort: '&fixedSort'
-    , userSort: '&userSort'
+    , sort: '=sort'
     }
   , link: function (scope, element) {
       var tracker = scope.tracker()
         , activeColumns = []
         , activeSorting = []
-        , builders = scope.builders()
         , table = element.find('table')[0]
         , tbody = table.createTBody()
         , rows = tbody.rows
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
 
-      // Watch for column updates
+      // Builders for all possible values
+      scope.columnDefinitions = {
+        state: directive.DeviceStatusCell({
+          title: gettext('Status')
+        , value: function(device) {
+            return $filter('translate')(device.enhancedStateAction)
+          }
+        })
+      , model: directive.DeviceModelCell({
+          title: gettext('Model')
+        , value: function(device) {
+            return device.model || device.serial
+          }
+        })
+      , name: directive.TextCell({
+          title: gettext('Product')
+        , value: function(device) {
+            return device.name || ''
+          }
+        })
+      , operator: directive.TextCell({
+          title: gettext('Carrier')
+        , value: function(device) {
+            return device.operator || ''
+          }
+        })
+      , releasedAt: directive.DateCell({
+          title: gettext('Released')
+        , value: function(device) {
+            return device.releasedAt ? new Date(device.releasedAt) : null
+          }
+        })
+      , version: directive.TextCell({
+          title: gettext('OS')
+        , value: function(device) {
+            return device.version || ''
+          }
+        })
+      , network: directive.TextCell({
+          title: gettext('Network')
+        , value: function(device) {
+            return device.phone ? device.phone.network : ''
+          }
+        })
+      , display: directive.TextCell({
+          title: gettext('Screen')
+        , value: function(device) {
+            return device.display
+              ? device.display.width + 'x' + device.display.height
+              : ''
+          }
+        })
+      , serial: directive.TextCell({
+          title: gettext('Serial')
+        , value: function(device) {
+            return device.serial || ''
+          }
+        })
+      , manufacturer: directive.TextCell({
+          title: gettext('Manufacturer')
+        , value: function(device) {
+            return device.manufacturer || ''
+          }
+        })
+      , sdk: directive.TextCell({
+          title: gettext('SDK')
+        , value: function(device) {
+            return device.sdk || ''
+          }
+        })
+      , abi: directive.TextCell({
+          title: gettext('ABI')
+        , value: function(device) {
+            return device.abi || ''
+          }
+        })
+      , phone: directive.TextCell({
+          title: gettext('Phone')
+        , value: function(device) {
+            return device.phone ? device.phone.phoneNumber : ''
+          }
+        })
+      , imei: directive.TextCell({
+          title: gettext('Phone IMEI')
+        , value: function(device) {
+            return device.phone ? device.phone.imei : ''
+          }
+        })
+      , iccid: directive.TextCell({
+          title: gettext('Phone ICCID')
+        , value: function(device) {
+            return device.phone ? device.phone.iccid : ''
+          }
+        })
+      , batteryHealth: directive.TextCell({
+          title: gettext('Battery Health')
+        , value: function(device) {
+            return device.battery ? device.battery.health : ''
+          }
+        })
+      , batterySource: directive.TextCell({
+          title: gettext('Battery Source')
+        , value: function(device) {
+            return device.battery ? device.battery.source : ''
+          }
+        })
+      , batteryStatus: directive.TextCell({
+          title: gettext('Battery Status')
+        , value: function(device) {
+            return device.battery ? device.battery.status : ''
+          }
+        })
+      , batteryLevel: directive.TextCell({
+          title: gettext('Battery Level')
+        , value: function(device) {
+            return device.battery
+              ? Math.floor(device.battery.level / device.battery.scale * 100) + '%'
+              : ''
+          }
+        })
+      , batteryTemp: directive.TextCell({
+          title: gettext('Battery Temperature')
+        , value: function(device) {
+            return device.battery ? device.battery.temp + '°C' : ''
+          }
+        })
+      , provider: directive.TextCell({
+          title: gettext('Location')
+        , value: function(device) {
+            return device.provider ? device.provider.name : ''
+          }
+        })
+      , owner: directive.LinkCell({
+          title: gettext('User')
+        , target: '_blank'
+        , value: function(device) {
+            return device.owner ? device.owner.name : ''
+          }
+        , link: function(device) {
+            return device.owner ? device.enhancedUserContactUrl : ''
+          }
+        })
+      }
+
+      // Sorting
+      scope.sortBy = function(column, multiple) {
+        function findInSorting(sorting) {
+          for (var i = 0, l = sorting.length; i < l; ++i) {
+            if (sorting[i].name === column.name) {
+              return sorting[i]
+            }
+          }
+          return null
+        }
+
+        var fixedMatch = findInSorting(scope.sort.fixed)
+        if (fixedMatch) {
+          fixedMatch.order *= -1
+          return
+        }
+
+        var userMatch = findInSorting(scope.sort.user)
+        if (userMatch) {
+          userMatch.order *= -1
+          if (!multiple) {
+            scope.sort.user = [userMatch]
+          }
+        }
+        else {
+          if (!multiple) {
+            scope.sort.user = []
+          }
+          scope.sort.user.push({
+            name: column.name
+          , order: scope.columnDefinitions[column.name].defaultOrder || 1
+          })
+        }
+      }
+
+      // Watch for sorting changes
       scope.$watch(
         function() {
-          return scope.fixedSort().concat(scope.userSort())
+          return scope.sort
         }
       , function(newValue) {
-          activeSorting = newValue
+          activeSorting = scope.sort.fixed.concat(scope.sort.user)
           sortAll()
         }
       , true
@@ -118,7 +297,7 @@ module.exports = function DeviceListDetailsDirective() {
         // Find the first difference
         for (var i = 0, l = activeSorting.length; i < l; ++i) {
           sort = activeSorting[i]
-          diff = builders[sort.name].compare(deviceA, deviceB) * sort.order
+          diff = scope.columnDefinitions[sort.name].compare(deviceA, deviceB) * sort.order
           if (diff !== 0) {
             break
           }
@@ -137,8 +316,8 @@ module.exports = function DeviceListDetailsDirective() {
         tr.id = id
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          td = builders[activeColumns[i]].build()
-          builders[activeColumns[i]].update(td, device)
+          td = scope.columnDefinitions[activeColumns[i]].build()
+          scope.columnDefinitions[activeColumns[i]].update(td, device)
           tr.appendChild(td)
         }
 
@@ -162,7 +341,7 @@ module.exports = function DeviceListDetailsDirective() {
           var op = patch[i]
           switch (op.type) {
           case 'insert':
-            var col = builders[op.column]
+            var col = scope.columnDefinitions[op.column]
             tr.insertBefore(col.update(col.build(), device), tr.cells[op.index])
             break
           case 'remove':
@@ -183,7 +362,7 @@ module.exports = function DeviceListDetailsDirective() {
         tr.id = id
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          builders[activeColumns[i]].update(tr.cells[i], device)
+          scope.columnDefinitions[activeColumns[i]].update(tr.cells[i], device)
         }
 
         return tr
@@ -346,34 +525,38 @@ function compareRespectCase(a, b) {
   return a === b ? 0 : (a < b ? -1 : 1)
 }
 
-module.exports.TextCell = function TextCell(valueGetter) {
+module.exports.TextCell = function TextCell(options) {
   return {
-    build: function () {
+    title: options.title
+  , defaultOrder: 1
+  , build: function () {
       var td = document.createElement('td')
       td.appendChild(document.createTextNode(''))
       return td
     }
   , update: function(td, item) {
       var t = td.firstChild
-      t.nodeValue = valueGetter(item)
+      t.nodeValue = options.value(item)
       return td
     }
   , compare: function(a, b) {
-      return compareIgnoreCase(valueGetter(a), valueGetter(b))
+      return compareIgnoreCase(options.value(a), options.value(b))
     }
   }
 }
 
-module.exports.DateCell = function DateCell(valueGetter) {
+module.exports.DateCell = function DateCell(options) {
   return {
-    build: function () {
+    title: options.title
+  , defaultOrder: -1
+  , build: function () {
       var td = document.createElement('td')
       td.appendChild(document.createTextNode(''))
       return td
     }
   , update: function(td, item) {
       var t = td.firstChild
-        , date = valueGetter(item)
+        , date = options.value(item)
       if (date) {
         t.nodeValue = date.getFullYear()
           + '-'
@@ -387,14 +570,18 @@ module.exports.DateCell = function DateCell(valueGetter) {
       return td
     }
   , compare: function(a, b) {
-      return compareIgnoreCase(valueGetter(a), valueGetter(b))
+      var va = options.value(a) || 0
+        , vb = options.value(b) || 0
+      return va - vb
     }
   }
 }
 
 module.exports.LinkCell = function LinkCell(options) {
   return {
-    build: function () {
+    title: options.title
+  , defaultOrder: 1
+  , build: function () {
       var td = document.createElement('td')
         , a = document.createElement('a')
       a.appendChild(document.createTextNode(''))
@@ -421,9 +608,11 @@ module.exports.LinkCell = function LinkCell(options) {
   }
 }
 
-module.exports.DeviceModelCell = function DeviceModelCell() {
+module.exports.DeviceModelCell = function DeviceModelCell(options) {
   return {
-    build: function() {
+    title: options.title
+  , defaultOrder: 1
+  , build: function() {
       var td = document.createElement('td')
         , span = document.createElement('span')
         , image = document.createElement('img')
@@ -442,18 +631,20 @@ module.exports.DeviceModelCell = function DeviceModelCell() {
       if (image.getAttribute('src') !== src) {
         image.setAttribute('src', src)
       }
-      t.nodeValue = device.model || device.serial
+      t.nodeValue = options.value(device)
       return td
     }
   , compare: function(a, b) {
-      return compareRespectCase(a.model, b.model)
+      return compareRespectCase(options.value(a), options.value(b))
     }
   }
 }
 
-module.exports.DeviceStatusCell = function DeviceStatusCell(valueGetter) {
+module.exports.DeviceStatusCell = function DeviceStatusCell(options) {
   return {
-    build: function() {
+    title: options.title
+  , defaultOrder: 1
+  , build: function() {
       var td = document.createElement('td')
         , a = document.createElement('a')
       a.appendChild(document.createTextNode(''))
@@ -492,7 +683,7 @@ module.exports.DeviceStatusCell = function DeviceStatusCell(valueGetter) {
       else {
         a.removeAttribute('href')
       }
-      t.nodeValue = valueGetter(device)
+      t.nodeValue = options.value(device)
       return td
     }
   , compare: (function() {

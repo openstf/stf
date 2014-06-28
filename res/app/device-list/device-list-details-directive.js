@@ -175,15 +175,20 @@ var directive = module.exports = function DeviceListDetailsDirective(
           return null
         }
 
+        var swap = {
+          asc: 'desc'
+        , desc: 'asc'
+        }
+
         var fixedMatch = findInSorting(scope.sort.fixed)
         if (fixedMatch) {
-          fixedMatch.order *= -1
+          fixedMatch.order = swap[fixedMatch.order]
           return
         }
 
         var userMatch = findInSorting(scope.sort.user)
         if (userMatch) {
-          userMatch.order *= -1
+          userMatch.order = swap[userMatch.order]
           if (!multiple) {
             scope.sort.user = [userMatch]
           }
@@ -194,7 +199,7 @@ var directive = module.exports = function DeviceListDetailsDirective(
           }
           scope.sort.user.push({
             name: column.name
-          , order: scope.columnDefinitions[column.name].defaultOrder || 1
+          , order: scope.columnDefinitions[column.name].defaultOrder || 'asc'
           })
         }
       }
@@ -291,20 +296,27 @@ var directive = module.exports = function DeviceListDetailsDirective(
 
       // Compares two devices using the currently active sorting. Returns <0
       // if deviceA is smaller, >0 if deviceA is bigger, or 0 if equal.
-      function compare(deviceA, deviceB) {
-        var sort, diff
-
-        // Find the first difference
-        for (var i = 0, l = activeSorting.length; i < l; ++i) {
-          sort = activeSorting[i]
-          diff = scope.columnDefinitions[sort.name].compare(deviceA, deviceB) * sort.order
-          if (diff !== 0) {
-            break
-          }
+      var compare = (function() {
+        var mapping = {
+          asc: 1
+        , desc: -1
         }
+        return function(deviceA, deviceB) {
+          var diff
 
-        return diff
-      }
+          // Find the first difference
+          for (var i = 0, l = activeSorting.length; i < l; ++i) {
+            var sort = activeSorting[i]
+            diff = scope.columnDefinitions[sort.name].compare(deviceA, deviceB)
+            if (diff !== 0) {
+              diff *= mapping[sort.order]
+              break
+            }
+          }
+
+          return diff
+        }
+      })()
 
       // Creates a completely new row for the device. Means that this is
       // the first time we see the device.
@@ -528,7 +540,7 @@ function compareRespectCase(a, b) {
 module.exports.TextCell = function TextCell(options) {
   return {
     title: options.title
-  , defaultOrder: 1
+  , defaultOrder: 'asc'
   , build: function () {
       var td = document.createElement('td')
       td.appendChild(document.createTextNode(''))
@@ -548,7 +560,7 @@ module.exports.TextCell = function TextCell(options) {
 module.exports.DateCell = function DateCell(options) {
   return {
     title: options.title
-  , defaultOrder: -1
+  , defaultOrder: 'desc'
   , build: function () {
       var td = document.createElement('td')
       td.appendChild(document.createTextNode(''))
@@ -580,7 +592,7 @@ module.exports.DateCell = function DateCell(options) {
 module.exports.LinkCell = function LinkCell(options) {
   return {
     title: options.title
-  , defaultOrder: 1
+  , defaultOrder: 'asc'
   , build: function () {
       var td = document.createElement('td')
         , a = document.createElement('a')
@@ -611,7 +623,7 @@ module.exports.LinkCell = function LinkCell(options) {
 module.exports.DeviceModelCell = function DeviceModelCell(options) {
   return {
     title: options.title
-  , defaultOrder: 1
+  , defaultOrder: 'asc'
   , build: function() {
       var td = document.createElement('td')
         , span = document.createElement('span')
@@ -643,7 +655,7 @@ module.exports.DeviceModelCell = function DeviceModelCell(options) {
 module.exports.DeviceStatusCell = function DeviceStatusCell(options) {
   return {
     title: options.title
-  , defaultOrder: 1
+  , defaultOrder: 'asc'
   , build: function() {
       var td = document.createElement('td')
         , a = document.createElement('a')

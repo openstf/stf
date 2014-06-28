@@ -442,7 +442,7 @@ module.exports.DeviceModelCell = function DeviceModelCell() {
       if (image.getAttribute('src') !== src) {
         image.setAttribute('src', src)
       }
-      t.nodeValue = device.model
+      t.nodeValue = device.model || device.serial
       return td
     }
   , compare: function(a, b) {

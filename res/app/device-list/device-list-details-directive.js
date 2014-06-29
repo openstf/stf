@@ -117,19 +117,25 @@ var directive = module.exports = function DeviceListDetailsDirective(
       , batteryHealth: directive.TextCell({
           title: gettext('Battery Health')
         , value: function(device) {
-            return device.battery ? device.battery.health : ''
+            return device.battery
+              ? $filter('translate')(device.enhancedBatteryHealth)
+              : ''
           }
         })
       , batterySource: directive.TextCell({
           title: gettext('Battery Source')
         , value: function(device) {
-            return device.battery ? device.battery.source : ''
+            return device.battery
+              ? $filter('translate')(device.enhancedBatterySource)
+              : ''
           }
         })
       , batteryStatus: directive.TextCell({
           title: gettext('Battery Status')
         , value: function(device) {
-            return device.battery ? device.battery.status : ''
+            return device.battery
+              ? $filter('translate')(device.enhancedBatteryStatus)
+              : ''
           }
         })
       , batteryLevel: directive.TextCell({

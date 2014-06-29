@@ -217,6 +217,10 @@ var directive = module.exports = function DeviceListDetailsDirective(
         }
       , function(newValue) {
           activeSorting = scope.sort.fixed.concat(scope.sort.user)
+          scope.sortedColumns = Object.create(null)
+          activeSorting.forEach(function(sort) {
+            scope.sortedColumns[sort.name] = sort
+          })
           sortAll()
         }
       , true

@@ -3,22 +3,24 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route, 
 
   var intervalDeviceInfo
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance, device) {
+  var ModalInstanceCtrl = function ($scope, $modalInstance, device, tryToReconnect) {
     $scope.ok = function () {
       $modalInstance.close(true)
       $route.reload()
       //$location.path('/control/' + device.serial)
     }
 
-    // TODO: this is ugly, find why its not updated correctly (also on the device list)
-    intervalDeviceInfo = $interval(function () {
-      $scope.device = device
+    if (tryToReconnect) {
+      // TODO: this is ugly, find why its not updated correctly (also on the device list)
+      intervalDeviceInfo = $interval(function () {
+        $scope.device = device
 
-      if (device.usable) {
-        // Try to reconnect
-        $scope.ok()
-      }
-    }, 1000, 500)
+        if (device.usable) {
+          // Try to reconnect
+          $scope.ok()
+        }
+      }, 1000, 500)
+    }
 
     $scope.device = device
 
@@ -43,13 +45,16 @@ module.exports = function FatalMessageServiceFactory($modal, $location, $route, 
     })
   }
 
-  FatalMessageService.open = function (device) {
+  FatalMessageService.open = function (device, tryToReconnect) {
     var modalInstance = $modal.open({
       template: require('./fatal-message.jade'),
       controller: ModalInstanceCtrl,
       resolve: {
         device: function () {
           return device
+        },
+        tryToReconnect: function () {
+          return tryToReconnect
         }
       }
     })

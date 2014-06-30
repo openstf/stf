@@ -172,7 +172,7 @@ module.exports =
     $scope.$watch('device.state', function (newValue, oldValue) {
       if (newValue !== oldValue) {
         if (oldValue === 'using') {
-          FatalMessageService.open($scope.device)
+          FatalMessageService.open($scope.device, false)
         }
       } else if (typeof newValue === 'undefined' &&
         typeof oldValue === 'undefined') {

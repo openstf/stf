@@ -1,3 +1,5 @@
+var patchArray = require('./util/patch-array')
+
 var directive = module.exports = function DeviceListDetailsDirective(
   $filter
 , gettext
@@ -216,7 +218,7 @@ var directive = module.exports = function DeviceListDetailsDirective(
           return scope.sort
         }
       , function(newValue) {
-          activeSorting = scope.sort.fixed.concat(scope.sort.user)
+          activeSorting = newValue.fixed.concat(newValue.user)
           scope.sortedColumns = Object.create(null)
           activeSorting.forEach(function(sort) {
             scope.sortedColumns[sort.name] = sort
@@ -245,54 +247,18 @@ var directive = module.exports = function DeviceListDetailsDirective(
       // the fastest because it shouldn't get called all the time.
       function updateColumns(columnSettings) {
         var newActiveColumns = []
-          , newMapping = Object.create(null)
-          , oldMapping = Object.create(null)
-          , patch = []
-          , i
-          , l
 
-        // First, check what we are supposed to have now
-        for (i = 0, l = columnSettings.length; i < l; ++i) {
-          var columnSetting = columnSettings[i]
-          if (columnSetting.selected) {
-            newActiveColumns.push(columnSetting.name)
-            newMapping[columnSetting.name] = true
+        // Check what we're supposed to show now
+        columnSettings.forEach(function(column) {
+          if (column.selected) {
+            newActiveColumns.push(column.name)
           }
-        }
+        })
 
-        // Check what we need to remove from the currently active columns
-        var removeAdjust = 0
-        for (i = 0, l = activeColumns.length; i < l; ++i) {
-          var oldColumn = activeColumns[i]
-          // Fix index so that they make sense when the operations are
-          // run in order.
-          oldMapping[oldColumn] = true
-          if (!newMapping[oldColumn]) {
-            patch.push({
-              type: 'remove'
-            , column: oldColumn
-            , index: i - removeAdjust
-            })
-            removeAdjust += 1
-          }
-        }
+        // Figure out the patch
+        var patch = patchArray(activeColumns, newActiveColumns)
 
-        // Check what we need to add
-        var insertAdjust = 0
-        for (i = 0, l = newActiveColumns.length; i < l; ++i) {
-          var newColumn = newActiveColumns[i]
-          if (!oldMapping[newColumn]) {
-            patch.push({
-              type: 'insert'
-            , column: newColumn
-            , index: i + insertAdjust
-            })
-            insertAdjust += 1
-          }
-        }
-
-        // @TODO move operations
-
+        // Set up new active columns
         activeColumns = newActiveColumns
 
         return patchAll(patch)
@@ -361,13 +327,17 @@ var directive = module.exports = function DeviceListDetailsDirective(
       function patchRow(tr, device, patch) {
         for (var i = 0, l = patch.length; i < l; ++i) {
           var op = patch[i]
-          switch (op.type) {
+          switch (op[0]) {
           case 'insert':
-            var col = scope.columnDefinitions[op.column]
-            tr.insertBefore(col.update(col.build(), device), tr.cells[op.index])
+            var col = scope.columnDefinitions[op[2]]
+            tr.insertBefore(col.update(col.build(), device), tr.cells[op[1]])
             break
           case 'remove':
-            tr.deleteCell(op.index)
+            tr.deleteCell(op[1])
+            break
+          case 'swap':
+            tr.insertBefore(tr.cells[op[1]], tr.cells[op[2]])
+            tr.insertBefore(tr.cells[op[2]], tr.cells[op[1]])
             break
           }
         }

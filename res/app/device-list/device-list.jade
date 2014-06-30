@@ -28,10 +28,9 @@ div.stf-device-list
     .col-md-12
       .widget-container.fluid-height
         .widget-content.padded
-          label(ng-repeat='column in columns')
+          label(ng-repeat='column in columns track by column.name')
             input(type='checkbox', ng-model='column.selected')
             span {{ column.title | translate }}
-          button(ng-click='columns.push(columns.shift())') swap ends
           device-list-details(tracker='tracker', columns='columns', sort='sort')
           //tabset.overflow-auto(ng-if='activeTabs').device-list-active-tabs
             tab(active='activeTabs.devices')

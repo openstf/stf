@@ -82,10 +82,6 @@ var tests = [
     , ['insert', 5, 'f']
     ]
   }
-, {
-    a: ["state","model","name","operator","releasedAt","version","network","provider","owner"]
-  , b: ["owner","model","name","operator","releasedAt","version","network","provider","state"]
-  }
 ]
 
 function verify(a, b, ops) {

@@ -234,6 +234,10 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.getWifiStatus = function() {
+      return sendTwoWay('wifi.get')
+    }
+
     window.cc = this
   }
 

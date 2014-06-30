@@ -115,7 +115,7 @@ tests.forEach(function(test) {
   console.log('  <- ', test.a)
   console.log('  -> ', test.b)
   console.log('Verifying test expectations')
-  //verify(test.a, test.b, test.ops)
+  verify(test.a, test.b, test.ops)
   console.log('Verifying patchArray')
   var patch = patchArray(test.a, test.b)
   console.log(' patch', patch)

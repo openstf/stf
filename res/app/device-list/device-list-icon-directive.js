@@ -1,27 +1,104 @@
-var patchArray = require('./util/patch-array')
 var columnDefinitions = require('./column-definitions')
 
-var directive = module.exports = function DeviceListDetailsDirective(
+module.exports = function DeviceListDetailsDirective(
   $filter
 , gettext
 ) {
+  function DeviceItem() {
+    return {
+      build: function() {
+        var li = document.createElement('li')
+        li.className = 'cursor-select pointer thumbnail'
+
+        // .device-photo-small
+        var photo = document.createElement('div')
+        photo.className = 'device-photo-small'
+        var img = document.createElement('img')
+        photo.appendChild(img)
+        li.appendChild(photo)
+
+        // .device-name
+        var name = document.createElement('div')
+        name.className = 'device-name'
+        name.appendChild(document.createTextNode(''))
+        li.appendChild(name)
+
+        // button
+        var a = document.createElement('a')
+        a.appendChild(document.createTextNode(''))
+        li.appendChild(a)
+
+        return li
+      }
+    , update: function(li, device) {
+        var img = li.firstChild.firstChild
+          , name = li.firstChild.nextSibling
+          , nt = name.firstChild
+          , a = name.nextSibling
+          , at = a.firstChild
+          , classes = 'btn btn-xs device-status '
+
+        // .device-photo-small
+        if (img.getAttribute('src') !== device.enhancedImage120) {
+          img.setAttribute('src', device.enhancedImage120)
+        }
+
+        // .device-name
+        nt.nodeValue = device.enhancedName
+
+        // button
+        at.nodeValue = $filter('translate')(device.enhancedStateAction)
+
+        switch (device.state) {
+        case 'using':
+          a.className = classes + 'btn-primary'
+          break
+        case 'available':
+        case 'ready':
+        case 'present':
+          a.className = classes + 'btn-primary-outline'
+          break
+        case 'preparing':
+          a.className = classes + 'btn-primary-outline btn-success-outline'
+          break
+        case 'unauthorized':
+          a.className = classes + 'btn-danger-outline'
+          break
+        case 'offline':
+          a.className = classes + 'btn-warning-outline'
+          break
+        default:
+          a.className = classes + 'btn-default-outline'
+          break
+        }
+
+        if (device.usable) {
+          a.href = '#!/control/' + device.serial
+        }
+        else {
+          a.removeAttribute('href')
+        }
+
+        return li
+      }
+    }
+  }
+
   return {
     restrict: 'E'
-  , template: require('./device-list-details.jade')
+  , template: require('./device-list-icon.jade')
   , scope: {
       tracker: '&tracker'
-    , columns: '&columns'
     , sort: '=sort'
     }
   , link: function (scope, element) {
       var tracker = scope.tracker()
-        , activeColumns = []
         , activeSorting = []
-        , table = element.find('table')[0]
-        , tbody = table.createTBody()
-        , rows = tbody.rows
+        , list = element.find('ul')[0]
+        , items = list.childNodes
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
+        , builder = DeviceItem()
 
       // Import column definitions
       scope.columnDefinitions = columnDefinitions($filter, gettext)
@@ -82,42 +159,6 @@ var directive = module.exports = function DeviceListDetailsDirective(
       , true
       )
 
-      // Watch for column updates
-      scope.$watch(
-        function() {
-          return scope.columns()
-        }
-      , function(newValue) {
-          updateColumns(newValue)
-        }
-      , true
-      )
-
-      // Update now so that we don't have to wait for the scope watcher to
-      // trigger.
-      updateColumns(scope.columns())
-
-      // Updates visible columns. This method doesn't necessarily have to be
-      // the fastest because it shouldn't get called all the time.
-      function updateColumns(columnSettings) {
-        var newActiveColumns = []
-
-        // Check what we're supposed to show now
-        columnSettings.forEach(function(column) {
-          if (column.selected) {
-            newActiveColumns.push(column.name)
-          }
-        })
-
-        // Figure out the patch
-        var patch = patchArray(activeColumns, newActiveColumns)
-
-        // Set up new active columns
-        activeColumns = newActiveColumns
-
-        return patchAll(patch)
-      }
-
       // Calculates a DOM ID for the device. Should be consistent for the
       // same device within the same table, but unique among other tables.
       function calculateId(device) {
@@ -148,93 +189,52 @@ var directive = module.exports = function DeviceListDetailsDirective(
         }
       })()
 
-      // Creates a completely new row for the device. Means that this is
+      // Creates a completely new item for the device. Means that this is
       // the first time we see the device.
-      function createRow(device) {
+      function createItem(device) {
         var id = calculateId(device)
-          , tr = document.createElement('tr')
-          , td
+          , item = builder.build()
 
-        tr.id = id
-
-        for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          td = scope.columnDefinitions[activeColumns[i]].build()
-          scope.columnDefinitions[activeColumns[i]].update(td, device)
-          tr.appendChild(td)
-        }
-
+        item.id = id
+        builder.update(item, device)
         mapping[id] = device
 
-        return tr
+        return item
       }
 
-      // Patches all rows.
-      function patchAll(patch) {
-        for (var i = 0, l = rows.length; i < l; ++i) {
-          patchRow(rows[i], mapping[rows[i].id], patch)
-        }
-      }
-
-      // Patches the given row by running the given patch operations in
-      // order. The operations must take into account index changes caused
-      // by previous operations.
-      function patchRow(tr, device, patch) {
-        for (var i = 0, l = patch.length; i < l; ++i) {
-          var op = patch[i]
-          switch (op[0]) {
-          case 'insert':
-            var col = scope.columnDefinitions[op[2]]
-            tr.insertBefore(col.update(col.build(), device), tr.cells[op[1]])
-            break
-          case 'remove':
-            tr.deleteCell(op[1])
-            break
-          case 'swap':
-            tr.insertBefore(tr.cells[op[1]], tr.cells[op[2]])
-            tr.insertBefore(tr.cells[op[2]], tr.cells[op[1]])
-            break
-          }
-        }
-
-        return tr
-      }
-
-      // Updates all the columns in the row. Note that the row must be in
-      // the right format already (built with createRow() and patched with
-      // patchRow() if necessary).
-      function updateRow(tr, device) {
+      // Updates all the columns in the item. Note that the item must be in
+      // the right format already (built with createItem() and patched with
+      // patchItem() if necessary).
+      function updateItem(item, device) {
         var id = calculateId(device)
 
-        tr.id = id
+        item.id = id
+        builder.update(item, device)
 
-        for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          scope.columnDefinitions[activeColumns[i]].update(tr.cells[i], device)
-        }
-
-        return tr
+        return item
       }
 
-      // Inserts a row into the table into its correct position according to
+      // Inserts a item into the table into its correct position according to
       // current sorting.
-      function insertRow(tr, deviceA) {
-        return insertRowToSegment(tr, deviceA, 0, rows.length - 1)
+      function insertItem(item, deviceA) {
+        return insertItemToSegment(item, deviceA, 0, items.length - 1)
       }
 
-      // Inserts a row into a segment of the table into its correct position
+      // Inserts a item into a segment of the table into its correct position
       // according to current sorting.
-      function insertRowToSegment(tr, deviceA, lo, hi) {
+      function insertItemToSegment(item, deviceA, lo, hi) {
         var pivot = 0
           , deviceB
 
         if (hi < 0) {
-          tbody.appendChild(tr)
+          list.appendChild(item)
         }
         else {
           var after = true
 
           while (lo <= hi) {
             pivot = ~~((lo + hi) / 2)
-            deviceB = mapping[rows[pivot].id]
+            deviceB = mapping[items[pivot].id]
 
             var diff = compare(deviceA, deviceB)
 
@@ -254,21 +254,21 @@ var directive = module.exports = function DeviceListDetailsDirective(
           }
 
           if (after) {
-            tbody.insertBefore(tr, rows[pivot].nextSibling)
+            list.insertBefore(item, items[pivot].nextSibling)
           }
           else {
-            tbody.insertBefore(tr, rows[pivot])
+            list.insertBefore(item, items[pivot])
           }
         }
       }
 
-      // Compares a row to its siblings to see if it's still in the correct
+      // Compares a item to its siblings to see if it's still in the correct
       // position. Returns <0 if the device should actually go somewhere
-      // before the previous row, >0 if it should go somewhere after the next
-      // row, or 0 if the position is already correct.
-      function compareRow(tr, device) {
-        var prev = tr.previousSibling
-          , next = tr.nextSibling
+      // before the previous item, >0 if it should go somewhere after the next
+      // item, or 0 if the position is already correct.
+      function compareItem(item, device) {
+        var prev = item.previousSibling
+          , next = item.nextSibling
           , diff
 
         if (prev) {
@@ -288,45 +288,43 @@ var directive = module.exports = function DeviceListDetailsDirective(
         return 0
       }
 
-      // Sort all rows.
+      // Sort all items.
       function sortAll() {
         // This could be improved by getting rid of the array copying. The
-        // copy is made because rows can't be sorted directly.
-        var sorted = [].slice.call(rows).sort(function(rowA, rowB) {
-          return compare(mapping[rowA.id], mapping[rowB.id])
+        // copy is made because items can't be sorted directly.
+        var sorted = [].slice.call(items).sort(function(itemA, itemB) {
+          return compare(mapping[itemA.id], mapping[itemB.id])
         })
 
         // Now, if we just append all the elements, they will be in the
         // correct order in the table.
         for (var i = 0, l = sorted.length; i < l; ++i) {
-          tbody.appendChild(sorted[i])
+          list.appendChild(sorted[i])
         }
       }
 
       // Triggers when the tracker sees a device for the first time.
       function addListener(device) {
-        insertRow(createRow(device), device)
+        insertItem(createItem(device), device)
       }
 
       // Triggers when the tracker notices that a device changed.
       function changeListener(device) {
         var id = calculateId(device)
-          , tr = tbody.children[id]
+          , item = list.children[id]
 
-        if (tr) {
+        if (item) {
           // First, update columns
-          updateRow(tr, device)
+          updateItem(item, device)
 
-          // Maybe the row is not sorted correctly anymore?
-          var diff = compareRow(tr, device)
-
-          if (diff < 0) {
-            // Should go higher in the list
-            insertRowToSegment(tr, device, 0, tr.rowIndex - 1)
-          }
-          else if (diff > 0) {
-            // Should go lower in the list
-            insertRowToSegment(tr, device, tr.rowIndex + 1, rows.length)
+          // Maybe the item is not sorted correctly anymore?
+          var diff = compareItem(item, device)
+          if (diff !== 0) {
+            // Because the item is no longer sorted correctly, we must
+            // remove it so that it doesn't confuse the binary search.
+            // Then we will simply add it back.
+            list.removeChild(item)
+            insertItem(item, device)
           }
         }
       }
@@ -334,10 +332,10 @@ var directive = module.exports = function DeviceListDetailsDirective(
       // Triggers when a device is removed entirely from the tracker.
       function removeListener(device) {
         var id = calculateId(device)
-          , tr = tbody.children[id]
+          , item = list.children[id]
 
-        if (tr) {
-          tbody.removeChild(tr)
+        if (item) {
+          list.removeChild(item)
         }
 
         delete mapping[id]

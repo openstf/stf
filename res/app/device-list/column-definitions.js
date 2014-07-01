@@ -75,8 +75,9 @@ module.exports = function($filter, gettext) {
         return device.manufacturer || ''
       }
     })
-  , sdk: TextCell({
+  , sdk: NumberCell({
       title: gettext('SDK')
+    , defaultOrder: 'desc'
     , value: function(device) {
         return device.sdk || ''
       }
@@ -195,6 +196,27 @@ function TextCell(options) {
     }
   })
 }
+
+function NumberCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , build: function () {
+      var td = document.createElement('td')
+      td.appendChild(document.createTextNode(''))
+      return td
+    }
+  , update: function(td, item) {
+      var t = td.firstChild
+      t.nodeValue = options.value(item)
+      return td
+    }
+  , compare: function(a, b) {
+      return options.value(a) - options.value(b)
+    }
+  })
+}
+
 
 function DateCell(options) {
   return _.defaults(options, {

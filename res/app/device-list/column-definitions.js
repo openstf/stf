@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 // Builders for all possible values
 module.exports = function($filter, gettext) {
   return {
@@ -45,10 +47,20 @@ module.exports = function($filter, gettext) {
     })
   , display: TextCell({
       title: gettext('Screen')
+    , defaultOrder: 'desc'
     , value: function(device) {
         return device.display
           ? device.display.width + 'x' + device.display.height
           : ''
+      }
+    , compare: function(deviceA, deviceB) {
+        var va = deviceA.display
+          ? deviceA.display.width * deviceA.display.height
+          : 0
+        var vb = deviceB.display
+          ? deviceB.display.width * deviceB.display.height
+          : 0
+        return va - vb
       }
     })
   , serial: TextCell({
@@ -165,7 +177,7 @@ function compareRespectCase(a, b) {
 }
 
 function TextCell(options) {
-  return {
+  return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
   , build: function () {
@@ -181,11 +193,11 @@ function TextCell(options) {
   , compare: function(a, b) {
       return compareIgnoreCase(options.value(a), options.value(b))
     }
-  }
+  })
 }
 
 function DateCell(options) {
-  return {
+  return _.defaults(options, {
     title: options.title
   , defaultOrder: 'desc'
   , build: function () {
@@ -213,11 +225,11 @@ function DateCell(options) {
         , vb = options.value(b) || 0
       return va - vb
     }
-  }
+  })
 }
 
 function LinkCell(options) {
-  return {
+  return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
   , build: function () {
@@ -244,11 +256,11 @@ function LinkCell(options) {
   , compare: function(a, b) {
       return compareIgnoreCase(options.value(a), options.value(b))
     }
-  }
+  })
 }
 
 function DeviceModelCell(options) {
-  return {
+  return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
   , build: function() {
@@ -276,11 +288,11 @@ function DeviceModelCell(options) {
   , compare: function(a, b) {
       return compareRespectCase(options.value(a), options.value(b))
     }
-  }
+  })
 }
 
 function DeviceStatusCell(options) {
-  return {
+  return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
   , build: function() {
@@ -341,5 +353,5 @@ function DeviceStatusCell(options) {
         return order[deviceA.state] - order[deviceB.state]
       }
     })()
-  }
+  })
 }

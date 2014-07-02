@@ -7,6 +7,7 @@ enum MessageType {
     DO_KEYEVENT = 2;
     DO_TYPE = 3;
     DO_WAKE = 4;
+    DO_ADD_ACCOUNT_MENU = 24;
     GET_BROWSERS = 5;
     GET_CLIPBOARD = 6;
     GET_DISPLAY = 19;
@@ -173,6 +174,13 @@ message DoIdentifyRequest {
 }
 
 message DoIdentifyResponse {
+    required bool success = 1;
+}
+
+message DoAddAccountMenuRequest {
+}
+
+message DoAddAccountMenuResponse {
     required bool success = 1;
 }
 

@@ -38,6 +38,24 @@ module.exports = function($filter, gettext) {
     , value: function(device) {
         return device.version || ''
       }
+    , compare: function(deviceA, deviceB) {
+        var va = (deviceA.version || '0').split('.')
+          , vb = (deviceB.version || '0').split('.')
+          , la = va.length
+          , lb = vb.length
+
+        for (var i = 0, l = Math.max(la, lb); i < l; ++i) {
+          var a = i < la ? parseInt(va[i], 10) : 0
+            , b = i < lb ? parseInt(vb[i], 10) : 0
+            , diff = a - b
+
+          if (diff !== 0) {
+            return diff
+          }
+        }
+
+        return 0
+      }
     })
   , network: TextCell({
       title: gettext('Network')

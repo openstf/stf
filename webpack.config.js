@@ -1,13 +1,19 @@
 var pathutil = require('./lib/util/pathutil')
 var webpack = require('webpack')
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin")
 
 module.exports = {
   cache: true
-, entry: pathutil.resource('app/app.js')
+, entry: {
+    app: pathutil.resource('app/app.js')
+  , authldap: pathutil.resource('auth-ldap/scripts/entry.js')
+  , authmock: pathutil.resource('auth-mock/scripts/entry.js')
+  }
 , output: {
     path: pathutil.resource('build')
   , publicPath: '/static/build/'
-  , filename: 'bundle.js'
+  , filename: 'entry/[name].entry.js'
+  , chunkFilename: '[id].[hash].chunk.js'
   }
 , stats: {
     colors: true
@@ -78,5 +84,6 @@ module.exports = {
       , ['main']
       )
     )
+  , new CommonsChunkPlugin("entry/commons.entry.js")
   ]
 }

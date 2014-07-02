@@ -124,6 +124,7 @@ gulp.task('translate:extract', function () {
     './tmp/html/**/*.html'
     , './res/**/*.js'
     , '!./res/bower_components/**'
+    , '!./res/build/**'
   ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))

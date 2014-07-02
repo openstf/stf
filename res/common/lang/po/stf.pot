@@ -7,7 +7,6 @@ msgstr ""
 msgid ""
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "-"
 msgstr ""
@@ -22,7 +21,6 @@ msgstr ""
 msgid "ABI"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "AC"
 msgstr ""
@@ -39,7 +37,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Advanced"
 msgstr ""
@@ -68,7 +65,6 @@ msgstr ""
 msgid "Apps"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid ""
 "Are you sure you want to kick this device?"
@@ -79,7 +75,6 @@ msgstr ""
 msgid "Are you sure you want to reboot this device?"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
@@ -118,7 +113,6 @@ msgstr ""
 msgid "Battery Temperature"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Bluetooth"
 msgstr ""
@@ -127,7 +121,6 @@ msgstr ""
 msgid "Browser"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
 msgstr ""
@@ -158,7 +151,6 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
 msgstr ""
@@ -181,24 +173,17 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Cold"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Connected successfully."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Connecting..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
@@ -233,7 +218,6 @@ msgstr ""
 msgid "D-pad Up"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Dashboard"
 msgstr ""
@@ -242,7 +226,6 @@ msgstr ""
 msgid "Data"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dead"
 msgstr ""
@@ -273,7 +256,6 @@ msgstr ""
 msgid "Device Photo"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Device cannot get kicked from the group"
 msgstr ""
@@ -282,17 +264,14 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Discharging"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Disconnected"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Disconnected.<br />Socket connection was lost, try again reloading the page."
 msgstr ""
@@ -309,7 +288,6 @@ msgstr ""
 msgid "Drop file to upload"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dummy"
 msgstr ""
@@ -330,26 +308,22 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Error while connecting."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error while reconnecting."
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
+msgid "Error: Forwarding ports failed."
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ethernet"
 msgstr ""
@@ -382,7 +356,6 @@ msgstr ""
 msgid "Frequency"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Full"
 msgstr ""
@@ -408,7 +381,6 @@ msgstr ""
 msgid "Go to Device List"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Good"
 msgstr ""
@@ -457,7 +429,6 @@ msgstr ""
 msgid "IMEI"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Info"
 msgstr ""
@@ -512,7 +483,6 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Logs"
 msgstr ""
@@ -543,27 +513,22 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile DUN"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile High Priority"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile MMS"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile SUPL"
 msgstr ""
@@ -577,7 +542,6 @@ msgstr ""
 msgid "Mute"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 msgid "N/A"
 msgstr ""
@@ -605,12 +569,10 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "No"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "No clipboard data"
 msgstr ""
@@ -635,7 +597,6 @@ msgstr ""
 msgid "No screenshots taken"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr ""
@@ -658,7 +619,6 @@ msgstr ""
 msgid "OS"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Offline"
 msgstr ""
@@ -671,12 +631,10 @@ msgstr ""
 msgid "Orientation"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Over Voltage"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Overheat"
 msgstr ""
@@ -752,7 +710,6 @@ msgstr ""
 msgid "Power Source"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Preparing"
 msgstr ""
@@ -783,18 +740,12 @@ msgstr ""
 msgid "ROM"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ready"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Reconnected successfully."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Reconnecting..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
@@ -913,7 +864,6 @@ msgstr ""
 msgid "Screenshot"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Screenshots"
 msgstr ""
@@ -975,7 +925,6 @@ msgstr ""
 msgid "Stop"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Stop Using"
 msgstr ""
@@ -1036,12 +985,10 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "USB"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unauthorized"
 msgstr ""
@@ -1054,12 +1001,10 @@ msgstr ""
 msgid "Uninstall"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unknown"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unspecified Failure"
 msgstr ""
@@ -1092,7 +1037,6 @@ msgstr ""
 msgid "Usb speed"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Use"
 msgstr ""
@@ -1142,7 +1086,6 @@ msgstr ""
 msgid "Web"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
 msgstr ""
@@ -1151,7 +1094,6 @@ msgstr ""
 msgid "WiFi Settings"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiMAX"
 msgstr ""
@@ -1160,7 +1102,6 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Wireless"
 msgstr ""
@@ -1173,7 +1114,6 @@ msgstr ""
 msgid "Y DPI"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
 msgstr ""

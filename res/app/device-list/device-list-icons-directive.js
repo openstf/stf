@@ -86,7 +86,7 @@ module.exports = function DeviceListDetailsDirective(
 
   return {
     restrict: 'E'
-  , template: require('./device-list-icon.jade')
+  , template: require('./device-list-icons.jade')
   , scope: {
       tracker: '&tracker'
     , sort: '=sort'

@@ -18,3 +18,4 @@ module.exports = angular.module('device-list', [
   .controller('DeviceListCtrl', require('./device-list-controller'))
   .directive('deviceListDetails', require('./device-list-details-directive'))
   .directive('deviceListIcon', require('./device-list-icon-directive'))
+  .directive('deviceListStats', require('./device-list-stats-directive'))

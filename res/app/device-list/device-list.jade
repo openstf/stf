@@ -1,28 +1,7 @@
 div.stf-device-list
   .row.stf-stats-container(ng-show='tracker.devices.length')
     .col-md-12
-      .widget-container.stats-container
-        .col-md-3
-          .number
-            .icon.fa.fa-globe.visitors
-            span(ng-bind='tracker.devices.length')
-          .text(translate) Total devices
-        .col-md-3
-          .number
-            .icon.fa.fa-check.visitors
-            span(ng-bind='(tracker.devices | filter:{usable:true}).length')
-          .text(translate) Usable devices
-        .col-md-3
-          .number
-            .icon.fa.fa-users.visitors
-            span(ng-bind='(tracker.devices | filter:{state:"busy"}).length')
-          .text(translate) Busy devices
-        .col-md-3
-          .number
-            .icon.fa.fa-user.visitors
-            span(ng-bind='(tracker.devices | filter:{using:true}).length')
-          //.text(translate) Using
-          .text(ng-bind='currentUser.name')
+      device-list-stats(tracker='tracker')
 
   .row
     .col-md-12

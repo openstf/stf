@@ -347,6 +347,9 @@ var directive = module.exports = function DeviceListDetailsDirective(
       tracker.on('change', changeListener)
       tracker.on('remove', removeListener)
 
+      // Maybe we're already late
+      tracker.devices.forEach(addListener)
+
       scope.$on('$destroy', function() {
         tracker.removeListener('add', addListener)
         tracker.removeListener('change', changeListener)

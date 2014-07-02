@@ -8,7 +8,7 @@ module.exports = function DeviceListEmptyDirective() {
   , link: function (scope) {
       var tracker = scope.tracker()
 
-      scope.empty = true
+      scope.empty = !tracker.devices.length
 
       function update() {
         var oldEmpty = scope.empty

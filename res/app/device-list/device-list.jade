@@ -7,12 +7,12 @@ div.stf-device-list
     .col-md-12
       .widget-container.fluid-height
         .widget-content.padded
-          tabset.overflow-auto.device-list-active-tabs
-            tab(active='false')
+          tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
+            tab(active='activeTabs.icons')
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
-              div.device-list-devices-content
+              div.device-list-devices-content(ng-if='activeTabs.icons')
                 .filtering-buttons.pull-right
                   input(type='search',results='5', autosave='deviceSearch'
                   name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
@@ -27,11 +27,11 @@ div.stf-device-list
 
                 device-list-icons(tracker='tracker', sort='sort')
 
-            tab(active='true')
+            tab(active='activeTabs.details')
               tab-heading
                 i.fa.fa-list
                 span(translate) Details
-              div.device-list-details-content
+              div.device-list-details-content(ng-if='activeTabs.details')
                 .filtering-buttons
                   div(ng-show='ngTableEnabled')
                     clear-button(ng-click="clearSorting()")

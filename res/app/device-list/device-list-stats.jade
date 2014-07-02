@@ -1,0 +1,22 @@
+.widget-container.stats-container
+  .col-md-3
+    .number
+      .icon.fa.fa-globe.visitors
+      span(ng-bind='counter.total') 0
+    .text(translate) Total devices
+  .col-md-3
+    .number
+      .icon.fa.fa-check.visitors
+      span(ng-bind='counter.usable') 0
+    .text(translate) Usable devices
+  .col-md-3
+    .number
+      .icon.fa.fa-users.visitors
+      span(ng-bind='counter.busy') 0
+    .text(translate) Busy devices
+  .col-md-3
+    .number
+      .icon.fa.fa-user.visitors
+      span(ng-bind='counter.using') 0
+    //.text(translate) Using
+    .text(ng-bind='currentUser.name')

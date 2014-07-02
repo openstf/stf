@@ -1,8 +1,14 @@
 module.exports = function UserServiceFactory($http, $rootScope, socket, $timeout) {
   var userService = {}
 
-  userService.user = (function () {
+  userService.currentUser = (function () {
     var userPromise = $http.get('/api/v1/user')
+      .then(function(response) {
+        if (!response.data.success) {
+          throw new Error('Unable to get user data')
+        }
+        return response.data.user
+      })
     return function () {
       return userPromise
     }

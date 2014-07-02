@@ -350,6 +350,9 @@ function DeviceStatusCell(options) {
       case 'using':
         a.className = classes + 'btn-primary'
         break
+      case 'busy':
+        a.className = classes + 'btn-warning'
+        break
       case 'available':
       case 'ready':
       case 'present':

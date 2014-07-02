@@ -1,5 +1,5 @@
 div.stf-device-list
-  .row.stf-stats-container(ng-show='tracker.devices.length')
+  .row.stf-stats-container
     .col-md-12
       device-list-stats(tracker='tracker')
 
@@ -13,8 +13,6 @@ div.stf-device-list
                 i.fa.fa-th-large
                 span(translate) Devices
               div.device-list-devices-content
-                nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
-
                 .filtering-buttons.pull-right
                   input(type='search',results='5', autosave='deviceSearch'
                   name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
@@ -34,8 +32,6 @@ div.stf-device-list
                 i.fa.fa-list
                 span(translate) Details
               div.device-list-details-content
-                nothing-to-show(message='{{"No devices connected"|translate}}', icon='fa-sitemap', ng-show='!tracker.devices.length')
-
                 .filtering-buttons
                   div(ng-show='ngTableEnabled')
                     clear-button(ng-click="clearSorting()")

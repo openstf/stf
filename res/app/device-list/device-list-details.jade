@@ -3,3 +3,4 @@ table.table.table-hover.dataTable
     tr
       th(ng-repeat='column in columns()', ng-if='column.selected', ng-class='["sort-" + (sortedColumns[column.name].order || "none")]', ng-click='sortBy(column, $event.shiftKey)')
         span {{ columnDefinitions[column.name].title | translate }}
+device-list-empty(tracker='tracker()')

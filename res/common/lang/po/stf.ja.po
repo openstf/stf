@@ -12,7 +12,6 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "-"
 msgstr "-"
@@ -21,13 +20,12 @@ msgstr "-"
 msgid "A new version of STF is available"
 msgstr "STFの新しいバージョンがリリースされました"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "ABI"
 msgstr "ABI"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "AC"
 msgstr "AC"
@@ -44,7 +42,6 @@ msgstr "アクティビティ"
 msgid "Add"
 msgstr "追加"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Advanced"
 msgstr "高度機能"
@@ -73,19 +70,10 @@ msgstr "アプリアップロード"
 msgid "Apps"
 msgstr "アプリ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid "Are you sure you want to kick this device?Currently it is being used by"
-msgstr ""
-"このデバイスをキックしますか？\n"
-"只今、次のユーザが使用中です："
-
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "Are you sure you want to reboot this device?"
 msgstr "この端末を再起動しますか？"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
 msgstr "利用可能"
@@ -98,32 +86,31 @@ msgstr "戻る"
 msgid "Battery"
 msgstr "バッテリー"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Health"
 msgstr "バッテリー健康状態"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Level"
 msgstr "バッテリーレベル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Source"
 msgstr "バッテリー電力源"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Status"
 msgstr "バッテリー状態"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid "Battery Temperature"
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
+msgid "Battery Temp"
 msgstr "バッテリー温度"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Bluetooth"
 msgstr "Bluetooth"
@@ -132,12 +119,11 @@ msgstr "Bluetooth"
 msgid "Browser"
 msgstr "ブラウザ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
 msgstr "貸し出し中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Busy devices"
 msgstr "貸し出し中"
 
@@ -153,9 +139,9 @@ msgstr "カメラ"
 msgid "Cannot access specified URL"
 msgstr "指定されたURLはアクセスできません"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Carrier"
 msgstr "キャリア"
 
@@ -163,7 +149,6 @@ msgstr "キャリア"
 msgid "Category"
 msgstr "カテゴリー"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
 msgstr "充電中"
@@ -186,25 +171,18 @@ msgstr "クリップボード"
 msgid "Close"
 msgstr "閉じる"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Cold"
 msgstr "コールド"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr "接続中"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Connected successfully."
 msgstr "接続できました。"
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Connecting..."
-msgstr "接続中..."
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Cookies"
@@ -238,7 +216,6 @@ msgstr "D-pad右"
 msgid "D-pad Up"
 msgstr "D-pad上"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -247,7 +224,6 @@ msgstr "ダッシュボード"
 msgid "Data"
 msgstr "データ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dead"
 msgstr "残量なし"
@@ -278,7 +254,6 @@ msgstr "デバイス"
 msgid "Device Photo"
 msgstr "実機写真"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
@@ -287,17 +262,14 @@ msgstr "このデバイスはグループからキックできません。"
 msgid "Devices"
 msgstr "端末リスト"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Discharging"
 msgstr "放電中"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Disconnected"
 msgstr "切断中"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid ""
 "Disconnected.<br />Socket connection was lost, try again reloading the page."
@@ -317,7 +289,6 @@ msgstr "ドメイン"
 msgid "Drop file to upload"
 msgstr "ここにファイルをドロップ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dummy"
 msgstr "ダミー"
@@ -338,26 +309,22 @@ msgstr "暗号化"
 msgid "Error"
 msgstr "エラー"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Error while connecting."
-msgstr "接続中にエラーが発生しました。"
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
 msgstr "データ取得中にエラーが発生しました。"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error while reconnecting."
 msgstr "再接続中にエラーが発生しました。"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
 msgstr "エラー"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
+#: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
+msgid "Error: Forwarding ports failed."
+msgstr "エラー：ポートフォワーディングが失敗しました。"
+
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ethernet"
 msgstr "イーサーネット"
@@ -390,7 +357,6 @@ msgstr "フォーワード"
 msgid "Frequency"
 msgstr "クロック"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Full"
 msgstr "フル"
@@ -416,7 +382,6 @@ msgstr "進む"
 msgid "Go to Device List"
 msgstr "端末リストへ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Good"
 msgstr "良い"
@@ -465,7 +430,6 @@ msgstr "ID"
 msgid "IMEI"
 msgstr "IMEI"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Info"
 msgstr "情報"
@@ -506,8 +470,8 @@ msgstr "アクティビティを起動する"
 msgid "Launching activity..."
 msgstr "アクティビティを起動中..."
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Level"
 msgstr "レベル"
 
@@ -515,12 +479,11 @@ msgstr "レベル"
 msgid "Local Settings"
 msgstr "ローカル設定"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Location"
 msgstr "場所"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Logs"
 msgstr "ログ"
@@ -533,9 +496,9 @@ msgstr "メンテナンス"
 msgid "Manage Apps"
 msgstr "アプリ管理"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Manufacturer"
 msgstr "メーカー"
 
@@ -551,33 +514,29 @@ msgstr "メモリー"
 msgid "Menu"
 msgstr "メニュー"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile"
 msgstr "モバイル"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile DUN"
 msgstr "モバイルDUN"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile High Priority"
 msgstr "モバイル最優先"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile MMS"
 msgstr "モバイルMMS"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile SUPL"
 msgstr "モバイルSUPL"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Model"
 msgstr "機種名"
 
@@ -585,13 +544,8 @@ msgstr "機種名"
 msgid "Mute"
 msgstr "音を消す"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid "N/A"
-msgstr "適用なし"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Name"
 msgstr "名称"
 
@@ -603,9 +557,9 @@ msgstr "Native"
 msgid "Navigation"
 msgstr "ブラウジング"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Network"
 msgstr "ネットワーク"
 
@@ -613,12 +567,10 @@ msgstr "ネットワーク"
 msgid "Next"
 msgstr "次"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "No"
 msgstr "いいえ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "No clipboard data"
 msgstr "クリップボードデータはありません"
@@ -631,7 +583,7 @@ msgstr "クッキーはありません"
 msgid "No device screen"
 msgstr "画面が表示できません"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
 msgid "No devices connected"
 msgstr "端末が接続されていません"
 
@@ -643,7 +595,6 @@ msgstr "写真はありません"
 msgid "No screenshots taken"
 msgstr "キャプチャはありません"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr "充電されていない"
@@ -660,13 +611,12 @@ msgstr "通知"
 msgid "Number"
 msgstr "番号"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "OS"
 msgstr "OS"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Offline"
 msgstr "オフライン"
@@ -679,12 +629,10 @@ msgstr "開く"
 msgid "Orientation"
 msgstr "方向"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Over Voltage"
 msgstr "過電圧"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Overheat"
 msgstr "過熱"
@@ -705,18 +653,18 @@ msgstr "パス"
 msgid "Pause"
 msgstr "停止"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone"
 msgstr "電話番号"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone ICCID"
 msgstr "携帯ICCID"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone IMEI"
 msgstr "携帯IMEI"
 
@@ -760,7 +708,6 @@ msgstr "電源"
 msgid "Power Source"
 msgstr "電力源"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Preparing"
 msgstr "準備中"
@@ -773,9 +720,9 @@ msgstr "前"
 msgid "Processing..."
 msgstr "処理中..."
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Product"
 msgstr "型番"
 
@@ -791,19 +738,13 @@ msgstr "RAM"
 msgid "ROM"
 msgstr "ROM"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ready"
 msgstr "利用可能"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Reconnected successfully."
 msgstr "正常に再接続しました。"
-
-#: /Users/a12907/STF/stf/res/build/bundle.js
-msgid "Reconnecting..."
-msgstr "再接続中..."
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Record"
@@ -825,9 +766,9 @@ msgstr "再起動"
 msgid "Relaunch the browser"
 msgstr "ブラウザを再起動する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Released"
 msgstr "発売日"
 
@@ -894,9 +835,9 @@ msgstr "コマンドを実行する"
 msgid "Run the following on your command line:"
 msgstr "次のコマンドをコマンドラインで実行してください。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "SDK"
 msgstr "SDK"
 
@@ -912,8 +853,8 @@ msgstr "保存する..."
 msgid "Saved to: {{savedTo}}"
 msgstr "保存先: {{savedTo}}"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Screen"
 msgstr "解像度"
 
@@ -921,7 +862,6 @@ msgstr "解像度"
 msgid "Screenshot"
 msgstr "キャプチャ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Screenshots"
 msgstr "キャプチャ"
@@ -934,9 +874,9 @@ msgstr "検索"
 msgid "Secure"
 msgstr "セキュア"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Serial"
 msgstr "シリアル"
 
@@ -956,10 +896,6 @@ msgstr "設定"
 msgid "Shell"
 msgstr "シェル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Show All"
-msgstr "すべてを表示"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
 msgid "Show Screen"
 msgstr "画面を表示する"
@@ -972,9 +908,9 @@ msgstr "特別なキー"
 msgid "Start/Stop Logging"
 msgstr "ログ取得の開始／停止"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Status"
 msgstr "ステータス"
 
@@ -983,7 +919,6 @@ msgstr "ステータス"
 msgid "Stop"
 msgstr "停止"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Stop Using"
 msgstr "停止する"
@@ -1036,7 +971,7 @@ msgstr ""
 msgid "Time"
 msgstr "時刻"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Total devices"
 msgstr "全機種"
 
@@ -1048,12 +983,10 @@ msgstr "再接続する"
 msgid "Type"
 msgstr "タイプ"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "USB"
 msgstr "USB"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unauthorized"
 msgstr "権限外"
@@ -1066,12 +999,10 @@ msgstr "フォーワード解除"
 msgid "Uninstall"
 msgstr "削除"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unknown"
 msgstr "未知"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unspecified Failure"
 msgstr "未定義の失敗"
@@ -1096,7 +1027,7 @@ msgstr "アップロードされたファイル"
 msgid "Uploading..."
 msgstr "アップロード中..."
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Usable devices"
 msgstr "利用可能"
 
@@ -1104,13 +1035,12 @@ msgstr "利用可能"
 msgid "Usb speed"
 msgstr "USB速度"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Use"
 msgstr "利用する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "User"
 msgstr "ユーザ"
 
@@ -1154,7 +1084,6 @@ msgstr "音量↑"
 msgid "Web"
 msgstr "Web"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
 msgstr "無線LAN"
@@ -1163,7 +1092,6 @@ msgstr "無線LAN"
 msgid "WiFi Settings"
 msgstr "無線LAN設定"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiMAX"
 msgstr "WiMAX"
@@ -1172,7 +1100,6 @@ msgstr "WiMAX"
 msgid "Width"
 msgstr "幅"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Wireless"
 msgstr "無線"
@@ -1185,7 +1112,6 @@ msgstr "X DPI"
 msgid "Y DPI"
 msgstr "Y DPI"
 
-#: /Users/a12907/STF/stf/res/build/bundle.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
 msgstr "はい"
@@ -1201,6 +1127,27 @@ msgstr "{{ device.enhancedName }}のステータス："
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "{{ device.enhancedName }} was disconnected"
 msgstr "{{ device.enhancedName }}への接続が切れました"
+
+#~ msgid ""
+#~ "Are you sure you want to kick this device?Currently it is being used by"
+#~ msgstr ""
+#~ "このデバイスをキックしますか？\n"
+#~ "只今、次のユーザが使用中です："
+
+#~ msgid "Connecting..."
+#~ msgstr "接続中..."
+
+#~ msgid "Error while connecting."
+#~ msgstr "接続中にエラーが発生しました。"
+
+#~ msgid "N/A"
+#~ msgstr "適用なし"
+
+#~ msgid "Reconnecting..."
+#~ msgstr "再接続中..."
+
+#~ msgid "Show All"
+#~ msgstr "すべてを表示"
 
 #~ msgid "Forward Ports"
 #~ msgstr "ポートフォワード"

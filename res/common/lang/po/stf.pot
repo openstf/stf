@@ -15,9 +15,9 @@ msgstr ""
 msgid "A new version of STF is available"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "ABI"
 msgstr ""
 
@@ -65,17 +65,10 @@ msgstr ""
 msgid "Apps"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid ""
-"Are you sure you want to kick this device?"
-"Currently it is being used by"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "Are you sure you want to reboot this device?"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
 msgstr ""
@@ -88,29 +81,29 @@ msgstr ""
 msgid "Battery"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Health"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Level"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Source"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Status"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid "Battery Temperature"
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
+msgid "Battery Temp"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -125,7 +118,7 @@ msgstr ""
 msgid "Busy"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Busy devices"
 msgstr ""
 
@@ -141,9 +134,9 @@ msgstr ""
 msgid "Cannot access specified URL"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Carrier"
 msgstr ""
 
@@ -478,8 +471,8 @@ msgstr ""
 msgid "Local Settings"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Location"
 msgstr ""
 
@@ -495,9 +488,9 @@ msgstr ""
 msgid "Manage Apps"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Manufacturer"
 msgstr ""
 
@@ -534,16 +527,13 @@ msgid "Mobile SUPL"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Model"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Mute"
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
-msgid "N/A"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -559,9 +549,9 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Network"
 msgstr ""
 
@@ -585,7 +575,7 @@ msgstr ""
 msgid "No device screen"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
 msgid "No devices connected"
 msgstr ""
 
@@ -613,9 +603,9 @@ msgstr ""
 msgid "Number"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "OS"
 msgstr ""
 
@@ -655,18 +645,18 @@ msgstr ""
 msgid "Pause"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone ICCID"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone IMEI"
 msgstr ""
 
@@ -722,9 +712,9 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Product"
 msgstr ""
 
@@ -768,9 +758,9 @@ msgstr ""
 msgid "Relaunch the browser"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Released"
 msgstr ""
 
@@ -837,9 +827,9 @@ msgstr ""
 msgid "Run the following on your command line:"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "SDK"
 msgstr ""
 
@@ -855,8 +845,8 @@ msgstr ""
 msgid "Saved to: {{savedTo}}"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Screen"
 msgstr ""
 
@@ -876,9 +866,9 @@ msgstr ""
 msgid "Secure"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Serial"
 msgstr ""
 
@@ -898,10 +888,6 @@ msgstr ""
 msgid "Shell"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Show All"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
 msgid "Show Screen"
 msgstr ""
@@ -914,9 +900,9 @@ msgstr ""
 msgid "Start/Stop Logging"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Status"
 msgstr ""
 
@@ -973,7 +959,7 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Total devices"
 msgstr ""
 
@@ -1029,7 +1015,7 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 msgid "Usable devices"
 msgstr ""
 
@@ -1041,8 +1027,8 @@ msgstr ""
 msgid "Use"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "User"
 msgstr ""
 

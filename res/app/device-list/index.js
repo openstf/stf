@@ -16,6 +16,7 @@ module.exports = angular.module('device-list', [
       })
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
+  .service('DeviceColumnService', require('./device-column-service'))
   .directive('deviceListDetails', require('./device-list-details-directive'))
   .directive('deviceListIcons', require('./device-list-icons-directive'))
   .directive('deviceListStats', require('./device-list-stats-directive'))

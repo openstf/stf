@@ -1,7 +1,7 @@
 var _ = require('lodash')
 
-// Builders for all possible values
-module.exports = function($filter, gettext) {
+module.exports = function DeviceColumnService($filter, gettext) {
+  // Definitions for all possible values.
   return {
     state: DeviceStatusCell({
       title: gettext('Status')

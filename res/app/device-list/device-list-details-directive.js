@@ -1,10 +1,6 @@
 var patchArray = require('./util/patch-array')
-var columnDefinitions = require('./column-definitions')
 
-module.exports = function DeviceListDetailsDirective(
-  $filter
-, gettext
-) {
+module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
   return {
     restrict: 'E'
   , template: require('./device-list-details.jade')
@@ -24,7 +20,7 @@ module.exports = function DeviceListDetailsDirective(
         , mapping = Object.create(null)
 
       // Import column definitions
-      scope.columnDefinitions = columnDefinitions($filter, gettext)
+      scope.columnDefinitions = DeviceColumnService
 
       // Sorting
       scope.sortBy = function(column, multiple) {

@@ -1,8 +1,6 @@
-var columnDefinitions = require('./column-definitions')
-
 module.exports = function DeviceListDetailsDirective(
   $filter
-, gettext
+, DeviceColumnService
 ) {
   function DeviceItem() {
     return {
@@ -101,7 +99,7 @@ module.exports = function DeviceListDetailsDirective(
         , builder = DeviceItem()
 
       // Import column definitions
-      scope.columnDefinitions = columnDefinitions($filter, gettext)
+      scope.columnDefinitions = DeviceColumnService
 
       // Sorting
       scope.sortBy = function(column, multiple) {

@@ -1,7 +1,9 @@
+var ControlPanesHotkeys = require('./control-panes-hotkeys')
+
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
-    StorageService, FatalMessageService, hotkeys) {
+    StorageService, FatalMessageService, hotkeys, $filter) {
 
     var sharedTabs = [
       {
@@ -181,20 +183,6 @@ module.exports =
     }, true)
 
 
-    function switchDeviceCharset() {
-      $scope.control.keyPress('switch_charset')
-      console.log('Switching charset')
-    }
-
-    hotkeys.add({
-      combo: 'shift+space',
-      description: 'Selects next IME in the device',
-      allowIn: ['textarea'],
-      callback: function (event) {
-        event.preventDefault()
-        switchDeviceCharset()
-      }
-    })
-
+    ControlPanesHotkeys($scope, hotkeys, $filter, gettext)
 
   }

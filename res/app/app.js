@@ -32,9 +32,5 @@ require.ensure([], function (require) {
           })
       }
     ])
-    .config(function (hotkeysProvider) {
-      hotkeysProvider.includeCheatSheet = false
-    })
-
 
 })

@@ -47,7 +47,6 @@
   "resolutions": {
     "angular": "~1.3.0-beta.13",
     "angular-sanitize": "~1.3.0-beta.13",
-    "angular-touch": "~1.3.0-beta.13",
     "bootstrap": "~3.2.0"
   }
 }

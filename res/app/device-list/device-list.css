@@ -172,6 +172,16 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 .device-list-details-content .stf-device-details-customize {
   white-space: nowrap;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
+  padding-bottom: 0;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  max-width: 800px;
 }
+
+.device-list-details-content .stf-device-details-customize .radio, .checkbox {
+  margin: 0;
+  margin-bottom: 10px;
+}
+

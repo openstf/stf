@@ -13,16 +13,10 @@ div.stf-device-list
                 i.fa.fa-th-large
                 span(translate) Devices
               div.device-list-devices-content(ng-if='activeTabs.icons')
-                .filtering-buttons.pull-right
+                .filtering-buttons
                   input(type='search',results='5', autosave='deviceSearch'
-                  name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
-                  autocorrect='off', autocapitalize='off', spellcheck='false').xform-control.device-search
-
-                  //.input-group
-                    input(type='text').form-control
-                    //span.input-group-btn
-                      button.btn.btn-primary-outline(type='button') Search
-                  //clear-button(ng-click="tableParams.sorting({}); tableParams.filter({})")
+                    name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
+                    autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
                 .clear-filtering-buttons
 
                 device-list-icons(tracker='tracker', sort='sort')
@@ -33,16 +27,11 @@ div.stf-device-list
                 span(translate) Details
               div.device-list-details-content(ng-if='activeTabs.details')
                 .filtering-buttons
-                  div(ng-show='ngTableEnabled')
-                    clear-button(ng-click="clearSorting()")
-                    filter-button(ng-model='filterEnabled')
-                    .button-spacer.pull-right
+                  input(type='search',results='5', autosave='deviceSearch'
+                    name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
+                    autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
 
-                    button(btn-checkbox, ng-model='showAll').btn.btn-sm.btn-primary-outline.pull-right
-                      i.fa.fa-list-alt
-                      span {{"Show All"|translate}}
-
-                  span
+                  span.pull-right
                     .btn-group(dropdown).pull-right
                       button.btn.btn-sm.btn-primary-outline.dropdown-toggle
                         i.fa.fa-table
@@ -53,5 +42,7 @@ div.stf-device-list
                           label.checkbox.pointer
                             input(type='checkbox', ng-model='column.selected')
                             span(ng-bind='column.title | translate')
+
+
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort')

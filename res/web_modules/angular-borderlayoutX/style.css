@@ -1,0 +1,36 @@
+.fa-pane-handle {
+  background: rgba(153, 153, 153, 0.5);
+}
+
+.fa-pane:hover > .fa-pane-handle > .fa-pane-toggle {
+  background: rgba(29, 132, 223, 0.8);
+}
+
+.fa-pane-resizing > .fa-pane-handle,
+.fa-pane-handle:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.fa-pane-scroller {
+  /*border: 1px solid #999;*/
+}
+
+.fa-pane-parent > .fa-pane-scroller {
+  border: none;
+}
+
+.fa-pane-constrained.fa-pane-resizing > .fa-pane-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* TODO: CHECK THIS */
+.pane-top-bar {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  z-index: 500;
+}
+
+.navbar {
+  height: 46px;
+  margin: 0;
+  border-radius: 0;
+}

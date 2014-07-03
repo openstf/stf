@@ -20,9 +20,9 @@ module.exports = {
   }
 , resolve: {
     modulesDirectories: [
-      pathutil.resource('bower_components')
-    , pathutil.resource('app/components')
+      pathutil.resource('app/components')
     , pathutil.resource('web_modules')
+    , pathutil.resource('bower_components')
     , './node_modules'
     ]
   , alias: {

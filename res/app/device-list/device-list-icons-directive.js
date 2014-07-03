@@ -75,9 +75,11 @@ module.exports = function DeviceListDetailsDirective(
 
         if (device.usable) {
           a.href = '#!/control/' + device.serial
+          li.classList.remove('device-is-busy')
         }
         else {
           a.removeAttribute('href')
+          li.classList.add('device-is-busy')
         }
 
         return li

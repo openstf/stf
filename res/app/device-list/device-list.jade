@@ -1,9 +1,9 @@
 .stf-device-list
-  .row.stf-stats-container
+  .row.stf-stats-container.unselectable
     .col-md-12
       device-list-stats(tracker='tracker')
 
-  .row
+  .row.unselectable
     .col-md-12
       .widget-container.fluid-height.stf-device-list-tabs
         .widget-content.padded
@@ -37,7 +37,7 @@
                         i.fa.fa-columns
                         span {{"Customize"|translate}}
 
-                      ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.unselectable.stf-device-details-customize
+                      ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.stf-device-details-customize
                         li(ng-repeat='column in columns track by column.name', ng-click='$event.stopPropagation()')
                           label.checkbox.pointer
                             input(type='checkbox', ng-model='column.selected')
@@ -45,4 +45,4 @@
 
 
 
-                device-list-details(tracker='tracker', columns='columns', sort='sort')
+                device-list-details(tracker='tracker', columns='columns', sort='sort').selectable

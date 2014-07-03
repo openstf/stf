@@ -1,7 +1,7 @@
 var patchArray = require('./util/patch-array')
 var columnDefinitions = require('./column-definitions')
 
-var directive = module.exports = function DeviceListDetailsDirective(
+module.exports = function DeviceListDetailsDirective(
   $filter
 , gettext
 ) {

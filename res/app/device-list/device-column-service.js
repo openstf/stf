@@ -157,7 +157,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
       }
     })
   , batteryTemp: TextCell({
-      title: gettext('Battery Temperature')
+      title: gettext('Battery Temp')
     , value: function(device) {
         return device.battery ? device.battery.temp + '°C' : ''
       }

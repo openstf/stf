@@ -1,11 +1,11 @@
-div.stf-device-list
+.stf-device-list
   .row.stf-stats-container
     .col-md-12
       device-list-stats(tracker='tracker')
 
   .row
     .col-md-12
-      .widget-container.fluid-height
+      .widget-container.fluid-height.stf-device-list-tabs
         .widget-content.padded
           tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
             tab(active='activeTabs.icons')
@@ -34,7 +34,7 @@ div.stf-device-list
                   span.pull-right
                     .btn-group(dropdown).pull-right
                       button.btn.btn-sm.btn-primary-outline.dropdown-toggle
-                        i.fa.fa-table
+                        i.fa.fa-columns
                         span {{"Customize"|translate}}
 
                       ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.unselectable.stf-device-details-customize

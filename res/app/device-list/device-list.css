@@ -3,7 +3,11 @@
 }
 
 .stf-device-list .filtering-buttons {
-  margin-top: -32px;
+  /*margin-top: -32px;*/
+
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
 .stf-device-list .clear-filtering-buttons {
@@ -121,6 +125,8 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 .stf-device-list .device-small-image {
   margin-right: 8px;
+  width: 13px;
+  display: inline-block;
 }
 
 .stf-device-list .device-small-image img {
@@ -185,3 +191,6 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
   margin-bottom: 10px;
 }
 
+.stf-device-list .stf-device-list-tabs {
+
+}

@@ -10,6 +10,7 @@ var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
 var protractor = require("gulp-protractor")
+var stream = require('stream')
 
 
 gulp.task('jshint', function () {
@@ -53,6 +54,18 @@ gulp.task('protractor', ['webdriver_update'], function (callback) {
     }).on('end', callback)
 })
 
+// For piping strings
+function fromString(filename, string) {
+  var src = stream.Readable({ objectMode: true })
+  src._read = function () {
+    this.push(new gutil.File({
+      cwd: '', base: '', path: filename, contents: new Buffer(string)
+    }))
+    this.push(null)
+  }
+  return src
+}
+
 
 // For production
 gulp.task("webpack:build", function (callback) {
@@ -63,8 +76,8 @@ gulp.task("webpack:build", function (callback) {
         "NODE_ENV": JSON.stringify('production')
       }
     }),
-    new webpack.optimize.DedupePlugin(),
-    new ngminPlugin(),
+    //new webpack.optimize.DedupePlugin(),
+    //new ngminPlugin(),
     // TODO: mangle when ngmin works
     new webpack.optimize.UglifyJsPlugin({mangle: false})
   )
@@ -78,6 +91,12 @@ gulp.task("webpack:build", function (callback) {
     gutil.log("[webpack:build]", stats.toString({
       colors: true
     }))
+
+    // Save stats to a json file
+    // Can be analyzed in http://webpack.github.io/analyse/
+    fromString('stats.json', JSON.stringify(stats.toJson()))
+      .pipe(gulp.dest('./tmp/'))
+
     callback()
   })
 })
@@ -110,17 +129,18 @@ gulp.task("webpack:others", function (callback) {
 
 gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
-gulp.task('jade', function () {
-  return gulp.src([
+gulp.task('jade', function (cb) {
+  gulp.src([
     './res/**/*.jade'
     , '!./res/bower_components/**'
   ])
     .pipe(jade())
     .pipe(gulp.dest('./tmp/html/'))
+  cb()
 })
 
-gulp.task('translate:extract', function () {
-  return gulp.src([
+gulp.task('translate:extract', ['jade'], function (cb) {
+  gulp.src([
     './tmp/html/**/*.html'
     , './res/**/*.js'
     , '!./res/bower_components/**'
@@ -128,14 +148,16 @@ gulp.task('translate:extract', function () {
   ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))
+  cb()
 })
 
-gulp.task('translate:compile', function () {
-  return gulp.src('./res/common/lang/po/**/*.po')
+gulp.task('translate:compile', ['translate:extract'], function (cb) {
+  gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
     }))
     .pipe(gulp.dest('./res/common/lang/translations/'))
+  cb()
 })
 
 gulp.task('clean', function () {

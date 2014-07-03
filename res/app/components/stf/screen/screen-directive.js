@@ -1,4 +1,5 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
+var _ = require('lodash')
 
 module.exports = function DeviceScreenDirective($document, ScalingService, VendorUtil, PageVisibilityService, BrowserInfo, $timeout) {
   return {
@@ -24,7 +25,9 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         , seq = 0
         , cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
-      scope.$on('panelsResized', updateBounds)
+      // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
+      var onPanelResizeThrottled = _.throttle(updateBounds, 16)
+      scope.$on('fa-pane-resize', onPanelResizeThrottled)
 
       function setDisplayDensity(forRetina) {
         // FORCE

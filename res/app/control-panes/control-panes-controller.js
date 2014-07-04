@@ -1,9 +1,7 @@
-var ControlPanesHotkeys = require('./control-panes-hotkeys')
-
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
-    StorageService, FatalMessageService, hotkeys, $filter) {
+    StorageService, FatalMessageService) {
 
     var sharedTabs = [
       {
@@ -182,7 +180,5 @@ module.exports =
       }
     }, true)
 
-
-    ControlPanesHotkeys($scope, hotkeys, $filter, gettext)
 
   }

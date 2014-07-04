@@ -22,3 +22,4 @@ module.exports = angular.module('control-panes', [
   }])
   .factory('ControlPanesService', require('./control-panes-service'))
   .controller('ControlPanesCtrl', require('./control-panes-controller'))
+  .controller('ControlPanesHotKeysCtrl', require('./control-panes-hotkeys-controller'))

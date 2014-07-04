@@ -1,67 +1,45 @@
-var _ = require('lodash')
 var supportedLanguages = require('./../../../common/lang/langs.json')
 
-module.exports = function (SettingsService, $q, gettextCatalog) {
+module.exports = function LanguageServiceFactory(
+  SettingsService
+, gettextCatalog
+) {
   var LanguageService = {}
 
+  function detectLanguage() {
+    return (navigator.language || navigator.userLanguage || 'en-US')
+      .substring(0, 2)
+  }
+
+  function isSupported(lang) {
+    return !!supportedLanguages[lang]
+  }
+
+  function onlySupported(lang, defaultValue) {
+    return isSupported(lang) ? lang : defaultValue
+  }
+
+  LanguageService.settingKey = 'selectedLanguage'
   LanguageService.supportedLanguages = supportedLanguages
+  LanguageService.defaultLanguage = 'en'
+  LanguageService.detectedLanguage =
+    onlySupported(detectLanguage(), LanguageService.defaultLanguage)
 
-  var browserLocale = navigator.language || navigator.userLanguage || 'en-US'
-  var browserLanguage = browserLocale.substring(0, 2)
-  var isLanguageMatched = _.some(supportedLanguages, function (value, key) {
-    return key === browserLanguage
-  })
-  var detectedLanguage = isLanguageMatched ? browserLanguage : 'en'
-
-  var defaultLanguage = 'ja'
-  LanguageService.detectedLanguage = defaultLanguage
-  LanguageService.selectedLanguage = null
-
-  // TODO: Can't this be refactored to something like this?
-  //  SettingsService.sync(LanguageService.selectedLanguage, 'Language', {
-  //    selected: LanguageService.detectedLanguage
-  //  })
-
-  LanguageService.getSelectedLanguage = function () {
-    var deferred = $q.defer()
-    if (LanguageService.selectedLanguage) {
-      deferred.resolve(LanguageService.selectedLanguage)
-    } else {
-      SettingsService.getItem('Language.selected').then(function (data) {
-        if (data) {
-          deferred.resolve(data)
-        } else {
-          LanguageService.setSelectedLanguage(LanguageService.detectedLanguage)
-            .then(function () {
-              deferred.resolve(LanguageService.detectedLanguage)
-            })
-        }
-      })
+  SettingsService.sync(
+    LanguageService
+  , {
+      target: LanguageService.settingKey
+    , source: LanguageService.settingKey
+    , defaultValue: LanguageService.detectedLanguage
     }
-    return deferred.promise
+  , updateLanguage
+  )
+
+  function updateLanguage() {
+    gettextCatalog.currentLanguage = LanguageService.selectedLanguage
   }
 
-  // TODO: this is to prevent initial text flashing from ja
-  gettextCatalog.currentLanguage = LanguageService.detectedLanguage
-
-  // Initialize gettextCatalog
-
-  LanguageService.init = function () {
-    LanguageService.getSelectedLanguage().then(function (data) {
-      LanguageService.setSelectedLanguage(data)
-    })
-  }
-
-
-  LanguageService.setSelectedLanguage = function (lang) {
-    var deferred = $q.defer()
-    LanguageService.selectedLanguage = lang
-    gettextCatalog.currentLanguage = lang
-    SettingsService.setItem('Language.selected', lang).then(function () {
-      deferred.resolve(lang)
-    })
-    return deferred.promise
-  }
+  LanguageService.updateLanguage = updateLanguage
 
   return LanguageService
 }

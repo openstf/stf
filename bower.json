@@ -13,7 +13,6 @@
     "oboe": "~1.15.1",
     "fa-borderlayout": "~0.3.1-beta2",
     "Snap.svg": "~0.3.0",
-    "angular-localForage": "~0.2.6",
     "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",
     "jquery.terminal": "~0.8.7",
     "stf-site": "~0.4.1",

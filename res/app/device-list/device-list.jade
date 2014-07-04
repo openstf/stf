@@ -41,8 +41,6 @@
                         li(ng-repeat='column in columns track by column.name', ng-click='$event.stopPropagation()')
                           label.checkbox.pointer
                             input(type='checkbox', ng-model='column.selected')
-                            span(ng-bind='column.title | translate')
-
-
+                            span(ng-bind='columnDefinitions[column.name].title | translate')
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort').selectable

@@ -1,8 +1,13 @@
-module.exports = function MenuCtrl($scope, $rootScope, SettingsService, $location, ExternalUrlModalService) {
-  $rootScope.platform = 'native'
+module.exports = function MenuCtrl(
+  $scope
+, $rootScope
+, SettingsService
+, $location
+, ExternalUrlModalService
+) {
   SettingsService.bind($rootScope, {
-    key: 'platform',
-    storeName: 'Platform'
+    target: 'platform'
+  , defaultValue: 'native'
   })
 
   $scope.$on('$routeChangeSuccess', function () {

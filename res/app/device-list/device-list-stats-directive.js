@@ -19,9 +19,7 @@ module.exports = function DeviceListStatsDirective(
       , using: 0
       }
 
-      UserService.currentUser().then(function(user) {
-        scope.currentUser = user
-      })
+      scope.currentUser = UserService.currentUser
 
       function notify() {
         clearTimeout(timer)

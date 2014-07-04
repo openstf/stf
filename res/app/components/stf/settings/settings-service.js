@@ -1,61 +1,103 @@
-var Promise = require('bluebird')
+var _ = require('lodash')
 
-module.exports = function SettingsServiceFactory($localForage) {
+module.exports = function SettingsServiceFactory(
+  $rootScope
+, UserService
+, socket
+) {
   var SettingsService = {}
 
-  var loadedInMemory = false
+  var settings = UserService.currentUser.settings || {}
+    , syncListeners = []
 
-  var memoryData = Object.create(null)
+  function createListener(object, options, monitor) {
+    var source = options.source || options.target
+    return function() {
+      var value = object[options.target] = (source in settings)
+        ? settings[source]
+        : options.defaultValue
 
-  function setItemMemory(key, value) {
-    memoryData[key] = value
-  }
-
-  function getItemMemory(key) {
-    return memoryData[key]
-  }
-
-  SettingsService.setItem = function (key, value) {
-    setItemMemory(key, value)
-    return $localForage.setItem(key, value)
-  }
-
-  function loadAllItems() {
-    if (loadedInMemory) {
-      return Promise.resolve()
+      if (monitor) {
+        monitor(value)
+      }
     }
+  }
 
-    return $localForage.getKeys().then(function (keys) {
-      return Promise.all(keys.map(function (key) {
-        return $localForage.getItem(key).then(setItemMemory.bind(null, key))
-      }))
-    }).then(function () {
-      loadedInMemory = true
+  function applyDelta(delta) {
+    $rootScope.safeApply(function() {
+      _.merge(settings, delta, function(a, b) {
+        // New Arrays overwrite old Arrays
+        return _.isArray(b) ? b : undefined
+      })
+
+      for (var i = 0, l = syncListeners.length; i < l; ++i) {
+        syncListeners[i]()
+      }
     })
   }
 
-  SettingsService.getItem = function (key) {
-    return loadAllItems().then(function () {
-      return getItemMemory(key)
-    })
+  SettingsService.update = function(delta) {
+    socket.emit('user.settings.update', delta)
+    applyDelta(delta)
   }
 
-  SettingsService.bind = function () {
-
-
-
-    return $localForage.bind.apply($localForage, arguments)
+  SettingsService.set = function(key, value) {
+    var delta = Object.create(null)
+    delta[key] = value
+    SettingsService.update(delta)
   }
 
-  SettingsService.driver = function () {
-    return $localForage.driver.apply($localForage, arguments)
-      + ' with memory cache'
+  SettingsService.reset = function() {
+    socket.emit('user.settings.reset')
+    settings = {}
+    applyDelta(null)
   }
 
-  SettingsService.clear = function () {
-    memoryData = Object.create(null)
-    return $localForage.clear.apply($localForage, arguments)
+  SettingsService.bind = function(scope, options) {
+    var source = options.source || options.target
+
+    scope.$watch(
+      options.target
+    , function(newValue, oldValue) {
+        // Skip initial value.
+        if (newValue !== oldValue) {
+          var delta = Object.create(null)
+          delta[source] = newValue
+          SettingsService.update(delta)
+        }
+      }
+    , true
+    )
+
+    scope.$watch(
+      function() {
+        return settings[source]
+      }
+    , function(newValue, oldValue) {
+        // Skip initial value. The new value might not be different if
+        // settings were reset, for example. In that case we call back
+        // to the default value.
+        if (newValue !== oldValue) {
+          scope[options.target] = newValue || options.defaultValue
+        }
+      }
+    , true
+    )
+
+    scope[options.target] = settings[source] || options.defaultValue
   }
+
+  SettingsService.sync = function(object, options, monitor) {
+    var listener = createListener(object, options, monitor)
+    listener() // Initialize
+    return syncListeners.push(listener) - 1
+  }
+
+  SettingsService.unsync = function(id) {
+    syncListeners.splice(id, 1)
+  }
+
+  socket.on('user.settings.update', applyDelta)
 
   return SettingsService
 }

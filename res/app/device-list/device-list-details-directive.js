@@ -220,6 +220,10 @@ module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
 
         tr.id = id
 
+        if (!device.usable) {
+          tr.className = 'device-not-usable'
+        }
+
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
           td = scope.columnDefinitions[activeColumns[i]].build()
           scope.columnDefinitions[activeColumns[i]].update(td, device)

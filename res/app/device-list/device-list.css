@@ -40,7 +40,13 @@
 }
 
 .stf-device-list .device-search {
-  width: 150px;
+  width: 10em;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.stf-device-list .device-search:focus {
+  width: 25em;
 }
 
 ul.devices-icon-view {

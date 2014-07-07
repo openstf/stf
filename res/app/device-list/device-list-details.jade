@@ -1,6 +1,6 @@
 table.table.table-hover.dataTable.ng-table
   thead
     tr
-      th.header.sortable(ng-repeat='column in columns()', ng-if='column.selected', ng-class='["sort-" + (sortedColumns[column.name].order || "none")]', ng-click='sortBy(column, $event.shiftKey)')
+      th.header.sortable(ng-repeat='column in columns() track by column.name', ng-if='column.selected', ng-class='["sort-" + (sortedColumns[column.name].order || "none")]', ng-click='sortBy(column, $event.shiftKey)')
         div(ng-bind='columnDefinitions[column.name].title | translate')
 device-list-empty(tracker='tracker()')

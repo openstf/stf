@@ -76,7 +76,7 @@ module.exports = function SettingsServiceFactory(
       }
     , function(newValue, oldValue) {
         // Skip initial value. The new value might not be different if
-        // settings were reset, for example. In that case we call back
+        // settings were reset, for example. In that case we fall back
         // to the default value.
         if (newValue !== oldValue) {
           scope[options.target] = newValue || defaultValue

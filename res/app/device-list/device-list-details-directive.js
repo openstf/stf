@@ -8,11 +8,13 @@ module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
       tracker: '&tracker'
     , columns: '&columns'
     , sort: '=sort'
+    , filter: '&filter'
     }
   , link: function (scope, element) {
       var tracker = scope.tracker()
         , activeColumns = []
         , activeSorting = []
+        , activeFilters = []
         , table = element.find('table')[0]
         , tbody = table.createTBody()
         , rows = tbody.rows
@@ -113,6 +115,71 @@ module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
 
         return patchAll(patch)
       }
+
+      // Updates filters on visible items.
+      function updateFilters(filters) {
+        activeFilters = filters
+        return filterAll()
+      }
+
+      // Applies filteRow() to all rows.
+      function filterAll() {
+        for (var i = 0, l = rows.length; i < l; ++i) {
+          filterRow(rows[i], mapping[rows[i].id])
+        }
+      }
+
+      // Filters a row, perhaps removing it from view.
+      function filterRow(row, device) {
+        if (match(device)) {
+          row.classList.remove('filter-out')
+        }
+        else {
+          row.classList.add('filter-out')
+        }
+      }
+
+      // Checks whether the device matches the currently active filters.
+      function match(device) {
+        for (var i = 0, l = activeFilters.length; i < l; ++i) {
+          var filter = activeFilters[i]
+            , column
+          if (filter.field) {
+            column = scope.columnDefinitions[filter.field]
+            if (column && !column.filter(device, filter)) {
+              return false
+            }
+          }
+          else {
+            var found = false
+            for (var j = 0, k = activeColumns.length; j < k; ++j) {
+              column = scope.columnDefinitions[activeColumns[j]]
+              if (column && column.filter(device, filter)) {
+                found = true
+                break
+              }
+            }
+            if (!found) {
+              return false
+            }
+          }
+        }
+        return true
+      }
+
+      // Update now so we're up to date.
+      updateFilters(scope.filter())
+
+      // Watch for filter updates.
+      scope.$watch(
+        function() {
+          return scope.filter()
+        }
+      , function(newValue) {
+          updateFilters(newValue)
+        }
+      , true
+      )
 
       // Calculates a DOM ID for the device. Should be consistent for the
       // same device within the same table, but unique among other tables.

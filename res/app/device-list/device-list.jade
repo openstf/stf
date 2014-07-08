@@ -14,12 +14,13 @@
                 span(translate) Devices
               div.device-list-devices-content(ng-if='activeTabs.icons')
                 .filtering-buttons
-                  input(type='search',results='5', autosave='deviceSearch'
-                    name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
+                  input(type='search', results='5', autosave='deviceFilter'
+                    name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
+                    ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
                 .clear-filtering-buttons
 
-                device-list-icons(tracker='tracker', sort='sort')
+                device-list-icons(tracker='tracker', sort='sort', filter='filter')
 
             tab(active='activeTabs.details')
               tab-heading
@@ -27,8 +28,9 @@
                 span(translate) Details
               div.device-list-details-content(ng-if='activeTabs.details')
                 .filtering-buttons
-                  input(type='search',results='5', autosave='deviceSearch'
-                    name='deviceSearch', ng-model='deviceSearch', ng-change='deviceSearchChanged()',
+                  input(type='search', results='5', autosave='deviceFilter'
+                    name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
+                    ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
 
                   span.pull-right
@@ -43,4 +45,4 @@
                             input(type='checkbox', ng-model='column.selected')
                             span(ng-bind='columnDefinitions[column.name].title | translate')
 
-                device-list-details(tracker='tracker', columns='columns', sort='sort').selectable
+                device-list-details(tracker='tracker', columns='columns', sort='sort', filter='filter').selectable

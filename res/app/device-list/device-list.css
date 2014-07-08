@@ -45,6 +45,10 @@
   transition: none;
 }
 
+.stf-device-list .filter-out {
+  display: none;
+}
+
 .stf-device-list .device-search:focus {
   width: 25em;
 }

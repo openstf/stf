@@ -191,6 +191,12 @@ function compareIgnoreCase(a, b) {
   return la === lb ? 0 : (la < lb ? -1 : 1)
 }
 
+function filterIgnoreCase(a, filterValue) {
+  var va = (a || '').toLowerCase()
+    , vb = filterValue.toLowerCase()
+  return va.indexOf(vb) !== -1
+}
+
 function compareRespectCase(a, b) {
   return a === b ? 0 : (a < b ? -1 : 1)
 }
@@ -212,6 +218,9 @@ function TextCell(options) {
   , compare: function(a, b) {
       return compareIgnoreCase(options.value(a), options.value(b))
     }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
+    }
   })
 }
 
@@ -231,6 +240,9 @@ function NumberCell(options) {
     }
   , compare: function(a, b) {
       return options.value(a) - options.value(b)
+    }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
     }
   })
 }
@@ -265,6 +277,9 @@ function DateCell(options) {
         , vb = options.value(b) || 0
       return va - vb
     }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item) + '', filter.query)
+    }
   })
 }
 
@@ -295,6 +310,9 @@ function LinkCell(options) {
     }
   , compare: function(a, b) {
       return compareIgnoreCase(options.value(a), options.value(b))
+    }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
     }
   })
 }
@@ -327,6 +345,9 @@ function DeviceModelCell(options) {
     }
   , compare: function(a, b) {
       return compareRespectCase(options.value(a), options.value(b))
+    }
+  , filter: function(device, filter) {
+      return filterIgnoreCase(options.value(device), filter.query)
     }
   })
 }
@@ -396,5 +417,8 @@ function DeviceStatusCell(options) {
         return order[deviceA.state] - order[deviceB.state]
       }
     })()
+  , filter: function(device, filter) {
+      return device.state === filter.query
+    }
   })
 }

@@ -14,7 +14,8 @@
     form
       .input-group
         input.form-control(type='text', placeholder='http://...', autocomplete='off', ng-model='textURL',
-        typeahead='url for url in urlHistory | filter:$viewValue').form-control
+        typeahead='url for url in urlHistory | filter:$viewValue', text-focus-select).form-control
+
         .input-group-btn
           button(ng-click='openURL()', ng-disabled='!textURL', translate).btn.btn-primary-outline Open
           //button(type='button', ng-disabled='!hasHistory()').btn.btn-primary-outline.dropdown-toggle

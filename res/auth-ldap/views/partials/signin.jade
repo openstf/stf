@@ -17,7 +17,7 @@
           span.input-group-addon
             i.fa.fa-user
           input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAPユーザ名',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
           span(ng-show='signin.username.$error.required') LDAPユーザ名を入力してください
           //span(ng-show='signin.username.$error.required') Please enter your LDAP username
@@ -27,7 +27,7 @@
           span.input-group-addon
             i.fa.fa-lock
           input.form-control(ng-model='password', name='password', required, type='password', placeholder='パスワード',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login current-password')
         .alert.alert-warning(ng-show='signin.password.$dirty && signin.password.$invalid')
           span パスワードを入力してください
           //span Please enter your password

@@ -14,7 +14,7 @@
           span.input-group-addon
             i.fa.fa-user
           input.form-control(ng-model='name', name='name', required, type='text', placeholder='Name',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
         .alert.alert-warning(ng-show='signin.name.$dirty && signin.name.$invalid')
           span Please enter your name
 
@@ -23,7 +23,7 @@
           span.input-group-addon
             i.fa.fa-envelope
           input.form-control(ng-model='email', name='email', required, type='email', placeholder='E-mail',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='on')
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login email')
         .alert.alert-warning(ng-show='signin.email.$dirty && signin.email.$invalid')
           span(ng-show='signin.email.$error.email') Please enter a valid email
           span(ng-show='signin.email.$error.required') Please enter your email

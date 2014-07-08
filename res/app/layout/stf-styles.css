@@ -384,3 +384,8 @@ a.active {
     left: 0;
     right: 0;
 }
+
+/* Hide datalist for non-supporting browsers */
+datalist {
+  display: none;
+}

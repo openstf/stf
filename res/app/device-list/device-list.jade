@@ -30,8 +30,8 @@
                 .filtering-buttons
                   datalist(id='searchFields')
                     select(name='searchFields')
-                      option(ng-repeat='column in columns', ng-value='column.name + ": "', ng-bind='columnDefinitions[column.name].title | translate')
-
+                      option(ng-repeat='column in columns', ng-value='column.name + ": "',
+                        ng-bind='columnDefinitions[column.name].title | translate')
                   input(type='search', results='5', autosave='deviceFilter'
                     name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
                     ng-model-options='{debounce: 150}'

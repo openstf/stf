@@ -16,7 +16,7 @@
                 .filtering-buttons
                   input(type='search', results='5', autosave='deviceFilter'
                     name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
-                    ng-model-options='{debounce: 250}'
+                    ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
                 .clear-filtering-buttons
 
@@ -28,10 +28,15 @@
                 span(translate) Details
               div.device-list-details-content(ng-if='activeTabs.details')
                 .filtering-buttons
+                  datalist(id='searchFields')
+                    select(name='searchFields')
+                      option(ng-repeat='column in columns', ng-value='column.name + ": "', ng-bind='columnDefinitions[column.name].title | translate')
+
                   input(type='search', results='5', autosave='deviceFilter'
                     name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
-                    ng-model-options='{debounce: 250}'
-                    autocorrect='off', autocapitalize='off', spellcheck='false').form-control.input-sm.device-search.pull-right
+                    ng-model-options='{debounce: 150}'
+                    autocorrect='off', autocapitalize='off', spellcheck='false'
+                    list='searchFields', multiple).form-control.input-sm.device-search.pull-right
 
                   span.pull-right
                     .btn-group(dropdown).pull-right

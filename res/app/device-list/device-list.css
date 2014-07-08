@@ -11,7 +11,7 @@
 }
 
 .stf-device-list .clear-filtering-buttons {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .stf-device-list .device-not-usable {
@@ -40,7 +40,7 @@
 }
 
 .stf-device-list .device-search {
-  width: 10em;
+  width: 20em;
   -webkit-transition: none;
   transition: none;
 }
@@ -50,7 +50,7 @@
 }
 
 .stf-device-list .device-search:focus {
-  width: 25em;
+  /*width: 25em;*/
 }
 
 ul.devices-icon-view {

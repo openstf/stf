@@ -93,15 +93,15 @@ module.exports = function DeviceColumnService($filter, gettext) {
       title: gettext('Screen')
     , defaultOrder: 'desc'
     , value: function(device) {
-        return device.display
+        return device.display && device.display.width
           ? device.display.width + 'x' + device.display.height
           : ''
       }
     , compare: function(deviceA, deviceB) {
-        var va = deviceA.display
+        var va = deviceA.display && deviceA.display.width
           ? deviceA.display.width * deviceA.display.height
           : 0
-        var vb = deviceB.display
+        var vb = deviceB.display && deviceB.display.width
           ? deviceB.display.width * deviceB.display.height
           : 0
         return va - vb

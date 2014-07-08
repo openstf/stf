@@ -383,21 +383,34 @@ function DeviceModelCell(options) {
       var td = document.createElement('td')
         , span = document.createElement('span')
         , image = document.createElement('img')
+        , a = document.createElement('a')
       span.className = 'device-small-image'
       span.appendChild(image)
       td.appendChild(span)
-      td.appendChild(document.createTextNode(''))
+      a.appendChild(document.createTextNode(''))
+      td.appendChild(a)
       return td
     }
   , update: function(td, device) {
       var span = td.firstChild
         , image = span.firstChild
-        , t = span.nextSibling
+        , a = span.nextSibling
+        , t = a.firstChild
         , src = '/static/devices/icon/x24/' + (device.image || '_default.jpg')
       // Only change if necessary so that we don't trigger a download
       if (image.getAttribute('src') !== src) {
         image.setAttribute('src', src)
       }
+
+      if (device.using) {
+        a.className = 'btn btn-xs btn-primary-outline'
+        a.href = '#!/control/' + device.serial
+      }
+      else {
+        a.className = 'device-model-link-off'
+        a.removeAttribute('href')
+      }
+
       t.nodeValue = options.value(device)
       return td
     }
@@ -450,7 +463,7 @@ function DeviceStatusCell(options) {
         a.className = classes + 'btn-default-outline'
         break
       }
-      if (device.usable) {
+      if (device.usable && !device.using) {
         a.href = '#!/control/' + device.serial
       }
       else {

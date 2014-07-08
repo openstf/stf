@@ -204,3 +204,7 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 .stf-device-list .stf-device-list-tabs {
 
 }
+
+.stf-device-list .device-model-link-off {
+  color: inherit;
+}

@@ -1,6 +1,10 @@
 var patchArray = require('./util/patch-array')
 
-module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
+module.exports = function DeviceListDetailsDirective(
+  DeviceColumnService
+, GroupService
+, $filter
+) {
   return {
     restrict: 'E'
   , template: require('./device-list-details.jade')
@@ -20,6 +24,26 @@ module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
         , rows = tbody.rows
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
+
+
+      function kickDevice(device, force) {
+        return GroupService.kick(device, force).catch(function (e) {
+          console.log(e)
+          alert($filter('translate')(gettext('Device cannot get kicked from the group')))
+        })
+      }
+
+      element.on('click', function (e) {
+        if (e.target.classList.contains('device-status')) {
+          var id = e.target.parentNode.parentNode.id
+          var device = mapping[id]
+
+          if (device.using) {
+            kickDevice(device)
+            e.preventDefault()
+          }
+        }
+      })
 
       // Import column definitions
       scope.columnDefinitions = DeviceColumnService
@@ -273,6 +297,13 @@ module.exports = function DeviceListDetailsDirective(DeviceColumnService) {
         var id = calculateId(device)
 
         tr.id = id
+
+        if (!device.usable) {
+          tr.className = 'device-not-usable'
+        }
+        else {
+          tr.className = ''
+        }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
           scope.columnDefinitions[activeColumns[i]].update(tr.cells[i], device)

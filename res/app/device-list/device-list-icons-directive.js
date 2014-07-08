@@ -1,6 +1,7 @@
 module.exports = function DeviceListDetailsDirective(
   $filter
 , DeviceColumnService
+, GroupService
 ) {
   function DeviceItem() {
     return {
@@ -8,32 +9,37 @@ module.exports = function DeviceListDetailsDirective(
         var li = document.createElement('li')
         li.className = 'cursor-select pointer thumbnail'
 
+        // the whole li is a link
+        var a = document.createElement('a')
+        li.appendChild(a)
+
         // .device-photo-small
         var photo = document.createElement('div')
         photo.className = 'device-photo-small'
         var img = document.createElement('img')
         photo.appendChild(img)
-        li.appendChild(photo)
+        a.appendChild(photo)
 
         // .device-name
         var name = document.createElement('div')
         name.className = 'device-name'
         name.appendChild(document.createTextNode(''))
-        li.appendChild(name)
+        a.appendChild(name)
 
         // button
-        var a = document.createElement('a')
-        a.appendChild(document.createTextNode(''))
-        li.appendChild(a)
+        var button = document.createElement('button')
+        button.appendChild(document.createTextNode(''))
+        a.appendChild(button)
 
         return li
       }
     , update: function(li, device) {
-        var img = li.firstChild.firstChild
-          , name = li.firstChild.nextSibling
+        var a = li.firstChild
+          , img = a.firstChild.firstChild
+          , name = a.firstChild.nextSibling
           , nt = name.firstChild
-          , a = name.nextSibling
-          , at = a.firstChild
+          , button = name.nextSibling
+          , at = button.firstChild
           , classes = 'btn btn-xs device-status '
 
         // .device-photo-small
@@ -49,27 +55,27 @@ module.exports = function DeviceListDetailsDirective(
 
         switch (device.state) {
         case 'using':
-          a.className = classes + 'btn-primary'
+          button.className = classes + 'btn-primary'
           break
         case 'busy':
-          a.className = classes + 'btn-warning'
+          button.className = classes + 'btn-warning'
           break
         case 'available':
         case 'ready':
         case 'present':
-          a.className = classes + 'btn-primary-outline'
+          button.className = classes + 'btn-primary-outline'
           break
         case 'preparing':
-          a.className = classes + 'btn-primary-outline btn-success-outline'
+          button.className = classes + 'btn-primary-outline btn-success-outline'
           break
         case 'unauthorized':
-          a.className = classes + 'btn-danger-outline'
+          button.className = classes + 'btn-danger-outline'
           break
         case 'offline':
-          a.className = classes + 'btn-warning-outline'
+          button.className = classes + 'btn-warning-outline'
           break
         default:
-          a.className = classes + 'btn-default-outline'
+          button.className = classes + 'btn-default-outline'
           break
         }
 
@@ -102,6 +108,26 @@ module.exports = function DeviceListDetailsDirective(
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
         , builder = DeviceItem()
+
+
+      function kickDevice(device, force) {
+        return GroupService.kick(device, force).catch(function (e) {
+          console.log(e)
+          alert($filter('translate')(gettext('Device cannot get kicked from the group')))
+        })
+      }
+
+      element.on('click', function (e) {
+        if (e.target.classList.contains('device-status')) {
+          var id = e.target.parentNode.parentNode.id
+          var device = mapping[id]
+
+          if (device.using) {
+            kickDevice(device)
+            e.preventDefault()
+          }
+        }
+      })
 
       // Import column definitions
       scope.columnDefinitions = DeviceColumnService

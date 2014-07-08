@@ -1,13 +1,16 @@
 var State = {
-  TERM_START: 1
-, FIELD_OR_QUERY: 2
-, QUERY_START: 3
-, QUERY: 4
-, DOUBLEQUOTED_QUERY: 5
+  TERM_START: 10
+, QUERY_START: 20
+, OP_LT: 30
+, OP_GT: 40
+, QUERY_VALUE_START: 50
+, QUERY_VALUE: 60
+, QUERY_VALUE_DOUBLEQUOTED: 70
 }
 
 function Term() {
   this.field = null
+  this.op = null
   this.query = ''
 }
 
@@ -38,14 +41,53 @@ QueryParser.prototype.consume = function(input) {
       return
     }
     this.terms.push(this.currentTerm)
-    if (input === '"') {
-      this.state = State.DOUBLEQUOTED_QUERY
+    this.state = State.QUERY_START
+    return this.consume(input)
+  case State.QUERY_START:
+    if (this.isWhitespace(input)) {
+      // Preceding whitespace, ignore.
       return
     }
-    this.state = State.FIELD_OR_QUERY
-    this.currentTerm.query += input
-    return
-  case State.FIELD_OR_QUERY:
+    if (input === '<') {
+      this.state = State.OP_LT
+      return
+    }
+    if (input === '>') {
+      this.state = State.OP_GT
+      return
+    }
+    this.state = State.QUERY_VALUE_START
+    return this.consume(input)
+  case State.OP_LT:
+    if (input === '=') {
+      this.currentTerm.op = '<='
+      this.state = State.QUERY_VALUE_START
+      return
+    }
+    this.currentTerm.op = '<'
+    this.state = State.QUERY_VALUE_START
+    return this.consume(input)
+  case State.OP_GT:
+    if (input === '=') {
+      this.currentTerm.op = '>='
+      this.state = State.QUERY_VALUE_START
+      return
+    }
+    this.currentTerm.op = '>'
+    this.state = State.QUERY_VALUE_START
+    return this.consume(input)
+  case State.QUERY_VALUE_START:
+    if (this.isWhitespace(input)) {
+      // Preceding whitespace, ignore.
+      return
+    }
+    if (input === '"') {
+      this.state = State.QUERY_VALUE_DOUBLEQUOTED
+      return
+    }
+    this.state = State.QUERY_VALUE
+    return this.consume(input)
+  case State.QUERY_VALUE:
     if (this.isWhitespace(input)) {
       return this.concludeTerm()
     }
@@ -57,28 +99,7 @@ QueryParser.prototype.consume = function(input) {
     }
     this.currentTerm.query += input
     return
-  case State.QUERY_START:
-    if (this.isWhitespace(input)) {
-      // Preceding whitespace, ignore.
-      return
-    }
-    if (input === '"') {
-      this.state = State.DOUBLEQUOTED_QUERY
-      return
-    }
-    this.currentTerm.query += input
-    return
-  case State.QUERY:
-    if (this.isWhitespace(input)) {
-      return this.concludeTerm()
-    }
-    if (input === '"') {
-      this.state = State.DOUBLEQUOTED_QUERY
-      return
-    }
-    this.currentTerm.query += input
-    return
-  case State.DOUBLEQUOTED_QUERY:
+  case State.QUERY_VALUE_DOUBLEQUOTED:
     if (input === '\\') {
       return
     }

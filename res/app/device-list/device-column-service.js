@@ -56,6 +56,32 @@ module.exports = function DeviceColumnService($filter, gettext) {
 
         return 0
       }
+    , filter: function(device, filter) {
+        var va = (device.version || '0').split('.')
+          , vb = (filter.query || '0').split('.')
+          , la = va.length
+          , lb = vb.length
+          , op = filterOps[filter.op || '=']
+
+        if (vb[lb - 1] === '') {
+          // This means that the query is not complete yet, and we're
+          // looking at something like "4.", which means that the last part
+          // should be ignored.
+          vb.pop()
+          lb -= 1
+        }
+
+        for (var i = 0, l = Math.min(la, lb); i < l; ++i) {
+          var a = parseInt(va[i], 10)
+            , b = parseInt(vb[i], 10)
+
+          if (!op(a, b)) {
+            return false
+          }
+        }
+
+        return true
+      }
     })
   , network: TextCell({
       title: gettext('Network')
@@ -201,6 +227,24 @@ function compareRespectCase(a, b) {
   return a === b ? 0 : (a < b ? -1 : 1)
 }
 
+var filterOps = {
+  '<': function(a, filterValue) {
+    return a < filterValue
+  }
+, '<=': function(a, filterValue) {
+    return a <= filterValue
+  }
+, '>': function(a, filterValue) {
+    return a > filterValue
+  }
+, '>=': function(a, filterValue) {
+    return a >= filterValue
+  }
+, '=': function(a, filterValue) {
+    return a === filterValue
+  }
+}
+
 function TextCell(options) {
   return _.defaults(options, {
     title: options.title
@@ -241,12 +285,16 @@ function NumberCell(options) {
   , compare: function(a, b) {
       return options.value(a) - options.value(b)
     }
-  , filter: function(item, filter) {
-      return filterIgnoreCase(options.value(item), filter.query)
-    }
+  , filter: (function() {
+      return function(item, filter) {
+        return filterOps[filter.op || '='](
+          options.value(item)
+        , +filter.query
+        )
+      }
+    })()
   })
 }
-
 
 function DateCell(options) {
   return _.defaults(options, {
@@ -277,9 +325,19 @@ function DateCell(options) {
         , vb = options.value(b) || 0
       return va - vb
     }
-  , filter: function(item, filter) {
-      return filterIgnoreCase(options.value(item) + '', filter.query)
-    }
+  , filter: (function() {
+      function dateNumber(d) {
+        return d
+          ? d.getFullYear() * 10000 + d.getMonth() * 100 + d.getDate()
+          : 0
+      }
+      return function(item, filter) {
+        var filterDate = new Date(filter.query)
+          , va = dateNumber(options.value(item))
+          , vb = dateNumber(filterDate)
+        return filterOps[filter.op || '='](va, vb)
+      }
+    })()
   })
 }
 

@@ -34,7 +34,7 @@
                       option(ng-repeat='column in columns', ng-value='column.name + ": "',
                         ng-bind='columnDefinitions[column.name].title | translate')
                   input(type='search', results='5', autosave='deviceFilter'
-                    name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
+                    name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
                     ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false'
                     list='searchFields', multiple,
@@ -51,5 +51,10 @@
                           label.checkbox.pointer
                             input(type='checkbox', ng-model='column.selected')
                             span(ng-bind='columnDefinitions[column.name].title | translate')
+                        li
+                          button(ng-click='reset()').btn.btn-xs.btn-danger-outline
+                            i.fa.fa-trash-o
+                            span(ng-bind='"Reset"|translate')
+
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort', filter='filter').selectable

@@ -2,21 +2,20 @@
   .col-md-3
     .number
       .icon.fa.fa-globe.visitors
-      span(ng-bind='counter.total') 0
+      span(counter, count-from='0', count-to='{{counter.total}}', duration='100')
     .text(translate) Total devices
   .col-md-3
     .number
       .icon.fa.fa-check.visitors
-      span(ng-bind='counter.usable') 0
+      span(counter, count-from='0', count-to='{{counter.usable}}', duration='100')
     .text(translate) Usable devices
   .col-md-3
     .number
       .icon.fa.fa-users.visitors
-      span(ng-bind='counter.busy') 0
+      span(counter, count-from='0', count-to='{{counter.busy}}', duration='100')
     .text(translate) Busy devices
   .col-md-3
     .number
       .icon.fa.fa-user.visitors
-      span(ng-bind='counter.using') 0
-    //.text(translate) Using
+      span(counter, count-from='0', count-to='{{counter.using}}', duration='100')
     .text(ng-bind='currentUser.name')

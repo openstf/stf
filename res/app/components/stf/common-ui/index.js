@@ -10,5 +10,6 @@ module.exports = angular.module('stf/common-ui', [
   //require('./tree').name,
   require('./modals').name,
   require('./include-cached').name,
-  require('./text-focus-select').name
+  require('./text-focus-select').name,
+  require('./counter').name
 ])

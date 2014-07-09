@@ -1,5 +1,6 @@
 module.exports = function DeviceListStatsDirective(
   UserService
+, $timeout
 ) {
   return {
     restrict: 'E'
@@ -22,10 +23,10 @@ module.exports = function DeviceListStatsDirective(
       scope.currentUser = UserService.currentUser
 
       function notify() {
-        clearTimeout(timer)
-        timer = setTimeout(function() {
+        $timeout.cancel(timer)
+        timer = $timeout(function () {
           scope.$apply()
-        }, 250)
+        }, 200)
       }
 
       function updateStats(device) {
@@ -82,7 +83,7 @@ module.exports = function DeviceListStatsDirective(
         tracker.removeListener('add', addListener)
         tracker.removeListener('change', changeListener)
         tracker.removeListener('remove', removeListener)
-        clearTimeout(timer)
+        $timeout.cancel(timer)
       })
     }
   }

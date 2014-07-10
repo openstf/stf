@@ -59,6 +59,7 @@ enum MessageType {
   WifiSetEnabledMessage      = 57;
   WifiGetStatusMessage       = 58;
   AccountAddMenuMessage      = 59;
+  AccountAddMessage          = 60;
 }
 
 message Envelope {
@@ -391,6 +392,11 @@ message AccountRemoveMessage {
 }
 
 message AccountAddMenuMessage {
+}
+
+message AccountAddMessage {
+  required string user = 1;
+  required string password = 2;
 }
 
 message RingerSetMessage {

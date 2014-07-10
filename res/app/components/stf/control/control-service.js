@@ -223,7 +223,14 @@ module.exports = function ControlServiceFactory(
     }
 
     this.addAccountMenu = function() {
-      return sendTwoWay('account.add')
+      return sendTwoWay('account.addmenu')
+    }
+
+    this.addAccount = function(user, password) {
+      return sendTwoWay('account.add', {
+        user: user
+      , password: password
+      })
     }
 
     this.setRingerMode = function(mode) {

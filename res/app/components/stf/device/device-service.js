@@ -189,7 +189,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
   }
 
   deviceService.load = function(serial) {
-    return $http.get('/api/app/v1/devices/' + serial)
+    return $http.get('/api/v1/app/devices/' + serial)
       .then(function (response) {
         return response.data.device
       })

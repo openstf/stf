@@ -23,6 +23,6 @@ html
           div(ng-view).fill-height
 
     script(src='data:application/javascript;base64,#{new Buffer("var APPSTATE=" + JSON.stringify(APPSTATE)).toString("base64")}')
-    script(src='/static/build/entry/commons.entry.js')
-    script(src='/static/build/entry/app.entry.js')
+    script(src='/static/app/build/entry/commons.entry.js')
+    script(src='/static/app/build/entry/app.entry.js')
     script(src='/static/bower_components/stf-analytics/analytics.js')

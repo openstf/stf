@@ -6,12 +6,12 @@ module.exports = {
   cache: true
 , entry: {
     app: pathutil.resource('app/app.js')
-  , authldap: pathutil.resource('auth-ldap/scripts/entry.js')
-  , authmock: pathutil.resource('auth-mock/scripts/entry.js')
+  , authldap: pathutil.resource('auth/ldap/scripts/entry.js')
+  , authmock: pathutil.resource('auth/mock/scripts/entry.js')
   }
 , output: {
     path: pathutil.resource('build')
-  , publicPath: '/static/build/'
+  , publicPath: '/static/app/build/'
   , filename: 'entry/[name].entry.js'
   , chunkFilename: '[id].[hash].chunk.js'
   }

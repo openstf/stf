@@ -31,4 +31,4 @@
       .btn-group
         label.btn.btn-default-outline(ng-repeat='b in device.browser.apps', ng-model='$root.browser', btn-radio='b',
         tooltip='{{b.name}} ({{b.developer}})')
-          img(ng-src='/static/browsers/icon/24x24/{{b.type}}.png', ng-show='b.type').browser-icon.pointer
+          img(ng-src='/static/app/browsers/icon/24x24/{{b.type}}.png', ng-show='b.type').browser-icon.pointer

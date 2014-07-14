@@ -396,7 +396,8 @@ function DeviceModelCell(options) {
         , image = span.firstChild
         , a = span.nextSibling
         , t = a.firstChild
-        , src = '/static/devices/icon/x24/' + (device.image || '_default.jpg')
+        , src = '/static/app/devices/icon/x24/' +
+            (device.image || '_default.jpg')
       // Only change if necessary so that we don't trigger a download
       if (image.getAttribute('src') !== src) {
         image.setAttribute('src', src)

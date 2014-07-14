@@ -15,13 +15,13 @@
               div.device-list-devices-content(ng-if='activeTabs.icons')
                 .filtering-buttons
                   input(type='search', results='5', autosave='deviceFilter'
-                    name='deviceFilter', ng-model='deviceFilter', ng-change='applyFilter(deviceFilter)',
+                    name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
                     ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false',
                     text-focus-select).form-control.input-sm.device-search.pull-right
                 .clear-filtering-buttons
 
-                device-list-icons(tracker='tracker', sort='sort', filter='filter')
+                device-list-icons(tracker='tracker', columns='columns', sort='sort', filter='filter')
 
             tab(active='activeTabs.details')
               tab-heading

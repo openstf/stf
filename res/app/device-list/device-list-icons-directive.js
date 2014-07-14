@@ -1,3 +1,5 @@
+var patchArray = require('./util/patch-array')
+
 module.exports = function DeviceListDetailsDirective(
   $filter
 , DeviceColumnService
@@ -98,11 +100,15 @@ module.exports = function DeviceListDetailsDirective(
   , template: require('./device-list-icons.jade')
   , scope: {
       tracker: '&tracker'
+    , columns: '&columns'
     , sort: '=sort'
+    , filter: '&filter'
     }
   , link: function (scope, element) {
       var tracker = scope.tracker()
+        , activeColumns = []
         , activeSorting = []
+        , activeFilters = []
         , list = element.find('ul')[0]
         , items = list.childNodes
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
@@ -188,6 +194,107 @@ module.exports = function DeviceListDetailsDirective(
       , true
       )
 
+      // Watch for column updates
+      scope.$watch(
+        function() {
+          return scope.columns()
+        }
+      , function(newValue) {
+          updateColumns(newValue)
+        }
+      , true
+      )
+
+      // Update now so that we don't have to wait for the scope watcher to
+      // trigger.
+      updateColumns(scope.columns())
+
+      // Updates visible columns. This method doesn't necessarily have to be
+      // the fastest because it shouldn't get called all the time.
+      function updateColumns(columnSettings) {
+        var newActiveColumns = []
+
+        // Check what we're supposed to show now
+        columnSettings.forEach(function(column) {
+          if (column.selected) {
+            newActiveColumns.push(column.name)
+          }
+        })
+
+        // Figure out the patch
+        var patch = patchArray(activeColumns, newActiveColumns)
+
+        // Set up new active columns
+        activeColumns = newActiveColumns
+
+        return patchAll(patch)
+      }
+
+      // Updates filters on visible items.
+      function updateFilters(filters) {
+        activeFilters = filters
+        return filterAll()
+      }
+
+      // Applies filteItem() to all items.
+      function filterAll() {
+        for (var i = 0, l = items.length; i < l; ++i) {
+          filterItem(items[i], mapping[items[i].id])
+        }
+      }
+
+      // Filters an item, perhaps removing it from view.
+      function filterItem(item, device) {
+        if (match(device)) {
+          item.classList.remove('filter-out')
+        }
+        else {
+          item.classList.add('filter-out')
+        }
+      }
+
+      // Checks whether the device matches the currently active filters.
+      function match(device) {
+        for (var i = 0, l = activeFilters.length; i < l; ++i) {
+          var filter = activeFilters[i]
+            , column
+          if (filter.field) {
+            column = scope.columnDefinitions[filter.field]
+            if (column && !column.filter(device, filter)) {
+              return false
+            }
+          }
+          else {
+            var found = false
+            for (var j = 0, k = activeColumns.length; j < k; ++j) {
+              column = scope.columnDefinitions[activeColumns[j]]
+              if (column && column.filter(device, filter)) {
+                found = true
+                break
+              }
+            }
+            if (!found) {
+              return false
+            }
+          }
+        }
+        return true
+      }
+
+      // Update now so we're up to date.
+      updateFilters(scope.filter())
+
+      // Watch for filter updates.
+      scope.$watch(
+        function() {
+          return scope.filter()
+        }
+      , function(newValue) {
+          updateFilters(newValue)
+        }
+      , true
+      )
+
       // Calculates a DOM ID for the device. Should be consistent for the
       // same device within the same table, but unique among other tables.
       function calculateId(device) {
@@ -231,6 +338,20 @@ module.exports = function DeviceListDetailsDirective(
         return item
       }
 
+      // Patches all items.
+      function patchAll(patch) {
+        for (var i = 0, l = items.length; i < l; ++i) {
+          patchItem(items[i], mapping[items[i].id], patch)
+        }
+      }
+
+      // Patches the given item by running the given patch operations in
+      // order. The operations must take into account index changes caused
+      // by previous operations.
+      function patchItem(item, device, patch) {
+        // Currently no-op
+      }
+
       // Updates all the columns in the item. Note that the item must be in
       // the right format already (built with createItem() and patched with
       // patchItem() if necessary).
@@ -243,13 +364,13 @@ module.exports = function DeviceListDetailsDirective(
         return item
       }
 
-      // Inserts a item into the table into its correct position according to
+      // Inserts an item into the table into its correct position according to
       // current sorting.
       function insertItem(item, deviceA) {
         return insertItemToSegment(item, deviceA, 0, items.length - 1)
       }
 
-      // Inserts a item into a segment of the table into its correct position
+      // Inserts an item into a segment of the table into its correct position
       // according to current sorting.
       function insertItemToSegment(item, deviceA, lo, hi) {
         var pivot = 0
@@ -291,7 +412,7 @@ module.exports = function DeviceListDetailsDirective(
         }
       }
 
-      // Compares a item to its siblings to see if it's still in the correct
+      // Compares an item to its siblings to see if it's still in the correct
       // position. Returns <0 if the device should actually go somewhere
       // before the previous item, >0 if it should go somewhere after the next
       // item, or 0 if the position is already correct.

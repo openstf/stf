@@ -8,7 +8,7 @@ define(['./module'], function(mod) {
       , email: $scope.signin.email.$modelValue
       }
       $scope.invalid = false
-      $http.post('/api/v1/auth', data)
+      $http.post('/api/v1/auth/mock', data)
         .success(function(response) {
           $scope.error = null
           location.replace(response.redirect)

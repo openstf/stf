@@ -14,10 +14,15 @@
                 span(translate) Devices
               div.device-list-devices-content(ng-if='activeTabs.icons')
                 .filtering-buttons
+                  datalist(id='searchFields')
+                    select(name='searchFields')
+                      option(ng-repeat='column in columns', ng-value='column.name + ": "',
+                      ng-bind='columnDefinitions[column.name].title | translate')
                   input(type='search', results='5', autosave='deviceFilter'
                     name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
                     ng-model-options='{debounce: 150}'
                     autocorrect='off', autocapitalize='off', spellcheck='false',
+                    list='searchFields', multiple,
                     text-focus-select).form-control.input-sm.device-search.pull-right
                 .clear-filtering-buttons
 

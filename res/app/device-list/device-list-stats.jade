@@ -16,6 +16,6 @@
     .text(translate) Busy devices
   .col-md-3
     .number
-      .icon.fa.fa-user.visitors
+      .icon.fa.fa-user.visitors(ng-class='{"fa-trophy": $root.adminMode, "fa-user": !$root.adminMode}')
       span(counter, count-from='0', count-to='{{counter.using}}', duration='100')
     .text(ng-bind='currentUser.name')

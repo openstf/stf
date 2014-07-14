@@ -47,7 +47,9 @@
                         span {{"Customize"|translate}}
 
                       ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.stf-device-details-customize
-                        li(ng-repeat='column in columns track by column.name', ng-click='$event.stopPropagation()')
+                        li(ng-repeat='column in columns track by column.name',
+                          ng-hide='!adminMode && columnDefinitions[column.name].admin',
+                          ng-click='$event.stopPropagation()')
                           label.checkbox.pointer
                             input(type='checkbox', ng-model='column.selected')
                             span(ng-bind='columnDefinitions[column.name].title | translate')

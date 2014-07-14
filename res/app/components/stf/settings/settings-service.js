@@ -54,8 +54,12 @@ module.exports = function SettingsServiceFactory(
   }
 
   SettingsService.bind = function(scope, options) {
+    function value(possibleValue, defaultValue) {
+      return (possibleValue !== void 0) ? possibleValue : defaultValue
+    }
+
     var source = options.source || options.target
-      , defaultValue = options.defaultValue || scope[options.target]
+      , defaultValue = value(options.defaultValue, scope[options.target])
 
     scope.$watch(
       options.target
@@ -79,13 +83,13 @@ module.exports = function SettingsServiceFactory(
         // settings were reset, for example. In that case we fall back
         // to the default value.
         if (newValue !== oldValue) {
-          scope[options.target] = newValue || defaultValue
+          scope[options.target] = value(newValue, defaultValue)
         }
       }
     , true
     )
 
-    scope[options.target] = settings[source] || defaultValue
+    scope[options.target] = value(settings[source], defaultValue)
   }
 
   SettingsService.sync = function(object, options, monitor) {

@@ -4,6 +4,7 @@ module.exports = function DeviceListDetailsDirective(
   DeviceColumnService
 , GroupService
 , $filter
+, $rootScope
 ) {
   return {
     restrict: 'E'
@@ -38,7 +39,7 @@ module.exports = function DeviceListDetailsDirective(
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
 
-          if (scope.adminMode && device.state === 'busy') {
+          if ($rootScope.adminMode && device.state === 'busy') {
             kickDevice(device, true)
             e.preventDefault()
           }
@@ -131,7 +132,7 @@ module.exports = function DeviceListDetailsDirective(
         // Check what we're supposed to show now
         columnSettings.forEach(function(column) {
 
-          var skipColumn = scope.adminMode && scope.columnDefinitions[column.name].admin
+          var skipColumn = $rootScope.adminMode && scope.columnDefinitions[column.name].admin
           if (skipColumn) {
             column.selected = false
             return

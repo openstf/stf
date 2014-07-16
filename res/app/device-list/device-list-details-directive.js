@@ -331,16 +331,22 @@ module.exports = function DeviceListDetailsDirective(
       }
 
       // Inserts a row into a segment of the table into its correct position
-      // according to current sorting.
+      // according to current sorting. The value of `hi` is the index
+      // of the last item in the segment, or -1 if none. The value of `lo`
+      // is the index of the first item in the segment, or 0 if none.
       function insertRowToSegment(tr, deviceA, lo, hi) {
-        var pivot = 0
-          , deviceB
+        var total = rows.length
 
-        if (hi < 0) {
-          tbody.appendChild(tr)
+        if (lo > hi) {
+          // This means that `lo` refers to the first item of the next
+          // segment (which may or may not exist), and we should put the
+          // row before it.
+          tbody.insertBefore(tr, lo < total ? rows[lo] : null)
         }
         else {
           var after = true
+            , pivot = 0
+            , deviceB
 
           while (lo <= hi) {
             pivot = ~~((lo + hi) / 2)
@@ -436,7 +442,7 @@ module.exports = function DeviceListDetailsDirective(
           }
           else if (diff > 0) {
             // Should go lower in the list
-            insertRowToSegment(tr, device, tr.rowIndex + 1, rows.length)
+            insertRowToSegment(tr, device, tr.rowIndex + 1, rows.length - 1)
           }
         }
       }

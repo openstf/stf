@@ -371,16 +371,22 @@ module.exports = function DeviceListDetailsDirective(
       }
 
       // Inserts an item into a segment of the table into its correct position
-      // according to current sorting.
+      // according to current sorting. The value of `hi` is the index
+      // of the last item in the segment, or -1 if none. The value of `lo`
+      // is the index of the first item in the segment, or 0 if none.
       function insertItemToSegment(item, deviceA, lo, hi) {
-        var pivot = 0
-          , deviceB
+        var total = items.length
 
-        if (hi < 0) {
-          list.appendChild(item)
+        if (lo > hi) {
+          // This means that `lo` refers to the first item of the next
+          // segment (which may or may not exist), and we should put the
+          // row before it.
+          list.insertBefore(item, lo < total ? items[lo] : null)
         }
         else {
           var after = true
+            , pivot = 0
+            , deviceB
 
           while (lo <= hi) {
             pivot = ~~((lo + hi) / 2)

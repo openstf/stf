@@ -17,7 +17,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "ABI"
 msgstr ""
 
@@ -35,6 +34,14 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Add"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
+msgid "Admin mode has been disabled."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
+msgid "Admin mode has been enabled."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
@@ -82,27 +89,22 @@ msgid "Battery"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Health"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Level"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Source"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Status"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Temp"
 msgstr ""
 
@@ -136,7 +138,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Carrier"
 msgstr ""
 
@@ -249,7 +250,8 @@ msgstr ""
 msgid "Device Photo"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-directive.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-icons-directive.js
 msgid "Device cannot get kicked from the group"
 msgstr ""
 
@@ -341,6 +343,10 @@ msgstr ""
 msgid "Find Device"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Focus URL bar"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Forward"
 msgstr ""
@@ -371,6 +377,7 @@ msgid "Go Forward"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Go to Device List"
 msgstr ""
 
@@ -472,7 +479,6 @@ msgid "Local Settings"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Location"
 msgstr ""
 
@@ -490,7 +496,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Manufacturer"
 msgstr ""
 
@@ -528,7 +533,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Model"
 msgstr ""
 
@@ -551,12 +555,15 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Network"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Next"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Next Device"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -573,10 +580,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "No device screen"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
-msgid "No devices connected"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
@@ -605,7 +608,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "OS"
 msgstr ""
 
@@ -646,17 +648,14 @@ msgid "Pause"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone ICCID"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone IMEI"
 msgstr ""
 
@@ -704,8 +703,24 @@ msgstr ""
 msgid "Preparing"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Back button"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Home button"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Menu button"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Previous"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Previous Device"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
@@ -714,7 +729,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Product"
 msgstr ""
 
@@ -760,7 +774,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Released"
 msgstr ""
 
@@ -807,6 +820,14 @@ msgstr ""
 msgid "Roaming"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Rotate Left"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Rotate Right"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
 msgid "Run"
 msgstr ""
@@ -829,7 +850,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "SDK"
 msgstr ""
 
@@ -846,7 +866,6 @@ msgid "Saved to: {{savedTo}}"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Screen"
 msgstr ""
 
@@ -866,9 +885,12 @@ msgstr ""
 msgid "Secure"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Selects Next IME"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Serial"
 msgstr ""
 
@@ -892,6 +914,10 @@ msgstr ""
 msgid "Show Screen"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Show/Hide device"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Special Keys"
 msgstr ""
@@ -902,7 +928,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Status"
 msgstr ""
 
@@ -936,6 +961,7 @@ msgid "Take Pageshot (Needs WebView running)"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Take Screenshot"
 msgstr ""
 
@@ -957,6 +983,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 msgid "Time"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Toggle Web/Native"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
@@ -1028,7 +1058,6 @@ msgid "Use"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "User"
 msgstr ""
 

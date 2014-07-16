@@ -28,7 +28,7 @@ module.exports = {
   , alias: {
       'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls'
     , 'localforage': 'localforage/dist/localforage.js'
-    , 'socket.io': 'socket.io-client/socket.io.js'
+    , 'socket.io': 'socket.io-client'
     , 'oboe': 'oboe/dist/oboe-browser'
     , 'bluebird': 'bluebird/js/browser/bluebird'
     }
@@ -65,7 +65,6 @@ module.exports = {
     , { test: /ui-bootstrap-tpls\.js/, loader: 'script'}
     , { test: /dialogs\.js/, loader: 'script'}
     , { test: /bluebird\.js/, loader: 'imports?require=>undefined'}
-    , { test: /socket\.io\.js/, loader: 'imports?require=>undefined'}
     ]
   , noParse: [
       // pathutil.resource('bower_components')

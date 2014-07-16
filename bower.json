@@ -8,7 +8,6 @@
     "angular-animate": "~1.3.0-beta.13",
     "angular-touch": "~1.3.0-beta.13",
     "se7en-bootstrap-3": "git@ghe.amb.ca.local:stf/se7en-bootstrap-3.git#46b7dd0792cfdc66bf01e351cd680de88740d60c",
-    "socket.io-client": "~1.0.4",
     "lodash": "~2.4.1",
     "oboe": "~1.15.1",
     "fa-borderlayout": "~0.3.1-beta2",

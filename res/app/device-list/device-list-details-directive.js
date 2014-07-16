@@ -34,10 +34,21 @@ module.exports = function DeviceListDetailsDirective(
         })
       }
 
+      function inviteDevice(device) {
+        return GroupService.invite(device).then(function () {
+          scope.$digest()
+        })
+      }
+
       element.on('click', function (e) {
         if (e.target.classList.contains('device-status')) {
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
+
+          if (e.shiftKey && device.state === 'available') {
+            inviteDevice(device)
+            e.preventDefault()
+          }
 
           if ($rootScope.adminMode && device.state === 'busy') {
             kickDevice(device, true)

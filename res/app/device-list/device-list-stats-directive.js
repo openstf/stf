@@ -8,10 +8,10 @@ module.exports = function DeviceListStatsDirective(
   , scope: {
       tracker: '&tracker'
     }
-  , link: function (scope) {
+  , link: function (scope, element) {
       var tracker = scope.tracker()
         , mapping = Object.create(null)
-        , timer
+        , nodes = Object.create(null)
 
       scope.counter = {
         total: 0
@@ -22,11 +22,18 @@ module.exports = function DeviceListStatsDirective(
 
       scope.currentUser = UserService.currentUser
 
+      function findTextNodes() {
+        var elements = element[0].getElementsByClassName('counter')
+        for (var i = 0, l = elements.length; i < l; ++i) {
+          nodes[elements[i].dataset.type] = elements[i].firstChild
+        }
+      }
+
       function notify() {
-        $timeout.cancel(timer)
-        timer = $timeout(function () {
-          scope.$apply()
-        }, 200)
+        nodes.total.nodeValue = scope.counter.total
+        nodes.usable.nodeValue = scope.counter.usable
+        nodes.busy.nodeValue = scope.counter.busy
+        nodes.using.nodeValue = scope.counter.using
       }
 
       function updateStats(device) {
@@ -75,6 +82,8 @@ module.exports = function DeviceListStatsDirective(
         notify()
       }
 
+      findTextNodes()
+
       tracker.on('add', addListener)
       tracker.on('change', changeListener)
       tracker.on('remove', removeListener)
@@ -83,7 +92,6 @@ module.exports = function DeviceListStatsDirective(
         tracker.removeListener('add', addListener)
         tracker.removeListener('change', changeListener)
         tracker.removeListener('remove', removeListener)
-        $timeout.cancel(timer)
       })
     }
   }

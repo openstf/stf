@@ -80,6 +80,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         boundingWidth = element[0].offsetWidth
         boundingHeight = element[0].offsetHeight
 
+        // TODO: element is an object HTMLUnknownElement in IE9
+
         // Developer error, let's try to reduce debug time
         if (!boundingWidth || !boundingHeight) {
           throw new Error(

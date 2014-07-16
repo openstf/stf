@@ -25,7 +25,7 @@ module.exports = function DeviceListStatsDirective(
       function findTextNodes() {
         var elements = element[0].getElementsByClassName('counter')
         for (var i = 0, l = elements.length; i < l; ++i) {
-          nodes[elements[i].dataset.type] = elements[i].firstChild
+          nodes[elements[i].getAttribute('data-type')] = elements[i].firstChild
         }
       }
 

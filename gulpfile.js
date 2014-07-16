@@ -75,11 +75,11 @@ gulp.task("webpack:build", function (callback) {
       "process.env": {
         "NODE_ENV": JSON.stringify('production')
       }
-    }),
+    })
     //new webpack.optimize.DedupePlugin(),
     //new ngminPlugin(),
     // TODO: mangle when ngmin works
-    new webpack.optimize.UglifyJsPlugin({mangle: false})
+    //new webpack.optimize.UglifyJsPlugin({mangle: false})
   )
   myConfig.devtool = false
 

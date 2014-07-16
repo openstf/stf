@@ -7,7 +7,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
     template: require('./screen.jade'),
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
-        , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 2000})
+        , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 3000})
         , guestDisplayDensity = setDisplayDensity(1.5)
         , guestDisplayRotation = 0
         , finger = element.find('span')
@@ -152,7 +152,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         if (scope.displayError === 'secure') {
           scope.control.home()
         }
-        $timeout(maybeLoadScreen, 1000)
+        $timeout(maybeLoadScreen, 3000)
       }
 
       function maybeLoadScreen() {

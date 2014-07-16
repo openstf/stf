@@ -10,33 +10,42 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.kickDevice = function (device) {
 
-    // If we're trying to kick current device
-    if (device.serial === $scope.device.serial) {
+    if (!device || !$scope.device) {
+      alert('No device found')
+      return
+    }
 
-      // If there is more than one device left
-      if ($scope.groupDevices.length > 1) {
+    try {
+      // If we're trying to kick current device
+      if (device.serial === $scope.device.serial) {
 
-        // Control first free device first
-        var firstFreeDevice = _.find($scope.groupDevices, function (dev) {
-          return dev.serial !== $scope.device.serial
-        })
-        $scope.controlDevice(firstFreeDevice)
+        // If there is more than one device left
+        if ($scope.groupDevices.length > 1) {
 
-        // Then kick the old device
-        GroupService.kick(device).then(function () {
-          $scope.$digest()
-        })
+          // Control first free device first
+          var firstFreeDevice = _.find($scope.groupDevices, function (dev) {
+            return dev.serial !== $scope.device.serial
+          })
+          $scope.controlDevice(firstFreeDevice)
+
+          // Then kick the old device
+          GroupService.kick(device).then(function () {
+            $scope.$digest()
+          })
+        } else {
+          // Kick the device
+          GroupService.kick(device).then(function () {
+            $scope.$digest()
+          })
+          $location.path('/devices/')
+        }
       } else {
-        // Kick the device
         GroupService.kick(device).then(function () {
           $scope.$digest()
         })
-        $location.path('/devices/')
       }
-    } else {
-      GroupService.kick(device).then(function () {
-        $scope.$digest()
-      })
+    } catch(e) {
+      alert(e.message)
     }
   }
 

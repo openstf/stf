@@ -94,7 +94,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
         delete devicesBySerial[data.serial]
         this.emit('remove', data)
       }
-    }
+    }.bind(this)
 
     function fetch(data) {
       deviceService.load(data.serial)

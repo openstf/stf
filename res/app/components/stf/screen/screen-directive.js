@@ -11,7 +11,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         , guestDisplayDensity = setDisplayDensity(1.5)
         , guestDisplayRotation = 0
         , finger = element.find('span')
-        , input = element.find('textarea')
+        , input = element.find('input')
         , boundingWidth = 0  // TODO: cache inside FastImageRender?
         , boundingHeight = 0
         , cachedBoundingWidth = 0
@@ -117,12 +117,54 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         stopTouch()
       }
 
+      function isChangeCharsetKey(e) {
+        // Add any special key here for changing charset
+        //console.log('e', e)
+
+        //Chrome/Safari/Opera
+        switch(e.keyIdentifier) {
+          case 'U+0010': // Mac | Kinesis keyboard | Karabiner | Latin key, Kana key
+          case 'U+0020': // Mac | MacBook Pro keyboard | Latin key, Kana key
+          case 'U+00F6': // Win | Lenovo X230 keyboard | Alt+Latin key
+          case 'U+001C': // Win | Lenovo X230 keyboard | Convert key
+            return true
+        }
+
+        // Firefox
+        switch(e.key) {
+          case 'Convert': // Windows | Convert key
+          case 'Alphanumeric': // Mac | Latin key
+          case 'RomanCharacters': // Windows/Mac | Latin key
+          case 'KanjiMode': // Windows/Mac | Kana key
+            return true
+        }
+
+        return false
+      }
+
+      function keyupSpecialKeys(e) {
+        var specialKey = false
+
+        if (isChangeCharsetKey(e)) {
+          specialKey = true
+          scope.control.keyPress('switch_charset')
+        }
+
+        if (specialKey) {
+          e.preventDefault()
+        }
+
+        return specialKey
+      }
+
       function keydownListener(e) {
         scope.control.keyDown(e.keyCode)
       }
 
       function keyupListener(e) {
-        scope.control.keyUp(e.keyCode)
+        if (!keyupSpecialKeys(e)) {
+          scope.control.keyUp(e.keyCode)
+        }
       }
 
       function keypressListener(e) {

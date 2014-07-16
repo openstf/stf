@@ -60,12 +60,14 @@ device-screen.fingering .finger {
   display: block;
 }
 
-device-screen textarea {
+device-screen input {
   position: absolute;
   z-index: 10;
   outline: none;
   pointer-events: none;
   opacity: 0;
+  ime-mode: disabled;
+  inputmode: verbatim;
 }
 
 .stf-device-control .dragover {

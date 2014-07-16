@@ -9,20 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.6\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "-"
 msgstr "-"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "A new version of STF is available"
-msgstr "STFの新しいバージョンがリリースされました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "ABI"
 msgstr "ABI"
 
@@ -30,45 +24,17 @@ msgstr "ABI"
 msgid "AC"
 msgstr "AC"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Action"
-msgstr "アクション"
+#: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
+msgid "Admin mode has been disabled."
+msgstr "管理モードは無効になりました。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Activity"
-msgstr "アクティビティ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Add"
-msgstr "追加"
+#: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
+msgid "Admin mode has been enabled."
+msgstr "管理モードは有効になりました。"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Advanced"
 msgstr "高度機能"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Advanced Input"
-msgstr "高度な入力"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Airplane Mode"
-msgstr "機内モード"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "App"
-msgstr "アプリ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "App Store"
-msgstr "アプリストア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "App Upload"
-msgstr "アプリアップロード"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Apps"
-msgstr "アプリ"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "Are you sure you want to reboot this device?"
@@ -78,36 +44,23 @@ msgstr "この端末を再起動しますか？"
 msgid "Available"
 msgstr "利用可能"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Back"
-msgstr "戻る"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Battery"
-msgstr "バッテリー"
-
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Health"
 msgstr "バッテリー健康状態"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Level"
 msgstr "バッテリーレベル"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Source"
 msgstr "バッテリー電力源"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Status"
 msgstr "バッテリー状態"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Battery Temp"
 msgstr "バッテリー温度"
 
@@ -115,67 +68,22 @@ msgstr "バッテリー温度"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Browser"
-msgstr "ブラウザ"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
 msgstr "貸し出し中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Busy devices"
-msgstr "貸し出し中"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "CPU"
-msgstr "CPU"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Camera"
-msgstr "カメラ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Cannot access specified URL"
-msgstr "指定されたURLはアクセスできません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Carrier"
 msgstr "キャリア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Category"
-msgstr "カテゴリー"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
 msgstr "充電中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Chat"
-msgstr "チャット"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
-msgid "Clear"
-msgstr "クリア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
-msgid "Clipboard"
-msgstr "クリップボード"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Close"
-msgstr "閉じる"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Cold"
 msgstr "コールド"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr "接続中"
@@ -184,83 +92,18 @@ msgstr "接続中"
 msgid "Connected successfully."
 msgstr "接続できました。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Cookies"
-msgstr "クッキー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Cores"
-msgstr "コア数"
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Customize"
-msgstr "カスタマイズ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Center"
-msgstr "D-padセンター"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Down"
-msgstr "D-pad下"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Left"
-msgstr "D-pad左"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Right"
-msgstr "D-pad右"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Up"
-msgstr "D-pad上"
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Dashboard"
 msgstr "ダッシュボード"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Data"
-msgstr "データ"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dead"
 msgstr "残量なし"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Delete"
-msgstr "削除"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Density"
-msgstr "表示密度"
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Details"
-msgstr "詳細"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Developer Settings"
-msgstr "開発者向け設定"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Device"
-msgstr "デバイス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Device Photo"
-msgstr "実機写真"
-
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-details-directive.js
+#: /Users/a12907/STF/stf/res/app/device-list/device-list-icons-directive.js
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Devices"
-msgstr "端末リスト"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Discharging"
@@ -277,37 +120,9 @@ msgstr ""
 "接続が切れました。<br />ソケット接続が失われました。もう一度ページを再ロード"
 "してみてください。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Display"
-msgstr "ディスプレー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Domain"
-msgstr "ドメイン"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Drop file to upload"
-msgstr "ここにファイルをドロップ"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dummy"
 msgstr "ダミー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Eject"
-msgstr "排出"
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Enable notifications"
-msgstr "通知を有効にする"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Encrypted"
-msgstr "暗号化"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Error"
-msgstr "エラー"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
@@ -329,56 +144,11 @@ msgstr "エラー：ポートフォワーディングが失敗しました。"
 msgid "Ethernet"
 msgstr "イーサーネット"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "FPS"
-msgstr "FPS"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Failed to download file"
-msgstr "ファイルのダウンロードが失敗しした。"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Fast Forward"
-msgstr "早送り"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/filter-button/filter-button.html
-msgid "Filter"
-msgstr "フィルター"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Find Device"
-msgstr "実機を探す"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Forward"
-msgstr "フォーワード"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Frequency"
-msgstr "クロック"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Full"
 msgstr "フル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Get"
-msgstr "取得"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
-msgid "Get clipboard contents"
-msgstr "クリップボードの中身を取得する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Go Back"
-msgstr "戻る"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Go Forward"
-msgstr "進む"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Go to Device List"
 msgstr "端末リストへ"
 
@@ -386,101 +156,11 @@ msgstr "端末リストへ"
 msgid "Good"
 msgstr "良い"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Hardware"
-msgstr "ハードウェア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Health"
-msgstr "健康状態"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Height"
-msgstr "高さ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Help"
-msgstr "ヘルプ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Hide Screen"
-msgstr "画面を非表しない"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Home"
-msgstr "ホーム"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Host"
-msgstr "ホスト"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Hostname"
-msgstr "ホスト名"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ICCID"
-msgstr "ICCID"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ID"
-msgstr "ID"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "IMEI"
-msgstr "IMEI"
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Info"
 msgstr "情報"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspect Device"
-msgstr "端末の要素検証"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspecting is currently only supported in WebView"
-msgstr "要素の検証機能は、現在WebViewのみ対応"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspector"
-msgstr "要素の検証"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Installation failed"
-msgstr "インストールが失敗しました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Installing app..."
-msgstr "アプリをインストール中..."
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Landscape"
-msgstr "横"
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
-msgid "Language"
-msgstr "言語"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Launch Activity"
-msgstr "アクティビティを起動する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Launching activity..."
-msgstr "アクティビティを起動中..."
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Level"
-msgstr "レベル"
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Local Settings"
-msgstr "ローカル設定"
-
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Location"
 msgstr "場所"
 
@@ -488,31 +168,9 @@ msgstr "場所"
 msgid "Logs"
 msgstr "ログ"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
-msgid "Maintenance"
-msgstr "メンテナンス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Manage Apps"
-msgstr "アプリ管理"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Manufacturer"
 msgstr "メーカー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Media"
-msgstr "メディア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Memory"
-msgstr "メモリー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Menu"
-msgstr "メニュー"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Mobile"
@@ -534,38 +192,13 @@ msgstr "モバイルMMS"
 msgid "Mobile SUPL"
 msgstr "モバイルSUPL"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Model"
 msgstr "機種名"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Mute"
-msgstr "音を消す"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Name"
-msgstr "名称"
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Native"
-msgstr "Native"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Navigation"
-msgstr "ブラウジング"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Network"
 msgstr "ネットワーク"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Next"
-msgstr "次"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "No"
@@ -575,59 +208,17 @@ msgstr "いいえ"
 msgid "No clipboard data"
 msgstr "クリップボードデータはありません"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "No cookies to show"
-msgstr "クッキーはありません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "No device screen"
-msgstr "画面が表示できません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
-msgid "No devices connected"
-msgstr "端末が接続されていません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
-msgid "No photo available"
-msgstr "写真はありません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "No screenshots taken"
-msgstr "キャプチャはありません"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr "充電されていない"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Nothing to inspect"
-msgstr "要素の検証対象はありません"
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Notifications"
-msgstr "通知"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Number"
-msgstr "番号"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "OS"
 msgstr "OS"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Offline"
 msgstr "オフライン"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Open"
-msgstr "開く"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Orientation"
-msgstr "方向"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Over Voltage"
@@ -637,106 +228,37 @@ msgstr "過電圧"
 msgid "Overheat"
 msgstr "過熱"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "PID"
-msgstr "PID"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
-msgid "Package"
-msgstr "パッケージ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Path"
-msgstr "パス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Pause"
-msgstr "停止"
-
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone"
 msgstr "電話番号"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone ICCID"
 msgstr "携帯ICCID"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Phone IMEI"
 msgstr "携帯IMEI"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Physical Device"
-msgstr "物理デバイス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Place"
-msgstr "場所"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Platform"
-msgstr "プラットホーム"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Play"
-msgstr "再生"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Play/Pause"
-msgstr "再生/停止"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Port"
-msgstr "ポート"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Port forwarding"
-msgstr "ポートフォワーディング"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Portrait"
-msgstr "縦"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Power"
-msgstr "電源"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Power Source"
-msgstr "電力源"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Preparing"
 msgstr "準備中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Previous"
-msgstr "前"
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Back button"
+msgstr "戻るボタンを押す"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Processing..."
-msgstr "処理中..."
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Home button"
+msgstr "ホームボタンを押す"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Press Menu button"
+msgstr "メニューボタンを押す"
+
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Product"
 msgstr "型番"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Pushing app..."
-msgstr "アプリをプッシュ中..."
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "RAM"
-msgstr "RAM"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ROM"
-msgstr "ROM"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ready"
@@ -746,242 +268,53 @@ msgstr "利用可能"
 msgid "Reconnected successfully."
 msgstr "正常に再接続しました。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Record"
-msgstr "記録する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Reference"
-msgstr "参考"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
-msgid "Refresh"
-msgstr "更新"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch"
-msgstr "再起動"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch the browser"
-msgstr "ブラウザを再起動する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Released"
 msgstr "発売日"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "Reload"
-msgstr "再読込"
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Rotate Left"
+msgstr "左回りに回転"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
-msgid "Remote debug"
-msgstr "リモートデバッグ"
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Rotate Right"
+msgstr "右回りに回転"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Reset"
-msgstr "初期化"
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Reset Settings"
-msgstr "すべての設定をリセット"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Reset all browser settings"
-msgstr "ブラウザの設定をリセットする"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
-msgid "Restart Device"
-msgstr "端末を再起動"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "Retrieving the device screen has timed out."
-msgstr "実機画面の取得はタイムアウトになりました。"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "Retry"
-msgstr "再試行"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Rewind"
-msgstr "巻き戻す"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Roaming"
-msgstr "ローミング"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Run"
-msgstr "実行"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Run Command"
-msgstr "コマンドを実行"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Run JavaScript"
-msgstr "JavaScript注入"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Run command"
-msgstr "コマンドを実行する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
-msgid "Run the following on your command line:"
-msgstr "次のコマンドをコマンドラインで実行してください。"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "SDK"
 msgstr "SDK"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "SIM"
-msgstr "SIM"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Save..."
-msgstr "保存する..."
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Saved to: {{savedTo}}"
-msgstr "保存先: {{savedTo}}"
-
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Screen"
 msgstr "解像度"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Screenshot"
-msgstr "キャプチャ"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Screenshots"
 msgstr "キャプチャ"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Search"
-msgstr "検索"
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Selects Next IME"
+msgstr "入力モードの切り替え"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Secure"
-msgstr "セキュア"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Serial"
 msgstr "シリアル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Set"
-msgstr "設定"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Set Cookie"
-msgstr "クッキー設定"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Settings"
-msgstr "設定"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Shell"
-msgstr "シェル"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Show Screen"
-msgstr "画面を表示する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Special Keys"
-msgstr "特別なキー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Start/Stop Logging"
-msgstr "ログ取得の開始／停止"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "Status"
 msgstr "ステータス"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Stop"
-msgstr "停止"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Stop Using"
 msgstr "停止する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Sub Type"
-msgstr "サブタイプ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Switch Charset"
-msgstr "文字入力の切り替え"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "TID"
-msgstr "TID"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Tag"
-msgstr "タグ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Take Pageshot (Needs WebView running)"
-msgstr "ページ全体ショットを撮る（現在はWebViewのみ対応）"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Take Screenshot"
-msgstr "スクリーンショットを撮る"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Temperature"
-msgstr "温度"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Text"
-msgstr "テキスト"
-
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "The device will be unavailable for a moment."
 msgstr "しばらく端末が利用できなくなります。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid ""
-"This might be caused by a network error, or you might be trying to access a "
-"secure view."
-msgstr ""
-"起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化され"
-"たビュー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Time"
-msgstr "時刻"
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Total devices"
-msgstr "全機種"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Try to reconnect"
-msgstr "再接続する"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Type"
-msgstr "タイプ"
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
+msgid "Toggle Web/Native"
+msgstr "ウェブ/ネイティブを選択"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "USB"
@@ -991,14 +324,6 @@ msgstr "USB"
 msgid "Unauthorized"
 msgstr "権限外"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Unforward"
-msgstr "フォーワード解除"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Uninstall"
-msgstr "削除"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unknown"
 msgstr "未知"
@@ -1007,40 +332,11 @@ msgstr "未知"
 msgid "Unspecified Failure"
 msgstr "未定義の失敗"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Upload From Link"
-msgstr "リンク先よりアップロードする"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Upload complete"
-msgstr "アップロードが完了しました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Upload failed"
-msgstr "アップロードが失敗しました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Uploaded file is not valid"
-msgstr "アップロードされたファイル"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Uploading..."
-msgstr "アップロード中..."
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Usable devices"
-msgstr "利用可能"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html
-msgid "Usb speed"
-msgstr "USB速度"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Use"
 msgstr "利用する"
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
-#: /Users/a12907/STF/stf/res/app/device-list/device-list-controller.js
 msgid "User"
 msgstr "ユーザ"
 
@@ -1048,85 +344,589 @@ msgstr "ユーザ"
 msgid "Using"
 msgstr "利用中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Using Fallback"
-msgstr "フォールバックを使用中"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Value"
-msgstr "値"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Version"
-msgstr "バージョン"
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "Version Update"
-msgstr "バージョンアップ"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Voltage"
-msgstr "電圧"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume"
-msgstr "音量"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume Down"
-msgstr "音量↓"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume Up"
-msgstr "音量↑"
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Web"
-msgstr "Web"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
 msgstr "無線LAN"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "WiFi Settings"
-msgstr "無線LAN設定"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiMAX"
 msgstr "WiMAX"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Width"
-msgstr "幅"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Wireless"
 msgstr "無線"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "X DPI"
-msgstr "X DPI"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Y DPI"
-msgstr "Y DPI"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
 msgstr "はい"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "You are no longer controlling the device."
-msgstr "この実機のリモート操作ができなくなりました。"
+#~ msgid "A new version of STF is available"
+#~ msgstr "STFの新しいバージョンがリリースされました"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "{{ device.enhancedName }} current status:"
-msgstr "{{ device.enhancedName }}のステータス："
+#~ msgid "Action"
+#~ msgstr "アクション"
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "{{ device.enhancedName }} was disconnected"
-msgstr "{{ device.enhancedName }}への接続が切れました"
+#~ msgid "Activity"
+#~ msgstr "アクティビティ"
+
+#~ msgid "Add"
+#~ msgstr "追加"
+
+#~ msgid "Advanced Input"
+#~ msgstr "高度な入力"
+
+#~ msgid "Airplane Mode"
+#~ msgstr "機内モード"
+
+#~ msgid "App"
+#~ msgstr "アプリ"
+
+#~ msgid "App Store"
+#~ msgstr "アプリストア"
+
+#~ msgid "App Upload"
+#~ msgstr "アプリアップロード"
+
+#~ msgid "Apps"
+#~ msgstr "アプリ"
+
+#~ msgid "Back"
+#~ msgstr "戻る"
+
+#~ msgid "Battery"
+#~ msgstr "バッテリー"
+
+#~ msgid "Browser"
+#~ msgstr "ブラウザ"
+
+#~ msgid "Busy devices"
+#~ msgstr "貸し出し中"
+
+#~ msgid "CPU"
+#~ msgstr "CPU"
+
+#~ msgid "Camera"
+#~ msgstr "カメラ"
+
+#~ msgid "Cannot access specified URL"
+#~ msgstr "指定されたURLはアクセスできません"
+
+#~ msgid "Category"
+#~ msgstr "カテゴリー"
+
+#~ msgid "Chat"
+#~ msgstr "チャット"
+
+#~ msgid "Clear"
+#~ msgstr "クリア"
+
+#~ msgid "Clipboard"
+#~ msgstr "クリップボード"
+
+#~ msgid "Close"
+#~ msgstr "閉じる"
+
+#~ msgid "Cookies"
+#~ msgstr "クッキー"
+
+#~ msgid "Cores"
+#~ msgstr "コア数"
+
+#~ msgid "Customize"
+#~ msgstr "カスタマイズ"
+
+#~ msgid "D-pad Center"
+#~ msgstr "D-padセンター"
+
+#~ msgid "D-pad Down"
+#~ msgstr "D-pad下"
+
+#~ msgid "D-pad Left"
+#~ msgstr "D-pad左"
+
+#~ msgid "D-pad Up"
+#~ msgstr "D-pad上"
+
+#~ msgid "Data"
+#~ msgstr "データ"
+
+#~ msgid "Delete"
+#~ msgstr "削除"
+
+#~ msgid "Density"
+#~ msgstr "表示密度"
+
+#~ msgid "Details"
+#~ msgstr "詳細"
+
+#~ msgid "Developer Settings"
+#~ msgstr "開発者向け設定"
+
+#~ msgid "Device"
+#~ msgstr "デバイス"
+
+#~ msgid "Device Photo"
+#~ msgstr "実機写真"
+
+#~ msgid "Devices"
+#~ msgstr "端末リスト"
+
+#~ msgid "Display"
+#~ msgstr "ディスプレー"
+
+#~ msgid "Domain"
+#~ msgstr "ドメイン"
+
+#~ msgid "Drop file to upload"
+#~ msgstr "ここにファイルをドロップ"
+
+#~ msgid "Eject"
+#~ msgstr "排出"
+
+#~ msgid "Enable notifications"
+#~ msgstr "通知を有効にする"
+
+#~ msgid "Encrypted"
+#~ msgstr "暗号化"
+
+#~ msgid "Error"
+#~ msgstr "エラー"
+
+#~ msgid "FPS"
+#~ msgstr "FPS"
+
+#~ msgid "Failed to download file"
+#~ msgstr "ファイルのダウンロードが失敗しした。"
+
+#~ msgid "Fast Forward"
+#~ msgstr "早送り"
+
+#~ msgid "Filter"
+#~ msgstr "フィルター"
+
+#~ msgid "Find Device"
+#~ msgstr "実機を探す"
+
+#~ msgid "Forward"
+#~ msgstr "フォーワード"
+
+#~ msgid "Frequency"
+#~ msgstr "クロック"
+
+#~ msgid "Get"
+#~ msgstr "取得"
+
+#~ msgid "Get clipboard contents"
+#~ msgstr "クリップボードの中身を取得する"
+
+#~ msgid "Go Back"
+#~ msgstr "戻る"
+
+#~ msgid "Go Forward"
+#~ msgstr "進む"
+
+#~ msgid "Hardware"
+#~ msgstr "ハードウェア"
+
+#~ msgid "Health"
+#~ msgstr "健康状態"
+
+#~ msgid "Height"
+#~ msgstr "高さ"
+
+#~ msgid "Help"
+#~ msgstr "ヘルプ"
+
+#~ msgid "Hide Screen"
+#~ msgstr "画面を非表しない"
+
+#~ msgid "Home"
+#~ msgstr "ホーム"
+
+#~ msgid "Host"
+#~ msgstr "ホスト"
+
+#~ msgid "Hostname"
+#~ msgstr "ホスト名"
+
+#~ msgid "ICCID"
+#~ msgstr "ICCID"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "IMEI"
+#~ msgstr "IMEI"
+
+#~ msgid "Inspect Device"
+#~ msgstr "端末の要素検証"
+
+#~ msgid "Inspecting is currently only supported in WebView"
+#~ msgstr "要素の検証機能は、現在WebViewのみ対応"
+
+#~ msgid "Inspector"
+#~ msgstr "要素の検証"
+
+#~ msgid "Installation failed"
+#~ msgstr "インストールが失敗しました"
+
+#~ msgid "Installing app..."
+#~ msgstr "アプリをインストール中..."
+
+#~ msgid "Landscape"
+#~ msgstr "横"
+
+#~ msgid "Language"
+#~ msgstr "言語"
+
+#~ msgid "Launch Activity"
+#~ msgstr "アクティビティを起動する"
+
+#~ msgid "Launching activity..."
+#~ msgstr "アクティビティを起動中..."
+
+#~ msgid "Level"
+#~ msgstr "レベル"
+
+#~ msgid "Local Settings"
+#~ msgstr "ローカル設定"
+
+#~ msgid "Maintenance"
+#~ msgstr "メンテナンス"
+
+#~ msgid "Manage Apps"
+#~ msgstr "アプリ管理"
+
+#~ msgid "Media"
+#~ msgstr "メディア"
+
+#~ msgid "Memory"
+#~ msgstr "メモリー"
+
+#~ msgid "Menu"
+#~ msgstr "メニュー"
+
+#~ msgid "Mute"
+#~ msgstr "音を消す"
+
+#~ msgid "Name"
+#~ msgstr "名称"
+
+#~ msgid "Native"
+#~ msgstr "Native"
+
+#~ msgid "Navigation"
+#~ msgstr "ブラウジング"
+
+#~ msgid "Next"
+#~ msgstr "次"
+
+#~ msgid "No cookies to show"
+#~ msgstr "クッキーはありません"
+
+#~ msgid "No device screen"
+#~ msgstr "画面が表示できません"
+
+#~ msgid "No devices connected"
+#~ msgstr "端末が接続されていません"
+
+#~ msgid "No photo available"
+#~ msgstr "写真はありません"
+
+#~ msgid "No screenshots taken"
+#~ msgstr "キャプチャはありません"
+
+#~ msgid "Nothing to inspect"
+#~ msgstr "要素の検証対象はありません"
+
+#~ msgid "Notifications"
+#~ msgstr "通知"
+
+#~ msgid "Number"
+#~ msgstr "番号"
+
+#~ msgid "Open"
+#~ msgstr "開く"
+
+#~ msgid "Orientation"
+#~ msgstr "方向"
+
+#~ msgid "PID"
+#~ msgstr "PID"
+
+#~ msgid "Package"
+#~ msgstr "パッケージ"
+
+#~ msgid "Path"
+#~ msgstr "パス"
+
+#~ msgid "Pause"
+#~ msgstr "停止"
+
+#~ msgid "Physical Device"
+#~ msgstr "物理デバイス"
+
+#~ msgid "Place"
+#~ msgstr "場所"
+
+#~ msgid "Platform"
+#~ msgstr "プラットホーム"
+
+#~ msgid "Play"
+#~ msgstr "再生"
+
+#~ msgid "Play/Pause"
+#~ msgstr "再生/停止"
+
+#~ msgid "Port"
+#~ msgstr "ポート"
+
+#~ msgid "Port forwarding"
+#~ msgstr "ポートフォワーディング"
+
+#~ msgid "Portrait"
+#~ msgstr "縦"
+
+#~ msgid "Power"
+#~ msgstr "電源"
+
+#~ msgid "Power Source"
+#~ msgstr "電力源"
+
+#~ msgid "Previous"
+#~ msgstr "前"
+
+#~ msgid "Processing..."
+#~ msgstr "処理中..."
+
+#~ msgid "Pushing app..."
+#~ msgstr "アプリをプッシュ中..."
+
+#~ msgid "RAM"
+#~ msgstr "RAM"
+
+#~ msgid "ROM"
+#~ msgstr "ROM"
+
+#~ msgid "Record"
+#~ msgstr "記録する"
+
+#~ msgid "Reference"
+#~ msgstr "参考"
+
+#~ msgid "Refresh"
+#~ msgstr "更新"
+
+#~ msgid "Relaunch"
+#~ msgstr "再起動"
+
+#~ msgid "Relaunch the browser"
+#~ msgstr "ブラウザを再起動する"
+
+#~ msgid "Reload"
+#~ msgstr "再読込"
+
+#~ msgid "Remote debug"
+#~ msgstr "リモートデバッグ"
+
+#~ msgid "Reset"
+#~ msgstr "初期化"
+
+#~ msgid "Reset Settings"
+#~ msgstr "すべての設定をリセット"
+
+#~ msgid "Reset all browser settings"
+#~ msgstr "ブラウザの設定をリセットする"
+
+#~ msgid "Restart Device"
+#~ msgstr "端末を再起動"
+
+#~ msgid "Retrieving the device screen has timed out."
+#~ msgstr "実機画面の取得はタイムアウトになりました。"
+
+#~ msgid "Retry"
+#~ msgstr "再試行"
+
+#~ msgid "Rewind"
+#~ msgstr "巻き戻す"
+
+#~ msgid "Roaming"
+#~ msgstr "ローミング"
+
+#~ msgid "Run"
+#~ msgstr "実行"
+
+#~ msgid "Run Command"
+#~ msgstr "コマンドを実行"
+
+#~ msgid "Run JavaScript"
+#~ msgstr "JavaScript注入"
+
+#~ msgid "Run command"
+#~ msgstr "コマンドを実行する"
+
+#~ msgid "Run the following on your command line:"
+#~ msgstr "次のコマンドをコマンドラインで実行してください。"
+
+#~ msgid "SIM"
+#~ msgstr "SIM"
+
+#~ msgid "Save..."
+#~ msgstr "保存する..."
+
+#~ msgid "Saved to: {{savedTo}}"
+#~ msgstr "保存先: {{savedTo}}"
+
+#~ msgid "Screenshot"
+#~ msgstr "キャプチャ"
+
+#~ msgid "Search"
+#~ msgstr "検索"
+
+#~ msgid "Secure"
+#~ msgstr "セキュア"
+
+#~ msgid "Set"
+#~ msgstr "設定"
+
+#~ msgid "Set Cookie"
+#~ msgstr "クッキー設定"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
+
+#~ msgid "Shell"
+#~ msgstr "シェル"
+
+#~ msgid "Show Screen"
+#~ msgstr "画面を表示する"
+
+#~ msgid "Special Keys"
+#~ msgstr "特別なキー"
+
+#~ msgid "Start/Stop Logging"
+#~ msgstr "ログ取得の開始／停止"
+
+#~ msgid "Stop"
+#~ msgstr "停止"
+
+#~ msgid "Sub Type"
+#~ msgstr "サブタイプ"
+
+#~ msgid "Switch Charset"
+#~ msgstr "文字入力の切り替え"
+
+#~ msgid "TID"
+#~ msgstr "TID"
+
+#~ msgid "Tag"
+#~ msgstr "タグ"
+
+#~ msgid "Take Pageshot (Needs WebView running)"
+#~ msgstr "ページ全体ショットを撮る（現在はWebViewのみ対応）"
+
+#~ msgid "Take Screenshot"
+#~ msgstr "スクリーンショットを撮る"
+
+#~ msgid "Temperature"
+#~ msgstr "温度"
+
+#~ msgid "Text"
+#~ msgstr "テキスト"
+
+#~ msgid ""
+#~ "This might be caused by a network error, or you might be trying to access "
+#~ "a secure view."
+#~ msgstr ""
+#~ "起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化さ"
+#~ "れたビュー"
+
+#~ msgid "Time"
+#~ msgstr "時刻"
+
+#~ msgid "Total devices"
+#~ msgstr "全機種"
+
+#~ msgid "Try to reconnect"
+#~ msgstr "再接続する"
+
+#~ msgid "Type"
+#~ msgstr "タイプ"
+
+#~ msgid "Unforward"
+#~ msgstr "フォーワード解除"
+
+#~ msgid "Uninstall"
+#~ msgstr "削除"
+
+#~ msgid "Upload From Link"
+#~ msgstr "リンク先よりアップロードする"
+
+#~ msgid "Upload complete"
+#~ msgstr "アップロードが完了しました"
+
+#~ msgid "Upload failed"
+#~ msgstr "アップロードが失敗しました"
+
+#~ msgid "Uploaded file is not valid"
+#~ msgstr "アップロードされたファイル"
+
+#~ msgid "Uploading..."
+#~ msgstr "アップロード中..."
+
+#~ msgid "Usable devices"
+#~ msgstr "利用可能"
+
+#~ msgid "Usb speed"
+#~ msgstr "USB速度"
+
+#~ msgid "Using Fallback"
+#~ msgstr "フォールバックを使用中"
+
+#~ msgid "Value"
+#~ msgstr "値"
+
+#~ msgid "Version"
+#~ msgstr "バージョン"
+
+#~ msgid "Version Update"
+#~ msgstr "バージョンアップ"
+
+#~ msgid "Voltage"
+#~ msgstr "電圧"
+
+#~ msgid "Volume"
+#~ msgstr "音量"
+
+#~ msgid "Volume Down"
+#~ msgstr "音量↓"
+
+#~ msgid "Volume Up"
+#~ msgstr "音量↑"
+
+#~ msgid "Web"
+#~ msgstr "Web"
+
+#~ msgid "WiFi Settings"
+#~ msgstr "無線LAN設定"
+
+#~ msgid "Width"
+#~ msgstr "幅"
+
+#~ msgid "X DPI"
+#~ msgstr "X DPI"
+
+#~ msgid "Y DPI"
+#~ msgstr "Y DPI"
+
+#~ msgid "You are no longer controlling the device."
+#~ msgstr "この実機のリモート操作ができなくなりました。"
+
+#~ msgid "{{ device.enhancedName }} current status:"
+#~ msgstr "{{ device.enhancedName }}のステータス："
+
+#~ msgid "{{ device.enhancedName }} was disconnected"
+#~ msgstr "{{ device.enhancedName }}への接続が切れました"
 
 #~ msgid ""
 #~ "Are you sure you want to kick this device?Currently it is being used by"
@@ -1250,9 +1050,6 @@ msgstr "{{ device.enhancedName }}への接続が切れました"
 
 #~ msgid "Pageshot"
 #~ msgstr "ページ全体"
-
-#~ msgid "Power Button"
-#~ msgstr "電源ボタン"
 
 #~ msgid "Release Date"
 #~ msgstr "発売日"

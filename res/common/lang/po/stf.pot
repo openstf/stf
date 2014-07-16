@@ -343,10 +343,6 @@ msgstr ""
 msgid "Find Device"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
-msgid "Focus URL bar"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
 msgid "Forward"
 msgstr ""
@@ -562,10 +558,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
-msgid "Next Device"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "No"
 msgstr ""
@@ -580,6 +572,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid "No device screen"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
+msgid "No devices connected"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
@@ -719,10 +715,6 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
-msgid "Previous Device"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Processing..."
 msgstr ""
@@ -786,6 +778,7 @@ msgstr ""
 msgid "Remote debug"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset"
@@ -861,10 +854,6 @@ msgstr ""
 msgid "Save..."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-msgid "Saved to: {{savedTo}}"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
 msgid "Screen"
 msgstr ""
@@ -914,10 +903,6 @@ msgstr ""
 msgid "Show Screen"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
-msgid "Show/Hide device"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Special Keys"
 msgstr ""
@@ -961,7 +946,6 @@ msgid "Take Pageshot (Needs WebView running)"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Take Screenshot"
 msgstr ""
 

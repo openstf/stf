@@ -74,64 +74,22 @@ module.exports =
     }
 
     ScopedHotkeysService($scope, [
-      ['shift+up', gettext('Previous Device'), actions.previousDevice],
-      ['shift+down', gettext('Next Device'), actions.nextDevice],
+      //['shift+up', gettext('Previous Device'), actions.previousDevice],
+      //['shift+down', gettext('Next Device'), actions.nextDevice],
       ['shift+d', gettext('Go to Device List'), actions.deviceList],
 
       ['shift+space', gettext('Selects Next IME'), actions.switchCharset],
       ['command+left', gettext('Rotate Left'), actions.rotateLeft],
       ['command+right', gettext('Rotate Right'), actions.rotateRight],
 
-      ['shift+l', gettext('Focus URL bar'), actions.focusUrlBar],
-      ['shift+s', gettext('Take Screenshot'), actions.takeScreenShot],
+      //['shift+l', gettext('Focus URL bar'), actions.focusUrlBar],
+      //['shift+s', gettext('Take Screenshot'), actions.takeScreenShot],
 
       ['shift+m', gettext('Press Menu button'), actions.pressMenu],
       ['shift+h', gettext('Press Home button'), actions.pressHome],
       ['shift+b', gettext('Press Back button'), actions.pressBack],
 
-      ['shift+i', gettext('Show/Hide device'), actions.toggleDevice],
+      //['shift+i', gettext('Show/Hide device'), actions.toggleDevice],
       ['shift+w', gettext('Toggle Web/Native'), actions.togglePlatform]
     ])
-//
-//    var hotkeySet = [
-//      ['shift+up', gettext('Previous Device'), actions.previousDevice],
-//      ['shift+down', gettext('Next Device'), actions.nextDevice],
-//      ['shift+d', gettext('Go to Device List'), actions.deviceList],
-//
-//      ['shift+space', gettext('Selects Next IME'), actions.switchCharset],
-//      ['command+left', gettext('Rotate Left'), actions.rotateLeft],
-//      ['command+right', gettext('Rotate Right'), actions.rotateRight],
-//
-//      ['shift+l', gettext('Focus URL bar'), actions.focusUrlBar],
-//      ['shift+s', gettext('Take Screenshot'), actions.takeScreenShot],
-//
-//      ['shift+m', gettext('Press Menu button'), actions.pressMenu],
-//      ['shift+h', gettext('Press Home button'), actions.pressHome],
-//      ['shift+b', gettext('Press Back button'), actions.pressBack],
-//
-//      ['shift+i', gettext('Show/Hide device'), actions.toggleDevice],
-//      ['shift+w', gettext('Toggle Web/Native'), actions.togglePlatform]
-//    ]
-//
-//    function hotkeyAdd(combo, desc, cb) {
-//      hotkeys.add({
-//        combo: combo,
-//        description: $filter('translate')(desc),
-//        allowIn: ['textarea'],
-//        callback: function (event) {
-//          event.preventDefault()
-//          cb()
-//        }
-//      })
-//    }
-//
-//    angular.forEach(hotkeySet, function (value) {
-//      hotkeyAdd(value[0], value[1], value[2])
-//    })
-//
-//    $scope.$on('$destroy', function () {
-//      angular.forEach(hotkeySet, function (value) {
-//        hotkeys.del(value[0])
-//      })
-//    })
   }

@@ -6,7 +6,7 @@
         a(ng-href='/#!/control', ng-click='$event.preventDefault()').cursor
           span.fa.fa-mobile
           | {{ !$root.basicMode ? "Control" : '' | translate }}
-        a(ng-href='/#!/devices')
+        a(ng-href='/#!/devices', accesskey='1')
           span.fa.fa-sitemap
           | {{ !$root.basicMode ? "Devices" : '' | translate }}
         a(ng-href='/#!/settings')
@@ -27,6 +27,6 @@
           badge-icon(type='warning', message='There was an error')
 
       li(ng-if='!$root.basicMode')
-        a(ng-href='/#!/help')
+        a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}

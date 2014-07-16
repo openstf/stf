@@ -9,7 +9,8 @@
   .widget-content.padded
 
     .input-group.form-inline
-      input(type=text, ng-model='command', ng-enter='run(command)', text-focus-select).form-control.shell-input
+      input(type=text, ng-model='command', ng-enter='run(command)', text-focus-select,
+        tabindex='30', accesskey='S').form-control.shell-input
       span.input-group-btn
         // , tooltip='{{"Run Command"|translate}}'
         button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')

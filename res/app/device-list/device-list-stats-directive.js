@@ -43,7 +43,7 @@ module.exports = function DeviceListStatsDirective(
         scope.counter.total += 1
         scope.counter.usable += stats.usable
         scope.counter.busy += stats.busy
-        scope.counter.using += stats.busy
+        scope.counter.using += stats.using
 
         notify()
       }

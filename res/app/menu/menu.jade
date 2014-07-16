@@ -21,6 +21,11 @@
         a(ng-click='openChat()').pointer
           i.fa.fa-comment.fa-fw
           | {{ "Chat" | translate }}
+
+      //li
+        a
+          badge-icon(type='warning', message='There was an error')
+
       li(ng-if='!$root.basicMode')
         a(ng-href='/#!/help')
           i.fa.fa-question-circle.fa-fw

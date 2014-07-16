@@ -5,12 +5,12 @@ define(['./app'], function(app) {
     , function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true)
         $routeProvider
-          .when('/auth/mock', {
+          .when('/auth/mock/', {
             templateUrl: '/static/auth/mock/views/partials/signin.html'
           , controller: 'SignInCtrl'
           })
           .otherwise({
-            redirectTo: '/auth/mock'
+            redirectTo: '/auth/mock/'
           })
       }
   ])

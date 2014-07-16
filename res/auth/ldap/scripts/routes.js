@@ -5,12 +5,12 @@ define(['./app'], function(app) {
     , function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true)
         $routeProvider
-          .when('/auth/ldap', {
+          .when('/auth/ldap/', {
             templateUrl: '/static/auth/ldap/views/signin.html'
           , controller: 'SignInCtrl'
           })
           .otherwise({
-            redirectTo: '/auth/ldap'
+            redirectTo: '/auth/ldap/'
           })
       }
   ])

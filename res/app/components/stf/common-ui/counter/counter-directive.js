@@ -13,7 +13,7 @@ module.exports = function counterDirective($timeout, $$rAF) {
         step = 0
         scope.timoutId = null
         countTo = parseInt(attrs.countTo) || 0
-        scope.value = parseInt(attrs.value, 10) || 0
+        scope.value = parseInt(attrs.countFrom, 10) || 0
         duration = parseFloat(attrs.duration) || 0
 
         steps = Math.ceil(duration / refreshInterval)
@@ -52,7 +52,7 @@ module.exports = function counterDirective($timeout, $$rAF) {
         }
       })
 
-      attrs.$observe('value', function (val) {
+      attrs.$observe('countFrom', function (val) {
         start()
       })
 

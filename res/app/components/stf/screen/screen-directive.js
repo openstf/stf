@@ -187,10 +187,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         scope.control.paste(e.clipboardData.getData('text/plain'))
       }
 
-      function getTextDiffered() {
-        return 'new text' + 5
-      }
-
       function copyListener(e) {
         scope.control.getClipboardContent()
         // @TODO: OK, this basically copies last clipboard content
@@ -286,9 +282,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
 
             // Next please
             maybeLoadScreen()
-          } else {
-            // Nothing to show
           }
+          // Else: Nothing to show
         }
 
         imageRender.onError = function (type) {

@@ -268,7 +268,7 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          tr.className = 'device-not-usable'
+          tr.classList.add('device-not-usable')
         }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
@@ -322,10 +322,10 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          tr.className = 'device-not-usable'
+          ts.classList.add('device-not-usable')
         }
         else {
-          tr.className = ''
+          tr.classList.remove('device-not-usable')
         }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {

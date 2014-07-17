@@ -123,13 +123,21 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         // Add any special key here for changing charset
         //console.log('e', e)
 
-        //Chrome/Safari/Opera
-        switch(e.keyIdentifier) {
-          case 'U+0010': // Mac | Kinesis keyboard | Karabiner | Latin key, Kana key
-          case 'U+0020': // Mac | MacBook Pro keyboard | Latin key, Kana key
-          case 'U+00F6': // Win | Lenovo X230 keyboard | Alt+Latin key
-          case 'U+001C': // Win | Lenovo X230 keyboard | Convert key
-            return true
+        // Chrome/Safari/Opera
+        if (
+          // Mac | Kinesis keyboard | Karabiner | Latin key, Kana key
+          e.keyCode === 0 && e.keyIdentifier === 'U+0010' ||
+
+          // Mac | MacBook Pro keyboard | Latin key, Kana key
+          e.keyCode === 0 && e.keyIdentifier === 'U+0020' ||
+
+          // Win | Lenovo X230 keyboard | Alt+Latin key
+          e.keyCode === 246 && e.keyIdentifier === 'U+00F6' ||
+
+          // Win | Lenovo X230 keyboard | Convert key
+          e.keyCode === 28 && e.keyIdentifier === 'U+001C'
+          ) {
+          return true
         }
 
         // Firefox

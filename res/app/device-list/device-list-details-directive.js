@@ -1,9 +1,10 @@
 var patchArray = require('./util/patch-array')
 
 module.exports = function DeviceListDetailsDirective(
-  DeviceColumnService
+  $filter
+, gettext
+, DeviceColumnService
 , GroupService
-, $filter
 , $rootScope
 ) {
   return {
@@ -322,7 +323,7 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          ts.classList.add('device-not-usable')
+          tr.classList.add('device-not-usable')
         }
         else {
           tr.classList.remove('device-not-usable')

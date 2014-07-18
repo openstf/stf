@@ -2,6 +2,7 @@ var patchArray = require('./util/patch-array')
 
 module.exports = function DeviceListDetailsDirective(
   $filter
+, gettext
 , DeviceColumnService
 , GroupService
 ) {
@@ -359,7 +360,7 @@ module.exports = function DeviceListDetailsDirective(
       // Patches the given item by running the given patch operations in
       // order. The operations must take into account index changes caused
       // by previous operations.
-      function patchItem(item, device, patch) {
+      function patchItem(/*item, device, patch*/) {
         // Currently no-op
       }
 

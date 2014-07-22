@@ -70,26 +70,33 @@ module.exports =
         } else {
           $rootScope.platform = 'web'
         }
+      },
+      scale: function () {
+        // TODO: scale size
       }
     }
 
     ScopedHotkeysService($scope, [
       //['shift+up', gettext('Previous Device'), actions.previousDevice],
       //['shift+down', gettext('Next Device'), actions.nextDevice],
-      ['shift+d', gettext('Go to Device List'), actions.deviceList],
+      ['command+shift+d', gettext('Go to Device List'), actions.deviceList],
 
       ['shift+space', gettext('Selects Next IME'), actions.switchCharset],
       ['command+left', gettext('Rotate Left'), actions.rotateLeft],
       ['command+right', gettext('Rotate Right'), actions.rotateRight],
 
+      //['command+1', gettext('Scale 100%'), actions.scale],
+      //['command+2', gettext('Scale 75%'), actions.scale],
+      //['command+3', gettext('Scale 50%'), actions.scale],
+
       //['shift+l', gettext('Focus URL bar'), actions.focusUrlBar],
       //['shift+s', gettext('Take Screenshot'), actions.takeScreenShot],
 
-      ['shift+m', gettext('Press Menu button'), actions.pressMenu],
-      ['shift+h', gettext('Press Home button'), actions.pressHome],
-      ['shift+b', gettext('Press Back button'), actions.pressBack],
+      ['command+shift+m', gettext('Press Menu button'), actions.pressMenu],
+      ['command+shift+h', gettext('Press Home button'), actions.pressHome],
+      ['command+shift+b', gettext('Press Back button'), actions.pressBack],
 
       //['shift+i', gettext('Show/Hide device'), actions.toggleDevice],
-      ['shift+w', gettext('Toggle Web/Native'), actions.togglePlatform]
+      ['shift+w', gettext('Toggle Web/Native'), actions.togglePlatform, false]
     ])
   }

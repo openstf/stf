@@ -1,20 +1,22 @@
 module.exports = function ScopedHotkeysServiceFactory(hotkeys, $filter) {
   return function (scope, hotkeySet) {
 
-    function hotkeyAdd(combo, desc, cb) {
+    function hotkeyAdd(combo, desc, callback, preventDefault) {
       hotkeys.add({
         combo: combo,
         description: $filter('translate')(desc),
-        allowIn: ['textarea'],
+        allowIn: ['textarea', 'input'],
         callback: function (event) {
-          event.preventDefault()
-          cb()
+          if (preventDefault || typeof preventDefault === 'undefined') {
+            event.preventDefault()
+          }
+          callback()
         }
       })
     }
 
     angular.forEach(hotkeySet, function (value) {
-      hotkeyAdd(value[0], value[1], value[2])
+      hotkeyAdd(value[0], value[1], value[2], value[3])
     })
 
     scope.$on('$destroy', function () {

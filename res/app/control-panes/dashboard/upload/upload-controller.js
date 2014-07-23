@@ -128,6 +128,7 @@ module.exports = function UploadCtrl(
   }
 
   $scope.uninstall = function (packageName) {
+    // TODO: After clicking uninstall accordion opens
     return $scope.control.uninstall(packageName)
       .then(function (result) {
         if (result.success) {

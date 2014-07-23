@@ -29,6 +29,17 @@ module.exports = angular.module('stf.device-status', [])
       }[text] || gettext('Unknown')
     }
   })
+ .filter('likelyLeaveReason', function (gettext) {
+    return function (text) {
+      return {
+        'ungroup_request': gettext('You (or someone else) kicked the device.'),
+        'owner_change': gettext('Someone stole your device.'),
+        'automatic_timeout': gettext('Device was kicked by automatic timeout.	'),
+        'device_absent': gettext('Device is not present anymore for some reason.'),
+        'status_change': gettext('Device is present but offline.')
+      }[text] || gettext('Unknown reason.')
+    }
+  })
   .filter('batteryHealth', function (gettext) {
     return function (text) {
       return {

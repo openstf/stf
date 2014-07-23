@@ -8,6 +8,8 @@
   .modal-body
     .text-danger(translate) You are no longer controlling the device.
     br
+    h3(translate) {{ device.likelyLeaveReason | likelyLeaveReason }}
+    br
     h4(translate).pull-right  {{ device.enhancedName }} current status:
     br
     br

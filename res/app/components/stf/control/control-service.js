@@ -233,6 +233,10 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.getSdStatus = function() {
+      return sendTwoWay('sd.status')
+    }
+
     this.setRingerMode = function(mode) {
       return sendTwoWay('ringer.set', {
         mode: mode

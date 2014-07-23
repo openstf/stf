@@ -12,6 +12,7 @@ enum MessageType {
     GET_CLIPBOARD = 6;
     GET_DISPLAY = 19;
     GET_PROPERTIES = 7;
+    GET_SD_STATUS = 25;
     GET_VERSION = 8;
     GET_WIFI_STATUS = 23;
     SET_CLIPBOARD = 9;
@@ -219,6 +220,14 @@ message GetWifiStatusRequest {
 message GetWifiStatusResponse {
     required bool success = 1;
     required bool status = 2;
+}
+
+message GetSdStatusRequest {
+}
+
+message GetSdStatusResponse {
+    required bool success = 1;
+    required bool mounted = 2;
 }
 
 // Agent

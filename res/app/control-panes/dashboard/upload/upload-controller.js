@@ -68,7 +68,8 @@ module.exports = function UploadCtrl(
           }
         })
 
-        var href = res.data.resources.file0.href
+        var href = res.data.resources.file.href
+
         return $http.get(href + '/manifest')
           .then(function(res) {
             $scope.upload = {

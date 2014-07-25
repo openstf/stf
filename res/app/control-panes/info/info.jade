@@ -219,3 +219,7 @@
             tr
               td(translate) ROM
               td {{device.memory.rom}} MB
+
+            tr
+              td(translate) SD Card Mounted
+              td {{ sdCardMounted | humanizedBool }}

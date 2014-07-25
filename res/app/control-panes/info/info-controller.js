@@ -4,4 +4,14 @@ module.exports = function InfoCtrl($scope, LightboxImageService) {
     var enhancedPhoto800 = '/static/app/devices/photo/x800/' + device.image
     LightboxImageService.open(title, enhancedPhoto800)
   }
+
+
+  var getSdStatus = function () {
+    $scope.control.getSdStatus().then(function (result) {
+      $scope.$apply(function () {
+        $scope.sdCardMounted = (result.lastData === 'sd_mounted')
+      })
+    })
+  }
+  getSdStatus()
 }

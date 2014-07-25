@@ -9,7 +9,7 @@ module.exports = function StoreAccountCtrl($scope) {
     })
   }
 
-  $scope.removeAccount = function () {
+  $scope.removeAccounts = function () {
     $scope.control.removeAccount().then(function (res) {
     }).catch(function (res) {
       console.log('Removing account failed', res)

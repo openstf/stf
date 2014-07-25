@@ -12,10 +12,10 @@
         .input-group
           span.input-group-addon
             i.fa.fa-user.fa-fw
-          input.form-control(ng-model='username', name='username', required, type='text', placeholder='User name',
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='Username',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login username')
         .alert.alert-warning(ng-show='storeLogin.username.$dirty && storeLogin.username.$invalid')
-          span(ng-show='storeLogin.username.$error.required', translate) Please enter your LDAP username
+          span(ng-show='storeLogin.username.$error.required', translate) Please enter your Store username
       .form-group
         .input-group
           span.input-group-addon
@@ -23,13 +23,10 @@
           input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
         .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
-          span(translate) Please enter your password
+          span(translate) Please enter your Store password
       button.btn.btn-primary(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
         i.fa.fa-sign-in
         span(translate) Add Account
-      //input.btn.btn-primary(type='submit', value='Add Account')
-        i.fa.fa-sign-in
-      button.btn.btn-danger(ng-click='removeAccount()', ng-disabled='storeLogin.$invalid').pull-right
+      button.btn.btn-danger(ng-click='removeAccounts()').pull-right
         i.fa.fa-sign-out
-        span(translate) Remove Account
-      //input.btn.btn-danger(type='button', value='Remove Account', ng-click='removeAccount()').pull-right
+        span(translate) Remove Accounts

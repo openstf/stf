@@ -29,6 +29,12 @@ module.exports =
 //      filters: ['native', 'web']
 //    },
       {
+        title: gettext('Automation'),
+        icon: 'fa-road',
+        templateUrl: 'control-panes/automation/automation.jade',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Advanced'),
         icon: 'fa-bolt',
         templateUrl: 'control-panes/advanced/advanced.jade',

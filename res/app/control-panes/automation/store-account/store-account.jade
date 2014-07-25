@@ -12,7 +12,7 @@
         .input-group
           span.input-group-addon
             i.fa.fa-user.fa-fw
-          input.form-control(ng-model='username', name='username', required, type='text', placeholder='Username',
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='{{"Username"|translate}}',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login username')
         .alert.alert-warning(ng-show='storeLogin.username.$dirty && storeLogin.username.$invalid')
           span(ng-show='storeLogin.username.$error.required', translate) Please enter your Store username
@@ -20,7 +20,7 @@
         .input-group
           span.input-group-addon
             i.fa.fa-lock.fa-fw
-          input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password',
+          input.form-control(ng-model='password', name='password', required, type='password', placeholder='{{"Password"|translate}}',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
         .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
           span(translate) Please enter your Store password

@@ -36,6 +36,10 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Add Account"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
 msgid "Admin mode has been disabled."
 msgstr ""
@@ -60,6 +64,7 @@ msgstr ""
 msgid "App"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "App Store"
 msgstr ""
@@ -74,6 +79,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "Are you sure you want to reboot this device?"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
+msgid "Automation"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -250,13 +259,33 @@ msgstr ""
 msgid "Device Photo"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Device Settings"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-details-directive.js
 #: /Users/a12907/STF/stf/res/app/device-list/device-list-icons-directive.js
 msgid "Device cannot get kicked from the group"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Device is not present anymore for some reason."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Device is present but offline."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Device was kicked by automatic timeout."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 msgid "Devices"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Disable WiFi"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -289,6 +318,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Eject"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Enable WiFi"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
@@ -574,10 +607,6 @@ msgstr ""
 msgid "No device screen"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
-msgid "No devices connected"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
 msgid "No photo available"
 msgstr ""
@@ -635,6 +664,10 @@ msgstr ""
 msgid "Package"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Password"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Path"
 msgstr ""
@@ -673,6 +706,14 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Play/Pause"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Please enter your Store password"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Please enter your Store username"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
@@ -778,6 +819,10 @@ msgstr ""
 msgid "Remote debug"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Remove Accounts"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
@@ -842,6 +887,10 @@ msgid "Run the following on your command line:"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
+msgid "SD Card Mounted"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
 msgid "SDK"
 msgstr ""
@@ -903,6 +952,10 @@ msgstr ""
 msgid "Show Screen"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Someone stole your device."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Special Keys"
 msgstr ""
@@ -923,6 +976,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Stop Using"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Store Account"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -1006,6 +1063,10 @@ msgid "Unknown"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "Unknown reason."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unspecified Failure"
 msgstr ""
 
@@ -1043,6 +1104,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
 msgid "User"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Username"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -1115,6 +1180,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Yes"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
+msgid "You (or someone else) kicked the device."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html

@@ -24,9 +24,9 @@
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
         .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
           span(translate) Please enter your Store password
-      button.btn.btn-primary(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
+      button.btn.btn-sm.btn-primary(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
         i.fa.fa-sign-in
         span(translate) Add Account
-      button.btn.btn-danger(ng-click='removeAccounts()').pull-right
+      button.btn.btn-sm.btn-danger(ng-click='removeAccounts()').pull-right
         i.fa.fa-sign-out
         span(translate) Remove Accounts

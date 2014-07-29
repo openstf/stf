@@ -391,6 +391,8 @@ message ConnectStopMessage {
 }
 
 message AccountRemoveMessage {
+  required string type = 1;
+  optional string account = 2;
 }
 
 message AccountAddMenuMessage {

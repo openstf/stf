@@ -8,6 +8,7 @@ enum MessageType {
     DO_TYPE = 3;
     DO_WAKE = 4;
     DO_ADD_ACCOUNT_MENU = 24;
+    DO_REMOVE_ACCOUNT = 20;
     GET_BROWSERS = 5;
     GET_CLIPBOARD = 6;
     GET_DISPLAY = 19;
@@ -27,7 +28,6 @@ enum MessageType {
     EVENT_PHONE_STATE = 16;
     EVENT_ROTATION = 17;
     EVENT_BROWSER_PACKAGE = 18;
-    REMOVE_ACCOUNT = 20;
 }
 
 message Envelope {
@@ -185,10 +185,12 @@ message DoAddAccountMenuResponse {
     required bool success = 1;
 }
 
-message RemoveAccountRequest {
+message DoRemoveAccountRequest {
+    required string type = 1;
+    optional string account = 2;
 }
 
-message RemoveAccountResponse {
+message DoRemoveAccountResponse {
     required bool success = 1;
 }
 

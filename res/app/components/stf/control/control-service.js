@@ -218,8 +218,11 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('screen.capture')
     }
 
-    this.removeAccount = function() {
-      return sendTwoWay('account.remove')
+    this.removeAccount = function(type, account) {
+      return sendTwoWay('account.remove', {
+        type: type
+      , account: account
+      })
     }
 
     this.addAccountMenu = function() {

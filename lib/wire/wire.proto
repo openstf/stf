@@ -54,13 +54,13 @@ enum MessageType {
   RebootMessage              = 52;
   ConnectStartMessage        = 53;
   ConnectStopMessage         = 54;
-  AccountRemoveMessage       = 55;
   RingerSetMessage           = 56;
   WifiSetEnabledMessage      = 57;
   WifiGetStatusMessage       = 58;
   AccountAddMenuMessage      = 59;
   AccountAddMessage          = 60;
   AccountGetMessage          = 62;
+  AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
 }
 
@@ -391,11 +391,6 @@ message ConnectStartMessage {
 message ConnectStopMessage {
 }
 
-message AccountRemoveMessage {
-  required string type = 1;
-  optional string account = 2;
-}
-
 message AccountAddMenuMessage {
 }
 
@@ -406,6 +401,11 @@ message AccountAddMessage {
 
 message AccountGetMessage {
   required string type = 1;
+}
+
+message AccountRemoveMessage {
+  required string type = 1;
+  optional string account = 2;
 }
 
 message SdStatusMessage {

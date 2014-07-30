@@ -236,6 +236,12 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.getAccounts = function(type) {
+      return sendTwoWay('account.get', {
+        type: type
+      })
+    }
+
     this.getSdStatus = function() {
       return sendTwoWay('sd.status')
     }

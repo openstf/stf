@@ -9,6 +9,7 @@ enum MessageType {
     DO_WAKE = 4;
     DO_ADD_ACCOUNT_MENU = 24;
     DO_REMOVE_ACCOUNT = 20;
+    GET_ACCOUNTS = 26;
     GET_BROWSERS = 5;
     GET_CLIPBOARD = 6;
     GET_DISPLAY = 19;
@@ -176,6 +177,15 @@ message DoIdentifyRequest {
 
 message DoIdentifyResponse {
     required bool success = 1;
+}
+
+message GetAccountsRequest {
+    required string type = 1;
+}
+
+message GetAccountsResponse {
+    required bool success = 1;
+    repeated string accounts = 2;
 }
 
 message DoAddAccountMenuRequest {

@@ -60,6 +60,7 @@ enum MessageType {
   WifiGetStatusMessage       = 58;
   AccountAddMenuMessage      = 59;
   AccountAddMessage          = 60;
+  AccountGetMessage          = 62;
   SdStatusMessage            = 61;
 }
 
@@ -401,6 +402,10 @@ message AccountAddMenuMessage {
 message AccountAddMessage {
   required string user = 1;
   required string password = 2;
+}
+
+message AccountGetMessage {
+  required string type = 1;
 }
 
 message SdStatusMessage {

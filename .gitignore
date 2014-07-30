@@ -3,6 +3,7 @@
 .idea/
 /*.tgz
 /.env
+/.heroku/
 /doc/*.png
 /node_modules/
 /res/bower_components/

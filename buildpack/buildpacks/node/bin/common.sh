@@ -28,3 +28,11 @@ indent() {
 cat_npm_debug_log() {
   test -f $build_dir/npm-debug.log && cat $build_dir/npm-debug.log
 }
+
+cp_keep_links() {
+  if [ "$(uname)" == "Darwin" ]; then
+    cp -p "$@"
+  else
+    cp --preserve=links "$@"
+  fi
+}

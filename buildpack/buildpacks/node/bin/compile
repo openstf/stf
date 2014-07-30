@@ -32,7 +32,7 @@ if test -d $build_dir/node_modules; then
   npm rebuild 2>&1 | indent
 elif test -d $cache_dir/node/node_modules; then
   status "Restoring node_modules directory from cache"
-  cp -r $cache_dir/node/node_modules $build_dir/
+  cp_keep_links -R $cache_dir/node/node_modules $build_dir/
 
   status "Pruning cached dependencies not specified in package.json"
   npm prune 2>&1 | indent
@@ -70,7 +70,7 @@ mkdir -p $cache_dir/node
 # If app has a node_modules directory, cache it.
 if test -d $build_dir/node_modules; then
   status "Caching node_modules directory for future builds"
-  cp -r $build_dir/node_modules $cache_dir/node
+  cp_keep_links -R $build_dir/node_modules $cache_dir/node
 fi
 
 # Copy goodies to the cache

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e            # fail fast
+set -o pipefail   # don't ignore exit codes when piping output
+# set -x          # enable debugging
+
+bp_dir=$(cd $(dirname $0); cd ..; pwd)
+
+# Load some convenience functions like status()
+source $bp_dir/bin/common.sh
+
+for pack in node bower gulp; do
+  if name=$($bp_dir/buildpacks/$pack/bin/detect "$@"); then
+    if test -f $bp_dir/buildpacks/$pack/bin/compact; then
+      status "Compacting ${name}"
+      $bp_dir/buildpacks/$pack/bin/compact "$@"
+    fi
+  fi
+done

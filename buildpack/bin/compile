@@ -9,7 +9,7 @@ bp_dir=$(cd $(dirname $0); cd ..; pwd)
 # Load some convenience functions like status()
 source $bp_dir/bin/common.sh
 
-for pack in node bower; do
+for pack in node bower gulp; do
   if name=$($bp_dir/buildpacks/$pack/bin/detect "$@"); then
     status "Detected ${name}"
     $bp_dir/buildpacks/$pack/bin/compile "$@"

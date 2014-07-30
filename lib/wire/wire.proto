@@ -59,6 +59,7 @@ enum MessageType {
   WifiGetStatusMessage       = 58;
   AccountAddMenuMessage      = 59;
   AccountAddMessage          = 60;
+  AccountCheckMessage        = 63;
   AccountGetMessage          = 62;
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
@@ -397,6 +398,11 @@ message AccountAddMenuMessage {
 message AccountAddMessage {
   required string user = 1;
   required string password = 2;
+}
+
+message AccountCheckMessage {
+  required string type = 1;
+  required string account = 2;
 }
 
 message AccountGetMessage {

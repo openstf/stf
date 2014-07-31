@@ -8,14 +8,17 @@
       span(translate) Reference
   .widget-content.padded
 
-    .input-group.form-inline
-      input(type=text, ng-model='command', ng-enter='run(command)', text-focus-select,
-        tabindex='30', accesskey='S').form-control.shell-input
-      span.input-group-btn
-        // , tooltip='{{"Run Command"|translate}}'
-        button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
-          //, tooltip='{{ "Run command" | translate }}')
-          i.fa.fa-play
+    iframe(src="about:blank", name="_autofill2", style="display:none")
+    form(method="post", action="about:blank", target="_autofill2")
+      .input-group.form-inline
+        input(type=text, ng-model='command', ng-enter='run(command)', text-focus-select,
+          //autocapitalize='off', spellcheck='false',
+          tabindex='30', accesskey='S', autocomplete='on').form-control.shell-input
+        span.input-group-btn
+          // , tooltip='{{"Run Command"|translate}}'
+          button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
+            //, tooltip='{{ "Run command" | translate }}')
+            i.fa.fa-play
     pre.shell-results(ng-show='data') {{data}}
     pre.shell-results(ng-show='result.settled && !data').shell-results-empty No output
 

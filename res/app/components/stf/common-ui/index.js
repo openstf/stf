@@ -12,5 +12,6 @@ module.exports = angular.module('stf/common-ui', [
   require('./include-cached').name,
   require('./text-focus-select').name,
   require('./counter').name,
-  require('./badge-icon').name
+  require('./badge-icon').name,
+  require('./enable-autofill').name
 ])

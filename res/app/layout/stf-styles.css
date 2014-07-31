@@ -1,22 +1,22 @@
 body {
-    /*font-size: 14px;*/
-    /*background: #eee;*/
+  /*font-size: 14px;*/
+  /*background: #eee;*/
 }
 
 .page-container {
-    padding: 0 30px;
-    margin: 0 auto;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 .stf-container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .accordion-body.in:hover {
-    overflow: visible;
+  overflow: visible;
 }
 
 .button-spacer {
@@ -28,11 +28,11 @@ body {
 /* Overflow */
 
 .overflow-x {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 .overflow-y {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .overflow-auto {
@@ -41,50 +41,50 @@ body {
 
 /* Fix btn-group */
 .btn-group.pull-right {
-margin-right: 10px;
+  margin-right: 10px;
 }
 
 /**
     Accelerate
 */
 .force-gpu {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -ms-perspective: 1000;
-    perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
 }
 
 /**
 Colors for awesome fonts
 */
 .text-status-on {
-    color: green;
-    text-shadow: 0 0 4px rgba(8, 208, 0, 0.3);
+  color: green;
+  text-shadow: 0 0 4px rgba(8, 208, 0, 0.3);
 }
 
 .text-status-off {
-    color: lightgrey;
+  color: lightgrey;
 }
 
 .text-status-error {
-    color: red;
+  color: red;
 }
 
 .text-status-waiting {
-    color: #ffcc66;
+  color: #ffcc66;
 }
 
 .text-status-inuse {
-    color: blue;
+  color: blue;
 }
 
 /**
@@ -92,208 +92,208 @@ Colors for awesome fonts
 */
 
 .stf-ace-editor {
-    height: 150px;
+  height: 150px;
 }
 
 .stf-mini-ace-viewer {
-    /*min-height: 10px;*/
+  /*min-height: 10px;*/
 }
 
 .ace_editor_wrapper {
-    position: relative;
-    height: 180px;
+  position: relative;
+  height: 180px;
 }
 
 .ace_editor {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 /* Nothing to show */
 
 .nothing-to-show {
-    color: #b7b7b7;
-    min-height: 130px;
-    text-align: center;
+  color: #b7b7b7;
+  min-height: 130px;
+  text-align: center;
 }
 
 .nothing-to-show p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 /**
     General styles
 */
 .vertical-center {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-pack: center;
-    -moz-box-align: center;
-    display: box;
-    box-orient: vertical;
-    box-pack: center;
-    box-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  display: box;
+  box-orient: vertical;
+  box-pack: center;
+  box-align: center;
 }
 
 /* Screenshots */
 
 ul.screenshots-icon-view {
-    list-style-type: none;
-    font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
+  list-style-type: none;
+  font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
 }
 
 ul.screenshots-icon-view li {
-    float: left;
-    clear: none;
-    margin: 8px;
+  float: left;
+  clear: none;
+  margin: 8px;
 }
 
 /* Progress */
 .value-next-to-progress {
-    float: left;
-    margin-right: 10px;
+  float: left;
+  margin-right: 10px;
 }
 
 .table-progress {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Icons */
 
 .icon-fixed {
-    width: 150px !important;
+  width: 150px !important;
 }
 
 /* Cookies */
 
 ul.cookies-list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 /* Login */
 
 .login-bg {
-    background: #8a6073;
-    background: -moz-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a6073), color-stop(24%, #c68779), color-stop(57%, #637476), color-stop(79%, #4c7b7d), color-stop(94%, #658e7d), color-stop(97%, #6c8c77));
-    background: -webkit-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
-    background: -o-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
-    background: -ms-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
-    background: linear-gradient(to bottom, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a6073', endColorstr='#6c8c77', GradientType=0);
+  background: #8a6073;
+  background: -moz-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a6073), color-stop(24%, #c68779), color-stop(57%, #637476), color-stop(79%, #4c7b7d), color-stop(94%, #658e7d), color-stop(97%, #6c8c77));
+  background: -webkit-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
+  background: -o-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
+  background: -ms-linear-gradient(top, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
+  background: linear-gradient(to bottom, #8a6073 0%, #c68779 24%, #637476 57%, #4c7b7d 79%, #658e7d 94%, #6c8c77 97%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a6073', endColorstr='#6c8c77', GradientType=0);
 }
 
 /* d3 lines */
 svg {
-    font: 10px sans-serif;
+  font: 10px sans-serif;
 }
 
 .line {
-    fill: none;
-    stroke: steelblue;
-    stroke-width: 1.5px;
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }
 
 .axis path,
 .axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
 
 /* Interact Control */
 
 .interact-sidebar {
-    width: 280px;
+  width: 280px;
 }
 
 /* Movement Area */
 .movement-area-container {
-    /*background: #555;*/
-    width: 100%;
-    height: 100%;
+  /*background: #555;*/
+  width: 100%;
+  height: 100%;
 }
 
 .movement-area-image {
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    background-color: #444;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-color: #444;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: relative;
 }
 
 .interact-control .btn-toolbar .btn {
-    min-width: 41px;
+  min-width: 41px;
 }
 
 /* Height */
 .as-table {
-    display: table;
+  display: table;
 }
 
 .as-row {
-    display: table-row;
+  display: table-row;
 }
 
 .as-cell {
-    display: table-cell;
+  display: table-cell;
 }
 
 .fill-height {
-    height: 100%;
+  height: 100%;
 }
 
 .fill-auto {
-    height: auto;
+  height: auto;
 }
 
 .special-keys-buttons button {
-    width: 40px;
+  width: 40px;
 }
 
 .special-keys-buttons .btn-xs button {
-    width: 36px;
+  width: 36px;
 }
 
 .special-keys-dpad-buttons button {
-    width: 40px;
+  width: 40px;
 }
 
 /*
     Drawer
 */
 .stf-drawer {
-    background: #ddd;
+  background: #ddd;
 
 }
 
 .stf-drawer-bar {
-    background: #aaa;
+  background: #aaa;
 }
 
 .stf-drawer-docked-down .stf-drawer-bar {
-    width: 100%;
-    height: 2px;
-    cursor: ns-resize;
+  width: 100%;
+  height: 2px;
+  cursor: ns-resize;
 }
 
 .stf-drawer-docked-right .stf-drawer-bar {
-    width: 2px;
-    height: 100%;
-    cursor: ew-resize;
+  width: 2px;
+  height: 100%;
+  cursor: ew-resize;
 }
 
 .stf-drawer-docked {
-    opacity: 0.9;
-    z-index: 5000;
+  opacity: 0.9;
+  z-index: 5000;
 }
 
 .stf-drawer-floating {
@@ -301,91 +301,100 @@ svg {
 }
 
 .stf-drawer-docked-down {
-    width: 100%;
-    height: 300px;
-    bottom: 0;
-    position: absolute;
+  width: 100%;
+  height: 300px;
+  bottom: 0;
+  position: absolute;
 }
 
 .stf-drawer-docked-right {
-    width: 300px;
-    height: 100%;
-    right: 0;
-    position: absolute;
+  width: 300px;
+  height: 100%;
+  right: 0;
+  position: absolute;
 }
 
 .stf-drawer-buttons {
-    text-align: right;
+  text-align: right;
 }
 
 /* For se7en bootstrap */
 
 .btn [class^="fa"],
 .btn [class*="fa"] {
-    margin-right: 0 !important;
+  margin-right: 0 !important;
 }
 
 /*.btn [class^="fa"]+span i,*/
 /*.btn [class*="fa"]+span {*/
-    /*margin-right: 15px;*/
+/*margin-right: 15px;*/
 /*}*/
 
 .interact-control .navbar {
-    height: auto !important;
+  height: auto !important;
 }
 
 .interact-control .navbar-brand {
-    padding: 8px 15px;
+  padding: 8px 15px;
 }
 
 .interact-control .btn-group {
-    margin: 0;
+  margin: 0;
 }
-
-
 
 /* Make text input on tables be 100% */
 .table td input[type="number"],
 .table td input[type="text"] {
-    width: 100%;
+  width: 100%;
 }
 
 /* Re-reset the table alignment */
 .ng-table th {
-    text-align: left;
+  text-align: left;
 }
 
-
 .remote-control {
-    background: #888;
-    width: 100%;
-    height: 100%;
+  background: #888;
+  width: 100%;
+  height: 100%;
 }
 
 .stf-feedback > li > a {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .stf-nav-web-native-button {
-    margin-top: 8px !important;
+  margin-top: 8px !important;
 }
 
-
-
 a.active {
-    color: #007aff !important;
+  color: #007aff !important;
 }
 
 .weinre-window {
-    z-index: 10;
-    position: absolute;
-    top: 31px;
-    bottom: 3px;
-    left: 0;
-    right: 0;
+  z-index: 10;
+  position: absolute;
+  top: 31px;
+  bottom: 3px;
+  left: 0;
+  right: 0;
 }
 
 /* Hide datalist for non-supporting browsers */
 datalist {
   display: none;
+}
+
+/* Make auto-fill controls white instead of the default yellow */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 200px white inset !important;
+  box-shadow: 0 0 0 200px white inset !important;
+}
+
+/* Remove transition for input text */
+input {
+  -webkit-transition: none !important;
+  transition: none !important;
 }

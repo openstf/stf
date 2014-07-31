@@ -2,48 +2,19 @@ var _ = require('lodash')
 
 module.exports = function NavigationCtrl($scope, $rootScope) {
 
-  $scope.urlHistory = []
-
-  function addToHistory() {
-    var HISTORY_LIMIT = 20
-
-    var history = $scope.urlHistory
-    history.unshift($scope.textURL)
-    if (history.length > HISTORY_LIMIT) {
-      history.pop()
+  function addHttp(textUrl) {
+    if (textUrl.indexOf(':') === -1 && textUrl.indexOf('.') !== -1) {
+      return 'http://' + textUrl
     }
-    $scope.urlHistory = _.uniq(history)
-  }
-
-  function addHttp() {
-    if ($scope.textURL.indexOf(':') === -1) {
-      $scope.textURL = 'http://' + $scope.textURL
-    }
+    return textUrl
   }
 
   $scope.openURL = function () {
-    addHttp()
-    addToHistory()
-
     return $scope.control.openBrowser(
-      $scope.textURL,
+      addHttp($scope.textURL),
       $scope.browser
     )
   }
-
-  $scope.clearHistory = function () {
-    $scope.urlHistory = []
-  }
-
-  $scope.hasHistory = function () {
-    return $scope.urlHistory.length > 0
-  }
-
-  $scope.insertURL = function ($url) {
-    $scope.textURL = $url
-    $scope.openURL()
-  }
-
 
   function setCurrentBrowser(browser) {
     if (browser && browser.apps) {

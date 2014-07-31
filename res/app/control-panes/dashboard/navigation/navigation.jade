@@ -3,7 +3,8 @@
     i.fa.fa-globe
     span(translate) Navigation
     span
-      button.btn.btn-xs.btn-danger-outline.pull-right(ng-click='clearSettings()', tooltip='{{ "Reset all browser settings" | translate }}')
+      button.btn.btn-xs.btn-danger-outline.pull-right(ng-click='clearSettings()',
+        tooltip='{{ "Reset all browser settings" | translate }}')
         i.fa.fa-trash-o
         span(translate) Reset
       //.button-spacer.pull-right
@@ -11,22 +12,15 @@
       //i.fa.fa-step-forward.pull-right(ng-click='forward()', title='{{"Go Forward"|translate}}')
       //i.fa.fa-step-backward.pull-right(ng-click='back()', title='{{"Go Back"|translate}}')
   .widget-content.padded
-    form
+    form(enable-autofill, action='about:blank')
+      //form(name='navigationForm', method='post', action='about:blank', target='_autofill')
       .input-group
-        input.form-control(type='text', placeholder='http://...', autocomplete='off', ng-model='textURL',
-        typeahead='url for url in urlHistory | filter:$viewValue', text-focus-select,
+        input.form-control(type='text', name='textURL', placeholder='http://...',
+        autocomplete='url', ng-model='textURL', text-focus-select,
         accesskey='N', tabindex='10').form-control
 
         .input-group-btn
           button(ng-click='openURL()', ng-disabled='!textURL', translate).btn.btn-primary-outline Open
-          //button(type='button', ng-disabled='!hasHistory()').btn.btn-primary-outline.dropdown-toggle
-            span.caret
-          //ul.dropdown-menu
-            li(ng-repeat='url in urlHistory')
-              a(ng-click='insertURL(url)').btn-link {{url}}
-            li.divider
-            li
-              a(ng-click='clearHistory()', type='button', translate).btn-link Clear
 
     .btn-group(ng-if='$root.browser')
       .btn-group

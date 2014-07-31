@@ -2,3 +2,25 @@
   width: 18px;
   height: auto;
 }
+
+.stf-navigation .url-input-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.stf-navigation .url-input-container input {
+  margin: 0;
+  padding-left: 30px;
+}
+
+.stf-navigation .url-input-container img {
+  position: absolute;
+  bottom: 14px;
+  left: 9px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  border: none;
+  margin:0;
+}

@@ -13,5 +13,8 @@ module.exports = angular.module('stf/common-ui', [
   require('./text-focus-select').name,
   require('./counter').name,
   require('./badge-icon').name,
-  require('./enable-autofill').name
+  require('./enable-autofill').name,
+  require('./icon-inside-input').name,
+  require('./focus-element').name,
+  require('./blur-element').name
 ])

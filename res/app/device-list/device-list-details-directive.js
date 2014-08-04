@@ -6,6 +6,7 @@ module.exports = function DeviceListDetailsDirective(
 , DeviceColumnService
 , GroupService
 , $rootScope
+, LightboxImageService
 ) {
   return {
     restrict: 'E'
@@ -41,7 +42,7 @@ module.exports = function DeviceListDetailsDirective(
         })
       }
 
-      element.on('click', function (e) {
+      function checkDeviceStatus (e) {
         if (e.target.classList.contains('device-status')) {
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
@@ -60,6 +61,22 @@ module.exports = function DeviceListDetailsDirective(
             e.preventDefault()
           }
         }
+      }
+
+      function checkDeviceSmallImage(e) {
+        if (e.target.classList.contains('device-small-image-img')) {
+          var id = e.target.parentNode.parentNode.parentNode.id
+          var device = mapping[id]
+
+          var title = device.name
+          var enhancedPhoto800 = '/static/app/devices/photo/x800/' + device.image
+          LightboxImageService.open(title, enhancedPhoto800)
+        }
+      }
+
+      element.on('click', function (e) {
+        checkDeviceStatus(e)
+        checkDeviceSmallImage(e)
       })
 
       // Import column definitions

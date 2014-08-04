@@ -396,6 +396,7 @@ function DeviceModelCell(options) {
         , image = document.createElement('img')
         , a = document.createElement('a')
       span.className = 'device-small-image'
+      image.className = 'device-small-image-img pointer'
       span.appendChild(image)
       td.appendChild(span)
       a.appendChild(document.createTextNode(''))

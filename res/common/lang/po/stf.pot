@@ -24,8 +24,16 @@ msgstr ""
 msgid "AC"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Account"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
 msgid "Action"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Actions"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
@@ -34,10 +42,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Add"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Add Account"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
@@ -127,10 +131,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Busy devices"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -607,6 +607,10 @@ msgstr ""
 msgid "No device screen"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
+msgid "No devices connected"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
 msgid "No photo available"
 msgstr ""
@@ -819,10 +823,6 @@ msgstr ""
 msgid "Remote debug"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Remove Accounts"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
@@ -952,6 +952,14 @@ msgstr ""
 msgid "Show Screen"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Sign In"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Sign Out"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Someone stole your device."
 msgstr ""
@@ -1030,10 +1038,6 @@ msgstr ""
 msgid "Toggle Web/Native"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Total devices"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Try to reconnect"
 msgstr ""
@@ -1088,10 +1092,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Uploading..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-msgid "Usable devices"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html

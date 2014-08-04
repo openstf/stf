@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.6\n"
+"X-Generator: Poedit 1.6.7\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -29,8 +29,16 @@ msgstr "ABI"
 msgid "AC"
 msgstr "AC"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Account"
+msgstr "アカウント"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
 msgid "Action"
+msgstr "アクション"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Actions"
 msgstr "アクション"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
@@ -40,10 +48,6 @@ msgstr "アクティビティ"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
 msgid "Add"
 msgstr "追加"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Add Account"
-msgstr "アカウント追加"
 
 #: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
 msgid "Admin mode has been disabled."
@@ -831,10 +835,6 @@ msgstr "再読込"
 msgid "Remote debug"
 msgstr "リモートデバッグ"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Remove Accounts"
-msgstr "アカウント削除"
-
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
@@ -963,6 +963,14 @@ msgstr "シェル"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
 msgid "Show Screen"
 msgstr "画面を表示する"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Sign In"
+msgstr "サインイン"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
+msgid "Sign Out"
+msgstr "サインアウト"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Someone stole your device."
@@ -1213,6 +1221,9 @@ msgstr "{{ device.enhancedName }}のステータス："
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "{{ device.enhancedName }} was disconnected"
 msgstr "{{ device.enhancedName }}への接続が切れました"
+
+#~ msgid "Remove Accounts"
+#~ msgstr "アカウント削除"
 
 #~ msgid "Saved to: {{savedTo}}"
 #~ msgstr "保存先: {{savedTo}}"

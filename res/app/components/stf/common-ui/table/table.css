@@ -156,3 +156,8 @@
     display: block;
   }
 }
+
+/* We don't use any table pagination */
+.ng-table-pager {
+  display: none;
+}

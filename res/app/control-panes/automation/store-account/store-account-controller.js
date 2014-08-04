@@ -1,18 +1,43 @@
-module.exports = function StoreAccountCtrl($scope) {
+module.exports = function StoreAccountCtrl($scope, ngTableParams) {
+  var storeAccountType = 'com.google'
+
   $scope.addAccount = function () {
     var user = $scope.storeLogin.username.$modelValue
     var pass = $scope.storeLogin.password.$modelValue
 
     $scope.control.addAccount(user, pass).then(function () {
-    }).catch(function (res) {
-      console.log('Adding account failed', res)
+      //getAccounts()
+    }).catch(function (result) {
+      console.log('Adding account failed', result)
     })
   }
 
-  $scope.removeAccounts = function () {
-    $scope.control.removeAccount().then(function (res) {
-    }).catch(function (res) {
-      console.log('Removing account failed', res)
+  $scope.removeAccount = function (account) {
+    $scope.control.removeAccount(storeAccountType, account)
+      .then(function (result) {
+        getAccounts()
+      })
+      .catch(function (result) {
+        console.log('Removing account failed', result)
+      })
+  }
+
+  function getAccounts() {
+    $scope.control.getAccounts(storeAccountType).then(function (result) {
+      $scope.accountsList = result.body
+      $scope.accountsTable.reload()
     })
   }
+  getAccounts()
+
+  $scope.accountsTable = new ngTableParams({
+    page: 1,
+    count: 5000
+  }, {
+    counts: [],
+    total: 1,
+    getData: function ($defer) {
+      $defer.resolve($scope.accountsList)
+    }
+  })
 }

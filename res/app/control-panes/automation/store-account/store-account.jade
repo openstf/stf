@@ -7,7 +7,7 @@
       i.fa.fa-shopping-cart
   .widget-content.padded
     div
-    form(name='storeLogin', novalidate)
+    form(name='storeLogin', novalidate, enable-autofill, action='about:blank')
       .form-group
         .input-group
           span.input-group-addon
@@ -24,9 +24,24 @@
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
         .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
           span(translate) Please enter your Store password
-      button.btn.btn-sm.btn-primary(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
+      button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
         i.fa.fa-sign-in
-        span(translate) Add Account
-      button.btn.btn-sm.btn-danger(ng-click='removeAccounts()').pull-right
-        i.fa.fa-sign-out
-        span(translate) Remove Accounts
+        span(translate) Sign In
+
+    table(ng-table='accountsTable', ng-show='accountsList').table.table-striped
+      thead
+        tr
+          th
+            span(translate) Account
+          th
+            span(translate) Actions
+      tbody
+        tr(ng-repeat='account in $data')
+          td
+            i.fa.fa-user.fa-fw
+            span(ng-bind='account')
+          td
+            button.btn.btn-xs.btn-danger-outline(ng-click='removeAccount(account)')
+              i.fa.fa-sign-out
+              //i.fa.fa-trash-o
+              span(translate) Sign Out

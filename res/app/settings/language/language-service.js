@@ -36,7 +36,7 @@ module.exports = function LanguageServiceFactory(
   )
 
   function updateLanguage() {
-    gettextCatalog.currentLanguage = LanguageService.selectedLanguage
+    gettextCatalog.setCurrentLanguage(LanguageService.selectedLanguage)
   }
 
   LanguageService.updateLanguage = updateLanguage

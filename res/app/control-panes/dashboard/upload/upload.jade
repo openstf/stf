@@ -22,7 +22,7 @@
         tooltip='{{ "Upload From Link" | translate }}', ng-disabled='!remoteUrl')
           i.fa.fa-upload
 
-    .drop-area(ng-file-drop='installFile($files)').file-input.btn-file
+    .drop-area(ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').file-input.btn-file
       input(type='file', ng-file-select='installFile($files)')
 
       i.fa.fa-2x.fa-download.drop-area-icon

@@ -133,6 +133,10 @@ msgstr ""
 msgid "Busy"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
+msgid "Busy devices"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "CPU"
 msgstr ""
@@ -1038,6 +1042,10 @@ msgstr ""
 msgid "Toggle Web/Native"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
+msgid "Total devices"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "Try to reconnect"
 msgstr ""
@@ -1092,6 +1100,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 msgid "Uploading..."
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
+msgid "Usable devices"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html

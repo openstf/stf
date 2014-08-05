@@ -24,11 +24,27 @@ status "Using Node.js $node_version"
 # Run subsequent node/npm commands from the build path
 cd $build_dir
 
+install() {
+  (
+    # Scope config var availability only to `npm install`
+    if [ -d "$env_dir" ]; then
+      status "Exporting config vars to environment"
+      export_env_dir $env_dir
+    fi
+
+    status "Installing npm dependencies"
+    # Make npm output to STDOUT instead of its default STDERR
+    npm install --loglevel=http --userconfig $build_dir/.npmrc "$@" 2>&1 | indent
+  )
+}
+
 # If node_modules directory is checked into source control then
 # rebuild any native deps. Otherwise, restore from the build cache.
 if test -d $build_dir/node_modules; then
   status "Found existing node_modules directory; skipping cache"
-  status "Rebuilding any native dependencies"
+  # Attempt to work around npm/npm#5400
+  install --ignore-scripts
+  status "Rebuilding any native dependencies to work around npm/npm#5400"
   npm rebuild 2>&1 | indent
 elif test -d $cache_dir/node/node_modules; then
   status "Restoring node_modules directory from cache"
@@ -42,19 +58,14 @@ elif test -d $cache_dir/node/node_modules; then
     npm rebuild 2>&1 | indent
   fi
 
+  # Let's hope that npm/npm#5400 only hits us on the first run
+  install
+else
+  # Attempt to work around npm/npm#5400
+  install --ignore-scripts
+  status "Rebuilding any native dependencies to work around npm/npm#5400"
+  npm rebuild 2>&1 | indent
 fi
-
-# Scope config var availability only to `npm install`
-(
-  if [ -d "$env_dir" ]; then
-    status "Exporting config vars to environment"
-    export_env_dir $env_dir
-  fi
-
-  status "Installing npm dependencies"
-  # Make npm output to STDOUT instead of its default STDERR
-  npm install --loglevel=http --userconfig $build_dir/.npmrc 2>&1 | indent
-)
 
 # Persist goodies like node-version in the slug
 mkdir -p $build_dir/.heroku

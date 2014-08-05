@@ -7,4 +7,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get clean && \
     rm -rf /var/cache/apt/*
 
-CMD ["/usr/local/bin/stf", "--help"]
+ENV PATH /app/bin:$PATH
+
+CMD stf --help

@@ -1,5 +1,17 @@
 module.exports = function StoreAccountCtrl($scope, ngTableParams) {
-  var storeAccountType = 'com.google'
+  // TODO: This should come from the DB
+  $scope.currentAppStore = 'google-play-store'
+  $scope.deviceAppStores = {
+    "google-play-store": {
+      "type": 'google-play-store',
+      "name": 'Google Play Store',
+      "package": 'com.google'
+    }
+  }
+
+  console.log('$scope.deviceAppStores[$scope.currentAppStore].package',
+    $scope.deviceAppStores[$scope.currentAppStore].package)
+
 
   $scope.addAccount = function () {
     var user = $scope.storeLogin.username.$modelValue
@@ -13,6 +25,7 @@ module.exports = function StoreAccountCtrl($scope, ngTableParams) {
   }
 
   $scope.removeAccount = function (account) {
+    var storeAccountType = $scope.deviceAppStores[$scope.currentAppStore].package
     $scope.control.removeAccount(storeAccountType, account)
       .then(function (result) {
         getAccounts()
@@ -23,6 +36,7 @@ module.exports = function StoreAccountCtrl($scope, ngTableParams) {
   }
 
   function getAccounts() {
+    var storeAccountType = $scope.deviceAppStores[$scope.currentAppStore].package
     $scope.control.getAccounts(storeAccountType).then(function (result) {
       $scope.accountsList = result.body
       $scope.accountsTable.reload()

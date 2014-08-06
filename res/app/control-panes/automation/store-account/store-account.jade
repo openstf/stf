@@ -2,46 +2,59 @@
   .heading
     i.fa.fa-cloud
     span(translate) Store Account
+
+
+
     button.btn.btn-sm.btn-primary-outline.pull-right(ng-click='control.openStore()',
     tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
       i.fa.fa-shopping-cart
   .widget-content.padded
-    div
-    form(name='storeLogin', novalidate, enable-autofill, action='about:blank')
-      .form-group
-        .input-group
-          span.input-group-addon
-            i.fa.fa-user.fa-fw
-          input.form-control(ng-model='username', name='username', required, type='text', placeholder='{{"Username"|translate}}',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login username')
-        .alert.alert-warning(ng-show='storeLogin.username.$dirty && storeLogin.username.$invalid')
-          span(ng-show='storeLogin.username.$error.required', translate) Please enter your Store username
-      .form-group
-        .input-group
-          span.input-group-addon
-            i.fa.fa-lock.fa-fw
-          input.form-control(ng-model='password', name='password', required, type='password', placeholder='{{"Password"|translate}}',
-          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
-        .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
-          span(translate) Please enter your Store password
-      button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid')
-        i.fa.fa-sign-in
-        span(translate) Sign In
 
-    table(ng-table='accountsTable', ng-show='accountsList').table.table-striped
-      thead
-        tr
-          th
-            span(translate) Account
-          th
-            span(translate) Actions
-      tbody
-        tr(ng-repeat='account in $data')
-          td
-            i.fa.fa-user.fa-fw
-            span(ng-bind='account')
-          td
-            button.btn.btn-xs.btn-danger-outline(ng-click='removeAccount(account)')
-              i.fa.fa-sign-out
-              //i.fa.fa-trash-o
-              span(translate) Sign Out
+    div
+
+
+
+      form(name='storeLogin', novalidate, enable-autofill, action='about:blank')
+        .form-group
+          .input-group
+            span.input-group-addon
+              i.fa.fa-user.fa-fw
+            input.form-control(ng-model='username', name='username', required, type='text', placeholder='{{"Username"|translate}}',
+            autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login username')
+          .alert.alert-warning(ng-show='storeLogin.username.$dirty && storeLogin.username.$invalid')
+            span(ng-show='storeLogin.username.$error.required', translate) Please enter your Store username
+        .form-group
+          .input-group
+            span.input-group-addon
+              i.fa.fa-lock.fa-fw
+            input.form-control(ng-model='password', name='password', required, type='password', placeholder='{{"Password"|translate}}',
+            autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='store-login password')
+          .alert.alert-warning(ng-show='storeLogin.password.$dirty && storeLogin.password.$invalid')
+            span(translate) Please enter your Store password
+
+        .btn-group
+          label.btn.btn-sm.btn-default-outline(ng-repeat='a in deviceAppStores track by a.id',
+          ng-model='currentAppStore', btn-radio='a', tooltip='{{a.name}}')
+            img(ng-src='/static/app/appstores/icon/24x24/{{a.type}}.png', ng-show='a.type').appstore-icon.pointer
+
+        button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid').pull-right
+          i.fa.fa-sign-in
+          span(translate) Sign In
+
+      table(ng-table='accountsTable', ng-show='accountsList').table.table-striped
+        thead
+          tr
+            th
+              span(translate) Account
+            th
+              span(translate) Actions
+        tbody
+          tr(ng-repeat='account in $data')
+            td
+              i.fa.fa-user.fa-fw
+              span(ng-bind='account')
+            td
+              button.btn.btn-xs.btn-danger-outline(ng-click='removeAccount(account)')
+                i.fa.fa-sign-out
+                //i.fa.fa-trash-o
+                span(translate) Sign Out

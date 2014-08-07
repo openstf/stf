@@ -5,8 +5,7 @@ module.exports = angular.module('stf.advanced', [
 //  require('./run-js').name,
 //  require('./usb').name,
   require('./port-forwarding').name,
-  require('./maintenance').name,
-  require('./remote-debug').name
+  require('./maintenance').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put('control-panes/advanced/advanced.jade',

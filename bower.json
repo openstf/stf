@@ -39,7 +39,8 @@
     "checklist-model": "~0.1.3",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.2",
     "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git",
-    "angular-ui-bootstrap": "~0.11.0"
+    "angular-ui-bootstrap": "~0.11.0",
+    "angular-ladda": "~0.1.6"
   },
   "private": true,
   "resolutions": {

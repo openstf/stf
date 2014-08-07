@@ -34,10 +34,11 @@
 
         .btn-group
           label.btn.btn-sm.btn-default-outline(ng-repeat='a in deviceAppStores track by a.id',
-          ng-model='currentAppStore', btn-radio='a', tooltip='{{a.name}}')
+            ng-model='currentAppStore', btn-radio='currentAppStore', tooltip='{{a.name}}')
             img(ng-src='/static/app/appstores/icon/24x24/{{a.type}}.png', ng-show='a.type').appstore-icon.pointer
 
-        button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid').pull-right
+        button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid',
+        ladda='addingAccount', data-style='expand-left', data-spinner-color='#157afb').pull-right
           i.fa.fa-sign-in
           span(translate) Sign In
 

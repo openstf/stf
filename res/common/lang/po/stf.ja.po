@@ -832,6 +832,7 @@ msgid "Reload"
 msgstr "再読込"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
 msgid "Remote debug"
 msgstr "リモートデバッグ"
 
@@ -893,6 +894,13 @@ msgstr "JavaScript注入"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
 msgid "Run command"
 msgstr "コマンドを実行する"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
+msgid ""
+"Run the following on your command line to debug the device from your IDE"
+msgstr ""
+"次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグがで"
+"きます。"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
 msgid "Run the following on your command line:"

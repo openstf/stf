@@ -2,6 +2,8 @@
   .heading
     i.fa.fa-bug
     span(translate) Remote debug
+    i.fa.fa-question-circle.pull-right(tooltip='{{"Run the following on your command line to debug the device from your IDE" | translate}}', tooltip-placement='left')
   .widget-content.padded
-    span(translate) Run the following on your command line:
-    pre(ng-bind='debugCommand')
+    .form-inline
+      textarea(readonly, rows='1', ng-model='debugCommand', msd-elastic, text-focus-select).form-control.remote-debug-textarea
+

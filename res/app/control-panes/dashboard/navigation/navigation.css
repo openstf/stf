@@ -24,3 +24,8 @@
   border: none;
   margin:0;
 }
+
+.stf-navigation .browser-buttons {
+  min-width: 44px;
+  min-height: 35px;
+}

@@ -24,8 +24,8 @@
         .input-group-btn
           button(ng-click='openURL()', ng-disabled='!textURL', translate).btn.btn-primary-outline Open
 
-    .btn-group(ng-if='$root.browser')
-      .btn-group
+    .btn-group
+      .btn-group.browser-buttons
         label.btn.btn-default-outline(ng-repeat='b in device.browser.apps track by b.id', ng-model='$root.browser', btn-radio='b',
         tooltip='{{b.name}} ({{b.developer}})')
           img(ng-src='/static/app/browsers/icon/24x24/{{b.type}}.png', ng-show='b.type').browser-icon.pointer

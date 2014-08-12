@@ -406,7 +406,7 @@ message AccountCheckMessage {
 }
 
 message AccountGetMessage {
-  required string type = 1;
+  optional string type = 1;
 }
 
 message AccountRemoveMessage {

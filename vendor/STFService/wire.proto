@@ -180,7 +180,7 @@ message DoIdentifyResponse {
 }
 
 message GetAccountsRequest {
-    required string type = 1;
+    optional string type = 1;
 }
 
 message GetAccountsResponse {

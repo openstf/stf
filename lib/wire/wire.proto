@@ -417,8 +417,14 @@ message AccountRemoveMessage {
 message SdStatusMessage {
 }
 
+enum RingerMode {
+    SILENT = 0;
+    VIBRATE = 1;
+    NORMAL = 2;
+}
+
 message RingerSetMessage {
-  required int32 mode = 1;
+  required RingerMode mode = 1;
 }
 
 message WifiSetEnabledMessage {

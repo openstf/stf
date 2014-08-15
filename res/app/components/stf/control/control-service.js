@@ -259,6 +259,10 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.getRingerMode = function() {
+      return sendTwoWay('ringer.get')
+    }
+
     this.setWifiEnabled = function(enabled) {
       return sendTwoWay('wifi.set', {
         enabled: enabled

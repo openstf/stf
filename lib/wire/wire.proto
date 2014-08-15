@@ -55,6 +55,7 @@ enum MessageType {
   ConnectStartMessage        = 53;
   ConnectStopMessage         = 54;
   RingerSetMessage           = 56;
+  RingerGetMessage           = 64;
   WifiSetEnabledMessage      = 57;
   WifiGetStatusMessage       = 58;
   AccountAddMenuMessage      = 59;
@@ -425,6 +426,9 @@ enum RingerMode {
 
 message RingerSetMessage {
   required RingerMode mode = 1;
+}
+
+message RingerGetMessage {
 }
 
 message WifiSetEnabledMessage {

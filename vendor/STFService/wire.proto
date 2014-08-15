@@ -14,6 +14,7 @@ enum MessageType {
     GET_CLIPBOARD = 6;
     GET_DISPLAY = 19;
     GET_PROPERTIES = 7;
+    GET_RINGER_MODE = 27;
     GET_SD_STATUS = 25;
     GET_VERSION = 8;
     GET_WIFI_STATUS = 23;
@@ -216,6 +217,14 @@ message SetRingerModeRequest {
 
 message SetRingerModeResponse {
     required bool success = 1;
+}
+
+message GetRingerModeRequest {
+}
+
+message GetRingerModeResponse {
+    required bool success = 1;
+    required RingerMode mode = 2;
 }
 
 message SetWifiEnabledRequest {

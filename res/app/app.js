@@ -20,17 +20,18 @@ require.ensure([], function (require) {
     require('./menu').name,
     require('./settings').name,
     require('./help').name,
-    require('./../common/lang').name,
-    require('./../test/samples/vs-repeat').name
+    require('./../common/lang').name
   ])
-    .config(['$routeProvider', '$locationProvider',
-      function ($routeProvider, $locationProvider) {
-        $locationProvider.hashPrefix('!');
-        $routeProvider
-          .otherwise({
-            redirectTo: '/devices'
-          })
-      }
-    ])
+    .config(function ($routeProvider, $locationProvider) {
+      $locationProvider.hashPrefix('!');
+      $routeProvider
+        .otherwise({
+          redirectTo: '/devices'
+        })
+    }
+  )
+    .config(function (hotkeysProvider) {
+      hotkeysProvider.templateTitle = 'Keyboard Shortcuts:'
+    })
 
 })

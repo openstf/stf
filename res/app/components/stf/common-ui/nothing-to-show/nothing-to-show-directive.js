@@ -7,8 +7,8 @@ module.exports = function () {
     },
     template: require('./nothing-to-show.html'),
     link: function (scope, element, attrs) {
-      scope.icon = attrs.icon;
-      scope.message = attrs.message;
+      scope.icon = attrs.icon
+      scope.message = attrs.message
     }
   }
 }

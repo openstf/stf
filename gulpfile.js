@@ -10,7 +10,11 @@ var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
 var protractor = require("gulp-protractor")
+var protractorConfig = require('./res/test/protractor.conf.js')
+var karma = require('karma').server
+var karmaConfig = require('./res/test/karma.conf.js')
 var stream = require('stream')
+var _ = require('lodash')
 
 
 gulp.task('jshint', function () {
@@ -41,13 +45,21 @@ gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'protractor'])
 gulp.task('build', ['translate', 'webpack:build'])
 
+gulp.task('karma', function (done) {
+  karma.start(_.assign({}, karmaConfig, {singleRun: true}), done)
+})
+
+gulp.task('karma_watch', function (done) {
+  karma.start(karmaConfig, done)
+})
+
 gulp.task('webdriver_update', protractor.webdriver_update)
 gulp.task('webdriver_standalone', protractor.webdriver_standalone)
 
 gulp.task('protractor', ['webdriver_update'], function (callback) {
   gulp.src(["./res/test/**/*.js"])
     .pipe(protractor.protractor({
-      configFile: './res/test/protractor.conf.js'
+      configFile: protractorConfig
     }))
     .on('error', function (e) {
       console.log(e)

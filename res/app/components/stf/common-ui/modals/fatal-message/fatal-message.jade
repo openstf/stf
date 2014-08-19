@@ -8,12 +8,12 @@
   .modal-body
     .text-danger(translate) You are no longer controlling the device.
     br
-    h3 {{ device.likelyLeaveReason | likelyLeaveReason | translate }}
+    h3(translate, ng-bind='device.likelyLeaveReason | likelyLeaveReason')
     br
     h4(translate).pull-right  {{ device.enhancedName }} current status:
     br
     br
-    h4.pull-right {{ device.enhancedStatePassive | translate }}
+    h4(ng-bind='device.enhancedStatePassive | translate').pull-right
 
 
   .modal-footer

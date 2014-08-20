@@ -12,10 +12,8 @@ var clean = require('gulp-clean')
 var protractor = require("gulp-protractor")
 var protractorConfig = require('./res/test/protractor.conf.js')
 var karma = require('karma').server
-var karmaConfig = require('./res/test/karma.conf.js')
+var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
-var _ = require('lodash')
-
 
 gulp.task('jshint', function () {
   return gulp.src([
@@ -45,12 +43,17 @@ gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'protractor'])
 gulp.task('build', ['translate', 'webpack:build'])
 
-gulp.task('karma', function (done) {
-  karma.start(_.assign({}, karmaConfig, {singleRun: true}), done)
+gulp.task('karma_ci', function (done) {
+  karma.start({
+    configFile: __dirname + karmaConfig,
+    singleRun: true
+  }, done)
 })
 
-gulp.task('karma_watch', function (done) {
-  karma.start(karmaConfig, done)
+gulp.task('karma', function (done) {
+  karma.start({
+    configFile: __dirname + karmaConfig
+  }, done)
 })
 
 gulp.task('webdriver_update', protractor.webdriver_update)

@@ -1,28 +1,45 @@
+var _ = require('lodash')
+var webpackConfig = require('./../../webpack.config')
+
+var webpack = require('webpack')
+
 module.exports = function (config) {
   config.set({
     frameworks: ['jasmine'],
     files: [
-      //'test/*Test.*'
-      '../app/*-test.js'
-//      '../app/**/*.js'
+      'helpers/**/*.js',
+      '../app/**/*-spec.js',
+//      '../app/components/stf/common-ui/clear-button/*-spec.js'
     ],
+
+    preprocessors: {
+      'helpers/**/*.js': ['webpack'],
+      '../app/**/*.js': ['webpack']
+    },
     exclude: [
 
     ],
-    preprocessors: {
-//      '../app/**/*.js': ['webpack']
-      '../app/*-test.js': ['webpack']
-    },
 
+//    webpack: webpackConfig.webpack,
     webpack: {
+      entry: {
+        app: '../app/app.js'
+      },
       cache: true,
-      module: {
-        loaders: [
-//          { test: /\.coffee$/, loader: 'coffee-loader' }
-        ]
-      }
+      module: webpackConfig.webpack.module,
+      resolve: webpackConfig.webpack.resolve,
+      plugins: [
+        new webpack.ResolverPlugin(
+          new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(
+            'bower.json'
+            , ['main']
+          )
+        )
+      ]
     },
     webpackServer: {
+      debug: true,
+      devtool: 'eval',
       stats: false
 //      stats: {
 //        colors: true

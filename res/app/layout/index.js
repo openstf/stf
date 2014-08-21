@@ -1,10 +1,5 @@
 require('se7en-bootstrap-3')
 
-require('angular-bootstrap')
-
-require('angular-borderlayout')
-
-
 require('./cursor.css')
 require('./stf-se7en.css')
 require('./small.css')
@@ -14,8 +9,8 @@ module.exports = angular.module('layout', [
   require('../settings/language').name,
   require('stf/landscape').name,
   require('stf/basic-mode').name,
-  'ui.bootstrap',
-  'fa.directive.borderLayout',
+  require('ui-bootstrap').name,
+  require('angular-borderlayout').name,
   require('stf/common-ui').name,
   require('stf/socket/socket-state').name,
   require('stf/browser-info').name

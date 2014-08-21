@@ -1,6 +1,6 @@
 describe('ShellCtrl', function () {
 
-  beforeEach(module('stf.shell'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

@@ -1,6 +1,6 @@
 describe('CpuCtrl', function () {
 
-  beforeEach(module('stf.cpu'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

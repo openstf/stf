@@ -1,6 +1,6 @@
 describe('TimelineService', function() {
 
-  beforeEach(module('stf.timeline'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(TimelineService) {
 

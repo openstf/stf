@@ -1,6 +1,6 @@
 describe('VersionUpdateService', function() {
 
-  beforeEach(module('stf.version-update'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(VersionUpdateService) {
 

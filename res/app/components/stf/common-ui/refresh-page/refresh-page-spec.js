@@ -1,6 +1,6 @@
 describe('refreshPage', function () {
 
-  beforeEach(module('stf.refresh-page'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, compile;
 

@@ -1,6 +1,6 @@
 describe('NavigationCtrl', function () {
 
-  beforeEach(module('stf.navigation'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

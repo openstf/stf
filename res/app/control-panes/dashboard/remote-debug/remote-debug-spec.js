@@ -1,6 +1,6 @@
 describe('RemoteDebugCtrl', function () {
 
-  beforeEach(module('stf.remote-debug'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

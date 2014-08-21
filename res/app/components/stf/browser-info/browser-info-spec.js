@@ -1,10 +1,10 @@
 describe('BrowserInfo', function() {
 
-  beforeEach(module('stf.browser-info'));
+  beforeEach(angular.mock.module(require('./').name));
 
-  it('should ...', inject(function(GuestDeviceService) {
+  it('should ...', inject(function(BrowserInfo) {
 
-	//expect(GuestDeviceService.doSomething()).toEqual('something');
+	//expect(BrowserInfo.doSomething()).toEqual('something');
 
   }));
 

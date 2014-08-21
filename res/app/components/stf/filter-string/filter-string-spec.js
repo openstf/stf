@@ -1,6 +1,6 @@
 describe('FilterStringService', function() {
 
-  beforeEach(module('stf.filter-string'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(FilterStringService) {
 

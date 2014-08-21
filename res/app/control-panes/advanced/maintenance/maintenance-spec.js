@@ -1,12 +1,12 @@
-describe('InputCtrl', function () {
+describe('MaintenanceCtrl', function () {
 
-  beforeEach(module('stf.input'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 
   beforeEach(inject(function ($rootScope, $controller) {
     scope = $rootScope.$new();
-    ctrl = $controller('InputCtrl', {$scope: scope});
+    ctrl = $controller('MaintenanceCtrl', {$scope: scope});
   }));
 
   it('should ...', inject(function () {

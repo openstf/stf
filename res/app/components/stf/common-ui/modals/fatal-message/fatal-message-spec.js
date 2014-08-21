@@ -1,6 +1,6 @@
 describe('FatalMessageService', function() {
 
-  beforeEach(module('stf.fatal-message'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(FatalMessageService) {
 

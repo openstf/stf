@@ -1,6 +1,6 @@
 describe('niceTabs', function () {
 
-  beforeEach(module('stf.nice-tabs'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, compile;
 
@@ -11,7 +11,7 @@ describe('niceTabs', function () {
 
   it('should ...', function () {
 
-    /* 
+    /*
      To test your directive, you need to create some html that would use your directive,
      send that through compile() then compare the results.
 

@@ -1,6 +1,6 @@
 describe('UploadCtrl', function () {
 
-  beforeEach(module('stf.upload'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

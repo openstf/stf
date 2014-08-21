@@ -1,6 +1,6 @@
 describe('DeviceSettingsCtrl', function () {
 
-  beforeEach(module('stf.device-settings'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

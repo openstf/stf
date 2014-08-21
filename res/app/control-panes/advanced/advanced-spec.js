@@ -1,6 +1,6 @@
 describe('AdvancedCtrl', function () {
 
-  beforeEach(module('stf.advanced'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

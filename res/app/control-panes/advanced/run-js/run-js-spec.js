@@ -1,6 +1,6 @@
 describe('RunJsCtrl', function () {
 
-  beforeEach(module('stf.run-js'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

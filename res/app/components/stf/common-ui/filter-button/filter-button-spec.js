@@ -1,6 +1,6 @@
 describe('filterButton', function () {
 
-  beforeEach(module('stf.filter-button'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, compile;
 

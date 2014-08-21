@@ -1,6 +1,7 @@
 require('./activity.css')
 
 module.exports = angular.module('stf.activity', [
+  require('gettext').name,
   require('stf/common-ui').name,
   require('stf/timeline').name
 ])

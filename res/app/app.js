@@ -4,16 +4,14 @@ require.ensure([], function (require) {
   require('angular-route')
   require('angular-touch')
 
-  require('angular-gettext')
   require('ng-file-upload')
-  require('angular-hotkeys')
 
   angular.module('app', [
     'ngRoute',
     'ngTouch',
-    'gettext',
+    require('gettext').name,
     'angularFileUpload',
-    'cfp.hotkeys',
+    require('angular-hotkeys').name,
     require('./layout').name,
     require('./device-list').name,
     require('./control-panes').name,

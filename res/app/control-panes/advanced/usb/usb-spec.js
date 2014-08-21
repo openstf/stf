@@ -1,6 +1,6 @@
 describe('UsbCtrl', function () {
 
-  beforeEach(module('stf.usb'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

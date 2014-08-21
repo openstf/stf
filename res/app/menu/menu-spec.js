@@ -1,6 +1,6 @@
 describe('MenuCtrl', function () {
 
-  beforeEach(module('stf.menu'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

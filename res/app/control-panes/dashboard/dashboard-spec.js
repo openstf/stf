@@ -1,6 +1,6 @@
 describe('DashboardCtrl', function () {
 
-  beforeEach(module('stf.dashboard'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

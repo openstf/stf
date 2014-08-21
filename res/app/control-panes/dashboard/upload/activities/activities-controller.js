@@ -4,7 +4,9 @@ module.exports = function ActivitiesCtrl($scope) {
   $scope.selectedAction = ''
   $scope.selectedCategory = ''
   $scope.selectedData = ''
-  $scope.selectedPackageName = $scope.installation.manifest.package || ''
+  $scope.selectedPackageName = $scope.installation &&
+    $scope.installation.manifest && $scope.installation.manifest.package ?
+    $scope.installation.manifest.package : ''
   $scope.selectedActivityName = ''
 
   $scope.activityActions = []

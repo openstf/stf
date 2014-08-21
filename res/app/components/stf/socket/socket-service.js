@@ -2,8 +2,11 @@ var io = require('socket.io')
 
 module.exports = function SocketFactory($rootScope, VersionUpdateService) {
   /*globals APPSTATE:false*/
+  //TODO: Refactor APPSTATE to AppStateConstant
+  var websocketUrl = APPSTATE && APPSTATE.config &&
+    APPSTATE.config.websocketUrl ? APPSTATE.config.websocketUrl : ''
 
-  var socket = io(APPSTATE.config.websocketUrl, {
+  var socket = io(websocketUrl, {
     reconnection: false
   , transports: ['websocket']
   })

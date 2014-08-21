@@ -1,6 +1,6 @@
 describe('KeycodesService', function() {
 
-  beforeEach(module('stf.keycodes'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(KeycodesService) {
 

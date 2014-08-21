@@ -14,7 +14,7 @@ module.exports = function (config) {
 
     preprocessors: {
       'helpers/**/*.js': ['webpack'],
-      '../app/**/*.js': ['webpack']
+      '../**/*.js': ['webpack']
     },
     exclude: [
 

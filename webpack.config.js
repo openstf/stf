@@ -56,8 +56,7 @@ module.exports = {
         { test: /angular-growl\.js/, loader: 'imports?angular=angular'},
         { test: /oboe-browser\.js/, loader: 'imports?define=>false!exports?oboe'},
         { test: /uuid\.js/, loader: 'imports?require=>undefined'},
-        { test: /localforage\.js/, loader: 'script'},
-        { test: /ui-bootstrap-tpls\.js/, loader: 'script'},
+        //{ test: /ui-bootstrap-tpls\.js/, loader: 'script'},
         { test: /dialogs\.js/, loader: 'script'},
         { test: /bluebird\.js/, loader: 'imports?require=>undefined'}
       ],

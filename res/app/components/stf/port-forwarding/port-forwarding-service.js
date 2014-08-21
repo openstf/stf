@@ -1,7 +1,6 @@
-module.exports = function PortForwardingServiceFactory() {
-	var service = {}
+module.exports = function () {
+  var service = {}
 
 
-
-	return service
+  return service
 }

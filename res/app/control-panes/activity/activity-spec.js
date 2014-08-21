@@ -1,6 +1,6 @@
 describe('ActivityCtrl', function () {
 
-  beforeEach(module('stf.activity'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

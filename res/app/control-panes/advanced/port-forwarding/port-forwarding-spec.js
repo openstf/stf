@@ -1,6 +1,6 @@
 describe('PortForwardingCtrl', function () {
 
-  beforeEach(module('stf.port-forwarding'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

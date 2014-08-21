@@ -1,6 +1,6 @@
 describe('StoreAccountCtrl', function () {
 
-  beforeEach(module('stf.store-account'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

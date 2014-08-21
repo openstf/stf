@@ -1,6 +1,6 @@
 describe('ClipboardCtrl', function () {
 
-  beforeEach(module('stf.clipboard'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

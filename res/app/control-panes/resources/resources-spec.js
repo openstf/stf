@@ -1,6 +1,6 @@
 describe('ResourcesCtrl', function () {
 
-  beforeEach(module('stf.resources'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

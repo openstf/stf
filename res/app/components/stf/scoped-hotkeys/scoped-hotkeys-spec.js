@@ -1,6 +1,6 @@
 describe('ScopedHotkeysService', function() {
 
-  beforeEach(module('stf.scoped-hotkeys'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(ScopedHotkeysService) {
 

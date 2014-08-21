@@ -1,6 +1,6 @@
 describe('timelines', function () {
 
-  beforeEach(module('stf.timelines'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, compile;
 
@@ -11,7 +11,7 @@ describe('timelines', function () {
 
   it('should ...', function () {
 
-    /* 
+    /*
      To test your directive, you need to create some html that would use your directive,
      send that through compile() then compare the results.
 

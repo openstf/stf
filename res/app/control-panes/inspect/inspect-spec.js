@@ -1,6 +1,6 @@
 describe('InspectCtrl', function () {
 
-  beforeEach(module('stf.inspect'));
+  beforeEach(angular.mock.module(require('./').name));
 
   var scope, ctrl;
 

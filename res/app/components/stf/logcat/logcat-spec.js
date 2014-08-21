@@ -1,6 +1,6 @@
 describe('LogcatService', function() {
 
-  beforeEach(module('stf.logcat'));
+  beforeEach(angular.mock.module(require('./').name));
 
   it('should ...', inject(function(LogcatService) {
 

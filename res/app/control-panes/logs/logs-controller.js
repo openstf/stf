@@ -21,7 +21,9 @@ module.exports = function LogsCtrl($scope, LogcatService) {
   })
 
   window.onbeforeunload = function () {
-    $scope.control.stopLogcat()
+    if ($scope.control) {
+      $scope.control.stopLogcat()
+    }
   }
 
   $scope.clear = function () {

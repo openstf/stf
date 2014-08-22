@@ -1,6 +1,4 @@
-module.exports = function ShellCtrl($scope, gettext) {
-  // TODO: implement multiple devices
-//  $scope.results = []
+module.exports = function ShellCtrl($scope) {
   $scope.result = null
 
   $scope.referenceUrl = '/#!/help/shell'

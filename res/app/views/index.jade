@@ -14,7 +14,8 @@ html
   body(ng-app='app', ng-cloak).bg-1.fill-height
     div(ng-controller='LayoutCtrl', basic-mode, admin-mode, landscape).fill-height
       .pane-top(fa-pane).fill-height
-        .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north', pane-size='44px', pane-min='44px', pane-max='44px', pane-handle='')
+        .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north', pane-size='44px',
+          pane-min='44px', pane-max='44px', pane-handle='')
           div(ng-include='"menu.jade"')
 
         .pane-center(fa-pane, pane-id='main', pane-anchor='center').fill-height

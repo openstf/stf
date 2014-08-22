@@ -1,10 +1,10 @@
-describe('VersionUpdateService', function() {
+describe('LightboxImageService', function() {
 
   beforeEach(angular.mock.module(require('./').name));
 
-  it('should ...', inject(function(VersionUpdateService) {
+  it('should ...', inject(function(LightboxImageService) {
 
-	//expect(FatalMessageService.doSomething()).toEqual('something');
+	//expect(XLightboxImageService.doSomething()).toEqual('something');
 
   }));
 

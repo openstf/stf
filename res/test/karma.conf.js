@@ -22,9 +22,6 @@ module.exports = function (config) {
 
 //    webpack: webpackConfig.webpack,
     webpack: {
-      entry: {
-        app: '../app/app.js'
-      },
       cache: true,
       module: webpackConfig.webpack.module,
       resolve: webpackConfig.webpack.resolve,
@@ -39,7 +36,8 @@ module.exports = function (config) {
     },
     webpackServer: {
       debug: true,
-      devtool: 'eval',
+      devtool: 'inline-source-map',
+//      devtool: 'eval',
       stats: false
 //      stats: {
 //        colors: true
@@ -64,22 +62,19 @@ module.exports = function (config) {
     autoWatch: true,
 
     // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows has to be installed with `npm install karma-ie-launcher`)
+    // Chrome, ChromeCanary, Firefox, Opera, Safari, PhantomJS, IE
     browsers: ['PhantomJS'],
-//    browsers: ['Chrome'],
 
     plugins: [
       require('karma-jasmine'),
       require('karma-webpack'),
       require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-phantomjs-launcher'),
-      require('karma-junit-reporter')
+      require('karma-junit-reporter'),
+      require('karma-ie-launcher'),
+      require('karma-safari-launcher'),
+      require('karma-opera-launcher')
     ]
   })
 }

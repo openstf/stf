@@ -9,7 +9,7 @@ module.exports = function AppStateProvider() {
   }
 
   /*globals GLOBAL_APPSTATE:false*/
-  if (GLOBAL_APPSTATE) {
+  if (typeof GLOBAL_APPSTATE !== 'undefined') {
     values = angular.extend(values, GLOBAL_APPSTATE)
   }
 

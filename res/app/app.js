@@ -4,13 +4,10 @@ require.ensure([], function (require) {
   require('angular-route')
   require('angular-touch')
 
-  require('ng-file-upload')
-
   angular.module('app', [
     'ngRoute',
     'ngTouch',
     require('gettext').name,
-    'angularFileUpload',
     require('angular-hotkeys').name,
     require('./layout').name,
     require('./device-list').name,

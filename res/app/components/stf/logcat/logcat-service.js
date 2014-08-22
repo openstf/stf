@@ -1,7 +1,7 @@
 var _ = require('lodash')
 var _s = require('underscore.string')
 
-module.exports = function LogcatServiceFactory(socket, DeviceService, FilterStringService) {
+module.exports = function LogcatServiceFactory(socket, FilterStringService) {
   var service = {}
   service.started = false
   service.numberOfEntries = 0

@@ -1,9 +1,12 @@
 require('./upload.css')
 
+require('ng-file-upload')
+
 module.exports = angular.module('stf.upload', [
-  require('stf/common-ui/tree').name,
+  'angularFileUpload',
   require('./activities').name,
-  require('stf/settings').name
+  require('stf/settings').name,
+  require('stf/storage').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put('control-panes/dashboard/upload/upload.jade',

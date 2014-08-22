@@ -26,10 +26,9 @@ require.ensure([], function (require) {
         .otherwise({
           redirectTo: '/devices'
         })
-    }
-  )
+    })
+
     .config(function (hotkeysProvider) {
       hotkeysProvider.templateTitle = 'Keyboard Shortcuts:'
     })
-
 })

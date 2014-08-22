@@ -1,6 +1,5 @@
-module.exports = function UserServiceFactory() {
-  /*global APPSTATE:false*/
+module.exports = function UserServiceFactory(AppState) {
   var userService = {}
-  userService.currentUser = APPSTATE.user
+  userService.currentUser = AppState.user
   return userService
 }

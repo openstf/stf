@@ -5,43 +5,12 @@ module.exports = function ControlServiceFactory(
 , TransactionService
 , $rootScope
 , gettext
+, KeycodesMapped
 ) {
   var controlService = {
   }
 
   function ControlService(target, channel) {
-    var keyCodes = {
-      8: 'del' // backspace
-    , 9: 'tab' // tab
-    , 13: 'enter' // enter
-    , 20: 'caps_lock' // caps lock
-    , 27: 'escape' // esc
-    , 33: 'page_up' // page up
-    , 34: 'page_down' // page down
-    , 35: 'move_end' // end
-    , 36: 'move_home' // home
-    , 37: 'dpad_left' // left arrow
-    , 38: 'dpad_up' // up arrow
-    , 39: 'dpad_right' // right arrow
-    , 40: 'dpad_down' // down arrow
-    , 45: 'insert' // insert
-    , 46: 'forward_del' // delete
-    , 93: 'menu' // windows menu key
-    , 112: 'f1' // f1
-    , 113: 'f2' // f2
-    , 114: 'f3' // f3
-    , 115: 'f4' // f4
-    , 116: 'f5' // f5
-    , 117: 'f6' // f6
-    , 118: 'f7' // f7
-    , 119: 'f8' // f8
-    , 120: 'f9' // f9
-    , 121: 'f10' // f10
-    , 122: 'f11' // f11
-    , 123: 'f12' // f12
-    , 144: 'num_lock' // num lock
-    }
-
     function sendOneWay(action, data) {
       socket.emit(action, channel, data)
     }
@@ -70,7 +39,7 @@ module.exports = function ControlServiceFactory(
           })
         }
         else {
-          var mapped = fixedKey || keyCodes[key]
+          var mapped = fixedKey || KeycodesMapped[key]
           if (mapped) {
             sendOneWay(type, {
               key: mapped

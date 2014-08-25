@@ -1,7 +1,7 @@
 module.exports = function DeviceSettingsCtrl($scope, $timeout) {
   $scope.wifiEnabled = true
 
-  var getWifiStatus = function () {
+  function getWifiStatus() {
     if ($scope.control) {
       $scope.control.getWifiStatus().then(function (result) {
         $scope.$apply(function () {
@@ -9,7 +9,6 @@ module.exports = function DeviceSettingsCtrl($scope, $timeout) {
         })
       })
     }
-
   }
   getWifiStatus()
 
@@ -17,7 +16,28 @@ module.exports = function DeviceSettingsCtrl($scope, $timeout) {
     if ($scope.control) {
       $scope.control.setWifiEnabled(!$scope.wifiEnabled)
       $scope.wifiEnabled = !$scope.wifiEnabled
-      $timeout(getWifiStatus, 500)
+      $timeout(getWifiStatus, 300)
+      $timeout(getWifiStatus, 2500)
     }
   }
+
+  $scope.$watch('ringerMode', function (newValue, oldValue) {
+    if (oldValue) {
+      if ($scope.control) {
+        $scope.control.setRingerMode(newValue)
+      }
+    }
+  })
+
+  function getRingerMode() {
+    if ($scope.control) {
+      $scope.control.getRingerMode().then(function (result) {
+        $scope.$apply(function () {
+          $scope.ringerMode = result.body
+        })
+      })
+    }
+  }
+  getRingerMode()
+
 }

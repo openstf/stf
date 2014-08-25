@@ -37,6 +37,7 @@
     "by": false,
     "Promise": true,
     "$": false,
-    "$$": false
+    "$$": false,
+    "protractor": false
   }
 }

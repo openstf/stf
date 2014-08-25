@@ -10,7 +10,7 @@ var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
 var protractor = require("gulp-protractor")
-var protractorConfig = require('./res/test/protractor.conf')
+var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
@@ -59,8 +59,8 @@ gulp.task('karma', function (done) {
 gulp.task('webdriver_update', protractor.webdriver_update)
 gulp.task('webdriver_standalone', protractor.webdriver_standalone)
 
-gulp.task('protractor', ['webdriver_update'], function (callback) {
-  gulp.src(["./res/test/**/*.js"])
+gulp.task('protractor', function (callback) {
+  gulp.src(["./res/test/e2e/**/*.js"])
     .pipe(protractor.protractor({
       configFile: protractorConfig
     }))

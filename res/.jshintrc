@@ -38,6 +38,7 @@
     "Promise": true,
     "$": false,
     "$$": false,
-    "protractor": false
+    "protractor": false,
+    "jasmine": false
   }
 }

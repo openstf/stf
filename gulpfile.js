@@ -10,7 +10,6 @@ var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
 var protractor = require("gulp-protractor")
-var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
@@ -60,6 +59,8 @@ gulp.task('webdriver-update', protractor.webdriver_update)
 gulp.task('webdriver-standalone', protractor.webdriver_standalone)
 
 gulp.task('protractor', function (callback) {
+  var protractorConfig = './res/test/protractor.conf'
+
   var args = []
   if (typeof gutil.env.suite === 'string') {
     args.push('--suite')
@@ -68,6 +69,10 @@ gulp.task('protractor', function (callback) {
 
   if (gutil.env.debug) {
     args.push('debug')
+  }
+
+  if (gutil.env.multi) {
+    protractorConfig = './res/test/protractor-multi.conf'
   }
 
   gulp.src(["./res/test/e2e/**/*.js"])

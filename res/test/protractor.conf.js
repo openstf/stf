@@ -1,6 +1,8 @@
 // Reference: https://github.com/angular/protractor/blob/master/referenceConf.js
 var LoginPage = require('./e2e/login')
 var BrowserLogs = require('./e2e/helpers/browser-logs')
+var FailFast = require('./e2e/helpers/fail-fast')
+var HtmlReporter = require('protractor-html-screenshot-reporter')
 
 exports.config = {
   baseUrl: process.env.STF_URL || 'http://localhost:7100/#!/',
@@ -40,8 +42,13 @@ exports.config = {
     loginPage.doLogin()
     loginPage.cleanUp()
 
+    //jasmine.getEnv().addReporter(new HtmlReporter({
+    //  baseDirectory: './res/test/test_out/screenshots'
+    //}))
+
     afterEach(function () {
       BrowserLogs({expectNoLogs: true})
+      FailFast()
     })
   },
   onComplete: function () {

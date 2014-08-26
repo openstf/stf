@@ -1,13 +1,19 @@
-var loginBaseUrl = 'http://localhost:7120'
-
 module.exports = function LoginPage() {
+  this.login = protractor.getInstance().params.login
+
   this.get = function () {
-    return browser.get(loginBaseUrl)
+    return browser.get(this.login.url)
   }
-  this.name = element(by.model('name'))
-  this.email = element(by.model('email'))
-  this.setName = function (name) {
-    return this.name.sendKeys(name)
+  this.username = element(by.model('username'))
+
+  if (this.login.method === 'ldap') {
+    this.password = element(by.model('password'))
+  } else {
+    this.email = element(by.model('email'))
+  }
+
+  this.setName = function (username) {
+    return this.username.sendKeys(username)
   }
   this.setEmail = function (email) {
     return this.email.sendKeys(email)
@@ -16,12 +22,16 @@ module.exports = function LoginPage() {
     return this.password.sendKeys(password)
   }
   this.submit = function () {
-    return this.name.submit()
+    return this.username.submit()
   }
-  this.login = function () {
+  this.doLogin = function () {
     this.get()
-    this.setName('test_user')
-    this.setEmail('test_user@login.local')
+    this.setName(this.login.username)
+    if (this.login.method === 'ldap') {
+      this.setPassword(this.login.password)
+    } else {
+      this.setEmail(this.login.email)
+    }
     return this.submit()
   }
 }

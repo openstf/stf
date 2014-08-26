@@ -4,7 +4,7 @@ define(['./module'], function(mod) {
 
     $scope.submit = function() {
       var data = {
-        name: $scope.signin.name.$modelValue
+        name: $scope.signin.username.$modelValue
       , email: $scope.signin.email.$modelValue
       }
       $scope.invalid = false

@@ -1,8 +1,9 @@
 // Reference: https://github.com/angular/protractor/blob/master/referenceConf.js
 var LoginPage = require('./e2e/login')
+var BrowserLogs = require('./e2e/helpers/browser-logs')
 
 exports.config = {
-  baseUrl: 'http://localhost:7100/#!/',
+  baseUrl: process.env.STF_URL || 'http://localhost:7100/#!/',
   suites: {
     control: 'e2e/control/**/*-spec.js',
     devices: 'e2e/devices/**/*-spec.js',
@@ -10,9 +11,22 @@ exports.config = {
     login: 'e2e/login/**/*-spec.js',
     settings: 'e2e/settings/**/*-spec.js'
   },
+  params: {
+    login: {
+      url: process.env.STF_LOGINURL || process.env.STF_URL ||
+      'http://localhost:7120',
+      username: process.env.STF_USERNAME || 'test_user',
+      email: process.env.STF_EMAIL || 'test_user@login.local',
+      password: process.env.STF_PASSWORD,
+      method: process.env.STF_METHOD || process.env.STF_PASSWORD ? 'ldap' :
+        'mock'
+    }
+  },
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 30000
+    defaultTimeoutInterval: 30000,
+    isVerbose: true,
+    includeStackTrace: true
   },
   capabilities: {
     browserName: 'chrome',
@@ -23,7 +37,14 @@ exports.config = {
   chromeOnly: true,
   onPrepare: function () {
     var loginPage = new LoginPage()
-    loginPage.login()
+    loginPage.doLogin()
     //browser.driver.wait(loginPage.login)
+
+    afterEach(function () {
+      BrowserLogs({expectNoLogs: true})
+    })
+  },
+  onComplete: function () {
+
   }
 }

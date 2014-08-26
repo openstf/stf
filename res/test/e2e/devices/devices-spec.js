@@ -1,5 +1,5 @@
 describe('Device Page', function () {
-  describe('List', function () {
+  describe('Icon View', function () {
 
     var DeviceListPage = require('./')
     var deviceListPage = new DeviceListPage()
@@ -27,6 +27,10 @@ describe('Device Page', function () {
     it('should have one device usable', function () {
       expect(deviceListPage.availableDevice().getText()).toBe('Use')
     })
+
+  })
+
+  describe('List View', function () {
 
   })
 })

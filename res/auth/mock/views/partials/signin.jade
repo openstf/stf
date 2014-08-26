@@ -13,9 +13,9 @@
         .input-group
           span.input-group-addon
             i.fa.fa-user
-          input.form-control(ng-model='name', name='name', required, type='text', placeholder='Name',
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='Name',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
-        .alert.alert-warning(ng-show='signin.name.$dirty && signin.name.$invalid')
+        .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
           span Please enter your name
 
       .form-group

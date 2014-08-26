@@ -2,13 +2,12 @@ describe('Login Page', function () {
   var LoginPage = require('./')
   var loginPage = new LoginPage()
 
-  it('should login with auth-mock', function () {
-    loginPage.get()
+  it('should have an url to login', function () {
+    expect(loginPage.login.url).toMatch('http')
+  })
 
-    loginPage.setName('test_user')
-    loginPage.setEmail('test_user@test.local')
-
-    loginPage.submit().then(function () {
+  it('should login with method: "' + loginPage.login.method + '"', function () {
+    loginPage.doLogin().then(function () {
       browser.getLocationAbsUrl().then(function (newUrl) {
         expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')
       })

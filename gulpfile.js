@@ -56,14 +56,18 @@ gulp.task('karma', function (done) {
   }, done)
 })
 
-gulp.task('webdriver_update', protractor.webdriver_update)
-gulp.task('webdriver_standalone', protractor.webdriver_standalone)
+gulp.task('webdriver-update', protractor.webdriver_update)
+gulp.task('webdriver-standalone', protractor.webdriver_standalone)
 
 gulp.task('protractor', function (callback) {
-  var args
-  var suite = gutil.env.suite
-  if (typeof suite === 'string') {
-    args = ['--suite', suite]
+  var args = []
+  if (typeof gutil.env.suite === 'string') {
+    args.push('--suite')
+    args.push(gutil.env.suite)
+  }
+
+  if (gutil.env.debug) {
+    args.push('debug')
   }
 
   gulp.src(["./res/test/e2e/**/*.js"])

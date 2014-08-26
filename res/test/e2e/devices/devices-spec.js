@@ -1,7 +1,7 @@
 describe('Device Page', function () {
   describe('List', function () {
 
-    var DeviceListPage = require('./app-devices')
+    var DeviceListPage = require('./')
     var deviceListPage = new DeviceListPage()
 
     it('should go to Devices List page', function () {

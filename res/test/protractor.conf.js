@@ -1,18 +1,27 @@
 // Reference: https://github.com/angular/protractor/blob/master/referenceConf.js
-var LoginPage = require('./e2e/app-login.js')
+var LoginPage = require('./e2e/login')
 
 exports.config = {
-  chromeOnly: true,
   baseUrl: 'http://localhost:7100/#!/',
-  specs: ['res/test/e2e/**/*-spec.js'],
+  suites: {
+    control: 'e2e/control/**/*-spec.js',
+    devices: 'e2e/devices/**/*-spec.js',
+    help: 'e2e/help/**/*-spec.js',
+    login: 'e2e/login/**/*-spec.js',
+    settings: 'e2e/settings/**/*-spec.js'
+  },
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000
   },
   capabilities: {
-    browserName: 'chrome'
+    browserName: 'chrome',
+    chromeOptions: {
+      args: ['--test-type'] // Prevent security warning bug in ChromeDriver
+    }
   },
-  onPrepare: function() {
+  chromeOnly: true,
+  onPrepare: function () {
     var loginPage = new LoginPage()
     loginPage.login()
     //browser.driver.wait(loginPage.login)

@@ -60,9 +60,16 @@ gulp.task('webdriver_update', protractor.webdriver_update)
 gulp.task('webdriver_standalone', protractor.webdriver_standalone)
 
 gulp.task('protractor', function (callback) {
+  var args
+  var suite = gutil.env.suite
+  if (typeof suite === 'string') {
+    args = ['--suite', suite]
+  }
+
   gulp.src(["./res/test/e2e/**/*.js"])
     .pipe(protractor.protractor({
-      configFile: protractorConfig
+      configFile: protractorConfig,
+      args: args
     }))
     .on('error', function (e) {
       console.log(e)

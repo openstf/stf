@@ -1,5 +1,5 @@
 describe('Login Page', function () {
-  var LoginPage = require('./app-login')
+  var LoginPage = require('./')
   var loginPage = new LoginPage()
 
   it('should login with auth-mock', function () {

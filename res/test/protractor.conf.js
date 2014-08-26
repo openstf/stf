@@ -38,7 +38,7 @@ exports.config = {
   onPrepare: function () {
     var loginPage = new LoginPage()
     loginPage.doLogin()
-    //browser.driver.wait(loginPage.login)
+    loginPage.cleanUp()
 
     afterEach(function () {
       BrowserLogs({expectNoLogs: true})

@@ -4,6 +4,7 @@ module.exports = function LoginPage() {
   this.get = function () {
     return browser.get(this.login.url)
   }
+
   this.username = element(by.model('username'))
 
   if (this.login.method === 'ldap') {
@@ -11,6 +12,7 @@ module.exports = function LoginPage() {
   } else {
     this.email = element(by.model('email'))
   }
+
 
   this.setName = function (username) {
     return this.username.sendKeys(username)
@@ -32,6 +34,18 @@ module.exports = function LoginPage() {
     } else {
       this.setEmail(this.login.email)
     }
-    return this.submit()
+
+    this.submit()
+
+    return browser.driver.wait(function () {
+      return browser.driver.getCurrentUrl().then(function (url) {
+        return /devices/.test(url)
+      })
+    })
+  }
+  this.cleanUp = function () {
+    this.username = null
+    this.password = null
+    this.email = null
   }
 }

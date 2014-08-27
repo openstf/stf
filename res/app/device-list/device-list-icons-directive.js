@@ -56,31 +56,24 @@ module.exports = function DeviceListDetailsDirective(
         // button
         at.nodeValue = $filter('translate')(device.enhancedStateAction)
 
-        switch (device.state) {
-        case 'using':
-          button.className = classes + 'btn-primary'
-          break
-        case 'busy':
-          button.className = classes + 'btn-warning'
-          break
-        case 'available':
-        case 'ready':
-        case 'present':
-          button.className = classes + 'btn-primary-outline'
-          break
-        case 'preparing':
-          button.className = classes + 'btn-primary-outline btn-success-outline'
-          break
-        case 'unauthorized':
-          button.className = classes + 'btn-danger-outline'
-          break
-        case 'offline':
-          button.className = classes + 'btn-warning-outline'
-          break
-        default:
-          button.className = classes + 'btn-default-outline'
-          break
+        function getStateClasses(state) {
+          var stateClasses = {
+            using: 'state-using btn-primary',
+            busy: 'state-busy btn-warning',
+            available: 'state-available btn-primary-outline',
+            ready: 'state-ready btn-primary-outline',
+            present: 'state-present btn-primary-outline',
+            preparing: 'state-preparing btn-primary-outline btn-success-outline',
+            unauthorized: 'state-unauthorized btn-danger-outline',
+            offline: 'state-offline btn-warning-outline'
+          }[state]
+          if (typeof stateClasses === 'undefined') {
+            stateClasses = 'btn-default-outline'
+          }
+          return stateClasses
         }
+
+        button.className = classes + getStateClasses(device.state)
 
         if (device.usable) {
           a.href = '#!/control/' + device.serial

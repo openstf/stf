@@ -11,3 +11,4 @@
 /rethinkdb_data/
 /temp
 /tmp
+/res/test_out/*

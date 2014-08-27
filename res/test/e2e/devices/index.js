@@ -1,12 +1,11 @@
-module.exports = function DeviceListPage() {
+function DeviceListPage() {
   this.get = function () {
     // TODO: Let's get rid off the login first
     browser.get(protractor.getInstance().baseUrl + 'devices')
   }
   this.devices = element(by.model('tracker.devices'))
   this.devicesByCss = element.all(by.css('ul.devices-icon-view > li'))
-  this.devicesUsable =
-    element.all(by.css('button.device-status.btn-primary-outline'))
+  this.devicesUsable = element.all(by.css('.state-available'))
   this.searchInput = element(by.model('search.deviceFilter'))
   this.filterAvailableDevices = function () {
     return this.searchInput.sendKeys('state: "available"')
@@ -21,3 +20,5 @@ module.exports = function DeviceListPage() {
     return this.availableDevice().click()
   }
 }
+
+module.exports = new DeviceListPage()

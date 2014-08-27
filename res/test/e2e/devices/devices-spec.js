@@ -1,8 +1,7 @@
 describe('Device Page', function () {
   describe('Icon View', function () {
 
-    var DeviceListPage = require('./')
-    var deviceListPage = new DeviceListPage()
+    var deviceListPage = require('./')
 
     it('should go to Devices List page', function () {
       deviceListPage.get()
@@ -25,7 +24,7 @@ describe('Device Page', function () {
     })
 
     it('should have one device usable', function () {
-      expect(deviceListPage.availableDevice().getText()).toBe('Use')
+      expect(deviceListPage.availableDevice().getAttribute('class')).toMatch('state-available')
     })
 
   })

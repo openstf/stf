@@ -43,16 +43,15 @@ exports.config = {
     loginPage.doLogin()
     loginPage.cleanUp()
 
-    waitUrl = WaitUrl
+    this.waitUrl = WaitUrl
 
-
-    //jasmine.getEnv().addReporter(new HtmlReporter({
-    //  baseDirectory: './res/test/test_out/screenshots'
-    //}))
+    jasmine.getEnv().addReporter(new HtmlReporter({
+      baseDirectory: './res/test/test_out/screenshots'
+    }))
 
     afterEach(function () {
       BrowserLogs({expectNoLogs: true})
-      FailFast()
+      //FailFast()
     })
   },
   onComplete: function () {

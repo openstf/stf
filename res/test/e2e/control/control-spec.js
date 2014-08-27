@@ -22,17 +22,9 @@ describe('Control Page', function () {
   it('should control an usable device', function () {
     deviceListPage.controlAvailableDevice()
 
-    browser.waitUrl(/control/)
+    waitUrl(/control/)
 
-    //browser.debugger();
-    //console.log('after')
-
-
-    //browser.driver.wait(function () {
-    //  return browser.driver.getCurrentUrl().then(function (url) {
-    //    return /control/.test(url)
-    //  })
-    //})
+    browser.sleep(1000)
 
     browser.getLocationAbsUrl().then(function (newUrl) {
       expect(newUrl).toMatch(protractor.getInstance().baseUrl + 'control')
@@ -43,50 +35,107 @@ describe('Control Page', function () {
     expect(controlPage.kickDeviceButton, true)
   })
 
-
-  describe('Dashboard', function () {
-    var DashboardTab = function () {
-      this.shellInput = element(by.model('command'))
-      this.shellResults = element.all(by.css('.shell-results')).first()
-
-      this.helloString = 'hello adb'
-      this.echoCommand = 'echo "' + this.helloString + '"'
-      this.clearCommand = 'clear'
-      this.openMenuCommand = 'input keyevent 3'
-
-      this.shellExecute = function (command) {
-        this.shellInput.sendKeys(command)
-        this.shellInput.sendKeys(protractor.Key.ENTER)
-      }
+  describe('Remote Control', function () {
+    var RemoteCtrl = function () {
+      this.paneHandleHorizontal = element(by.css('.fa-pane-handle.horizontal'))
     }
-    var dashboardTab = new DashboardTab()
+    it('should resize panel to the right', function () {
 
-    describe('Shell', function () {
-
-      it('should echo "hello adb" to the adb shell', function () {
-        expect(dashboardTab.shellInput.isPresent()).toBe(true)
-
-        dashboardTab.shellExecute(dashboardTab.echoCommand)
-
-        expect(dashboardTab.shellResults.getText()).toBe(dashboardTab.helloString)
-      })
-
-      it('should clear adb shell input', function () {
-        dashboardTab.shellExecute(dashboardTab.clearCommand)
-        expect(dashboardTab.shellResults.getText()).toBeFalsy()
-      })
-
-      it('should open and close the menu button trough adb shell', function () {
-        dashboardTab.shellExecute(dashboardTab.openMenuCommand)
-        dashboardTab.shellExecute(dashboardTab.openMenuCommand)
-      })
+    })
+    it('should rotate device', function () {
 
     })
   })
 
 
+  describe('Dashboard Tab', function () {
+
+    describe('Shell', function () {
+      var ShellCtrl = function () {
+        this.commandInput = element(by.model('command'))
+        this.results = element.all(by.css('.shell-results')).first()
+
+        this.helloString = 'hello adb'
+        this.echoCommand = 'echo "' + this.helloString + '"'
+        this.clearCommand = 'clear'
+        this.openMenuCommand = 'input keyevent 3'
+
+        this.execute = function (command) {
+          this.commandInput.sendKeys(command, protractor.Key.ENTER)
+        }
+      }
+      var shell = new ShellCtrl()
+
+      it('should echo "hello adb" to the adb shell', function () {
+        expect(shell.commandInput.isPresent()).toBe(true)
+
+        shell.execute(shell.echoCommand)
+
+        expect(shell.results.getText()).toBe(shell.helloString)
+      })
+
+      it('should clear adb shell input', function () {
+        shell.execute(shell.clearCommand)
+        expect(shell.results.getText()).toBeFalsy()
+      })
+
+      it('should open and close the menu button trough adb shell', function () {
+        shell.execute(shell.openMenuCommand)
+        shell.execute(shell.openMenuCommand)
+      })
+
+    })
+
+    describe('Navigation', function () {
+      var NavigationCtrl = function () {
+        this.urlInput = element(by.model('textURL'))
+        this.goToUrl = function (url) {
+          this.urlInput.sendKeys(url, protractor.Key.ENTER)
+        }
+        this.resetButton = element(by.css('[ng-click="clearSettings()"]'))
+      }
+      var navigation = new NavigationCtrl()
+
+      it('should go to an URL', function () {
+        var url = 'google.com'
+        navigation.goToUrl(url)
+        expect(navigation.urlInput.getAttribute('value')).toBe(url)
+
+        browser.sleep(1000)
+      })
+
+      it('should clear the URL input', function () {
+        navigation.urlInput.clear()
+        expect(navigation.urlInput.getAttribute('value')).toBeFalsy()
+      })
+
+      it('should reset browser settings', function () {
+        navigation.resetButton.click()
+      })
+    })
+
+  })
+
+  describe('Screenshots Tab', function () {
+
+  })
+
+  describe('Automation Tab', function () {
+
+  })
+
+  describe('Advanced Tab', function () {
+
+  })
+
+  describe('Logs Tab', function () {
+
+  })
+
   it('should stop controlling an usable device', function () {
     controlPage.kickDevice()
+
+    waitUrl(/devices/)
 
     browser.getLocationAbsUrl().then(function (newUrl) {
       expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')

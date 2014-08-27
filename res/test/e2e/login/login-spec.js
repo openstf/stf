@@ -1,5 +1,6 @@
 describe('Login Page', function () {
-  var loginPage = require('./')
+  var LoginPage = require('./')
+  var loginPage = new LoginPage()
 
   it('should have an url to login', function () {
     expect(loginPage.login.url).toMatch('http')

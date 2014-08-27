@@ -1,4 +1,4 @@
-function DeviceListPage() {
+module.exports = function DeviceListPage() {
   this.get = function () {
     // TODO: Let's get rid off the login first
     browser.get(protractor.getInstance().baseUrl + 'devices')
@@ -20,5 +20,3 @@ function DeviceListPage() {
     return this.availableDevice().click()
   }
 }
-
-module.exports = new DeviceListPage()

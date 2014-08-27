@@ -1,4 +1,4 @@
-function LoginPage() {
+module.exports = function LoginPage() {
   this.login = protractor.getInstance().params.login
 
   this.get = function () {
@@ -49,5 +49,3 @@ function LoginPage() {
     this.email = null
   }
 }
-
-module.exports = new LoginPage()

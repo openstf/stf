@@ -18,6 +18,6 @@ module.exports = function DeviceListPage() {
     return this.devicesUsable.first()
   }
   this.controlAvailableDevice = function () {
-    this.availableDevice().click()
+    return this.availableDevice().click()
   }
 }

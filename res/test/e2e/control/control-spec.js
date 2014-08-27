@@ -21,6 +21,19 @@ describe('Control Page', function () {
 
   it('should control an usable device', function () {
     deviceListPage.controlAvailableDevice()
+
+    browser.waitUrl(/control/)
+
+    //browser.debugger();
+    //console.log('after')
+
+
+    //browser.driver.wait(function () {
+    //  return browser.driver.getCurrentUrl().then(function (url) {
+    //    return /control/.test(url)
+    //  })
+    //})
+
     browser.getLocationAbsUrl().then(function (newUrl) {
       expect(newUrl).toMatch(protractor.getInstance().baseUrl + 'control')
     })

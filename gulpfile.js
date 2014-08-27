@@ -51,17 +51,17 @@ gulp.task('karma', function (done) {
   }, done)
 })
 
+if (gutil.env.multi) {
+  protractorConfig = './res/test/protractor-multi.conf'
+}
+
 gulp.task('webdriver-update', protractor.webdriver_update)
 gulp.task('webdriver-standalone', protractor.webdriver_standalone)
 gulp.task('protractor-explorer', function (callback) {
   protractor.protractor_explorer({
-    url: 'http://yahoo.com'
+    url: require(protractorConfig).config.baseUrl
   }, callback)
 })
-
-if (gutil.env.multi) {
-  protractorConfig = './res/test/protractor-multi.conf'
-}
 
 gulp.task('protractor', function (callback) {
   gulp.src(["./res/test/e2e/**/*.js"])

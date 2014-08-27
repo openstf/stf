@@ -4,7 +4,7 @@
  - Added debug support
  - Added suites support
  - Added element explorer support
-
+ - Added feature to detect if selenium is running or not
  */
 
 var es = require('event-stream')
@@ -14,6 +14,8 @@ var child_process = require('child_process')
 var async = require('async')
 var PluginError = require('gulp-util').PluginError
 var winExt = /^win/.test(process.platform) ? ".cmd" : ""
+var http = require('http')
+var Promise = require("bluebird")
 
 // optimization: cache for protractor binaries directory
 var protractorDir = null
@@ -114,11 +116,27 @@ var webdriver_update_specific = function (opts) {
 
 webdriver_update.bind(null, ["ie", "chrome"])
 
-var webdriver_standalone = function (cb) {
+var webdriver_standalone = function (opts, cb) {
+  var callback = (cb ? cb : opts)
+  var options = (cb ? opts : null)
+  var stdio = 'inherit'
+
+  if (options) {
+    if (options.stdio) {
+      stdio = options.stdio
+    }
+  }
+
   var child = child_process.spawn(path.resolve(getProtractorDir() +
   '/webdriver-manager' + winExt), ['start'], {
-    stdio: 'inherit'
-  }).once('close', cb)
+    stdio: stdio
+  })
+    .once('close', callback)
+    .on('exit', function (code) {
+      if (child) {
+        child.kill()
+      }
+    })
 }
 
 var protractorExplorerDir = null
@@ -137,6 +155,41 @@ function getProtractorExplorerDir() {
   throw new Error("No protractor installation found.")
 }
 
+var isWebDriverRunning = function () {
+  return new Promise(function (resolve) {
+    var options = {
+      hostname: 'localhost',
+      port: 4444,
+      path: '/wd/hub/status'
+    }
+
+    var req = http.request(options, function (res) {
+      if (res.statusCode !== 200) {
+        throw new Error('Selenium is running but status code is' +
+        res.statusCode)
+      }
+      resolve(true)
+    })
+    req.on('error', function () {
+      resolve(false)
+    })
+    req.write('data\n')
+    req.end()
+    resolve(false)
+  })
+}
+
+var ensureWebDriverRunning = function () {
+  return new Promise(function (resolve) {
+    isWebDriverRunning().then(function (running) {
+      if (running) {
+        resolve()
+      }
+    })
+  })
+}
+
+
 var protractor_explorer = function (opts, cb) {
   var callback = (cb ? cb : opts)
   var options = (cb ? opts : null)
@@ -153,16 +206,38 @@ var protractor_explorer = function (opts, cb) {
     if (options.url) {
       url = options.url
     }
-
-    if (!options.launchWebDriver) {
-
-    }
   }
 
-  child_process.spawn(path.resolve(getProtractorExplorerDir() +
-  '/elementexplorer.js'), [url], {
-    stdio: 'inherit'
-  }).once('close', callback)
+  function runElementExplorer(callback) {
+    var child = child_process.spawn(path.resolve(getProtractorExplorerDir() +
+    '/elementexplorer.js'), [url], {
+      stdio: 'inherit'
+    })
+      .on('exit', function () {
+        if (child) {
+          child.kill()
+        }
+      })
+      .once('close', callback)
+  }
+
+  function runWebDriver() {
+    isWebDriverRunning().then(function (running) {
+      if (running) {
+        runElementExplorer(callback)
+      } else {
+        webdriver_standalone({stdio: ['pipe', 'pipe', process.stderr]},
+          function () {
+
+          })
+
+        setTimeout(function () {
+          runElementExplorer(callback)
+        }, 2000)
+      }
+    })
+  }
+  runWebDriver()
 }
 
 module.exports = {
@@ -171,5 +246,6 @@ module.exports = {
   webdriver_standalone: webdriver_standalone,
   webdriver_update: webdriver_update,
   webdriver_update_specific: webdriver_update_specific,
-  protractor_explorer: protractor_explorer
+  protractor_explorer: protractor_explorer,
+  isWebDriverRunning: isWebDriverRunning
 }

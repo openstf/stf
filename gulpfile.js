@@ -9,18 +9,18 @@ var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var clean = require('gulp-clean')
-var protractor = require("gulp-protractor")
+//var protractor = require('gulp-protractor')
+var protractor = require('./res/test/e2e/helpers/gulp-protractor-adv')
+var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
+var spawn = require('child_process').spawn
 
 gulp.task('jshint', function () {
   return gulp.src([
-    'lib/**/*.js'
-    , 'res/app/**/*.js'
-    , 'res/auth-ldap/**/*.js'
-    , 'res/auth-mock/**/*.js'
-    , '*.js'
+    'lib/**/*.js', 'res/app/**/*.js', 'res/auth-ldap/**/*.js',
+    'res/auth-mock/**/*.js', '*.js'
   ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
@@ -28,11 +28,7 @@ gulp.task('jshint', function () {
 
 gulp.task('jsonlint', function () {
   return gulp.src([
-    '.jshintrc'
-    , 'res/.jshintrc'
-    , '.bowerrc'
-    , '.yo-rc.json'
-    , '*.json'
+    '.jshintrc', 'res/.jshintrc', '.bowerrc', '.yo-rc.json', '*.json'
   ])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter())
@@ -57,28 +53,22 @@ gulp.task('karma', function (done) {
 
 gulp.task('webdriver-update', protractor.webdriver_update)
 gulp.task('webdriver-standalone', protractor.webdriver_standalone)
+gulp.task('protractor-explorer', function (callback) {
+  protractor.protractor_explorer({
+    url: 'http://yahoo.com'
+  }, callback)
+})
+
+if (gutil.env.multi) {
+  protractorConfig = './res/test/protractor-multi.conf'
+}
 
 gulp.task('protractor', function (callback) {
-  var protractorConfig = './res/test/protractor.conf'
-
-  var args = []
-  if (typeof gutil.env.suite === 'string') {
-    args.push('--suite')
-    args.push(gutil.env.suite)
-  }
-
-  if (gutil.env.debug) {
-    args.push('debug')
-  }
-
-  if (gutil.env.multi) {
-    protractorConfig = './res/test/protractor-multi.conf'
-  }
-
   gulp.src(["./res/test/e2e/**/*.js"])
     .pipe(protractor.protractor({
       configFile: protractorConfig,
-      args: args
+      debug: gutil.env.debug,
+      suite: gutil.env.suite
     }))
     .on('error', function (e) {
       console.log(e)
@@ -87,7 +77,7 @@ gulp.task('protractor', function (callback) {
 
 // For piping strings
 function fromString(filename, string) {
-  var src = stream.Readable({ objectMode: true })
+  var src = stream.Readable({objectMode: true})
   src._read = function () {
     this.push(new gutil.File({
       cwd: '', base: '', path: filename, contents: new Buffer(string)
@@ -162,8 +152,7 @@ gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
 gulp.task('jade', function (cb) {
   gulp.src([
-    './res/**/*.jade'
-    , '!./res/bower_components/**'
+    './res/**/*.jade', '!./res/bower_components/**'
   ])
     .pipe(jade())
     .pipe(gulp.dest('./tmp/html/'))
@@ -172,10 +161,8 @@ gulp.task('jade', function (cb) {
 
 gulp.task('translate:extract', ['jade'], function (cb) {
   gulp.src([
-    './tmp/html/**/*.html'
-    , './res/**/*.js'
-    , '!./res/bower_components/**'
-    , '!./res/build/**'
+    './tmp/html/**/*.html', './res/**/*.js', '!./res/bower_components/**',
+    '!./res/build/**'
   ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))

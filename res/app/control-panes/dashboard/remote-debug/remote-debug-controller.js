@@ -1,4 +1,4 @@
-module.exports = function RemoteDebugCtrl($scope, $timeout) {
+module.exports = function RemoteDebugCtrl($scope, $timeout, gettext) {
   function startRemoteConnect() {
     if ($scope.control) {
       $scope.control.startRemoteConnect().then(function (result) {
@@ -21,4 +21,17 @@ module.exports = function RemoteDebugCtrl($scope, $timeout) {
       }
     }, 200)
   }
+
+  $scope.$watch('platform', function (newValue) {
+    console.log('newValue', newValue)
+    if (newValue === 'native') {
+      $scope.remoteDebugTooltip =
+        gettext('Run the following on your command line to debug the device from your IDE')
+    } else {
+      $scope.remoteDebugTooltip =
+        gettext('Run the following on your command line to debug the device from your Browser')
+    }
+
+  })
+
 }

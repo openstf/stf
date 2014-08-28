@@ -24,7 +24,7 @@ describe('Control Page', function () {
 
     waitUrl(/control/)
 
-    browser.sleep(1000)
+    browser.sleep(500)
 
     browser.getLocationAbsUrl().then(function (newUrl) {
       expect(newUrl).toMatch(protractor.getInstance().baseUrl + 'control')
@@ -32,7 +32,7 @@ describe('Control Page', function () {
   })
 
   it('should have a kick button', function () {
-    expect(controlPage.kickDeviceButton, true)
+    expect(controlPage.kickDeviceButton.isPresent()).toBeTruthy()
   })
 
   describe('Remote Control', function () {
@@ -101,7 +101,7 @@ describe('Control Page', function () {
         navigation.goToUrl(url)
         expect(navigation.urlInput.getAttribute('value')).toBe(url)
 
-        browser.sleep(1000)
+        browser.sleep(500)
       })
 
       it('should clear the URL input', function () {

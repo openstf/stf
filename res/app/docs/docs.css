@@ -1,0 +1,52 @@
+.stf-docs h1 {
+  /*background: green;*/
+}
+
+.stf-docs .widget-container {
+  padding: 10px;
+}
+
+.stf-docs h1 {
+  font-size: 32px;
+  color: #157afb;
+}
+
+.stf-docs h1 {
+  margin-top: 10px;
+}
+
+.stf-docs h2,
+.stf-docs h3 {
+  margin-top: 40px;
+}
+
+.stf-docs p,
+.stf-docs li,
+.stf-docs a {
+  font-size: 15px;
+}
+
+.stf-docs h1:after,
+.stf-docs h2:after,
+.stf-docs h3:after {
+  content: ' ';
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.stf-docs-navigation {
+  text-align: center;
+}
+
+.stf-docs .docs-back {
+  position: absolute;
+  left: 10px;
+  border: 1px solid transparent;
+}
+
+.stf-docs .docs-home {
+  border: 1px solid transparent;
+}

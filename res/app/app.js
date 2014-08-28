@@ -15,6 +15,7 @@ require.ensure([], function (require) {
     require('./menu').name,
     require('./settings').name,
     require('./help').name,
+    require('./docs').name,
     require('./../common/lang').name
   ])
     .config(function ($routeProvider, $locationProvider) {

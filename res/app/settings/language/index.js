@@ -9,3 +9,4 @@ module.exports = angular.module('stf-ui-language', [
   }])
   .factory('LanguageService', require('./language-service'))
   .controller('LanguageCtrl', require('./language-controller'))
+  //.provider('language', require('./language-service'))

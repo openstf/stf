@@ -1,0 +1,16 @@
+//extends layout
+block content
+  .row.stf-docs(ng-controller='DocsCtrl')
+    .col-md-10.col-md-offset-1
+      .widget-container.fluid-height
+        .stf-docs-navigation
+          button.btn.btn-primary-outline.docs-back(ng-click='goBack()')
+            i.fa.fa-chevron-left.fa-fw
+            //span Back
+          button.btn.btn-primary-outline.docs-home(ng-click='goHome()')
+            i.fa.fa-home.fa-fw
+            //span Home
+        .widget-content.padded
+          .row
+            .col-md-10.col-md-offset-1
+              != markdownFile.parseContent()

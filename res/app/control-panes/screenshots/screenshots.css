@@ -21,10 +21,6 @@
   opacity: 1;
 }
 
-.stf-screenshots .zoom-button {
-  border: 1px solid transparent;
-}
-
 .stf-screenshots .zoom-range {
   width: 180px;
   margin-right: 5px;

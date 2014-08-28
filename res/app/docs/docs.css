@@ -1,7 +1,3 @@
-.stf-docs h1 {
-  /*background: green;*/
-}
-
 .stf-docs .widget-container {
   padding: 10px;
 }
@@ -44,9 +40,5 @@
 .stf-docs .docs-back {
   position: absolute;
   left: 10px;
-  border: 1px solid transparent;
 }
 
-.stf-docs .docs-home {
-  border: 1px solid transparent;
-}

@@ -17,7 +17,7 @@
     .button-spacer
 
     .pull-right
-      button.btn.btn-primary-outline.btn-sm.zoom-button(
+      button.btn.btn-primary-outline.btn-sm.transparent-border(
         ng-click='zoom({min: 80, step: -50})',
         ng-disabled='!screenshots.length')
         i.fa.fa-minus
@@ -26,7 +26,7 @@
       ng-model-options='{ updateOn: "default blur", debounce: { default: 100, blur: 0} }',
       ng-disabled='!screenshots.length').zoom-range
 
-      button.btn.btn-primary-outline.btn-sm.zoom-button(
+      button.btn.btn-primary-outline.btn-sm.transparent-border(
         ng-click='zoom({max: 480, step: 50})',
         ng-disabled='!screenshots.length')
         i.fa.fa-plus

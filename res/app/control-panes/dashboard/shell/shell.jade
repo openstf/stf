@@ -3,9 +3,9 @@
     i.fa.fa-terminal
     span(translate) Shell
     clear-button(ng-click='clear()', ng-disabled='!command && !data').btn-xs
-    a(ng-href='{{referenceUrl}}', target='_blank').btn.btn-xs.btn-primary-outline.pull-right
+
+    a(ng-href='/#!/docs/ja/remote-shell').btn.btn-xs.btn-primary-outline.pull-right.transparent-border
       i.fa.fa-book
-      span(translate) Reference
   .widget-content.padded
 
     iframe(src="about:blank", name="_autofill2", style="display:none")

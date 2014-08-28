@@ -1,8 +1,6 @@
 module.exports = function ShellCtrl($scope) {
   $scope.result = null
 
-  $scope.referenceUrl = '/#!/help/shell'
-
   $scope.run = function(command) {
     if (command === 'clear') {
       $scope.clear()

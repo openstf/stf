@@ -398,3 +398,8 @@ input {
   -webkit-transition: none !important;
   transition: none !important;
 }
+
+/* Transparent border for buttons */
+.transparent-border {
+  border: 1px solid transparent;
+}

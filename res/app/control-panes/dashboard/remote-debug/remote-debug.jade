@@ -2,7 +2,8 @@
   .heading
     i.fa.fa-bug
     span(translate) Remote debug
-    i.fa.fa-question-circle.pull-right(tooltip='{{remoteDebugTooltip | translate}}', tooltip-placement='left')
+    a(ng-href='/#!/docs/en/remote-debug').pull-right
+      i.fa.fa-question-circle(tooltip='{{remoteDebugTooltip | translate}}', tooltip-placement='left')
   .widget-content.padded
     .form-inline
       textarea(readonly, rows='1', ng-model='debugCommand', msd-elastic, text-focus-select).form-control.remote-debug-textarea

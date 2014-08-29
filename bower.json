@@ -26,7 +26,7 @@
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.0",
     "bluebird": "~2.1.3",
     "angular-tree-control": "~0.2.2",
-    "angular-loading-bar": "~0.5.0",
+    "angular-loading-bar": "~0.5.1",
     "underscore.string": "~2.3.3",
     "font-awesome-bower": "~4.1.0",
     "bootstrap": "~3.2.0",

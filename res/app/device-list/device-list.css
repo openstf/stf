@@ -88,6 +88,7 @@ ul.devices-icon-view .device-photo-small {
 ul.devices-icon-view .device-photo-small img {
   width: auto;
   height: 90px;
+  max-width: 95%; /* TODO: Fix this with a new container */
   /*box-shadow: 0 10px 5px rgba(255, 255, 255, 1);*/
 }
 
@@ -142,6 +143,7 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 .stf-device-list .device-small-image img {
   height: 20px;
   min-width: 10px;
+  max-width: 100%;
 }
 
 .device-list-active-tabs.ng-enter {

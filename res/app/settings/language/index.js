@@ -1,12 +1,10 @@
 module.exports = angular.module('stf-ui-language', [
-  require('stf/settings').name
+  require('stf/settings').name,
+  require('stf/language').name
 ])
-  .run(["$templateCache", function($templateCache) {
+  .run(["$templateCache", function ($templateCache) {
     $templateCache.put(
-      'settings/language/language.jade'
-    , require('./language.jade')
+      'settings/language/language.jade', require('./language.jade')
     )
   }])
-  .factory('LanguageService', require('./language-service'))
   .controller('LanguageCtrl', require('./language-controller'))
-  //.provider('language', require('./language-service'))

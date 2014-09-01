@@ -1,4 +1,4 @@
-var supportedLanguages = require('./../../../common/lang/langs.json')
+var supportedLanguages = require('./../../../../common/lang/langs.json')
 
 module.exports = function LanguageServiceFactory(
   SettingsService

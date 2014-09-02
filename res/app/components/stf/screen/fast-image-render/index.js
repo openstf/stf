@@ -16,15 +16,16 @@ CanvasRender.prototype.draw = function (image) {
 }
 
 CanvasRender.prototype.clear = function () {
-  this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height)
+  this.context.clearRect(0, 0, this.context.canvas.width,
+    this.context.canvas.height)
 }
 
 
 // -------------------------------------------------------------------------------------------------
 
 /*
-Based on http://www-cs-students.stanford.edu/~eparker/files/crunch/renderer.js
-*/
+ Based on http://www-cs-students.stanford.edu/~eparker/files/crunch/renderer.js
+ */
 
 /**
  * Constructs a renderer object.
@@ -37,121 +38,117 @@ var Renderer = function (gl) {
    * @type {WebGLRenderingContext}
    * @private
    */
-  this.gl_ = gl;
+  this.gl_ = gl
 
   /**
    * The WebGLProgram.
    * @type {WebGLProgram}
    * @private
    */
-  this.program_ = gl.createProgram();
+  this.program_ = gl.createProgram()
 
   /**
    * @type {WebGLShader}
    * @private
    */
   this.vertexShader_ = this.compileShader_(
-    Renderer.vertexShaderSource_, gl.VERTEX_SHADER);
+    Renderer.vertexShaderSource_, gl.VERTEX_SHADER)
 
   /**
    * @type {WebGLShader}
    * @private
    */
   this.fragmentShader_ = this.compileShader_(
-    Renderer.fragmentShaderSource_, gl.FRAGMENT_SHADER);
+    Renderer.fragmentShaderSource_, gl.FRAGMENT_SHADER)
 
   /**
    * Cached uniform locations.
    * @type {Object.<string, WebGLUniformLocation>}
    * @private
    */
-  this.uniformLocations_ = {};
+  this.uniformLocations_ = {}
 
   /**
    * Cached attribute locations.
    * @type {Object.<string, WebGLActiveInfo>}
    * @private
    */
-  this.attribLocations_ = {};
+  this.attribLocations_ = {}
 
   /**
    * A vertex buffer containing a single quad with xy coordinates from [-1,-1]
    * to [1,1] and uv coordinates from [0,0] to [1,1].
    * @private
    */
-  this.quadVertexBuffer_ = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.quadVertexBuffer_);
+  this.quadVertexBuffer_ = gl.createBuffer()
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.quadVertexBuffer_)
   var vertices = new Float32Array(
     [-1.0, -1.0, 0.0, 1.0,
       +1.0, -1.0, 1.0, 1.0,
       -1.0, +1.0, 0.0, 0.0,
-      1.0, +1.0, 1.0, 0.0]);
-  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+      1.0, +1.0, 1.0, 0.0])
+  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW)
 
 
   // Init shaders
-  gl.attachShader(this.program_, this.vertexShader_);
-  gl.attachShader(this.program_, this.fragmentShader_);
-  gl.bindAttribLocation(this.program_, 0, 'vert');
-  gl.linkProgram(this.program_);
-  gl.useProgram(this.program_);
-  gl.enableVertexAttribArray(0);
+  gl.attachShader(this.program_, this.vertexShader_)
+  gl.attachShader(this.program_, this.fragmentShader_)
+  gl.bindAttribLocation(this.program_, 0, 'vert')
+  gl.linkProgram(this.program_)
+  gl.useProgram(this.program_)
+  gl.enableVertexAttribArray(0)
 
-  gl.enable(gl.DEPTH_TEST);
-  gl.disable(gl.CULL_FACE);
+  gl.enable(gl.DEPTH_TEST)
+  gl.disable(gl.CULL_FACE)
 
-  var count = gl.getProgramParameter(this.program_, gl.ACTIVE_UNIFORMS);
+  var count = gl.getProgramParameter(this.program_, gl.ACTIVE_UNIFORMS)
   for (var i = 0; i < /** @type {number} */(count); i++) {
-    var infoU = gl.getActiveUniform(this.program_, i);
+    var infoU = gl.getActiveUniform(this.program_, i)
     this.uniformLocations_[infoU.name] =
-      gl.getUniformLocation(this.program_, infoU.name);
+      gl.getUniformLocation(this.program_, infoU.name)
   }
 
-  count = gl.getProgramParameter(this.program_, gl.ACTIVE_ATTRIBUTES);
+  count = gl.getProgramParameter(this.program_, gl.ACTIVE_ATTRIBUTES)
   for (var j = 0; j < /** @type {number} */(count); j++) {
-    var infoA = gl.getActiveAttrib(this.program_, j);
+    var infoA = gl.getActiveAttrib(this.program_, j)
     this.attribLocations_[infoA.name] =
-      gl.getAttribLocation(this.program_, infoA.name);
+      gl.getAttribLocation(this.program_, infoA.name)
   }
-};
+}
 
 
 Renderer.prototype.finishInit = function () {
-  this.draw();
-};
+  this.draw()
+}
 
 
-Renderer.prototype.createDxtTexture = function (
-  dxtData
-, width
-, height
-, format
-) {
-  var gl = this.gl_;
-  var tex = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-  gl.compressedTexImage2D(
-    gl.TEXTURE_2D,
-    0,
-    format,
-    width,
-    height,
-    0,
-    dxtData);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-  //gl.generateMipmap(gl.TEXTURE_2D)
-  gl.bindTexture(gl.TEXTURE_2D, null);
-  return tex;
-};
+Renderer.prototype.createDxtTexture =
+  function (dxtData, width, height, format) {
+    var gl = this.gl_
+    var tex = gl.createTexture()
+    gl.bindTexture(gl.TEXTURE_2D, tex)
+    gl.compressedTexImage2D(
+      gl.TEXTURE_2D,
+      0,
+      format,
+      width,
+      height,
+      0,
+      dxtData)
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
+    //gl.generateMipmap(gl.TEXTURE_2D)
+    gl.bindTexture(gl.TEXTURE_2D, null)
+    return tex
+  }
 
 
 Renderer.prototype.createRgb565Texture = function (rgb565Data, width, height) {
-  var gl = this.gl_;
-  var tex = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, tex);
+  var gl = this.gl_
+  var tex = gl.createTexture()
+  gl.bindTexture(gl.TEXTURE_2D, tex)
   gl.texImage2D(
     gl.TEXTURE_2D,
     0,
@@ -161,35 +158,35 @@ Renderer.prototype.createRgb565Texture = function (rgb565Data, width, height) {
     0,
     gl.RGB,
     gl.UNSIGNED_SHORT_5_6_5,
-    rgb565Data);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    rgb565Data)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
   //gl.generateMipmap(gl.TEXTURE_2D)
-  gl.bindTexture(gl.TEXTURE_2D, null);
-  return tex;
-};
+  gl.bindTexture(gl.TEXTURE_2D, null)
+  return tex
+}
 
 
 Renderer.prototype.drawTexture = function (texture, width, height) {
-  var gl = this.gl_;
+  var gl = this.gl_
   // draw scene
-  gl.clearColor(0, 0, 0, 1);
-  gl.clearDepth(1.0);
-  gl.viewport(0, 0, width, height);
-  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
+  gl.clearColor(0, 0, 0, 1)
+  gl.clearDepth(1.0)
+  gl.viewport(0, 0, width, height)
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT)
 
-  gl.activeTexture(gl.TEXTURE0);
-  gl.bindTexture(gl.TEXTURE_2D, texture);
-  gl.uniform1i(this.uniformLocations_.texSampler, 0);
+  gl.activeTexture(gl.TEXTURE0)
+  gl.bindTexture(gl.TEXTURE_2D, texture)
+  gl.uniform1i(this.uniformLocations_.texSampler, 0)
 
-  gl.enableVertexAttribArray(this.attribLocations_.vert);
-  gl.bindBuffer(gl.ARRAY_BUFFER, this.quadVertexBuffer_);
+  gl.enableVertexAttribArray(this.attribLocations_.vert)
+  gl.bindBuffer(gl.ARRAY_BUFFER, this.quadVertexBuffer_)
   gl.vertexAttribPointer(this.attribLocations_.vert, 4, gl.FLOAT,
-    false, 0, 0);
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-};
+    false, 0, 0)
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+}
 
 
 /**
@@ -200,12 +197,12 @@ Renderer.prototype.drawTexture = function (texture, width, height) {
  * @private
  */
 Renderer.prototype.compileShader_ = function (shaderSource, type) {
-  var gl = this.gl_;
-  var shader = gl.createShader(type);
-  gl.shaderSource(shader, shaderSource);
-  gl.compileShader(shader);
-  return shader;
-};
+  var gl = this.gl_
+  var shader = gl.createShader(type)
+  gl.shaderSource(shader, shaderSource)
+  gl.compileShader(shader)
+  return shader
+}
 
 
 /**
@@ -219,7 +216,7 @@ Renderer.vertexShaderSource_ = [
   '  gl_Position = vec4(vert.xy, 0.0, 1.0);',
   '  v_texCoord = vert.zw;',
   '}'
-].join('\n');
+].join('\n')
 
 
 /**
@@ -233,7 +230,7 @@ Renderer.fragmentShaderSource_ = [
   'void main() {',
   '  gl_FragColor = texture2D(texSampler, v_texCoord);',
   '}'
-].join('\n');
+].join('\n')
 
 // -------------------------------------------------------------------------------------------------
 
@@ -254,7 +251,7 @@ function WebGLRender(canvasElement) {
     } catch (e2) {
       // fail, not able to get a context
       throw new Error('This browser does not support webGL. Try using the' +
-        'canvas renderer' + this)
+      'canvas renderer' + this)
     }
   }
 
@@ -284,7 +281,7 @@ WebGLRender.prototype.setup = function () {
     'void main(void) {' +
     '  gl_Position = vec4(aVertex, 0.0, 1.0);' +
     '  vTex = aUV;' +
-    '}';
+    '}'
 
   var fragmentShaderSrc =
     'precision highp float;' +
@@ -292,7 +289,7 @@ WebGLRender.prototype.setup = function () {
     'uniform sampler2D sampler0;' +
     'void main(void){' +
     '  gl_FragColor = texture2D(sampler0, vTex);' +
-    '}';
+    '}'
 
   var vertShaderObj = this.ctx.createShader(this.ctx.VERTEX_SHADER)
   var fragShaderObj = this.ctx.createShader(this.ctx.FRAGMENT_SHADER)
@@ -316,18 +313,9 @@ WebGLRender.prototype.setup = function () {
   this.vertexBuff = this.ctx.createBuffer()
   this.ctx.bindBuffer(this.ctx.ARRAY_BUFFER, this.vertexBuff)
   this.ctx.bufferData(
-    this.ctx.ARRAY_BUFFER
-  , new Float32Array([
-      -1 / 8
-    , 1 / 6
-    , -1 / 8
-    , -1 / 6
-    , 1 / 8
-    , -1 / 6
-    , 1 / 8
-    , 1 / 6
-    ])
-  , this.ctx.STATIC_DRAW
+    this.ctx.ARRAY_BUFFER, new Float32Array([
+      -1 / 8, 1 / 6, -1 / 8, -1 / 6, 1 / 8, -1 / 6, 1 / 8, 1 / 6
+    ]), this.ctx.STATIC_DRAW
   )
 
   this.texBuff = this.ctx.createBuffer()
@@ -345,7 +333,6 @@ WebGLRender.prototype.setup = function () {
 WebGLRender.prototype.draw = function (image) {
 //  this.renderer.drawTexture(image, image.width, image.height)
   this.renderer.drawTexture(image, 643, 1149)
-
 }
 
 
@@ -353,41 +340,33 @@ WebGLRender.prototype.drawOld = function (image) {
   var tex = this.ctx.createTexture()
   this.ctx.bindTexture(this.ctx.TEXTURE_2D, tex)
   this.ctx.texParameteri(
-    this.ctx.TEXTURE_2D
-  , this.ctx.TEXTURE_MIN_FILTER
-  , this.ctx.NEAREST
+    this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MIN_FILTER, this.ctx.NEAREST
   )
   this.ctx.texParameteri(
-    this.ctx.TEXTURE_2D
-  , this.ctx.TEXTURE_MAG_FILTER
-  , this.ctx.NEAREST
+    this.ctx.TEXTURE_2D, this.ctx.TEXTURE_MAG_FILTER, this.ctx.NEAREST
   )
-/*
-  this.ctx.texParameteri(
-    this.ctx.TEXTURE_2D
-  , this.ctx.TEXTURE_MIN_FILTER
-  , this.ctx.LINEAR
-  )
+  /*
+   this.ctx.texParameteri(
+   this.ctx.TEXTURE_2D
+   , this.ctx.TEXTURE_MIN_FILTER
+   , this.ctx.LINEAR
+   )
 
-  this.ctx.texParameteri(
-    this.ctx.TEXTURE_2D
-  , this.ctx.TEXTURE_WRAP_S
-  , this.ctx.CLAMP_TO_EDGE
-  )
-  this.ctx.texParameteri(
-    this.ctx.TEXTURE_2D
-  , this.ctx.TEXTURE_WRAP_T
-  , this.ctx.CLAMP_TO_EDGE
-  )
-*/
+   this.ctx.texParameteri(
+   this.ctx.TEXTURE_2D
+   , this.ctx.TEXTURE_WRAP_S
+   , this.ctx.CLAMP_TO_EDGE
+   )
+   this.ctx.texParameteri(
+   this.ctx.TEXTURE_2D
+   , this.ctx.TEXTURE_WRAP_T
+   , this.ctx.CLAMP_TO_EDGE
+   )
+   */
   this.ctx.generateMipmap(this.ctx.TEXTURE_2D)
   this.ctx.texImage2D(
-    this.ctx.TEXTURE_2D
-  , 0
-  , this.ctx.RGBA
-  , this.ctx.RGBA
-  , this.ctx.UNSIGNED_BYTE
-  , image
+    this.ctx.TEXTURE_2D, 0, this.ctx.RGBA, this.ctx.RGBA,
+    this.ctx.UNSIGNED_BYTE, image
   )
 
   this.ctx.enableVertexAttribArray(this.vloc)
@@ -415,31 +394,30 @@ function FastImageRender(canvasElement, options) {
   this.timeoutId = null
 
   if (that.options.raf) {
-    that.animLoop = function() {
-      that.raf = requireAnimationFrame(that.animLoop)
+    that.animLoop = function () {
+      that.raf = window.requireAnimationFrame(that.animLoop)
 
       // separate render from drawing
       // render
     }
   }
 
-  if (true) {
-    this.loader = new Image()
-    this.loader.onload = function () {
-      if (that.options.timeout) {
-        clearTimeout(that.timeoutId)
-      }
-      if (typeof(that.onLoad) === 'function') {
-        that.onLoad(this)
-      }
+  // Loader
+  this.loader = new Image()
+  this.loader.onload = function () {
+    if (that.options.timeout) {
+      clearTimeout(that.timeoutId)
     }
-    this.loader.onerror = function () {
-      if (that.options.timeout) {
-        clearTimeout(that.timeoutId)
-      }
-      if (typeof(that.onError) === 'function') {
-        that.onError(this)
-      }
+    if (typeof(that.onLoad) === 'function') {
+      that.onLoad(this)
+    }
+  }
+  this.loader.onerror = function () {
+    if (that.options.timeout) {
+      clearTimeout(that.timeoutId)
+    }
+    if (typeof(that.onError) === 'function') {
+      that.onError(this)
     }
   }
 
@@ -454,7 +432,7 @@ function FastImageRender(canvasElement, options) {
 
 FastImageRender.prototype.destroy = function () {
 
-  cancelAnimationFrame(this.raf)
+  window.cancelAnimationFrame(this.raf)
 
   // delete onLoad & onError
 }
@@ -472,11 +450,11 @@ FastImageRender.prototype.load = function (url, type) {
 
   if (this.options.textureLoader) {
     if (!this.textureLoader) {
-      this.textureLoader = new TextureUtil.TextureLoader(this.render.ctx)
+      this.textureLoader = new window.TextureUtil.TextureLoader(this.render.ctx)
     }
     var texture = null
     if (type) {
-      texture = this.render.ctx.createTexture();
+      texture = this.render.ctx.createTexture()
       this.textureLoader.loadEx(url, texture, true, function () {
         if (typeof(that.onLoad) === 'function') {
           that.onLoad(texture)
@@ -511,7 +489,7 @@ Object.defineProperty(FastImageRender.prototype, 'canvasWidth', {
   set: function (width) {
     if (width) {
       if (width !== this.canvasElement.width) {
-        this.canvasElement.width = width;
+        this.canvasElement.width = width
       }
     }
   }
@@ -524,7 +502,7 @@ Object.defineProperty(FastImageRender.prototype, 'canvasHeight', {
   set: function (height) {
     if (height) {
       if (height !== this.canvasElement.height) {
-        this.canvasElement.height = height;
+        this.canvasElement.height = height
       }
     }
   }
@@ -537,7 +515,7 @@ Object.defineProperty(FastImageRender.prototype, 'displayWidth', {
   set: function (width) {
     if (width) {
       if (width !== this.canvasElement.width) {
-        this.canvasElement.width = width;
+        this.canvasElement.width = width
       }
     }
   }
@@ -550,7 +528,7 @@ Object.defineProperty(FastImageRender.prototype, 'displayHeight', {
   set: function (height) {
     if (height) {
       if (height !== this.canvasElement.height) {
-        this.canvasElement.height = height;
+        this.canvasElement.height = height
       }
     }
   }
@@ -564,7 +542,7 @@ Object.defineProperty(FastImageRender.prototype, 'canvasStyleWidth', {
     if (width) {
       var styleWidth = width + 'px'
       if (styleWidth !== this.canvasElement.style.width) {
-        this.canvasElement.style.width = styleWidth;
+        this.canvasElement.style.width = styleWidth
       }
     }
   }
@@ -578,7 +556,7 @@ Object.defineProperty(FastImageRender.prototype, 'canvasStyleHeight', {
     if (height) {
       var styleHeight = height + 'px'
       if (styleHeight !== this.canvasElement.style.height) {
-        this.canvasElement.style.height = height;
+        this.canvasElement.style.height = height
       }
     }
   }

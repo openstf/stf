@@ -14,6 +14,7 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
     $scope.urlFavicon = require('./default-favicon.png')
     faviconIsSet = false
   }
+
   resetFavicon()
 
   $scope.textUrlChanged = function () {
@@ -31,7 +32,7 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
 
   $scope.blurUrl = false
 
-  $scope.openURL = function ($event) {
+  $scope.openURL = function () {
     $scope.blurUrl = true
     $rootScope.screenFocus = true
 

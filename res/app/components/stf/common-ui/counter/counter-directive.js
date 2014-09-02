@@ -1,4 +1,4 @@
-module.exports = function counterDirective($timeout, $$rAF) {
+module.exports = function counterDirective($timeout) {
   return {
     replace: false,
     scope: true,
@@ -52,7 +52,7 @@ module.exports = function counterDirective($timeout, $$rAF) {
         }
       })
 
-      attrs.$observe('countFrom', function (val) {
+      attrs.$observe('countFrom', function (/*val*/) {
         start()
       })
 

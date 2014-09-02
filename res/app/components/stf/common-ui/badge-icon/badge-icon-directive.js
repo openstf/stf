@@ -3,11 +3,9 @@ module.exports = function badgeIconDirective() {
     restrict: 'EA',
     replace: true,
     scope: {
-
     },
     template: require('./badge-icon.jade'),
-    link: function (scope, element, attrs) {
-
+    link: function () {
     }
   }
 }

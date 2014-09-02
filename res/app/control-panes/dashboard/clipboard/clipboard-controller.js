@@ -1,4 +1,4 @@
-module.exports = function ClipboardCtrl($scope, gettext) {
+module.exports = function ClipboardCtrl() {
 //  $scope.clipboardContent = null
 //
 //  $scope.getClipboardContent = function () {

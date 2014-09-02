@@ -1,29 +1,33 @@
 var FastImageRender = require('./fast-image-render').FastImageRender
 var _ = require('lodash')
 
-module.exports = function DeviceScreenDirective($document, ScalingService, VendorUtil, PageVisibilityService, BrowserInfo, $timeout) {
+module.exports = function DeviceScreenDirective($document, ScalingService,
+  VendorUtil, PageVisibilityService, BrowserInfo, $timeout) {
   return {
     restrict: 'E',
     template: require('./screen.jade'),
     link: function (scope, element) {
       var canvas = element.find('canvas')[0]
-        , imageRender = new FastImageRender(canvas, {render: 'canvas', timeout: 3000})
-        , guestDisplayDensity = setDisplayDensity(1.5)
-        , guestDisplayRotation = 0
-        , finger = element.find('span')
-        , input = element.find('input')
-        , boundingWidth = 0  // TODO: cache inside FastImageRender?
-        , boundingHeight = 0
-        , cachedBoundingWidth = 0
-        , cachedBoundingHeight = 0
-        , cachedImageWidth = 0
-        , cachedImageHeight = 0
-        , cachedRotation = 0
-        , rotation = 0
-        , loading = false
-        , scaler
-        , seq = 0
-        , cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
+      var imageRender = new FastImageRender(canvas, {
+        render: 'canvas',
+        timeout: 3000
+      })
+      var guestDisplayDensity = setDisplayDensity(1.5)
+      //var guestDisplayRotation = 0
+      var finger = element.find('span')
+      var input = element.find('input')
+      var boundingWidth = 0  // TODO: cache inside FastImageRender?
+      var boundingHeight = 0
+      var cachedBoundingWidth = 0
+      var cachedBoundingHeight = 0
+      var cachedImageWidth = 0
+      var cachedImageHeight = 0
+      var cachedRotation = 0
+      var rotation = 0
+      var loading = false
+      var scaler
+      var seq = 0
+      var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
       // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
       var onPanelResizeThrottled = _.throttle(updateBounds, 16)
@@ -32,7 +36,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
       function setDisplayDensity(forRetina) {
         // FORCE
         forRetina = 1.2
-        return guestDisplayDensity = BrowserInfo.mobile && BrowserInfo.retina ? forRetina : 1
+
+        guestDisplayDensity =
+          BrowserInfo.mobile && BrowserInfo.retina ? forRetina : 1
+        return guestDisplayDensity
       }
 
       function sendTouch(type, e) {
@@ -56,9 +63,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
           'translate3d(' + x + 'px,' + y + 'px,0)'
 
         scope.control[type](
-          seq++
-          , scaled.xP
-          , scaled.yP
+          seq++, scaled.xP, scaled.yP
         )
       }
 
@@ -126,22 +131,22 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         // Chrome/Safari/Opera
         if (
           // Mac | Kinesis keyboard | Karabiner | Latin key, Kana key
-          e.keyCode === 0 && e.keyIdentifier === 'U+0010' ||
+        e.keyCode === 0 && e.keyIdentifier === 'U+0010' ||
 
           // Mac | MacBook Pro keyboard | Latin key, Kana key
-          e.keyCode === 0 && e.keyIdentifier === 'U+0020' ||
+        e.keyCode === 0 && e.keyIdentifier === 'U+0020' ||
 
           // Win | Lenovo X230 keyboard | Alt+Latin key
-          e.keyCode === 246 && e.keyIdentifier === 'U+00F6' ||
+        e.keyCode === 246 && e.keyIdentifier === 'U+00F6' ||
 
           // Win | Lenovo X230 keyboard | Convert key
-          e.keyCode === 28 && e.keyIdentifier === 'U+001C'
-          ) {
+        e.keyCode === 28 && e.keyIdentifier === 'U+001C'
+        ) {
           return true
         }
 
         // Firefox
-        switch(e.key) {
+        switch (e.key) {
           case 'Convert': // Windows | Convert key
           case 'Alphanumeric': // Mac | Latin key
           case 'RomanCharacters': // Windows/Mac | Latin key
@@ -207,17 +212,16 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
         if (!loading && scope.$parent.showScreen && scope.device) {
           loading = true
           imageRender.load(scope.device.display.url +
-              '?width=' + Math.ceil(boundingWidth * guestDisplayDensity) +
-              '&height=' + Math.ceil(boundingHeight * guestDisplayDensity) +
-              '&time=' + Date.now()
+            '?width=' + Math.ceil(boundingWidth * guestDisplayDensity) +
+            '&height=' + Math.ceil(boundingHeight * guestDisplayDensity) +
+            '&time=' + Date.now()
           )
         }
       }
 
       function on() {
         scaler = ScalingService.coordinator(
-          scope.device.display.width
-          , scope.device.display.height
+          scope.device.display.width, scope.device.display.height
         )
 
         imageRender.onLoad = function (image) {
@@ -244,9 +248,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService, Vendo
               imageRender.canvasHeight = cachedImageHeight
 
               var size = scaler.projectedSize(
-                boundingWidth
-                , boundingHeight
-                , rotation
+                boundingWidth, boundingHeight, rotation
               )
 
               imageRender.canvasStyleWidth = size.width

@@ -4,11 +4,9 @@ module.exports = function niceTabDirective() {
     restrict: 'E',
     replace: true,
     scope: {
-
     },
     template: require('./nice-tab.jade'),
-    link: function (scope, element, attrs) {
-
+    link: function () {
     }
   }
 }

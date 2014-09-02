@@ -18,7 +18,7 @@ module.exports = function ServiceFactory($modal, $location) {
       controller: ModalInstanceCtrl
     })
 
-    modalInstance.result.then(function (selectedItem) {
+    modalInstance.result.then(function (/*selectedItem*/) {
     }, function () {
     })
   }

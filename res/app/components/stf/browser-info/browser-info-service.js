@@ -1,30 +1,9 @@
-// NOTE: Most of the detections stuff from Modernizr 3.0
+// NOTE: Most of the detection stuff is from Modernizr 3.0
 module.exports = function BrowserInfoServiceFactory() {
   var service = {}
 
-  var domPrefixes = 'Webkit Moz O ms'.toLowerCase().split(' ')
-
   function createElement() {
     return document.createElement.apply(document, arguments)
-  }
-
-  function hasEvent() {
-    return (function (undefined) {
-      function isEventSupportedInner(eventName, element) {
-        var isSupported
-        if (!eventName) {
-          return false
-        }
-        if (!element || typeof element === 'string') {
-          element = createElement(element || 'div')
-        }
-        eventName = 'on' + eventName
-        isSupported = eventName in element
-        return isSupported
-      }
-
-      return isEventSupportedInner
-    })()
   }
 
   function addTest(key, test) {
@@ -33,7 +12,7 @@ module.exports = function BrowserInfoServiceFactory() {
 
   addTest('touch', function () {
     return ('ontouchstart' in window) || window.DocumentTouch &&
-      document instanceof DocumentTouch
+    document instanceof window.DocumentTouch
   })
 
   addTest('retina', function () {
@@ -73,13 +52,33 @@ module.exports = function BrowserInfoServiceFactory() {
     var canvas = createElement('canvas')
     if ('supportsContext' in canvas) {
       return canvas.supportsContext('webgl') ||
-        canvas.supportsContext('experimental-webgl')
+      canvas.supportsContext('experimental-webgl')
     }
     return !!window.WebGLRenderingContext
   })
 
   addTest('ua', navigator.userAgent)
 
+
+  //function hasEvent() {
+  //  return (function (undefined) {
+  //    function isEventSupportedInner(eventName, element) {
+  //      var isSupported
+  //      if (!eventName) {
+  //        return false
+  //      }
+  //      if (!element || typeof element === 'string') {
+  //        element = createElement(element || 'div')
+  //      }
+  //      eventName = 'on' + eventName
+  //      isSupported = eventName in element
+  //      return isSupported
+  //    }
+  //
+  //    return isEventSupportedInner
+  //  })()
+  //}
+//  var domPrefixes = 'Webkit Moz O ms'.toLowerCase().split(' ')
 //  addTest('pointerevents', function () {
 //    var bool = false
 //    var i = domPrefixes.length

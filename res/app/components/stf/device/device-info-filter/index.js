@@ -71,7 +71,7 @@ module.exports = angular.module('stf.device-status', [])
       }[text] || gettext('-')
     }
   })
-  .filter('displayDensity', function (gettext) {
+  .filter('displayDensity', function () {
     return function (text) {
       return {
         '0.5': 'LDPI', // (120 dpi)
@@ -102,7 +102,7 @@ module.exports = angular.module('stf.device-status', [])
   .filter('networkSubType', function (gettext) {
     return function (text) {
       return {
-        'mobile_wifi': gettext('WiFi'),
+        'mobile_wifi': gettext('WiFi')
       }[text] || text
     }
   })

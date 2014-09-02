@@ -1,6 +1,6 @@
 // See https://github.com/android/platform_packages_apps_settings/blob/master/AndroidManifest.xml
 
-module.exports = function ShellCtrl($scope, gettext) {
+module.exports = function ShellCtrl($scope) {
   $scope.result = null
 
   var run = function (command) {
@@ -13,7 +13,9 @@ module.exports = function ShellCtrl($scope, gettext) {
   }
 
   function openSetting(activity) {
-    run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings\$' + activity)
+    // TODO: CHECK THIS
+    run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings\\$' +
+    activity)
   }
 
   $scope.openSettings = function () {

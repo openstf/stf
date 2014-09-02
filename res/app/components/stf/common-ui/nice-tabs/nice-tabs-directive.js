@@ -4,14 +4,14 @@ module.exports = function niceTabsDirective() {
     replace: true,
     template: require('./nice-tabs.jade'),
     link: function (scope, element, attrs) {
-      // TODO: add support for 'key' for saving in localstorage
+      // TODO: add support for 'key' for saving in Settings
       // TODO: add support for 'direction=below' for below tabs
 
-      scope.$watch(attrs.tabs, function (newValue, oldValue) {
+      scope.$watch(attrs.tabs, function (newValue) {
         scope.tabs = newValue
       })
 
-      scope.$watch(attrs.filter, function (newValue, oldValue) {
+      scope.$watch(attrs.filter, function (newValue) {
         scope.filter = newValue
       })
 

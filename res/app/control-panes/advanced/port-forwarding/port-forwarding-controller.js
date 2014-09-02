@@ -1,6 +1,7 @@
 var _ = require('lodash')
 
-module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsService, gettext) {
+module.exports = function PortForwardingCtrl($scope, ngTableParams,
+  SettingsService, gettext) {
 
   $scope.forwarding = false
 
@@ -62,7 +63,8 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
 
 
   function portFieldsAreEmpty(ports) {
-    return (_.isEmpty(ports.targetHost) && _.isEmpty(ports.targetPort) && _.isEmpty(ports.devicePort))
+    return (_.isEmpty(ports.targetHost) && _.isEmpty(ports.targetPort) &&
+    _.isEmpty(ports.devicePort))
   }
 
   $scope.portSets = [
@@ -96,7 +98,7 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
   }
 
   // Adds a new row whenever necessary
-  $scope.$watch('portSets', function (newValue, oldValue) {
+  $scope.$watch('portSets', function (newValue) {
     if (newValue) {
       // Remove all empty sets from the middle
       _.remove(newValue, function (ports, index) {
@@ -108,12 +110,8 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
       if (!portFieldsAreEmpty(last)) {
         createEmptyField()
       }
-    } else {
-     // createEmptyField()
     }
-
     //SettingsService.setItem('PortForwarding.portSets', angular.copy($scope.portSets))
-
   }, true)
 
   $scope.portsTable = new ngTableParams({
@@ -122,9 +120,7 @@ module.exports = function PortForwardingCtrl($scope, ngTableParams, SettingsServ
   }, {
     counts: [],
     total: 1,
-    getData: function ($defer, params) {
-
-
+    getData: function ($defer) {
       $defer.resolve($scope.portSets)
     }
   })

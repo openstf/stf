@@ -1,4 +1,4 @@
-module.exports = function imageOnloadDirective($parse) {
+module.exports = function imageOnloadDirective() {
   return {
     restrict: 'A',
     link: function (scope, element, attrs) {

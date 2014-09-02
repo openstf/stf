@@ -20,7 +20,8 @@ var spawn = require('child_process').spawn
 gulp.task('jshint', function () {
   return gulp.src([
     'lib/**/*.js', 'res/app/**/*.js', 'res/auth-ldap/**/*.js',
-    'res/auth-mock/**/*.js', '*.js'
+    'res/auth-mock/**/*.js', 'res/common/**/*.js', 'res/test/**/*.js',
+    '*.js'
   ])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))

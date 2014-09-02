@@ -12,7 +12,7 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     if (newValue !== oldValue) {
       LogcatService.started = newValue
       if (newValue) {
-        $scope.control.startLogcat([]).then(function (result) {
+        $scope.control.startLogcat([]).then(function () {
         })
       } else {
         $scope.control.stopLogcat()

@@ -1,3 +1,3 @@
-module.exports = function ResourcesCtrl($scope) {
-    
+module.exports = function ResourcesCtrl() {
+
 }

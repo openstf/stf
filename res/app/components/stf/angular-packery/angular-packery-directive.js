@@ -1,6 +1,8 @@
 var _ = require('lodash')
 
-module.exports = function angularPackeryDirective(PackeryService, DraggabillyService, $timeout, $parse) {
+module.exports = function angularPackeryDirective(PackeryService,
+  DraggabillyService, $timeout, $parse) {
+
   return {
     restrict: 'AE',
     link: function (scope, element, attrs) {

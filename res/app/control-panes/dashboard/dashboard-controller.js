@@ -1,3 +1,3 @@
-module.exports = function DashboardCtrl($scope) {
-    
+module.exports = function DashboardCtrl() {
+
 }

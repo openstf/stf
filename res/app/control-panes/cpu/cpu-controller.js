@@ -1,3 +1,3 @@
-module.exports = function CpuCtrl($scope) {
-    
+module.exports = function CpuCtrl() {
+
 }

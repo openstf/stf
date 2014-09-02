@@ -1,6 +1,7 @@
 var _ = require('lodash')
 
-module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService, $location, $timeout, gettext, $filter) {
+module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
+  $location, $timeout) {
 
   $scope.showScreen = true
 
@@ -44,7 +45,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
           $scope.$digest()
         })
       }
-    } catch(e) {
+    } catch (e) {
       alert(e.message)
     }
   }
@@ -87,7 +88,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.currentRotation = 'portrait'
 
-  $scope.$watch('device.display.rotation', function (newValue, oldValue) {
+  $scope.$watch('device.display.rotation', function (newValue) {
     if (isPortrait(newValue)) {
       $scope.currentRotation = 'portrait'
     } else if (isLandscape(newValue)) {

@@ -1,6 +1,5 @@
 module.exports = function DeviceListStatsDirective(
   UserService
-, $timeout
 ) {
   return {
     restrict: 'E'

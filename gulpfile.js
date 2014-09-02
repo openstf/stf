@@ -15,7 +15,6 @@ var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
-var spawn = require('child_process').spawn
 
 gulp.task('jshint', function () {
   return gulp.src([

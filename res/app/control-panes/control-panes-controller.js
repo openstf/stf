@@ -129,7 +129,10 @@ module.exports =
             else {
               console.log('Upload error', err)
               $scope.upload = {
-                progress: 100, lastData: 'fail', settled: true, error: err.message
+                progress: 100,
+                lastData: 'fail',
+                settled: true,
+                error: err.message
               }
             }
           })
@@ -180,11 +183,7 @@ module.exports =
         if (oldValue === 'using') {
           FatalMessageService.open($scope.device, false)
         }
-      } else if (typeof newValue === 'undefined' &&
-        typeof oldValue === 'undefined') {
-        //FatalMessageService.open(angular.copy($scope.device))
       }
     }, true)
-
 
   }

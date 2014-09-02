@@ -24,6 +24,7 @@ module.exports = function SettingsServiceFactory(
   }
 
   function applyDelta(delta) {
+    // TODO: This causes chaos
     $rootScope.safeApply(function() {
       _.merge(settings, delta, function(a, b) {
         // New Arrays overwrite old Arrays

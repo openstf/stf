@@ -22,7 +22,7 @@
         ng-disabled='!screenshots.length')
         i.fa.fa-minus
 
-      input(type='range', ng-model='shotSizeRange', min='80', max='480', step='10',
+      input(type='range', ng-model='screenShotSize', min='80', max='480', step='10',
       ng-model-options='{ updateOn: "default blur", debounce: { default: 100, blur: 0} }',
       ng-disabled='!screenshots.length').zoom-range
 

@@ -1,18 +1,19 @@
-module.exports = function ScreenshotsCtrl($scope, SettingsService) {
+module.exports = function ScreenshotsCtrl($scope) {
   $scope.screenshots = []
-  $scope.shotSizeRange = 200
+  $scope.screenShotSize = 200
 
   $scope.clear = function () {
     $scope.screenshots = []
   }
 
-//  SettingsService.bind($scope, {
-//    key: 'shotSize', storeName: 'ScreenShots.shotSize'
-//  })
+  //SettingsService.bind($scope, {
+  //  target: 'screenShotSize',
+  //  defaultValue: 200
+  //})
 
   $scope.shotSizeUrlParameter = function (maxSize) {
-    return ($scope.shotSizeRange === maxSize) ? '' :
-      '?crop=' + $scope.shotSizeRange + 'x'
+    return ($scope.screenShotSize === maxSize) ? '' :
+    '?crop=' + $scope.screenShotSize + 'x'
   }
 
   $scope.takeScreenShot = function () {
@@ -24,14 +25,13 @@ module.exports = function ScreenshotsCtrl($scope, SettingsService) {
   }
 
   $scope.zoom = function (param) {
-    var newValue = parseInt($scope.shotSizeRange, 10) + param.step
+    var newValue = parseInt($scope.screenShotSize, 10) + param.step
     if (param.min && newValue < param.min) {
       newValue = param.min
-    } else
-    if (param.max && newValue > param.max) {
+    } else if (param.max && newValue > param.max) {
       newValue = param.max
     }
-    $scope.shotSizeRange = newValue
+    $scope.screenShotSize = newValue
   }
 
 }

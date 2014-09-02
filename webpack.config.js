@@ -60,8 +60,15 @@ module.exports = {
         { test: /dialogs\.js$/, loader: 'script'},
         { test: /bluebird\.js$/, loader: 'imports?require=>undefined'}
       ],
+      preLoaders: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules|bower_components/,
+          loader: 'jshint-loader'
+        }
+      ],
       noParse: [
-        // pathutil.resource('bower_components')
+        //pathutil.resource('bower_components')
       ]
     },
     plugins: [

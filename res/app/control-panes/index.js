@@ -20,6 +20,11 @@ module.exports = angular.module('control-panes', [
     $routeProvider.when('/control/:serial', {
       template: require('./control-panes.jade'),
       controller: 'ControlPanesCtrl'
+      // TODO: Move device inviting to resolve
+      //resolve: {
+      //  device
+      //  control
+      //}
     })
   }])
   .factory('ControlPanesService', require('./control-panes-service'))

@@ -156,6 +156,10 @@ module.exports =
         })
     }
 
+    // TODO: Move this out to Ctrl.resolve
+    // http://blog.brunoscopelliti.com/show-route-only-after-all-promises-are-resolved
+    // http://odetocode.com/blogs/scott/archive/2014/05/20/using-resolve-in-angularjs-routes.aspx
+
     DeviceService.get($routeParams.serial, $scope)
       .then(function (device) {
         return GroupService.invite(device)
@@ -164,8 +168,6 @@ module.exports =
         $scope.device = device
         $scope.control = ControlService.create(device, device.channel)
 
-        //FatalMessageService.open($scope.device)
-
         return device
       })
       .catch(function () {
@@ -173,10 +175,6 @@ module.exports =
           $location.path('/')
         })
       })
-
-    // TODO: WHAT???
-    //$scope.$watch('device')
-
 
     $scope.$watch('device.state', function (newValue, oldValue) {
       if (newValue !== oldValue) {

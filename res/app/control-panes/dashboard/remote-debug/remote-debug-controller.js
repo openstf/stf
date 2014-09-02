@@ -23,7 +23,6 @@ module.exports = function RemoteDebugCtrl($scope, $timeout, gettext) {
   }
 
   $scope.$watch('platform', function (newValue) {
-    console.log('newValue', newValue)
     if (newValue === 'native') {
       $scope.remoteDebugTooltip =
         gettext('Run the following on your command line to debug the device from your IDE')

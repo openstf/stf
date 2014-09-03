@@ -154,7 +154,15 @@ gulp.task('jade', function (cb) {
   gulp.src([
     './res/**/*.jade', '!./res/bower_components/**'
   ])
-    .pipe(jade())
+    .pipe(jade({
+      locals: {
+        // So res/views/docs.jade doesn't complain
+        markdownFile: {
+          parseContent: function() {
+          }
+        }
+      }
+    }))
     .pipe(gulp.dest('./tmp/html/'))
   cb()
 })

@@ -2,13 +2,14 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    base(href='/')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui')
     meta(name='mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-title', content='STF')
     meta(name='format-detection', content='telephone=no')
     meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
-    link(href='/static/bower_components/stf-graphics/logo/exports/STF-128.png', rel='apple-touch-icon')
+    link(href='static/bower_components/stf-graphics/logo/exports/STF-128.png', rel='apple-touch-icon')
 
     title STF
   body(ng-app='app', ng-cloak).bg-1.fill-height
@@ -24,6 +25,6 @@ html
           div(ng-view).fill-height
 
     script(src='/api/v1/appstate.js')
-    script(src='/static/app/build/entry/commons.entry.js')
-    script(src='/static/app/build/entry/app.entry.js')
-    script(src='/static/bower_components/stf-analytics/analytics.js')
+    script(src='static/app/build/entry/commons.entry.js')
+    script(src='static/app/build/entry/app.entry.js')
+    script(src='static/bower_components/stf-analytics/analytics.js')

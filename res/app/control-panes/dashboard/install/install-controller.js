@@ -1,4 +1,4 @@
-module.exports = function UploadCtrl(
+module.exports = function InstallCtrl(
   $scope
 , $http
 , SettingsService

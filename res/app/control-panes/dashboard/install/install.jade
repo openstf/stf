@@ -1,4 +1,4 @@
-.widget-container.fluid-height.stf-upload(ng-controller='UploadCtrl')
+.widget-container.fluid-height.stf-upload(ng-controller='InstallCtrl')
   .heading
     i.fa.fa-upload
     span(translate) App Upload
@@ -64,7 +64,7 @@
                 span(translate) Launching activity...
               strong(ng-switch-when='success')
 
-                div(ng-include='"control-panes/dashboard/upload/activities/activities.jade"')
+                div(ng-include='"control-panes/dashboard/install/activities/activities.jade"')
 
                 button.btn.btn-sm.btn-primary-outline(btn-checkbox, ng-model='showManifest')
                   i.fa.fa-list

@@ -5,7 +5,7 @@ module.exports = angular.module('stf.activities', [
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(
-      'control-panes/dashboard/upload/activities/activities.jade',
+      'control-panes/dashboard/install/activities/activities.jade',
       require('./activities.jade')
     )
   }])

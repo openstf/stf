@@ -1,4 +1,4 @@
-describe('UploadCtrl', function () {
+describe('InstallCtrl', function () {
 
   beforeEach(angular.mock.module(require('./').name));
 
@@ -6,7 +6,7 @@ describe('UploadCtrl', function () {
 
   beforeEach(inject(function ($rootScope, $controller) {
     scope = $rootScope.$new();
-    ctrl = $controller('UploadCtrl', {$scope: scope});
+    ctrl = $controller('InstallCtrl', {$scope: scope});
   }));
 
   it('should ...', inject(function () {

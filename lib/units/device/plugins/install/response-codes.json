@@ -6,7 +6,7 @@
   "INSTALL_FAILED_INSUFFICIENT_STORAGE": "The package manager service found that the device didn't have enough storage space to install the app.",
   "INSTALL_FAILED_DUPLICATE_PACKAGE": "A package is already installed with the same name.",
   "INSTALL_FAILED_NO_SHARED_USER": "The requested shared user does not exist.",
-  "INSTALL_FAILED_UPDATE_INCOMPATIBLE": "A previously installed package of the same name has a different signature than the new package (and the old package's data was not removed)."
+  "INSTALL_FAILED_UPDATE_INCOMPATIBLE": "A previously installed package of the same name has a different signature than the new package (and the old package's data was not removed).",
   "INSTALL_FAILED_MISSING_SHARED_LIBRARY": "The new package uses a shared library that is not available.",
   "INSTALL_FAILED_REPLACE_COULDNT_DELETE": "The existing package could not be deleted.",
   "INSTALL_FAILED_DEXOPT": "The new package failed while optimizing and validating its dex files, either because there was not enough storage or the validation failed.",

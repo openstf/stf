@@ -4,9 +4,9 @@ describe('upload', function() {
 
 	it('should ...', inject(function($filter) {
 
-    var filter = $filter('upload')
+    var filter = $filter('uploadError')
 
-		expect(filter('input')).toEqual('output')
+		//expect(filter('input')).toEqual('output')
 
 	}))
 

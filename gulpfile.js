@@ -63,7 +63,7 @@ gulp.task('protractor-explorer', function (callback) {
   }, callback)
 })
 
-gulp.task('protractor', function (callback) {
+gulp.task('protractor', ['webdriver-update'],function (callback) {
   gulp.src(["./res/test/e2e/**/*.js"])
     .pipe(protractor.protractor({
       configFile: protractorConfig,

@@ -130,12 +130,13 @@ module.exports = function TransactionServiceFactory(socket) {
             if (message.data) {
               result.lastData = result.data[seq] = message.data
             }
-            if (message.body) {
-              result.body = JSON.parse(message.body)
-            }
           }
           else {
             result.lastData = result.error = message.data
+          }
+
+          if (message.body) {
+            result.body = JSON.parse(message.body)
           }
 
           resolver.resolve(result)

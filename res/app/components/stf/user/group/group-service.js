@@ -3,6 +3,7 @@ var Promise = require('bluebird')
 module.exports = function GroupServiceFactory(
   socket
 , TransactionService
+, TransactionError
 ) {
   var groupService = {
   }
@@ -21,12 +22,13 @@ module.exports = function GroupServiceFactory(
         }
       }
     })
-    return tx.promise.then(function(result) {
-      if (!result.success) {
+    return tx.promise
+      .then(function(result) {
+        return result.device
+      })
+      .catch(TransactionError, function() {
         throw new Error('Device refused to join the group')
-      }
-      return result.device
-    })
+      })
   }
 
   groupService.kick = function (device, force) {
@@ -43,12 +45,13 @@ module.exports = function GroupServiceFactory(
         }
       }
     })
-    return tx.promise.then(function(result) {
-      if (!result.success) {
-        throw new Error('Device refused to be kicked from the group')
-      }
-      return result.device
-    })
+    return tx.promise
+      .then(function(result) {
+        return result.device
+      })
+      .catch(TransactionError, function() {
+        throw new Error('Device refused to join the group')
+      })
   }
 
   return groupService

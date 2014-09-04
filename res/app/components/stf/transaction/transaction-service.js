@@ -1,7 +1,7 @@
 var Promise = require('bluebird')
 var uuid = require('node-uuid')
 
-module.exports = function TransactionServiceFactory(socket) {
+module.exports = function TransactionServiceFactory(socket, TransactionError) {
   var transactionService = {}
 
   function createChannel() {
@@ -126,20 +126,21 @@ module.exports = function TransactionServiceFactory(socket) {
         if (seq === last) {
           result.success = message.success
 
-          if (message.success) {
-            if (message.data) {
-              result.lastData = result.data[seq] = message.data
-            }
-          }
-          else {
-            result.lastData = result.error = message.data
-          }
-
           if (message.body) {
             result.body = JSON.parse(message.body)
           }
 
-          resolver.resolve(result)
+          if (result.success) {
+            if (message.data) {
+              result.lastData = result.data[seq] = message.data
+            }
+            resolver.resolve(result)
+          }
+          else {
+            result.lastData = result.error = message.data
+            resolver.reject(new TransactionError(result))
+          }
+
           return
         }
         else {
@@ -196,6 +197,9 @@ module.exports = function TransactionServiceFactory(socket) {
     this.device = this.source
   }
 
+  DeviceTransactionResult.prototype = Object.create(TransactionResult)
+  DeviceTransactionResult.constructor = DeviceTransactionResult
+
   transactionService.create = function(target, options) {
     if (options && !options.result) {
       options.result = TransactionResult
@@ -233,8 +237,6 @@ module.exports = function TransactionServiceFactory(socket) {
         socket.removeListener('tx.punch', punchListener)
       })
   }
-
-  transactionService.TransactionResult = TransactionResult
 
   return transactionService
 }

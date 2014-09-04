@@ -2,18 +2,9 @@
   .heading
     i.fa.fa-upload
     span(translate) App Upload
-    clear-button(ng-click='clear()', ng-disabled='!installation && !upload').btn-xs
-    //label.checkbox-inline.pull-right
-      input(type='checkbox', ng-model='launchEnabled')
-      span Launch
-    //label.checkbox-inline.pull-right
-      input(type='checkbox', ng-model='installEnabled')
-      span(translate) Install
+    clear-button(ng-click='clear()', ng-disabled='!installation').btn-xs
 
-  .widget-content.padded
-    //.widget-content.padded(style='padding: 0; padding-bottom: 15px;')
-
-    //.col-md-10.col-md-offset-1
+  .widget-content.padded()
     //.input-group.form-inline
       input(type=text, ng-model='remoteUrl', ng-enter='installUrl(remoteUrl)',
       placeholder='http://...').form-control
@@ -28,59 +19,45 @@
       i.fa.fa-2x.fa-download.drop-area-icon
       .drop-area-text(translate) Drop file to upload
 
-    .upload-status(ng-if='upload || installation')
+    .upload-status(ng-if='installation')
+      progressbar(max='100', value='installation.progress', ng-if='!installation.settled',
+        ng-class='{"active": !installation.settled}').progress-striped
 
-      accordion(close-others='false').pointer
-        accordion-group(is-open='accordionOpen', is-disabled='accordionDisabled')
-          accordion-heading.pointer
-            i.fa.fa-file-o
-            span  {{installation.manifest.package || "App" }}
+      div(ng-if='!installation.error')
+        span(ng-switch='installation.state')
+          strong(ng-switch-when='uploading')
+            span(translate) Uploading...
+            span  ({{installation.progress}}%)
+          strong(ng-switch-when='processing')
+            span(translate) Processing...
+            span  ({{installation.progress}}%)
+          strong(ng-switch-when='pushing_app')
+            span(translate) Pushing app...
+            span  ({{installation.progress}}%)
+          strong(ng-switch-when='installing_app')
+            span(translate) Installing app...
+            span  ({{installation.progress}}%)
+          strong(ng-switch-when='launching_app')
+            span(translate) Launching activity...
+            span  ({{installation.progress}}%)
+          strong(ng-switch-when='installed')
+            accordion(close-others='false', ng-if='installation').pointer
+              accordion-group(is-open='accordionOpen')
+                accordion-heading.pointer
+                  i.fa.fa-file-o
+                  span  {{installation.manifest.package || "App" }}
 
-            button.btn.btn-xs.btn-danger-outline.pull-right(
-            ng-click='uninstall(installation.manifest.package)', ng-show='installation.settled')
-              i.fa.fa-trash-o
-              span(translate) Uninstall
-
-          div
-            span(ng-switch='upload.lastData')
-              strong(ng-switch-when='uploading')
-                span(translate) Uploading...
-              strong(ng-switch-when='processing')
-                span(translate) Processing...
-              strong(ng-switch-when='fail')
-                span(translate) Upload failed
-              strong(ng-switch-when='success')
-                span(ng-show='!installation', translate) Upload complete
-
-            span(ng-switch='installation.lastData')
-              strong(ng-switch-when='pushing_app')
-                span(translate) Pushing app...
-              strong(ng-switch-when='installing_app')
-                span(translate) Installing app...
-              strong(ng-switch-when='launching_app')
-                span(translate) Launching activity...
-              strong(ng-switch-when='success')
-
+                  button.btn.btn-xs.btn-danger-outline.pull-right(
+                  ng-click='uninstall(installation.manifest.package)', ng-show='installation.success')
+                    i.fa.fa-trash-o
+                    span(translate) Uninstall
                 div(ng-include='"control-panes/dashboard/install/activities/activities.jade"')
-
                 button.btn.btn-sm.btn-primary-outline(btn-checkbox, ng-model='showManifest')
                   i.fa.fa-list
                   span(ng-if='showManifest') Hide Manifest
                   span(ng-if='!showManifest') Show Manifest
                 pre.manifest-text(ng-if='showManifest') {{ installation.manifest | json }}
-              strong(ng-switch-when='fail')
-                span(translate) Installation failed
 
-            span(ng-hide='taskFinished()')  ({{taskProgress()}}%)
-
-          progressbar(max='100', value='taskProgress()', ng-if='!taskFinished()',
-            ng-class='{"active": !taskFinished()}').progress-striped
-
-
-    alert(type='danger', close='upload.error = null', ng-show='upload.error')
-      strong(translate) Error:
-      span  {{ upload.error | uploadError | translate }}
-
-    alert(type='danger', close='installationError = undefined', ng-show='installationError')
-      strong(translate) Error:
-      span  {{ installationError | installError | translate }} ({{ installationError }})
+      alert(type='danger', close='clear()', ng-if='installation.error')
+        strong(translate) Oops!
+        span {{ installation.error | installError | translate }} ({{ installation.error }})

@@ -1,51 +1,76 @@
 module.exports = function InstallCtrl(
   $scope
 , $http
-, SettingsService
+, $filter
 , StorageService
 ) {
-  $scope.upload = null
-  $scope.installation = null
-  $scope.installEnabled = true
-  $scope.launchEnabled = true
+  function Installation(progress, state) {
+    this.progress = progress
+    this.state = state
+    this.settled = false
+    this.success = false
+    this.error = null
+    this.href = null
+    this.manifest = null
+    this.launch = true
+
+    this.update = function(progress, state) {
+      console.log('UPDATE', progress, state)
+      $scope.safeApply(function () {
+        this.progress = Math.floor(progress)
+        this.state = state
+      }.bind(this))
+    }
+
+    this.okay = function(state) {
+      console.log('OKAY', state)
+      $scope.safeApply(function () {
+        this.settled = true
+        this.progress = 100
+        this.success = true
+        this.state = state
+      }.bind(this))
+    }
+
+    this.fail = function(err) {
+      console.log('FAIL', err, this)
+      $scope.safeApply(function () {
+        this.settled = true
+        this.progress = 100
+        this.success = false
+        this.error = err
+      }.bind(this))
+    }
+  }
+
+  $scope.accordionOpen = true
 
   $scope.clear = function () {
-    $scope.upload = null
     $scope.installation = null
+    $scope.accordionOpen = false
   }
 
   $scope.installUrl = function (url) {
-    $scope.upload = {
-      progress: 0,
-      lastData: 'uploading'
-    }
-
-    $scope.installation = null
+    var installation = $scope.installation = new Installation(0, 'uploading')
     return $scope.control.uploadUrl(url)
       .progressed(function (uploadResult) {
-        $scope.$apply(function () {
-          $scope.upload = uploadResult
-        })
+        installation.update(uploadResult.progress / 2, uploadResult.lastData)
       })
       .then(function (uploadResult) {
-        $scope.$apply(function () {
-          $scope.upload = uploadResult
-        })
-
-        if (uploadResult.success) {
-          return $scope.maybeInstall(uploadResult.body)
-        }
+        installation.update(uploadResult.progress / 2, uploadResult.lastData)
+        installation.manifest = uploadResult.body
+        return $scope.install(installation)
+      })
+      .then(function() {
+        installation.okay('installed')
+      })
+      .catch(function(err) {
+        installation.fail(err.code || err.message)
       })
   }
 
   $scope.installFile = function ($files) {
-    $scope.$apply(function () {
-      $scope.upload = {
-        progress: 0
-      , lastData: 'uploading'
-      }
-    })
-
+    var installation = $scope.installation = new Installation(0, 'uploading')
     return StorageService.storeFile('apk', $files, {
         filter: function(file) {
           return /\.apk$/i.test(file.name)
@@ -53,144 +78,45 @@ module.exports = function InstallCtrl(
       })
       .progressed(function(e) {
         if (e.lengthComputable) {
-          $scope.$apply(function () {
-            $scope.upload = {
-              progress: e.loaded / e.total * 100
-            , lastData: 'uploading'
-            }
-          })
+          installation.update(e.loaded / e.total * 100 / 2, 'uploading')
         }
       })
       .then(function(res) {
-        $scope.$apply(function () {
-          $scope.upload = {
-            progress: 100
-          , lastData: 'processing'
-          }
-        })
-
-        var href = res.data.resources.file.href
-
-        return $http.get(href + '/manifest')
+        installation.update(100 / 2, 'processing')
+        installation.href = res.data.resources.file.href
+        return $http.get(installation.href + '/manifest')
           .then(function(res) {
-            $scope.upload = {
-              progress: 100
-            , lastData: 'success'
-            , settled: true
-            }
-
             if (res.data.success) {
-              return $scope.maybeInstall({
-                href: href
-              , launch: $scope.launchEnabled
-              , manifest: res.data.manifest
-              })
+              installation.manifest = res.data.manifest
+              return $scope.install(installation)
+            }
+            else {
+              throw new Error('Unable to retrieve manifest')
             }
           })
       })
+      .then(function() {
+        installation.okay('installed')
+      })
       .catch(function(err) {
-        $scope.$apply(function () {
-          if (err.code === 'no_input_files') {
-            $scope.upload = null
-          }
-          else {
-            $scope.upload = {
-              progress: 100
-            , lastData: 'fail'
-            , settled: true
-            , error: err.message
-            }
-          }
-        })
+        installation.fail(err.code || err.message)
       })
   }
 
-
-  $scope.maybeInstall = function (options) {
-    if ($scope.installEnabled) {
-
-      if ($scope.installation) {
-        $scope.installation.lastData = null
-      }
-      $scope.accordionOpen = true
-
-      return $scope.control.install(options)
-        .progressed(function (installResult) {
-          $scope.$apply(function () {
-            installResult.manifest = options.manifest
-            $scope.installation = installResult
-          })
-        })
-        .then(function (installResult) {
-          $scope.$apply(function () {
-            $scope.accordionOpen = false
-            installResult.manifest = options.manifest
-            $scope.treeData = installResult.manifest
-            $scope.installation = installResult
-            $scope.installationError = installResult.error
-          })
-        })
-    }
-    else {
-      return Promise.reject(new Error('Installation not enabled'))
-    }
+  $scope.install = function (installation) {
+    return $scope.control.install(installation)
+      .progressed(function (result) {
+        installation.update(50 + result.progress / 2, result.lastData)
+      })
   }
 
   $scope.uninstall = function (packageName) {
     // TODO: After clicking uninstall accordion opens
     return $scope.control.uninstall(packageName)
-      .then(function (result) {
-        if (result.success) {
-          $scope.$apply(function () {
-            $scope.clear()
-          })
-        } else {
-          console.error(result.error)
-        }
+      .then(function () {
+        $scope.$apply(function () {
+          $scope.clear()
+        })
       })
   }
-
-  $scope.taskFinished = function () {
-    if ($scope.installEnabled) {
-      return $scope.upload && ($scope.upload.error || $scope.upload.settled &&
-        $scope.installation && $scope.installation.settled)
-    } else {
-      return $scope.upload && $scope.upload.settled
-    }
-    return false
-  }
-
-  $scope.taskProgress = function () {
-    var progress = 0
-    if ($scope.installEnabled) {
-      if ($scope.upload) {
-        progress += $scope.upload.progress
-      }
-      if ($scope.installation) {
-        progress += $scope.installation.progress
-      }
-      progress = Math.floor(progress / 2)
-    } else {
-      if ($scope.upload) {
-        progress = $scope.upload.progress
-      }
-    }
-    return progress
-  }
-
-  $scope.accordionOpen = true
-
-//
-//  $scope.installEnabled = true
-//  SettingsService.bind($scope, {
-//    key: 'installEnabled',
-//    storeName: 'Upload'
-//  })
-//
-//  //$scope.launchEnabled = true
-//  SettingsService.bind($scope, {
-//    key: 'launchEnabled',
-//    storeName: 'Upload'
-//  })
-
 }

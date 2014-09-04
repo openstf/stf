@@ -4,6 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid ""
 msgstr ""
 
@@ -123,10 +124,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Bluetooth"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Browser"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -298,10 +295,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Disconnected"
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
-msgid "Disconnected.<br />Socket connection was lost, try again reloading the page."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -623,6 +616,10 @@ msgstr ""
 msgid "No screenshots taken"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Normal Mode"
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr ""
@@ -797,20 +794,8 @@ msgstr ""
 msgid "Record"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Reference"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
 msgid "Refresh"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch the browser"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -823,13 +808,11 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
 msgid "Remote debug"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset"
 msgstr ""
@@ -838,7 +821,6 @@ msgstr ""
 msgid "Reset Settings"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset all browser settings"
 msgstr ""
@@ -887,12 +869,12 @@ msgstr ""
 msgid "Run command"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
-msgid "Run the following on your command line to debug the device from your IDE"
+#: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
+msgid "Run the following on your command line to debug the device from your Browser"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
-msgid "Run the following on your command line:"
+#: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
+msgid "Run the following on your command line to debug the device from your IDE"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
@@ -967,6 +949,14 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
 msgid "Sign Out"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Silent Mode"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
+msgid "Socket connection was lost, try again reloading the page."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -1147,6 +1137,10 @@ msgstr ""
 msgid "Version Update"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Vibrate Mode"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Voltage"
 msgstr ""
@@ -1169,6 +1163,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "WiFi Enabled"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html

@@ -42,6 +42,8 @@
           span(translate) Cannot access specified URL
         strong(ng-switch-when='fail')
           span(translate) Upload failed
+        strong(ng-switch-default)
+          span Error code: {{ upload.error }}
 
     //.upload-status(ng-if='upload && !upload.settled')
       progressbar(max='100', value='upload.progress', ng-if='!upload.settled',

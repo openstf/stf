@@ -108,6 +108,12 @@ module.exports = function InstallCtrl(
 
   $scope.maybeInstall = function (options) {
     if ($scope.installEnabled) {
+
+      if ($scope.installation) {
+        $scope.installation.lastData = null
+      }
+      $scope.accordionOpen = true
+
       return $scope.control.install(options)
         .progressed(function (installResult) {
           $scope.$apply(function () {

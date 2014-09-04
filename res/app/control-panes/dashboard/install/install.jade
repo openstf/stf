@@ -10,7 +10,7 @@
       input(type='checkbox', ng-model='installEnabled')
       span(translate) Install
 
-  .widget-content.padded()
+  .widget-content.padded
     //.widget-content.padded(style='padding: 0; padding-bottom: 15px;')
 
     //.col-md-10.col-md-offset-1
@@ -28,13 +28,10 @@
       i.fa.fa-2x.fa-download.drop-area-icon
       .drop-area-text(translate) Drop file to upload
 
-    //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
-      span employee: {{node.name}} age {{node.age}}
-
     .upload-status(ng-if='upload || installation')
 
       accordion(close-others='false').pointer
-        accordion-group(is-open='accordionOpen')
+        accordion-group(is-open='accordionOpen', is-disabled='accordionDisabled')
           accordion-heading.pointer
             i.fa.fa-file-o
             span  {{installation.manifest.package || "App" }}

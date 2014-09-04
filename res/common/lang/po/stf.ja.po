@@ -130,10 +130,6 @@ msgstr "バッテリー温度"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Browser"
-msgstr "ブラウザ"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Busy"
 msgstr "貸し出し中"
@@ -150,7 +146,7 @@ msgstr "CPU"
 msgid "Camera"
 msgstr "カメラ"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Cannot access specified URL"
 msgstr "指定されたURLはアクセスできません"
 
@@ -305,13 +301,6 @@ msgstr "放電中"
 msgid "Disconnected"
 msgstr "切断中"
 
-#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
-msgid ""
-"Disconnected.<br />Socket connection was lost, try again reloading the page."
-msgstr ""
-"接続が切れました。<br />ソケット接続が失われました。もう一度ページを再ロード"
-"してみてください。"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Display"
 msgstr "ディスプレー"
@@ -344,10 +333,6 @@ msgstr "通知を有効にする"
 msgid "Encrypted"
 msgstr "暗号化"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Error"
-msgstr "エラー"
-
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
 msgstr "データ取得中にエラーが発生しました。"
@@ -359,6 +344,10 @@ msgstr "再接続中にエラーが発生しました。"
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
 msgstr "エラー"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Error:"
+msgstr "エラー："
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
 msgid "Error: Forwarding ports failed."
@@ -372,7 +361,7 @@ msgstr "イーサーネット"
 msgid "FPS"
 msgstr "FPS"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Failed to download file"
 msgstr "ファイルのダウンロードが失敗しした。"
 
@@ -599,6 +588,14 @@ msgstr "ブラウジング"
 msgid "Network"
 msgstr "ネットワーク"
 
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"New package failed because the current SDK version is older than that "
+"required by the package"
+msgstr ""
+"この端末のSDKバージョンがパッケージが必要としているSDKのバージョンより古いた"
+"め、失敗しました。"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Next"
 msgstr "次"
@@ -630,6 +627,10 @@ msgstr "写真はありません"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
 msgid "No screenshots taken"
 msgstr "キャプチャはありません"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Normal Mode"
+msgstr "通常モード"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
@@ -805,21 +806,9 @@ msgstr "正常に再接続しました。"
 msgid "Record"
 msgstr "記録する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Reference"
-msgstr "参考"
-
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
 msgid "Refresh"
 msgstr "更新"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch"
-msgstr "再起動"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
-msgid "Relaunch the browser"
-msgstr "ブラウザを再起動する"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
@@ -831,13 +820,11 @@ msgstr "発売日"
 msgid "Reload"
 msgstr "再読込"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
 msgid "Remote debug"
 msgstr "リモートデバッグ"
 
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset"
 msgstr "初期化"
@@ -846,7 +833,6 @@ msgstr "初期化"
 msgid "Reset Settings"
 msgstr "すべての設定をリセット"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/browser/browser.html
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Reset all browser settings"
 msgstr "ブラウザの設定をリセットする"
@@ -895,16 +881,19 @@ msgstr "JavaScript注入"
 msgid "Run command"
 msgstr "コマンドを実行する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
+#: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
+msgid ""
+"Run the following on your command line to debug the device from your Browser"
+msgstr ""
+"次のコマンドをコマンドラインで実行しますと、お使いのブラウザより端末のデバッ"
+"グができます。"
+
+#: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
 msgid ""
 "Run the following on your command line to debug the device from your IDE"
 msgstr ""
 "次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグがで"
 "きます。"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/remote-debug/remote-debug.html
-msgid "Run the following on your command line:"
-msgstr "次のコマンドをコマンドラインで実行してください。"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "SD Card Mounted"
@@ -979,6 +968,14 @@ msgstr "サインイン"
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
 msgid "Sign Out"
 msgstr "サインアウト"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Silent Mode"
+msgstr "マナーモード"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
+msgid "Socket connection was lost, try again reloading the page."
+msgstr "接続が切れました。ページをリロードしてみてください。"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Someone stole your device."
@@ -1111,10 +1108,15 @@ msgid "Upload complete"
 msgstr "アップロードが完了しました"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Upload failed"
 msgstr "アップロードが失敗しました"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
+msgid "Upload unknown error"
+msgstr "アップロード未知エラー"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Uploaded file is not valid"
 msgstr "アップロードされたファイル"
 
@@ -1162,6 +1164,10 @@ msgstr "バージョン"
 msgid "Version Update"
 msgstr "バージョンアップ"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "Vibrate Mode"
+msgstr "マナーモード（バイブON）"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 msgid "Voltage"
 msgstr "電圧"
@@ -1185,6 +1191,10 @@ msgstr "Web"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
 msgstr "無線LAN"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
+msgid "WiFi Enabled"
+msgstr "無線LAN：ON"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
 msgid "WiFi Settings"
@@ -1229,6 +1239,21 @@ msgstr "{{ device.enhancedName }}のステータス："
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "{{ device.enhancedName }} was disconnected"
 msgstr "{{ device.enhancedName }}への接続が切れました"
+
+#~ msgid "Browser"
+#~ msgstr "ブラウザ"
+
+#~ msgid "Reference"
+#~ msgstr "参考"
+
+#~ msgid "Relaunch"
+#~ msgstr "再起動"
+
+#~ msgid "Relaunch the browser"
+#~ msgstr "ブラウザを再起動する"
+
+#~ msgid "Run the following on your command line:"
+#~ msgstr "次のコマンドをコマンドラインで実行してください。"
 
 #~ msgid "Remove Accounts"
 #~ msgstr "アカウント削除"

@@ -10,8 +10,8 @@
       input(type='checkbox', ng-model='installEnabled')
       span(translate) Install
 
-  .widget-content.padded(style='padding: 0; padding-bottom: 15px;')
-    // TODO: remove padding-bottom when drop file is implemented
+  .widget-content.padded()
+    //.widget-content.padded(style='padding: 0; padding-bottom: 15px;')
 
     //.col-md-10.col-md-offset-1
     //.input-group.form-inline
@@ -30,24 +30,6 @@
 
     //treecontrol.tree-classic(tree-model='treeData', options='treeOptions')
       span employee: {{node.name}} age {{node.age}}
-
-    pre(ng-if='upload.error') Error: {{ upload.error }}
-      p(translate) Error
-      div(ng-switch='upload.error')
-        strong(ng-switch-when='fail_invalid_app_file')
-          span(translate) Uploaded file is not valid
-        strong(ng-switch-when='fail_download')
-          span(translate) Failed to download file
-        strong(ng-switch-when='fail_invalid_url')
-          span(translate) Cannot access specified URL
-        strong(ng-switch-when='fail')
-          span(translate) Upload failed
-        strong(ng-switch-default)
-          span Error code: {{ upload.error }}
-
-    //.upload-status(ng-if='upload && !upload.settled')
-      progressbar(max='100', value='upload.progress', ng-if='!upload.settled',
-        ng-class='{"active": !upload.settled}').progress-striped
 
     .upload-status(ng-if='upload || installation')
 
@@ -96,3 +78,12 @@
 
           progressbar(max='100', value='taskProgress()', ng-if='!taskFinished()',
             ng-class='{"active": !taskFinished()}').progress-striped
+
+
+    alert(type='danger', close='upload.error = null', ng-show='upload.error')
+      strong(translate) Error:
+      span  {{ upload.error | uploadError | translate }}
+
+    alert(type='danger', close='installationError = undefined', ng-show='installationError')
+      strong(translate) Error:
+      span  {{ installationError | installError | translate }} ({{ installationError }})

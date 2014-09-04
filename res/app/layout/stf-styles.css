@@ -403,3 +403,14 @@ input {
 .transparent-border {
   border: 1px solid transparent;
 }
+
+/* Bootstrap close button is misaligned for some reason */
+.alert-dismissable .close,
+.alert-dismissible .close {
+  right: auto;
+}
+
+/* Reset alert margin */
+.alert {
+  margin-bottom: 0;
+}

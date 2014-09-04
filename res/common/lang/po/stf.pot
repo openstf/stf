@@ -142,7 +142,7 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Cannot access specified URL"
 msgstr ""
 
@@ -329,10 +329,6 @@ msgstr ""
 msgid "Encrypted"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Error"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
 msgstr ""
@@ -343,6 +339,10 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+msgid "Error:"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
@@ -357,7 +357,7 @@ msgstr ""
 msgid "FPS"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Failed to download file"
 msgstr ""
 
@@ -582,6 +582,10 @@ msgstr ""
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
 msgid "Network"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "New package failed because the current SDK version is older than that required by the package"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
@@ -1086,10 +1090,15 @@ msgid "Upload complete"
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Upload failed"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
+msgid "Upload unknown error"
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Uploaded file is not valid"
 msgstr ""
 

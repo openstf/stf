@@ -31,6 +31,7 @@ module.exports = function UploadCtrl(
         $scope.$apply(function () {
           $scope.upload = uploadResult
         })
+
         if (uploadResult.success) {
           return $scope.maybeInstall(uploadResult.body)
         }
@@ -93,7 +94,6 @@ module.exports = function UploadCtrl(
             $scope.upload = null
           }
           else {
-            console.log('Upload error', err)
             $scope.upload = {
               progress: 100
             , lastData: 'fail'
@@ -104,6 +104,7 @@ module.exports = function UploadCtrl(
         })
       })
   }
+
 
   $scope.maybeInstall = function (options) {
     if ($scope.installEnabled) {
@@ -120,6 +121,7 @@ module.exports = function UploadCtrl(
             installResult.manifest = options.manifest
             $scope.treeData = installResult.manifest
             $scope.installation = installResult
+            $scope.installationError = installResult.error
           })
         })
     }

@@ -6,15 +6,9 @@ var responses = require('./response-codes.json')
 module.exports = function installErrorFilter(gettext) {
   return function (text) {
     switch (text) {
-      case 'fail_invalid_app_file':
-        return gettext('Uploaded file is not valid.')
-      case 'fail_download':
-        return gettext('Failed to download specified URL.')
-      case 'fail_invalid_url':
-        return gettext('The specified URL is invalid.')
-      case 'fail':
-        return gettext('Upload failed to due unknown error.')
-      case 'timeout':
+      case 'INSTALL_ERROR_UNKNOWN':
+        return gettext('Installation failed due to an unknown error.')
+      case 'INSTALL_ERROR_TIMEOUT':
         return gettext('Installation timed out.')
       default:
         return gettext(responses[text] || text)

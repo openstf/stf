@@ -43,6 +43,13 @@ module.exports = function InstallCtrl(
     }
   }
 
+  function install(installation) {
+    return $scope.control.install(installation)
+      .progressed(function (result) {
+        installation.update(50 + result.progress / 2, result.lastData)
+      })
+  }
+
   $scope.accordionOpen = true
 
   $scope.clear = function () {
@@ -59,7 +66,7 @@ module.exports = function InstallCtrl(
       .then(function (uploadResult) {
         installation.update(uploadResult.progress / 2, uploadResult.lastData)
         installation.manifest = uploadResult.body
-        return $scope.install(installation)
+        return install(installation)
       })
       .then(function() {
         installation.okay('installed')
@@ -88,7 +95,7 @@ module.exports = function InstallCtrl(
           .then(function(res) {
             if (res.data.success) {
               installation.manifest = res.data.manifest
-              return $scope.install(installation)
+              return install(installation)
             }
             else {
               throw new Error('Unable to retrieve manifest')
@@ -100,13 +107,6 @@ module.exports = function InstallCtrl(
       })
       .catch(function(err) {
         installation.fail(err.code || err.message)
-      })
-  }
-
-  $scope.install = function (installation) {
-    return $scope.control.install(installation)
-      .progressed(function (result) {
-        installation.update(50 + result.progress / 2, result.lastData)
       })
   }
 

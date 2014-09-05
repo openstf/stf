@@ -33,7 +33,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.model || device.serial
       }
     })
-  , name: TextCell({
+  , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
         return device.name || ''
@@ -394,41 +394,72 @@ function DeviceModelCell(options) {
       var td = document.createElement('td')
         , span = document.createElement('span')
         , image = document.createElement('img')
-        , a = document.createElement('a')
       span.className = 'device-small-image'
       image.className = 'device-small-image-img pointer'
       span.appendChild(image)
       td.appendChild(span)
-      a.appendChild(document.createTextNode(''))
-      td.appendChild(a)
+      td.appendChild(document.createTextNode(''))
       return td
     }
   , update: function(td, device) {
       var span = td.firstChild
         , image = span.firstChild
-        , a = span.nextSibling
-        , t = a.firstChild
+        , t = span.nextSibling
         , src = '/static/app/devices/icon/x24/' +
             (device.image || '_default.jpg')
+
       // Only change if necessary so that we don't trigger a download
       if (image.getAttribute('src') !== src) {
         image.setAttribute('src', src)
       }
 
-      if (device.using) {
-        a.className = 'btn btn-xs btn-primary-outline'
-        a.href = '#!/control/' + device.serial
-      }
-      else {
-        a.className = 'device-model-link-off'
-        a.removeAttribute('href')
-      }
-
       t.nodeValue = options.value(device)
+
       return td
     }
   , compare: function(a, b) {
       return compareRespectCase(options.value(a), options.value(b))
+    }
+  , filter: function(device, filter) {
+      return filterIgnoreCase(options.value(device), filter.query)
+    }
+  })
+}
+
+function DeviceNameCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , build: function() {
+      var td = document.createElement('td')
+        , a = document.createElement('a')
+      a.appendChild(document.createTextNode(''))
+      td.appendChild(a)
+      return td
+    }
+  , update: function(td, device) {
+      var a = td.firstChild
+        , t = a.firstChild
+
+      if (device.using) {
+        a.className = 'device-product-name-using'
+        a.href = '#!/control/' + device.serial
+      }
+      else if (device.usable) {
+        a.className = 'device-product-name-usable'
+        a.href = '#!/control/' + device.serial
+      }
+      else {
+        a.className = 'device-product-name-unusable'
+        a.removeAttribute('href')
+      }
+
+      t.nodeValue = options.value(device)
+
+      return td
+    }
+  , compare: function(a, b) {
+      return compareIgnoreCase(options.value(a), options.value(b))
     }
   , filter: function(device, filter) {
       return filterIgnoreCase(options.value(device), filter.query)

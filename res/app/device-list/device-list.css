@@ -207,6 +207,10 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
 
 }
 
-.stf-device-list .device-model-link-off {
+.stf-device-list .device-product-name-unusable {
   color: inherit;
+}
+
+.stf-device-list .device-product-name-using {
+  border-bottom: 2px solid; /* leaving out the color inherits text color */
 }

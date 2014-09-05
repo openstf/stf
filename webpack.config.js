@@ -30,8 +30,7 @@ module.exports = {
         'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
         'localforage': 'localforage/dist/localforage.js',
         'socket.io': 'socket.io-client',
-        'oboe': 'oboe/dist/oboe-browser',
-        'bluebird': 'bluebird/js/browser/bluebird'
+        'oboe': 'oboe/dist/oboe-browser'
       }
     },
     module: {
@@ -57,8 +56,7 @@ module.exports = {
         { test: /oboe-browser\.js$/, loader: 'imports?define=>false!exports?oboe'},
         { test: /uuid\.js$/, loader: 'imports?require=>undefined'},
         //{ test: /ui-bootstrap-tpls\.js$/, loader: 'script'},
-        { test: /dialogs\.js$/, loader: 'script'},
-        { test: /bluebird\.js$/, loader: 'imports?require=>undefined'}
+        { test: /dialogs\.js$/, loader: 'script'}
       ],
       preLoaders: [
         {

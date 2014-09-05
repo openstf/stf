@@ -437,6 +437,17 @@ function DeviceModelCell(options) {
 }
 
 function DeviceStatusCell(options) {
+  var stateClasses = {
+    using: 'state-using btn-primary'
+  , busy: 'state-busy btn-warning'
+  , available: 'state-available btn-primary-outline'
+  , ready: 'state-ready btn-primary-outline'
+  , present: 'state-present btn-primary-outline'
+  , preparing: 'state-preparing btn-primary-outline btn-success-outline'
+  , unauthorized: 'state-unauthorized btn-danger-outline'
+  , offline: 'state-offline btn-warning-outline'
+  }
+
   return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
@@ -450,59 +461,19 @@ function DeviceStatusCell(options) {
   , update: function(td, device) {
       var a = td.firstChild
         , t = a.firstChild
-        , classes = 'btn btn-xs device-status '
 
-      function getStateClasses(state) {
-        var stateClasses = {
-          using: 'state-using btn-primary',
-          busy: 'state-busy btn-warning',
-          available: 'state-available btn-primary-outline',
-          ready: 'state-ready btn-primary-outline',
-          present: 'state-present btn-primary-outline',
-          preparing: 'state-preparing btn-primary-outline btn-success-outline',
-          unauthorized: 'state-unauthorized btn-danger-outline',
-          offline: 'state-offline btn-warning-outline'
-        }[state]
-        if (typeof stateClasses === 'undefined') {
-          stateClasses = 'btn-default-outline'
-        }
-        return stateClasses
-      }
+      a.className = 'btn btn-xs device-status ' +
+        (stateClasses[device.state] || 'btn-default-outline')
 
-      a.className = classes + getStateClasses(device.state)
-
-      //switch (device.state) {
-      //case 'using':
-      //  a.className = classes + 'btn-primary'
-      //  break
-      //case 'busy':
-      //  a.className = classes + 'btn-warning'
-      //  break
-      //case 'available':
-      //case 'ready':
-      //case 'present':
-      //  a.className = classes + 'btn-primary-outline'
-      //  break
-      //case 'preparing':
-      //  a.className = classes + 'btn-primary-outline btn-success-outline'
-      //  break
-      //case 'unauthorized':
-      //  a.className = classes + 'btn-danger-outline'
-      //  break
-      //case 'offline':
-      //  a.className = classes + 'btn-warning-outline'
-      //  break
-      //default:
-      //  a.className = classes + 'btn-default-outline'
-      //  break
-      //}
       if (device.usable && !device.using) {
         a.href = '#!/control/' + device.serial
       }
       else {
         a.removeAttribute('href')
       }
+
       t.nodeValue = options.value(device)
+
       return td
     }
   , compare: (function() {

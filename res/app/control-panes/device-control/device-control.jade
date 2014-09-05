@@ -35,8 +35,8 @@
                 span.pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
                   i.fa.fa-times
 
-      .as-row.fill-height(ng-file-drop='installFileForced($files)')
-        div(ng-controller='DeviceScreenCtrl').fill-height
+      .as-row.fill-height
+        div(ng-controller='DeviceScreenCtrl', ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height
           device-screen(style='width: 100%; height: 100%; background: gray')
 
       .stf-vnc-bottom.as-row

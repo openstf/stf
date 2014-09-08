@@ -53,6 +53,8 @@ gulp.task('karma', function (done) {
 
 if (gutil.env.multi) {
   protractorConfig = './res/test/protractor-multi.conf'
+} else if (gutil.env.appium) {
+  protractorConfig = './res/test/protractor-appium.conf'
 }
 
 gulp.task('webdriver-update', protractor.webdriver_update)

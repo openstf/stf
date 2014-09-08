@@ -3,7 +3,7 @@ var gutil = require('gulp-util')
 var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
 var webpack = require('webpack')
-var ngminPlugin = require('ngmin-webpack-plugin')
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
 var webpackConfig = require('./webpack.config').webpack
 var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
@@ -100,7 +100,9 @@ gulp.task("webpack:build", function (callback) {
       }
     })
     //new webpack.optimize.DedupePlugin(),
-    //new ngminPlugin(),
+    //new ngAnnotatePlugin({
+    //  add: true,
+    //})
     // TODO: mangle when ngmin works
     //new webpack.optimize.UglifyJsPlugin({mangle: false})
   )

@@ -18,7 +18,7 @@
     "angular-gettext": "~1.0.0",
     "angular-ui-ace": "~0.1.1",
     "ui-bootstrap-alerts": "~0.1.5",
-    "requirejs": "~2.1.14",
+    "requirejs": "~2.1.15",
     "stf-graphics": "~0.1.1",
     "angular-bootstrap": "~0.11.0",
     "angular-dialog-service": "~5.1.1",

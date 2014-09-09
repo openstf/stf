@@ -1,0 +1,93 @@
+{
+  "requireCurlyBraces": [
+      "if",
+      "else",
+      "for",
+      "while",
+      "do",
+      "try",
+      "catch",
+      "case",
+      "default"
+  ],
+  "requireSpaceAfterKeywords": [
+      "do",
+      "for",
+      "if",
+      "else",
+      "switch",
+      "case",
+      "try",
+      "catch",
+      "void",
+      "while",
+      "with",
+      "return",
+      "typeof",
+      "function"
+  ],
+  "requireSpaceBeforeBlockStatements": true,
+  "requireParenthesesAroundIIFE": true,
+
+  "requireSpacesInConditionalExpression": true,
+  "requireSpacesInFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInNamedFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInFunctionDeclaration": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInFunction": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "disallowMultipleVarDecl": true,
+  "requireBlocksOnNewline": true,
+  "disallowPaddingNewlinesInBlocks": true,
+  "disallowEmptyBlocks": true,
+  "disallowSpacesInsideArrayBrackets": "nested",
+  "disallowQuotedKeysInObjects": "allButReserved",
+  "disallowSpaceAfterObjectKeys": true,
+  "requireOperatorBeforeLineBreak": true,
+  "disallowSpaceAfterPrefixUnaryOperators": true,
+  "disallowSpaceBeforePostfixUnaryOperators": true,
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpaceAfterBinaryOperators": true,
+  "disallowImplicitTypeConversion": [
+    "numeric",
+    "boolean",
+    "binary",
+    "string"
+  ],
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "disallowKeywords": ["with"],
+  "disallowMultipleLineStrings": true,
+  "disallowMultipleLineBreaks": true,
+  "validateLineBreaks": "LF",
+  "validateQuoteMarks": {
+    "mark": "'",
+    "escape": true
+  },
+  "validateIndentation": 2,
+  "disallowMixedSpacesAndTabs": true,
+  "disallowTrailingWhitespace": true,
+  "disallowTrailingComma": true,
+  "requireLineFeedAtFileEnd": true,
+  "maximumLineLength": 90,
+  "requireCapitalizedConstructors": true,
+  "safeContextKeyword": ["that"],
+  "requireDotNotation": true,
+  "disallowYodaConditions": true,
+  "validateJSDoc": {
+    "checkParamNames": true,
+    "checkRedundantParams": true,
+    "requireParamTypes": true
+  },
+  "requireSpaceAfterLineComment": true,
+  "disallowNewlineBeforeBlockStatements": true
+}

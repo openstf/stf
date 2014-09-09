@@ -1,6 +1,6 @@
 var pathutil = require('./lib/util/pathutil')
 var webpack = require('webpack')
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin")
+var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
 module.exports = {
   webpack: {
@@ -38,14 +38,14 @@ module.exports = {
         { test: /\.css$/, loader: 'style!css' },
         { test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
         { test: /\.json$/, loader: 'json' },
-        { test: /\.jpg$/, loader: "url-loader?limit=1000&mimetype=image/jpeg" },
-        { test: /\.png$/, loader: "url-loader?limit=1000&mimetype=image/png" },
-        { test: /\.gif$/, loader: "url-loader?limit=1000&mimetype=image/gif" },
-        { test: /\.svg/, loader: "url-loader?limit=1&mimetype=image/svg+xml" },
-        { test: /\.woff/, loader: "url-loader?limit=1&mimetype=application/font-woff" },
-        { test: /\.otf/, loader: "url-loader?limit=1&mimetype=application/font-woff" },
-        { test: /\.ttf/, loader: "url-loader?limit=1&mimetype=application/font-woff" },
-        { test: /\.eot/, loader: "url-loader?limit=1&mimetype=vnd.ms-fontobject" },
+        { test: /\.jpg$/, loader: 'url-loader?limit=1000&mimetype=image/jpeg' },
+        { test: /\.png$/, loader: 'url-loader?limit=1000&mimetype=image/png' },
+        { test: /\.gif$/, loader: 'url-loader?limit=1000&mimetype=image/gif' },
+        { test: /\.svg/, loader: 'url-loader?limit=1&mimetype=image/svg+xml' },
+        { test: /\.woff/, loader: 'url-loader?limit=1&mimetype=application/font-woff' },
+        { test: /\.otf/, loader: 'url-loader?limit=1&mimetype=application/font-woff' },
+        { test: /\.ttf/, loader: 'url-loader?limit=1&mimetype=application/font-woff' },
+        { test: /\.eot/, loader: 'url-loader?limit=1&mimetype=vnd.ms-fontobject' },
         { test: /\.jade$/, loader: 'template-html-loader' },
         { test: /\.html$/, loader: 'html-loader' },
         { test: /angular\.js$/, loader: 'exports?angular'},
@@ -82,7 +82,7 @@ module.exports = {
           , ['main']
         )
       )
-      , new CommonsChunkPlugin("entry/commons.entry.js")
+      , new CommonsChunkPlugin('entry/commons.entry.js')
     ]
   },
   webpackServer: {

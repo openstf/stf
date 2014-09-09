@@ -15,6 +15,7 @@ var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
+var jscs = require('gulp-jscs')
 
 gulp.task('jshint', function () {
   return gulp.src([
@@ -33,6 +34,15 @@ gulp.task('jsonlint', function () {
     .pipe(jsonlint())
     .pipe(jsonlint.reporter())
 })
+
+gulp.task('jscs', function () {
+  return gulp.src([
+    'lib/**/*.js', 'res/app/**/*.js', 'res/auth-ldap/**/*.js',
+    'res/auth-mock/**/*.js', 'res/common/**/*.js', 'res/test/**/*.js',
+    '*.js'
+  ])
+    .pipe(jscs())
+});
 
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'protractor'])
@@ -65,7 +75,7 @@ gulp.task('protractor-explorer', function (callback) {
   }, callback)
 })
 
-gulp.task('protractor', ['webdriver-update'],function (callback) {
+gulp.task('protractor', ['webdriver-update'], function (callback) {
   gulp.src(["./res/test/e2e/**/*.js"])
     .pipe(protractor.protractor({
       configFile: protractorConfig,
@@ -162,7 +172,7 @@ gulp.task('jade', function (cb) {
       locals: {
         // So res/views/docs.jade doesn't complain
         markdownFile: {
-          parseContent: function() {
+          parseContent: function () {
           }
         }
       }

@@ -17,3 +17,10 @@
 /temp/
 /test/
 /tmp/
+/tmp/*
+/res/app/*
+/res/auth/*
+/res/bower_components/*
+/res/common/*
+/res/test/*
+/res/web_modules/*

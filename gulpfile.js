@@ -9,6 +9,7 @@ var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var rimraf = require('gulp-rimraf')
+var runSequence = require('run-sequence')
 //var protractor = require('gulp-protractor')
 var protractor = require('./res/test/e2e/helpers/gulp-protractor-adv')
 var protractorConfig = './res/test/protractor.conf'
@@ -46,7 +47,10 @@ gulp.task('jscs', function () {
 
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'protractor'])
-gulp.task('build', ['translate', 'webpack:build'])
+
+gulp.task('build', function (cb) {
+  runSequence('clean', 'translate', 'webpack:build', cb)
+})
 
 gulp.task('karma_ci', function (done) {
   karma.start({

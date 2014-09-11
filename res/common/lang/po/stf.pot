@@ -16,6 +16,18 @@ msgstr ""
 msgid "A new version of STF is available"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "A package is already installed with the same name."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "A previously installed package of the same name has a different signature than the new package (and the old package's data was not removed)."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "A secure container mount point couldn't be accessed on external media."
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
 msgid "ABI"
@@ -29,7 +41,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Action"
 msgstr ""
 
@@ -37,7 +49,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Activity"
 msgstr ""
 
@@ -74,7 +86,7 @@ msgstr ""
 msgid "App Store"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "App Upload"
 msgstr ""
 
@@ -151,7 +163,7 @@ msgstr ""
 msgid "Carrier"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Category"
 msgstr ""
 
@@ -226,7 +238,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Data"
 msgstr ""
 
@@ -305,7 +317,7 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Drop file to upload"
 msgstr ""
 
@@ -339,10 +351,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Error:"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
@@ -471,11 +479,19 @@ msgstr ""
 msgid "Inspector"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Installation failed"
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation failed due to an unknown error."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation succeeded."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation timed out."
+msgstr ""
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Installing app..."
 msgstr ""
 
@@ -487,11 +503,11 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Launch Activity"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Launching activity..."
 msgstr ""
 
@@ -584,10 +600,6 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid "New package failed because the current SDK version is older than that required by the package"
-msgstr ""
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Next"
 msgstr ""
@@ -649,6 +661,10 @@ msgstr ""
 msgid "Offline"
 msgstr ""
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
+msgid "Oops!"
+msgstr ""
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Open"
 msgstr ""
@@ -669,7 +685,7 @@ msgstr ""
 msgid "PID"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Package"
 msgstr ""
 
@@ -765,7 +781,7 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Processing..."
 msgstr ""
 
@@ -774,7 +790,7 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Pushing app..."
 msgstr ""
 
@@ -1025,8 +1041,144 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The URI passed in is invalid."
+msgstr ""
+
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "The device will be unavailable for a moment."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The existing package could not be deleted."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed because the verification did not succeed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed because the verification timed out."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed in the specified install location because the media is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed in the specified install location."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because it contains a content provider with thesame authority as a provider already installed in the system."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because it has specified that it is a test-only package and the caller has not supplied the INSTALL_ALLOW_TEST flag."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because the current SDK version is newer than that required by the package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because the current SDK version is older than that required by the package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed while optimizing and validating its dex files, either because there was not enough storage or the validation failed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package has an older version code than the currently installed package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package is assigned a different UID than it previously held."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package uses a feature that is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package uses a shared library that is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package archive file is invalid."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package being installed contains native code, but none that is compatible with the device's CPU_ABI."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package changed from what the calling program expected."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package is already installed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package manager service found that the device didn't have enough storage space to install the app."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser did not find any actionable tags (instrumentation or application) in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser did not find any certificates in the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered a CertificateEncodingException in one of the files in the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered a bad or missing package name in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered a bad shared user id name in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered an unexpected exception."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered some structural problem in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser found inconsistent certificates on the files in the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser was given a path that is not a file, or does not end with the expected '.apk' extension."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser was unable to retrieve the AndroidManifest.xml file."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The requested shared user does not exist."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The system failed to install the package because its packaged native code did not match any of the ABIs supported by the system."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The system failed to install the package because of system issues."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The system failed to install the package because the user is restricted from installing apps."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
@@ -1065,7 +1217,7 @@ msgstr ""
 msgid "Unforward"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Uninstall"
 msgstr ""
 
@@ -1081,15 +1233,10 @@ msgstr ""
 msgid "Unspecified Failure"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Upload From Link"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Upload complete"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 #: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Upload failed"
 msgstr ""
@@ -1102,7 +1249,7 @@ msgstr ""
 msgid "Uploaded file is not valid"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Uploading..."
 msgstr ""
 

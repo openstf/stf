@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -19,6 +19,20 @@ msgstr "-"
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
 msgid "A new version of STF is available"
 msgstr "STFの新しいバージョンがリリースされました"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "A package is already installed with the same name."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"A previously installed package of the same name has a different signature "
+"than the new package (and the old package's data was not removed)."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "A secure container mount point couldn't be accessed on external media."
+msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/device-column-service.js
@@ -33,7 +47,7 @@ msgstr "AC"
 msgid "Account"
 msgstr "アカウント"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Action"
 msgstr "アクション"
 
@@ -41,7 +55,7 @@ msgstr "アクション"
 msgid "Actions"
 msgstr "アクション"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Activity"
 msgstr "アクティビティ"
 
@@ -78,7 +92,7 @@ msgstr "アプリ"
 msgid "App Store"
 msgstr "アプリストア"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "App Upload"
 msgstr "アプリアップロード"
 
@@ -155,7 +169,7 @@ msgstr "指定されたURLはアクセスできません"
 msgid "Carrier"
 msgstr "キャリア"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Category"
 msgstr "カテゴリー"
 
@@ -230,7 +244,7 @@ msgstr "D-pad上"
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Data"
 msgstr "データ"
 
@@ -309,7 +323,7 @@ msgstr "ディスプレー"
 msgid "Domain"
 msgstr "ドメイン"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Drop file to upload"
 msgstr "ここにファイルをドロップ"
 
@@ -344,10 +358,6 @@ msgstr "再接続中にエラーが発生しました。"
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
 msgid "Error."
 msgstr "エラー"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Error:"
-msgstr "エラー："
 
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/port-forwarding/port-forwarding-controller.js
 msgid "Error: Forwarding ports failed."
@@ -475,11 +485,19 @@ msgstr "要素の検証機能は、現在WebViewのみ対応"
 msgid "Inspector"
 msgstr "要素の検証"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Installation failed"
-msgstr "インストールが失敗しました"
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation failed due to an unknown error."
+msgstr "インストールが未知のエラーで失敗しました。"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation succeeded."
+msgstr "インストールが完了しました。"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "Installation timed out."
+msgstr "インストールがタイムアウトしました。"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Installing app..."
 msgstr "アプリをインストール中..."
 
@@ -491,11 +509,11 @@ msgstr "横"
 msgid "Language"
 msgstr "言語"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Launch Activity"
 msgstr "アクティビティを起動する"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Launching activity..."
 msgstr "アクティビティを起動中..."
 
@@ -588,14 +606,6 @@ msgstr "ブラウジング"
 msgid "Network"
 msgstr "ネットワーク"
 
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"New package failed because the current SDK version is older than that "
-"required by the package"
-msgstr ""
-"この端末のSDKバージョンがパッケージが必要としているSDKのバージョンより古いた"
-"め、失敗しました。"
-
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
 msgid "Next"
 msgstr "次"
@@ -657,6 +667,10 @@ msgstr "OS"
 msgid "Offline"
 msgstr "オフライン"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
+msgid "Oops!"
+msgstr "おっと！"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
 msgid "Open"
 msgstr "開く"
@@ -677,7 +691,7 @@ msgstr "過熱"
 msgid "PID"
 msgstr "PID"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/activities/activities.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
 msgid "Package"
 msgstr "パッケージ"
 
@@ -773,7 +787,7 @@ msgstr "メニューボタンを押す"
 msgid "Previous"
 msgstr "前"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Processing..."
 msgstr "処理中..."
 
@@ -782,7 +796,7 @@ msgstr "処理中..."
 msgid "Product"
 msgstr "型番"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Pushing app..."
 msgstr "アプリをプッシュ中..."
 
@@ -1039,9 +1053,177 @@ msgstr "温度"
 msgid "Text"
 msgstr "テキスト"
 
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The URI passed in is invalid."
+msgstr "渡されたURIは無効です。"
+
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "The device will be unavailable for a moment."
 msgstr "しばらく端末が利用できなくなります。"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The existing package could not be deleted."
+msgstr "既存のパッケージは削除できませんでした。"
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package couldn't be installed because the verification did not "
+"succeed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package couldn't be installed because the verification timed out."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package couldn't be installed in the specified install location "
+"because the media is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package couldn't be installed in the specified install location."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package failed because it contains a content provider with thesame "
+"authority as a provider already installed in the system."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package failed because it has specified that it is a test-only "
+"package and the caller has not supplied the INSTALL_ALLOW_TEST flag."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package failed because the current SDK version is newer than that "
+"required by the package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package failed because the current SDK version is older than that "
+"required by the package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package failed while optimizing and validating its dex files, either "
+"because there was not enough storage or the validation failed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The new package has an older version code than the currently installed "
+"package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package is assigned a different UID than it previously held."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package uses a feature that is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package uses a shared library that is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package archive file is invalid."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The package being installed contains native code, but none that is "
+"compatible with the device's CPU_ABI."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package changed from what the calling program expected."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The package is already installed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The package manager service found that the device didn't have enough storage "
+"space to install the app."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The parser did not find any actionable tags (instrumentation or application) "
+"in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser did not find any certificates in the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The parser encountered a CertificateEncodingException in one of the files in "
+"the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered a bad or missing package name in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered a bad shared user id name in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered an unexpected exception."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser encountered some structural problem in the manifest."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser found inconsistent certificates on the files in the .apk."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The parser was given a path that is not a file, or does not end with the "
+"expected '.apk' extension."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The parser was unable to retrieve the AndroidManifest.xml file."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The requested shared user does not exist."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The system failed to install the package because its packaged native code "
+"did not match any of the ABIs supported by the system."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The system failed to install the package because of system issues."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid ""
+"The system failed to install the package because the user is restricted from "
+"installing apps."
+msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
 msgid ""
@@ -1083,7 +1265,7 @@ msgstr "権限外"
 msgid "Unforward"
 msgstr "フォーワード解除"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Uninstall"
 msgstr "削除"
 
@@ -1099,15 +1281,10 @@ msgstr "未知。"
 msgid "Unspecified Failure"
 msgstr "未定義の失敗"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Upload From Link"
 msgstr "リンク先よりアップロードする"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
-msgid "Upload complete"
-msgstr "アップロードが完了しました"
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
 #: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Upload failed"
 msgstr "アップロードが失敗しました"
@@ -1120,7 +1297,7 @@ msgstr "アップロード未知エラー"
 msgid "Uploaded file is not valid"
 msgstr "アップロードされたファイル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/upload/upload.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
 msgid "Uploading..."
 msgstr "アップロード中..."
 
@@ -1239,6 +1416,12 @@ msgstr "{{ device.enhancedName }}のステータス："
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 msgid "{{ device.enhancedName }} was disconnected"
 msgstr "{{ device.enhancedName }}への接続が切れました"
+
+#~ msgid "Error:"
+#~ msgstr "エラー："
+
+#~ msgid "Upload complete"
+#~ msgstr "アップロードが完了しました"
 
 #~ msgid "Browser"
 #~ msgstr "ブラウザ"

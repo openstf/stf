@@ -1,4 +1,3 @@
-
 module.exports = angular.module('control-panes', [
   require('stf/common-ui/nice-tabs').name,
   require('stf/device').name,
@@ -17,16 +16,25 @@ module.exports = angular.module('control-panes', [
   require('./info').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/control/:serial', {
-      template: require('./control-panes.jade'),
-      controller: 'ControlPanesCtrl'
-      // TODO: Move device inviting to resolve
-      //resolve: {
-      //  device
-      //  control
-      //}
-    })
+
+    $routeProvider
+      .when('/control', {
+        template: '<div ng-controller="ControlPanesNoDeviceController"></div>',
+        controller: 'ControlPanesNoDeviceController'
+      })
+      .when('/control/:serial', {
+        template: require('./control-panes.jade'),
+        controller: 'ControlPanesCtrl'
+        // TODO: Move device inviting to resolve
+        //resolve: {
+        //  device
+        //  control
+        //}
+      })
   }])
   .factory('ControlPanesService', require('./control-panes-service'))
   .controller('ControlPanesCtrl', require('./control-panes-controller'))
-  .controller('ControlPanesHotKeysCtrl', require('./control-panes-hotkeys-controller'))
+  .controller('ControlPanesNoDeviceController',
+  require('./control-panes-no-device-controller'))
+  .controller('ControlPanesHotKeysCtrl',
+  require('./control-panes-hotkeys-controller'))

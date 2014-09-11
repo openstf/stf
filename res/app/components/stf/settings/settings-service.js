@@ -42,6 +42,10 @@ module.exports = function SettingsServiceFactory(
     applyDelta(delta)
   }
 
+  SettingsService.get = function (key) {
+    return settings[key]
+  }
+
   SettingsService.set = function(key, value) {
     var delta = Object.create(null)
     delta[key] = value

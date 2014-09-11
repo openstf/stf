@@ -1,7 +1,7 @@
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
-    StorageService, FatalMessageService) {
+    StorageService, FatalMessageService, SettingsService) {
 
     var sharedTabs = [
       {
@@ -81,21 +81,28 @@ module.exports =
     // http://blog.brunoscopelliti.com/show-route-only-after-all-promises-are-resolved
     // http://odetocode.com/blogs/scott/archive/2014/05/20/using-resolve-in-angularjs-routes.aspx
 
-    DeviceService.get($routeParams.serial, $scope)
-      .then(function (device) {
-        return GroupService.invite(device)
-      })
-      .then(function (device) {
-        $scope.device = device
-        $scope.control = ControlService.create(device, device.channel)
-
-        return device
-      })
-      .catch(function () {
-        $timeout(function () {
-          $location.path('/')
+    function getDevice(serial) {
+      DeviceService.get(serial, $scope)
+        .then(function (device) {
+          return GroupService.invite(device)
         })
-      })
+        .then(function (device) {
+          $scope.device = device
+          $scope.control = ControlService.create(device, device.channel)
+
+          SettingsService.set('lastUsedDevice', serial)
+
+          return device
+        })
+        .catch(function () {
+          $timeout(function () {
+            $location.path('/')
+          })
+        })
+    }
+
+    getDevice($routeParams.serial)
+
 
     $scope.$watch('device.state', function (newValue, oldValue) {
       if (newValue !== oldValue) {

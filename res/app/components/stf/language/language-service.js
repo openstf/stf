@@ -21,7 +21,6 @@ module.exports = function LanguageServiceFactory(
     return isSupported(lang) ? lang : defaultValue
   }
 
-  LanguageService.settingKey = 'selectedLanguage'
   LanguageService.supportedLanguages = supportedLanguages
   LanguageService.defaultLanguage = 'en'
   LanguageService.detectedLanguage =
@@ -30,8 +29,8 @@ module.exports = function LanguageServiceFactory(
   SettingsService.sync(
     LanguageService
   , {
-      target: LanguageService.settingKey
-    , source: LanguageService.settingKey
+      target: 'selectedLanguage'
+    , source: 'selectedLanguage'
     , defaultValue: LanguageService.detectedLanguage
     }
   , updateLanguage

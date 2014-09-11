@@ -1,8 +1,13 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
   $location, ExternalUrlModalService) {
 
+  SettingsService.bind($scope, {
+    target: 'lastUsedDevice'
+  })
+
   SettingsService.bind($rootScope, {
-    target: 'platform', defaultValue: 'native'
+    target: 'platform',
+    defaultValue: 'native'
   })
 
   $scope.$on('$routeChangeSuccess', function () {

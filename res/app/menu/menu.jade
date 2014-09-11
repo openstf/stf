@@ -3,7 +3,7 @@
     a.stf-logo(href="/") STF 2
     ul.nav.stf-nav(nav-menu='current').unselectable
       li(ng-cloak)
-        a(ng-href='/#!/control', ng-click='$event.preventDefault()').cursor
+        a(ng-href='/#!/control', ng-show='lastUsedDevice')
           span.fa.fa-mobile
           | {{ !$root.basicMode ? "Control" : '' | translate }}
         a(ng-href='/#!/devices', accesskey='1')

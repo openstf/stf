@@ -3,11 +3,20 @@
   -moz-transition: 1s linear opacity;
   -o-transition: 1s linear opacity;
   transition: 1s linear opacity;
+
   opacity: 0;
 }
 
 .enter-fade.enter-fade-active {
   opacity: 1;
+}
+
+device-screen canvas {
+  transition: width 100ms linear, -webkit-transform 250ms ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: width, rotate(0deg);
+  transform: width, rotate(0deg);
 }
 
 device-screen {
@@ -26,14 +35,12 @@ device-screen {
 
 device-screen canvas {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  pointer-events: none; /* MUST HAVE or touch coordinates will be off */
-  transition: width 100ms linear, -webkit-transform 250ms ease-in-out;
-  -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transform: rotate(0deg);
-  transform: translate(-50%, -50%) rotate(0deg);
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none; /* MUST HAVE */
 }
 
 device-screen .finger {

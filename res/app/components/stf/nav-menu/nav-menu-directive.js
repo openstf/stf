@@ -11,20 +11,18 @@ module.exports = function ($location) {
       var routePattern
       var link
       var url
-      var currentLink
       var urlMap = []
-      var i
-
-      // TODO: links doesnt find 'a'
-      //console.log(links)
 
       if (!$location.$$html5) {
         routePattern = /\/#[^/]*/
       }
 
-      for (i = 0; i < links.length; i++) {
+      for (var i = 0; i < links.length; i++) {
         link = angular.element(links[i])
         url = link.attr('ng-href')
+
+        // Remove angular route expressions
+        url = url.replace(/\/{{.*}}/g, '')
 
         if ($location.$$html5) {
           urlMap.push({url: url, link: link})
@@ -34,21 +32,24 @@ module.exports = function ($location) {
       }
 
       function activateLink() {
+
         var location = $location.path()
         var pathLink = ''
 
-        for (i = 0; i < urlMap.length; ++i) {
+        for (var i = 0; i < urlMap.length; ++i) {
           if (location.search(urlMap[i].url) !== -1) {
             pathLink = urlMap[i].link
           }
         }
 
+        // Remove all active links
+        for (var j = 0; j < links.length; j++) {
+          link = angular.element(links[j])
+          link.removeClass(onClass)
+        }
+
         if (pathLink) {
-          if (currentLink) {
-            currentLink.removeClass(onClass);
-          }
-          currentLink = pathLink;
-          currentLink.addClass(onClass);
+          pathLink.addClass(onClass)
         }
       }
 

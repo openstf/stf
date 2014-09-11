@@ -3,7 +3,7 @@
     a.stf-logo(href="/") STF 2
     ul.nav.stf-nav(nav-menu='current').unselectable
       li(ng-cloak)
-        a(ng-href='/#!/control', ng-show='lastUsedDevice')
+        a(ng-href='/#!/control/{{lastUsedDevice}}', ng-show='lastUsedDevice')
           span.fa.fa-mobile
           | {{ !$root.basicMode ? "Control" : '' | translate }}
         a(ng-href='/#!/devices', accesskey='1')
@@ -12,7 +12,7 @@
         a(ng-href='/#!/settings')
           span.fa.fa-gears
           | {{ !$root.basicMode ? "Settings" : '' | translate }}
-    ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak).unselectable
+    ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
@@ -26,7 +26,7 @@
         a
           badge-icon(type='warning', message='There was an error')
 
-      li(ng-if='!$root.basicMode')
+      li(ng-show='!$root.basicMode')
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}

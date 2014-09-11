@@ -125,6 +125,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return va - vb
       }
     })
+  , browser: DeviceBrowserCell({
+      title: gettext('Browser')
+    , value: function(device) {
+        return device.browser || {apps: []}
+      }
+    })
   , serial: TextCell({
       title: gettext('Serial')
     , value: function(device) {
@@ -382,6 +388,51 @@ function LinkCell(options) {
     }
   , filter: function(item, filter) {
       return filterIgnoreCase(options.value(item), filter.query)
+    }
+  })
+}
+
+function DeviceBrowserCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , build: function() {
+      var td = document.createElement('td')
+        , span = document.createElement('span')
+      span.className = 'device-browser-list'
+      td.appendChild(span)
+      return td
+    }
+  , update: function(td, device) {
+      var span = td.firstChild
+        , browser = options.value(device)
+
+      for (var i = 0, l = browser.apps.length; i < l; ++i) {
+        var app = browser.apps[i]
+          , img = span.childNodes[i] || span.appendChild(document.createElement('img'))
+          , src = '/static/app/browsers/icon/24x24/' + (app.type || '_default') + '.png'
+
+        // Only change if necessary so that we don't trigger a download
+        if (img.getAttribute('src') !== src) {
+          img.setAttribute('src', src)
+        }
+
+        img.title = app.name + ' (' + app.developer + ')'
+      }
+
+      while (span.childNodes.length > browser.apps.length) {
+        span.removeChild(span.lastChild)
+      }
+
+      return td
+    }
+  , compare: function(a, b) {
+      return options.value(a).apps.length - options.value(b).apps.length
+    }
+  , filter: function(device, filter) {
+      return options.value(device).apps.some(function(app) {
+        return filterIgnoreCase(app.type, filter.query)
+      })
     }
   })
 }

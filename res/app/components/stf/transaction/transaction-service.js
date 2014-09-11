@@ -111,11 +111,6 @@ module.exports = function TransactionServiceFactory(socket, TransactionError) {
       , last = Infinity
       , unplaced = []
 
-    resolver.promise.finally(function() {
-      result.settled = true
-      result.progress = 100
-    })
-
     function readQueue() {
       var message
         , foundAny = false
@@ -178,7 +173,10 @@ module.exports = function TransactionServiceFactory(socket, TransactionError) {
     }
 
     this.result = result
-    this.promise = resolver.promise
+    this.promise = resolver.promise.finally(function() {
+      result.settled = true
+      result.progress = 100
+    })
   }
 
   function TransactionResult(source) {

@@ -26,6 +26,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       var rotation = 0
       var loading = false
       var scaler
+      var projectedSize
       var seq = 0
       var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
@@ -210,10 +211,13 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function maybeLoadScreen() {
         if (!loading && scope.$parent.showScreen && scope.device) {
+          projectedSize = scaler.projectedSize(
+            boundingWidth, boundingHeight, rotation
+          )
           loading = true
           imageRender.load(scope.device.display.url +
-            '?width=' + Math.ceil(boundingWidth * guestDisplayDensity) +
-            '&height=' + Math.ceil(boundingHeight * guestDisplayDensity) +
+            '?width=' + Math.ceil(projectedSize.width * guestDisplayDensity) +
+            '&height=' + Math.ceil(projectedSize.height * guestDisplayDensity) +
             '&time=' + Date.now()
           )
         }
@@ -247,12 +251,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
               imageRender.canvasWidth = cachedImageWidth
               imageRender.canvasHeight = cachedImageHeight
 
-              var size = scaler.projectedSize(
-                boundingWidth, boundingHeight, rotation
-              )
-
-              imageRender.canvasStyleWidth = size.width
-              imageRender.canvasStyleHeight = size.height
+              imageRender.canvasStyleWidth = projectedSize.width
+              imageRender.canvasStyleHeight = projectedSize.height
 
               // @todo Make sure that each position is able to rotate smoothly
               // to the next one. This current setup doesn't work if rotation

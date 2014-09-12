@@ -4,30 +4,51 @@ var _ = require('lodash')
 module.exports = function DeviceScreenDirective($document, ScalingService,
   VendorUtil, PageVisibilityService, BrowserInfo, $timeout) {
   return {
-    restrict: 'E',
-    template: require('./screen.jade'),
-    link: function (scope, element) {
+    restrict: 'E'
+  , template: require('./screen.jade')
+  , scope: {
+      control: '&'
+    , device: '&'
+    }
+  , link: function (scope, element) {
+      var device = scope.device()
+        , control = scope.control()
+
       var canvas = element.find('canvas')[0]
+        , input = element.find('input')
+
       var imageRender = new FastImageRender(canvas, {
         render: 'canvas',
         timeout: 3000
       })
       var guestDisplayDensity = setDisplayDensity(1.5)
       //var guestDisplayRotation = 0
-      var finger = element.find('span')
-      var input = element.find('input')
-      var boundingWidth = 0  // TODO: cache inside FastImageRender?
-      var boundingHeight = 0
-      var cachedBoundingWidth = 0
-      var cachedBoundingHeight = 0
-      var cachedImageWidth = 0
-      var cachedImageHeight = 0
-      var cachedRotation = 0
-      var rotation = 0
+
       var loading = false
-      var scaler
-      var seq = 0
       var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
+
+      var screen = scope.screen = {
+        scaler: ScalingService.coordinator(
+          device.display.width, device.display.height
+        )
+      , rotation: 0
+      , bounds: {
+          x: 0
+        , y: 0
+        , w: 0
+        , h: 0
+        }
+      }
+
+      var cachedScreen = {
+        rotation: 0
+      , bounds: {
+          x: 0
+        , y: 0
+        , w: 0
+        , h: 0
+        }
+      }
 
       // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
       var onPanelResizeThrottled = _.throttle(updateBounds, 16)
@@ -42,86 +63,18 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         return guestDisplayDensity
       }
 
-      function sendTouch(type, e) {
-        var x = e.offsetX || e.layerX || 0
-        var y = e.offsetY || e.layerY || 0
-        var r = scope.device.display.rotation
-
-        if (BrowserInfo.touch) {
-          if (e.touches && e.touches.length) {
-            x = e.touches[0].pageX
-            y = e.touches[0].pageY
-          } else if (e.changedTouches && e.changedTouches.length) {
-            x = e.changedTouches[0].pageX
-            y = e.changedTouches[0].pageY
-          }
-        }
-
-        var scaled = scaler.coords(boundingWidth, boundingHeight, x, y, r)
-
-        finger[0].style[cssTransform] =
-          'translate3d(' + x + 'px,' + y + 'px,0)'
-
-        scope.control[type](
-          seq++, scaled.xP, scaled.yP
-        )
-      }
-
-      function stopTouch() {
-        element.removeClass('fingering')
-        if (BrowserInfo.touch) {
-          element.unbind('touchmove', moveListener)
-          $document.unbind('touchend', upListener)
-          $document.unbind('touchleave', upListener)
-        } else {
-          element.unbind('mousemove', moveListener)
-          $document.unbind('mouseup', upListener)
-          $document.unbind('mouseleave', upListener)
-        }
-        seq = 0
-      }
-
       function updateBounds() {
-        boundingWidth = element[0].offsetWidth
-        boundingHeight = element[0].offsetHeight
+        screen.bounds.w = element[0].offsetWidth
+        screen.bounds.h = element[0].offsetHeight
 
         // TODO: element is an object HTMLUnknownElement in IE9
 
         // Developer error, let's try to reduce debug time
-        if (!boundingWidth || !boundingHeight) {
+        if (!screen.bounds.w || !screen.bounds.h) {
           throw new Error(
             'Unable to update display size; container must have dimensions'
           )
         }
-      }
-
-      function downListener(e) {
-        e.preventDefault()
-        if (!BrowserInfo.touch) {
-          input[0].focus()
-          element.addClass('fingering')
-        }
-
-        sendTouch('touchDown', e)
-
-        if (BrowserInfo.touch) {
-          element.bind('touchmove', moveListener)
-          $document.bind('touchend', upListener)
-          $document.bind('touchleave', upListener)
-        } else {
-          element.bind('mousemove', moveListener)
-          $document.bind('mouseup', upListener)
-          $document.bind('mouseleave', upListener)
-        }
-      }
-
-      function moveListener(e) {
-        sendTouch('touchMove', e)
-      }
-
-      function upListener(e) {
-        sendTouch('touchUp', e)
-        stopTouch()
       }
 
       function isChangeCharsetKey(e) {
@@ -162,7 +115,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
         if (isChangeCharsetKey(e)) {
           specialKey = true
-          scope.control.keyPress('switch_charset')
+          control.keyPress('switch_charset')
         }
 
         if (specialKey) {
@@ -173,58 +126,58 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function keydownListener(e) {
-        scope.control.keyDown(e.keyCode)
+        control.keyDown(e.keyCode)
       }
 
       function keyupListener(e) {
         if (!keyupSpecialKeys(e)) {
-          scope.control.keyUp(e.keyCode)
+          control.keyUp(e.keyCode)
         }
       }
 
       function keypressListener(e) {
         e.preventDefault() // no need to change value
-        scope.control.type(String.fromCharCode(e.charCode))
+        control.type(String.fromCharCode(e.charCode))
       }
 
       function pasteListener(e) {
         e.preventDefault() // no need to change value
-        scope.control.paste(e.clipboardData.getData('text/plain'))
+        control.paste(e.clipboardData.getData('text/plain'))
       }
 
       function copyListener(e) {
-        scope.control.getClipboardContent()
+        control.getClipboardContent()
         // @TODO: OK, this basically copies last clipboard content
-        if (scope.control.clipboardContent) {
-          e.clipboardData.setData("text/plain", scope.control.clipboardContent)
+        if (control.clipboardContent) {
+          e.clipboardData.setData("text/plain", control.clipboardContent)
         }
         e.preventDefault()
       }
 
       scope.retryLoadingScreen = function () {
         if (scope.displayError === 'secure') {
-          scope.control.home()
+          control.home()
         }
         $timeout(maybeLoadScreen, 3000)
       }
 
       function maybeLoadScreen() {
-        if (!loading && scope.$parent.showScreen && scope.device) {
+        if (!loading && scope.$parent.showScreen && device) {
           var w, h
-          switch (rotation) {
+          switch (screen.rotation) {
           case 0:
           case 180:
-            w = boundingWidth
-            h = boundingHeight
+            w = screen.bounds.w
+            h = screen.bounds.h
             break
           case 90:
           case 270:
-            w = boundingHeight
-            h = boundingWidth
+            w = screen.bounds.h
+            h = screen.bounds.w
             break
           }
           loading = true
-          imageRender.load(scope.device.display.url +
+          imageRender.load(device.display.url +
             '?width=' + Math.ceil(w * guestDisplayDensity) +
             '&height=' + Math.ceil(h * guestDisplayDensity) +
             '&time=' + Date.now()
@@ -233,35 +186,37 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function on() {
-        scaler = ScalingService.coordinator(
-          scope.device.display.width, scope.device.display.height
-        )
-
         imageRender.onLoad = function (image) {
+          var cachedImageWidth = 0
+            , cachedImageHeight = 0
+
           loading = false
 
           if (scope.$parent.showScreen) {
+            screen.rotation = device.display.rotation
 
             // Check to set the size only if updated
-            if (cachedBoundingWidth !== boundingWidth ||
-              cachedBoundingHeight !== boundingHeight ||
+            if (cachedScreen.bounds.w !== screen.bounds.w ||
+              cachedScreen.bounds.h !== screen.bounds.h ||
               cachedImageWidth !== image.width ||
               cachedImageHeight !== image.height ||
-              cachedRotation !== rotation) {
+              cachedScreen.rotation !== screen.rotation) {
 
-              cachedBoundingWidth = boundingWidth
-              cachedBoundingHeight = boundingHeight
+              cachedScreen.bounds.w = screen.bounds.w
+              cachedScreen.bounds.h = screen.bounds.h
 
               cachedImageWidth = image.width
               cachedImageHeight = image.height
 
-              cachedRotation = rotation
+              cachedScreen.rotation = screen.rotation
 
               imageRender.canvasWidth = cachedImageWidth
               imageRender.canvasHeight = cachedImageHeight
 
-              var projectedSize = scaler.projectedSize(
-                boundingWidth, boundingHeight, rotation
+              var projectedSize = screen.scaler.projectedSize(
+                screen.bounds.w
+              , screen.bounds.h
+              , screen.rotation
               )
 
               imageRender.canvasStyleWidth = projectedSize.width
@@ -270,7 +225,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
               // @todo Make sure that each position is able to rotate smoothly
               // to the next one. This current setup doesn't work if rotation
               // changes from 180 to 270 (it will do a reverse rotation).
-              switch (rotation) {
+              switch (screen.rotation) {
                 case 0:
                   canvas.style[cssTransform] = 'translate(-50%, -50%) rotate(0deg)'
                   break
@@ -321,30 +276,17 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         input.bind('keypress', keypressListener)
         input.bind('paste', pasteListener)
         input.bind('copy', copyListener)
-
-        if (BrowserInfo.touch) {
-          element.bind('touchstart', downListener)
-        } else {
-          element.bind('mousedown', downListener)
-        }
-
       }
 
       function off() {
         imageRender.onLoad = imageRender.onError = null
         loading = false
-        stopTouch()
+
         input.unbind('keydown', keydownListener)
         input.unbind('keyup', keyupListener)
         input.unbind('keypress', keypressListener)
         input.unbind('paste', pasteListener)
         input.unbind('copy', copyListener)
-
-        if (BrowserInfo.touch) {
-          element.unbind('touchstart', downListener)
-        } else {
-          element.unbind('mousedown', downListener)
-        }
       }
 
       scope.$watch('$parent.showScreen', function (val) {
@@ -357,7 +299,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       })
 
       function checkEnabled() {
-        var using = scope.device && scope.device.using
+        var using = device && device.using
         if (using && !PageVisibilityService.hidden) {
           on()
         }
@@ -369,22 +311,276 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       scope.$watch('device.using', checkEnabled)
       scope.$on('visibilitychange', checkEnabled)
 
-      scope.$watch('device.display.rotation', function (r) {
-        rotation = r || 0
-      })
-
       scope.$on('guest-portrait', function () {
-        scope.control.rotate(0)
+        control.rotate(0)
         updateBounds()
       })
 
       scope.$on('guest-landscape', function () {
-        scope.control.rotate(90)
+        control.rotate(90)
         setDisplayDensity(2)
         updateBounds()
       })
 
       scope.$on('$destroy', off)
+
+      // @todo Move everything below this line elsewhere.
+      var slots = []
+        , slotted = Object.create(null)
+        , fingers = []
+        , seq = -1
+        , cycle = 100
+
+      function nextSeq() {
+        return ++seq >= cycle ? (seq = 0) : seq
+      }
+
+      function createSlots() {
+        for (var i = 9; i >= 0; --i) {
+          slots.push(i)
+          fingers.unshift(createFinger(i))
+        }
+      }
+
+      function activateFinger(index, x, y, pressure) {
+        var scale = 0.5 + pressure
+        fingers[index].classList.add('active')
+        fingers[index].style[cssTransform] =
+          'translate3d(' + x + 'px,' + y + 'px,0) ' +
+          'scale(' + scale + ',' + scale + ')'
+      }
+
+      function deactivateFinger(index) {
+        fingers[index].classList.remove('active')
+      }
+
+      function deactivateFingers() {
+        for (var i = 0, l = fingers.length; i < l; ++i) {
+          fingers[i].classList.remove('active')
+        }
+      }
+
+      function createFinger(index) {
+        var el = document.createElement('span')
+        el.className = 'finger finger-' + index
+        return el
+      }
+
+      function calculateBounds() {
+        var el = element[0]
+
+        screen.bounds.w = el.offsetWidth
+        screen.bounds.h = el.offsetHeight
+        screen.bounds.x = 0
+        screen.bounds.y = 0
+
+        while (el.offsetParent) {
+          screen.bounds.x += el.offsetLeft
+          screen.bounds.y += el.offsetTop
+          el = el.offsetParent
+        }
+      }
+
+      function mouseDownListener(e) {
+        e.preventDefault()
+
+        calculateBounds()
+        startMousing()
+
+        var x = e.pageX - screen.bounds.x
+          , y = e.pageY - screen.bounds.y
+          , pressure = 0.5
+          , scaled = screen.scaler.coords(
+              screen.bounds.w
+            , screen.bounds.h
+            , x
+            , y
+            , screen.rotation
+            )
+
+        control.touchDown(nextSeq(), 0, scaled.xP, scaled.yP, pressure)
+        control.touchCommit(nextSeq())
+
+        activateFinger(0, x, y, pressure)
+
+        element.bind('mousemove', mouseMoveListener)
+        $document.bind('mouseup', mouseUpListener)
+        $document.bind('mouseleave', mouseUpListener)
+      }
+
+      function mouseMoveListener(e) {
+        e.preventDefault()
+
+        var x = e.pageX - screen.bounds.x
+          , y = e.pageY - screen.bounds.y
+          , pressure = 0.5
+          , scaled = screen.scaler.coords(
+              screen.bounds.w
+            , screen.bounds.h
+            , x
+            , y
+            , screen.rotation
+            )
+
+        control.touchMove(nextSeq(), 0, scaled.xP, scaled.yP, pressure)
+        control.touchCommit(nextSeq())
+
+        activateFinger(0, x, y, pressure)
+      }
+
+      function mouseUpListener(e) {
+        e.preventDefault()
+
+        control.touchUp(nextSeq(), 0)
+        control.touchCommit(nextSeq())
+
+        deactivateFinger(0)
+
+        stopMousing()
+      }
+
+      function startMousing() {
+        control.gestureStart(nextSeq())
+      }
+
+      function stopMousing() {
+        element.unbind('mousemove', mouseMoveListener)
+        $document.unbind('mouseup', mouseUpListener)
+        $document.unbind('mouseleave', mouseUpListener)
+        deactivateFingers()
+        control.gestureStop(nextSeq())
+      }
+
+      function touchStartListener(e) {
+        e.preventDefault()
+
+        calculateBounds()
+
+        if (e.touches.length === e.changedTouches.length) {
+          startTouching()
+        }
+
+        var currentTouches = Object.create(null)
+        var i, l
+
+        for (i = 0, l = e.touches.length; i < l; ++i) {
+          currentTouches[e.touches[i].identifier] = 1;
+        }
+
+        function maybeLostTouchEnd(id) {
+          return !(id in currentTouches)
+        }
+
+        // We might have lost a touchend event due to various edge cases
+        // (literally) such as dragging from the bottom of the screen so that
+        // the control center appears. If so, let's ask for a reset.
+        if (Object.keys(slotted).some(maybeLostTouchEnd)) {
+          Object.keys(slotted).forEach(function(id) {
+            slots.push(slotted[id])
+            delete slotted[id]
+          })
+          slots.sort().reverse()
+          control.touchReset(nextSeq())
+          deactivateFingers()
+        }
+
+        if (!slots.length) {
+          // This should never happen but who knows...
+          throw new Error('Ran out of multitouch slots')
+        }
+
+        for (i = 0, l = e.changedTouches.length; i < l; ++i) {
+          var touch = e.changedTouches[i]
+            , slot = slots.pop()
+            , x = touch.pageX - screen.bounds.x
+            , y = touch.pageY - screen.bounds.y
+            , pressure = touch.force || 0.5
+            , scaled = screen.scaler.coords(
+                screen.bounds.w
+              , screen.bounds.h
+              , x
+              , y
+              , screen.rotation
+              )
+
+          slotted[touch.identifier] = slot
+          control.touchDown(nextSeq(), slot, scaled.xP, scaled.yP, pressure)
+          activateFinger(slot, x, y, pressure)
+        }
+
+        element.bind('touchmove', touchMoveListener)
+        $document.bind('touchend', touchEndListener)
+        $document.bind('touchleave', touchEndListener)
+
+        control.touchCommit(nextSeq())
+      }
+
+      function touchMoveListener(e) {
+        e.preventDefault()
+
+        for (var i = 0, l = e.changedTouches.length; i < l; ++i) {
+          var touch = e.changedTouches[i]
+            , slot = slotted[touch.identifier]
+            , x = touch.pageX - screen.bounds.x
+            , y = touch.pageY - screen.bounds.y
+            , pressure = touch.force || 0.5
+            , scaled = screen.scaler.coords(
+                screen.bounds.w
+              , screen.bounds.h
+              , x
+              , y
+              , screen.rotation
+              )
+
+          control.touchMove(nextSeq(), slot, scaled.xP, scaled.yP, pressure)
+          activateFinger(slot, x, y, pressure)
+        }
+
+        control.touchCommit(nextSeq())
+      }
+
+      function touchEndListener(e) {
+        var foundAny = false
+
+        for (var i = 0, l = e.changedTouches.length; i < l; ++i) {
+          var touch = e.changedTouches[i]
+            , slot = slotted[touch.identifier]
+          if (slot === void 0) {
+            // We've already disposed of the contact. We may have gotten a
+            // touchend event for the same contact twice.
+            continue
+          }
+          delete slotted[touch.identifier]
+          slots.push(slot)
+          control.touchUp(nextSeq(), slot)
+          deactivateFinger(slot)
+          foundAny = true
+        }
+
+        if (foundAny) {
+          control.touchCommit(nextSeq())
+          if (!e.touches.length) {
+            stopTouching()
+          }
+        }
+      }
+
+      function startTouching() {
+        control.gestureStart(nextSeq())
+      }
+
+      function stopTouching() {
+        element.unbind('touchmove', touchMoveListener)
+        $document.unbind('touchend', touchEndListener)
+        $document.unbind('touchleave', touchEndListener)
+        deactivateFingers()
+        control.gestureStop(nextSeq())
+      }
+
+      element.on('touchstart', touchStartListener)
+      element.on('mousedown', mouseDownListener)
+
+      createSlots()
     }
   }
 }

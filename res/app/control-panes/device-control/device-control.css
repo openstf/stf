@@ -11,6 +11,9 @@
 }
 
 device-screen {
+  width: 100%;
+  height: 100%;
+  background: gray;
   position: relative;
   display: block;
   overflow: hidden;
@@ -22,6 +25,11 @@ device-screen {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+device-screen .screen-touch {
+  width: 100%;
+  height: 100%;
 }
 
 device-screen canvas {
@@ -49,7 +57,7 @@ device-screen .finger {
   display: none;
 }
 
-device-screen.fingering .finger {
+device-screen .finger.active {
   display: block;
 }
 

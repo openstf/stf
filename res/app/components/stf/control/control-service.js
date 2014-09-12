@@ -21,16 +21,6 @@ module.exports = function ControlServiceFactory(
       return tx.promise
     }
 
-    function touchSender(type) {
-      return function(seq, x, y) {
-        sendOneWay(type, {
-          seq: seq
-        , x: x
-        , y: y
-        })
-      }
-    }
-
     function keySender(type, fixedKey) {
       return function(key) {
         if (typeof key === 'string') {
@@ -49,10 +39,56 @@ module.exports = function ControlServiceFactory(
       }
     }
 
-    this.touchDown = touchSender('input.touchDown')
-    this.touchMove = touchSender('input.touchMove')
-    this.touchUp   = touchSender('input.touchUp')
-    this.tap       = touchSender('input.tap')
+    this.gestureStart = function(seq) {
+      sendOneWay('input.gestureStart', {
+        seq: seq
+      })
+    }
+
+    this.gestureStop = function(seq) {
+      sendOneWay('input.gestureStop', {
+        seq: seq
+      })
+    }
+
+    this.touchDown = function(seq, contact, x, y, pressure) {
+      sendOneWay('input.touchDown', {
+        seq: seq
+      , contact: contact
+      , x: x
+      , y: y
+      , pressure: pressure
+      })
+    }
+
+    this.touchMove = function(seq, contact, x, y, pressure) {
+      sendOneWay('input.touchMove', {
+        seq: seq
+      , contact: contact
+      , x: x
+      , y: y
+      , pressure: pressure
+      })
+    }
+
+    this.touchUp   = function(seq, contact) {
+      sendOneWay('input.touchUp', {
+        seq: seq
+      , contact: contact
+      })
+    }
+
+    this.touchCommit   = function(seq) {
+      sendOneWay('input.touchCommit', {
+        seq: seq
+      })
+    }
+
+    this.touchReset   = function(seq) {
+      sendOneWay('input.touchReset', {
+        seq: seq
+      })
+    }
 
     this.keyDown   = keySender('input.keyDown')
     this.keyUp     = keySender('input.keyUp')

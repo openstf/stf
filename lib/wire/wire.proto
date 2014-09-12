@@ -25,10 +25,13 @@ enum MessageType {
   ProbeMessage               = 17;
   ShellCommandMessage        = 18;
   ShellKeepAliveMessage      = 19;
-  TapMessage                 = 20;
   TouchDownMessage           = 21;
   TouchMoveMessage           = 22;
   TouchUpMessage             = 23;
+  TouchCommitMessage         = 65;
+  TouchResetMessage          = 66;
+  GestureStartMessage        = 67;
+  GestureStopMessage         = 68;
   TransactionDoneMessage     = 24;
   TransactionProgressMessage = 25;
   TypeMessage                = 26;
@@ -249,25 +252,39 @@ message PhysicalIdentifyMessage {
 
 message TouchDownMessage {
   required uint32 seq = 1;
-  required float x = 2;
-  required float y = 3;
+  required uint32 contact = 2;
+  required float x = 3;
+  required float y = 4;
+  optional float pressure = 5;
 }
 
 message TouchMoveMessage {
   required uint32 seq = 1;
-  required float x = 2;
-  required float y = 3;
+  required uint32 contact = 2;
+  required float x = 3;
+  required float y = 4;
+  optional float pressure = 5;
 }
 
 message TouchUpMessage {
   required uint32 seq = 1;
-  required float x = 2;
-  required float y = 3;
+  required uint32 contact = 2;
 }
 
-message TapMessage {
-  required float x = 1;
-  required float y = 2;
+message TouchCommitMessage {
+  required uint32 seq = 1;
+}
+
+message TouchResetMessage {
+  required uint32 seq = 1;
+}
+
+message GestureStartMessage {
+  required uint32 seq = 1;
+}
+
+message GestureStopMessage {
+  required uint32 seq = 1;
 }
 
 message TypeMessage {

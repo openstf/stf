@@ -336,9 +336,14 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function createSlots() {
+        // The reverse order is important because slots and fingers are in
+        // opposite sort order. Anyway don't change anything here unless
+        // you understand what it does and why.
         for (var i = 9; i >= 0; --i) {
+          var finger = createFinger(i)
+          element.append(finger)
           slots.push(i)
-          fingers.unshift(createFinger(i))
+          fingers.unshift(finger)
         }
       }
 

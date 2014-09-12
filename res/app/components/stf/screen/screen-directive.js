@@ -50,6 +50,9 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         }
       }
 
+      var cachedImageWidth = 0
+        , cachedImageHeight = 0
+
       // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
       var onPanelResizeThrottled = _.throttle(updateBounds, 16)
       scope.$on('fa-pane-resize', onPanelResizeThrottled)
@@ -187,9 +190,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function on() {
         imageRender.onLoad = function (image) {
-          var cachedImageWidth = 0
-            , cachedImageHeight = 0
-
           loading = false
 
           if (scope.$parent.showScreen) {

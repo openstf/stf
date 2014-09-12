@@ -227,16 +227,16 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
               // changes from 180 to 270 (it will do a reverse rotation).
               switch (screen.rotation) {
                 case 0:
-                  canvas.style[cssTransform] = 'translate(-50%, -50%) rotate(0deg)'
+                  canvas.style[cssTransform] = 'rotate(0deg)'
                   break
                 case 90:
-                  canvas.style[cssTransform] = 'translate(-50%, -50%) rotate(-90deg)'
+                  canvas.style[cssTransform] = 'rotate(-90deg)'
                   break
                 case 180:
-                  canvas.style[cssTransform] = 'translate(-50%, -50%) rotate(-180deg)'
+                  canvas.style[cssTransform] = 'rotate(-180deg)'
                   break
                 case 270:
-                  canvas.style[cssTransform] = 'translate(-50%, -50%) rotate(90deg)'
+                  canvas.style[cssTransform] = 'rotate(90deg)'
                   break
               }
             }

@@ -11,3 +11,4 @@ module.exports = angular.module('device-control', [
     )
   }])
   .controller('DeviceControlCtrl', require('./device-control-controller'))
+  .directive('deviceControlKey', require('./device-control-key-directive'))

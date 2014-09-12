@@ -26,7 +26,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       var rotation = 0
       var loading = false
       var scaler
-      var projectedSize
       var seq = 0
       var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
@@ -211,13 +210,23 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function maybeLoadScreen() {
         if (!loading && scope.$parent.showScreen && scope.device) {
-          projectedSize = scaler.projectedSize(
-            boundingWidth, boundingHeight, rotation
-          )
+          var w, h
+          switch (rotation) {
+          case 0:
+          case 180:
+            w = boundingWidth
+            h = boundingHeight
+            break
+          case 90:
+          case 270:
+            w = boundingHeight
+            h = boundingWidth
+            break
+          }
           loading = true
           imageRender.load(scope.device.display.url +
-            '?width=' + Math.ceil(projectedSize.width * guestDisplayDensity) +
-            '&height=' + Math.ceil(projectedSize.height * guestDisplayDensity) +
+            '?width=' + Math.ceil(w * guestDisplayDensity) +
+            '&height=' + Math.ceil(h * guestDisplayDensity) +
             '&time=' + Date.now()
           )
         }
@@ -250,6 +259,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
               imageRender.canvasWidth = cachedImageWidth
               imageRender.canvasHeight = cachedImageHeight
+
+              var projectedSize = scaler.projectedSize(
+                boundingWidth, boundingHeight, rotation
+              )
 
               imageRender.canvasStyleWidth = projectedSize.width
               imageRender.canvasStyleHeight = projectedSize.height

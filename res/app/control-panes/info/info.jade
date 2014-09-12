@@ -17,7 +17,7 @@
             tr
               td(translate) Place
               td {{device.provider.name}}
-            tr
+            tr(ng-show='device.name && device.image')
               td
               td
                 button(ng-click='openDevicePhoto(device)').btn.btn-xs.btn-primary-outline
@@ -61,6 +61,9 @@
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
           tbody
+            tr
+              td(translate) Size
+              td {{device.display.inches}}''
             tr
               td(translate) Density
               td {{device.display.density | displayDensity}}

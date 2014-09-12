@@ -68,9 +68,11 @@ module.exports = function DeviceListDetailsDirective(
           var id = e.target.parentNode.parentNode.parentNode.id
           var device = mapping[id]
 
-          var title = device.name
-          var enhancedPhoto800 = '/static/app/devices/photo/x800/' + device.image
-          LightboxImageService.open(title, enhancedPhoto800)
+          if (device.name && device.image) {
+            var title = device.name
+            var enhancedPhoto800 = '/static/app/devices/photo/x800/' + device.image
+            LightboxImageService.open(title, enhancedPhoto800)
+          }
         }
       }
 

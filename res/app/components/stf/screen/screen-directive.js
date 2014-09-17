@@ -445,6 +445,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function startMousing() {
+        input[0].focus()
         control.gestureStart(nextSeq())
       }
 

@@ -129,6 +129,11 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function keydownListener(e) {
+        // Prevent tab from switching focus to the next element, we only want
+        // that to happen on the device side.
+        if (e.keyCode === 9) {
+          e.preventDefault()
+        }
         control.keyDown(e.keyCode)
       }
 

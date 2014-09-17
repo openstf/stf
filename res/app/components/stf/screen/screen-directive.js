@@ -335,6 +335,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         , fingers = []
         , seq = -1
         , cycle = 100
+        , fakePinch = false
 
       function nextSeq() {
         return ++seq >= cycle ? (seq = 0) : seq
@@ -394,6 +395,8 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       function mouseDownListener(e) {
         e.preventDefault()
 
+        fakePinch = e.altKey
+
         calculateBounds()
         startMousing()
 
@@ -409,9 +412,20 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
             )
 
         control.touchDown(nextSeq(), 0, scaled.xP, scaled.yP, pressure)
+
+        if (fakePinch) {
+          control.touchDown(nextSeq(), 1, 1 - scaled.xP, 1 - scaled.yP,
+            pressure)
+        }
+
         control.touchCommit(nextSeq())
 
         activateFinger(0, x, y, pressure)
+
+        if (fakePinch) {
+          activateFinger(1, -e.pageX + screen.bounds.x + screen.bounds.w,
+            -e.pageY + screen.bounds.y + screen.bounds.h, pressure)
+        }
 
         element.bind('mousemove', mouseMoveListener)
         $document.bind('mouseup', mouseUpListener)
@@ -420,6 +434,11 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function mouseMoveListener(e) {
         e.preventDefault()
+
+        var addGhostFinger = !fakePinch && e.altKey
+        var deleteGhostFinger = fakePinch && !e.altKey
+
+        fakePinch = e.altKey
 
         var x = e.pageX - screen.bounds.x
           , y = e.pageY - screen.bounds.y
@@ -433,18 +452,46 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
             )
 
         control.touchMove(nextSeq(), 0, scaled.xP, scaled.yP, pressure)
+
+        if (addGhostFinger) {
+          control.touchDown(nextSeq(), 1, 1 - scaled.xP, 1 - scaled.yP, pressure)
+        }
+        else if (deleteGhostFinger) {
+          control.touchUp(nextSeq(), 1)
+        }
+        else if (fakePinch) {
+          control.touchMove(nextSeq(), 1, 1 - scaled.xP, 1 - scaled.yP, pressure)
+        }
+
         control.touchCommit(nextSeq())
 
         activateFinger(0, x, y, pressure)
+
+        if (deleteGhostFinger) {
+          deactivateFinger(1)
+        }
+        else if (fakePinch) {
+          activateFinger(1, -e.pageX + screen.bounds.x + screen.bounds.w,
+            -e.pageY + screen.bounds.y + screen.bounds.h, pressure)
+        }
       }
 
       function mouseUpListener(e) {
         e.preventDefault()
 
         control.touchUp(nextSeq(), 0)
+
+        if (fakePinch) {
+          control.touchUp(nextSeq(), 1)
+        }
+
         control.touchCommit(nextSeq())
 
         deactivateFinger(0)
+
+        if (fakePinch) {
+          deactivateFinger(1)
+        }
 
         stopMousing()
       }

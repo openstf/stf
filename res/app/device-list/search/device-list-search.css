@@ -1,0 +1,13 @@
+.stf-device-list .device-search {
+  width: 20em;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.stf-device-list .filter-out {
+  display: none;
+}
+
+.stf-device-list .device-search:focus {
+  /*width: 25em;*/
+}

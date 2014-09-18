@@ -1,0 +1,15 @@
+.stf-device-list .stf-device-details-customize {
+  white-space: nowrap;
+  padding: 10px;
+  padding-bottom: 0;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  max-width: 800px;
+}
+
+.stf-device-list .stf-device-details-customize .radio,
+.stf-device-list .stf-device-details-customize .checkbox {
+  margin: 0;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+.device-list-details-content table {
+  white-space: nowrap;
+}
+
+.device-list-details-content .device-list-product,
+.device-list-details-content .device-list-carrier {
+  white-space: normal;
+}
+
+.device-list-details-content .progress {
+  margin-bottom: 0 !important;
+  height: 17px !important;
+}

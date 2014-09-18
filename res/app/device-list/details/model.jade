@@ -1,6 +1,0 @@
-.device-list-product
-  span.device-small-image
-    img(ng-src='{{device.enhancedImage24}}')
-
-    span(ng-if='device.state !== "using"') {{device.enhancedModel}}
-    a(ng-if='device.state === "using"', ng-href='/#!/control/{{ device.serial }}') {{device.enhancedModel}}

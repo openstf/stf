@@ -1,13 +1,18 @@
 require('./device-list.css')
 
-require('checklist-model')
-
 module.exports = angular.module('device-list', [
   require('stf/device').name,
   require('stf/user/group').name,
+  require('stf/control').name,
   require('stf/common-ui').name,
-  require('stf/admin-mode').name,
-  'checklist-model'
+  require('stf/settings').name,
+  require('./column').name,
+  require('./details').name,
+  require('./empty').name,
+  require('./icons').name,
+  require('./stats').name,
+  require('./customize').name,
+  require('./search').name
 ])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -17,8 +22,3 @@ module.exports = angular.module('device-list', [
       })
   }])
   .controller('DeviceListCtrl', require('./device-list-controller'))
-  .service('DeviceColumnService', require('./device-column-service'))
-  .directive('deviceListDetails', require('./device-list-details-directive'))
-  .directive('deviceListIcons', require('./device-list-icons-directive'))
-  .directive('deviceListStats', require('./device-list-stats-directive'))
-  .directive('deviceListEmpty', require('./device-list-empty-directive'))

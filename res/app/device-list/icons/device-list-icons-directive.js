@@ -1,4 +1,4 @@
-var patchArray = require('./util/patch-array')
+var patchArray = require('./../util/patch-array')
 
 module.exports = function DeviceListDetailsDirective(
   $filter

@@ -10,10 +10,6 @@
   right: 20px;
 }
 
-.stf-device-list .clear-filtering-buttons {
-  margin-top: 0;
-}
-
 .stf-device-list .device-not-usable {
   /*background: rgb(245, 245, 245);*/
   opacity: 0.8;
@@ -188,7 +184,7 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
   opacity: 1;
 }
 
-.device-list-details-content .stf-device-details-customize {
+.stf-device-list .stf-device-details-customize {
   white-space: nowrap;
   padding: 10px;
   padding-bottom: 0;
@@ -198,13 +194,10 @@ ul.devices-icon-view .device-is-busy .device-photo-small img {
   max-width: 800px;
 }
 
-.device-list-details-content .stf-device-details-customize .radio, .checkbox {
+.stf-device-list .stf-device-details-customize .radio,
+.stf-device-list .stf-device-details-customize .checkbox {
   margin: 0;
   margin-bottom: 10px;
-}
-
-.stf-device-list .stf-device-list-tabs {
-
 }
 
 .stf-device-list .device-product-name-unusable {

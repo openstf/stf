@@ -7,24 +7,43 @@
     .col-md-12
       .widget-container.fluid-height.stf-device-list-tabs
         .widget-content.padded
+
+          .filtering-buttons
+            datalist(id='searchFields')
+              select(name='searchFields')
+                option(ng-repeat='column in columns', ng-value='column.name + ": "',
+                ng-bind='columnDefinitions[column.name].title | translate')
+            input(type='search', results='5', autosave='deviceFilter'
+              name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
+              ng-model-options='{debounce: 150}'
+              autocorrect='off', autocapitalize='off', spellcheck='false',
+              list='searchFields', multiple, autofocusX
+              text-focus-selectX, accesskey='4').form-control.input-sm.device-search.pull-right
+
+            span.pull-right(ng-if='activeTabs.details')
+              .btn-group(dropdown).pull-right
+                button.btn.btn-sm.btn-primary-outline.dropdown-toggle
+                  i.fa.fa-columns
+                  span {{"Customize"|translate}}
+
+                ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.stf-device-details-customize
+                  li(ng-repeat='column in columns track by column.name',
+                  ng-hide='!adminMode && columnDefinitions[column.name].admin',
+                  ng-click='$event.stopPropagation()')
+                    label.checkbox.pointer
+                      input(type='checkbox', ng-model='column.selected')
+                      span(ng-bind='columnDefinitions[column.name].title | translate')
+                  li
+                    button(ng-click='reset()').btn.btn-xs.btn-danger-outline
+                      i.fa.fa-trash-o
+                      span(ng-bind='"Reset"|translate')
+
           tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
             tab(active='activeTabs.icons')
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
               div.device-list-devices-content(ng-if='activeTabs.icons')
-                .filtering-buttons
-                  datalist(id='searchFields')
-                    select(name='searchFields')
-                      option(ng-repeat='column in columns', ng-value='column.name + ": "',
-                      ng-bind='columnDefinitions[column.name].title | translate')
-                  input(type='search', results='5', autosave='deviceFilter'
-                    name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
-                    ng-model-options='{debounce: 150}'
-                    autocorrect='off', autocapitalize='off', spellcheck='false',
-                    list='searchFields', multiple,
-                    text-focus-select, accesskey='4').form-control.input-sm.device-search.pull-right
-                .clear-filtering-buttons
 
                 device-list-icons(tracker='tracker', columns='columns', sort='sort', filter='filter')
 
@@ -33,35 +52,5 @@
                 i.fa.fa-list
                 span(translate) Details
               div.device-list-details-content(ng-if='activeTabs.details')
-                .filtering-buttons
-                  datalist(id='searchFields')
-                    select(name='searchFields')
-                      option(ng-repeat='column in columns', ng-value='column.name + ": "',
-                        ng-bind='columnDefinitions[column.name].title | translate')
-                  input(type='search', results='5', autosave='deviceFilter'
-                    name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
-                    ng-model-options='{debounce: 150}'
-                    autocorrect='off', autocapitalize='off', spellcheck='false'
-                    list='searchFields', multiple,
-                    text-focus-select, accesskey='4').form-control.input-sm.device-search.pull-right
-
-                  span.pull-right
-                    .btn-group(dropdown).pull-right
-                      button.btn.btn-sm.btn-primary-outline.dropdown-toggle
-                        i.fa.fa-columns
-                        span {{"Customize"|translate}}
-
-                      ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.stf-device-details-customize
-                        li(ng-repeat='column in columns track by column.name',
-                          ng-hide='!adminMode && columnDefinitions[column.name].admin',
-                          ng-click='$event.stopPropagation()')
-                          label.checkbox.pointer
-                            input(type='checkbox', ng-model='column.selected')
-                            span(ng-bind='columnDefinitions[column.name].title | translate')
-                        li
-                          button(ng-click='reset()').btn.btn-xs.btn-danger-outline
-                            i.fa.fa-trash-o
-                            span(ng-bind='"Reset"|translate')
-
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort', filter='filter').selectable

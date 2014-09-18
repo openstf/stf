@@ -1,15 +1,81 @@
-.stf-stats-container .fa {
+/* TODO: REFORMAT device-stats */
+
+.device-stats {
+  min-height: 120px;
+  height: 120px;
+  text-align: center;
+}
+
+.device-stats [class^="col-"],
+.device-stats [class*="col-"] {
+  border-right: 1px solid #e6e6e6;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.device-stats [class^="col-"]:last-child,
+.device-stats [class*="col-"]:last-child {
+  border: 0;
+}
+
+.device-stats [class^="col-"] .number,
+.device-stats [class*="col-"] .number {
+  font-size: 3.8em;
+  font-weight: 100;
+  color: #007aff;
+  line-height: 1.4em;
+  padding-top: 8px;
+  letter-spacing: -0.06em;
+}
+
+.device-stats [class^="col-"] .number .icon,
+.device-stats [class*="col-"] .number .icon {
+  width: 50px;
+  height: 38px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px 12px 0 0;
+}
+
+.device-stats [class^="col-"] .text,
+.device-stats [class*="col-"] .text {
+  font-weight: 300;
+  color: #999999;
+}
+
+.device-stats .fa {
   font-size: 0.8em;
 }
 
-.stf-stats-container.ng-enter {
-  /*-webkit-transition: 2000ms ease 1s;*/
-  /*transition: 2000ms ease 1s;*/
-  -webkit-transition: 550ms ease 0ms;
-  transition: 550ms ease 0ms;
-  opacity: 0;
-}
 
-.stf-stats-container.ng-enter-active {
-  opacity: 1;
+@media (max-width: 600px) {
+  .device-stats {
+    min-height: 60px;
+    height: 60px;
+    text-align: center;
+  }
+
+  .device-stats .fa {
+    font-size: 0.6em;
+  }
+
+  .device-stats [class^="col-"] .number,
+  .device-stats [class*="col-"] .number {
+    font-size: 1.8em;
+    line-height: normal;
+    font-weight: 300;
+  }
+
+  .device-stats [class^="col-"] .number .icon,
+  .device-stats [class*="col-"] .number .icon {
+    width: 25px;
+    height: 19px;
+    margin: 10px 6px 0 0;
+  }
+
+  .device-stats [class^="col-"] .text,
+  .device-stats [class*="col-"] .text {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
 }

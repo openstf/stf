@@ -31,6 +31,10 @@
   /*height: 485px;*/
 }
 
+.basic-mode .stf-device-list .device-search {
+  width: 16em;
+}
+
 .guest-landscape .basic-mode .stf-vnc-bottom {
   display: none;
 }

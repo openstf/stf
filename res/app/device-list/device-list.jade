@@ -17,10 +17,10 @@
               name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
               ng-model-options='{debounce: 150}'
               autocorrect='off', autocapitalize='off', spellcheck='false',
-              list='searchFields', multiple, autofocusX
-              text-focus-selectX, accesskey='4').form-control.input-sm.device-search.pull-right
+              list='searchFields', multiple, focus-element='search.focusElement',
+              text-focus-select, accesskey='4').form-control.input-sm.device-search.pull-right
 
-            span.pull-right(ng-if='activeTabs.details')
+            span.pull-right(ng-if='activeTabs.details && !$root.basicMode')
               .btn-group(dropdown).pull-right
                 button.btn.btn-sm.btn-primary-outline.dropdown-toggle
                   i.fa.fa-columns
@@ -39,7 +39,7 @@
                       span(ng-bind='"Reset"|translate')
 
           tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
-            tab(active='activeTabs.icons')
+            tab(active='activeTabs.icons', select='focusSearch()')
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
@@ -47,7 +47,7 @@
 
                 device-list-icons(tracker='tracker', columns='columns', sort='sort', filter='filter')
 
-            tab(active='activeTabs.details')
+            tab(active='activeTabs.details', select='focusSearch()', ng-if='!$root.basicMode')
               tab-heading
                 i.fa.fa-list
                 span(translate) Details

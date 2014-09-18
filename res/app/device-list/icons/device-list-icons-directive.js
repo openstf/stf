@@ -5,6 +5,7 @@ module.exports = function DeviceListDetailsDirective(
 , gettext
 , DeviceColumnService
 , GroupService
+, StandaloneService
 ) {
   function DeviceItem() {
     return {
@@ -124,12 +125,25 @@ module.exports = function DeviceListDetailsDirective(
       }
 
       element.on('click', function (e) {
+
+        // TODO: find a way to find the correct parent
+        //if (e.shiftKey) {
+        //  console.log(e)
+        //  //StandaloneService.open()
+        //  e.preventDefault()
+        //}
+
         if (e.target.classList.contains('device-status')) {
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
 
-          if (e.shiftKey && device.state === 'available') {
+          if (e.altKey && device.state === 'available') {
             inviteDevice(device)
+            e.preventDefault()
+          }
+
+          if (e.shiftKey && device.state === 'available') {
+            StandaloneService.open(device)
             e.preventDefault()
           }
 

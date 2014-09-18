@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='app')
   head
     meta(charset='utf-8')
     base(href='/')
@@ -11,8 +11,8 @@ html
     meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
     link(href='static/bower_components/stf-graphics/logo/exports/STF-128.png', rel='apple-touch-icon')
 
-    title STF
-  body(ng-app='app', ng-cloak).bg-1.fill-height
+    title(ng-bind='pageTitle ? "STF - " + pageTitle : "STF"') STF
+  body(ng-cloak).bg-1.fill-height
     div(ng-controller='LayoutCtrl', basic-mode, admin-mode, landscape).fill-height
       .pane-top(fa-pane).fill-height
         .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north', pane-size='44px',

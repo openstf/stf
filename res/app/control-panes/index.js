@@ -31,6 +31,11 @@ module.exports = angular.module('control-panes', [
         //  control
         //}
       })
+      // TODO: add standalone
+      .when('/c/:serial', {
+        template: require('./control-panes.jade'),
+        controller: 'ControlPanesCtrl'
+      })
   }])
   .factory('ControlPanesService', require('./control-panes-service'))
   .controller('ControlPanesCtrl', require('./control-panes-controller'))

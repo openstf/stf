@@ -1,7 +1,9 @@
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
-    StorageService, FatalMessageService, SettingsService) {
+    StorageService, FatalMessageService, SettingsService, $window, $rootScope) {
+
+    $rootScope.standalone = $window.history.length < 2
 
     var sharedTabs = [
       {
@@ -89,6 +91,9 @@ module.exports =
         .then(function (device) {
           $scope.device = device
           $scope.control = ControlService.create(device, device.channel)
+
+          // TODO: change title, flickers too much on Chrome
+          //$rootScope.pageTitle = device.name
 
           SettingsService.set('lastUsedDevice', serial)
 

@@ -1,0 +1,11 @@
+describe('NativeUrlService', function() {
+
+  beforeEach(angular.mock.module(require('./').name))
+
+  it('should ...', inject(function(NativeUrlService) {
+
+	//expect(NativeUrlService.doSomething()).toEqual('something')
+
+  }))
+
+})

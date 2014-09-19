@@ -17,7 +17,7 @@
         .btn-group
           button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
-      //li(ng-if='!$root.basicMode')
+      li(ng-if='!$root.basicMode')
         a(ng-click='openChat()').pointer
           i.fa.fa-comment.fa-fw
           | {{ "Chat" | translate }}

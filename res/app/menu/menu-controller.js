@@ -1,5 +1,5 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
-  $location, ExternalUrlModalService) {
+  $location, ExternalUrlModalService, NativeUrlService) {
 
   SettingsService.bind($scope, {
     target: 'lastUsedDevice'
@@ -15,8 +15,16 @@ module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
   })
 
   $scope.openChat = function () {
-    var hipChatUrl = 'https://cyberagent.hipchat.com/chat?focus_jid=' +
+    var hipChatNativeUrl = 'hipchat://cyberagent.hipchat.com/room/stf'
+
+    var hipChatWebUrl = 'https://cyberagent.hipchat.com/chat?focus_jid=' +
       '44808_stf@conf.hipchat.com&minimal=true'
-    ExternalUrlModalService.open(hipChatUrl, 'HipChat #STF', 'fa-comment')
+
+    NativeUrlService.open({
+      nativeUrl: hipChatNativeUrl,
+      webUrl: hipChatWebUrl
+    })
+
+    //ExternalUrlModalService.open(hipChatUrl, 'HipChat #STF', 'fa-comment')
   }
 }

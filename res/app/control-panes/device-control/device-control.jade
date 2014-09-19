@@ -1,7 +1,7 @@
 .interact-control.fill-height.as-table.stf-device-control(ng-controller='DeviceControlCtrl')
   .as-cell.fill-height
     .as-table.fill-height
-      .stf-vnc-navbar.as-row(ng-show='!$root.basicMode || !$root.standalone')
+      .stf-vnc-navbar.as-row(ng-show='!$root.basicMode && !$root.standalone')
         .stf-vnc-right-buttons.pull-right
           .btn-group
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',

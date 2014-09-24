@@ -1,9 +1,7 @@
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
-    StorageService, FatalMessageService, SettingsService, $window, $rootScope) {
-
-    $rootScope.standalone = $window.history.length < 2
+    StorageService, FatalMessageService, SettingsService) {
 
     var sharedTabs = [
       {

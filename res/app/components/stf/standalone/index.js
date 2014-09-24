@@ -13,3 +13,4 @@ module.exports = angular.module('device-control.standalone', [
   }])
   .controller('StandaloneCtrl', require('./standalone-controller'))
   .factory('StandaloneService', require('./standalone-service'))
+  .directive('standalone', require('./standalone-directive'))

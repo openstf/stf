@@ -13,10 +13,12 @@ html(ng-app='app')
 
     title(ng-bind='pageTitle ? "STF - " + pageTitle : "STF"') STF
   body(ng-cloak).bg-1.fill-height.unselectable
-    div(ng-controller='LayoutCtrl', basic-mode, admin-mode, landscape).fill-height
-      .pane-top(fa-pane).fill-height
-        .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north', pane-size='44px',
-          pane-min='44px', pane-max='44px', pane-handle='')
+    div(ng-controller='LayoutCtrl', basic-mode, admin-mode, standalone, landscape).fill-height
+      .pane-top.fill-height(fa-pane)
+        .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north',
+          pane-size='{{!$root.basicMode && !$root.standalone ? 44 : 0 }}px',
+
+          pane-handle='')
           div(ng-include='"menu.jade"')
 
         .pane-center(fa-pane, pane-id='main', pane-anchor='center').fill-height

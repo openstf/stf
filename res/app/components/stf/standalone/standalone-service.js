@@ -1,6 +1,9 @@
 module.exports =
-  function StandaloneServiceFactory($window, $rootScope, SettingsService) {
+  function StandaloneServiceFactory($window, $rootScope, SettingsService,
+    ScalingService, GroupService) {
     var service = {}
+
+    service.windows = []
 
     //SettingsService.sync($scope, 'ControlWindow', {
     //  controlWindowWidth: 600,
@@ -10,22 +13,31 @@ module.exports =
     //})
 
     var screenWidth = $window.screen.availWidth || $window.screen.width || 1024
-    var screenHeight = $window.screen.availHeight || $window.screen.height || 768
-    var windowSizeRatio = 1.0
+    var screenHeight = $window.screen.availHeight || $window.screen.height ||
+      768
+    var windowSizeRatio = 0.5
 
     function fitDeviceInGuestScreen(device) {
-      var projected = {
-        width: 600,
-        height: 900,
-        top: 50,
-        left: 50
+      //console.log('device.width', device.width)
+      //console.log('device', device)
+
+      var screen = {
+        scaler: ScalingService.coordinator(
+          device.display.width, device.display.height
+        ),
+        rotation: device.display.rotation,
+        bounds: {
+          x: 0, y: 0, w: screenWidth, h: screenHeight
+        }
       }
 
-      var deviceWidth = device.width
-      var deviceHeight = device.height
-      var deviceRotation = device.rotation
+      var projectedSize = screen.scaler.projectedSize(
+        screen.bounds.w * windowSizeRatio,
+        screen.bounds.h * windowSizeRatio,
+        screen.rotation
+      )
 
-      return projected
+      return projectedSize
     }
 
     service.open = function (device) {
@@ -36,8 +48,8 @@ module.exports =
       var features = [
         'width=' + projected.width,
         'height=' + projected.height,
-        'top=' + projected.top,
-        'left=' + projected.left,
+        //'top=' + 0,
+        //'left=' + 0,
         'toolbar=no',
         'location=no',
         'dialog=yes',
@@ -50,14 +62,18 @@ module.exports =
         'resizable=yes'
       ].join(',')
 
-      var windowOpen = $window.open(url, 'StT', features)
+      var newWindow = $window.open(url, 'STFNewWindow' + Date.now(), features)
 
-      //windowOpen.onbeforeunload = function () {
-      //  $scope.controlWindowWidth = windowOpen.innerWidth
-      //  $scope.controlWindowHeight = windowOpen.innerHeight
-      //  $scope.controlWindowTop = windowOpen.screenTop
-      //  $scope.controlWindowLeft = windowOpen.screenLeft
-      //}
+      newWindow.onbeforeunload = function () {
+
+        GroupService.kick(device).then(function () {
+          $rootScope.$digest()
+        })
+        //  $scope.controlWindowWidth = windowOpen.innerWidth
+        //  $scope.controlWindowHeight = windowOpen.innerHeight
+        //  $scope.controlWindowTop = windowOpen.screenTop
+        //  $scope.controlWindowLeft = windowOpen.screenLeft
+      }
     }
 
 

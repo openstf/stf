@@ -42,7 +42,7 @@
           i.fa.fa-sign-in
           span(translate) Sign In
 
-      table(ng-table='accountsTable', ng-show='accountsList').table.table-striped
+      table(ng-table='accountsTable', ng-show='accountsList.length').table.table-striped
         thead
           tr
             th
@@ -53,7 +53,7 @@
           tr(ng-repeat='account in $data')
             td
               i.fa.fa-user.fa-fw
-              span(ng-bind='account')
+              span(ng-bind='account').selectable
             td
               button.btn.btn-xs.btn-danger-outline(ng-click='removeAccount(account)')
                 i.fa.fa-sign-out

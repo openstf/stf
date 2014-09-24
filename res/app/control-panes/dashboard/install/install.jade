@@ -19,7 +19,7 @@
       i.fa.fa-2x.fa-download.drop-area-icon
       .drop-area-text(translate) Drop file to upload
 
-    .upload-status(ng-if='installation')
+    .upload-status(ng-if='installation').selectable
       progressbar(max='100', value='installation.progress', ng-if='!installation.settled',
         ng-class='{"active": !installation.settled}').progress-striped
 

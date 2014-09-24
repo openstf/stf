@@ -34,7 +34,7 @@
   .widget-content.padded
     nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshots.length')
 
-    ul.screenshots-icon-view.clear-fix
+    ul.screenshots-icon-view.clear-fix.selectable
       li.screenshots-icon-item(ng-repeat='shot in screenshots').cursor-select
         h5 {{ device.name }}
         h6 {{ shot.body.date | date:'HH:mm:ss' }}

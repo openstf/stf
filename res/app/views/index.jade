@@ -12,7 +12,7 @@ html(ng-app='app')
     link(href='static/bower_components/stf-graphics/logo/exports/STF-128.png', rel='apple-touch-icon')
 
     title(ng-bind='pageTitle ? "STF - " + pageTitle : "STF"') STF
-  body(ng-cloak).bg-1.fill-height
+  body(ng-cloak).bg-1.fill-height.unselectable
     div(ng-controller='LayoutCtrl', basic-mode, admin-mode, landscape).fill-height
       .pane-top(fa-pane).fill-height
         .pane-top-bar(fa-pane, pane-id='menu', pane-anchor='north', pane-size='44px',

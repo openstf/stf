@@ -95,4 +95,32 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
       $scope.currentRotation = 'landscape'
     }
   })
+
+  // TODO: Refactor this inside control and server-side
+  $scope.rotateLeft = function () {
+    var angle = 0
+    if ($scope.device && $scope.device.display) {
+      angle = $scope.device.display.rotation
+    }
+    if (angle === 0) {
+      angle = 270
+    } else {
+      angle -= 90
+    }
+    $scope.control.rotate(angle)
+  }
+
+  $scope.rotateRight = function () {
+    var angle = 0
+    if ($scope.device && $scope.device.display) {
+      angle = $scope.device.display.rotation
+    }
+    if (angle === 270) {
+      angle = 0
+    } else {
+      angle += 90
+    }
+    $scope.control.rotate(angle)
+  }
+
 }

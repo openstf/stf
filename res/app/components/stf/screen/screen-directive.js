@@ -393,6 +393,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseDownListener(e) {
+        // Skip secondary click
+        if (e.which === 3) {
+          return
+        }
         e.preventDefault()
 
         fakePinch = e.altKey
@@ -433,6 +437,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseMoveListener(e) {
+        // Skip secondary click
+        if (e.which === 3) {
+          return
+        }
         e.preventDefault()
 
         var addGhostFinger = !fakePinch && e.altKey
@@ -477,6 +485,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseUpListener(e) {
+        // Skip secondary click
+        if (e.which === 3) {
+          return
+        }
         e.preventDefault()
 
         control.touchUp(nextSeq(), 0)

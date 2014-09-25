@@ -66,6 +66,7 @@ module.exports =
 
       newWindow.onbeforeunload = function () {
 
+        // TODO: check for usage
         GroupService.kick(device).then(function () {
           $rootScope.$digest()
         })

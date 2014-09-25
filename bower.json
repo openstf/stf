@@ -39,7 +39,8 @@
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
     "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git",
     "angular-ui-bootstrap": "~0.11.0",
-    "angular-ladda": "~0.1.6"
+    "angular-ladda": "~0.1.6",
+    "ng-context-menu": "~1.0.0"
   },
   "private": true,
   "resolutions": {

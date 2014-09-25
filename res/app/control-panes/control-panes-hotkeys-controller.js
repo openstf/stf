@@ -22,6 +22,7 @@ module.exports =
       switchCharset: function () {
         $scope.control.keyPress('switch_charset')
       },
+      // TODO: Refactor this
       rotateLeft: function () {
         var angle = 0
         if ($scope.device && $scope.device.display) {

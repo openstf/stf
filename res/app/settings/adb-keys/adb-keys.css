@@ -1,3 +1,32 @@
-.stf-adb-keys {
+.stf-adb-keys .key-list-icon {
 
 }
+
+.stf-adb-keys .key-list a {
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.stf-adb-keys .key-list-details {
+  display: inline-block;
+}
+
+.stf-adb-keys .key-list-title {
+  color: #007aff;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 2px 0 6px;
+}
+
+.stf-adb-keys .key-list-key {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  margin-bottom: 2px;
+  color: #999999;
+  font-weight: 300;
+}
+
+.stf-adb-keys .key-list-remove {
+  display: inline-block;
+}
+

@@ -1,6 +1,7 @@
 module.exports = function () {
   return {
     restrict: 'EA',
+    transclude: true,
     scope: {
       icon: '@',
       message: '@'

@@ -1,10 +1,56 @@
-.row
-  .col-md-12
+.row(ng-controller='AdbKeysCtrl')
+  .col-md-6
     .widget-container.fluid-height.stf-adb-keys
       .heading
-        i.fa.fa-key
+        i.fa.fa-android
         span(translate) ADB Keys
+
+        button.btn.btn-primary-outline.pull-right.btn-sm(
+        ng-click='toggleAddKey()',
+        ng-class='')
+          //(tooltip='{{ "Add ADB Key" | translate }}')
+          i.fa.fa-plus.fa-fw
+          //span(translate) Add
+
       .widget-content.padded
-        div
 
 
+        nothing-to-show(icon='fa-key', message='{{"No ADB keys" | translate}}',
+        ng-if='!adbKeys.length && !showAdd')
+
+
+        .panel.panel-default(ng-show='showAdd')
+          .panel-heading
+            h3.panel-title(translate) Add ADB Key
+          .panel-body
+            form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
+
+              .form-group
+                label.control-label.col-md-1(translate) Title
+                .col-md-11
+                  input(type='text', ng-model='title', ng-required='true',
+                  text-focus-select, focus-element='focusAddTitle').form-control
+              .form-group
+                label.control-label.col-md-1(translate) Key
+                .col-md-11
+                  textarea(rows='4', ng-model='key', ng-required='true').form-control
+
+              .alert.alert-warning.selectable This key can be obtained by doing: ...
+
+              br
+
+              button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+                i.fa.fa-plus.fa-fw
+                span(translate) Add Key
+
+        ul.list-group.key-list
+          li.list-group-item(ng-repeat='key in adbKeys')
+            a
+              i.fa.fa-key.fa-2x.fa-fw.key-list-icon
+              .key-list-details.selectable
+                .key-list-title(ng-bind='key.title')
+                .key-list-key(ng-bind='key.key')
+
+              button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeKey(key)')
+                i.fa.fa-trash-o
+                span(translate) Remove

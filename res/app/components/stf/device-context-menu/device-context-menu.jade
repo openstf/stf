@@ -19,6 +19,11 @@
         span(translate) Rotate Right
     li.divider
     li
+      a.pointer(role='menuitem', ng-click='saveScreenShot(); $event.preventDefault()')
+        i.fa.fa-camera.fa-fw
+        span(translate) Save ScreenShot
+    li.divider
+    li
       a.pointer(role='menuitem', ng-click='$root.standalone ? windowClose() : kickDevice(device); $event.preventDefault()')
         i.fa.fa-sign-out.fa-fw
         span(translate) Stop Using

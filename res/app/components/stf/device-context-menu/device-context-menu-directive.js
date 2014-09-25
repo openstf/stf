@@ -26,7 +26,11 @@ module.exports = function deviceContextMenuDirective($window) {
           var event = document.createEvent('Event')
           event.initEvent('click', true, true)
           save.dispatchEvent(event)
-          (window.URL || window.webkitURL).revokeObjectURL(save.href)
+          if (window.URL) {
+            window.URL.revokeObjectURL(save.href)
+          } else if (window.webkitURL) {
+            window.webkitURL.revokeObjectURL(save.href)
+          }
         }
 
         // for IE
@@ -40,7 +44,7 @@ module.exports = function deviceContextMenuDirective($window) {
 
       scope.saveScreenShot = function () {
         scope.control.screenshot().then(function (result) {
-          saveToDisk(result.body.href, result.body.name)
+          saveToDisk(result.body.href, result.body.date + '.jpg')
         })
       }
 

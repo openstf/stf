@@ -1,8 +1,53 @@
-div(pane='center')
+div(pane='center', ng-controller='SettingsCtrl')
+  br
+  .widget-container.fluid-height
+    nice-tabs(key='SettingsTabs', tabs='settingTabs', filter='')
+    //.heading-for-tabs.tabs
+      tabset
+        tab
+          tab-heading
+            i.fa.fa-gears
+            span(translate) General
+          div
+            .row
+              .col-md-6
+                div(ng-include='"settings/local/local-settings.jade"')
+              .col-md-6
+                div(ng-include='"settings/language/language.jade"')
+        tab
+          tab-heading
+            i.fa.fa-key
+            span(translate) ADB Keys
+          .widget-container.fluid-height
+            p Some big content
+            h1 More
+
+
+
+
+
+
+  br
   .row
-    .col-md-6
+    //.col-md-6
       div(ng-include='"settings/local/local-settings.jade"')
-    .col-md-6
+    //.col-md-6
       div(ng-include='"settings/language/language.jade"')
     //.col-md-4
       div(ng-include='"settings/notifications/notifications.jade"')
+
+    .col-sm-12
+      //tabset(vertical='true', type='pills')
+
+
+
+
+    //.col-sm-2
+      ul.list-group
+        li.list-group-item
+          a(ng-href='') General
+        li.list-group-item
+          a(ng-href='') ADB Keys
+    //.col-sm-10
+      .widget-container
+        p SOME

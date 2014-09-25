@@ -7,7 +7,7 @@ module.exports = angular.module('ui-local-settings', [
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(
-      'settings/local/local-settings.jade'
+      'settings/general/local/local-settings.jade'
     , require('./local-settings.jade')
     )
   }])

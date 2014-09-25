@@ -16,7 +16,11 @@ module.exports = function niceTabsDirective() {
       })
 
       scope.tabFound = function (tab) {
+        if (!tab.filters) {
+          return true
+        }
         var found = false
+
         angular.forEach(tab.filters, function (value) {
           if (value === scope.filter) {
             found = true

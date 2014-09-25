@@ -4,7 +4,7 @@ module.exports = angular.module('stf-ui-language', [
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(
-      'settings/language/language.jade', require('./language.jade')
+      'settings/general/language/language.jade', require('./language.jade')
     )
   }])
   .controller('LanguageCtrl', require('./language-controller'))

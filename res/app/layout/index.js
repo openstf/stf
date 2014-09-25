@@ -6,7 +6,6 @@ require('./small.css')
 require('./stf-styles.css')
 
 module.exports = angular.module('layout', [
-  require('../settings/language').name,
   require('stf/landscape').name,
   require('stf/basic-mode').name,
   require('ui-bootstrap').name,

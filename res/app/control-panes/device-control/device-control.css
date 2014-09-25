@@ -55,14 +55,17 @@ device-screen canvas {
 device-screen .finger {
   position: absolute;
   border-radius: 50%;
-  background: lime;
+  background: #7c7c7c;
   opacity: 0.5;
-  width: 6mm;
-  height: 6mm;
-  top: -3mm;
-  left: -3mm;
+  width: 8mm;
+  height: 8mm;
+  top: -4mm;
+  left: -4mm;
   pointer-events: none;
   display: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #464646;
 }
 
 device-screen .finger.active {

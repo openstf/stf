@@ -1,9 +1,7 @@
 module.exports =
   function StandaloneServiceFactory($window, $rootScope, SettingsService,
-    ScalingService, GroupService) {
+    ScalingService, GroupService, $timeout) {
     var service = {}
-
-    service.windows = []
 
     //SettingsService.sync($scope, 'ControlWindow', {
     //  controlWindowWidth: 600,
@@ -40,6 +38,7 @@ module.exports =
       return projectedSize
     }
 
+
     service.open = function (device) {
       var url = '#!/c/' + (device.serial ? device.serial : '')
 
@@ -48,8 +47,8 @@ module.exports =
       var features = [
         'width=' + projected.width,
         'height=' + projected.height,
-        //'top=' + 0,
-        //'left=' + 0,
+        'top=' + (screenHeight / 4),
+        'left=' + (screenWidth / 5),
         'toolbar=no',
         'location=no',
         'dialog=yes',
@@ -64,17 +63,52 @@ module.exports =
 
       var newWindow = $window.open(url, 'STF-' + device.serial, features)
 
+      function setWindowTitle(newWindow, device) {
+        var windowTitle = 'STF - ' + device.name
+        if (device.name !== device.model) {
+          windowTitle += ' (' + device.model + ')'
+        }
+        //windowTitle += ' (' + device.serial + ')'
+
+        if (newWindow.document) {
+          newWindow.document.title = windowTitle
+        }
+
+        setTimeout(function () {
+          if (newWindow.document) {
+            newWindow.document.title = windowTitle
+          }
+        }, 400)
+      }
+
+      setWindowTitle(newWindow, device)
+
+
       newWindow.onbeforeunload = function () {
 
         // TODO: check for usage
         GroupService.kick(device).then(function () {
           $rootScope.$digest()
         })
+
+        // TODO: save coordinates
         //  $scope.controlWindowWidth = windowOpen.innerWidth
         //  $scope.controlWindowHeight = windowOpen.innerHeight
         //  $scope.controlWindowTop = windowOpen.screenTop
         //  $scope.controlWindowLeft = windowOpen.screenLeft
       }
+
+      // TODO: Resize on-demand
+      //newWindow.onresize = function (e) {
+      //  var windowWidth =  e.target.innerWidth
+      //  var windowHeight =  e.target.innerHeight
+      //
+      //  var newWindowWidth = Math.floor(projected.width * windowHeight / projected.height)
+      //  console.log('newWindowWidth', newWindowWidth)
+      //  console.log('windowWidth', windowWidth)
+      //
+      //  newWindow.resizeTo(windowWidth, windowHeight)
+      //}
     }
 
 

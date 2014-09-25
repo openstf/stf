@@ -5,12 +5,11 @@
         i.fa.fa-android
         span(translate) ADB Keys
 
-        button.btn.btn-primary-outline.pull-right.btn-sm(
+        button.btn.pull-right.btn-sm(
         ng-click='toggleAddKey()',
-        ng-class='')
+        ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
           //(tooltip='{{ "Add ADB Key" | translate }}')
           i.fa.fa-plus.fa-fw
-          //span(translate) Add
 
       .widget-content.padded
 
@@ -29,11 +28,13 @@
                 label.control-label.col-md-1(translate) Title
                 .col-md-11
                   input(type='text', ng-model='title', ng-required='true',
-                  text-focus-select, focus-element='focusAddTitle').form-control
+                  text-focus-select).form-control
               .form-group
                 label.control-label.col-md-1(translate) Key
                 .col-md-11
-                  textarea(rows='4', ng-model='key', ng-required='true').form-control
+                  textarea(rows='4', ng-model='key', ng-required='true',
+                  autocorrect='off', autocapitalize='off', spellcheck='false',
+                  focus-element='focusAddField').form-control
 
               .alert.alert-warning.selectable This key can be obtained by doing: ...
 
@@ -44,7 +45,7 @@
                 span(translate) Add Key
 
         ul.list-group.key-list
-          li.list-group-item(ng-repeat='key in adbKeys')
+          li.list-group-item(ng-repeat='key in adbKeys').animate-repeat
             a
               i.fa.fa-key.fa-2x.fa-fw.key-list-icon
               .key-list-details.selectable

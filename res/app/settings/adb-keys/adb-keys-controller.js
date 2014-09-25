@@ -50,7 +50,7 @@ module.exports = function AdbKeysCtrl($scope, BrowserInfo) {
 
   $scope.toggleAddKey = function () {
     $scope.showAdd = !$scope.showAdd
-    $scope.focusAddTitle = true
+    $scope.focusAddField = true
   }
 
 

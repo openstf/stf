@@ -100,14 +100,14 @@ module.exports =
 
       // TODO: Resize on-demand
       //newWindow.onresize = function (e) {
-      //  var windowWidth =  e.target.innerWidth
-      //  var windowHeight =  e.target.innerHeight
+      //  var windowWidth =  e.target.outerWidth
+      //  var windowHeight =  e.target.outerHeight
       //
       //  var newWindowWidth = Math.floor(projected.width * windowHeight / projected.height)
       //  console.log('newWindowWidth', newWindowWidth)
       //  console.log('windowWidth', windowWidth)
       //
-      //  newWindow.resizeTo(windowWidth, windowHeight)
+      //  newWindow.resizeTo(newWindowWidth, windowHeight)
       //}
     }
 

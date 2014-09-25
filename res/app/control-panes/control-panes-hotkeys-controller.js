@@ -1,5 +1,6 @@
 module.exports =
-  function ($scope, gettext, $location, $rootScope, ScopedHotkeysService) {
+  function ($scope, gettext, $location, $rootScope, ScopedHotkeysService,
+    $window) {
 
     $scope.remotePaneSize = '30% + 2px'
 
@@ -34,6 +35,11 @@ module.exports =
           angle -= 90
         }
         $scope.control.rotate(angle)
+
+        if ($rootScope.standalone) {
+          $window.resizeTo($window.outerHeight, $window.outerWidth)
+        }
+
       },
       rotateRight: function () {
         var angle = 0
@@ -46,6 +52,10 @@ module.exports =
           angle += 90
         }
         $scope.control.rotate(angle)
+
+        if ($rootScope.standalone) {
+          $window.resizeTo($window.outerHeight, $window.outerWidth)
+        }
       },
       focusUrlBar: function () {
         // TODO: Switch tab and focus

@@ -1,7 +1,7 @@
 var _ = require('lodash')
 
 module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
-  $location, $timeout) {
+  $location, $timeout, $window, $rootScope) {
 
   $scope.showScreen = true
 
@@ -108,6 +108,10 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
       angle -= 90
     }
     $scope.control.rotate(angle)
+
+    if ($rootScope.standalone) {
+      $window.resizeTo($window.outerHeight, $window.outerWidth)
+    }
   }
 
   $scope.rotateRight = function () {
@@ -121,6 +125,10 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
       angle += 90
     }
     $scope.control.rotate(angle)
+
+    if ($rootScope.standalone) {
+      $window.resizeTo($window.outerHeight, $window.outerWidth)
+    }
   }
 
 }

@@ -37,34 +37,9 @@
 
       .as-row.fill-height
 
-        .dropdown.context-menu(id='context-menu-{{ $index }}')
-          ul.dropdown-menu(role='menu')
-            li
-              a.pointer(role='menuitem', ng-click='control.back(); $event.preventDefault()')
-                i.fa.fa-mail-reply.fa-fw
-                span(translate) Back
-            li
-              a.pointer(role='menuitem', ng-click='control.home(); $event.preventDefault()')
-                i.fa.fa-home.fa-fw
-                span(translate) Home
-            li.divider
-            li
-              a.pointer(role='menuitem', ng-click='rotateRight(); $event.preventDefault()')
-                i.fa.fa-rotate-left.fa-fw
-                span(translate) Rotate Left
-            li
-              a.pointer(role='menuitem', ng-click='rotateLeft(); $event.preventDefault()')
-                i.fa.fa-rotate-right.fa-fw
-                span(translate) Rotate Right
-            li.divider
-            li
-              a.pointer(role='menuitem', ng-click='kickDevice(device); $event.preventDefault()')
-                i.fa.fa-sign-out.fa-fw
-                span(translate) Stop Using
-
         div(ng-controller='DeviceScreenCtrl', ng-if='device',
           ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height
-          div(context-menu, data-target='context-menu-{{ $index }}').fill-height
+          device-context-menu(device='device', control='control')
             device-screen(device='device', control='control')
 
       .stf-vnc-bottom.as-row(ng-hide='$root.standalone')

@@ -40,7 +40,8 @@
     "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git",
     "angular-ui-bootstrap": "~0.11.0",
     "angular-ladda": "~0.1.6",
-    "ng-context-menu": "~1.0.0"
+    "ng-context-menu": "~1.0.0",
+    "stats.js": "*"
   },
   "private": true,
   "resolutions": {

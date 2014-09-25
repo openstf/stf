@@ -62,7 +62,7 @@ module.exports =
         'resizable=yes'
       ].join(',')
 
-      var newWindow = $window.open(url, 'STFNewWindow' + Date.now(), features)
+      var newWindow = $window.open(url, 'STF-' + device.serial, features)
 
       newWindow.onbeforeunload = function () {
 

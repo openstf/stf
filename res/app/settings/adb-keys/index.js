@@ -2,7 +2,7 @@ require('./adb-keys.css')
 
 module.exports = angular.module('stf.settings.adb-keys', [
   require('stf/common-ui').name,
-  require('stf/browser-info').name
+  require('stf/keys/add-adb-key').name
 ])
   .run(["$templateCache", function ($templateCache) {
     $templateCache.put(
@@ -10,5 +10,3 @@ module.exports = angular.module('stf.settings.adb-keys', [
     )
   }])
   .controller('AdbKeysCtrl', require('./adb-keys-controller'))
-  .factory('AdbKeysService', require('./adb-keys-service'))
-

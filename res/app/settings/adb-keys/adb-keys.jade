@@ -13,6 +13,7 @@
 
       .widget-content.padded
 
+        add-adb-key(show-add='showAdd', show-clipboard='true')
 
         nothing-to-show(icon='fa-key', message='{{"No ADB keys" | translate}}',
         ng-if='!adbKeys.length && !showAdd')
@@ -56,7 +57,7 @@
                 i.fa.fa-plus.fa-fw
                 span(translate) Add Key
 
-        .panel.panel-default(ng-show='showAdd')
+        //.panel.panel-default(ng-show='showAdd')
           .panel-heading
             h3.panel-title(translate) Add ADB Key
           .panel-body
@@ -94,7 +95,7 @@
                 i.fa.fa-plus.fa-fw
                 span(translate) Add Key
 
-        error-message(message='{{error}}')
+        //error-message(message='{{error}}')
 
 
         ul.list-group.key-list

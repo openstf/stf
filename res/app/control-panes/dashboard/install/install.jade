@@ -58,6 +58,8 @@
                   span(ng-if='!showManifest') Show Manifest
                 pre.manifest-text(ng-if='showManifest') {{ installation.manifest | json }}
 
+      //error-message(message='{{ installation.error | installError | translate }} ({{ installation.error }})')
+      // TODO
       alert(type='danger', close='clear()', ng-if='installation.error')
         strong(translate) Oops!
         | &#x20;

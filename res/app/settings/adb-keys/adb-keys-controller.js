@@ -35,7 +35,6 @@ module.exports = function AdbKeysCtrl($scope, AdbKeysService) {
   }
 
 
-
   $scope.closeAddKey = function () {
     $scope.title = ''
     $scope.key = ''
@@ -45,16 +44,12 @@ module.exports = function AdbKeysCtrl($scope, AdbKeysService) {
 
   $scope.toggleAddKey = function () {
     $scope.showAdd = !$scope.showAdd
-    $scope.focusAddKey = true
   }
 
   $scope.$watch('key', function (newValue) {
     if (newValue && !$scope.title) {
       $scope.title = AdbKeysService.hostNameFromKey(newValue)
-      $scope.focusAddTitle = true
     }
   })
-
-
 
 }

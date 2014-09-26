@@ -24,7 +24,7 @@
           .panel-body
             form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
 
-              .alert.alert-info.selectable Run this command to copy the key to your clipboard
+              .alert.alert-info.selectable <strong>Tip: </strong>Run this command to copy the key to your clipboard
                 a(ng-href='/#!/docs/adb-keys').pull-right
                   i.fa.fa-question-circle(tooltip='{{"More about ADB Keys" | translate}}', tooltip-placement='left')
                 textarea(readonly, rows='1', text-focus-select,

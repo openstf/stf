@@ -1,13 +1,16 @@
-module.exports = function AdbKeysCtrl($scope, BrowserInfo) {
+module.exports = function AdbKeysCtrl($scope, AdbKeysService) {
+
+  $scope.title = ''
+  $scope.key = ''
 
   $scope.adbKeys = [
     {
       title: 'PC1264',
-      key: 'bb:86:60:39:d7:a2:e3:09:93:09:cc:f6:e8:37:99:3f'
+      fingerprint: 'bb:86:60:39:d7:a2:e3:09:93:09:cc:f6:e8:37:99:3f'
     },
     {
       title: 'Mobile mac',
-      key: '97:ca:ae:fa:09:0b:c4:fe:22:94:7d:b2:be:77:66:a1'
+      fingerprint: '97:ca:ae:fa:09:0b:c4:fe:22:94:7d:b2:be:77:66:a1'
     }
   ]
 
@@ -19,39 +22,39 @@ module.exports = function AdbKeysCtrl($scope, BrowserInfo) {
   $scope.addKey = function () {
     if ($scope.title && $scope.key) {
 
+      var title = $scope.title
+      var fingerprint = '97:ca:ae:fa:09:0b:c4:fe:22:94:7d:b2:be:77:66:a1'
+
       $scope.adbKeys.push({
-        title: $scope.title,
-        key: $scope.key
+        title: title,
+        fingerprint: fingerprint
       })
 
       $scope.closeAddKey()
     }
   }
 
-  var clientOS = 'PC'
-  if (BrowserInfo.ua.match(/Mac/i)) {
-    clientOS = 'Mac'
-  }
 
-  var addKeyDefaults = {
-    title: 'My ' + clientOS,
-    key: ''
-  }
-
-  $scope.title = addKeyDefaults.title
-  $scope.key = addKeyDefaults.key
 
   $scope.closeAddKey = function () {
-    $scope.title = addKeyDefaults.title
-    $scope.key = addKeyDefaults.key
+    $scope.title = ''
+    $scope.key = ''
     $scope.adbkeyform.$setPristine()
     $scope.showAdd = false
   }
 
   $scope.toggleAddKey = function () {
     $scope.showAdd = !$scope.showAdd
-    $scope.focusAddField = true
+    $scope.focusAddKey = true
   }
+
+  $scope.$watch('key', function (newValue) {
+    if (newValue && !$scope.title) {
+      $scope.title = AdbKeysService.hostNameFromKey(newValue)
+      $scope.focusAddTitle = true
+    }
+  })
+
 
 
 }

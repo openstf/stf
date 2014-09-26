@@ -24,19 +24,29 @@
           .panel-body
             form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
 
+              .alert.alert-info.selectable Run this command to copy the key to your clipboard
+                a(ng-href='/#!/docs/adb-keys').pull-right
+                  i.fa.fa-question-circle(tooltip='{{"More about ADB Keys" | translate}}', tooltip-placement='left')
+                textarea(readonly, rows='1', text-focus-select,
+                ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
+                //<code>pbcopy < ~/.android/adbkey.pub</code>
+
               .form-group
-                label.control-label.col-md-1(translate) Title
-                .col-md-11
-                  input(type='text', ng-model='title', ng-required='true',
-                  text-focus-select).form-control
-              .form-group
-                label.control-label.col-md-1(translate) Key
+                label.control-label.col-md-1
+                  i.fa.fa-key.fa-fw
+                  span(translate) Key
                 .col-md-11
                   textarea(rows='4', ng-model='key', ng-required='true',
                   autocorrect='off', autocapitalize='off', spellcheck='false',
-                  focus-element='focusAddField').form-control
+                  focus-element='focusAddKey').form-control
 
-              .alert.alert-warning.selectable This key can be obtained by doing: ...
+              .form-group
+                label.control-label.col-md-1
+                  i.fa.fa-laptop.fa-fw
+                  span(translate)  Device
+                .col-md-11
+                  input(type='text', ng-model='title', ng-required='true',
+                  text-focus-select, focus-element='focusAddTitle').form-control
 
               br
 
@@ -50,7 +60,7 @@
               i.fa.fa-key.fa-2x.fa-fw.key-list-icon
               .key-list-details.selectable
                 .key-list-title(ng-bind='key.title')
-                .key-list-key(ng-bind='key.key')
+                .key-list-fingerprint(ng-bind='key.fingerprint')
 
               button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeKey(key)')
                 i.fa.fa-trash-o

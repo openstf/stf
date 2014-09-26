@@ -1,5 +1,5 @@
 .row(ng-controller='AdbKeysCtrl')
-  .col-md-6
+  .col-sm-12
     .widget-container.fluid-height.stf-adb-keys
       .heading
         i.fa.fa-android
@@ -31,6 +31,8 @@
                 ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
                 //<code>pbcopy < ~/.android/adbkey.pub</code>
 
+              br
+
               .form-group
                 label.control-label.col-md-1
                   i.fa.fa-key.fa-fw
@@ -48,7 +50,7 @@
                   input(type='text', ng-model='title', ng-required='true',
                   text-focus-select, focus-element='focusAddTitle').form-control
 
-              br
+
 
               button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
                 i.fa.fa-plus.fa-fw

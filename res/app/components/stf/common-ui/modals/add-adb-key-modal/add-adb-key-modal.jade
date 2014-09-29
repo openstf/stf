@@ -1,0 +1,33 @@
+.stf-add-adb-key-modal.stf-modal
+  .modal-header.dialog-header-confirm
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title.text-dangerX
+      i.fa.fa-android
+      .button-spacer
+      span(translate) Add the following ADB Key to STF?
+  .modal-body
+    //p Add the following ADB Key to STF?
+
+    form.panel(ng-submit='ok()')
+      .panel-body
+        label.control-label
+          i.fa.fa-key.fa-fw
+          span(translate) Fingerprint
+        pre(ng-bind='modal.fingerprint').selectable
+
+        label.control-label
+          i.fa.fa-laptop.fa-fw
+          span(translate) Device
+        pre(ng-bind='modal.title').selectable
+
+        button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+          i.fa.fa-plus.fa-fw
+          span(translate) Add Key
+
+  //.modal-footer
+    button.btn.btn-primary(type='button', ng-click='ok()')
+      i.fa.fa-refresh
+      span(translate) Try to reconnect
+    button.btn.btn-success(ng-click='second()')
+      i.fa.fa-sitemap
+      span(translate) Go to Device List

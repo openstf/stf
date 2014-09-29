@@ -1,10 +1,10 @@
-.panel.panel-default(ng-if='showAdd').stf-add-adb-key
+.panel.panel-default.stf-add-adb-key(ng-show='showAdd')
   .panel-heading
     h3.panel-title(translate) Add ADB Key
   .panel-body
     form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
 
-      div(ng-show='true')
+      div(ng-show='showClipboard')
 
         .alert.alert-info.selectable <strong>Tip: </strong>Run this command to copy the key to your clipboard
           a(ng-href='/#!/docs/adb-keys').pull-right
@@ -19,7 +19,7 @@
           i.fa.fa-key.fa-fw
           span(translate) Key
         .col-md-11
-          textarea(rows='4', ng-model='key', ng-change='changed()', ng-required='true',
+          textarea(rows='4', name='deviceKey', ng-model='addForm.key', ng-required='true',
           autocorrect='off', autocapitalize='off', spellcheck='false',
           focus-element='focusAddKey', ng-paste='focusAddTitle = true').form-control
 
@@ -28,7 +28,7 @@
           i.fa.fa-laptop.fa-fw
           span(translate)  Device
         .col-md-11
-          input(type='text', ng-model='title', ng-required='true',
+          input(type='text', name='deviceTitle', ng-model='addForm.title', ng-required='true',
           text-focus-select, focus-element='focusAddTitle').form-control
 
       button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')

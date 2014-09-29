@@ -6,14 +6,14 @@
         span(translate) ADB Keys
 
         button.btn.pull-right.btn-sm(
-        ng-click='toggleAddKey()',
+        ng-click='showAdd = !showAdd',
         ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
           //(tooltip='{{ "Add ADB Key" | translate }}')
           i.fa.fa-plus.fa-fw
 
       .widget-content.padded
 
-        add-adb-key(show-add='showAdd', show-clipboard='true')
+        add-adb-key(show-clipboard='true', show-add='showAdd')
 
         nothing-to-show(icon='fa-key', message='{{"No ADB keys" | translate}}',
         ng-if='!adbKeys.length && !showAdd')

@@ -1,7 +1,5 @@
 module.exports = function AdbKeysCtrl($scope, AdbKeysService) {
 
-
-
   $scope.adbKeys = [
     {
       title: 'PC1264',
@@ -19,15 +17,5 @@ module.exports = function AdbKeysCtrl($scope, AdbKeysService) {
   }
 
 
-
-  $scope.toggleAddKey = function () {
-    $scope.showAdd = !$scope.showAdd
-  }
-
-  $scope.$watch('key', function (newValue) {
-    if (newValue && !$scope.title) {
-      $scope.title = AdbKeysService.hostNameFromKey(newValue)
-    }
-  })
 
 }

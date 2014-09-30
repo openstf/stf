@@ -6,7 +6,7 @@ module.exports = function errorMessageDirective() {
       message: '@'
     },
     template: require('./error-message.jade'),
-    link: function (scope, element, attrs) {
+    link: function (scope) {
       scope.closeMessage = function () {
         scope.message = ''
       }

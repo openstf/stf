@@ -1,3 +1,3 @@
-module.exports = function GeneralCtrl($scope) {
-    
+module.exports = function GeneralCtrl() {
+
 }

@@ -8,7 +8,7 @@ module.exports = function deviceContextMenuDirective($window) {
     //},
     transclude: true,
     template: require('./device-context-menu.jade'),
-    link: function (scope, element, attrs) {
+    link: function (scope) {
       //var device = scope.device()
       //var control = scope.control()
       scope.windowClose = function () {

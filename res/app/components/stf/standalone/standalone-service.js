@@ -74,7 +74,7 @@ module.exports =
           newWindow.document.title = windowTitle
         }
 
-        setTimeout(function () {
+        $timeout(function () {
           if (newWindow.document) {
             newWindow.document.title = windowTitle
           }

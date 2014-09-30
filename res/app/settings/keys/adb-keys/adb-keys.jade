@@ -1,0 +1,114 @@
+.widget-container.fluid-height.stf-adb-keys(ng-controller='AdbKeysCtrl')
+  .heading
+    i.fa.fa-android
+    span(translate) ADB Keys
+
+
+
+    button.btn.pull-right.btn-sm(
+    ng-click='showAdd = !showAdd',
+    ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
+      //(tooltip='{{ "Add ADB Key" | translate }}')
+      i.fa.fa-plus.fa-fw
+
+    a(ng-href='/#!/docs/adb-keys').pull-right.btn.btn-sm
+      i.fa.fa-question-circle(tooltip='{{"More about ADB Keys" | translate}}', tooltip-placement='left')
+
+  .widget-content.padded
+
+    add-adb-key(show-clipboard='true', show-add='showAdd')
+
+    nothing-to-show(icon='fa-android', message='{{"No ADB keys" | translate}}',
+    ng-if='!adbKeys.length && !showAdd')
+
+
+    //accordion(ng-if='showAdd').pointer
+      accordion-group(is-open='showAdd')
+        accordion-heading.pointer
+          i.fa.fa-fw.fa-key
+          span(translateX) Add ADB Key
+
+        form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
+
+          .alert.alert-info.selectable <strong>Tip: </strong>Run this command to copy the key to your clipboard
+            a(ng-href='/#!/docs/adb-keys').pull-right
+              i.fa.fa-question-circle(tooltip='{{"More about ADB Keys" | translate}}', tooltip-placement='left')
+            textarea(readonly, rows='1', text-focus-select,
+            ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
+            //<code>pbcopy < ~/.android/adbkey.pub</code>
+
+          br
+
+          .form-group
+            label.control-label.col-md-1
+              i.fa.fa-key.fa-fw
+              span(translate) Key
+            .col-md-11
+              textarea(rows='4', ng-model='key', ng-required='true',
+              autocorrect='off', autocapitalize='off', spellcheck='false',
+              focus-element='focusAddKey').form-control
+
+          .form-group
+            label.control-label.col-md-1
+              i.fa.fa-laptop.fa-fw
+              span(translate)  Device
+            .col-md-11
+              input(type='text', ng-model='title', ng-required='true',
+              text-focus-select, focus-element='focusAddTitle').form-control
+
+          button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+            i.fa.fa-plus.fa-fw
+            span(translate) Add Key
+
+    //.panel.panel-default(ng-show='showAdd')
+      .panel-heading
+        h3.panel-title(translate) Add ADB Key
+      .panel-body
+        form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
+
+          .alert.alert-info.selectable <strong>Tip: </strong>Run this command to copy the key to your clipboard
+            a(ng-href='/#!/docs/adb-keys').pull-right
+              i.fa.fa-question-circle(tooltip='{{"More about ADB Keys" | translate}}', tooltip-placement='left')
+            textarea(readonly, rows='1', text-focus-select, ng-copy='focusAddKey = true'
+            ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
+            //<code>pbcopy < ~/.android/adbkey.pub</code>
+
+          br
+
+          .form-group
+            label.control-label.col-md-1
+              i.fa.fa-key.fa-fw
+              span(translate) Key
+            .col-md-11
+              textarea(rows='4', ng-model='key', ng-required='true',
+              autocorrect='off', autocapitalize='off', spellcheck='false',
+              focus-element='focusAddKey', ng-paste='focusAddTitle = true').form-control
+
+          .form-group
+            label.control-label.col-md-1
+              i.fa.fa-laptop.fa-fw
+              span(translate)  Device
+            .col-md-11
+              input(type='text', ng-model='title', ng-required='true',
+              text-focus-select, focus-element='focusAddTitle').form-control
+
+
+
+          button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+            i.fa.fa-plus.fa-fw
+            span(translate) Add Key
+
+    //error-message(message='{{error}}')
+
+
+    ul.list-group.key-list
+      li.list-group-item(ng-repeat='key in adbKeys').animate-repeat
+        a
+          i.fa.fa-key.fa-2x.fa-fw.key-list-icon
+          .key-list-details.selectable
+            .key-list-title(ng-bind='key.title')
+            .key-list-fingerprint(ng-bind='key.fingerprint')
+
+          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeKey(key)')
+            i.fa.fa-trash-o
+            span(translate) Remove

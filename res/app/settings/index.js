@@ -1,6 +1,6 @@
 module.exports = angular.module('ui-settings', [
   require('./general').name,
-  require('./adb-keys').name,
+  require('./keys').name,
   require('stf/common-ui/nice-tabs').name
   //require('./notifications').name
 ])

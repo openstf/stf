@@ -4,7 +4,7 @@ module.exports = function SettingsCtrl($scope, gettext) {
     {
       title: gettext('Keys'),
       icon: 'fa-key fa-fw',
-      templateUrl: 'settings/adb-keys/adb-keys.jade'
+      templateUrl: 'settings/keys/keys.jade'
     },
     {
       title: gettext('General'),

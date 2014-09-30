@@ -12,24 +12,24 @@
           textarea(readonly, rows='1', text-focus-select, ng-copy='focusAddKey = true'
           ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
 
-        br
+      br
 
       .form-group
-        label.control-label.col-md-1
+        label.control-label(for='adb-device-key')
           i.fa.fa-key.fa-fw
           span(translate) Key
-        .col-md-11
-          textarea(rows='4', name='deviceKey', ng-model='addForm.key', ng-required='true',
-          autocorrect='off', autocapitalize='off', spellcheck='false',
-          focus-element='focusAddKey', ng-paste='focusAddTitle = true').form-control
+
+        textarea(id='adb-device-key', rows='4', name='deviceKey', ng-model='addForm.key', ng-required='true',
+        autocorrect='off', autocapitalize='off', spellcheck='false',
+        focus-element='focusAddKey', ng-paste='focusAddTitle = true').form-control
 
       .form-group
-        label.control-label.col-md-1
+        label.control-label(for='adb-device-title')
           i.fa.fa-laptop.fa-fw
           span(translate)  Device
-        .col-md-11
-          input(type='text', name='deviceTitle', ng-model='addForm.title', ng-required='true',
-          text-focus-select, focus-element='focusAddTitle').form-control
+        
+        input(id='adb-device-title', type='text', name='deviceTitle', ng-model='addForm.title', ng-required='true',
+        text-focus-select, focus-element='focusAddTitle').form-control
 
       button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
         i.fa.fa-plus.fa-fw

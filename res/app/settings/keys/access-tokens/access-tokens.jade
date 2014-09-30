@@ -1,0 +1,33 @@
+.widget-container.fluid-height.stf-access-tokens(ng-controller='AccessTokensCtrl')
+  .heading
+    i.fa.fa-key
+    span(translate) Access Tokens
+
+    button.btn.pull-right.btn-sm(
+    ng-click='showAdd = !showAdd',
+    ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
+      i.fa.fa-plus.fa-fw
+
+    a(ng-href='/#!/docs/access-tokens').pull-right.btn.btn-sm
+      i.fa.fa-question-circle(tooltip='{{"More about Access Tokens" | translate}}', tooltip-placement='left')
+
+  .widget-content.padded
+
+    //add-adb-key(show-clipboard='true', show-add='showAdd')
+
+    nothing-to-show(icon='fa-key', message='{{"No access tokens" | translate}}',
+    ng-if='!adbKeys.length && !showAdd')
+
+
+
+    ul.list-group.key-list
+      li.list-group-item(ng-repeat='key in adbKeys').animate-repeat
+        a
+          i.fa.fa-key.fa-2x.fa-fw.key-list-icon
+          .key-list-details.selectable
+            .key-list-title(ng-bind='key.title')
+            .key-list-fingerprint(ng-bind='key.fingerprint')
+
+          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeKey(key)')
+            i.fa.fa-trash-o
+            span(translate) Remove

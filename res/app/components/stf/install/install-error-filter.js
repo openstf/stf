@@ -9,6 +9,8 @@ module.exports = function installErrorFilter(gettext) {
         return gettext('Installation failed due to an unknown error.')
       case 'INSTALL_ERROR_TIMEOUT':
         return gettext('Installation timed out.')
+      case 'INSTALL_CANCELED_BY_USER': // Found on Xiaomi devices
+        return gettext('Installation canceled by user.')
       // Android PackageManager error codes from [1].
       // [1] https://github.com/android/platform_frameworks_base/blob/
       //     master/core/java/android/content/pm/PackageManager.java

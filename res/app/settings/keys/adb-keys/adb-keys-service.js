@@ -3,7 +3,7 @@ module.exports = function AdbKeysServiceFactory() {
 
   service.hostNameFromKey = function (key) {
     if (key.match(/.+= (.+)/)) {
-      return key.replace(/.+= (.+)/g, '$1').replace(/(\.local)?/g, '')
+      return key.replace(/.+= (.+)/g, '$1')
     }
     return ''
   }

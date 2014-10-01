@@ -15,6 +15,9 @@ enum MessageType {
   InstallMessage             = 30;
   PhysicalIdentifyMessage    = 29;
   JoinGroupMessage           = 11;
+  JoinGroupByAdbFingerprintMessage = 69;
+  AutoGroupMessage           = 70;
+  AdbKeysUpdatedMessage      = 71;
   KeyDownMessage             = 12;
   KeyPressMessage            = 13;
   KeyUpMessage               = 14;
@@ -230,6 +233,11 @@ message GroupMessage {
   repeated DeviceRequirement requirements = 3;
 }
 
+message AutoGroupMessage {
+  required OwnerMessage owner = 1;
+  required string identifier = 2;
+}
+
 message UngroupMessage {
   repeated DeviceRequirement requirements = 2;
 }
@@ -237,6 +245,15 @@ message UngroupMessage {
 message JoinGroupMessage {
   required string serial = 1;
   required OwnerMessage owner = 2;
+}
+
+message JoinGroupByAdbFingerprintMessage {
+  required string serial = 1;
+  required string fingerprint = 2;
+  optional string comment = 3;
+}
+
+message AdbKeysUpdatedMessage {
 }
 
 message LeaveGroupMessage {

@@ -7,26 +7,29 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
       showClipboard: '='
     },
     template: require('./add-adb-key.jade'),
-    link: function (scope) {
-      scope.addForm = {
-        title: '',
-        key: ''
+    controller: function($scope, UserService) {
+      $scope.addForm = {
+        title: ''
+      , key: ''
       }
 
-      scope.addKey = function () {
-        console.log('Add key')
-        scope.closeAddKey()
+      $scope.addKey = function () {
+        UserService.addAdbKey({
+          title: $scope.addForm.title
+        , key: $scope.addForm.key
+        })
+        $scope.closeAddKey()
       }
 
-      scope.closeAddKey = function () {
-        scope.addForm.title = ''
-        scope.addForm.key = ''
-        console.log('scope', scope)
+      $scope.closeAddKey = function () {
+        $scope.addForm.title = ''
+        $scope.addForm.key = ''
         // TODO: cannot access to the form by name inside a directive?
-        //scope.adbkeyform.$setPristine()
-        scope.showAdd = false
+        //$scope.adbkeyform.$setPristine()
+        $scope.showAdd = false
       }
-
+    },
+    link: function (scope) {
       scope.$watch('addForm.key', function (newValue) {
         if (newValue && !scope.addForm.title) {
           // By default sets the title to the ADB key comment because
@@ -34,7 +37,6 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
           scope.addForm.title = AdbKeysService.commentFromKey(newValue)
         }
       })
-
     }
   }
 }

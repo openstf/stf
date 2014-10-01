@@ -251,6 +251,7 @@ message JoinGroupByAdbFingerprintMessage {
   required string serial = 1;
   required string fingerprint = 2;
   optional string comment = 3;
+  optional string currentGroup = 4;
 }
 
 message AdbKeysUpdatedMessage {

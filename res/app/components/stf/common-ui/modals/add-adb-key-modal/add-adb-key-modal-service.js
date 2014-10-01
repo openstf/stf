@@ -9,10 +9,8 @@ module.exports =
       $scope.modal.title = data.title
 
       $scope.ok = function () {
-        console.log('add key')
         $modalInstance.close(true)
       }
-
 
       $scope.$watch('modal.showAdd', function (newValue) {
         if (newValue === false) {
@@ -36,9 +34,7 @@ module.exports =
         }
       })
 
-      modalInstance.result.then(function () {
-      }, function () {
-      })
+      return modalInstance.result
     }
 
     return service

@@ -1,10 +1,4 @@
-module.exports = function AdbKeysCtrl($scope, $http, UserService, AddAdbKeyModalService) {
-
-  //AddAdbKeyModalService.open({
-  //  title: 'PC1264',
-  //  fingerprint: 'bb:86:60:39:d7:a2:e3:09:93:09:cc:f6:e8:37:99:3f'
-  //})
-
+module.exports = function AdbKeysCtrl($scope, $http, UserService) {
   $scope.adbKeys = []
 
   function updateKeys() {
@@ -12,8 +6,9 @@ module.exports = function AdbKeysCtrl($scope, $http, UserService, AddAdbKeyModal
   }
 
   $scope.removeKey = function (key) {
-    UserService.removeAdbKey(key).then(updateKeys)
+    UserService.removeAdbKey(key)
   }
 
+  $scope.$on('user.keys.adb.updated', updateKeys)
   updateKeys()
 }

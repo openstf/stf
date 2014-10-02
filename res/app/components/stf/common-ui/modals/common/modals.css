@@ -57,3 +57,17 @@
   height: 100%;
   max-height: 800px;
 }
+
+.stf-modal .big-thumbnail {
+  text-align: center;
+}
+
+.stf-modal .device-name {
+  color: #3FA9F5;
+  font-size: 16px;
+  margin: 10px 0;
+  font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
+}
+
+.stf-modal .device-photo-small {
+}

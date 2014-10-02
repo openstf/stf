@@ -1,6 +1,22 @@
 .stf-modal {
-
+  border-radius: 5px;
 }
+
+.stf-modal .modal-title {
+  padding-left: 5px;
+}
+
+.stf-modal .modal-body {
+  background: #fff;
+}
+
+.stf-modal .modal-footer {
+  background: #fff;
+  padding: 20px;
+  margin-top: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
 
 .stf-modal .dialog-header-error {
   background-color: #d2322d;

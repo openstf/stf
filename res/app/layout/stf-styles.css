@@ -418,3 +418,12 @@ input {
 .alert {
   margin-bottom: 0;
 }
+
+
+/* Form */
+
+textarea.form-control[disabled],
+textarea.form-control[readonly],
+fieldset[disabled] textarea.form-control {
+  cursor: text;
+}

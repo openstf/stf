@@ -71,3 +71,17 @@ img.device-icon-smallest {
 .stf-device-list .device-product-name-using {
   border-bottom: 2px solid; /* leaving out the color inherits text color */
 }
+
+
+.device-status .using {
+
+}
+
+/*using: 'state-using btn-primary',*/
+/*busy: 'state-busy btn-warning',*/
+/*available: 'state-available btn-primary-outline',*/
+/*ready: 'state-ready btn-primary-outline',*/
+/*present: 'state-present btn-primary-outline',*/
+/*preparing: 'state-preparing btn-primary-outline btn-success-outline',*/
+/*unauthorized: 'state-unauthorized btn-danger-outline',*/
+/*offline: 'state-offline btn-warning-outline'*/

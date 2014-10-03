@@ -424,6 +424,10 @@ input {
 
 textarea.form-control[disabled],
 textarea.form-control[readonly],
-fieldset[disabled] textarea.form-control {
+fieldset[disabled] textarea.form-control,
+input[type="text"].form-control[disabled],
+input[type="text"].form-control[readonly],
+fieldset[disabled] input[type="text"].form-control
+{
   cursor: text;
 }

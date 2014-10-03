@@ -1,6 +1,6 @@
 module.exports =
   function FatalMessageServiceFactory($modal, $location, $route, $interval,
-    StateClassesService) {
+    StateClassesService, $timeout) {
     var FatalMessageService = {}
 
     var intervalDeviceInfo
@@ -13,12 +13,20 @@ module.exports =
         //$location.path('/control/' + device.serial)
       }
 
+      function update() {
+        $scope.device = device
+        $scope.stateColor = StateClassesService.stateButton(device.state)
+      }
+
+      update()
+
+      // TODO: remove this please
+      intervalDeviceInfo = $interval(update, 750)
+
       if (tryToReconnect) {
         // TODO: this is ugly, find why its not updated correctly (also on the device list)
         intervalDeviceInfo = $interval(function () {
-          $scope.device = device
-
-          $scope.stateColor = StateClassesService.stateColor(device.state)
+          update()
 
           if (device.usable) {
             // Try to reconnect
@@ -26,8 +34,6 @@ module.exports =
           }
         }, 1000, 500)
       }
-
-      $scope.device = device
 
       $scope.second = function () {
         $modalInstance.dismiss()

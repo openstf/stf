@@ -29,8 +29,7 @@ module.exports = {
       alias: {
         'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
         'localforage': 'localforage/dist/localforage.js',
-        'socket.io': 'socket.io-client',
-        'oboe': 'oboe/dist/oboe-browser'
+        'socket.io': 'socket.io-client'
       }
     },
     module: {
@@ -53,9 +52,7 @@ module.exports = {
         { test: /angular-touch\.js$/, loader: 'imports?angular=angular'},
         { test: /angular-animate\.js$/, loader: 'imports?angular=angular'},
         { test: /angular-growl\.js$/, loader: 'imports?angular=angular'},
-        { test: /oboe-browser\.js$/, loader: 'imports?define=>false!exports?oboe'},
         { test: /uuid\.js$/, loader: 'imports?require=>undefined'},
-        //{ test: /ui-bootstrap-tpls\.js$/, loader: 'script'},
         { test: /dialogs\.js$/, loader: 'script'}
       ],
       preLoaders: [

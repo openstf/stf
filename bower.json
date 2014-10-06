@@ -27,7 +27,6 @@
     "angular-tree-control": "~0.2.5",
     "angular-loading-bar": "~0.6.0",
     "underscore.string": "~2.3.3",
-    "font-awesome-bower": "~4.1.0",
     "bootstrap": "~3.2.0",
     "font-lato-2-subset": "~0.4.0",
     "packery": "~1.2.4",
@@ -41,7 +40,8 @@
     "angular-ui-bootstrap": "~0.11.2",
     "angular-ladda": "~0.1.6",
     "ng-context-menu": "~1.0.0",
-    "stats.js": "*"
+    "stats.js": "*",
+    "components-font-awesome": "~4.2.0"
   },
   "private": true,
   "resolutions": {

@@ -22,12 +22,6 @@ module.exports =
 //      templateUrl: 'control-panes/resources/resources.jade',
 //      filters: ['web']
 //    },
-//    {
-//      title: gettext('CPU'),
-//      icon: 'fa-bar-chart-o',
-//      templateUrl: 'control-panes/cpu/cpu.jade',
-//      filters: ['native', 'web']
-//    },
       {
         title: gettext('Automation'),
         icon: 'fa-road',
@@ -35,9 +29,21 @@ module.exports =
         filters: ['native', 'web']
       },
       {
+        title: gettext('Performance'),
+        icon: 'fa-bar-chart',
+        templateUrl: 'control-panes/performance/performance.jade',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Advanced'),
         icon: 'fa-bolt',
         templateUrl: 'control-panes/advanced/advanced.jade',
+        filters: ['native', 'web']
+      },
+      {
+        title: gettext('Info'),
+        icon: 'fa-info',
+        templateUrl: 'control-panes/info/info.jade',
         filters: ['native', 'web']
       }
     ]
@@ -49,14 +55,7 @@ module.exports =
         templateUrl: 'control-panes/dashboard/dashboard.jade',
         filters: ['native', 'web']
       }
-    ].concat(angular.copy(sharedTabs), [
-        {
-          title: gettext('Info'),
-          icon: 'fa-info',
-          templateUrl: 'control-panes/info/info.jade',
-          filters: ['native', 'web']
-        }
-      ])
+    ].concat(angular.copy(sharedTabs))
 
 
     $scope.belowTabs = [

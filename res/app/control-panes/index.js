@@ -6,12 +6,12 @@ module.exports = angular.module('control-panes', [
   require('./device-control').name,
   require('./advanced').name,
   require('./automation').name,
-  require('./cpu').name,
+  require('./performance').name,
   require('./dashboard').name,
-  require('./inspect').name,
-  require('./activity').name,
+  //require('./inspect').name,
+  //require('./activity').name,
   require('./logs').name,
-  require('./resources').name,
+  //require('./resources').name,
   require('./screenshots').name,
   require('./info').name
 ])

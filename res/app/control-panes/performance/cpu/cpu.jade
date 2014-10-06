@@ -1,0 +1,10 @@
+.widget-container.fluid-height.stf-cpu(ng-controller='CpuCtrl')
+  .heading
+    i.fa
+    span(translate) CPU
+  .widget-content.padded
+    div
+
+    //epoch-live-area(chart-class='category10', chart-height='200',
+      chart-data='realtimeArea', chart-stream='realtimeAreaFeed',
+      chart-axes='areaAxes')

@@ -1,3 +1,3 @@
-module.exports = function AccessTokensCtrl($scope) {
-    
+module.exports = function AccessTokensCtrl() {
+
 }

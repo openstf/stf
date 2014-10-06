@@ -1,3 +1,3 @@
-module.exports = function KeysCtrl($scope) {
-    
+module.exports = function KeysCtrl() {
+
 }

@@ -16,10 +16,10 @@
 
   .widget-content.padded
 
-    add-adb-key(show-clipboard='true', show-add='showAdd')
-
     nothing-to-show(icon='fa-android', message='{{"No ADB keys" | translate}}',
     ng-if='!adbKeys.length && !showAdd')
+
+    add-adb-key(show-clipboard='true', show-add='showAdd')
 
 
     //accordion(ng-if='showAdd').pointer

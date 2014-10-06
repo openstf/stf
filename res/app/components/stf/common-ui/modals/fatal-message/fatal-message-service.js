@@ -1,6 +1,6 @@
 module.exports =
   function FatalMessageServiceFactory($modal, $location, $route, $interval,
-    StateClassesService, $timeout) {
+    StateClassesService) {
     var FatalMessageService = {}
 
     var intervalDeviceInfo
@@ -15,7 +15,7 @@ module.exports =
 
       function update() {
         $scope.device = device
-        $scope.stateColor = StateClassesService.stateButton(device.state)
+        $scope.stateColor = StateClassesService.stateColor(device.state)
       }
 
       update()

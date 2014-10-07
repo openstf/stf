@@ -15,7 +15,7 @@
     "jquery.terminal": "~0.8.8",
     "stf-site": "~0.4.1",
     "stf-analytics": "~0.2.2",
-    "angular-gettext": "git://github.com/rubenv/angular-gettext.git#277d87d35c297f4838c529db4d9069a0b4f57687",
+    "angular-gettext": "git://github.com/rubenv/angular-gettext.git#5c1384c3ffea786d6f968a8bce54ff279029aeb0",
     "angular-ui-ace": "~0.1.1",
     "ui-bootstrap-alerts": "~0.1.5",
     "requirejs": "~2.1.15",

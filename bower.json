@@ -43,7 +43,7 @@
     "stats.js": "*",
     "components-font-awesome": "~4.2.0",
     "epoch": "~0.6.0",
-    "d3": "~3.4.11",
+    "d3": "~3.4.12",
     "ng-epoch": "~1.0.5"
   },
   "private": true,

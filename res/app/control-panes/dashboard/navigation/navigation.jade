@@ -18,14 +18,15 @@
         input.form-control(type='text', name='textURL', placeholder='http://...',
         autocomplete='url', ng-model='textURL', text-focus-select,
         autocapitalize='off', spellcheck='false', blur-element='blurUrl'
-        accesskey='N', tabindex='10', ng-change='textUrlChanged()').form-control
+        accesskey='N', tabindex='10', ng-change='textUrlChanged()',
+        focus-element='nav.focusUrl').form-control
         img(ng-src='{{urlFavicon}}')
 
         .input-group-btn
           button(ng-click='openURL()', ng-disabled='!textURL', translate).btn.btn-primary-outline Open
 
     .btn-group
-      .btn-group.browser-buttons
-        label.btn.btn-default-outline(ng-repeat='b in device.browser.apps track by b.id', ng-model='$root.browser', btn-radio='b',
-        tooltip='{{b.name}} ({{b.developer}})')
-          img(ng-src='/static/app/browsers/icon/24x24/{{b.type}}.png', ng-show='b.type').browser-icon.pointer
+      .btn-group.browser-buttons(ng-click='nav.focusUrl = true')
+        label.btn.btn-default-outline(ng-repeat='browserRadio in device.browser.apps track by browserRadio.id', ng-model='$root.browser', btn-radio='browserRadio',
+        tooltip='{{browserRadio.name}} ({{browserRadio.developer}})')
+          img(ng-src='/static/app/browsers/icon/24x24/{{browserRadio.type}}.png', ng-show='browserRadio.type').browser-icon.pointer

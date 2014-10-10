@@ -9,7 +9,6 @@
       span(ng-show='forwarding', translate) Unforward
       span(ng-hide='forwarding', translate) Forward
   .widget-content.padded(collapse='isCollapsed')
-
     table(ng-table='portsTable').table.table-striped
       thead
         tr
@@ -32,13 +31,3 @@
             input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
           td
             input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
-
-
-    //table(ng-table='deviceStatusTable', ng-hide='!devicesStatus.length').table
-      tr(ng-repeat='result in $data')
-        td(data-title="'Device'|translate")
-          p {{ result.deviceId }}
-        td(data-title="'Reachable'|translate")
-          i(ng-class="{'text-status-on': result.value.connectable, 'text-status-off': !result.value.connectable}").fa.fa-circle
-        td(data-title="'Connected'|translate")
-          i(ng-class="{'text-status-on': result.value.connected, 'text-status-off': !result.value.connected}").fa.fa-circle

@@ -5,6 +5,10 @@ module.exports = function imageOnloadAnimateDirective($parse, $animate) {
       $animate.addClass(element, 'ng-image-not-loaded')
       element.bind('load', function () {
         $animate.removeClass(element, 'ng-image-not-loaded')
+
+        //if(!scope.$$phase) {
+        //  scope.$digest()
+        //}
 //        console.log('image is loaded')
       })
     }

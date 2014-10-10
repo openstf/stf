@@ -39,6 +39,6 @@
         h5 {{ device.name }}
         h6 {{ shot.body.date | date:'HH:mm:ss' }}
         a(ng-href='{{ shot.body.href }}', target='_blank')
-          img(ng-src='{{ shot.body.href + shotSizeUrlParameter(480) }}', image-onload-animate).screenshot-image
+          img(ng-src='{{ shot.body.href + shotSizeUrlParameter(480) }}').screenshot-image
 
     .clearfix

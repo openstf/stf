@@ -9,7 +9,6 @@
         i.fa.fa-plus.fa-fw
 
   .widget-content.padded(collapse='isCollapsed')
-
     //form(editable-form, name='table')
       table.table.table-bordered.table-hover.table-condensed
         tr
@@ -38,24 +37,17 @@
             td(width='35%')
               div.input-group
                 span.input-group-addon
-                  input(type='checkbox', ng-model='forward.enabled')
-                input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='showApply()')
+                  input(type='checkbox', ng-model='forward.enabled', ng-change='applyForward(forward)')
+                input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
             td
               i.fa.fa-arrow-right.fa-fw
             td(width='40%')
-              input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Hostname"|translate}}', ng-change='showApply()')
+              input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Hostname"|translate}}', ng-change='disableForward(forward)')
             td
               span :
             td(width='25%')
-              input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='showApply()')
+              input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
             td
               button.btn.btn-sm.btn-danger-outline(ng-click='removeRow(forward)')
                 i.fa.fa-trash-o
                 //span(translate) Remove
-
-      div(ng-show='isShowApply')
-        button.btn.btn-sm.btn-primary-outline.pull-right(ng-click='applyTable()')
-          //i.fa.fa-trash-o
-          span(translate) Apply
-        br
-        br

@@ -70,8 +70,7 @@ enum MessageType {
   AccountGetMessage          = 62;
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
-  DeviceForwardAddEvent      = 72;
-  DeviceForwardRemoveEvent   = 73;
+  ReverseForwardsEvent       = 72;
 }
 
 message Envelope {
@@ -399,25 +398,26 @@ message ForwardTestMessage {
 }
 
 message ForwardCreateMessage {
-  required uint32 devicePort = 1;
-  required string targetHost = 2;
-  required uint32 targetPort = 3;
-}
-
-message ForwardRemoveMessage {
-  required uint32 devicePort = 1;
-}
-
-message DeviceForwardAddEvent {
-  required string serial = 1;
+  required string id = 1;
   required uint32 devicePort = 2;
   required string targetHost = 3;
   required uint32 targetPort = 4;
 }
 
-message DeviceForwardRemoveEvent {
-  required string serial = 1;
+message ForwardRemoveMessage {
+  required string id = 1;
+}
+
+message ReverseForward {
+  required string id = 1;
   required uint32 devicePort = 2;
+  required string targetHost = 3;
+  required uint32 targetPort = 4;
+}
+
+message ReverseForwardsEvent {
+  required string serial = 1;
+  repeated ReverseForward forwards = 2;
 }
 
 message BrowserOpenMessage {

@@ -172,7 +172,8 @@ module.exports = function ControlServiceFactory(
 
     this.createForward = function(forward) {
       return sendTwoWay('forward.create', {
-        devicePort: forward.devicePort
+        id: forward.id
+      , devicePort: forward.devicePort
       , targetHost: forward.targetHost
       , targetPort: forward.targetPort
       })
@@ -180,7 +181,7 @@ module.exports = function ControlServiceFactory(
 
     this.removeForward = function(forward) {
       return sendTwoWay('forward.remove', {
-        devicePort: forward.devicePort
+        id: forward.id
       })
     }
 

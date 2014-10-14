@@ -14,7 +14,6 @@ module.exports = function PortForwardingCtrl($scope
     defaultPortForwards
   ]
 
-  // TODO: tracking by devicePort needs a bit of care
   SettingsService.bind($scope, {
     target: 'reversePortForwards'
     , source: 'reversePortForwards'
@@ -36,15 +35,8 @@ module.exports = function PortForwardingCtrl($scope
       })
   }
 
-  function ensureUniqueDevicePorts() {
-    $scope.reversePortForwards =
-      _.uniq($scope.reversePortForwards, 'devicePort')
-  }
-
   $scope.addRow = function () {
-    // TODO: tracking by devicePort needs a bit of care
     $scope.reversePortForwards.push(defaultPortForwards)
-    ensureUniqueDevicePorts()
   }
 
   $scope.removeRow = function (forward) {

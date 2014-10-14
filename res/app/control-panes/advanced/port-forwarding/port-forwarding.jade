@@ -34,7 +34,7 @@
               span(translate) Host
             th(colspan='1')
         tbody
-          tr(ng-repeat='forward in reversePortForwards track by forward.devicePort')
+          tr(ng-repeat='forward in reversePortForwards track by $index')
             td(width='35%')
               div.input-group
                 span.input-group-addon

@@ -70,6 +70,8 @@ enum MessageType {
   AccountGetMessage          = 62;
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
+  DeviceForwardAddEvent      = 72;
+  DeviceForwardRemoveEvent   = 73;
 }
 
 message Envelope {
@@ -404,6 +406,18 @@ message ForwardCreateMessage {
 
 message ForwardRemoveMessage {
   required uint32 devicePort = 1;
+}
+
+message DeviceForwardAddEvent {
+  required string serial = 1;
+  required uint32 devicePort = 2;
+  required string targetHost = 3;
+  required uint32 targetPort = 4;
+}
+
+message DeviceForwardRemoveEvent {
+  required string serial = 1;
+  required uint32 devicePort = 2;
 }
 
 message BrowserOpenMessage {

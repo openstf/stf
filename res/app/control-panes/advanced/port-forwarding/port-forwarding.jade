@@ -4,30 +4,26 @@
       i.fa.fa-random
       span(translate).pointer Port forwarding
 
-    button(ng-click='forwarding = !forwarding', ng-class="{active: forwarding}").btn.btn-primary-outline.btn-xs.pull-right
-      i.fa(ng-class="{'fa-arrow-circle-right': !forwarding, 'fa-times-circle': forwarding}")
-      span(ng-show='forwarding', translate) Unforward
-      span(ng-hide='forwarding', translate) Forward
   .widget-content.padded(collapse='isCollapsed')
-    table(ng-table='portsTable').table.table-striped
+    table
       thead
         tr
-          th(width='28%')
+          th(colspan='2')
             span(translate) Device
-            .button-spacer
-            i.fa.fa-arrow-right.fa-fw
-          th(width='44%')
+          th(colspan='3')
             span(translate) Host
-          th(width='28%')
       tbody
-        tr(ng-repeat='ports in $data')
-          //td(data-title='"Local" | translate').check
-            label
-              input(type='checkbox', ng-model='ports.targetLocal')
-              span
+        tr(ng-repeat='forward in reversePortForwards track by forward.devicePort')
           td
-            input.form-control(type='number', min='0', ng-model='ports.devicePort', placeholder='{{"Port"|translate}}')
+            div.input-group
+              span.input-group-addon
+                input(type='checkbox', ng-model='forward.enabled')
+              input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Port"|translate}}')
           td
-            input.form-control(type='text', ng-model='ports.targetHost', placeholder='{{"Hostname"|translate}}', ng-disabled='ports.targetLocal')
+            i.fa.fa-arrow-right.fa-fw
           td
-            input.form-control(type='number', min='0', ng-model='ports.targetPort', ng-change='targetPortChanged(result)', placeholder='{{"Port"|translate}}')
+            input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Hostname"|translate}}')
+          td
+            span :
+          td
+            input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Port"|translate}}')

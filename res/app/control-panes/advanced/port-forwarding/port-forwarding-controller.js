@@ -1,127 +1,34 @@
-var _ = require('lodash')
-
-module.exports = function PortForwardingCtrl($scope, ngTableParams,
-  SettingsService, gettext) {
-
-  $scope.forwarding = false
-
-//  SettingsService.bind($scope, {
-//    key: 'forwarding',
-//    storeName: 'PortForwarding.forwarding'
-//  })
-
-//  SettingsService.bind($scope, {
-//    key: 'portSets',
-//    storeName: 'PortForwarding.portSets'
-//  })
-
-
-  function getPortSets() {
-    return $scope.portSets.slice(0, -1) // Last item is empty
-  }
-
-  function forwardPorts() {
-    _.forEach(getPortSets(), function (portSet) {
-      $scope.control.createForward(portSet).then(function (result) {
-        console.log(result)
-        if (result.error === 'fail_forward') {
-          alert(gettext('Error: Forwarding ports failed.'))
-        }
-      }).catch(function (err) {
-        console.error(err)
-      })
-    })
-  }
-
-  function unforwardPorts() {
-    _.forEach(getPortSets(), function (portSet) {
-      $scope.control.removeForward(portSet).then(function (result) {
-        console.log(result)
-        if (result.error) {
-          alert(result.error)
-        }
-      }).catch(function (err) {
-        console.error(err)
-      })
-    })
-  }
-
-  $scope.$watch('forwarding', function (newValue, oldValue) {
-    if (newValue !== oldValue) {
-      if (newValue) {
-        forwardPorts()
-      } else {
-        if (typeof oldValue !== 'undefined') {
-          unforwardPorts()
-        }
-      }
-    } else {
-      // It's the first time, probably not forwarding
-      $scope.forwarding = false
-    }
-  })
-
-
-  function portFieldsAreEmpty(ports) {
-    return (_.isEmpty(ports.targetHost) && _.isEmpty(ports.targetPort) &&
-    _.isEmpty(ports.devicePort))
-  }
-
-  $scope.portSets = [
+module.exports = function PortForwardingCtrl(
+  $scope
+, SettingsService
+) {
+  $scope.reversePortForwards = [
     {
-      targetHost: 'localhost',
-      targetPort: 8080,
-      devicePort: 8080
+      targetHost: 'localhost'
+    , targetPort: 8080
+    , devicePort: 8080
+    , enabled: false
     }
   ]
 
-//  SettingsService.getItem('PortForwarding.portSets').then(function (result) {
-//    if (result) {
-//      $scope.portSets = result
-//    } else {
-//      console.log('here')
-//    }
-//    console.log(result)
-//  })
+  SettingsService.bind($scope, {
+    target: 'reversePortForwards'
+  , source: 'reversePortForwards'
+  })
 
-  function createEmptyField() {
-    if (!$scope.portSets) {
-      $scope.portSets = []
-    }
-    var empty = {
-      targetHost: null,
-      targetPort: null,
-      devicePort: null
-    }
-
-    $scope.portSets.push(empty)
+  $scope.enableForward = function(forward) {
+    forward.processing = true
+    return $scope.control.createForward(forward)
+      .finally(function() {
+        forward.processing = false
+      })
   }
 
-  // Adds a new row whenever necessary
-  $scope.$watch('portSets', function (newValue) {
-    if (newValue) {
-      // Remove all empty sets from the middle
-      _.remove(newValue, function (ports, index) {
-        // Skip last and remove empty fields
-        return !!(newValue.length !== index + 1 && portFieldsAreEmpty(ports))
+  $scope.disableForward = function(forward) {
+    forward.processing = true
+    return $scope.control.removeForward(forward)
+      .finally(function() {
+        forward.processing = false
       })
-
-      var last = _.last(newValue)
-      if (!portFieldsAreEmpty(last)) {
-        createEmptyField()
-      }
-    }
-    //SettingsService.setItem('PortForwarding.portSets', angular.copy($scope.portSets))
-  }, true)
-
-  $scope.portsTable = new ngTableParams({
-    page: 1,
-    count: 5
-  }, {
-    counts: [],
-    total: 1,
-    getData: function ($defer) {
-      $defer.resolve($scope.portSets)
-    }
-  })
+  }
 }

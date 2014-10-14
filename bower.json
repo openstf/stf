@@ -2,11 +2,11 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.3.0-rc.0",
-    "angular-route": "1.3.0-rc.0",
-    "angular-sanitize": "1.3.0-rc.0",
-    "angular-animate": "1.3.0-rc.0",
-    "angular-touch": "1.3.0-rc.0",
+    "angular": "1.3.0",
+    "angular-route": "1.3.0",
+    "angular-sanitize": "1.3.0",
+    "angular-animate": "1.3.0",
+    "angular-touch": "1.3.0",
     "se7en-bootstrap-3": "~0.2.1",
     "lodash": "~2.4.1",
     "oboe": "~2.0.2",
@@ -15,7 +15,7 @@
     "jquery.terminal": "~0.8.8",
     "stf-site": "~0.4.1",
     "stf-analytics": "~0.2.2",
-    "angular-gettext": "git://github.com/rubenv/angular-gettext.git#5c1384c3ffea786d6f968a8bce54ff279029aeb0",
+    "angular-gettext": "git://github.com/rubenv/angular-gettext.git",
     "angular-ui-ace": "~0.1.1",
     "ui-bootstrap-alerts": "~0.1.5",
     "requirejs": "~2.1.15",
@@ -36,23 +36,24 @@
     "angular-vs-repeat": "~1.0.0-rc5",
     "checklist-model": "~0.1.3",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
-    "angular-borderlayout": "https://github.com/gunta/angular-borderlayout.git",
+    "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git",
     "angular-ui-bootstrap": "~0.11.2",
     "angular-ladda": "~0.1.6",
-    "ng-context-menu": "~1.0.0",
+    "ng-context-menu": "~1.0.1",
     "stats.js": "*",
     "components-font-awesome": "~4.2.0",
     "epoch": "~0.6.0",
     "d3": "~3.4.12",
-    "ng-epoch": "~1.0.5"
+    "ng-epoch": "~1.0.5",
+    "eventEmitter": "~4.2.9"
   },
   "private": true,
   "resolutions": {
-    "angular": "1.3.0-rc.0",
-    "angular-sanitize": "1.3.0-rc.0",
+    "angular": "1.3.0",
+    "angular-sanitize": "1.3.0",
     "bootstrap": "~3.2.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.0-rc.0"
+    "angular-mocks": "1.3.0"
   }
 }

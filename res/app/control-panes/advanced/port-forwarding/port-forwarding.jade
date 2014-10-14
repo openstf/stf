@@ -1,29 +1,61 @@
 .widget-container.fluid-height.stf-port-forwarding(ng-controller='PortForwardingCtrl')
   .heading
-    span(ng-click='isCollapsed = !isCollapsed')
+    span
       i.fa.fa-random
-      span(translate).pointer Port forwarding
+      span(translate, ng-click='isCollapsed = !isCollapsed').pointer Port forwarding
+
+      button.btn.pull-right.btn-sm.btn-primary-outline(
+        ng-click='addRow()')
+        i.fa.fa-plus.fa-fw
 
   .widget-content.padded(collapse='isCollapsed')
-    table
-      thead
+
+    //form(editable-form, name='table')
+      table.table.table-bordered.table-hover.table-condensed
         tr
-          th(colspan='2')
-            span(translate) Device
-          th(colspan='3')
-            span(translate) Host
-      tbody
-        tr(ng-repeat='forward in reversePortForwards track by forward.devicePort')
+          td Name
+          td Status
+        tr
           td
-            div.input-group
-              span.input-group-addon
-                input(type='checkbox', ng-model='forward.enabled')
-              input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Port"|translate}}')
+            span(editable-text='user.name', e-form='table') {{user.name || 'no'}}
           td
-            i.fa.fa-arrow-right.fa-fw
-          td
-            input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Hostname"|translate}}')
-          td
-            span :
-          td
-            input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'blur' }", placeholder='{{"Port"|translate}}')
+            //<a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-text="model.value">{{ model.value || 'hi' }}</a>
+
+    nothing-to-show(icon='fa-random', message='{{"No Ports Forwarded" | translate}}',
+    ng-if='!reversePortForwards.length')
+
+    form(editable-form, name='portsform', onaftersave='saveTable()', oncancel='cancel()', ng-show='reversePortForwards.length')
+      table.table.table-condensed
+        thead
+          tr
+            th(colspan='2')
+              span(translate) Device
+            th(colspan='3')
+              span(translate) Host
+            th(colspan='1')
+        tbody
+          tr(ng-repeat='forward in reversePortForwards track by forward.devicePort')
+            td(width='35%')
+              div.input-group
+                span.input-group-addon
+                  input(type='checkbox', ng-model='forward.enabled')
+                input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='showApply()')
+            td
+              i.fa.fa-arrow-right.fa-fw
+            td(width='40%')
+              input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Hostname"|translate}}', ng-change='showApply()')
+            td
+              span :
+            td(width='25%')
+              input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='showApply()')
+            td
+              button.btn.btn-sm.btn-danger-outline(ng-click='removeRow(forward)')
+                i.fa.fa-trash-o
+                //span(translate) Remove
+
+      div(ng-show='isShowApply')
+        button.btn.btn-sm.btn-primary-outline.pull-right(ng-click='applyTable()')
+          //i.fa.fa-trash-o
+          span(translate) Apply
+        br
+        br

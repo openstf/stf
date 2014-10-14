@@ -45,7 +45,8 @@
     "epoch": "~0.6.0",
     "d3": "~3.4.12",
     "ng-epoch": "~1.0.5",
-    "eventEmitter": "~4.2.9"
+    "eventEmitter": "~4.2.9",
+    "angular-xeditable": "~0.1.8"
   },
   "private": true,
   "resolutions": {

@@ -37,12 +37,14 @@
             ng-model='currentAppStore', btn-radio='currentAppStore', tooltip='{{a.name}}')
             img(ng-src='/static/app/appstores/icon/24x24/{{a.type}}.png', ng-show='a.type').appstore-icon.pointer
 
+        // TODO: ladda disabled for now because of a gettext bug
         button.btn.btn-sm.btn-primary-outline(ng-click='addAccount()', ng-disabled='storeLogin.$invalid',
-        ladda='addingAccount', data-style='expand-left', data-spinner-color='#157afb').pull-right
-          i.fa.fa-sign-in
+        ladda-DISABLED='addingAccount', data-style='expand-left', data-spinner-color='#157afb').pull-right
+          i.fa.fa-spinner.fa-spin.fa-fw(ng-show='addingAccount')
+          i.fa.fa-sign-in.fa-fw
           span(translate) Sign In
 
-      table(ng-table='accountsTable', ng-show='accountsList.length').table.table-striped
+      table(ng-show='accountsList.length').table.table-striped
         thead
           tr
             th
@@ -50,7 +52,7 @@
             th
               span(translate) Actions
         tbody
-          tr(ng-repeat='account in $data')
+          tr(ng-repeat='account in accountsList')
             td
               i.fa.fa-user.fa-fw
               span(ng-bind='account').selectable

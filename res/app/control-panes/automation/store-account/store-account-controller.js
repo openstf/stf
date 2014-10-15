@@ -44,22 +44,10 @@ module.exports = function StoreAccountCtrl($scope, ngTableParams, $timeout) {
       $scope.control.getAccounts(storeAccountType).then(function (result) {
         $scope.$apply(function () {
           $scope.accountsList = result.body
-          $scope.accountsTable.reload()
         })
       })
     }
   }
 
   getAccounts()
-
-  $scope.accountsTable = new ngTableParams({
-    page: 1,
-    count: 5000
-  }, {
-    counts: [],
-    total: 1,
-    getData: function ($defer) {
-      $defer.resolve($scope.accountsList)
-    }
-  })
 }

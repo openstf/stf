@@ -1,3 +1,3 @@
-module.exports = function PerformanceCtrl($scope) {
-    
+module.exports = function PerformanceCtrl() {
+
 }

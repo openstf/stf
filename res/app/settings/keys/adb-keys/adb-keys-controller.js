@@ -1,6 +1,5 @@
 module.exports =
-  function AdbKeysCtrl($scope, $http, UserService, AddAdbKeyModalService,
-    FatalMessageService) {
+  function AdbKeysCtrl($scope, $http, UserService) {
     $scope.adbKeys = []
 
     function updateKeys() {

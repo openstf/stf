@@ -28,12 +28,12 @@ module.exports =
         templateUrl: 'control-panes/automation/automation.jade',
         filters: ['native', 'web']
       },
-      {
-        title: gettext('Performance'),
-        icon: 'fa-bar-chart',
-        templateUrl: 'control-panes/performance/performance.jade',
-        filters: ['native', 'web']
-      },
+      //{
+      //  title: gettext('Performance'),
+      //  icon: 'fa-bar-chart',
+      //  templateUrl: 'control-panes/performance/performance.jade',
+      //  filters: ['native', 'web']
+      //},
       {
         title: gettext('Advanced'),
         icon: 'fa-bolt',

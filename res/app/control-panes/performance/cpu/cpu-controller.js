@@ -1,4 +1,4 @@
-module.exports = function CpuCtrl($scope, $timeout) {
+module.exports = function CpuCtrl() {
 
 
   //var RealTimeData = function (layers) {

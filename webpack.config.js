@@ -4,6 +4,7 @@ var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
 module.exports = {
   webpack: {
+    context: __dirname,
     cache: true,
     entry: {
       app: pathutil.resource('app/app.js'),
@@ -20,11 +21,13 @@ module.exports = {
       colors: true
     },
     resolve: {
+      root: [
+        pathutil.resource('app/components'),
+      ],
       modulesDirectories: [
-        pathutil.resource('app/components')
-        , pathutil.resource('web_modules')
-        , pathutil.resource('bower_components')
-        , './node_modules'
+        'web_modules',
+        'bower_components',
+        'node_modules',
       ],
       alias: {
         'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',

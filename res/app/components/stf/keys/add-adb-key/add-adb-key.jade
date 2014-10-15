@@ -6,7 +6,10 @@
 
       div(ng-show='showClipboard')
 
-        .alert.alert-info.selectable <strong>Tip: </strong>Run this command to copy the key to your clipboard
+        .alert.alert-info.selectable
+          strong(translate) Tip:
+          span &nbsp;
+          span(translate) Run this command to copy the key to your clipboard
           textarea(readonly, rows='1', text-focus-select, ng-copy='focusAddKey = true'
           ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
 

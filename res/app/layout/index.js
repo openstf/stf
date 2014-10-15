@@ -16,7 +16,8 @@ module.exports = angular.module('layout', [
 ])
   .config(['$tooltipProvider', function ($tooltipProvider) {
     $tooltipProvider.options({
-      appendToBody: true
+      appendToBody: true,
+      animation: false
     })
   }])
   .controller('LayoutCtrl', require('./layout-controller'))

@@ -166,16 +166,16 @@ module.exports = function ControlServiceFactory(
     this.testForward = function(forward) {
       return sendTwoWay('forward.test', {
         targetHost: forward.targetHost
-      , targetPort: forward.targetPort
+      , targetPort: +forward.targetPort
       })
     }
 
     this.createForward = function(forward) {
       return sendTwoWay('forward.create', {
         id: forward.id
-      , devicePort: forward.devicePort
+      , devicePort: +forward.devicePort
       , targetHost: forward.targetHost
-      , targetPort: forward.targetPort
+      , targetPort: +forward.targetPort
       })
     }
 

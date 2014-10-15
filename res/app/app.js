@@ -1,5 +1,8 @@
 require.ensure([], function (require) {
 
+  // TODO: remove this dependency (just for epoch right now)
+  window.jQuery = window.$ = require('jquery')
+
   require('angular')
   require('angular-route')
   require('angular-touch')

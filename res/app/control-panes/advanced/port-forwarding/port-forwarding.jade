@@ -2,52 +2,45 @@
   .heading
     span
       i.fa.fa-random
-      span(translate, ng-click='isCollapsed = !isCollapsed').pointer Port forwarding
+      span(translate, ng-click='isCollapsed = !isCollapsed').pointer Port Forwarding
 
       button.btn.pull-right.btn-sm.btn-primary-outline(
         ng-click='addRow()')
         i.fa.fa-plus.fa-fw
 
   .widget-content.padded(collapse='isCollapsed')
-    //form(editable-form, name='table')
-      table.table.table-bordered.table-hover.table-condensed
-        tr
-          td Name
-          td Status
-        tr
-          td
-            span(editable-text='user.name', e-form='table') {{user.name || 'no'}}
-          td
-            //<a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-text="model.value">{{ model.value || 'hi' }}</a>
 
     nothing-to-show(icon='fa-random', message='{{"No Ports Forwarded" | translate}}',
     ng-if='!reversePortForwards.length')
 
-    form(editable-form, name='portsform', onaftersave='saveTable()', oncancel='cancel()', ng-show='reversePortForwards.length')
-      table.table.table-condensed
-        thead
-          tr
-            th(colspan='2')
-              span(translate) Device
-            th(colspan='3')
-              span(translate) Host
-            th(colspan='1')
-        tbody
-          tr(ng-repeat='forward in reversePortForwards track by $index')
-            td(width='35%')
-              div.input-group
-                span.input-group-addon
-                  input(type='checkbox', ng-model='forward.enabled', ng-change='applyForward(forward)')
-                input.form-control(type='number', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
-            td
-              i.fa.fa-arrow-right.fa-fw
-            td(width='40%')
-              input.form-control(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Hostname"|translate}}', ng-change='disableForward(forward)')
-            td
-              span :
-            td(width='25%')
-              input.form-control(type='number', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
-            td
-              button.btn.btn-sm.btn-danger-outline(ng-click='removeRow(forward)')
-                i.fa.fa-trash-o
-                //span(translate) Remove
+    div(ng-show='reversePortForwards.length')
+      .port-forwarding-image
+        i.fa.fa-mobile.fa-2x.fa-fw(title='{{"Device"|translate}}')
+        i.fa.fa-arrow-right.fa-fw
+        i.fa.fa-laptop.fa-2x.fa-fw(title='{{"Host"|translate}}')
+
+      form(editable-form, name='portsform', onaftersave='saveTable()', oncancel='cancel()')
+        table.table.table-condensed
+          thead
+            tr
+              th(colspan='1')
+                span(translate) Device
+              th(colspan='3')
+                span(translate) Host
+              th(colspan='1')
+          tbody
+            tr(ng-repeat='forward in reversePortForwards track by $index')
+              td(width='35%')
+                div.input-group.input-group-sm
+                  span.input-group-addon
+                    input(type='checkbox', ng-model='forward.enabled', ng-change='applyForward(forward)')
+                  input.form-control(type='text', min='0', ng-model='forward.devicePort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
+              td(width='40%')
+                input.form-control.input-sm(type='text', ng-model='forward.targetHost', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Hostname"|translate}}', ng-change='disableForward(forward)')
+              td
+                span :
+              td(width='25%')
+                input.form-control.input-sm(type='text', min='0', ng-model='forward.targetPort', ng-model-options="{ updateOn: 'default blur' }", placeholder='{{"Port"|translate}}', ng-change='disableForward(forward)')
+              td
+                button.btn.btn-sm.btn-danger-outline(ng-click='removeRow(forward)')
+                  i.fa.fa-trash-o

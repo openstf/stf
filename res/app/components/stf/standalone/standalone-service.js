@@ -40,7 +40,7 @@ module.exports =
 
 
     service.open = function (device) {
-      var url = '#!/c/' + (device.serial ? device.serial : '')
+      var url = '#!/c/' + (device.serial ? device.serial : '') + '?standalone'
 
       var projected = fitDeviceInGuestScreen(device)
 

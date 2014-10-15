@@ -1,10 +1,10 @@
-module.exports = function standaloneDirective($rootScope) {
+module.exports = function standaloneDirective($rootScope, $location) {
   return {
     restrict: 'AE',
     link: function () {
       //$rootScope.standalone = $window.history.length < 2
-      // Disable standalone for now
-      $rootScope.standalone = false
+      var standalone = $location.search().standalone
+      $rootScope.standalone = standalone
     }
   }
 }

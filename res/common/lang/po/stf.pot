@@ -7,10 +7,6 @@ msgstr ""
 msgid "-"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "A new version of STF is available"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid "A package is already installed with the same name."
 msgstr ""
@@ -23,55 +19,12 @@ msgstr ""
 msgid "A secure container mount point couldn't be accessed on external media."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "ABI"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "AC"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/adb-keys/adb-keys.html
-msgid "ADB Keys"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/access-tokens/access-tokens.html
-msgid "Access Tokens"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Account"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Action"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Actions"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Activity"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Add"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/adb-keys/adb-keys.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-msgid "Add ADB Key"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html
-msgid "Add Key"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html
-msgid "Add the following ADB Key to STF?"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/layout/layout-controller.js
@@ -86,31 +39,6 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Advanced Input"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Airplane Mode"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "App"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "App Store"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "App Upload"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Apps"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/advanced/maintenance/maintenance-controller.js
 msgid "Are you sure you want to reboot this device?"
 msgstr ""
@@ -121,15 +49,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Available"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
-msgid "Back"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Battery"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
@@ -164,64 +83,22 @@ msgstr ""
 msgid "Busy"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
-msgid "Busy devices"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/performance/cpu/cpu.html
-msgid "CPU"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Camera"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html
-msgid "Cancel"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Cannot access specified URL"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Carrier"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Category"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Charging"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Chat"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
-msgid "Clear"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
-msgid "Clipboard"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Close"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Cold"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Connected"
 msgstr ""
@@ -230,80 +107,12 @@ msgstr ""
 msgid "Connected successfully."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Cookies"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Cores"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Customize"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Center"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Down"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Left"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Right"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "D-pad Up"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Dashboard"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Data"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dead"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Delete"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Density"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Details"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Developer Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html
-msgid "Device"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Device Photo"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Device Settings"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/details/device-list-details-directive.js
@@ -319,20 +128,8 @@ msgstr ""
 msgid "Device is present but offline."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Device was disconnected"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Device was kicked by automatic timeout."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-msgid "Devices"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Disable WiFi"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -343,36 +140,8 @@ msgstr ""
 msgid "Disconnected"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Display"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Domain"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Drop file to upload"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Dummy"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Eject"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Enable WiFi"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Enable notifications"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Encrypted"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
@@ -391,32 +160,8 @@ msgstr ""
 msgid "Ethernet"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "FPS"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Failed to download file"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Fast Forward"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/filter-button/filter-button.html
-msgid "Filter"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Find Device"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html
-msgid "Fingerprint"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Frequency"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -427,24 +172,6 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Get"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/clipboard/clipboard.html
-msgid "Get clipboard contents"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Go Back"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Go Forward"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Go to Device List"
 msgstr ""
@@ -453,65 +180,8 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Hardware"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Health"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Height"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Help"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Hide Screen"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
-msgid "Home"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Host"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Hostname"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ICCID"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ID"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "IMEI"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Info"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspect Device"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspecting is currently only supported in WebView"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Inspector"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -530,43 +200,8 @@ msgstr ""
 msgid "Installation timed out."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Installing app..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-msgid "Key"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/settings/settings-controller.js
 msgid "Keys"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Landscape"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
-#: /Users/a12907/STF/stf/tmp/html/app/settings/general/language/language.html
-msgid "Language"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Launch Activity"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Launching activity..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Level"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-#: /Users/a12907/STF/stf/tmp/html/app/settings/general/local/local-settings.html
-msgid "Local Settings"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
@@ -577,29 +212,8 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
-msgid "Maintenance"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Manage Apps"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Manufacturer"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Media"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Memory"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Menu"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -622,107 +236,26 @@ msgstr ""
 msgid "Mobile SUPL"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Model"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/adb-keys/adb-keys.html
-msgid "More about ADB Keys"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/access-tokens/access-tokens.html
-msgid "More about Access Tokens"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Mute"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Name"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Native"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Navigation"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Network"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Next"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "No"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/adb-keys/adb-keys.html
-msgid "No ADB keys"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "No Ports Forwarded"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/access-tokens/access-tokens.html
-msgid "No access tokens"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "No clipboard data"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "No cookies to show"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "No device screen"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/empty/device-list-empty.html
-msgid "No devices connected"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html
-msgid "No photo available"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "No screenshots taken"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Normal Mode"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
-msgid "Nothing to inspect"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/notifications/notifications.html
-msgid "Notifications"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Number"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "OS"
 msgstr ""
@@ -731,45 +264,12 @@ msgstr ""
 msgid "Offline"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/error-message/error-message.html
-msgid "Oops!"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Open"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Orientation"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Over Voltage"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Overheat"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "PID"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/activities/activities.html
-msgid "Package"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Password"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Path"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Pause"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
@@ -782,54 +282,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Phone IMEI"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Physical Device"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Place"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Platform"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Play"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Play/Pause"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Please enter your Store password"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Please enter your Store username"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Port"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/port-forwarding/port-forwarding.html
-msgid "Port Forwarding"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Portrait"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Power"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Power Source"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -848,29 +300,8 @@ msgstr ""
 msgid "Press Menu button"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Previous"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Processing..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Product"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Pushing app..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "RAM"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "ROM"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -881,91 +312,16 @@ msgstr ""
 msgid "Reconnected successfully."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Record"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/refresh-page/refresh-page.html
-msgid "Refresh"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Released"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "Reload"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/remote-debug/remote-debug.html
-msgid "Remote debug"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/access-tokens/access-tokens.html
-#: /Users/a12907/STF/stf/tmp/html/app/settings/keys/adb-keys/adb-keys.html
-msgid "Remove"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Reset"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
-#: /Users/a12907/STF/stf/tmp/html/app/settings/general/local/local-settings.html
-msgid "Reset Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/navigation/navigation.html
-msgid "Reset all browser settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/maintenance/maintenance.html
-msgid "Restart Device"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "Retrieving the device screen has timed out."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "Retry"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Rewind"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Roaming"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Rotate Left"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Rotate Right"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Run"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Run Command"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Run JavaScript"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Run command"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
@@ -976,94 +332,24 @@ msgstr ""
 msgid "Run the following on your command line to debug the device from your IDE"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-msgid "Run this command to copy the key to your clipboard"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "SD Card Mounted"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "SDK"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "SIM"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
-msgid "Save ScreenShot"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
-msgid "Save..."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Screen"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Screenshot"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-controller.js
 msgid "Screenshots"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Search"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Secure"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Selects Next IME"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Serial"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Set"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Set Cookie"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "Settings"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
-msgid "Shell"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/device-control/device-control.html
-msgid "Show Screen"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Sign In"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Sign Out"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Silent Mode"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Size"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
@@ -1074,63 +360,12 @@ msgstr ""
 msgid "Someone stole your device."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Special Keys"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Start/Stop Logging"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Status"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Stop"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Stop Using"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Store Account"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Sub Type"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Switch Charset"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "TID"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Tag"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Take Pageshot (Needs WebView running)"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/screenshots/screenshots.html
-msgid "Take Screenshot"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Temperature"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Text"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1273,33 +508,8 @@ msgstr ""
 msgid "The system failed to install the package because the user is restricted from installing apps."
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid "This might be caused by a network error, or you might be trying to access a secure view."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
-msgid "Time"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
-msgid "Tip:"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/control-panes/control-panes-hotkeys-controller.js
 msgid "Toggle Web/Native"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
-msgid "Total devices"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
-msgid "Try to reconnect"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Type"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -1308,10 +518,6 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Unauthorized"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Uninstall"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -1326,10 +532,6 @@ msgstr ""
 msgid "Unspecified Failure"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Upload From Link"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/upload/upload-error-filter.js
 msgid "Upload failed"
 msgstr ""
@@ -1342,19 +544,6 @@ msgstr ""
 msgid "Uploaded file is not valid"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/install/install.html
-msgid "Uploading..."
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
-msgid "Usable devices"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/usb/usb.html
-msgid "Usb speed"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Use"
 msgstr ""
@@ -1363,84 +552,20 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/store-account/store-account.html
-msgid "Username"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Using"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Using Fallback"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/resources/resources.html
-msgid "Value"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Version"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/version-update/version-update.html
-msgid "Version Update"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "Vibrate Mode"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Voltage"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume Down"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/input/input.html
-msgid "Volume Up"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/menu/menu.html
-msgid "Web"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiFi"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/automation/device-settings/device-settings.html
-msgid "WiFi Enabled"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/apps/apps.html
-msgid "WiFi Settings"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "WiMAX"
 msgstr ""
 
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Width"
-msgstr ""
-
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Wireless"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "X DPI"
-msgstr ""
-
-#: /Users/a12907/STF/stf/tmp/html/app/control-panes/info/info.html
-msgid "Y DPI"
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js

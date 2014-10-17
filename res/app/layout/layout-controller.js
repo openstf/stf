@@ -1,9 +1,6 @@
 module.exports =
-  function LayoutCtrl(LanguageService, $rootScope, hotkeys, $filter, gettext,
-    SocketDisconnectedService) {
+  function LayoutCtrl(LanguageService, $rootScope, hotkeys, $filter, gettext) {
     LanguageService.updateLanguage()
-
-    //SocketDisconnectedService.open()
 
     function toggleAdminMode() {
       var enabled = $filter('translate')(gettext('Admin mode has been enabled.'))

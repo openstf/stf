@@ -1,20 +1,14 @@
 module.exports =
-  function SocketDisconnectedServiceFactory($modal, $location, $route) {
+  function SocketDisconnectedServiceFactory($modal, $location, $window) {
     var service = {}
 
-
-    var ModalInstanceCtrl = function ($scope, $modalInstance) {
+    var ModalInstanceCtrl = function ($scope, $modalInstance, message) {
       $scope.ok = function () {
         $modalInstance.close(true)
-        $route.reload()
-        //$location.path('/control/' + device.serial)
+        $window.location.reload()
       }
 
-
-      $scope.second = function () {
-        $modalInstance.dismiss()
-        //$location.path('/devices/')
-      }
+      $scope.message = message
 
       $scope.cancel = function () {
         $modalInstance.dismiss('cancel')
@@ -22,19 +16,21 @@ module.exports =
 
     }
 
-    service.open = function () {
+    service.open = function (message) {
       var modalInstance = $modal.open({
         template: require('./socket-disconnected.jade'),
         controller: ModalInstanceCtrl,
-        resolve: {}
+        resolve: {
+          message: function () {
+            return message
+          }
+        }
       })
 
       modalInstance.result.then(function () {
       }, function () {
-
       })
     }
-
 
     return service
   }

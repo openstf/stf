@@ -4,21 +4,11 @@
     h4.modal-title.text-danger
       i.fa.fa-warning
       .button-spacer
-      span(translate) Socket was disconnected
+      span(translate) Disconnected
   .modal-body
-    h4(translate, ng-bind='device.likelyLeaveReason | likelyLeaveReason')
-    br
-    .big-thumbnail
-      //.device-photo-small
-      //  img(ng-src='/static/app/devices/icon/x120/{{ device.image || "E30HT.jpg" }}')
-      //.device-name(ng-bind='device.enhancedName')
-      //h3.device-status(ng-class='stateColor')
-      //  span(ng-bind='device.enhancedStatePassive | translate')
+    nothing-to-show(message='{{ message | translate }}', icon='fa-plug fa-4x')
 
   .modal-footer
     button.btn.btn-primary-outline.pull-right(type='button', ng-click='ok()')
       i.fa.fa-refresh
       span(translate) Try to reconnect
-    //button.btn.btn-success-outline(ng-click='second()')
-      i.fa.fa-sitemap
-      span(translate) Go to Device List

@@ -1,5 +1,5 @@
 module.exports = function SocketStateDirectiveFactory(socket, growl, gettext,
-  $filter) {
+  $filter, SocketDisconnectedService) {
 
   return {
     restrict: 'EA',
@@ -7,12 +7,13 @@ module.exports = function SocketStateDirectiveFactory(socket, growl, gettext,
     link: function (scope) {
       var hasFailedOnce = false
 
-      socket.on('connect', function () {
+        socket.on('connect', function () {
         scope.$apply(function () {
           scope.socketState = 'connect'
         })
       })
 
+      // TODO: disable this if we are on a onbeforeunload event
       socket.on('disconnect', function () {
         scope.$apply(function () {
           scope.socketState = 'disconnect'
@@ -66,18 +67,17 @@ module.exports = function SocketStateDirectiveFactory(socket, growl, gettext,
           } else {
             switch (newValue) {
               case 'disconnect':
-                growl.error('<h4>WebSocket</h4>' + $filter('translate')(
-                    gettext('Socket connection was lost, try again reloading the page.')),
-                  {ttl: -1})
+                SocketDisconnectedService.open(
+                  gettext('Socket connection was lost'))
                 break;
               case 'connect_error':
               case 'error':
-                growl.error('<h4>WebSocket</h4>' + $filter('translate')(
-                  gettext('Error.'), {ttl: -1}))
+                SocketDisconnectedService.open(
+                  gettext('Error'))
                 break;
               case 'reconnect_failed':
-                growl.error('<h4>WebSocket</h4>' + $filter('translate')(
-                  gettext('Error while reconnecting.')), {ttl: -1})
+                SocketDisconnectedService.open(
+                  gettext('Error while reconnecting'))
                 break;
               case 'reconnect':
                 growl.success('<h4>WebSocket</h4>' + $filter('translate')(

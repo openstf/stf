@@ -12,6 +12,7 @@ module.exports = angular.module('layout', [
   require('angular-borderlayout').name,
   require('stf/common-ui').name,
   require('stf/socket/socket-state').name,
+  require('stf/common-ui/modals/socket-disconnected').name,
   require('stf/browser-info').name
 ])
   .config(['$tooltipProvider', function ($tooltipProvider) {

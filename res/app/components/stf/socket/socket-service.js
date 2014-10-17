@@ -28,10 +28,6 @@ module.exports =
       }
     }
 
-    setTimeout(function () {
-      socket.disconnect()
-    }, 1000)
-
     socket.on('outdated', function () {
       VersionUpdateService.open()
     })

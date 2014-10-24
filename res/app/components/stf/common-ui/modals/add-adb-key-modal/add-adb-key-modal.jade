@@ -1,13 +1,12 @@
 .stf-add-adb-key-modal.stf-modal
-  .modal-header
-    button(type='button', ng-click='cancel()').close &times;
-    h4.modal-title
-      i.fa.fa-android
-      .button-spacer
-      span(translate) Add the following ADB Key to STF?
-  .modal-body
-
-    form(ng-submit='ok()')
+  form(ng-submit='ok()')
+    .modal-header
+      button(type='button', ng-click='cancel()').close &times;
+      h4.modal-title
+        i.fa.fa-android
+        .button-spacer
+        span(translate) Add the following ADB Key to STF?
+    .modal-body
       label.control-label
         i.fa.fa-key.fa-fw
         span(translate) Fingerprint
@@ -18,13 +17,13 @@
         span(translate) Device
       pre(ng-bind='modal.title').selectable
 
-  .modal-footer
-    a(ng-href='/#!/docs/adb-keys', target='_blank').pull-left.btn.btn-sm
-      i.fa.fa-lg.fa-question-circle.fa-fw
+    .modal-footer
+      a(ng-href='/#!/docs/adb-keys', target='_blank').pull-left.btn.btn-sm
+        i.fa.fa-lg.fa-question-circle.fa-fw
 
-    button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
-      i.fa.fa-plus.fa-fw
-      strong(translate) Add Key
+      button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+        i.fa.fa-plus.fa-fw
+        strong(translate) Add Key
 
-    button.btn.btn-default-outline.btn-sm.pull-right(ng-click='cancel()')
-      span(translate) Cancel
+      button.btn.btn-default-outline.btn-sm.pull-right(ng-click='cancel()')
+        span(translate) Cancel

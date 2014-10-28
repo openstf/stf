@@ -1,6 +1,11 @@
-var pathutil = require('./lib/util/pathutil')
+var _ = require('lodash')
+
 var webpack = require('webpack')
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
+var ProgressPlugin = require('webpack/lib/ProgressPlugin')
+
+var pathutil = require('./lib/util/pathutil')
+var log = require('./lib/util/logger').createLogger('webpack:config')
 
 module.exports = {
   webpack: {
@@ -76,13 +81,23 @@ module.exports = {
           , ['main']
         )
       )
-      , new webpack.ResolverPlugin(
+    , new webpack.ResolverPlugin(
         new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(
           '.bower.json'
           , ['main']
         )
       )
-      , new CommonsChunkPlugin('entry/commons.entry.js')
+    , new CommonsChunkPlugin('entry/commons.entry.js')
+    , new ProgressPlugin(_.throttle(
+        function(progress, message) {
+          log.info(
+            'Build progress %d%% (%s)'
+          , Math.floor(progress * 100)
+          , message ? message : (progress >= 1 ? 'complete' : 'unknown')
+          )
+        }
+      , 1000
+      ))
     ]
   },
   webpackServer: {

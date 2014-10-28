@@ -480,7 +480,9 @@ module.exports = function DeviceListDetailsDirective(
 
       // Triggers when the tracker sees a device for the first time.
       function addListener(device) {
-        insertItem(createItem(device), device)
+        var item = createItem(device)
+        filterItem(item, device)
+        insertItem(item, device)
       }
 
       // Triggers when the tracker notices that a device changed.

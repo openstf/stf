@@ -189,7 +189,7 @@ module.exports = function DeviceListDetailsDirective(
         return filterAll()
       }
 
-      // Applies filteRow() to all rows.
+      // Applies filterRow() to all rows.
       function filterAll() {
         for (var i = 0, l = rows.length; i < l; ++i) {
           filterRow(rows[i], mapping[rows[i].id])

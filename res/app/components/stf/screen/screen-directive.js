@@ -397,6 +397,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         if (e.which === 3) {
           return
         }
+
         e.preventDefault()
 
         fakePinch = e.altKey

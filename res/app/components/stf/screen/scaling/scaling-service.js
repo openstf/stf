@@ -41,10 +41,10 @@ module.exports = function ScalingServiceFactory() {
      * |              | 0deg |  90deg  |  180deg |  270deg |
      * |--------------|------|---------|---------|---------|
      * | CSS rotate() | 0deg | -90deg  | -180deg |  90deg  |
-     * | bounding w   |  w   |    h    |    w    |   h     |
-     * | bounding h   |  h   |    w    |    h    |   w     |
-     * | pos x        |  x   |   h-y   |   w-x   |   y     |
-     * | pos y        |  y   |    x    |   h-y   |   x     |
+     * | bounding w   |  w   |    h    |    w    |    h    |
+     * | bounding h   |  h   |    w    |    h    |    w    |
+     * | pos x        |  x   |   h-y   |   w-x   |    y    |
+     * | pos y        |  y   |    x    |   h-y   |   h-x   |
      * |--------------|------|---------|---------|---------|
      */
     return {
@@ -74,7 +74,7 @@ module.exports = function ScalingServiceFactory() {
           w = boundingH
           h = boundingW
           x = relY
-          y = relX
+          y = boundingW - relX
           break
         }
 

@@ -69,7 +69,7 @@ img.device-icon-smallest {
 }
 
 .stf-device-list .device-product-name-using {
-  border-bottom: 2px solid; /* leaving out the color inherits text color */
+  border-bottom: 1px solid; /* leaving out the color inherits text color */
 }
 
 

@@ -61,8 +61,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         // FORCE
         forRetina = 1.2
 
-        guestDisplayDensity =
-          BrowserInfo.mobile && BrowserInfo.retina ? forRetina : 1
+        guestDisplayDensity = BrowserInfo.retina ? forRetina : 1
         return guestDisplayDensity
       }
 

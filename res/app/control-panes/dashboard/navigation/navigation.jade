@@ -29,4 +29,4 @@
       .btn-group.browser-buttons(ng-click='nav.focusUrl = true')
         label.btn.btn-default-outline(ng-repeat='browserRadio in device.browser.apps track by browserRadio.id', ng-model='$root.browser', btn-radio='browserRadio',
         tooltip='{{browserRadio.name}} ({{browserRadio.developer}})')
-          img(ng-src='/static/app/browsers/icon/24x24/{{browserRadio.type}}.png', ng-show='browserRadio.type').browser-icon.pointer
+          img(ng-src='/static/app/browsers/icon/36x36/{{browserRadio.type}}.png', ng-show='browserRadio.type').browser-icon.pointer

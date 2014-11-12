@@ -38,6 +38,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         , w: 0
         , h: 0
         }
+      , autoScaleForRetina: true
       }
 
       var cachedScreen = {
@@ -59,7 +60,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function setDisplayDensity(forRetina) {
         // FORCE
-        forRetina = 1.2
+        forRetina = 1.5
 
         guestDisplayDensity = BrowserInfo.retina ? forRetina : 1
         return guestDisplayDensity
@@ -198,6 +199,11 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
           if (scope.$parent.showScreen) {
             screen.rotation = device.display.rotation
+
+
+
+
+
 
             // Check to set the size only if updated
             if (cachedScreen.bounds.w !== screen.bounds.w ||

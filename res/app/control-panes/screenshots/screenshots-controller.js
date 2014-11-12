@@ -1,6 +1,6 @@
 module.exports = function ScreenshotsCtrl($scope) {
   $scope.screenshots = []
-  $scope.screenShotSize = 200
+  $scope.screenShotSize = 400
 
   $scope.clear = function () {
     $scope.screenshots = []
@@ -11,9 +11,12 @@ module.exports = function ScreenshotsCtrl($scope) {
   //  defaultValue: 200
   //})
 
-  $scope.shotSizeUrlParameter = function (maxSize) {
-    return ($scope.screenShotSize === maxSize) ? '' :
-    '?crop=' + $scope.screenShotSize + 'x'
+  $scope.shotSizeParameter = function (maxSize, multiplier) {
+    var finalSize = $scope.screenShotSize * multiplier
+    var finalMaxSize = maxSize * multiplier
+
+    return (finalSize === finalMaxSize) ? '' :
+    '?crop=' + finalSize + 'x'
   }
 
   $scope.takeScreenShot = function () {

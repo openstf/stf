@@ -10,7 +10,6 @@ require.ensure([], function (require) {
   angular.module('app', [
     'ngRoute',
     'ngTouch',
-    require('angular-picture').name,
     require('gettext').name,
     require('angular-hotkeys').name,
     require('./layout').name,

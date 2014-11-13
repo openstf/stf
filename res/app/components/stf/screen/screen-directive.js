@@ -170,26 +170,52 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function maybeLoadScreen() {
+        var size
         if (!loading && scope.$parent.showScreen && device) {
-          var w, h
           switch (screen.rotation) {
           case 0:
           case 180:
-            w = screen.bounds.w
-            h = screen.bounds.h
+            size = adjustBoundedSize(
+              screen.bounds.w
+            , screen.bounds.h
+            )
             break
           case 90:
           case 270:
-            w = screen.bounds.h
-            h = screen.bounds.w
+            size = adjustBoundedSize(
+              screen.bounds.h
+            , screen.bounds.w
+            )
             break
           }
           loading = true
           imageRender.load(device.display.url +
-            '?width=' + Math.ceil(w * guestDisplayDensity) +
-            '&height=' + Math.ceil(h * guestDisplayDensity) +
+            '?width=' + size.w +
+            '&height=' + size.h +
             '&time=' + Date.now()
           )
+        }
+      }
+
+      function adjustBoundedSize(w, h) {
+        var sw = w * guestDisplayDensity
+          , sh = h * guestDisplayDensity
+          , minscale = 0.36
+          , f
+
+        if (sw < (f = device.display.width * minscale)) {
+          sw *= f / sw
+          sh *= f / sh
+        }
+
+        if (sh < (f = device.display.height * minscale)) {
+          sw *= f / sw
+          sh *= f / sh
+        }
+
+        return {
+          w: Math.ceil(sw)
+        , h: Math.ceil(sh)
         }
       }
 
@@ -301,6 +327,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       scope.$watch('$parent.showScreen', function (val) {
         if (val) {
+          updateBounds()
           maybeLoadScreen()
         } else {
           scope.fps = null

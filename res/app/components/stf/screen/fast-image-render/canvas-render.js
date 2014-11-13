@@ -13,8 +13,8 @@ function CanvasRender(canvasElement, options) {
   this.frontBackRatio = devicePixelRatio / backingStoreRatio
 
   if (options.autoScaleForRetina && devicePixelRatio !== backingStoreRatio) {
-    var oldWidth = canvas.width;
-    var oldHeight = canvas.height;
+    var oldWidth = canvasElement.width
+    var oldHeight = canvasElement.height
 
     canvasElement.width = oldWidth * this.frontBackRatio
     canvasElement.height = oldHeight * this.frontBackRatio

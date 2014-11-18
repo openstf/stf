@@ -226,11 +226,6 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
           if (scope.$parent.showScreen) {
             screen.rotation = device.display.rotation
 
-
-
-
-
-
             // Check to set the size only if updated
             if (cachedScreen.bounds.w !== screen.bounds.w ||
               cachedScreen.bounds.h !== screen.bounds.h ||
@@ -425,6 +420,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseDownListener(e) {
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
+
         // Skip secondary click
         if (e.which === 3) {
           return
@@ -470,6 +469,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseMoveListener(e) {
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
+
         // Skip secondary click
         if (e.which === 3) {
           return
@@ -518,6 +521,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function mouseUpListener(e) {
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
+
         // Skip secondary click
         if (e.which === 3) {
           return
@@ -556,6 +563,11 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       function touchStartListener(e) {
         e.preventDefault()
+
+        //Make it jQuery compatible also
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
 
         calculateBounds()
 
@@ -621,6 +633,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       function touchMoveListener(e) {
         e.preventDefault()
 
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
+
         for (var i = 0, l = e.changedTouches.length; i < l; ++i) {
           var touch = e.changedTouches[i]
             , slot = slotted[touch.identifier]
@@ -643,6 +659,10 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function touchEndListener(e) {
+        if (e.originalEvent) {
+          e = e.originalEvent
+        }
+
         var foundAny = false
 
         for (var i = 0, l = e.changedTouches.length; i < l; ++i) {

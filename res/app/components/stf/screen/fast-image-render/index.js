@@ -2,10 +2,6 @@
 // See http://jsperf.com/canvas-drawimage-vs-putimagedata/3
 // See http://jsperf.com/canvas-drawimage-vs-webgl-drawarrays
 
-var CanvasRender = require('./canvas-render').CanvasRender
-//var WebGLRender = require('./webgl-render').WebGLRender
-
-
 function FastImageRender(canvasElement, options) {
   var that = this
   this.options = options || {}
@@ -41,8 +37,10 @@ function FastImageRender(canvasElement, options) {
   }
 
   if (this.options.render === 'webgl') {
+    var WebGLRender = require('./webgl-render').WebGLRender
     this.render = new WebGLRender(canvasElement, options)
   } else {
+    var CanvasRender = require('./canvas-render').CanvasRender
     this.render = new CanvasRender(canvasElement, options)
   }
 

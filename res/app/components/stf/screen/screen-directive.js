@@ -363,6 +363,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         , seq = -1
         , cycle = 100
         , fakePinch = false
+        , lastPossiblyBuggyMouseUpEvent = 0
 
       function nextSeq() {
         return ++seq >= cycle ? (seq = 0) : seq
@@ -466,6 +467,16 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         element.bind('mousemove', mouseMoveListener)
         $document.bind('mouseup', mouseUpListener)
         $document.bind('mouseleave', mouseUpListener)
+
+        if (lastPossiblyBuggyMouseUpEvent &&
+            lastPossiblyBuggyMouseUpEvent.timeStamp > e.timeStamp) {
+          // We got mouseup before mousedown. See mouseUpBugWorkaroundListener
+          // for details.
+          mouseUpListener(lastPossiblyBuggyMouseUpEvent)
+        }
+        else {
+          lastPossiblyBuggyMouseUpEvent = null
+        }
       }
 
       function mouseMoveListener(e) {
@@ -548,9 +559,64 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         stopMousing()
       }
 
+      /**
+       * Do NOT remove under any circumstances. Currently, in the latest
+       * Safari (Version 8.0 (10600.1.25)), if an input field is focused
+       * while we do a tap click on an MBP trackpad ("Tap to click" in
+       * Settings), it sometimes causes the mouseup event to trigger before
+       * the mousedown event (but event.timeStamp will be correct). It
+       * doesn't happen in any other browser. The following minimal test
+       * case triggers the same behavior (although less frequently). Keep
+       * tapping and you'll eventually see see two mouseups in a row with
+       * the same counter value followed by a mousedown with a new counter
+       * value. Also, when the bug happens, the cursor in the input field
+       * stops blinking. It may take up to 300 attempts to spot the bug on
+       * a MacBook Pro (Retina, 15-inch, Mid 2014).
+       *
+       *     <!doctype html>
+       *
+       *     <div id="touchable"
+       *       style="width: 100px; height: 100px; background: green"></div>
+       *     <input id="focusable" type="text" />
+       *
+       *     <script>
+       *     var touchable = document.getElementById('touchable')
+       *       , focusable = document.getElementById('focusable')
+       *       , counter = 0
+       *
+       *     function mousedownListener(e) {
+       *       counter += 1
+       *       console.log('mousedown', counter, e, e.timeStamp)
+       *       e.preventDefault()
+       *     }
+       *
+       *     function mouseupListener(e) {
+       *       e.preventDefault()
+       *       console.log('mouseup', counter, e, e.timeStamp)
+       *       focusable.focus()
+       *     }
+       *
+       *     touchable.addEventListener('mousedown', mousedownListener, false)
+       *     touchable.addEventListener('mouseup', mouseupListener, false)
+       *     </script>
+       *
+       * I believe that the bug is caused by some kind of a race condition
+       * in Safari. Using a textarea or a focused contenteditable does not
+       * get rid of the bug. The bug also happens if the text field is
+       * focused manually by the user (not with .focus()).
+       *
+       * It also doesn't help if you .blur() before .focus().
+       *
+       * So basically we'll just have to store the event on mouseup and check
+       * if we should do the browser's job in the mousedown handler.
+       */
+      function mouseUpBugWorkaroundListener(e) {
+        lastPossiblyBuggyMouseUpEvent = e
+      }
+
       function startMousing() {
-        input[0].focus()
         control.gestureStart(nextSeq())
+        input[0].focus()
       }
 
       function stopMousing() {
@@ -702,6 +768,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
       element.on('touchstart', touchStartListener)
       element.on('mousedown', mouseDownListener)
+      element.on('mouseup', mouseUpBugWorkaroundListener)
 
       createSlots()
     }

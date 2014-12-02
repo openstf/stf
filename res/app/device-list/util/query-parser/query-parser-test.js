@@ -1,6 +1,6 @@
 var assert = require('assert')
 
-var QueryParser = require('./query-parser')
+var QueryParser = require('./index')
 
 var tests = [
   function() {

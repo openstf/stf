@@ -81,6 +81,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
           , lb = vb.length
           , op = filterOps[filter.op || '=']
 
+        // We have a single value and no operator or field. It matches
+        // too easily, let's wait for a dot (e.g. '5.').
+        if (filter.op === null && filter.field === null && lb === 1) {
+          return false
+        }
+
         if (vb[lb - 1] === '') {
           // This means that the query is not complete yet, and we're
           // looking at something like "4.", which means that the last part

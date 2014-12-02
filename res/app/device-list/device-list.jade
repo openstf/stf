@@ -13,7 +13,7 @@
               select(name='searchFields')
                 option(ng-repeat='column in columns', ng-value='column.name + ": "',
                 ng-bind='columnDefinitions[column.name].title | translate')
-            input(type='search', results='5', autosave='deviceFilter'
+            input(type='search', results=5, autosave='deviceFilter'
               name='deviceFilter', ng-model='search.deviceFilter', ng-change='applyFilter(search.deviceFilter)',
               ng-model-options='{debounce: 150}'
               autocorrect='off', autocapitalize='off', spellcheck='false',

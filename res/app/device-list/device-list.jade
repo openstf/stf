@@ -22,11 +22,11 @@
 
             span.pull-right(ng-if='activeTabs.details && !$root.basicMode')
               .btn-group(dropdown).pull-right
-                button.btn.btn-sm.btn-primary-outline.dropdown-toggle(dropdown-toggle)
+                button.btn.btn-sm.btn-primary-outline(type='button', dropdown-toggle)
                   i.fa.fa-columns
-                  span {{"Customize"|translate}}
+                  span(ng-bind='"Customize"|translate')
 
-                ul.dropdown-menu(role='menu', data-toggle='dropdown').pointer.stf-device-details-customize
+                ul.dropdown-menu(role='menu').pointer.stf-device-details-customize
                   li(ng-repeat='column in columns track by column.name',
                   ng-hide='!adminMode && columnDefinitions[column.name].admin',
                   ng-click='$event.stopPropagation()')

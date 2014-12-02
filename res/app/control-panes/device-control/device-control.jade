@@ -17,7 +17,7 @@
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
 
         .device-name-container(dropdown)
-          a.stf-vnc-device-name.pointer.unselectable.dropdown-toggle
+          a.stf-vnc-device-name.pointer.unselectable(dropdown-toggle)
             p
               .device-small-image
                 img(ng-src='/static/app/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')

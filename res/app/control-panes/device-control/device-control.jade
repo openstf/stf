@@ -37,10 +37,10 @@
 
       .as-row.fill-height
 
-        div(ng-controller='DeviceScreenCtrl', ng-if='device',
-          ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height
-          device-context-menu(device='device', control='control')
-            device-screen(device='device', control='control')
+        div(ng-controller='DeviceScreenCtrl', ng-if='device').fill-height
+          div(ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height
+            device-context-menu(device='device', control='control')
+              device-screen(device='device', control='control')
 
       .stf-vnc-bottom.as-row(ng-hide='$root.standalone')
         .controls

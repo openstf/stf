@@ -2,11 +2,11 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.3.5-build.3626",
-    "angular-route": "1.3.5-build.3626",
-    "angular-sanitize": "1.3.5-build.3626",
-    "angular-animate": "1.3.5-build.3626",
-    "angular-touch": "1.3.5-build.3626",
+    "angular": "1.3.5-build.3640",
+    "angular-route": "1.3.5-build.3640",
+    "angular-sanitize": "1.3.5-build.3640",
+    "angular-animate": "1.3.5-build.3640",
+    "angular-touch": "1.3.5-build.3640",
     "se7en-bootstrap-3": "~0.2.1",
     "lodash": "~2.4.1",
     "oboe": "~2.0.2",
@@ -22,7 +22,7 @@
     "stf-graphics": "~0.1.1",
     "angular-bootstrap": "~0.11.2",
     "angular-dialog-service": "~5.2.6",
-    "ng-file-upload": "~1.6.12",
+    "ng-file-upload": "~2.0.2",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.2",
     "angular-tree-control": "~0.2.7",
     "angular-loading-bar": "~0.6.0",
@@ -37,25 +37,25 @@
     "checklist-model": "~0.1.3",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
     "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
-    "angular-ui-bootstrap": "~0.11.2",
-    "angular-ladda": "~0.1.8",
+    "angular-ui-bootstrap": "~0.12.0",
+    "angular-ladda": "~0.1.9",
     "ng-context-menu": "~1.0.1",
     "stats.js": "*",
     "components-font-awesome": "~4.2.0",
     "epoch": "~0.6.0",
     "d3": "~3.4.13",
     "ng-epoch": "~1.0.7",
-    "eventEmitter": "~4.2.9"
+    "eventEmitter": "~4.2.10"
   },
   "private": true,
   "resolutions": {
-    "angular": "1.3.5-build.3626",
-    "angular-sanitize": "1.3.5-build.3626",
+    "angular": "1.3.5-build.3640",
+    "angular-sanitize": "1.3.5-build.3640",
     "bootstrap": "~3.3.0",
     "d3": "~3.4.13",
     "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.5-build.3626"
+    "angular-mocks": "1.3.5-build.3640"
   }
 }

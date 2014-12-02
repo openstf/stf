@@ -43,7 +43,7 @@
               tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
-              div.device-list-devices-content(ng-if='activeTabs.icons')
+              div.device-list-devices-content(ng-if='activeTabs.icons').selectable
 
                 device-list-icons(tracker='tracker', columns='columns', sort='sort', filter='filter')
 
@@ -51,6 +51,6 @@
               tab-heading
                 i.fa.fa-list
                 span(translate) Details
-              div.device-list-details-content(ng-if='activeTabs.details')
+              div.device-list-details-content(ng-if='activeTabs.details').selectable
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort', filter='filter').selectable

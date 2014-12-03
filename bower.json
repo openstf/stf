@@ -2,11 +2,11 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.3.5-build.3640",
-    "angular-route": "1.3.5-build.3640",
-    "angular-sanitize": "1.3.5-build.3640",
-    "angular-animate": "1.3.5-build.3640",
-    "angular-touch": "1.3.5-build.3640",
+    "angular": "1.3.6-build.3654",
+    "angular-route": "1.3.6-build.3654",
+    "angular-sanitize": "1.3.6-build.3654",
+    "angular-animate": "1.3.6-build.3654",
+    "angular-touch": "1.3.6-build.3654",
     "se7en-bootstrap-3": "~0.2.1",
     "lodash": "~2.4.1",
     "oboe": "~2.0.2",
@@ -49,13 +49,13 @@
   },
   "private": true,
   "resolutions": {
-    "angular": "1.3.5-build.3640",
-    "angular-sanitize": "1.3.5-build.3640",
+    "angular": "1.3.6-build.3654",
+    "angular-sanitize": "1.3.6-build.3654",
     "bootstrap": "~3.3.0",
     "d3": "~3.4.13",
     "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.5-build.3640"
+    "angular-mocks": "1.3.6-build.3654"
   }
 }

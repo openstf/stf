@@ -113,19 +113,14 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
         return false
       }
 
-      function keyupSpecialKeys(e) {
-        var specialKey = false
-
+      function handleSpecialKeys(e) {
         if (isChangeCharsetKey(e)) {
-          specialKey = true
-          control.keyPress('switch_charset')
-        }
-
-        if (specialKey) {
           e.preventDefault()
+          control.keyPress('switch_charset')
+          return true
         }
 
-        return specialKey
+        return false
       }
 
       function keydownListener(e) {
@@ -138,28 +133,40 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       }
 
       function keyupListener(e) {
-        if (!keyupSpecialKeys(e)) {
+        if (!handleSpecialKeys(e)) {
           control.keyUp(e.keyCode)
         }
       }
 
-      function keypressListener(e) {
-        e.preventDefault() // no need to change value
-        control.type(String.fromCharCode(e.charCode))
-      }
-
       function pasteListener(e) {
-        e.preventDefault() // no need to change value
+        // Prevent value change or the input event sees it. This way we get
+        // the real value instead of any "\n" -> " " conversions we might see
+        // in the input value.
+        e.preventDefault()
         control.paste(e.clipboardData.getData('text/plain'))
       }
 
       function copyListener(e) {
-        control.getClipboardContent()
-        // @TODO: OK, this basically copies last clipboard content
-        if (control.clipboardContent) {
-          e.clipboardData.setData("text/plain", control.clipboardContent)
-        }
         e.preventDefault()
+        // This is asynchronous and by the time it returns we will no longer
+        // have access to setData(). In other words it doesn't work. Currently
+        // what happens is that on the first copy, it will attempt to fetch
+        // the clipboard contents. Only on the second copy will it actually
+        // copy that to the clipboard.
+        control.getClipboardContent()
+        if (control.clipboardContent) {
+          e.clipboardData.setData('text/plain', control.clipboardContent)
+        }
+      }
+
+      function inputListener() {
+        // Why use the input event if we don't let it handle pasting? The
+        // reason is that on latest Safari (Version 8.0 (10600.1.25)), if
+        // you use the "Romaji" Kotoeri input method, we'll never get any
+        // keypress events. It also causes us to lose the very first keypress
+        // on the page. Currently I'm not sure if we can fix that one.
+        control.type(this.value)
+        this.value = ''
       }
 
       scope.retryLoadingScreen = function () {
@@ -304,7 +311,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
         input.bind('keydown', keydownListener)
         input.bind('keyup', keyupListener)
-        input.bind('keypress', keypressListener)
+        input.bind('input', inputListener)
         input.bind('paste', pasteListener)
         input.bind('copy', copyListener)
       }
@@ -315,7 +322,7 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
 
         input.unbind('keydown', keydownListener)
         input.unbind('keyup', keyupListener)
-        input.unbind('keypress', keypressListener)
+        input.unbind('input', inputListener)
         input.unbind('paste', pasteListener)
         input.unbind('copy', copyListener)
       }

@@ -232,6 +232,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.provider ? device.provider.name : ''
       }
     })
+  , notes: TextCell({
+      title: gettext('Notes')
+    , value: function(device) {
+        return device.notes || ''
+      }
+    })
   , owner: LinkCell({
       title: gettext('User')
     , target: '_blank'

@@ -422,7 +422,7 @@ function DeviceBrowserCell(options) {
       for (var i = 0, l = browser.apps.length; i < l; ++i) {
         var app = browser.apps[i]
           , img = span.childNodes[i] || span.appendChild(document.createElement('img'))
-          , src = '/static/app/browsers/icon/24x24/' + (app.type || '_default') + '.png'
+          , src = '/static/app/browsers/icon/36x36/' + (app.type || '_default') + '.png'
 
         // Only change if necessary so that we don't trigger a download
         if (img.getAttribute('src') !== src) {

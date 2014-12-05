@@ -52,6 +52,12 @@ img.device-icon-smallest {
   max-width: 100%;
 }
 
+.stf-device-list .device-browser-list img {
+  width: 18px;
+  height: 18px;
+  margin-right: 3px;
+}
+
 .device-list-active-tabs.ng-enter {
   -webkit-transition: 250ms;
   transition: 250ms;

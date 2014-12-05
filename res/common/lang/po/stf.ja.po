@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
@@ -26,8 +26,8 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"A previously installed package of the same name has a different signature "
-"than the new package (and the old package's data was not removed)."
+"A previously installed package of the same name has a different signature than the new package (and the old "
+"package's data was not removed)."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -175,7 +175,6 @@ msgstr "ブラウザ"
 msgid "Busy"
 msgstr "貸し出し中"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
 msgid "Busy devices"
 msgstr "貸し出し中"
@@ -215,6 +214,7 @@ msgid "Chat"
 msgstr "チャット"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/clear-button/clear-button.html
 msgid "Clear"
 msgstr "クリア"
@@ -349,6 +349,7 @@ msgstr "無線LANを無効にする"
 msgid "Discharging"
 msgstr "放電中"
 
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Disconnected"
 msgstr "切断中"
@@ -385,17 +386,17 @@ msgstr "通知を有効にする"
 msgid "Encrypted"
 msgstr "暗号化"
 
+#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
+msgid "Error"
+msgstr "エラー"
+
 #: /Users/a12907/STF/stf/res/app/components/stf/control/control-service.js
 msgid "Error while getting data"
 msgstr "データ取得中にエラーが発生しました。"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
-msgid "Error while reconnecting."
-msgstr "再接続中にエラーが発生しました。"
-
-#: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
-msgid "Error."
-msgstr "エラー"
+msgid "Error while reconnecting"
+msgstr "再接続時にエラーが発生しました"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Ethernet"
@@ -556,7 +557,6 @@ msgstr "認証キー"
 msgid "Landscape"
 msgstr "横"
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/language/language.html
 #: /Users/a12907/STF/stf/tmp/html/app/settings/general/language/language.html
 msgid "Language"
 msgstr "言語"
@@ -574,7 +574,6 @@ msgstr "アクティビティを起動中..."
 msgid "Level"
 msgstr "レベル"
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
 #: /Users/a12907/STF/stf/tmp/html/app/settings/general/local/local-settings.html
 msgid "Local Settings"
 msgstr "ローカル設定"
@@ -699,7 +698,6 @@ msgstr "クッキーはありません"
 msgid "No device screen"
 msgstr "画面が表示できません"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-empty.html
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/empty/device-list-empty.html
 msgid "No devices connected"
 msgstr "端末が接続されていません"
@@ -719,6 +717,10 @@ msgstr "通常モード"
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Not Charging"
 msgstr "充電されていない"
+
+#: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
+msgid "Notes"
+msgstr "注釈"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/inspect/inspect.html
 msgid "Nothing to inspect"
@@ -923,7 +925,6 @@ msgstr "削除"
 msgid "Reset"
 msgstr "初期化"
 
-#: /Users/a12907/STF/stf/tmp/html/app/settings/local/local-settings.html
 #: /Users/a12907/STF/stf/tmp/html/app/settings/general/local/local-settings.html
 msgid "Reset Settings"
 msgstr "すべての設定をリセット"
@@ -962,27 +963,29 @@ msgstr "左回りに回転"
 msgid "Rotate Right"
 msgstr "右回りに回転"
 
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
+msgid "Run"
+msgstr "実行"
+
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
 msgid "Run Command"
 msgstr "コマンドを実行"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
+msgid "Run JavaScript"
+msgstr "JavaScript注入"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/dashboard/shell/shell.html
 msgid "Run command"
 msgstr "コマンドを実行する"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
-msgid ""
-"Run the following on your command line to debug the device from your Browser"
-msgstr ""
-"次のコマンドをコマンドラインで実行しますと、お使いのブラウザより端末のデバッ"
-"グができます。"
+msgid "Run the following on your command line to debug the device from your Browser"
+msgstr "次のコマンドをコマンドラインで実行しますと、お使いのブラウザより端末のデバッグができます。"
 
 #: /Users/a12907/STF/stf/res/app/control-panes/dashboard/remote-debug/remote-debug-controller.js
-msgid ""
-"Run the following on your command line to debug the device from your IDE"
-msgstr ""
-"次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグがで"
-"きます。"
+msgid "Run the following on your command line to debug the device from your IDE"
+msgstr "次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグができます。"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/keys/add-adb-key/add-adb-key.html
 msgid "Run this command to copy the key to your clipboard"
@@ -1004,6 +1007,10 @@ msgstr "SIM"
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/device-context-menu/device-context-menu.html
 msgid "Save ScreenShot"
 msgstr "スクリーンショットを保存する"
+
+#: /Users/a12907/STF/stf/tmp/html/app/control-panes/advanced/run-js/run-js.html
+msgid "Save..."
+msgstr "保存する..."
 
 #: /Users/a12907/STF/stf/res/app/device-list/column/device-column-service.js
 msgid "Screen"
@@ -1071,8 +1078,8 @@ msgid "Size"
 msgstr "サイズ"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/socket/socket-state/socket-state-directive.js
-msgid "Socket connection was lost, try again reloading the page."
-msgstr "接続が切れました。ページをリロードしてみてください。"
+msgid "Socket connection was lost"
+msgstr "ソケットへの接続が切れました"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/device/device-info-filter/index.js
 msgid "Someone stole your device."
@@ -1150,61 +1157,50 @@ msgid "The existing package could not be deleted."
 msgstr "既存のパッケージは削除できませんでした。"
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package couldn't be installed because the verification did not "
-"succeed."
+msgid "The new package couldn't be installed because the verification did not succeed."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed because the verification timed out."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"The new package couldn't be installed because the verification timed out."
+"The new package couldn't be installed in the specified install location because the media is not available."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package couldn't be installed in the specified install location."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"The new package couldn't be installed in the specified install location "
-"because the media is not available."
+"The new package failed because it contains a content provider with thesame authority as a provider already "
+"installed in the system."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"The new package couldn't be installed in the specified install location."
+"The new package failed because it has specified that it is a test-only package and the caller has not supplied "
+"the INSTALL_ALLOW_TEST flag."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because the current SDK version is newer than that required by the package."
+msgstr ""
+
+#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
+msgid "The new package failed because the current SDK version is older than that required by the package."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"The new package failed because it contains a content provider with thesame "
-"authority as a provider already installed in the system."
+"The new package failed while optimizing and validating its dex files, either because there was not enough "
+"storage or the validation failed."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package failed because it has specified that it is a test-only "
-"package and the caller has not supplied the INSTALL_ALLOW_TEST flag."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package failed because the current SDK version is newer than that "
-"required by the package."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package failed because the current SDK version is older than that "
-"required by the package."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package failed while optimizing and validating its dex files, either "
-"because there was not enough storage or the validation failed."
-msgstr ""
-
-#: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The new package has an older version code than the currently installed "
-"package."
+msgid "The new package has an older version code than the currently installed package."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1224,9 +1220,7 @@ msgid "The package archive file is invalid."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The package being installed contains native code, but none that is "
-"compatible with the device's CPU_ABI."
+msgid "The package being installed contains native code, but none that is compatible with the device's CPU_ABI."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1238,15 +1232,11 @@ msgid "The package is already installed."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The package manager service found that the device didn't have enough storage "
-"space to install the app."
+msgid "The package manager service found that the device didn't have enough storage space to install the app."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The parser did not find any actionable tags (instrumentation or application) "
-"in the manifest."
+msgid "The parser did not find any actionable tags (instrumentation or application) in the manifest."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1254,9 +1244,7 @@ msgid "The parser did not find any certificates in the .apk."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The parser encountered a CertificateEncodingException in one of the files in "
-"the .apk."
+msgid "The parser encountered a CertificateEncodingException in one of the files in the .apk."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1280,9 +1268,7 @@ msgid "The parser found inconsistent certificates on the files in the .apk."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The parser was given a path that is not a file, or does not end with the "
-"expected '.apk' extension."
+msgid "The parser was given a path that is not a file, or does not end with the expected '.apk' extension."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1295,8 +1281,8 @@ msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
 msgid ""
-"The system failed to install the package because its packaged native code "
-"did not match any of the ABIs supported by the system."
+"The system failed to install the package because its packaged native code did not match any of the ABIs "
+"supported by the system."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
@@ -1304,18 +1290,12 @@ msgid "The system failed to install the package because of system issues."
 msgstr ""
 
 #: /Users/a12907/STF/stf/res/app/components/stf/install/install-error-filter.js
-msgid ""
-"The system failed to install the package because the user is restricted from "
-"installing apps."
+msgid "The system failed to install the package because the user is restricted from installing apps."
 msgstr ""
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/screen/screen.html
-msgid ""
-"This might be caused by a network error, or you might be trying to access a "
-"secure view."
-msgstr ""
-"起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化され"
-"たビュー"
+msgid "This might be caused by a network error, or you might be trying to access a secure view."
+msgstr "起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化されたビュー"
 
 #: /Users/a12907/STF/stf/tmp/html/app/control-panes/logs/logs.html
 msgid "Time"
@@ -1329,12 +1309,12 @@ msgstr "ヒント："
 msgid "Toggle Web/Native"
 msgstr "ウェブ/ネイティブを選択"
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
 msgid "Total devices"
 msgstr "全機種"
 
 #: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/fatal-message/fatal-message.html
+#: /Users/a12907/STF/stf/tmp/html/app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html
 msgid "Try to reconnect"
 msgstr "再接続する"
 
@@ -1386,7 +1366,6 @@ msgstr "アップロードされたファイル"
 msgid "Uploading..."
 msgstr "アップロード中..."
 
-#: /Users/a12907/STF/stf/tmp/html/app/device-list/device-list-stats.html
 #: /Users/a12907/STF/stf/tmp/html/app/device-list/stats/device-list-stats.html
 msgid "Usable devices"
 msgstr "利用可能"
@@ -1491,14 +1470,14 @@ msgstr "はい"
 msgid "You (or someone else) kicked the device."
 msgstr "この実機はキックされました。"
 
-#~ msgid "Run"
-#~ msgstr "実行"
+#~ msgid "Error while reconnecting."
+#~ msgstr "再接続中にエラーが発生しました。"
 
-#~ msgid "Run JavaScript"
-#~ msgstr "JavaScript注入"
+#~ msgid "Error."
+#~ msgstr "エラー"
 
-#~ msgid "Save..."
-#~ msgstr "保存する..."
+#~ msgid "Socket connection was lost, try again reloading the page."
+#~ msgstr "接続が切れました。ページをリロードしてみてください。"
 
 #~ msgid "Forward"
 #~ msgstr "フォーワード"
@@ -1542,8 +1521,7 @@ msgstr "この実機はキックされました。"
 #~ msgid "Saved to: {{savedTo}}"
 #~ msgstr "保存先: {{savedTo}}"
 
-#~ msgid ""
-#~ "Are you sure you want to kick this device?Currently it is being used by"
+#~ msgid "Are you sure you want to kick this device?Currently it is being used by"
 #~ msgstr ""
 #~ "このデバイスをキックしますか？\n"
 #~ "只今、次のユーザが使用中です："

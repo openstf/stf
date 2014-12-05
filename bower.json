@@ -2,11 +2,11 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.3.6-build.3654",
-    "angular-route": "1.3.6-build.3654",
-    "angular-sanitize": "1.3.6-build.3654",
-    "angular-animate": "1.3.6-build.3654",
-    "angular-touch": "1.3.6-build.3654",
+    "angular": "1.3.6-build.3667",
+    "angular-route": "1.3.6-build.3667",
+    "angular-sanitize": "1.3.6-build.3667",
+    "angular-animate": "1.3.6-build.3667",
+    "angular-touch": "1.3.6-build.3667",
     "se7en-bootstrap-3": "~0.2.1",
     "lodash": "~2.4.1",
     "oboe": "~2.0.2",
@@ -20,9 +20,9 @@
     "ui-bootstrap-alerts": "~0.1.5",
     "requirejs": "~2.1.15",
     "stf-graphics": "~0.1.1",
-    "angular-bootstrap": "~0.11.2",
+    "angular-bootstrap": "~0.12.0",
     "angular-dialog-service": "~5.2.6",
-    "ng-file-upload": "~2.0.2",
+    "ng-file-upload": "~2.0.3",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.2",
     "angular-tree-control": "~0.2.7",
     "angular-loading-bar": "~0.6.0",
@@ -49,13 +49,13 @@
   },
   "private": true,
   "resolutions": {
-    "angular": "1.3.6-build.3654",
-    "angular-sanitize": "1.3.6-build.3654",
+    "angular": "1.3.6-build.3667",
+    "angular-sanitize": "1.3.6-build.3667",
     "bootstrap": "~3.3.0",
     "d3": "~3.4.13",
     "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.6-build.3654"
+    "angular-mocks": "1.3.6-build.3667"
   }
 }

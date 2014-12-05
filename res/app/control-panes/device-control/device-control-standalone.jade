@@ -1,4 +1,5 @@
 .interact-control.fill-height.stf-device-control(ng-controller='DeviceControlCtrl').fill-height.fill-width
-  div(ng-controller='DeviceScreenCtrl', ng-if='device', ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height.fill-width
-    device-context-menu(device='device', control='control')
-      device-screen(device='device', control='control').fill-height.fill-width
+  div(ng-controller='DeviceScreenCtrl', ng-if='device').fill-height.fill-width
+    div(ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height.fill-width
+      device-context-menu(device='device', control='control')
+        device-screen(device='device', control='control').fill-height.fill-width

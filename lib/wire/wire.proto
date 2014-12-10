@@ -161,6 +161,7 @@ message DeviceDisplayMessage {
   required float density = 8;
   required bool secure = 9;
   required string url = 10;
+  optional float size = 11;
 }
 
 message DeviceBrowserAppMessage {

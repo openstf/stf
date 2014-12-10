@@ -13,276 +13,283 @@ module.exports = function DeviceScreenDirective($document, ScalingService,
       var URL = window.URL || window.webkitURL
       var BLANK_IMG =
         'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+      var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
 
       var device = scope.device()
         , control = scope.control()
 
-      var canvas = element.find('canvas')[0]
-        , input = element.find('input')
-        , g = canvas.getContext('2d')
+      var input = element.find('input')
 
-      var ws
-        , loading = false
+      /**
+       * SCREEN HANDLING
+       *
+       * This section should deal with updating the screen ONLY.
+       */
+      ;(function() {
+        var canvas = element.find('canvas')[0]
+          , g = canvas.getContext('2d')
 
-      var guestDisplayDensity = setDisplayDensity(1.5)
-      //var guestDisplayRotation = 0
+        var ws
+          , loading = false
 
-      var cssTransform = VendorUtil.style(['transform', 'webkitTransform'])
+        var guestDisplayDensity = setDisplayDensity(1.5)
+        //var guestDisplayRotation = 0
 
-      var screen = scope.screen = {
-        scaler: ScalingService.coordinator(
-          device.display.width, device.display.height
-        )
-      , rotation: 0
-      , bounds: {
-          x: 0
-        , y: 0
-        , w: 0
-        , h: 0
-        }
-      , autoScaleForRetina: true
-      }
-
-      var cachedScreen = {
-        rotation: 0
-      , bounds: {
-          x: 0
-        , y: 0
-        , w: 0
-        , h: 0
-        }
-      }
-
-      var cachedImageWidth = 0
-        , cachedImageHeight = 0
-
-      // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
-      var onPanelResizeThrottled = _.throttle(updateBounds, 16)
-      scope.$on('fa-pane-resize', onPanelResizeThrottled)
-
-      function setDisplayDensity(forRetina) {
-        // FORCE
-        forRetina = 1.5
-
-        guestDisplayDensity = BrowserInfo.retina ? forRetina : 1
-        return guestDisplayDensity
-      }
-
-      function updateBounds() {
-        screen.bounds.w = element[0].offsetWidth
-        screen.bounds.h = element[0].offsetHeight
-
-        // TODO: element is an object HTMLUnknownElement in IE9
-
-        // Developer error, let's try to reduce debug time
-        if (!screen.bounds.w || !screen.bounds.h) {
-          throw new Error(
-            'Unable to update display size; container must have dimensions'
+        var screen = scope.screen = {
+          scaler: ScalingService.coordinator(
+            device.display.width, device.display.height
           )
+        , rotation: 0
+        , bounds: {
+            x: 0
+          , y: 0
+          , w: 0
+          , h: 0
+          }
+        , autoScaleForRetina: true
         }
-      }
 
-      scope.retryLoadingScreen = function () {
-        if (scope.displayError === 'secure') {
-          control.home()
-        }
-        $timeout(maybeLoadScreen, 3000)
-      }
-
-      function maybeLoadScreen() {
-        var size
-        if (ws) {
-          if (!loading && scope.$parent.showScreen && device) {
-            switch (screen.rotation) {
-            case 0:
-            case 180:
-              size = adjustBoundedSize(
-                screen.bounds.w
-              , screen.bounds.h
-              )
-              break
-            case 90:
-            case 270:
-              size = adjustBoundedSize(
-                screen.bounds.h
-              , screen.bounds.w
-              )
-              break
-            }
-            loading = true
-            ws.send('{"op":"jpeg","w":' + size.w + ',"h":' + size.h + '}')
+        var cachedScreen = {
+          rotation: 0
+        , bounds: {
+            x: 0
+          , y: 0
+          , w: 0
+          , h: 0
           }
         }
-      }
 
-      function adjustBoundedSize(w, h) {
-        var sw = w * guestDisplayDensity
-          , sh = h * guestDisplayDensity
-          , minscale = 0.36
-          , f
+        var cachedImageWidth = 0
+          , cachedImageHeight = 0
 
-        if (sw < (f = device.display.width * minscale)) {
-          sw *= f / sw
-          sh *= f / sh
+        // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
+        var onPanelResizeThrottled = _.throttle(updateBounds, 16)
+        scope.$on('fa-pane-resize', onPanelResizeThrottled)
+
+        function setDisplayDensity(forRetina) {
+          // FORCE
+          forRetina = 1.5
+
+          guestDisplayDensity = BrowserInfo.retina ? forRetina : 1
+          return guestDisplayDensity
         }
 
-        if (sh < (f = device.display.height * minscale)) {
-          sw *= f / sw
-          sh *= f / sh
+        function updateBounds() {
+          screen.bounds.w = element[0].offsetWidth
+          screen.bounds.h = element[0].offsetHeight
+
+          // TODO: element is an object HTMLUnknownElement in IE9
+
+          // Developer error, let's try to reduce debug time
+          if (!screen.bounds.w || !screen.bounds.h) {
+            throw new Error(
+              'Unable to update display size; container must have dimensions'
+            )
+          }
         }
 
-        return {
-          w: Math.ceil(sw)
-        , h: Math.ceil(sh)
-        }
-      }
-
-      function on() {
-        if (!ws) {
-          ws = new WebSocket(device.display.url)
-          ws.binaryType = 'blob'
+        scope.retryLoadingScreen = function () {
+          if (scope.displayError === 'secure') {
+            control.home()
+          }
+          $timeout(maybeLoadScreen, 3000)
         }
 
-        ws.onerror = function() {
-          // @todo HANDLE
-        }
-
-        ws.onclose = function() {
-        }
-
-        ws.onopen = function() {
-          maybeLoadScreen()
-        }
-
-        ws.onmessage = function(message) {
-          loading = false
-
-          if (scope.$parent.showScreen) {
-            screen.rotation = device.display.rotation
-
-            var blob = new Blob([message.data], {
-              type: 'image/jpeg'
-            })
-
-            var img = new Image()
-            img.onload = function() {
-              // Check to set the size only if updated
-              if (cachedScreen.bounds.w !== screen.bounds.w ||
-                cachedScreen.bounds.h !== screen.bounds.h ||
-                cachedImageWidth !== img.width ||
-                cachedImageHeight !== img.height ||
-                cachedScreen.rotation !== screen.rotation) {
-
-                cachedScreen.bounds.w = screen.bounds.w
-                cachedScreen.bounds.h = screen.bounds.h
-
-                cachedImageWidth = img.width
-                cachedImageHeight = img.height
-
-                cachedScreen.rotation = screen.rotation
-
-                canvas.width = cachedImageWidth
-                canvas.height = cachedImageHeight
-
-                var projectedSize = screen.scaler.projectedSize(
+        function maybeLoadScreen() {
+          var size
+          if (ws) {
+            if (!loading && scope.$parent.showScreen && device) {
+              switch (screen.rotation) {
+              case 0:
+              case 180:
+                size = adjustBoundedSize(
                   screen.bounds.w
                 , screen.bounds.h
-                , screen.rotation
                 )
-
-                canvas.style.width = projectedSize.width + 'px'
-                canvas.style.height = projectedSize.height + 'px'
-
-                // @todo Make sure that each position is able to rotate smoothly
-                // to the next one. This current setup doesn't work if rotation
-                // changes from 180 to 270 (it will do a reverse rotation).
-                switch (screen.rotation) {
-                  case 0:
-                    canvas.style[cssTransform] = 'rotate(0deg)'
-                    break
-                  case 90:
-                    canvas.style[cssTransform] = 'rotate(-90deg)'
-                    break
-                  case 180:
-                    canvas.style[cssTransform] = 'rotate(-180deg)'
-                    break
-                  case 270:
-                    canvas.style[cssTransform] = 'rotate(90deg)'
-                    break
-                }
+                break
+              case 90:
+              case 270:
+                size = adjustBoundedSize(
+                  screen.bounds.h
+                , screen.bounds.w
+                )
+                break
               }
-
-              g.drawImage(img, 0, 0)
-
-              // Try to forcefully clean everything to get rid of memory leaks.
-              img.onload = img.onerror = null
-              img.src = BLANK_IMG
-              img = null
-              url = null
-              blob = null
-
-              // Next please
-              maybeLoadScreen()
-            }
-
-            var url = URL.createObjectURL(blob)
-            img.src = url
-
-            // Reset error, if any
-            if (scope.displayError) {
-              scope.$apply(function () {
-                scope.displayError = false
-              })
+              loading = true
+              ws.send('{"op":"jpeg","w":' + size.w + ',"h":' + size.h + '}')
             }
           }
         }
 
-        updateBounds()
-      }
+        function adjustBoundedSize(w, h) {
+          var sw = w * guestDisplayDensity
+            , sh = h * guestDisplayDensity
+            , minscale = 0.36
+            , f
 
-      function off() {
-        loading = false
+          if (sw < (f = device.display.width * minscale)) {
+            sw *= f / sw
+            sh *= f / sh
+          }
 
-        if (ws) {
-          ws.onmessage = ws.onerror = ws.onclose = null
-          ws.close()
-          ws = null
+          if (sh < (f = device.display.height * minscale)) {
+            sw *= f / sw
+            sh *= f / sh
+          }
+
+          return {
+            w: Math.ceil(sw)
+          , h: Math.ceil(sh)
+          }
         }
-      }
 
-      scope.$watch('$parent.showScreen', function (val) {
-        if (val) {
-          on()
-        } else {
-          off()
+        function on() {
+          if (!ws) {
+            ws = new WebSocket(device.display.url)
+            ws.binaryType = 'blob'
+          }
+
+          ws.onerror = function() {
+            // @todo HANDLE
+          }
+
+          ws.onclose = function() {
+          }
+
+          ws.onopen = function() {
+            maybeLoadScreen()
+          }
+
+          ws.onmessage = function(message) {
+            loading = false
+
+            if (scope.$parent.showScreen) {
+              screen.rotation = device.display.rotation
+
+              var blob = new Blob([message.data], {
+                type: 'image/jpeg'
+              })
+
+              var img = new Image()
+              img.onload = function() {
+                // Check to set the size only if updated
+                if (cachedScreen.bounds.w !== screen.bounds.w ||
+                  cachedScreen.bounds.h !== screen.bounds.h ||
+                  cachedImageWidth !== img.width ||
+                  cachedImageHeight !== img.height ||
+                  cachedScreen.rotation !== screen.rotation) {
+
+                  cachedScreen.bounds.w = screen.bounds.w
+                  cachedScreen.bounds.h = screen.bounds.h
+
+                  cachedImageWidth = img.width
+                  cachedImageHeight = img.height
+
+                  cachedScreen.rotation = screen.rotation
+
+                  canvas.width = cachedImageWidth
+                  canvas.height = cachedImageHeight
+
+                  var projectedSize = screen.scaler.projectedSize(
+                    screen.bounds.w
+                  , screen.bounds.h
+                  , screen.rotation
+                  )
+
+                  canvas.style.width = projectedSize.width + 'px'
+                  canvas.style.height = projectedSize.height + 'px'
+
+                  // @todo Make sure that each position is able to rotate smoothly
+                  // to the next one. This current setup doesn't work if rotation
+                  // changes from 180 to 270 (it will do a reverse rotation).
+                  switch (screen.rotation) {
+                    case 0:
+                      canvas.style[cssTransform] = 'rotate(0deg)'
+                      break
+                    case 90:
+                      canvas.style[cssTransform] = 'rotate(-90deg)'
+                      break
+                    case 180:
+                      canvas.style[cssTransform] = 'rotate(-180deg)'
+                      break
+                    case 270:
+                      canvas.style[cssTransform] = 'rotate(90deg)'
+                      break
+                  }
+                }
+
+                g.drawImage(img, 0, 0)
+
+                // Try to forcefully clean everything to get rid of memory leaks.
+                img.onload = img.onerror = null
+                img.src = BLANK_IMG
+                img = null
+                url = null
+                blob = null
+
+                // Next please
+                maybeLoadScreen()
+              }
+
+              var url = URL.createObjectURL(blob)
+              img.src = url
+
+              // Reset error, if any
+              if (scope.displayError) {
+                scope.$apply(function () {
+                  scope.displayError = false
+                })
+              }
+            }
+          }
+
+          updateBounds()
         }
-      })
 
-      function checkEnabled() {
-        var using = device && device.using
-        if (using && !PageVisibilityService.hidden) {
-          on()
+        function off() {
+          loading = false
+
+          if (ws) {
+            ws.onmessage = ws.onerror = ws.onclose = null
+            ws.close()
+            ws = null
+          }
         }
-        else {
-          off()
+
+        scope.$watch('$parent.showScreen', function (val) {
+          if (val) {
+            on()
+          } else {
+            off()
+          }
+        })
+
+        function checkEnabled() {
+          var using = device && device.using
+          if (using && !PageVisibilityService.hidden) {
+            on()
+          }
+          else {
+            off()
+          }
         }
-      }
 
-      scope.$watch('device.using', checkEnabled)
-      scope.$on('visibilitychange', checkEnabled)
+        scope.$watch('device.using', checkEnabled)
+        scope.$on('visibilitychange', checkEnabled)
 
-      scope.$on('guest-portrait', function () {
-        control.rotate(0)
-        updateBounds()
-      })
+        scope.$on('guest-portrait', function () {
+          control.rotate(0)
+          updateBounds()
+        })
 
-      scope.$on('guest-landscape', function () {
-        control.rotate(90)
-        setDisplayDensity(2)
-        updateBounds()
-      })
+        scope.$on('guest-landscape', function () {
+          control.rotate(90)
+          setDisplayDensity(2)
+          updateBounds()
+        })
 
-      scope.$on('$destroy', off)
+        scope.$on('$destroy', off)
+      })()
 
       /**
        * KEYBOARD HANDLING

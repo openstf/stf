@@ -47,7 +47,6 @@ module.exports = function DeviceScreenDirective(
        * This section should deal with updating the screen ONLY.
        */
       ;(function() {
-
         var canvas = element.find('canvas')[0]
           , g = canvas.getContext('2d')
 

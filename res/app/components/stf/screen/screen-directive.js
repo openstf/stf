@@ -253,43 +253,54 @@ module.exports = function DeviceScreenDirective(
           if (shouldUpdateScreen()) {
             screen.rotation = device.display.rotation
 
-            var blob = new Blob([message.data], {
-              type: 'image/jpeg'
-            })
+            if (message.data instanceof Blob) {
+              if (scope.displayError) {
+                scope.$apply(function () {
+                  scope.displayError = false
+                })
+              }
 
-            var img = new Image()
+              var blob = new Blob([message.data], {
+                type: 'image/jpeg'
+              })
 
-            img.onload = function() {
-              updateImageArea(this)
+              var img = new Image()
 
-              g.drawImage(img, 0, 0)
+              img.onload = function() {
+                updateImageArea(this)
 
-              // Try to forcefully clean everything to get rid of memory leaks.
-              img.onload = img.onerror = null
-              img.src = BLANK_IMG
-              img = null
-              url = null
-              blob = null
+                g.drawImage(img, 0, 0)
+
+                // Try to forcefully clean everything to get rid of memory
+                // leaks.
+                img.onload = img.onerror = null
+                img.src = BLANK_IMG
+                img = null
+                url = null
+                blob = null
+              }
+
+              img.onerror = function() {
+                // Happily ignore. I suppose this shouldn't happen, but
+                // sometimes it does, presumably when we're loading images
+                // too quickly.
+              }
+
+              var url = URL.createObjectURL(blob)
+              img.src = url
             }
-
-            img.onerror = function() {
-              // Happily ignore. I suppose this shouldn't happen, but
-              // sometimes it does, presumably when we're loading images
-              // too quickly.
+            else {
+              switch (message.data) {
+              case 'secure_on':
+                scope.$apply(function () {
+                  scope.displayError = 'secure'
+                })
+                break
+              }
             }
-
-            var url = URL.createObjectURL(blob)
-            img.src = url
 
             // Next please
             maybeLoadScreen()
-          }
-
-          // Reset error, if any
-          if (scope.displayError) {
-            scope.$apply(function () {
-              scope.displayError = false
-            })
           }
         }
 

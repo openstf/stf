@@ -6,7 +6,7 @@ div(ng-if='displayError').screen-error
 
     // TODO: PING here to check for connectivity http://172.19.9.107:7401/api/v1/displays/0
     .well
-      .screen-error-alert(ng-show='displayError === "secure"', translate) This might be caused by a network error, or you might be trying to access a secure view.
+      .screen-error-alert(ng-show='displayError === "secure"', translate) The current view is marked secure and cannot be viewed remotely.
       .screen-error-alert(ng-show='displayError === "timeout"', translate) Retrieving the device screen has timed out.
 
     .well

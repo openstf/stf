@@ -32,12 +32,13 @@ module.exports = {
       modulesDirectories: [
         'web_modules',
         'bower_components',
-        'node_modules',
+        'node_modules'
       ],
       alias: {
         'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
         'localforage': 'localforage/dist/localforage.js',
-        'socket.io': 'socket.io-client'
+        'socket.io': 'socket.io-client',
+        'stats': 'stats.js/src/Stats.js'
       }
     },
     module: {

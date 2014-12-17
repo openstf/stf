@@ -4,7 +4,6 @@ div(ng-if='displayError').screen-error
   .screen-error-message
     nothing-to-show(message='{{"No device screen"|translate}}', icon='fa-eye-slash', ng-show='true')
 
-    // TODO: PING here to check for connectivity http://172.19.9.107:7401/api/v1/displays/0
     .well
       .screen-error-alert(ng-show='displayError === "secure"', translate) The current view is marked secure and cannot be viewed remotely.
       .screen-error-alert(ng-show='displayError === "timeout"', translate) Retrieving the device screen has timed out.

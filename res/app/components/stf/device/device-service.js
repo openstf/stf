@@ -164,7 +164,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     , digest: false
     })
 
-    oboe('/api/v1/app/devices')
+    oboe('/app/api/v1/devices')
       .node('devices[*]', function (device) {
         tracker.add(device)
       })
@@ -180,7 +180,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     , digest: true
     })
 
-    oboe('/api/v1/app/group')
+    oboe('/app/api/v1/group')
       .node('devices[*]', function (device) {
         tracker.add(device)
       })
@@ -189,7 +189,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
   }
 
   deviceService.load = function(serial) {
-    return $http.get('/api/v1/app/devices/' + serial)
+    return $http.get('/app/api/v1/devices/' + serial)
       .then(function (response) {
         return response.data.device
       })

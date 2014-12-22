@@ -26,6 +26,28 @@
         a
           badge-icon(type='warning', message='There was an error')
 
+      //button.btn.btn-sm.btn-primary-outline(type='button', dropdown-toggle)
+        i.fa.fa-columns
+        span(ng-bind='"Customize"|translate')
+
+      //ul.dropdown-menu(role='menu').pointer.stf-device-details-customize
+
+      //li.dropdown.notifications.hidden-xs(dropdown, style='z-index: 11000;')
+        a(href='#', dropdown-toggle)
+          span.se7en-flag
+          .sr-only Notifications
+          p.counter 4
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='')
+              .notifications.label.label-info New
+            p New device added: Nexus 6
+          li
+            a(href='#')
+              .notifications.label.label-info Bug fix
+            p Devices now don't turn off
+
+
       li(ng-show='!$root.basicMode')
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw

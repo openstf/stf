@@ -21,6 +21,14 @@ html(ng-app='app')
           pane-handle='')
           div(ng-include='"menu.jade"')
 
+        //.pane-alert(fa-pane, pane-id='toptop', pane-anchor='north', pane-size='100px', ng-show='true')
+          .row
+            .col-md-12
+              .widget-container.fluid-height
+                .widget-content.padded
+                  div(style='text-align: center; color: #007aff;')
+                    i.fa.fa-newspaper-o.fa-3x
+                    h4(ng-bind='"ただいま、システムメンテナンス中です。"')
         .pane-center(fa-pane, pane-id='main', pane-anchor='center').fill-height
           socket-state
           div(growl)

@@ -2,11 +2,11 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.3.7-build.3695",
-    "angular-route": "1.3.7-build.3695",
-    "angular-sanitize": "1.3.7-build.3695",
-    "angular-animate": "1.3.7-build.3695",
-    "angular-touch": "1.3.7-build.3695",
+    "angular": "1.3.9-build.3728",
+    "angular-route": "1.3.9-build.3728",
+    "angular-sanitize": "1.3.9-build.3728",
+    "angular-animate": "1.3.9-build.3728",
+    "angular-touch": "1.3.9-build.3728",
     "se7en-bootstrap-3": "~0.2.1",
     "lodash": "~2.4.1",
     "oboe": "~2.0.2",
@@ -22,14 +22,14 @@
     "stf-graphics": "~0.1.1",
     "angular-bootstrap": "~0.12.0",
     "angular-dialog-service": "~5.2.6",
-    "ng-file-upload": "~2.0.4",
+    "ng-file-upload": "~2.0.5",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.2",
     "angular-tree-control": "~0.2.7",
     "angular-loading-bar": "~0.6.0",
     "underscore.string": "~2.4.0",
     "bootstrap": "~3.3.1",
     "font-lato-2-subset": "~0.4.0",
-    "packery": "~1.3.0",
+    "packery": "~1.3.1",
     "draggabilly": "~1.1.1",
     "angular-elastic": "~2.4.2",
     "quick-ng-repeat": "~0.0.1",
@@ -49,13 +49,13 @@
   },
   "private": true,
   "resolutions": {
-    "angular": "1.3.7-build.3695",
-    "angular-sanitize": "1.3.7-build.3695",
+    "angular": "1.3.9-build.3728",
+    "angular-sanitize": "1.3.9-build.3728",
     "bootstrap": "~3.3.0",
     "d3": "~3.5.2",
     "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.7-build.3695"
+    "angular-mocks": "1.3.9-build.3728"
   }
 }

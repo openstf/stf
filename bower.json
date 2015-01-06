@@ -23,7 +23,7 @@
     "stf-graphics": "~0.1.1",
     "angular-bootstrap": "~0.12.0",
     "angular-dialog-service": "~5.2.6",
-    "ng-file-upload": "~2.1.0",
+    "ng-file-upload": "~2.0.5",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.3",
     "angular-tree-control": "~0.2.7",
     "angular-loading-bar": "~0.6.0",

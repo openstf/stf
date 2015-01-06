@@ -57,6 +57,7 @@ module.exports = {
         { test: /\.jade$/, loader: 'template-html-loader' },
         { test: /\.html$/, loader: 'html-loader' },
         { test: /angular\.js$/, loader: 'exports?angular'},
+        { test: /angular-cookies\.js$/, loader: 'imports?angular=angular'},
         { test: /angular-route\.js$/, loader: 'imports?angular=angular'},
         { test: /angular-touch\.js$/, loader: 'imports?angular=angular'},
         { test: /angular-animate\.js$/, loader: 'imports?angular=angular'},

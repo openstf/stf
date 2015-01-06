@@ -12,8 +12,7 @@
       //i.fa.fa-step-forward.pull-right(ng-click='forward()', title='{{"Go Forward"|translate}}')
       //i.fa.fa-step-backward.pull-right(ng-click='back()', title='{{"Go Back"|translate}}')
   .widget-content.padded
-    form(enable-autofill, action='about:blank', ng-submit='openUrl($event)')
-      //form(name='navigationForm', method='post', action='about:blank', target='_autofill')
+    form(enable-autofill, ng-submit='openUrl()')
       .input-group.url-input-container
         input.form-control(type='text', name='textURL', placeholder='http://...',
         autocomplete='url', ng-model='textURL', text-focus-select,

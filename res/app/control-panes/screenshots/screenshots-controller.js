@@ -16,7 +16,7 @@ module.exports = function ScreenshotsCtrl($scope) {
     var finalMaxSize = maxSize * multiplier
 
     return (finalSize === finalMaxSize) ? '' :
-    '?crop=' + finalSize + 'x'
+    '/transform?crop=' + finalSize + 'x'
   }
 
   $scope.takeScreenShot = function () {

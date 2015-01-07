@@ -5,7 +5,7 @@ module.exports = function StorageServiceFactory($http, $upload) {
 
   service.storeUrl = function(type, url) {
     return $http({
-      url: '/s/api/v1/' + type + '/download'
+      url: '/s/download/' + type
     , method: 'POST'
     , data: {
         url: url
@@ -19,7 +19,7 @@ module.exports = function StorageServiceFactory($http, $upload) {
 
     if (input.length) {
       $upload.upload({
-          url: '/s/api/v1/' + type
+          url: '/s/upload/' + type
         , method: 'POST'
         , file: input
         })

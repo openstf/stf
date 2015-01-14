@@ -112,7 +112,7 @@ module.exports = function DeviceScreenDirective(
               break
             }
             updating = true
-            ws.send('{"op":"jpeg","w":' + size.w + ',"h":' + size.h + '}')
+            ws.send('j ' + size.w + ' ' + size.h)
           }
         }
 

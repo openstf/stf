@@ -38,7 +38,8 @@ module.exports = {
         'angular-bootstrap': 'angular-bootstrap/ui-bootstrap-tpls',
         'localforage': 'localforage/dist/localforage.js',
         'socket.io': 'socket.io-client',
-        'stats': 'stats.js/src/Stats.js'
+        'stats': 'stats.js/src/Stats.js',
+        'underscore.string': 'underscore.string/index'
       }
     },
     module: {

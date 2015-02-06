@@ -24,10 +24,9 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
   }
 
   function addHttp(textUrl) {
-    if (textUrl.indexOf(':') === -1 && textUrl.indexOf('.') !== -1) {
-      return 'http://' + textUrl
-    }
-    return textUrl
+    // Check for '://' because a protocol-less URL might include
+    // a username:password combination.
+    return (textUrl.indexOf('://') === -1 ? 'http://' : '') + textUrl
   }
 
   $scope.blurUrl = false

@@ -46,7 +46,7 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
       if (browser.selected) {
         var selectedBrowser = _.first(browser.apps, 'selected')
         if (!_.isEmpty(selectedBrowser)) {
-          currentBrowser = selectedBrowser[0]
+          currentBrowser = selectedBrowser
         }
       } else {
         var defaultBrowser = _.find(browser.apps, {name: 'Browser'})

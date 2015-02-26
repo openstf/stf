@@ -9,7 +9,7 @@
     "angular-animate": "1.4.0-build.3855",
     "angular-touch": "1.4.0-build.3855",
     "se7en-bootstrap-3": "~0.2.1",
-    "lodash": "~3.0.0",
+    "lodash": "~3.3.1",
     "oboe": "~2.1.1",
     "Snap.svg": "~0.3.0",
     "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",
@@ -26,7 +26,7 @@
     "ng-file-upload": "~2.0.5",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.3",
     "angular-tree-control": "~0.2.8",
-    "angular-loading-bar": "~0.6.0",
+    "angular-loading-bar": "~0.7.1",
     "underscore.string": "~3.0.3",
     "bootstrap": "~3.3.2",
     "font-lato-2-subset": "~0.4.0",
@@ -35,7 +35,7 @@
     "angular-elastic": "~2.4.2",
     "quick-ng-repeat": "~0.0.1",
     "angular-vs-repeat": "~1.0.0-rc5",
-    "checklist-model": "~0.1.4",
+    "checklist-model": "~0.2.4",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
     "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
     "angular-ui-bootstrap": "~0.12.1",
@@ -43,7 +43,7 @@
     "stats.js": "*",
     "components-font-awesome": "~4.3.0",
     "epoch": "~0.6.0",
-    "d3": "~3.5.3",
+    "d3": "~3.5.5",
     "ng-epoch": "~1.0.7",
     "eventEmitter": "~4.2.11",
     "angular-ladda": "~0.2.2"
@@ -52,8 +52,8 @@
   "resolutions": {
     "angular": "1.4.0-build.3855",
     "angular-sanitize": "1.4.0-build.3855",
-    "d3": "~3.5.5",
-    "angular-bootstrap": "~0.12.1"
+    "angular-bootstrap": "~0.12.1",
+    "d3": "~3.5.5"
   },
   "devDependencies": {
     "angular-mocks": "1.4.0-build.3855"

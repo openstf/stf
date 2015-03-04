@@ -26,7 +26,9 @@ module.exports = function NavigationCtrl($scope, $rootScope) {
   function addHttp(textUrl) {
     // Check for '://' because a protocol-less URL might include
     // a username:password combination.
-    return (textUrl.indexOf('://') === -1 ? 'http://' : '') + textUrl
+    // Ignores also any query parameter because it may contain a http:// inside.
+    return (textUrl.replace(/\?.*/, '').indexOf('://') === -1 ? 'http://' : ''
+      ) + textUrl
   }
 
   $scope.blurUrl = false

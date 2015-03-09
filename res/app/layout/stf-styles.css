@@ -431,3 +431,12 @@ fieldset[disabled] input[type="text"].form-control
 {
   cursor: text;
 }
+
+/*
+  Fix scrolling behaviour change of overflow: auto; introduced in Chrome 41.
+  It prevented the y-scrolling of the parent while the mouse is positioned on
+  the child element.
+*/
+.pane-center {
+  overflow: inherit !important;
+}

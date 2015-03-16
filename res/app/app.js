@@ -16,6 +16,7 @@ require.ensure([], function (require) {
     require('./settings').name,
     require('./help').name,
     require('./docs').name,
+    require('./user').name,
     require('./../common/lang').name,
     require('stf/standalone').name
   ])

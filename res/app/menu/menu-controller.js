@@ -1,5 +1,5 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
-  $location, ExternalUrlModalService, NativeUrlService) {
+  $location) {
 
   SettingsService.bind($scope, {
     target: 'lastUsedDevice'

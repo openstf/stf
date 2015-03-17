@@ -245,7 +245,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.owner ? device.owner.name : ''
       }
     , link: function(device) {
-        return device.owner ? device.enhancedUserContactUrl : ''
+        return device.owner ? device.enhancedUserProfileUrl : ''
       }
     })
   }

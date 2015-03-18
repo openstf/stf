@@ -22,9 +22,6 @@
         a(ng-href='{{links.manualBasic}}', target='_blank', role='button').btn.btn-danger.pull-right
           i.fa.fa-book
           |  Basic
-        a(ng-href='{{links.wiki}}', target='_blank', role='button').btn.btn-primary
-          i.fa.fa-book
-          |  コンフルスペース
         .clearfix
     li
       .timeline-time
@@ -35,12 +32,9 @@
           i.fa.fa-ticket
       .timeline-content
         h2 お問い合わせ
-        p お問い合わせはJIRAになります。
+        p お問い合わせはメールになります。
         p 質問や疑問、改善や機能追加などの要望は大歓迎です。
         p メールでも問い合わせが可能です。
-        a(ng-href='{{links.feedback}}', target='_blank', role='button').btn.btn-warning
-          i.fa.fa-ticket
-          |  JIRAでお問い合わせ
         a(ng-href='mailto:{{links.mail}}', role='button').btn.btn-default
           i.fa.fa-envelope
           |  メールでお問い合わせ
@@ -69,10 +63,10 @@
           i.fa.fa-bug
       .timeline-content
         h2 バグトラッカー
-        p プロジェクトのチケットトラッカーはこちらのJIRAになります。
+        p プロジェクトのチケットトラッカーはこちらのGithubになります。
         p バグや機能のトラッカーです。
         a(ng-href='{{links.tracker}}', target='_blank', role='button').btn.btn-success
           i.fa.fa-bug
-          |  JIRAチケット
+          |  Github Issues
 
 

@@ -279,8 +279,10 @@ module.exports = function DeviceScreenDirective(
                   img.onload = img.onerror = null
                   img.src = BLANK_IMG
                   img = null
-                  url = null
                   blob = null
+
+                  URL.revokeObjectURL(url)
+                  url = null
                 }
 
                 img.onerror = function() {

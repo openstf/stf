@@ -92,22 +92,8 @@ module.exports = function DeviceScreenDirective(
           , minscale: 0.36
           }
 
-          var cachedScreen = {
-            rotation: 0
-          , bounds: {
-              x: 0
-            , y: 0
-            , w: 0
-            , h: 0
-            }
-          }
-
           var adjustedBoundSize
-
-          var cachedImageWidth = 0
-            , cachedImageHeight = 0
-            , cachedEnabled = false
-            , cssRotation = 0
+          var cachedEnabled = false
 
           function updateBounds() {
             function adjustBoundedSize(w, h) {
@@ -206,7 +192,21 @@ module.exports = function DeviceScreenDirective(
             ws.send('off')
           }
 
-          ws.onmessage = function messageListener(message) {
+          ws.onmessage = (function() {
+            var cachedScreen = {
+              rotation: 0
+            , bounds: {
+                x: 0
+              , y: 0
+              , w: 0
+              , h: 0
+              }
+            }
+
+            var cachedImageWidth = 0
+              , cachedImageHeight = 0
+              , cssRotation = 0
+
             function hasImageAreaChanged(img) {
               return cachedScreen.bounds.w !== screen.bounds.w ||
                 cachedScreen.bounds.h !== screen.bounds.h ||
@@ -250,61 +250,72 @@ module.exports = function DeviceScreenDirective(
               cachedScreen.rotation = screen.rotation
             }
 
-            if (shouldUpdateScreen()) {
-              screen.rotation = device.display.rotation
+            return function messageListener(message) {
+              if (shouldUpdateScreen()) {
+                screen.rotation = device.display.rotation
 
-              if (message.data instanceof Blob) {
-                if (scope.displayError) {
-                  scope.$apply(function () {
-                    scope.displayError = false
+                if (message.data instanceof Blob) {
+                  if (scope.displayError) {
+                    scope.$apply(function () {
+                      scope.displayError = false
+                    })
+                  }
+
+                  var blob = new Blob([message.data], {
+                    type: 'image/jpeg'
                   })
+
+                  var img = new Image()
+
+                  img.onload = function() {
+                    updateImageArea(this)
+
+                    g.drawImage(img, 0, 0)
+
+                    // Try to forcefully clean everything to get rid of memory
+                    // leaks. Note that despite this effort, Chrome will still
+                    // leak huge amounts of memory when the developer tools are
+                    // open, probably to save the resources for inspection. When
+                    // the developer tools are closed no memory is leaked.
+                    img.onload = img.onerror = null
+                    img.src = BLANK_IMG
+                    img = null
+                    blob = null
+
+                    URL.revokeObjectURL(url)
+                    url = null
+                  }
+
+                  img.onerror = function() {
+                    // Happily ignore. I suppose this shouldn't happen, but
+                    // sometimes it does, presumably when we're loading images
+                    // too quickly.
+
+                    // Do the same cleanup here as in onload.
+                    img.onload = img.onerror = null
+                    img.src = BLANK_IMG
+                    img = null
+                    blob = null
+
+                    URL.revokeObjectURL(url)
+                    url = null
+                  }
+
+                  var url = URL.createObjectURL(blob)
+                  img.src = url
                 }
-
-                var blob = new Blob([message.data], {
-                  type: 'image/jpeg'
-                })
-
-                var img = new Image()
-
-                img.onload = function() {
-                  updateImageArea(this)
-
-                  g.drawImage(img, 0, 0)
-
-                  // Try to forcefully clean everything to get rid of memory
-                  // leaks. Note that despite this effort, Chrome will still
-                  // leak huge amounts of memory when the developer tools are
-                  // open, probably to save the resources for inspection. When
-                  // the developer tools are closed no memory is leaked.
-                  img.onload = img.onerror = null
-                  img.src = BLANK_IMG
-                  img = null
-                  blob = null
-
-                  URL.revokeObjectURL(url)
-                  url = null
-                }
-
-                img.onerror = function() {
-                  // Happily ignore. I suppose this shouldn't happen, but
-                  // sometimes it does, presumably when we're loading images
-                  // too quickly.
-                }
-
-                var url = URL.createObjectURL(blob)
-                img.src = url
-              }
-              else {
-                switch (message.data) {
-                case 'secure_on':
-                  scope.$apply(function () {
-                    scope.displayError = 'secure'
-                  })
-                  break
+                else {
+                  switch (message.data) {
+                  case 'secure_on':
+                    scope.$apply(function () {
+                      scope.displayError = 'secure'
+                    })
+                    break
+                  }
                 }
               }
             }
-          }
+          })()
 
           // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
           cleanupList.push(scope.$on('fa-pane-resize', _.throttle(updateBounds, 1000)))

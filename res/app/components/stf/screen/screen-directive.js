@@ -215,6 +215,10 @@ module.exports = function DeviceScreenDirective(
                 cachedScreen.rotation !== screen.rotation
             }
 
+            function isRotated() {
+              return screen.rotation === 90 || screen.rotation === 270
+            }
+
             function updateImageArea(img) {
               if (!hasImageAreaChanged(img)) {
                 return
@@ -233,21 +237,26 @@ module.exports = function DeviceScreenDirective(
                 canvas.height = cachedImageHeight
               }
 
-              var projectedSize = scaler.projectedSize(
-                screen.bounds.w
-              , screen.bounds.h
-              , screen.rotation
-              )
-
               cssRotation += rotator(cachedScreen.rotation, screen.rotation)
 
-              canvas.style.width = projectedSize.width + 'px'
-              canvas.style.height = projectedSize.height + 'px'
               canvas.style[cssTransform] = 'rotate(' + cssRotation + 'deg)'
 
               cachedScreen.bounds.h = screen.bounds.h
               cachedScreen.bounds.w = screen.bounds.w
               cachedScreen.rotation = screen.rotation
+
+              canvasAspect = canvas.width / canvas.height
+
+              if (isRotated()) {
+                canvasAspect = img.height / img.width
+                element[0].classList.add('rotated')
+              }
+              else {
+                canvasAspect = img.width / img.height
+                element[0].classList.remove('rotated')
+              }
+
+              maybeFlipLetterbox()
             }
 
             return function messageListener(message) {
@@ -270,7 +279,7 @@ module.exports = function DeviceScreenDirective(
                   img.onload = function() {
                     updateImageArea(this)
 
-                    g.drawImage(img, 0, 0)
+                    g.drawImage(img, 0, 0, img.width, img.height)
 
                     // Try to forcefully clean everything to get rid of memory
                     // leaks. Note that despite this effort, Chrome will still
@@ -318,7 +327,7 @@ module.exports = function DeviceScreenDirective(
           })()
 
           // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
-          cleanupList.push(scope.$on('fa-pane-resize', _.throttle(updateBounds, 1000)))
+          cleanupList.push(scope.$on('fa-pane-resize', _.debounce(updateBounds, 1000)))
           cleanupList.push(scope.$watch('device.using', checkEnabled))
           cleanupList.push(scope.$on('visibilitychange', checkEnabled))
           cleanupList.push(scope.$watch('$parent.showScreen', checkEnabled))
@@ -338,11 +347,29 @@ module.exports = function DeviceScreenDirective(
           control.rotate(90)
         })
 
+        var canvasAspect = 1
+          , parentAspect = 1
+
+        function resizeListener() {
+          parentAspect = element[0].offsetWidth / element[0].offsetHeight
+          maybeFlipLetterbox()
+        }
+
+        function maybeFlipLetterbox() {
+          element[0].classList.toggle(
+            'letterboxed', parentAspect < canvasAspect)
+        }
+
         $window.addEventListener('beforeunload', stop, false)
+        $window.addEventListener('resize', resizeListener, false)
+        scope.$on('fa-pane-resize', resizeListener)
+
+        resizeListener()
 
         scope.$on('$destroy', function() {
           stop()
           $window.removeEventListener('beforeunload', stop, false)
+          $window.removeEventListener('resize', resizeListener, false)
         })
       })()
 

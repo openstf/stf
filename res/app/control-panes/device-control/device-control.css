@@ -18,6 +18,7 @@ device-screen {
   display: block;
   overflow: hidden;
   /*cursor: pointer;*/
+  text-align: center; /* needed for centering after rotating to 270 */
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -27,17 +28,20 @@ device-screen {
   user-select: none;
 }
 
-device-screen .screen-center {
+device-screen .positioner {
   position: absolute;
-  top: -100%;
-  right: -100%;
-  bottom: -100%;
-  left: -100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   pointer-events: none;
 }
 
-device-screen canvas {
+device-screen canvas.screen {
   position: absolute;
+  width: 100%;
+  height: auto;
   top: 0;
   right: 0;
   bottom: 0;
@@ -50,6 +54,81 @@ device-screen canvas {
   transform-origin: 50% 50%;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
+}
+
+device-screen .positioner .hacky-stretcher {
+  outline: 1px solid red;
+  height: 100%;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+/* screen is in default rotation or upside down, possibly with empty space on left/right */
+
+device-screen/*.portrait*/ .positioner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+device-screen/*.portrait*/ canvas.screen {
+  width: auto;
+  height: 100%;
+}
+
+/* screen is in default rotation or upside down, possibly with empty space on top/bottom */
+
+device-screen/*.portrait*/.letterboxed .positioner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+device-screen/*.portrait*/.letterboxed canvas.screen {
+  width: 100%;
+  height: auto;
+}
+
+/* screen is rotated sideways, possibly with empty space on left/right */
+
+device-screen.rotated .positioner {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+}
+
+device-screen.rotated canvas.screen {
+  width: 100%;
+  height: auto;
+}
+
+/* screen is rotated sideways, possibly with empty space on top/bottom */
+
+device-screen.rotated.letterboxed .positioner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  padding-top: 100%;
+  height: 0;
+}
+
+device-screen.rotated.letterboxed canvas.screen {
+  height: 100%;
+  width: auto;
 }
 
 device-screen .finger {

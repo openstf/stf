@@ -50,7 +50,7 @@ device-screen canvas.screen {
   margin: auto;
 
   pointer-events: none; /* MUST HAVE or touch coordinates will be off */
-  transition: width 100ms linear, -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   -webkit-transform: rotate(0deg);

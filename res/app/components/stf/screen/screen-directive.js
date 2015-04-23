@@ -73,6 +73,7 @@ module.exports = function DeviceScreenDirective(
         ws.onopen = function openListener() {
           var canvas = element.find('canvas')[0]
             , g = canvas.getContext('2d')
+            , positioner = element.find('div')[0]
 
           function vendorBackingStorePixelRatio(g) {
             return g.webkitBackingStorePixelRatio ||
@@ -206,6 +207,12 @@ module.exports = function DeviceScreenDirective(
             var cachedImageWidth = 0
               , cachedImageHeight = 0
               , cssRotation = 0
+              , alwaysUpright = false
+
+            function applyQuirks(banner) {
+              element[0].classList.toggle(
+                'quirk-always-upright', alwaysUpright = banner.quirks.alwaysUpright)
+            }
 
             function hasImageAreaChanged(img) {
               return cachedScreen.bounds.w !== screen.bounds.w ||
@@ -247,7 +254,7 @@ module.exports = function DeviceScreenDirective(
 
               canvasAspect = canvas.width / canvas.height
 
-              if (isRotated()) {
+              if (isRotated() && !alwaysUpright) {
                 canvasAspect = img.height / img.width
                 element[0].classList.add('rotated')
               }
@@ -256,14 +263,21 @@ module.exports = function DeviceScreenDirective(
                 element[0].classList.remove('rotated')
               }
 
+              if (alwaysUpright) {
+                // If the screen image is always in upright position (but we
+                // still want the rotation animation), we need to cancel out
+                // the rotation by using another rotation.
+                positioner.style[cssTransform] = 'rotate(' + -cssRotation + 'deg)'
+              }
+
               maybeFlipLetterbox()
             }
 
             return function messageListener(message) {
-              if (shouldUpdateScreen()) {
-                screen.rotation = device.display.rotation
+              screen.rotation = device.display.rotation
 
-                if (message.data instanceof Blob) {
+              if (message.data instanceof Blob) {
+                if (shouldUpdateScreen()) {
                   if (scope.displayError) {
                     scope.$apply(function () {
                       scope.displayError = false
@@ -313,15 +327,14 @@ module.exports = function DeviceScreenDirective(
                   var url = URL.createObjectURL(blob)
                   img.src = url
                 }
-                else {
-                  switch (message.data) {
-                  case 'secure_on':
-                    scope.$apply(function () {
-                      scope.displayError = 'secure'
-                    })
-                    break
-                  }
-                }
+              }
+              else if (/^start /.test(message.data)) {
+                applyQuirks(JSON.parse(message.data.substr('start '.length)))
+              }
+              else if (message.data === 'secure_on') {
+                scope.$apply(function () {
+                  scope.displayError = 'secure'
+                })
               }
             }
           })()

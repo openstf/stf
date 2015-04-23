@@ -36,6 +36,7 @@ device-screen .positioner {
   left: 0;
   margin: auto;
   pointer-events: none;
+  transform: rotate(0deg);
 }
 
 device-screen canvas.screen {

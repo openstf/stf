@@ -1,5 +1,6 @@
 var _ = require('lodash')
 var rotator = require('./rotator')
+var ImagePool = require('./imagepool')
 
 module.exports = function DeviceScreenDirective(
   $document
@@ -208,6 +209,7 @@ module.exports = function DeviceScreenDirective(
               , cachedImageHeight = 0
               , cssRotation = 0
               , alwaysUpright = false
+              , imagePool = new ImagePool(6)
 
             function applyQuirks(banner) {
               element[0].classList.toggle(
@@ -288,7 +290,7 @@ module.exports = function DeviceScreenDirective(
                     type: 'image/jpeg'
                   })
 
-                  var img = new Image()
+                  var img = imagePool.next()
 
                   img.onload = function() {
                     updateImageArea(this)

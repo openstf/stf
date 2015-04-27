@@ -209,7 +209,7 @@ module.exports = function DeviceScreenDirective(
               , cachedImageHeight = 0
               , cssRotation = 0
               , alwaysUpright = false
-              , imagePool = new ImagePool(6)
+              , imagePool = new ImagePool(10)
 
             function applyQuirks(banner) {
               element[0].classList.toggle(

@@ -1,4 +1,4 @@
-FROM sorccu/node:0.10
+FROM sorccu/node:0.12.2
 MAINTAINER Simo Kinnunen
 
 RUN export DEBIAN_FRONTEND=noninteractive && \

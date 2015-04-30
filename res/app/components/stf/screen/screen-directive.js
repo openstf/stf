@@ -61,8 +61,6 @@ module.exports = function DeviceScreenDirective(
         var ws = new WebSocket(device.display.url)
         ws.binaryType = 'blob'
 
-        var cleanupList = []
-
         ws.onerror = function errorListener() {
           // @todo Handle
         }
@@ -72,281 +70,291 @@ module.exports = function DeviceScreenDirective(
         }
 
         ws.onopen = function openListener() {
-          var canvas = element.find('canvas')[0]
-            , g = canvas.getContext('2d')
-            , positioner = element.find('div')[0]
+          checkEnabled()
+        }
 
-          function vendorBackingStorePixelRatio(g) {
-            return g.webkitBackingStorePixelRatio ||
-              g.mozBackingStorePixelRatio ||
-              g.msBackingStorePixelRatio ||
-              g.oBackingStorePixelRatio ||
-              g.backingStorePixelRatio || 1
-          }
+        var canvas = element.find('canvas')[0]
+          , g = canvas.getContext('2d')
+          , positioner = element.find('div')[0]
 
-          var devicePixelRatio = window.devicePixelRatio || 1
-            , backingStoreRatio = vendorBackingStorePixelRatio(g)
-            , frontBackRatio = devicePixelRatio / backingStoreRatio
+        function vendorBackingStorePixelRatio(g) {
+          return g.webkitBackingStorePixelRatio ||
+            g.mozBackingStorePixelRatio ||
+            g.msBackingStorePixelRatio ||
+            g.oBackingStorePixelRatio ||
+            g.backingStorePixelRatio || 1
+        }
 
-          var options = {
-            autoScaleForRetina: true
-          , density: Math.max(1, Math.min(1.5, devicePixelRatio || 1))
-          , minscale: 0.36
-          }
+        var devicePixelRatio = window.devicePixelRatio || 1
+          , backingStoreRatio = vendorBackingStorePixelRatio(g)
+          , frontBackRatio = devicePixelRatio / backingStoreRatio
 
-          var adjustedBoundSize
-          var cachedEnabled = false
+        var options = {
+          autoScaleForRetina: true
+        , density: Math.max(1, Math.min(1.5, devicePixelRatio || 1))
+        , minscale: 0.36
+        }
 
-          function updateBounds() {
-            function adjustBoundedSize(w, h) {
-              var sw = w * options.density
-                , sh = h * options.density
-                , f
+        var adjustedBoundSize
+        var cachedEnabled = false
 
-              if (sw < (f = device.display.width * options.minscale)) {
-                sw *= f / sw
-                sh *= f / sh
-              }
+        function updateBounds() {
+          function adjustBoundedSize(w, h) {
+            var sw = w * options.density
+              , sh = h * options.density
+              , f
 
-              if (sh < (f = device.display.height * options.minscale)) {
-                sw *= f / sw
-                sh *= f / sh
-              }
-
-              return {
-                w: Math.ceil(sw)
-              , h: Math.ceil(sh)
-              }
+            if (sw < (f = device.display.width * options.minscale)) {
+              sw *= f / sw
+              sh *= f / sh
             }
 
-            // FIXME: element is an object HTMLUnknownElement in IE9
-            var w = screen.bounds.w = element[0].offsetWidth
-              , h = screen.bounds.h = element[0].offsetHeight
-
-            // Developer error, let's try to reduce debug time
-            if (!w || !h) {
-              throw new Error(
-                'Unable to read bounds; container must have dimensions'
-              )
+            if (sh < (f = device.display.height * options.minscale)) {
+              sw *= f / sw
+              sh *= f / sh
             }
 
-            var newAdjustedBoundSize = (function() {
-              switch (screen.rotation) {
-              case 90:
-              case 270:
-                return adjustBoundedSize(h, w)
-              case 0:
-              case 180:
-                /* falls through */
-              default:
-                return adjustBoundedSize(w, h)
-              }
-            })()
-
-            if (!adjustedBoundSize
-                || newAdjustedBoundSize.w !== adjustedBoundSize.w
-                || newAdjustedBoundSize.h !== adjustedBoundSize.h) {
-              adjustedBoundSize = newAdjustedBoundSize
-              onScreenInterestAreaChanged()
+            return {
+              w: Math.ceil(sw)
+            , h: Math.ceil(sh)
             }
           }
 
-          function shouldUpdateScreen() {
-            return (
-              // NO if the user has disabled the screen.
-              scope.$parent.showScreen &&
-              // NO if we're not even using the device anymore.
-              device.using &&
-              // NO if the page is not visible (e.g. background tab).
-              !PageVisibilityService.hidden
-              // YES otherwise
+          // FIXME: element is an object HTMLUnknownElement in IE9
+          var w = screen.bounds.w = element[0].offsetWidth
+            , h = screen.bounds.h = element[0].offsetHeight
+
+          // Developer error, let's try to reduce debug time
+          if (!w || !h) {
+            throw new Error(
+              'Unable to read bounds; container must have dimensions'
             )
           }
 
-          function checkEnabled() {
-            var newEnabled = shouldUpdateScreen()
-
-            if (newEnabled === cachedEnabled) {
-              updateBounds()
-            }
-            else if (newEnabled) {
-              updateBounds()
-              onScreenInterestGained()
-            }
-            else {
-              g.clearRect(0, 0, canvas.width, canvas.height)
-              onScreenInterestLost()
-            }
-
-            cachedEnabled = newEnabled
-          }
-
-          function onScreenInterestGained() {
-            ws.send('size ' + adjustedBoundSize.w + 'x' + adjustedBoundSize.h)
-            ws.send('on')
-          }
-
-          function onScreenInterestAreaChanged() {
-            ws.send('size ' + adjustedBoundSize.w + 'x' + adjustedBoundSize.h)
-          }
-
-          function onScreenInterestLost() {
-            ws.send('off')
-          }
-
-          ws.onmessage = (function() {
-            var cachedScreen = {
-              rotation: 0
-            , bounds: {
-                x: 0
-              , y: 0
-              , w: 0
-              , h: 0
-              }
-            }
-
-            var cachedImageWidth = 0
-              , cachedImageHeight = 0
-              , cssRotation = 0
-              , alwaysUpright = false
-              , imagePool = new ImagePool(10)
-
-            function applyQuirks(banner) {
-              element[0].classList.toggle(
-                'quirk-always-upright', alwaysUpright = banner.quirks.alwaysUpright)
-            }
-
-            function hasImageAreaChanged(img) {
-              return cachedScreen.bounds.w !== screen.bounds.w ||
-                cachedScreen.bounds.h !== screen.bounds.h ||
-                cachedImageWidth !== img.width ||
-                cachedImageHeight !== img.height ||
-                cachedScreen.rotation !== screen.rotation
-            }
-
-            function isRotated() {
-              return screen.rotation === 90 || screen.rotation === 270
-            }
-
-            function updateImageArea(img) {
-              if (!hasImageAreaChanged(img)) {
-                return
-              }
-
-              cachedImageWidth = img.width
-              cachedImageHeight = img.height
-
-              if (options.autoScaleForRetina) {
-                canvas.width = cachedImageWidth * frontBackRatio
-                canvas.height = cachedImageHeight * frontBackRatio
-                g.scale(frontBackRatio, frontBackRatio)
-              }
-              else {
-                canvas.width = cachedImageWidth
-                canvas.height = cachedImageHeight
-              }
-
-              cssRotation += rotator(cachedScreen.rotation, screen.rotation)
-
-              canvas.style[cssTransform] = 'rotate(' + cssRotation + 'deg)'
-
-              cachedScreen.bounds.h = screen.bounds.h
-              cachedScreen.bounds.w = screen.bounds.w
-              cachedScreen.rotation = screen.rotation
-
-              canvasAspect = canvas.width / canvas.height
-
-              if (isRotated() && !alwaysUpright) {
-                canvasAspect = img.height / img.width
-                element[0].classList.add('rotated')
-              }
-              else {
-                canvasAspect = img.width / img.height
-                element[0].classList.remove('rotated')
-              }
-
-              if (alwaysUpright) {
-                // If the screen image is always in upright position (but we
-                // still want the rotation animation), we need to cancel out
-                // the rotation by using another rotation.
-                positioner.style[cssTransform] = 'rotate(' + -cssRotation + 'deg)'
-              }
-
-              maybeFlipLetterbox()
-            }
-
-            return function messageListener(message) {
-              screen.rotation = device.display.rotation
-
-              if (message.data instanceof Blob) {
-                if (shouldUpdateScreen()) {
-                  if (scope.displayError) {
-                    scope.$apply(function () {
-                      scope.displayError = false
-                    })
-                  }
-
-                  var blob = new Blob([message.data], {
-                    type: 'image/jpeg'
-                  })
-
-                  var img = imagePool.next()
-
-                  img.onload = function() {
-                    updateImageArea(this)
-
-                    g.drawImage(img, 0, 0, img.width, img.height)
-
-                    // Try to forcefully clean everything to get rid of memory
-                    // leaks. Note that despite this effort, Chrome will still
-                    // leak huge amounts of memory when the developer tools are
-                    // open, probably to save the resources for inspection. When
-                    // the developer tools are closed no memory is leaked.
-                    img.onload = img.onerror = null
-                    img.src = BLANK_IMG
-                    img = null
-                    blob = null
-
-                    URL.revokeObjectURL(url)
-                    url = null
-                  }
-
-                  img.onerror = function() {
-                    // Happily ignore. I suppose this shouldn't happen, but
-                    // sometimes it does, presumably when we're loading images
-                    // too quickly.
-
-                    // Do the same cleanup here as in onload.
-                    img.onload = img.onerror = null
-                    img.src = BLANK_IMG
-                    img = null
-                    blob = null
-
-                    URL.revokeObjectURL(url)
-                    url = null
-                  }
-
-                  var url = URL.createObjectURL(blob)
-                  img.src = url
-                }
-              }
-              else if (/^start /.test(message.data)) {
-                applyQuirks(JSON.parse(message.data.substr('start '.length)))
-              }
-              else if (message.data === 'secure_on') {
-                scope.$apply(function () {
-                  scope.displayError = 'secure'
-                })
-              }
+          var newAdjustedBoundSize = (function() {
+            switch (screen.rotation) {
+            case 90:
+            case 270:
+              return adjustBoundedSize(h, w)
+            case 0:
+            case 180:
+              /* falls through */
+            default:
+              return adjustBoundedSize(w, h)
             }
           })()
 
-          // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
-          cleanupList.push(scope.$on('fa-pane-resize', _.debounce(updateBounds, 1000)))
-          cleanupList.push(scope.$watch('device.using', checkEnabled))
-          cleanupList.push(scope.$on('visibilitychange', checkEnabled))
-          cleanupList.push(scope.$watch('$parent.showScreen', checkEnabled))
+          if (!adjustedBoundSize
+              || newAdjustedBoundSize.w !== adjustedBoundSize.w
+              || newAdjustedBoundSize.h !== adjustedBoundSize.h) {
+            adjustedBoundSize = newAdjustedBoundSize
+            onScreenInterestAreaChanged()
+          }
         }
+
+        function shouldUpdateScreen() {
+          return (
+            // NO if the user has disabled the screen.
+            scope.$parent.showScreen &&
+            // NO if we're not even using the device anymore.
+            device.using &&
+            // NO if the page is not visible (e.g. background tab).
+            !PageVisibilityService.hidden &&
+            // NO if we don't have a connection yet.
+            ws.readyState === WebSocket.OPEN
+            // YES otherwise
+          )
+        }
+
+        function checkEnabled() {
+          var newEnabled = shouldUpdateScreen()
+
+          if (newEnabled === cachedEnabled) {
+            updateBounds()
+          }
+          else if (newEnabled) {
+            updateBounds()
+            onScreenInterestGained()
+          }
+          else {
+            g.clearRect(0, 0, canvas.width, canvas.height)
+            onScreenInterestLost()
+          }
+
+          cachedEnabled = newEnabled
+        }
+
+        function onScreenInterestGained() {
+          if (ws.readyState === WebSocket.OPEN) {
+            ws.send('size ' + adjustedBoundSize.w + 'x' + adjustedBoundSize.h)
+            ws.send('on')
+          }
+        }
+
+        function onScreenInterestAreaChanged() {
+          if (ws.readyState === WebSocket.OPEN) {
+            ws.send('size ' + adjustedBoundSize.w + 'x' + adjustedBoundSize.h)
+          }
+        }
+
+        function onScreenInterestLost() {
+          if (ws.readyState === WebSocket.OPEN) {
+            ws.send('off')
+          }
+        }
+
+        ws.onmessage = (function() {
+          var cachedScreen = {
+            rotation: 0
+          , bounds: {
+              x: 0
+            , y: 0
+            , w: 0
+            , h: 0
+            }
+          }
+
+          var cachedImageWidth = 0
+            , cachedImageHeight = 0
+            , cssRotation = 0
+            , alwaysUpright = false
+            , imagePool = new ImagePool(10)
+
+          function applyQuirks(banner) {
+            element[0].classList.toggle(
+              'quirk-always-upright', alwaysUpright = banner.quirks.alwaysUpright)
+          }
+
+          function hasImageAreaChanged(img) {
+            return cachedScreen.bounds.w !== screen.bounds.w ||
+              cachedScreen.bounds.h !== screen.bounds.h ||
+              cachedImageWidth !== img.width ||
+              cachedImageHeight !== img.height ||
+              cachedScreen.rotation !== screen.rotation
+          }
+
+          function isRotated() {
+            return screen.rotation === 90 || screen.rotation === 270
+          }
+
+          function updateImageArea(img) {
+            if (!hasImageAreaChanged(img)) {
+              return
+            }
+
+            cachedImageWidth = img.width
+            cachedImageHeight = img.height
+
+            if (options.autoScaleForRetina) {
+              canvas.width = cachedImageWidth * frontBackRatio
+              canvas.height = cachedImageHeight * frontBackRatio
+              g.scale(frontBackRatio, frontBackRatio)
+            }
+            else {
+              canvas.width = cachedImageWidth
+              canvas.height = cachedImageHeight
+            }
+
+            cssRotation += rotator(cachedScreen.rotation, screen.rotation)
+
+            canvas.style[cssTransform] = 'rotate(' + cssRotation + 'deg)'
+
+            cachedScreen.bounds.h = screen.bounds.h
+            cachedScreen.bounds.w = screen.bounds.w
+            cachedScreen.rotation = screen.rotation
+
+            canvasAspect = canvas.width / canvas.height
+
+            if (isRotated() && !alwaysUpright) {
+              canvasAspect = img.height / img.width
+              element[0].classList.add('rotated')
+            }
+            else {
+              canvasAspect = img.width / img.height
+              element[0].classList.remove('rotated')
+            }
+
+            if (alwaysUpright) {
+              // If the screen image is always in upright position (but we
+              // still want the rotation animation), we need to cancel out
+              // the rotation by using another rotation.
+              positioner.style[cssTransform] = 'rotate(' + -cssRotation + 'deg)'
+            }
+
+            maybeFlipLetterbox()
+          }
+
+          return function messageListener(message) {
+            screen.rotation = device.display.rotation
+
+            if (message.data instanceof Blob) {
+              if (shouldUpdateScreen()) {
+                if (scope.displayError) {
+                  scope.$apply(function () {
+                    scope.displayError = false
+                  })
+                }
+
+                var blob = new Blob([message.data], {
+                  type: 'image/jpeg'
+                })
+
+                var img = imagePool.next()
+
+                img.onload = function() {
+                  updateImageArea(this)
+
+                  g.drawImage(img, 0, 0, img.width, img.height)
+
+                  // Try to forcefully clean everything to get rid of memory
+                  // leaks. Note that despite this effort, Chrome will still
+                  // leak huge amounts of memory when the developer tools are
+                  // open, probably to save the resources for inspection. When
+                  // the developer tools are closed no memory is leaked.
+                  img.onload = img.onerror = null
+                  img.src = BLANK_IMG
+                  img = null
+                  blob = null
+
+                  URL.revokeObjectURL(url)
+                  url = null
+                }
+
+                img.onerror = function() {
+                  // Happily ignore. I suppose this shouldn't happen, but
+                  // sometimes it does, presumably when we're loading images
+                  // too quickly.
+
+                  // Do the same cleanup here as in onload.
+                  img.onload = img.onerror = null
+                  img.src = BLANK_IMG
+                  img = null
+                  blob = null
+
+                  URL.revokeObjectURL(url)
+                  url = null
+                }
+
+                var url = URL.createObjectURL(blob)
+                img.src = url
+              }
+            }
+            else if (/^start /.test(message.data)) {
+              applyQuirks(JSON.parse(message.data.substr('start '.length)))
+            }
+            else if (message.data === 'secure_on') {
+              scope.$apply(function () {
+                scope.displayError = 'secure'
+              })
+            }
+          }
+        })()
+
+        // NOTE: instead of fa-pane-resize, a fa-child-pane-resize could be better
+        scope.$on('fa-pane-resize', _.debounce(updateBounds, 1000))
+        scope.$watch('device.using', checkEnabled)
+        scope.$on('visibilitychange', checkEnabled)
+        scope.$watch('$parent.showScreen', checkEnabled)
 
         scope.retryLoadingScreen = function () {
           if (scope.displayError === 'secure') {

@@ -56,7 +56,7 @@ enum MessageType {
   RotationEvent              = 48;
   StoreOpenMessage           = 49;
   ScreenCaptureMessage       = 50;
-  ProviderHeartbeatMessage   = 51;
+  DeviceHeartbeatMessage     = 73;
   RebootMessage              = 52;
   ConnectStartMessage        = 53;
   ConnectStopMessage         = 54;
@@ -113,8 +113,8 @@ message ProviderMessage {
   required string name = 2;
 }
 
-message ProviderHeartbeatMessage {
-  required string channel = 1;
+message DeviceHeartbeatMessage {
+  required string serial = 1;
 }
 
 message DevicePresentMessage {

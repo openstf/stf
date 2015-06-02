@@ -1,9 +1,33 @@
 var chai = require('chai')
+var sinon = require('sinon')
 var expect = chai.expect
+chai.use(require('sinon-chai'))
 
 var TtlSet = require('../../lib/util/ttlset')
 
 describe('TtlSet', function() {
+
+  it.only('should timeout old entries', function(done) {
+    var ttlset = new TtlSet(50)
+
+    var spy = sinon.spy()
+    ttlset.on('timeout', spy)
+
+    ttlset.bump(1, Date.now())
+    ttlset.bump(2, Date.now() + 100)
+    ttlset.bump(3, Date.now() + 200)
+    ttlset.bump(4, Date.now() + 1000)
+
+    setTimeout(function() {
+      expect(spy).to.have.been.calledThrice
+      expect(spy).to.have.been.calledWith(1)
+      expect(spy).to.have.been.calledWith(2)
+      expect(spy).to.have.been.calledWith(3)
+      expect(ttlset.head).to.equal(ttlset.tail)
+      ttlset.stop()
+      done()
+    }, 300)
+  })
 
   describe('bump', function() {
 

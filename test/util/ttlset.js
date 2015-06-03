@@ -7,11 +7,11 @@ var TtlSet = require('../../lib/util/ttlset')
 
 describe('TtlSet', function() {
 
-  it.only('should timeout old entries', function(done) {
+  it('should emit "drop" for entries with expired TTL', function(done) {
     var ttlset = new TtlSet(50)
 
     var spy = sinon.spy()
-    ttlset.on('timeout', spy)
+    ttlset.on('drop', spy)
 
     ttlset.bump(1, Date.now())
     ttlset.bump(2, Date.now() + 100)
@@ -30,6 +30,42 @@ describe('TtlSet', function() {
   })
 
   describe('bump', function() {
+
+    it('should emit "insert" for new entries', function(done) {
+      var ttlset = new TtlSet(50)
+
+      var spy = sinon.spy()
+      ttlset.on('insert', spy)
+
+      ttlset.bump(1)
+      ttlset.bump(2)
+      ttlset.bump(3)
+
+      expect(spy).to.have.been.calledThrice
+      expect(spy).to.have.been.calledWith(1)
+      expect(spy).to.have.been.calledWith(2)
+      expect(spy).to.have.been.calledWith(3)
+
+      ttlset.stop()
+      done()
+    })
+
+    it('should not emit "insert" for new entries if SILENT', function(done) {
+      var ttlset = new TtlSet(50)
+
+      var spy = sinon.spy()
+      ttlset.on('insert', spy)
+
+      ttlset.bump(1, Date.now(), TtlSet.SILENT)
+      ttlset.bump(2, Date.now())
+      ttlset.bump(3, Date.now(), TtlSet.SILENT)
+
+      expect(spy).to.have.been.calledOnce
+      expect(spy).to.have.been.calledWith(2)
+
+      ttlset.stop()
+      done()
+    })
 
     it('should create an item for the value if none exists', function(done) {
       var ttlset = new TtlSet(5000)
@@ -94,6 +130,45 @@ describe('TtlSet', function() {
   })
 
   describe('drop', function() {
+
+    it('should emit "drop" for the dropped entry', function(done) {
+      var ttlset = new TtlSet(50)
+
+      var spy = sinon.spy()
+      ttlset.on('drop', spy)
+
+      ttlset.bump(1)
+      ttlset.bump(2)
+      ttlset.bump(3)
+      ttlset.drop(1)
+      ttlset.drop(3)
+
+      expect(spy).to.have.been.calledTwice
+      expect(spy).to.have.been.calledWith(1)
+      expect(spy).to.have.been.calledWith(3)
+
+      ttlset.stop()
+      done()
+    })
+
+    it('should not emit "drop" for the dropped entry if SILENT', function(done) {
+      var ttlset = new TtlSet(50)
+
+      var spy = sinon.spy()
+      ttlset.on('drop', spy)
+
+      ttlset.bump(1)
+      ttlset.bump(2)
+      ttlset.bump(3)
+      ttlset.drop(1, TtlSet.SILENT)
+      ttlset.drop(3)
+
+      expect(spy).to.have.been.calledOnce
+      expect(spy).to.have.been.calledWith(3)
+
+      ttlset.stop()
+      done()
+    })
 
     it('should silently ignore unknown values', function(done) {
       var ttlset = new TtlSet(5000)

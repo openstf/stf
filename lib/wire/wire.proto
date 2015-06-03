@@ -2,6 +2,7 @@
 
 enum MessageType {
   CopyMessage                = 33;
+  DeviceIntroductionMessage  = 74;
   DeviceAbsentMessage        = 1;
   DeviceIdentityMessage      = 2;
   DeviceLogcatEntryMessage   = 3;
@@ -117,13 +118,17 @@ message DeviceHeartbeatMessage {
   required string serial = 1;
 }
 
-message DevicePresentMessage {
+message DeviceIntroductionMessage {
   required string serial = 1;
   required DeviceStatus status = 2;
   required ProviderMessage provider = 3;
 }
 
 message DeviceRegisteredMessage {
+  required string serial = 1;
+}
+
+message DevicePresentMessage {
   required string serial = 1;
 }
 

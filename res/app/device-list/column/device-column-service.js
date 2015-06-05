@@ -218,12 +218,22 @@ module.exports = function DeviceColumnService($filter, gettext) {
           ? Math.floor(device.battery.level / device.battery.scale * 100) + '%'
           : ''
       }
+    , compare: function(deviceA, deviceB) {
+        var va = deviceA.battery ? deviceA.battery.level : 0
+          , vb = deviceB.battery ? deviceB.battery.level : 0
+        return va - vb
+      }
     })
   , batteryTemp: TextCell({
       title: gettext('Battery Temp')
     , admin: true
     , value: function(device) {
         return device.battery ? device.battery.temp + '°C' : ''
+      }
+    , compare: function(deviceA, deviceB) {
+        var va = deviceA.battery ? deviceA.battery.temp : 0
+          , vb = deviceB.battery ? deviceB.battery.temp : 0
+        return va - vb
       }
     })
   , provider: TextCell({

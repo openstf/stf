@@ -37,7 +37,9 @@
 .device-stats [class^="col-"] .text,
 .device-stats [class*="col-"] .text {
   font-weight: 300;
-  color: #999999;
+  color: #aeaeae;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .device-stats .fa {

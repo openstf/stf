@@ -1,14 +1,13 @@
 /* TODO: REFORMAT device-stats */
 
 .device-stats {
-  min-height: 120px;
-  height: 120px;
+  min-height: 100px;
+  height: 100px;
   text-align: center;
 }
 
 .device-stats [class^="col-"],
 .device-stats [class*="col-"] {
-  border-right: 1px solid #e6e6e6;
   height: 100%;
   margin-bottom: 0;
 }
@@ -22,9 +21,7 @@
 .device-stats [class*="col-"] .number {
   font-size: 3.8em;
   font-weight: 100;
-  color: #007aff;
   line-height: 1.4em;
-  padding-top: 8px;
   letter-spacing: -0.06em;
 }
 

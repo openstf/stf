@@ -1,21 +1,21 @@
 .widget-container.device-stats
   .col-xs-3
-    .number
+    .number.color-red
       .icon.fa.fa-globe.visitors
       span(class='counter', data-type='total') 0
     .text(translate) Total devices
   .col-xs-3
-    .number
+    .number.color-green
       .icon.fa.fa-check.visitors
       span(class='counter', data-type='usable') 0
     .text(translate) Usable devices
   .col-xs-3
-    .number
+    .number.color-orange
       .icon.fa.fa-users.visitors
       span(class='counter', data-type='busy') 0
     .text(translate) Busy devices
   .col-xs-3
-    .number
+    .number.color-blue
       .icon.fa.fa-user.visitors(ng-class='{"fa-trophy": $root.adminMode, "fa-user": !$root.adminMode}')
       span(class='counter', data-type='using') 0
     .text(ng-bind='currentUser.name')

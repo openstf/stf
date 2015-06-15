@@ -1,7 +1,6 @@
-require('se7en-bootstrap-3')
+require('nine-bootstrap')
 
 require('./cursor.css')
-require('./stf-se7en.css')
 require('./small.css')
 require('./stf-styles.css')
 

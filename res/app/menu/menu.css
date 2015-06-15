@@ -39,7 +39,7 @@
   padding: 0 !important;
   padding-right: 18px !important;
   padding-left: 14px !important;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 44px;
   color: #777777;
   /*border-bottom: 1px solid #eee;*/
@@ -55,6 +55,10 @@
   font-size: 28px;
   /*width: 28px;*/
   /*height: 28px;*/
+}
+
+.stf-menu .stf-nav > li > a > span.fa-mobile {
+  font-size: 30px;
 }
 
 .stf-menu .stf-nav > li > a.current {

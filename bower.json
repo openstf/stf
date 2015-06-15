@@ -35,7 +35,7 @@
     "angular-vs-repeat": "~1.0.0-rc5",
     "checklist-model": "~0.2.4",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
-    "angular-borderlayout": "https://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
+    "angular-borderlayout": "git://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
     "angular-ui-bootstrap": "~0.12.1",
     "ng-context-menu": "~1.0.1",
     "stats.js": "*",

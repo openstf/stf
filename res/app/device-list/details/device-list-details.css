@@ -11,3 +11,7 @@
   margin-bottom: 0 !important;
   height: 17px !important;
 }
+
+.device-list-details-content .device-status.state-available {
+  font-weight: 600;
+}

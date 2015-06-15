@@ -2,7 +2,6 @@ ul.devices-icon-view {
   margin: 0;
   display: inline-block;
   list-style-type: none;
-  /*font-weight: 300;*/
   font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
 }
 
@@ -13,7 +12,7 @@ ul.devices-icon-view li {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #e9e9e9;
   float: left;
   clear: none;
   margin: 6px;
@@ -27,7 +26,6 @@ ul.devices-icon-view li:active {
 
 
 ul.devices-icon-view li:hover {
-  /*border: 1px solid dodgerblue;*/
   background-color: #fcfcfc;
 }
 
@@ -45,7 +43,6 @@ ul.devices-icon-view .device-photo-small img {
   width: auto;
   height: 90px;
   max-width: 95%; /* TODO: Fix this with a new container */
-  /*box-shadow: 0 10px 5px rgba(255, 255, 255, 1);*/
 }
 
 ul.devices-icon-view .device-name-bigtext {

@@ -69,3 +69,12 @@ ul.devices-icon-view .device-is-busy .btn {
 ul.devices-icon-view .device-is-busy .device-photo-small img {
   opacity: 0.5;
 }
+
+ul.devices-icon-view .device-status.state-available {
+  display: none;
+}
+
+ul.devices-icon-view .device-name.state-available {
+  white-space: normal;
+  max-height: 45px;
+}

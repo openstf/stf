@@ -76,6 +76,12 @@ module.exports = function DeviceListDetailsDirective(
 
         button.className = classes + getStateClasses(device.state)
 
+        if (device.state === 'available') {
+          name.classList.add('state-available')
+        } else {
+          name.classList.remove('state-available')
+        }
+
         if (device.usable) {
           a.href = '#!/control/' + device.serial
           li.classList.remove('device-is-busy')

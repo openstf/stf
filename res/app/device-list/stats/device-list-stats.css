@@ -19,9 +19,9 @@
 
 .device-stats [class^="col-"] .number,
 .device-stats [class*="col-"] .number {
-  font-size: 3.8em;
+  font-size: 3.4em;
   font-weight: 100;
-  line-height: 1.4em;
+  line-height: 1.5em;
   letter-spacing: -0.06em;
 }
 

@@ -1,9 +1,7 @@
 .widget-container.fluid-height.stf-store-account(ng-controller='StoreAccountCtrl')
   .heading
-    i.fa.fa-cloud
+    i.fa.fa-cloud.color-skyblue
     span(translate) Store Account
-
-
 
     button.btn.btn-sm.btn-primary-outline.pull-right(ng-click='control.openStore()',
     tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
@@ -11,8 +9,6 @@
   .widget-content.padded
 
     div
-
-
 
       form(name='storeLogin', novalidate, enable-autofill)
         .form-group

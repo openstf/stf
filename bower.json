@@ -8,7 +8,7 @@
     "angular-sanitize": "1.4.1-build.4058",
     "angular-animate": "1.4.1-build.4058",
     "angular-touch": "1.4.1-build.4058",
-    "nine-bootstrap": "https://ghe.ca-tools.org/stf/nine-bootstrap.git#de76f51c3db0da30b2f170d3435380307026875f",
+    "nine-bootstrap": "https://ghe.ca-tools.org/stf/nine-bootstrap.git#fd4ec94babf7f4c447153b6fab4430b8e16f5194",
     "lodash": "~3.9.3",
     "oboe": "~2.1.2",
     "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",

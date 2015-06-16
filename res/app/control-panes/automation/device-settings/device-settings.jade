@@ -1,6 +1,6 @@
 .widget-container.fluid-height.stf-device-settings(ng-controller='DeviceSettingsCtrl')
   .heading
-    i.fa.fa-gears
+    i.fa.fa-gears.color-darkgray
     span(translate) Device Settings
   .widget-content.padded
 
@@ -8,14 +8,6 @@
     ng-model='wifiEnabled', btn-checkbox)
       i.fa.fa-signal.fa-fw(ng-show='wifiEnabled', tooltip='{{"Disable WiFi" | translate}}')
       i.fa.fa-signal.fa-fw(ng-hide='wifiEnabled', tooltip='{{"Enable WiFi" | translate}}')
-
-    //.btn-group
-      label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', btn-radio='false')
-        span.fa-stack.fa-lgx
-          i.fa.fa-signal.fa-stack-1x
-          i.fa.fa-ban.fa-stack-2x
-      label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', btn-radio='true')
-        i.fa.fa-signal.fa-fw(tooltip='{{"WiFi Enabled" | translate}}')
 
     .btn-group
       label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"SILENT"')

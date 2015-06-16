@@ -6,43 +6,25 @@ module.exports =
     var sharedTabs = [
       {
         title: gettext('Screenshots'),
-        icon: 'fa-camera',
+        icon: 'fa-camera color-skyblue',
         templateUrl: 'control-panes/screenshots/screenshots.jade',
         filters: ['native', 'web']
       },
-//    {
-//      title: gettext('Inspect'),
-//      icon: 'fa-pencil',
-//      templateUrl: 'control-panes/inspect/inspect.jade',
-//      filters: ['web']
-//    },
-//    {
-//      title: gettext('Resources'),
-//      icon: 'fa-globe',
-//      templateUrl: 'control-panes/resources/resources.jade',
-//      filters: ['web']
-//    },
       {
         title: gettext('Automation'),
-        icon: 'fa-road',
+        icon: 'fa-road color-lila',
         templateUrl: 'control-panes/automation/automation.jade',
         filters: ['native', 'web']
       },
-      //{
-      //  title: gettext('Performance'),
-      //  icon: 'fa-bar-chart',
-      //  templateUrl: 'control-panes/performance/performance.jade',
-      //  filters: ['native', 'web']
-      //},
       {
         title: gettext('Advanced'),
-        icon: 'fa-bolt',
+        icon: 'fa-bolt color-brown',
         templateUrl: 'control-panes/advanced/advanced.jade',
         filters: ['native', 'web']
       },
       {
         title: gettext('Info'),
-        icon: 'fa-info',
+        icon: 'fa-info color-orange',
         templateUrl: 'control-panes/info/info.jade',
         filters: ['native', 'web']
       }
@@ -51,7 +33,7 @@ module.exports =
     $scope.topTabs = [
       {
         title: gettext('Dashboard'),
-        icon: 'fa-dashboard fa-fw',
+        icon: 'fa-dashboard fa-fw color-pink',
         templateUrl: 'control-panes/dashboard/dashboard.jade',
         filters: ['native', 'web']
       }
@@ -59,15 +41,9 @@ module.exports =
 
 
     $scope.belowTabs = [
-//    {
-//      title: gettext('Activity'),
-//      icon: 'fa-clock-o',
-//      templateUrl: 'control-panes/activity/activity.jade',
-//      filters: ['native', 'web']
-//    },
       {
         title: gettext('Logs'),
-        icon: 'fa-list-alt',
+        icon: 'fa-list-alt color-red',
         templateUrl: 'control-panes/logs/logs.jade',
         filters: ['native', 'web']
       }
@@ -77,9 +53,6 @@ module.exports =
     $scope.control = null
 
     // TODO: Move this out to Ctrl.resolve
-    // http://blog.brunoscopelliti.com/show-route-only-after-all-promises-are-resolved
-    // http://odetocode.com/blogs/scott/archive/2014/05/20/using-resolve-in-angularjs-routes.aspx
-
     function getDevice(serial) {
       DeviceService.get(serial, $scope)
         .then(function (device) {
@@ -89,7 +62,7 @@ module.exports =
           $scope.device = device
           $scope.control = ControlService.create(device, device.channel)
 
-          // TODO: change title, flickers too much on Chrome
+          // TODO: Change title, flickers too much on Chrome
           //$rootScope.pageTitle = device.name
 
           SettingsService.set('lastUsedDevice', serial)
@@ -104,7 +77,6 @@ module.exports =
     }
 
     getDevice($routeParams.serial)
-
 
     $scope.$watch('device.state', function (newValue, oldValue) {
       if (newValue !== oldValue) {

@@ -4,7 +4,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-location-arrow.color-pink
+        stacked-icon(icon='fa-location-arrow', color='color-pink')
         span(translate) Physical Device
         .pull-right
           button(ng-click='control.identify()').btn.btn-xs.btn-primary-outline
@@ -27,7 +27,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-bolt.color-yellow
+        stacked-icon(icon='fa-bolt', color='color-yellow')
         span(translate) Battery
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -56,7 +56,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-tablet.color-blue
+        stacked-icon(icon='fa-tablet', color='color-blue')
         span(translate) Display
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -95,7 +95,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-signal.color-brown
+        stacked-icon(icon='fa-signal', color='color-brown')
         span(translate) Network
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -122,7 +122,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-credit-card.color-lila
+        stacked-icon(icon='fa-credit-card', color='color-lila')
         span(translate) SIM
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -148,7 +148,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-phone.color-green
+        stacked-icon(icon='fa-phone', color='color-green')
         span(translate) Hardware
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -172,7 +172,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-mobile.color-skyblue
+        stacked-icon(icon='fa-mobile', color='color-skyblue')
         span(translate) Platform
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -193,7 +193,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-slack.color-darkgray
+        stacked-icon(icon='fa-slack', color='color-black')
         span(translate) CPU
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -211,7 +211,7 @@
   .col-md-4-x.packery-item
     .widget-container.fluid-height
       .heading
-        i.fa.fa-database.color-orange
+        stacked-icon(icon='fa-database', color='color-orange')
         span(translate) Memory
       .widget-content.padded-small
         table.table.table-condensed.table-hover.table-infocard
@@ -222,7 +222,6 @@
             tr
               td(translate) ROM
               td {{device.memory.rom}} MB
-
             tr
               td(translate) SD Card Mounted
               td {{ sdCardMounted | humanizedBool }}

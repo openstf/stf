@@ -17,5 +17,6 @@ module.exports = angular.module('stf/common-ui', [
   require('./enable-autofill').name,
   require('./icon-inside-input').name,
   require('./focus-element').name,
-  require('./blur-element').name
+  require('./blur-element').name,
+  require('./stacked-icon').name
 ])

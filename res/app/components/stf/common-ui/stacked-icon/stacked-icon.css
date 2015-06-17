@@ -1,0 +1,12 @@
+.stf-stacked-icon .fa-square {
+  font-size: 22px !important;
+}
+
+.stf-stacked-icon.fa-stack {
+  height: 24px !important;
+  width: 21px !important;
+}
+
+.stf-stacked-icon .fa-stack-1x {
+  line-height: 24px !important;
+}

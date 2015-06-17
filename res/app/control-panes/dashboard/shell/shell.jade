@@ -1,6 +1,6 @@
 .widget-container.fluid-height.stf-shell(ng-controller='ShellCtrl')
   .heading
-    i.fa.fa-terminal
+    stacked-icon(icon='fa-terminal', color='color-darkgray')
     span(translate) Shell
     clear-button(ng-click='clear()', ng-disabled='!command && !data').btn-xs
 

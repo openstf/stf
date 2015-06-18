@@ -18,5 +18,6 @@ module.exports = angular.module('stf/common-ui', [
   require('./icon-inside-input').name,
   require('./focus-element').name,
   require('./blur-element').name,
-  require('./stacked-icon').name
+  require('./stacked-icon').name,
+  require('./help-icon').name
 ])

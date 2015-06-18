@@ -3,12 +3,11 @@
     stacked-icon(icon='fa-terminal', color='color-darkgray')
     span(translate) Shell
     clear-button(ng-click='clear()', ng-disabled='!command && !data').btn-xs
+    help-icon(topic='remote-shell', tooltip='{{"Executes remote shell commands" | translate}}')
 
-    a(ng-href='/#!/docs/remote-shell').btn.btn-xs.btn-primary-outline.pull-right.transparent-border
-      i.fa.fa-book
   .widget-content.padded
 
-    // TODO: find why autofill doesn't work here
+    // TODO: autofill doesn't work here
     form(method='post', enable-autofill, ng-submit='run(command)')
       .input-group.form-inline
         input(type=text, ng-model='command', Xtext-focus-select,

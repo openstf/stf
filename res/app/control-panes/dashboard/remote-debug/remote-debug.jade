@@ -2,8 +2,8 @@
   .heading
     stacked-icon(icon='fa-bug', color='color-darkgreen')
     span(translate) Remote debug
-    a(ng-href='/#!/docs/remote-debug').pull-right
-      i.fa.fa-question-circle(tooltip='{{remoteDebugTooltip | translate}}', tooltip-placement='left')
+    help-icon(topic='remote-debug', tooltip='{{remoteDebugTooltip | translate}}')
+
   .widget-content.padded
     .form-inline
       textarea(readonly, rows='1', ng-model='debugCommand', msd-elastic, text-focus-select).form-control.remote-debug-textarea

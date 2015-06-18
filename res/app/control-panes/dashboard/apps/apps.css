@@ -1,3 +1,18 @@
-.stf-apps {
+.stf-apps .icon-title {
+  font-size: 12px;
+  width: 70px;
+}
 
+.stf-apps .icon-app {
+  margin: 0;
+  text-align: center;
+}
+
+.stf-apps .heading .icon-app {
+  margin-top: -8px;
+}
+
+.stf-apps .heading .icon-app .fa {
+  font-size: 19px !important;
+  line-height: 14px !important;
 }

@@ -2,27 +2,24 @@
   .heading
     stacked-icon(icon='fa-th-large', color='color-lila')
     span(translate) Apps
-    div.pull-right
-      button.btn.btn-sm.btn-primary-outline(ng-click='control.openStore()',
-      tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-shopping-cart
 
-      button.btn.btn-sm.btn-primary-outline(ng-click='openSettings()',
-      tooltip='{{"Settings" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-gear
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()')
+      i.fa.fa-gear.fa-lg.color-darkgray
+      .icon-title {{"Settings" | translate}}
 
-      button.btn.btn-sm.btn-primary-outline(ng-click='openWiFiSettings()',
-      tooltip='{{"WiFi Settings" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-signal
-
-      button.btn.btn-sm.btn-primary-outline(ng-click='openManageApps()',
-      tooltip='{{"Manage Apps" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-list
-
-      button.btn.btn-sm.btn-primary-outline(ng-click='openDeveloperSettings()',
-      tooltip='{{"Developer Settings" | translate}}', tooltip-placement="bottom")
-        i.fa.fa-bug
-
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()').color-pink
+      i.fa.fa-shopping-cart.fa-lg.color-blue
+      .icon-title {{"App Store" | translate}}
 
   .widget-content.padded
+    button.btn.btn-primary-outline.icon-app(ng-click='control.openStore()')
+      i.fa.fa-signal.fa-lg.color-skyblue
+      .icon-title {{"WiFi" | translate}}
 
+    button.btn.btn-primary-outline.icon-app(ng-click='control.openStore()')
+      i.fa.fa-list.fa-lg.color-orange
+      .icon-title {{"Manage Apps" | translate}}
+
+    button.btn.btn-primary-outline.icon-app(ng-click='control.openStore()')
+      i.fa.fa-sliders.fa-lg.color-darkgreen
+      .icon-title {{"Developer" | translate}}

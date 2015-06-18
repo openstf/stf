@@ -12,6 +12,7 @@
 .stf-navigation .url-input-container input {
   margin: 0;
   padding-left: 30px;
+  z-index: 0;
 }
 
 .stf-navigation .url-input-container img {

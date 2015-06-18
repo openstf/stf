@@ -1,10 +1,10 @@
 # STF
 ===
-STF (Smartphone Test Farm) is a service for remotely debugging real smartphone devices from the comfort of your browser.
+STF (Smartphone Test Farm) is a full featured SaaS for remotely debugging real smartphone devices from the comfort of your browser.
 
 Features
 ===
-- Support Android devices from 2.3 to 5.0
+- Support Android devices from 2.3 to 5.0, including Android M
 - Fast device screen transfer
 - Remote mouse and keyboard input
 - Multitouch support
@@ -23,88 +23,37 @@ Features
 - Reverse port forwarding for development
 - Device hardware specific information
 
-
-Getting started
-===
-
-- `brew install rethinkdb`
-- Make internal npm work
-- `brew install protobuf`
-- `brew install zmq`
-- `npm install -g bower`
-- `npm install`
-- `bower install`
-- `npm link`
-
 Requirements
 ===
-
 - NodeJS
 - Bower
 - RethinkDB
 
-Run
+Getting Started
 ===
 
-- `rethinkdb`
-- `stf local`
+See [GETTING_STARTED.md](GETTING_STARTED.md).
 
-Update
+
+Updating
 ===
 
-- `git pull`
-- `npm install`
-- `bower install`
+See [UPDATING.md](UPDATING.md).
 
 
-### Tests
+Testing
+===
 
-## Unit Frontend
-
-- `brew install phantomjs`
-- `gulp karma`
-
-## E2E Frontend
-
-### On first run
-- `gulp webdriver-update`
-
-### Chrome Local STF
-- Connect a device
-- Run stf
-- `gulp protractor`
-
-### Multiple Browsers Local STF with a specific suite
-- Connect a device
-- Run stf
-- `gulp protractor --multi --suite devices`
-
-### Chrome Remote STF
-- `export STF_URL='http://stf-url/#!/'`
-- `export STF_USERNAME='user'`
-- `export STF_PASSWORD='pass'`
-- `gulp protractor`
-
-
+See [TESTING.md](TESTING.md).
 
 Contributing
 ===
-
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 License
 ===
-
-## Main repository
-- Free Software Foundation’s [GNU AGPL v3.0](http://www.fsf.org/licensing/licenses/agpl-3.0.html).
-- Commercial licenses are also available from [CyberAgent, Inc.](mailto:stf@cyberagent.co.jp), including free licenses.
-
-## Small repositories
-- [Apache License v2.0.](http://www.apache.org/licenses/LICENSE-2.0)
-
-## Documentation
-- Documentation: [Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/).
-
+See [LICENSE](LICENSE).
 
 Copyright © CyberAgent, Inc. All Rights Reserved.
 

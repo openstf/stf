@@ -22,6 +22,12 @@ module.exports = angular.module('stf.help.docs', [
           return '/static/docs/' + lang + '/' + document
         }
       })
+      .when('/help', {
+        templateUrl: function () {
+          var lang = languageProvider.$get().selectedLanguage
+          return '/static/docs/' + lang + '/' + 'index'
+        }
+      })
       //.when('/docs/:lang/:document*', {
       //  templateUrl: function (params) {
       //    var lang = params.lang

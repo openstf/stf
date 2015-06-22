@@ -46,14 +46,79 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 ## Requirements
 
 * [Node.js](https://nodejs.org/) >= 0.12
-* [Bower](http://bower.io/)
+* [Bower](http://bower.io/) (`npm install -g bower`)
 * [RethinkDB](http://rethinkdb.com/) >= 2.0.0
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
 * [ZeroMQ](http://zeromq.org/) libraries installed
+* [Protocol Buffers](https://github.com/google/protobuf) libraries installed
 
-## Getting Started
+Note that you need these dependencies even if you've installed STF directly from [NPM](https://www.npmjs.com/), because they can't be included.
 
-See [GETTING_STARTED.md](GETTING_STARTED.md).
+On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependencies:
+
+```bash
+brew install rethinkdb graphicsmagick zeromq protobuf
+```
+
+You should now be ready to [build](#building) or [run](#running) STF.
+
+## Installation
+
+As mentioned earlier, you must have all of the [requirements](#requirements) installed first. Then you can simply install via NPM:
+
+```bash
+npm install -g stf
+```
+
+For development, though, you should [build](#building) instead.
+
+## Building
+
+After you've got all the [requirements](#requirements) installed, it's time to fetch the rest of the dependencies.
+
+First, fetch all NPM modules:
+
+```bash
+npm install
+```
+
+Then, fetch all Bower modules:
+
+```bash
+bower install
+```
+
+You may also wish to link the module so that you'll be able to access the `stf` command directly from the command line:
+
+```bash
+npm link
+```
+
+You should now have a working installation for local development.
+
+## Running
+
+STF comprises of several independent processes that must normally be launched separately. In our own setup each one these processes is its own [systemd](http://www.freedesktop.org/wiki/Software/systemd/) unit.
+
+For development purposes, however, there's a helper command to quickly launch all required processes along with a mock login implementation. Note however that you **must** have RethinkDB running first.
+
+If you don't have RethinkDB set up yet, to start it up, go to the folder where you'd like RethinkDB to create a `rethinkdb_data` folder (perhaps the folder where this repo is) and run the following command:
+
+```bash
+rethinkdb
+```
+
+You should now have RethinkDB running locally. Running the command again in the same folder will reuse the data from the previous session.
+
+You're now ready to start up STF itself:
+
+```bash
+stf local
+```
+
+After the [webpack](http://webpack.github.io/) build process has finished (which can take a small while) you should have your private STF running on [http://localhost:7100](http://localhost:7100). If you had devices connected before running the command, those devices should now be available for use. If not, you should see what went wrong from your console. Feel free to plug in or unplug any devices at any time.
+
+Note that if you see your device ready to use but without a name or a proper image, we're probably missing the data for that model in [our device database](https://github.com/openstf/stf-device-db). Everything should work fine either way.
 
 ## Updating
 

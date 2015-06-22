@@ -19,13 +19,13 @@ module.exports = angular.module('stf.help.docs', [
         templateUrl: function (params) {
           var lang = languageProvider.$get().selectedLanguage
           var document = params.document.replace('.md', '')
-          return '/static/docs/' + lang + '/' + document
+          return '/static/wiki/[' + lang + ']-' + document
         }
       })
       .when('/help', {
         templateUrl: function () {
           var lang = languageProvider.$get().selectedLanguage
-          return '/static/docs/' + lang + '/' + 'index'
+          return '/static/wiki/[' + lang + ']-' + 'Help'
         }
       })
       //.when('/docs/:lang/:document*', {

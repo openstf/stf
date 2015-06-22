@@ -13,7 +13,7 @@ module.exports =
     }
 
     $scope.goHome = function () {
-      $location.path('/docs/index')
+      $location.path('/docs/Help')
     }
 
     $rootScope.$on("$routeChangeError",

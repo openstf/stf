@@ -19,10 +19,10 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * Supports meta keys
     * Copy and paste support (although it can be a bit finicky on older devices, you may need to long-press and select paste manually)
     * May sometimes not work well with non-Latin languages unfortunately.
-  - Multitouch support on touch screens, two finger pinch/rotate/zoom gesture support on regular screens by pressing `Alt` while dragging
+  - Multitouch support on touch screens via [minitouch](https://github.com/openstf/minitouch), two finger pinch/rotate/zoom gesture support on regular screens by pressing `Alt` while dragging
   - Drag & drop installation and launching of `.apk` files
     * Launches main launcher activity if specified in the manifest
-  - Reverse port forwarding
+  - Reverse port forwarding via [minirev](https://github.com/openstf/minirev)
     * Access your local server directly from the device, even if it's not on the same network
   - Open websites easily in any browser
     * Installed browsers are detected in real time and shown as selectable options

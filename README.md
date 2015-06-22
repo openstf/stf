@@ -122,7 +122,7 @@ Note that if you see your device ready to use but without a name or a proper ima
 
 ## Updating
 
-See [UPDATING.md](UPDATING.md).
+To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.
 
 ## Testing
 

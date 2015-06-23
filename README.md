@@ -154,6 +154,8 @@ There can be various reasons for this behavior. Some especially common reasons a
   - Can happen with older devices and newer Battery Charging spec compatible hubs.
 * The USB cable is bad
   - It happens. Try another one.
+* The USB hub is broken
+  - This, too, happens. Just try a new one.
 
 ### A device that was previously connected no longer shows up in the list.
 
@@ -175,6 +177,8 @@ Again, there can be various reasons for this behavior as well. Some common reaso
   - Or that.
 * You're on OS X
   - There's a bug in ADB's OS X implementation that causes devices to be lost on error conditions. The problem is more pronounced when using USB hubs. You have to unplug and then plug it back in again.
+* The USB hub broke
+  - Happens. Just try a new one.
 
 ## Testing
 

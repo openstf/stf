@@ -124,6 +124,47 @@ Note that if you see your device ready to use but without a name or a proper ima
 
 To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.
 
+## Troubleshooting
+
+### I plugged in a new device but it's not showing up in the list.
+
+There can be various reasons for this behavior. Some especially common reasons are:
+
+* USB debugging is not enabled
+  - Enable it.
+* USB debugging is enabled but the USB connection mode is wrong
+  - Try switching between MTP and PTP modes and see if the device appears. This happens fairly often on OS X but almost never on Linux.
+* You don't have the ADB daemon running
+  - Make sure ADB is running with `adb start-server`.
+* You haven't authorized the ADB key yet
+  - Check your device for an authentication dialog. You may need to unplug and then plug the device back in to see the dialog.
+* ADB hasn't whitelisted the manufacturer's vendor ID
+  - [Add it yourself](https://github.com/apkudo/adbusbini) or wait for the new version that removes the stupid whitelisting feature to be deployed.
+* Insufficient power supply
+  - If you're using a USB hub, try a powered hub instead (one that comes with a separate AC adapter).
+  - Even if you're using a powered hub, there might not actually be enough power for all ports simultaneously. Get a better hub or use fewer ports.
+  - Your device is too power hungry, can happen with tablets. Get a better hub.
+* Insufficient USB host controller resources
+  - On Linux, use `dmesg` to check for this error
+  - If you've only got 9-12 devices connected and an Intel (Haswell) processor, it's most likely an issue with the processor. If your BIOS has an option to disable USB 3.0, that might help. If not, you're screwed and must get a PCIE extension card with onboard controllers.
+
+### A device that was previously connected no longer shows up in the list.
+
+Again, there can be various reasons for this behavior as well. Some common reasons are:
+
+* The device ran out of power
+  - You can see the last reported power level in the device list, unless there was a lengthy power outage preventing the battery level from being reported.
+* Someone accidentally disabled USB debugging remotely
+  - Yes, it happens.
+* An OS update disabled USB debugging
+  - Yes, it happens. Especially on Fire OS.
+* Your PCIE USB extension card died
+  - Yes, it happens.
+* Temporary network issues
+  - Wait for them to be fixed or fix them yourself.
+* Someone removed the device physically.
+  - Can't help with that.
+
 ## Testing
 
 See [TESTING.md](TESTING.md).

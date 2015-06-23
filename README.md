@@ -150,6 +150,10 @@ There can be various reasons for this behavior. Some especially common reasons a
 * Insufficient USB host controller resources
   - On Linux, use `dmesg` to check for this error
   - If you've only got 9-12 devices connected and an Intel (Haswell) processor, it's most likely an issue with the processor. If your BIOS has an option to disable USB 3.0, that might help. If not, you're screwed and must get a PCIE extension card with onboard controllers.
+* Your powered USB hub does not support the device
+  - Can happen with older devices and newer Battery Charging spec compatible hubs.
+* The USB cable is bad
+  - It happens. Try another one.
 
 ### A device that was previously connected no longer shows up in the list.
 
@@ -161,12 +165,14 @@ Again, there can be various reasons for this behavior as well. Some common reaso
   - Yes, it happens.
 * An OS update disabled USB debugging
   - Yes, it happens. Especially on Fire OS.
+* Someone touched the USB cable just the wrong way causing a disconnection
+  - Happens easily.
 * Your PCIE USB extension card died
   - Yes, it happens.
 * Temporary network issues
-  - Wait for them to be fixed or fix them yourself.
-* Someone removed the device physically.
   - Can't help with that.
+* Someone removed the device physically.
+  - Or that.
 * You're on OS X
   - There's a bug in ADB's OS X implementation that causes devices to be lost on error conditions. The problem is more pronounced when using USB hubs. You have to unplug and then plug it back in again.
 

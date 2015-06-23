@@ -47,6 +47,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 * [Node.js](https://nodejs.org/) >= 0.12
 * [Bower](http://bower.io/) (`npm install -g bower`)
+* [ADB](http://developer.android.com/tools/help/adb.html) properly set up
 * [RethinkDB](http://rethinkdb.com/) >= 2.0.0
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
 * [ZeroMQ](http://zeromq.org/) libraries installed
@@ -61,6 +62,8 @@ brew install rethinkdb graphicsmagick zeromq protobuf
 ```
 
 You should now be ready to [build](#building) or [run](#running) STF.
+
+Note that while OS X can be used for development, it doesn't provide a very reliable experience in production due to (presumed) bugs in ADB's OS X implementation. We use [CoreOS](https://coreos.com/) but any Linux or BSD distribution should do fine.
 
 ## Installation
 
@@ -164,6 +167,8 @@ Again, there can be various reasons for this behavior as well. Some common reaso
   - Wait for them to be fixed or fix them yourself.
 * Someone removed the device physically.
   - Can't help with that.
+* You're on OS X
+  - There's a bug in ADB's OS X implementation that causes devices to be lost on error conditions. The problem is more pronounced when using USB hubs. You have to unplug and then plug it back in again.
 
 ## Testing
 

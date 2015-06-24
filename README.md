@@ -127,6 +127,16 @@ Note that if you see your device ready to use but without a name or a proper ima
 
 To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.
 
+## FAQ
+
+### Will I have to change battery packs all the time?
+
+Nope, we've had many devices running since the initial prototype phase about two years ago, and we've only had a single incident so far. The battery expanded causing the casing to split from the seams. The device itself was working fine and reporting full battery health, but it was discarded due to safety reasons.
+
+Devices should be allowed to turn their screens off when idle, which is what we are doing. All of our devices report perfect battery health so far.
+
+Note, however, that you may have a problem if your USB hubs are unable to both provide enough power and support the data connection at the same time. This can cause a device to stop charging when being used, resulting in many charging cycles. If this happens you will just need to get a better USB hub.
+
 ## Troubleshooting
 
 ### I plugged in a new device but it's not showing up in the list.

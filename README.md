@@ -154,14 +154,14 @@ There can be various reasons for this behavior. Some especially common reasons a
 * ADB hasn't whitelisted the manufacturer's vendor ID
   - [Add it yourself](https://github.com/apkudo/adbusbini) or wait for the new version that removes the stupid whitelisting feature to be deployed.
 * Insufficient power supply
-  - If you're using a USB hub, try a powered hub instead (one that comes with a separate AC adapter).
+  - If you're using a USB hub, try a [powered hub](#recommended-hardware) instead (one that comes with a separate AC adapter).
   - Even if you're using a powered hub, there might not actually be enough power for all ports simultaneously. [Get a better hub](#recommended-hardware) or use fewer ports.
   - Your device is too power hungry, can happen with tablets. [Get a better hub](#recommended-hardware).
 * Insufficient USB host controller resources
   - On Linux, use `dmesg` to check for this error
   - If you've only got 9-12 devices connected and an Intel (Haswell) processor, it's most likely an issue with the processor. If your BIOS has an option to disable USB 3.0, that might help. If not, you're screwed and must get a PCIE extension card with onboard controllers.
 * Your powered USB hub does not support the device
-  - Can happen with older devices and newer Battery Charging spec compatible hubs.
+  - Can happen with older devices and newer Battery Charging spec compatible hubs. [Get a more compatible hub](#recommended-hardware).
 * The USB cable is bad
   - It happens. Try another one.
 * The USB hub is broken

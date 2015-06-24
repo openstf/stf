@@ -198,7 +198,7 @@ This is a list of components we are currently using and are proven to work.
 
 These components are for the PC where the USB devices are connected. Our operating system of choice is [CoreOS](https://coreos.com/), but any other Linux or BSD distribution should do fine. Be sure to use reasonably recent kernels, though, as they often include improvements for the USB subsystem.
 
-Our currently favorite build is as follows. It will be able to provide 28 devices using powered USB hubs, and about 10 more if you're willing to use the motherboard's USB ports, which is usually not recommended for stability reasons. Note that our component selection is somewhat limited by their availability in Japan, so feel free to experiment with the more common components.
+Our currently favorite build is as follows. It will be able to provide 28 devices using powered USB hubs, and about 10 more if you're willing to use the motherboard's USB ports, which is usually not recommended for stability reasons. Note that our component selection is somewhat limited by their availability in Japan.
 
 | Component | Recommendation | How many |
 |-----------|------|----------|
@@ -231,8 +231,8 @@ Below is an incomplete list of some of the components we have tried so far, incl
 
 ##### USB extension cards
 
-| Name | Score | Quick reasoning |
-|------|-------|--------|
+| Name | Score | Short explanation |
+|------|-------|-------------------|
 | [StarTech.com 4 Port PCI Express (PCIe) SuperSpeed USB 3.0 Card Adapter w/ 4 Dedicated 5Gbps Channels - UASP - SATA / LP4 Power](http://www.startech.com/Cards-Adapters/USB-3.0/Cards/PCI-Express-USB-3-Card-4-Dedicated-Channels-4-Port~PEXUSB3S44V) | 9/10 | Reliable, well supported chipset and good power connections |
 | [StarTech.com 4 Independent Port PCI Express USB 2.0 Adapter Card](http://www.startech.com/Cards-Adapters/USB-2/Card/4-Independent-Port-PCI-Express-USB-Card~PEXUSB400) | 8/10 | Reliable |
 | [玄人志向 USB3.0RX4-P4-PCIE](http://www.kuroutoshikou.com/product/interface/usb/usb3_0rx4-p4-pcie/) | 4/10 | Well supported chipset but breaks VERY easily |
@@ -243,8 +243,8 @@ Our [玄人志向 USB3.0RX4-P4-PCIE](http://www.kuroutoshikou.com/product/interf
 
 ##### USB hubs
 
-| Name | Score | Quick reasoning |
-|------|-------|--------|
+| Name | Score | Short explanation |
+|------|-------|-------------------|
 | [Plugable USB 2.0 7 Port Hub with 60W Power Adapter](http://plugable.com/products/usb2-hub7bc) | 8/10 | High power output, high reliability |
 | [Plugable USB 3.0 7-port Charging Hub with 60W Power Adapter](http://plugable.com/products/usb3-hub7bc) | 5/10 | High power output, low reliability |
 | [System TALKS USB2-HUB4XA-BK USB 2.0 hub with power adapter](http://www.system-talks.co.jp/product/sgc-4X.htm) | 7/10 | High power output on two ports which complicates device positioning, low port count |
@@ -256,7 +256,7 @@ The best hub we've found so far is Plugable's [USB 2.0 7 Port Hub with 60W Power
 
 Unfortunately Plugable's USB 2.0 hub is not perfect either, at least for our purposes. It includes a physical on/off switch which can be especially annoying if your devices are in a regular office with occasional scheduled power outages. This will shut down the PC too, of course, but the problem is that once power comes back online, the hubs will be unable to switch themselves on and the devices won't charge, leading you to find a bunch of dead devices the next Monday.
 
-The System TALKS USB 2.0 hub is very reliable, but has a few annoying drawbacks. First, the power adapter only provides power to two of its four ports, while the other two are powered by the host PC. The problem with this approach is that you must figure out which devices are power hungry yourself and put them on the higher power ports. This complicates device setup/positioning quite a bit. Another drawback is that if the host PC is turned off, only the powered ports will keep charging the connected devices. However, the hub is amazingly compatible with pretty much anything, making it the top choice for older devices that do not support the Battery Charging hubs.
+The System TALKS USB 2.0 hub is very reliable, but has a few annoying drawbacks. First, the power adapter only provides power to two of its four ports, while the other two are powered by the host PC. The problem with this approach is that you must figure out which devices are power hungry yourself and put them on the ports with higher current. This can complicate device setup/positioning quite a bit. Another drawback is that if the host PC is turned off, only the powered ports will keep charging the connected devices. However, the hub is amazingly compatible with pretty much anything, making it the top choice for older devices that do not support the Battery Charging hubs.
 
 Most powered USB 3.0 hubs we've tested have had a serious problem: the whole hub occasionally disconnects. This may be a problem with the specific combination of our components and OS, but we've been unable to sort it out as of yet.
 

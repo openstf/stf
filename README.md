@@ -229,6 +229,8 @@ Below is an incomplete list of some of the components we have tried so far, incl
 
 #### Tested equipment
 
+_Note that our hardware score ratings only reflect their use for the purposes of this project, and are not an overall statement about the quality of the product._
+
 ##### USB extension cards
 
 | Name | Score | Short explanation |

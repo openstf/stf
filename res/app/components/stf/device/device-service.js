@@ -61,7 +61,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
         (!data.owner || data.using)
 
       // Make sure we don't mistakenly think we still have the device
-      if (!data.usable) {
+      if (!data.usable || !data.owner) {
         data.using = false
       }
 

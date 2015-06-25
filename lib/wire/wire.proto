@@ -7,7 +7,7 @@ enum MessageType {
   DeviceIdentityMessage      = 2;
   DeviceLogcatEntryMessage   = 3;
   DeviceLogMessage           = 4;
-  DevicePokeMessage          = 5;
+  DeviceReadyMessage         = 5;
   DevicePresentMessage       = 6;
   DevicePropertiesMessage    = 7;
   DeviceRegisteredMessage    = 8;
@@ -136,7 +136,7 @@ message DeviceAbsentMessage {
   required string serial = 1;
 }
 
-message DevicePokeMessage {
+message DeviceReadyMessage {
   required string serial = 1;
   required string channel = 2;
 }

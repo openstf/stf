@@ -43,6 +43,10 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
 
+## A quick note about security
+
+As the product has evolved from an internal tool running in our internal network, we have made certain assumptions about the trustworthiness of our users. As such, there is little to no security or encryption between the different processes. Furthermore, devices do not get completely reset between uses, potentially leaving accounts logged in or exposing other sensitive data. This is not an issue for us as all of our devices are test devices only used with test accounts, but it may be an issue for you if you plan on deploying STF to a multiuser environment. We welcome contributions in this area.
+
 ## Requirements
 
 * [Node.js](https://nodejs.org/) >= 0.12

@@ -266,7 +266,7 @@ Unfortunately Plugable's USB 2.0 hub is not perfect either, at least for our pur
 
 The System TALKS USB 2.0 hub is very reliable, but has a few annoying drawbacks. First, the power adapter only provides power to two of its four ports, while the other two are powered by the host PC. The problem with this approach is that you must figure out which devices are power hungry yourself and put them on the ports with higher current. This can complicate device setup/positioning quite a bit. Another drawback is that if the host PC is turned off, only the powered ports will keep charging the connected devices. However, the hub is amazingly compatible with pretty much anything, making it the top choice for older devices that do not support the Battery Charging hubs.
 
-Most powered USB 3.0 hubs we've tested have had a serious problem: the whole hub occasionally disconnects. This may be a problem with the specific combination of our components and OS, but we've been unable to sort it out as of yet.
+Most powered USB 3.0 hubs we've tested have had a serious problem: the whole hub occasionally disconnected. This may have been caused by the specific combination of our components and/or OS, but as of yet we don't really know. Disabling USB 3.0 may help if you run into the same problem.
 
 ## Testing
 

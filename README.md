@@ -170,6 +170,8 @@ There can be various reasons for this behavior. Some especially common reasons a
   - It happens. Try another one.
 * The USB hub is broken
   - This, too, happens. Just try a new one.
+* The device might not have a unique USB serial number, causing STF to overwrite the other device instead
+  - This has never happened to us so far, but we do have one dirt-cheap Android 4.4 device whose serial number is the wonderfully unique "0123456789ABCDEF". Presumably if we had more than one unit we would have a problem.
 
 ### A device that was previously connected no longer shows up in the list.
 

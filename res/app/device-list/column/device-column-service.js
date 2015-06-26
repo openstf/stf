@@ -419,9 +419,12 @@ function DeviceBrowserCell(options) {
   , update: function(td, device) {
       var span = td.firstChild
         , browser = options.value(device)
+        , apps = browser.apps.slice().sort(function(appA, appB) {
+            return compareIgnoreCase(appA.name, appB.name)
+          })
 
-      for (var i = 0, l = browser.apps.length; i < l; ++i) {
-        var app = browser.apps[i]
+      for (var i = 0, l = apps.length; i < l; ++i) {
+        var app = apps[i]
           , img = span.childNodes[i] || span.appendChild(document.createElement('img'))
           , src = '/static/app/browsers/icon/36x36/' + (app.type || '_default') + '.png'
 

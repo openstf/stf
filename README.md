@@ -141,6 +141,31 @@ Devices should be allowed to turn their screens off when idle, which is what we 
 
 Note, however, that you may have a problem if your USB hubs are unable to both provide enough power and support the data connection at the same time. This can cause a device to stop charging when being used, resulting in many charging cycles. If this happens you will just need to [get a better USB hub](#recommended-hardware).
 
+### Is the system secure?
+
+It's possible to run the whole user-facing side behind HTTPS, but that's pretty much it. All internal communication between processes is insecure and unencrypted, which is a problem if you can eavesdrop on the network. See our [quick note about security](#a-quick-note-about-security).
+
+### Can I just put the system online, put a few devices there and start selling it?
+
+Yes and no. See "[Is the system secure?](#is-the-system-secure)". The system has been built in an environment where we are able to trust our users and be confident that they're not going to want to mess with others. In the current incarnation of the system a malicious user with knowledge of the inner workings will, for instance, be able to control any device at any time, whether it is being used by someone or not. Pull requests are welcome.
+
+### Once I've got the system running, can I pretty much leave it like that or is manual intervention required?
+
+In our experience the system runs just fine most of the time, and any issues are mostly USB-related. You'll usually have to do something about once a week.
+
+The most common issue is that a device will lose all of its active USB connections momentarily. You'll get errors in the logs but the worker process will either recover or get respawned, requiring no action on your side.
+
+Below are the most common errors that do require manual intervention.
+
+* One device worker keeps getting respawned all the time
+  - Rebooting the device usually helps. If the device stays online for long enough you might be able to do it from the UI. Otherwise you'll have to SSH into the server and run `adb reboot` manually.
+  - This could be a sign that you're having USB problems, and the device wishes to be moved elsewhere. The less complex your setup is the fewer problems you're going to experience. See [troubleshooting](#troubleshooting).
+  - We're working on adding periodic automatic restarts and better graceful recovery to alleviate the issue.
+* A whole group of devices keeps dying at once
+  - They're most likely connected to the same USB hub. Either the hub is bad or you have other compatibility issues. In our experience this usually happens with USB 3.0 hubs, or you may have a problem with your USB extension card. See [recommended hardware](#recommended-hardware).
+* A device that should be online is not showing up in the list or is showing up as disconnected
+  - See [troubleshooting](#troubleshooting).
+
 ## Troubleshooting
 
 ### I plugged in a new device but it's not showing up in the list.

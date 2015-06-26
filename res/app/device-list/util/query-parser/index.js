@@ -14,6 +14,14 @@ function Term() {
   this.query = ''
 }
 
+Term.prototype.append = function(input) {
+  this.query += input
+}
+
+Term.prototype.reset = function() {
+  this.query = ''
+}
+
 function QueryParser() {
   this.terms = []
   this.currentTerm = new Term()
@@ -93,11 +101,11 @@ QueryParser.prototype.consume = function(input) {
     }
     if (input === ':') {
       this.currentTerm.field = this.currentTerm.query
-      this.currentTerm.query = ''
+      this.currentTerm.reset()
       this.state = State.QUERY_START
       return
     }
-    this.currentTerm.query += input
+    this.currentTerm.append(input)
     return
   case State.QUERY_VALUE_DOUBLEQUOTED:
     if (input === '\\') {
@@ -106,7 +114,7 @@ QueryParser.prototype.consume = function(input) {
     if (input === '"') {
       return this.concludeTerm()
     }
-    this.currentTerm.query += input
+    this.currentTerm.append(input)
     return
   }
 }

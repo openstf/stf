@@ -164,28 +164,24 @@ module.exports = function DeviceColumnService($filter, gettext) {
     })
   , phone: TextCell({
       title: gettext('Phone')
-    , admin: true
     , value: function(device) {
         return device.phone ? device.phone.phoneNumber : ''
       }
     })
   , imei: TextCell({
       title: gettext('Phone IMEI')
-    , admin: true
     , value: function(device) {
         return device.phone ? device.phone.imei : ''
       }
     })
   , iccid: TextCell({
       title: gettext('Phone ICCID')
-    , admin: true
     , value: function(device) {
         return device.phone ? device.phone.iccid : ''
       }
     })
   , batteryHealth: TextCell({
       title: gettext('Battery Health')
-    , admin: true
     , value: function(device) {
         return device.battery
           ? $filter('translate')(device.enhancedBatteryHealth)
@@ -194,7 +190,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
     })
   , batterySource: TextCell({
       title: gettext('Battery Source')
-    , admin: true
     , value: function(device) {
         return device.battery
           ? $filter('translate')(device.enhancedBatterySource)
@@ -203,7 +198,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
     })
   , batteryStatus: TextCell({
       title: gettext('Battery Status')
-    , admin: true
     , value: function(device) {
         return device.battery
           ? $filter('translate')(device.enhancedBatteryStatus)
@@ -212,7 +206,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
     })
   , batteryLevel: TextCell({
       title: gettext('Battery Level')
-    , admin: true
     , value: function(device) {
         return device.battery
           ? Math.floor(device.battery.level / device.battery.scale * 100) + '%'
@@ -226,7 +219,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
     })
   , batteryTemp: TextCell({
       title: gettext('Battery Temp')
-    , admin: true
     , value: function(device) {
         return device.battery ? device.battery.temp + '°C' : ''
       }
@@ -286,7 +278,6 @@ function compareRespectCase(a, b) {
 function TextCell(options) {
   return _.defaults(options, {
     title: options.title
-  , admin: options.admin
   , defaultOrder: 'asc'
   , build: function () {
       var td = document.createElement('td')

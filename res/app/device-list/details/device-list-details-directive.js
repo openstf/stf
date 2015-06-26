@@ -162,13 +162,6 @@ module.exports = function DeviceListDetailsDirective(
 
         // Check what we're supposed to show now
         columnSettings.forEach(function(column) {
-
-          var skipColumn = !$rootScope.adminMode && scope.columnDefinitions[column.name].admin
-          if (skipColumn) {
-            column.selected = false
-            return
-          }
-
           if (column.selected) {
             newActiveColumns.push(column.name)
           }

@@ -67,6 +67,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
             , b = i < lb ? parseInt(vb[i], 10) : 0
             , diff = a - b
 
+          // One of the values might be something like 'M'. If so, do a string
+          // comparison instead.
+          if (isNaN(diff)) {
+            diff = compareRespectCase(va[i], vb[i])
+          }
+
           if (diff !== 0) {
             return diff
           }
@@ -81,12 +87,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
           , lb = vb.length
           , op = filterOps[filter.op || '=']
 
-        // We have a single value and no operator or field. It matches
-        // too easily, let's wait for a dot (e.g. '5.').
-        if (filter.op === null && filter.field === null && lb === 1) {
-          return false
-        }
-
         if (vb[lb - 1] === '') {
           // This means that the query is not complete yet, and we're
           // looking at something like "4.", which means that the last part
@@ -99,8 +99,17 @@ module.exports = function DeviceColumnService($filter, gettext) {
           var a = parseInt(va[i], 10)
             , b = parseInt(vb[i], 10)
 
-          if (!op(a, b)) {
-            return false
+          // One of the values might be non-numeric, e.g. 'M'. In that case
+          // filter by string value instead.
+          if (isNaN(a) || isNaN(b)) {
+            if (!op(va[i], vb[i])) {
+              return false
+            }
+          }
+          else {
+            if (!op(a, b)) {
+              return false
+            }
           }
         }
 

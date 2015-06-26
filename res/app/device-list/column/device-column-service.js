@@ -87,6 +87,15 @@ module.exports = function DeviceColumnService($filter, gettext) {
           , lb = vb.length
           , op = filterOps[filter.op || '=']
 
+        // We have a single value and no operator or field. It matches
+        // too easily, let's wait for a dot (e.g. '5.'). An example of a
+        // bad match would be an unquoted query for 'Nexus 5', which targets
+        // a very specific device but may easily match every Nexus device
+        // as the two terms are handled separately.
+        if (filter.op === null && filter.field === null && lb === 1) {
+          return false
+        }
+
         if (vb[lb - 1] === '') {
           // This means that the query is not complete yet, and we're
           // looking at something like "4.", which means that the last part

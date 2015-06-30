@@ -27,7 +27,7 @@ module.exports = {
     },
     resolve: {
       root: [
-        pathutil.resource('app/components'),
+        pathutil.resource('app/components')
       ],
       modulesDirectories: [
         'web_modules',

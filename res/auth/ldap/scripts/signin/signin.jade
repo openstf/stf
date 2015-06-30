@@ -1,0 +1,30 @@
+.login2(ng-controller='SignInCtrl')
+  .login-wrapper
+    a(href='./')
+      img(width='160', height='160', src='/static/logo/exports/STF-512.png', title='STF')
+
+    form(name='signin', novalidate, ng-submit='submit()')
+      .alert.alert-danger(ng-show='error')
+        span(ng-show='error.$invalid', translate) Check errors below
+        span(ng-show='error.$incorrect', translate) Incorrect login details
+        span(ng-show='error.$server', translate) Server error. Check log output.
+
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.fa.fa-user
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='LDAP Username',
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
+        .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
+          span(ng-show='signin.username.$error.required', translate) Please enter your LDAP username
+
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.fa.fa-lock
+          input.form-control(ng-model='password', name='password', required, type='password', placeholder='Password',
+          autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login current-password')
+        .alert.alert-warning(ng-show='signin.password.$dirty && signin.password.$invalid')
+          span(translate) Please enter your password
+
+      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Log In')

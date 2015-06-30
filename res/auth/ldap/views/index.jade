@@ -1,11 +1,11 @@
 doctype html
-html
+html(ng-app='app')
   head
     title STF
     base(href='/')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui')
-    include partials/styles
   body(ng-cloak)
     div(ng-view)
-    script(src='static/bower_components/requirejs/require.js', data-main='static/auth/ldap/scripts/main.js')
+    script(src='static/app/build/entry/commons.entry.js')
+    script(src='static/app/build/entry/authldap.entry.js')

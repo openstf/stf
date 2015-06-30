@@ -15,7 +15,7 @@ require.ensure([], function (require) {
       $locationProvider.html5Mode(true)
       $routeProvider
         .otherwise({
-          redirectTo: '/auth/ldap'
+          redirectTo: '/auth/ldap/'
         })
     })
 

@@ -1,13 +1,13 @@
-.login2
+.login2(ng-controller='SignInCtrl')
   .login-wrapper
     a(href='./')
       img(width='160', height='160', src='/static/logo/exports/STF-512.png', title='STF')
 
     form(name='signin', novalidate, ng-submit='submit()')
       .alert.alert-danger(ng-show='error')
-        span(ng-show='error.$invalid') Check errors below
-        span(ng-show='error.$incorrect') Incorrect login details
-        span(ng-show='error.$system') System error
+        span(ng-show='error.$invalid', translate) Check errors below
+        span(ng-show='error.$incorrect', translate) Incorrect login details
+        span(ng-show='error.$server', translate) Server error. Check log output.
 
       .form-group
         .input-group
@@ -16,7 +16,7 @@
           input.form-control(ng-model='username', name='username', required, type='text', placeholder='Name',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
-          span Please enter your name
+          span(translate) Please enter your name
 
       .form-group
         .input-group
@@ -25,9 +25,7 @@
           input.form-control(ng-model='email', name='email', required, type='email', placeholder='E-mail',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login email')
         .alert.alert-warning(ng-show='signin.email.$dirty && signin.email.$invalid')
-          span(ng-show='signin.email.$error.email') Please enter a valid email
-          span(ng-show='signin.email.$error.required') Please enter your email
+          span(ng-show='signin.email.$error.email', translate) Please enter a valid email
+          span(ng-show='signin.email.$error.required', translate) Please enter your email
 
-
-
-      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Log in')
+      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Log In')

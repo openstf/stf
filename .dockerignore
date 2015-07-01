@@ -1,0 +1,14 @@
+*.mo
+*.tgz
+.DS_Store
+.env
+.git/
+.idea/
+Dockerfile
+node_modules/
+npm-debug.log
+res/bower_components/
+res/build/
+rethinkdb_data/
+temp/
+tmp/

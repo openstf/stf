@@ -5,14 +5,12 @@
 /.editorconfig
 /.env
 /.gitignore
-/.heroku/
 /.idea/
 /.jscsrc
 /.npmignore
 /.npmrc
 /Dockerfile
 /bower.json
-/buildpack/
 /component.json
 /doc/
 /gulpfile.js

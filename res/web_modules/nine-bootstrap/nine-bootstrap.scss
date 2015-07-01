@@ -980,6 +980,11 @@ input[type="search"].input-sm {
   overflow: inherit !important;
 }
 
+/* FIX Scrolling bug that only happens on latest Chrome + Macbook Trackpad */
+.pane-center.fa-pane-scroller {
+  z-index: 10;
+}
+
 .input-group-btn .btn {
   margin-right: 0;
 }

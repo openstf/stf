@@ -4,7 +4,7 @@ module.exports = function SignInCtrl($scope, $http) {
 
   $scope.submit = function () {
     var data = {
-      username: $scope.signin.username.$modelValue
+      name: $scope.signin.username.$modelValue
       , email: $scope.signin.email.$modelValue
     }
     $scope.invalid = false

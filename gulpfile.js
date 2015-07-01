@@ -8,7 +8,7 @@ var webpackConfig = require('./webpack.config').webpack
 var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
-var rimraf = require('gulp-rimraf')
+var del = require('del')
 var runSequence = require('run-sequence').use(gulp)
 //var protractor = require('gulp-protractor')
 var protractor = require('./res/test/e2e/helpers/gulp-protractor-adv')
@@ -204,7 +204,6 @@ gulp.task('translate:compile', ['translate:extract'], function (cb) {
   cb()
 })
 
-gulp.task('clean', function () {
-  return gulp.src(['./tmp', './res/build'], {read: false})
-    .pipe(rimraf())
+gulp.task('clean', function (cb) {
+  del(['./tmp', './res/build'], cb)
 })

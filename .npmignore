@@ -12,7 +12,6 @@
 /Dockerfile
 /bower.json
 /component.json
-/doc/
 /gulpfile.js
 /node_modules/
 /npm-debug.log

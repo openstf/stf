@@ -28,7 +28,7 @@ msgid "A secure container mount point couldn't be accessed on external media."
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:160
+#: app/device-list/column/device-column-service.js:178
 msgid "ABI"
 msgstr ""
 
@@ -136,23 +136,23 @@ msgstr ""
 msgid "Battery"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:187
+#: app/device-list/column/device-column-service.js:202
 msgid "Battery Health"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:214
+#: app/device-list/column/device-column-service.js:226
 msgid "Battery Level"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:196
+#: app/device-list/column/device-column-service.js:210
 msgid "Battery Source"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:205
+#: app/device-list/column/device-column-service.js:218
 msgid "Battery Status"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:228
+#: app/device-list/column/device-column-service.js:239
 msgid "Battery Temp"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Bluetooth"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:135
+#: app/device-list/column/device-column-service.js:153
 msgid "Browser"
 msgstr ""
 
@@ -200,6 +200,11 @@ msgstr ""
 
 #: app/menu/menu.html:3
 msgid "Chat"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Check errors below"
 msgstr ""
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
@@ -509,6 +514,11 @@ msgstr ""
 msgid "IMEI"
 msgstr ""
 
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Incorrect login details"
+msgstr ""
+
 #: app/control-panes/control-panes-controller.js:26
 msgid "Info"
 msgstr ""
@@ -578,7 +588,7 @@ msgstr ""
 msgid "Local Settings"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:240
+#: app/device-list/column/device-column-service.js:250
 msgid "Location"
 msgstr ""
 
@@ -595,7 +605,7 @@ msgid "Manage Apps"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:147
+#: app/device-list/column/device-column-service.js:165
 msgid "Manufacturer"
 msgstr ""
 
@@ -664,7 +674,7 @@ msgid "Navigation"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:111
+#: app/device-list/column/device-column-service.js:129
 msgid "Network"
 msgstr ""
 
@@ -720,7 +730,7 @@ msgstr ""
 msgid "Not Charging"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:246
+#: app/device-list/column/device-column-service.js:256
 msgid "Notes"
 msgstr ""
 
@@ -783,15 +793,15 @@ msgstr ""
 msgid "Pause"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:166
+#: app/device-list/column/device-column-service.js:184
 msgid "Phone"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:180
+#: app/device-list/column/device-column-service.js:196
 msgid "Phone ICCID"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:173
+#: app/device-list/column/device-column-service.js:190
 msgid "Phone IMEI"
 msgstr ""
 
@@ -817,6 +827,26 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
+msgstr ""
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter a valid email"
+msgstr ""
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your email"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your LDAP username"
+msgstr ""
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your name"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your password"
 msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
@@ -1004,7 +1034,7 @@ msgstr ""
 msgid "Save..."
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:117
+#: app/device-list/column/device-column-service.js:135
 msgid "Screen"
 msgstr ""
 
@@ -1021,7 +1051,7 @@ msgid "SD Card Mounted"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:153
+#: app/device-list/column/device-column-service.js:171
 msgid "SDK"
 msgstr ""
 
@@ -1038,8 +1068,13 @@ msgid "Selects Next IME"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:141
+#: app/device-list/column/device-column-service.js:159
 msgid "Serial"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Server error. Check log output."
 msgstr ""
 
 #: app/control-panes/resources/resources.html:1
@@ -1377,7 +1412,7 @@ msgstr ""
 msgid "Use"
 msgstr ""
 
-#: app/device-list/column/device-column-service.js:252
+#: app/device-list/column/device-column-service.js:262
 msgid "User"
 msgstr ""
 

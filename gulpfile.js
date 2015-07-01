@@ -169,7 +169,7 @@ gulp.task("webpack:others", function (callback) {
 gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
 
 gulp.task('jade', function (cb) {
-  gulp.src([
+  return gulp.src([
     './res/**/*.jade', '!./res/bower_components/**'
   ])
     .pipe(jade({
@@ -182,26 +182,23 @@ gulp.task('jade', function (cb) {
       }
     }))
     .pipe(gulp.dest('./tmp/html/'))
-  cb()
 })
 
 gulp.task('translate:extract', ['jade'], function (cb) {
-  gulp.src([
+  return gulp.src([
     './tmp/html/**/*.html', './res/**/*.js', '!./res/bower_components/**',
     '!./res/build/**'
   ])
     .pipe(gettext.extract('stf.pot'))
     .pipe(gulp.dest('./res/common/lang/po/'))
-  cb()
 })
 
 gulp.task('translate:compile', ['translate:extract'], function (cb) {
-  gulp.src('./res/common/lang/po/**/*.po')
+  return gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
     }))
     .pipe(gulp.dest('./res/common/lang/translations/'))
-  cb()
 })
 
 gulp.task('clean', function (cb) {

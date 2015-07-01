@@ -166,6 +166,27 @@ Below are the most common errors that do require manual intervention.
 * A device that should be online is not showing up in the list or is showing up as disconnected
   - See [troubleshooting](#troubleshooting).
 
+### How do I uninstall STF from my device?
+
+When you unplug your device, all STF utilities except STFService stop running automatically. It doesn't do any harm to force stop or uninstall it.
+
+To uninstall the STFService, run the following command:
+
+```bash
+adb uninstall jp.co.cyberagent.stf
+```
+
+You may also wish to remove our support binaries, although as mentioned before they won't run unless the device is actually connected to STF. You can do this as follows:
+
+```bash
+adb shell rm /data/local/tmp/minicap \
+  /data/local/tmp/minicap.so \
+  /data/local/tmp/minitouch \
+  /data/local/tmp/minirev
+```
+
+Your device is now clean.
+
 ## Troubleshooting
 
 ### I plugged in a new device but it's not showing up in the list.

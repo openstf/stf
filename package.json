@@ -1,5 +1,6 @@
 {
   "name": "stf",
+  "version": "0.9.0",
   "description": "Smartphone Test Farm",
   "keywords": [
     "adb",
@@ -8,8 +9,15 @@
     "test",
     "remote"
   ],
-  "version": "0.9.0",
+  "bugs": {
+    "url": "https://github.com/openstf/stf/issues"
+  },
   "license": "Apache-2.0",
+  "author": {
+    "name": "CyberAgent, Inc.",
+    "email": "npm@cyberagent.co.jp",
+    "url": "http://www.cyberagent.co.jp/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/openstf/stf.git"

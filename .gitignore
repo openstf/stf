@@ -7,8 +7,8 @@
 /doc/*.png
 /node_modules/
 /res/bower_components/
-/res/build/*
+/res/build/
+/res/test_out/
 /rethinkdb_data/
-/temp
-/tmp
-/res/test_out/*
+/temp/
+/tmp/

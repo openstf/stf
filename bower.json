@@ -8,7 +8,7 @@
     "angular-sanitize": "1.4.1",
     "angular-animate": "1.4.1",
     "angular-touch": "1.4.1",
-    "lodash": "~3.9.3",
+    "lodash": "~3.10.0",
     "oboe": "~2.1.2",
     "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",
     "angular-gettext": "git://github.com/rubenv/angular-gettext.git#6bf6a66d8b4fd6c5e0fddcee050991391977cf87",
@@ -31,13 +31,17 @@
     "epoch": "~0.6.0",
     "ng-epoch": "~1.0.7",
     "eventEmitter": "~4.2.11",
-    "angular-ladda": "~0.2.2"
+    "angular-ladda": "~0.2.2",
+    "d3": "~3.5.5",
+    "spin.js": "~2.3.1"
   },
   "private": true,
   "devDependencies": {
     "angular-mocks": "1.4.1"
   },
   "resolutions": {
-    "angular": "1.4.1"
+    "angular": "1.4.1",
+    "d3": "~3.5.5",
+    "spin.js": "~2.3.1"
   }
 }

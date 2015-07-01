@@ -4,6 +4,8 @@ STF (or Smartphone Test Farm) is a web application for debugging smartphones, sm
 
 It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices.
 
+![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
+
 ## Features
 
 * OS support

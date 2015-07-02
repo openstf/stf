@@ -81,7 +81,7 @@ As mentioned earlier, you must have all of the [requirements](#requirements) ins
 npm install -g stf
 ```
 
-For development, though, you should [build](#building) instead.
+Now you're ready to [run](#running). For development, though, you should [build](#building) instead.
 
 ## Building
 

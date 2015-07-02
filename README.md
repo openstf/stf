@@ -6,6 +6,8 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 ![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
 
+![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
+
 ## Features
 
 * OS support

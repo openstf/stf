@@ -113,7 +113,7 @@ STF comprises of several independent processes that must normally be launched se
 
 For development purposes, however, there's a helper command to quickly launch all required processes along with a mock login implementation. Note however that you **must** have RethinkDB running first.
 
-If you don't have RethinkDB set up yet, to start it up, go to the folder where you'd like RethinkDB to create a `rethinkdb_data` folder (perhaps the folder where this repo is) and run the following command:
+If you don't have RethinkDB set up yet, to start it up, go to the folder where you'd like RethinkDB to create a `rethinkdb_data` folder in (perhaps the folder where this repo is) and run the following command:
 
 ```bash
 rethinkdb

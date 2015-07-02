@@ -67,6 +67,8 @@ On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependen
 brew install rethinkdb graphicsmagick zeromq protobuf
 ```
 
+We also provide a [Docker](http://docker.com/) container in the [Docker Hub](https://hub.docker.com/) as [openstf/stf](https://registry.hub.docker.com/u/openstf/stf/). You can use our [Dockerfile](Dockerfile) as guidance if you'd prefer to do the installation yourself.
+
 You should now be ready to [build](#building) or [run](#running) STF.
 
 Note that while OS X can be used for development, it doesn't provide a very reliable experience in production due to (presumed) bugs in ADB's OS X implementation. We use [CoreOS](https://coreos.com/) but any Linux or BSD distribution should do fine.

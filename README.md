@@ -248,6 +248,14 @@ Again, there can be various reasons for this behavior as well. Some common reaso
 * The USB hub broke
   - Happens. Just try a new one.
 
+### Remote debugging (i.e. `adb connect`) disconnects while I'm working.
+
+If you're using STF locally, the most common cause is that you're not filtering the devices STF is allowed to connect to. The problem is that once you do `adb connect`, STF sees a new device and tries to set it up. Unfortunately since it's already connected via USB, setting up the new device causes the worker process handling the original USB device to fail. This is not a problem in production, since the devices should be connected to an entirely different machine anyway. For development it's a bit inconvenient. What you can do is give `stf local` a list of serials you wish to use. For example, if your device's serial is `0123456789ABCDEF`, use `stf local 0123456789ABCDEF`. Now you can use `adb connect` and STF will ignore the new device.
+
+There's another likely cause if you're running STF locally. Even if you whitelist devices by serial in STF, your IDE (e.g. Android Studio) doesn't know anything about that. From the IDE's point of view, you have two devices connected. When you try to run or debug your application, Android Studio suddenly notices that two devices are now providing JDWP connections and tries to connect to them both. This doesn't really work since the debugger will only allow one simultaneous connection, which causes problems with ADB. It then decides to disconnect the device (or sometimes itself) entirely.
+
+One more sad possibility is that your Android Studio likes to restart ADB behind the scenes. Even if you restart ADB, USB devices will soon reappear as they're still connected. The same is not true for remote devices, as ADB never stores the list anywhere. This can sometimes also happen with the Android Device Monitor (`monitor`).
+
 ## Recommended hardware
 
 This is a list of components we are currently using and are proven to work.

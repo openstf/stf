@@ -1,12 +1,14 @@
 # Deployment
 
-So you've got STF running via `stf local` and now you'd like to deploy it to a real server. While there are of course various ways to set everything up, this document will focus on a [systemd](http://www.freedesktop.org/wiki/Software/systemd/) + [Docker](https://www.docker.com/) deployment.
+So you've got STF running via `stf local` and now you'd like to deploy it to real servers. While there are of course various ways to set everything up, this document will focus on a [systemd](http://www.freedesktop.org/wiki/Software/systemd/) + [Docker](https://www.docker.com/) deployment. Even if you've got a different setup, you should be able to use the configuration files as a rough guide.
 
 STF consists of multiple independent processes communicating via [ZeroMQ](http://zeromq.org/) and [Protocol Buffers](https://github.com/google/protobuf). We call each process a "unit" to match systemd terminology.
 
 The core topology is as follows.
 
 ![Rough core topology](topo-v1.png)
+
+Each unit and its function will be explained later in the document.
 
 ## Assumptions
 
@@ -20,7 +22,7 @@ For this example deployment, the following assumptions will be made. You will ne
 * You want to access the app at https://stf.example.org/. Change to the actual URL you want to use.
 * You have RethinkDB running on `rethinkdb.stf.example.org`. Change to the actual address/IP where required.
   - You may also use SRV records by giving the url in `srv+tcp://rethinkdb-28015.skydns.stf.example.org` format.
-* You have two static IPs available for the main communication bridges (or "triproxies"), or are able to figure out an alternate method. In this example we'll use `devside.stf.example.org` and `appside.stf.example.org` as memorable addresses.
+* You have two static IPs available for the main communication bridges (or "triproxies"), or are able to figure out an alternate method. In this example we'll use `devside.stf.example.org` and `appside.stf.example.org` as easy to remember addresses.
   - You can also use SRV records as mentioned above.
 
 ## Roles
@@ -39,25 +41,25 @@ The provider role requires the following units, which must be together on a sing
 The app role can contain any of the following units. You may distribute them as you wish, as long as the [assumptions above](#assumptions) hold. Some units may have more requirements, they will be listed where applicable.
 
 * [rethinkdb-proxy-28015.service](#rethinkdb-proxy-28015service)
-* [stf-app@.service](stf-appservice)
-* [stf-auth@.service](stf-authservice)
-* [stf-migrate.service](stf-migrateservice)
-* [stf-processor@.service](stf-processorservice)
-* [stf-provider@.service](stf-providerservice)
-* [stf-reaper.service](stf-reaperservice)
-* [stf-storage-plugin-apk@.service](stf-storage-plugin-apkservice)
-* [stf-storage-plugin-image@.service](stf-storage-plugin-imageservice)
-* [stf-storage-temp@.service](stf-storage-tempservice)
-* [stf-triproxy-app.service](stf-triproxy-appservice)
-* [stf-triproxy-dev.service](stf-triproxy-devservice)
-* [stf-websocket@.service](stf-websocketservice)
-* [stf-notify-hipchat.service](stf-notify-hipchatservice)
+* [stf-app@.service](#stf-appservice)
+* [stf-auth@.service](#stf-authservice)
+* [stf-migrate.service](#stf-migrateservice)
+* [stf-processor@.service](#stf-processorservice)
+* [stf-provider@.service](#stf-providerservice)
+* [stf-reaper.service](#stf-reaperservice)
+* [stf-storage-plugin-apk@.service](#stf-storage-plugin-apkservice)
+* [stf-storage-plugin-image@.service](#stf-storage-plugin-imageservice)
+* [stf-storage-temp@.service](#stf-storage-tempservice)
+* [stf-triproxy-app.service](#stf-triproxy-appservice)
+* [stf-triproxy-dev.service](#stf-triproxy-devservice)
+* [stf-websocket@.service](#stf-websocketservice)
+* [stf-notify-hipchat.service](#stf-notify-hipchatservice)
 
 ## Support units
 
 These external units are required for the actual STF units to work.
 
-### adbd.service
+### `adbd.service`
 
 You need to have a single `adbd.service` unit running on each host where you have devices connected.
 
@@ -84,7 +86,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 2 %p
 ```
 
-### rethinkdb-proxy-28015.service
+### `rethinkdb-proxy-28015.service`
 
 You need a single instance of the `rethinkdb-proxy-28015.service` unit on each host where you have another unit that needs to access the database. Having a local proxy simplifies configuration for other units and allows the `AUTHKEY` to be specified only once.
 
@@ -114,7 +116,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p
 
 These units are required for proper operation of STF. Unless mentioned otherwise, each unit can have multiple running instances (possibly on separate hosts) if desired.
 
-### stf-app@.service
+### `stf-app@.service`
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
@@ -142,12 +144,14 @@ ExecStart=/usr/bin/docker run --rm \
   -p 127.0.0.1:%i:3000 \
   openstf/stf:1.0.0 \
   stf app --port 3000 \
-    --auth-url https://stf.example.org/auth/oauth2/ \
+    --auth-url https://stf.example.org/auth/mock/ \
     --websocket-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-auth@.service
+You may have to change the `--auth-url` depending on which authentication method you choose.
+
+### `stf-auth@.service`
 
 You have multiple options here. STF currently provides authentication units for [OAuth 2.0](http://oauth.net/2/) and [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol), plus a mock implementation that simply asks for a name and an email address.
 
@@ -178,7 +182,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-migrate.service
+### `stf-migrate.service`
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
@@ -205,7 +209,7 @@ ExecStart=/usr/bin/docker run --rm \
   stf migrate
 ```
 
-### stf-processor@.service
+### `stf-processor@.service`
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
@@ -236,7 +240,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-provider@.service
+### `stf-provider@.service`
 
 **Requires** the `adbd.service` unit on the same host.
 
@@ -280,7 +284,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-reaper.service
+### `stf-reaper.service`
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
@@ -312,7 +316,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
-### stf-storage-plugin-apk@.service
+### `stf-storage-plugin-apk@.service`
 
 The APK storage plugin loads raw blobs from the main storage unit and allows additional actions to be performed on APK files, such as retrieving the `AndroidManifest.xml`.
 
@@ -340,7 +344,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-storage-plugin-image@.service
+### `stf-storage-plugin-image@.service`
 
 The image storage plugin loads raw blobs from the main storage unit and and allows images to be resized using parameters.
 
@@ -368,7 +372,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-storage-temp@.service
+### `stf-storage-temp@.service`
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-temp@3500.service` runs on port 3500). Currently, ** you cannot have more than one instance of this unit**, as both temporary files and an in-memory mapping is used. Using a template unit makes it easy to set the port.
 
@@ -395,7 +399,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
-### stf-triproxy-app.service
+### `stf-triproxy-app.service`
 
 This unit provides the `appside.stf.example.org` service mentioned earlier. Its purpose is to send and receive requests from the app units, and distribute them across the processor units. It's "dumb" in that it contains no real logic, and you rarely if ever need to upgrade the unit.
 
@@ -427,7 +431,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
-### stf-triproxy-dev.service
+### `stf-triproxy-dev.service`
 
 This unit provides the `devside.stf.example.org` service mentioned earlier. Its purpose is to send and receive requests from the provider units, and distribute them across the processor units. It's "dumb" in that it contains no real logic, and you rarely if ever need to upgrade the unit.
 
@@ -459,7 +463,7 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
-### stf-websocket@.service
+### `stf-websocket@.service`
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
@@ -497,7 +501,7 @@ ExecStop=/usr/bin/docker stop -t 10 %p-%i
 
 These units are optional and don't affect the way STF works in any way.
 
-### stf-notify-hipchat.service
+### `stf-notify-hipchat.service`
 
 If you use [HipChat](https://www.hipchat.com/), you can use this unit to push notifications to your room. Check `stf notify-hipchat --help` for more configuration options.
 

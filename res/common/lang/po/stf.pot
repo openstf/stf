@@ -308,7 +308,7 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: app/device-list/details/device-list-details-directive.js:35
+#: app/device-list/details/device-list-details-directive.js:36
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr ""

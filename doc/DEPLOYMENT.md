@@ -694,7 +694,7 @@ http {
 
 ```
 
-Here's one possible unit configuration for `nginx@.service`:
+Here's one possible unit configuration for `nginx.service`:
 
 ```ini
 [Unit]

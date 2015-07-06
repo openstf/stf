@@ -112,7 +112,7 @@ You should now have a working installation for local development.
 
 ## Running
 
-STF comprises of several independent processes that must normally be launched separately. In our own setup each one these processes is its own [systemd](http://www.freedesktop.org/wiki/Software/systemd/) unit.
+STF comprises of several independent processes that must normally be launched separately. In our own setup each one these processes is its own [systemd](http://www.freedesktop.org/wiki/Software/systemd/) unit. See [DEPLOYMENT.md](doc/DEPLOYMENT.md) if you're interested.
 
 For development purposes, however, there's a helper command to quickly launch all required processes along with a mock login implementation. Note that you **must** have RethinkDB running first.
 
@@ -139,6 +139,10 @@ Note that if you see your device ready to use but without a name or a proper ima
 To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.
 
 ## FAQ
+
+### Can I deploy STF to actual servers?
+
+Yes, see [DEPLOYMENT.md](doc/DEPLOYMENT.md).
 
 ### Will I have to change battery packs all the time?
 

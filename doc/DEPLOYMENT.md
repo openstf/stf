@@ -6,7 +6,7 @@ STF consists of multiple independent processes communicating via [ZeroMQ](http:/
 
 The core topology is as follows.
 
-![Rough core topology](topo-v1.png)
+![Rough core topology](topo-v1.png?raw=true)
 
 Each unit and its function will be explained later in the document.
 

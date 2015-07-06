@@ -140,6 +140,10 @@ To update your development version, simply pull the repo and run `npm install` a
 
 ## FAQ
 
+### Can I deploy STF to actual servers?
+
+Yes, see [DEPLOYMENT](doc/DEPLOYMENT.md).
+
 ### Will I have to change battery packs all the time?
 
 Nope, we've had many devices running since the initial prototype phase about two years ago, and we've only had a single incident so far. The battery expanded causing the casing to split from the seams. The device itself was working fine and reporting full battery health, but it was discarded due to safety reasons.

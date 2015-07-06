@@ -1,0 +1,529 @@
+# Deployment
+
+So you've got STF running via `stf local` and now you'd like to deploy it to a real server. While there are of course various ways to set everything up, this document will focus on a [systemd](http://www.freedesktop.org/wiki/Software/systemd/) + [Docker](https://www.docker.com/) deployment.
+
+STF consists of multiple independent processes communicating via [ZeroMQ](http://zeromq.org/) and [Protocol Buffers](https://github.com/google/protobuf). We call each process a "unit" to match systemd terminology.
+
+The core topology is as follows.
+
+![Rough core topology](topo-v1.png)
+
+## Assumptions
+
+For this example deployment, the following assumptions will be made. You will need to adjust them as you see fit. Note that this deployment was designed to be relatively easy to set up without external tools, and may not be optimal. They're also configured so that you can run everything on a single host if required.
+
+* You have [systemd](http://www.freedesktop.org/wiki/Software/systemd/) running on each host
+* You have [Docker](https://www.docker.com/) running on each host
+* Each host has an `/etc/environment` (a la [CoreOS](https://coreos.com/)) file with `COREOS_PRIVATE_IPV4=MACHINE_IP_HERE`. This is used to load the machine IP address in configuration files.
+  - You can create the file yourself or alternatively replace `${COREOS_PRIVATE_IPV4}` manually as required.
+* You're deploying [openstf/stf](https://registry.hub.docker.com/u/openstf/stf/):1.0.0. Adjust if another version required.
+* You want to access the app at https://stf.example.org/. Change to the actual URL you want to use.
+* You have RethinkDB running on `rethinkdb.stf.example.org`. Change to the actual address/IP where required.
+  - You may also use SRV records by giving the url in `srv+tcp://rethinkdb-28015.skydns.stf.example.org` format.
+* You have two static IPs available for the main communication bridges (or "triproxies"), or are able to figure out an alternate method. In this example we'll use `devside.stf.example.org` and `appside.stf.example.org` as memorable addresses.
+  - You can also use SRV records as mentioned above.
+
+## Roles
+
+Since we're dealing with actual physical devices, some units need to be deployed to specific servers to make sure that they actually connect with the devices. We currently use [fleet](https://github.com/coreos/fleet), but in this example deployment we'll just assume that you already know how you wish to deploy and distribute the systemd units.
+
+### Provider role
+
+The provider role requires the following units, which must be together on a single or more hosts.
+
+* [adbd.service](#adbservice)
+* [stf-provider@.service](#stf-providerservice)
+
+### App role
+
+The app role can contain any of the following units. You may distribute them as you wish, as long as the [assumptions above](#assumptions) hold. Some units may have more requirements, they will be listed where applicable.
+
+* [rethinkdb-proxy-28015.service](#rethinkdb-proxy-28015service)
+* [stf-app@.service](stf-appservice)
+* [stf-auth@.service](stf-authservice)
+* [stf-migrate.service](stf-migrateservice)
+* [stf-processor@.service](stf-processorservice)
+* [stf-provider@.service](stf-providerservice)
+* [stf-reaper.service](stf-reaperservice)
+* [stf-storage-plugin-apk@.service](stf-storage-plugin-apkservice)
+* [stf-storage-plugin-image@.service](stf-storage-plugin-imageservice)
+* [stf-storage-temp@.service](stf-storage-tempservice)
+* [stf-triproxy-app.service](stf-triproxy-appservice)
+* [stf-triproxy-dev.service](stf-triproxy-devservice)
+* [stf-websocket@.service](stf-websocketservice)
+* [stf-notify-hipchat.service](stf-notify-hipchatservice)
+
+## Support units
+
+These external units are required for the actual STF units to work.
+
+### adbd.service
+
+You need to have a single `adbd.service` unit running on each host where you have devices connected.
+
+The docker container comes with a default, insecure ADB key for convenience purposes, so that you won't have to accept a new ADB key on your devices each time the unit restarts. This is insecure because anyone in possession of the insecure key will then be able to access your device without any prompt, assuming they have physical access to it. This may or may not be a problem for you. See [sorccu/adb](https://registry.hub.docker.com/u/sorccu/adb/) for more information if you'd like to provide your own keys.
+
+```ini
+[Unit]
+Description=ADB daemon
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull sorccu/adb:latest
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --privileged \
+  -v /dev/bus/usb:/dev/bus/usb \
+  --net host \
+  sorccu/adb:latest
+ExecStop=-/usr/bin/docker stop -t 2 %p
+```
+
+### rethinkdb-proxy-28015.service
+
+You need a single instance of the `rethinkdb-proxy-28015.service` unit on each host where you have another unit that needs to access the database. Having a local proxy simplifies configuration for other units and allows the `AUTHKEY` to be specified only once.
+
+```ini
+[Unit]
+Description=RethinkDB proxy/28015
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull ctlc/ambassador:latest
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
+  -p 28015 \
+  -e RETHINKDB_PORT_28015_TCP=tcp://rethinkdb.stf.example.org:28015 \
+  ctlc/ambassador:latest
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
+## Main units
+
+These units are required for proper operation of STF. Unless mentioned otherwise, each unit can have multiple running instances (possibly on separate hosts) if desired.
+
+### stf-app@.service
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The app unit provides the main HTTP server and currently a very, very modest API for the client-side. It also serves all static resources including images, scripts and stylesheets.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-app@3100.service` runs on port 3100). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF app
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf app --port 3000 \
+    --auth-url https://stf.example.org/auth/oauth2/ \
+    --websocket-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-auth@.service
+
+You have multiple options here. STF currently provides authentication units for [OAuth 2.0](http://oauth.net/2/) and [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol), plus a mock implementation that simply asks for a name and an email address.
+
+Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF auth
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf auth-mock --port 3000 \
+    --app-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-migrate.service
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+This unit migrates the database to the latest version, which pretty much means creating tables and setting up indexes. Schema changes do not require a migration unless a new index is introduced.
+
+This is a oneshot unit, meaning that it shuts down after it's done.
+
+```ini
+[Unit]
+Description=STF migrate
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+Type=oneshot
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  openstf/stf:1.0.0 \
+  stf migrate
+```
+
+### stf-processor@.service
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The processor is the main workhorse of STF. It acts as a bridge between the devices and the app, and nearly all communication goes through it. You may wish to have more than one instance running.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example the identifier has no special purpose, but having it allows you to start more than one unit on the same host.
+
+```ini
+[Unit]
+Description=STF processor
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  openstf/stf:1.0.0 \
+  stf processor %p-%i \
+    --connect-app-dealer tcp://appside.stf.example.org:7160 \
+    --connect-dev-dealer tcp://devside.stf.example.org:7260
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-provider@.service
+
+**Requires** the `adbd.service` unit on the same host.
+
+The provider unit connects to ADB and start worker processes for each device. It then sends and receives commands from the processor.
+
+The name of the provider shows up in the device list, making it easier to see where the physical devices are located. In this configuration the name is set to the hostname.
+
+Note that the provider needs to be able to manage a certain port range, so `--net host` is required until Docker makes it easier to work with ranges. The ports are used for internal services and the screen capturing WebSocket.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the provider ID, which can then be matched against in the [nginx](http://nginx.org/) configuration later on. The ID should be unique and persistent. This is only one way to set things up, you may choose to do things differently if it seems sketchy.
+
+Note that you cannot have more than one provider unit running on the same host, as they would compete over which one gets to control the devices. In the future we might add a negotiation protocol to allow for relatively seamless upgrades.
+
+```ini
+[Unit]
+Description=STF provider
+After=adbd.service
+BindsTo=adbd.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  --net host \
+  openstf/stf:1.0.0 \
+  stf provider \
+    --name "%H/%i" \
+    --connect-sub tcp://devside.stf.example.org:7250 \
+    --connect-push tcp://devside.stf.example.org:7270 \
+    --storage-url https://stf.example.org/ \
+    --public-ip ${COREOS_PRIVATE_IPV4} \
+    --min-port=15000 \
+    --max-port=25000 \
+    --heartbeat-interval 10000 \
+    --screen-ws-url-pattern "wss://stf.example.org/d/%i/<%= serial %>/<%= publicPort %>/"
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-reaper.service
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The reaper unit receives heartbeat events from device workers, and marks lost devices as absent until a heartbeat is received again. The purpose of this unit is to ensure the integrity of the present/absent flag in the database, in case a provider shuts down unexpectedly or another unexpected failure occurs. It loads the current state from the database on startup and keeps keeps patching its internal view as events are routed to it.
+
+Note that it doesn't make sense to have more than one reaper running at once, as they would just duplicate the events.
+
+```ini
+[Unit]
+Description=STF reaper
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  openstf/stf:1.0.0 \
+  stf reaper dev \
+    --connect-push tcp://devside.stf.example.org:7270 \
+    --connect-sub tcp://appside.stf.example.org:7150 \
+    --heartbeat-timeout 30000
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
+### stf-storage-plugin-apk@.service
+
+The APK storage plugin loads raw blobs from the main storage unit and allows additional actions to be performed on APK files, such as retrieving the `AndroidManifest.xml`.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storate-plugin-apk@3300.service` runs on port 3300). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF APK storage plugin
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf storage-plugin-apk --port 3000 \
+    --storage-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-storage-plugin-image@.service
+
+The image storage plugin loads raw blobs from the main storage unit and and allows images to be resized using parameters.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-image@3400.service` runs on port 3400). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF image storage plugin
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf storage-plugin-image --port 3000 \
+    --storage-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-storage-temp@.service
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-temp@3500.service` runs on port 3500). Currently, ** you cannot have more than one instance of this unit**, as both temporary files and an in-memory mapping is used. Using a template unit makes it easy to set the port.
+
+```ini
+[Unit]
+Description=STF temp storage
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -v /mnt/storage:/data \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf storage-temp --port 3000 \
+    --save-dir /data
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### stf-triproxy-app.service
+
+This unit provides the `appside.stf.example.org` service mentioned earlier. Its purpose is to send and receive requests from the app units, and distribute them across the processor units. It's "dumb" in that it contains no real logic, and you rarely if ever need to upgrade the unit.
+
+We call it a triproxy because it deals with three endpoints instead of the usual two.
+
+You may have more than one instance running simultaneously, and then give a comma separated list to the provider. For simplicity we're using a normal unit here.
+
+```ini
+[Unit]
+Description=STF app triproxy
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --net host \
+  openstf/stf:1.0.0 \
+  stf triproxy app \
+    --bind-pub "tcp://*:7150" \
+    --bind-dealer "tcp://*:7160" \
+    --bind-pull "tcp://*:7170"
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
+### stf-triproxy-dev.service
+
+This unit provides the `devside.stf.example.org` service mentioned earlier. Its purpose is to send and receive requests from the provider units, and distribute them across the processor units. It's "dumb" in that it contains no real logic, and you rarely if ever need to upgrade the unit.
+
+We call it a triproxy because it deals with three endpoints instead of the usual two.
+
+You may have more than one instance running simultaneously, and then give a comma separated list to the provider. For simplicity we're using a normal unit here.
+
+```ini
+[Unit]
+Description=STF dev triproxy
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --net host \
+  openstf/stf:1.0.0 \
+  stf triproxy dev \
+    --bind-pub "tcp://*:7250" \
+    --bind-dealer "tcp://*:7260" \
+    --bind-pull "tcp://*:7270"
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
+### stf-websocket@.service
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The websocket unit provides the communication layer between client-side JavaScript and the server-side ZeroMQ+Protobuf combination. Almost every action in STF goes through the websocket unit.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-image@3600.service` runs on port 3600). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF websocket
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -p 127.0.0.1:%i:3000 \
+  openstf/stf:1.0.0 \
+  stf websocket --port 3000 \
+    --storage-url https://stf.example.org/ \
+    --connect-sub tcp://appside.stf.example.org:7150 \
+    --connect-push tcp://appside.stf.example.org:7170
+ExecStop=/usr/bin/docker stop -t 10 %p-%i
+```
+
+## Optional units
+
+These units are optional and don't affect the way STF works in any way.
+
+### stf-notify-hipchat.service
+
+If you use [HipChat](https://www.hipchat.com/), you can use this unit to push notifications to your room. Check `stf notify-hipchat --help` for more configuration options.
+
+Even if you don't use HipChat, you can use the code as a base for implementing a new notifier.
+
+Note that it doesn't make sense to have more than one instance of this unit running at once. You'd just get the same notifications twice.
+
+```ini
+[Unit]
+Description=STF HipChat notifier
+After=docker.service
+BindsTo=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  -e "HIPCHAT_TOKEN=YOUR_HIPCHAT_TOKEN_HERE" \
+  -e "HIPCHAT_ROOM=YOUR_HIPCHAT_ROOM_HERE" \
+  openstf/stf:1.0.0 \
+  stf notify-hipchat \
+    --connect-sub tcp://appside.stf.example.org:7150
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```

@@ -3,7 +3,6 @@
 .idea/
 /*.tgz
 /.env
-/doc/*.png
 /node_modules/
 /res/bower_components/
 /res/build/

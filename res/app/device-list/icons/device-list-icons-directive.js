@@ -138,9 +138,17 @@ module.exports = function DeviceListDetailsDirective(
         //  //StandaloneService.open()
         //  e.preventDefault()
         //}
+        var id
 
-        if (e.target.classList.contains('device-status')) {
-          var id = e.target.parentNode.parentNode.id
+        if (e.target.classList.contains('thumbnail')) {
+          id = e.target.id
+        } else if (e.target.classList.contains('device-status') ||
+          e.target.classList.contains('device-photo-small') ||
+          e.target.classList.contains('device-name')) {
+          id = e.target.parentNode.parentNode.id
+        }
+
+        if (id) {
           var device = mapping[id]
 
           if (e.altKey && device.state === 'available') {

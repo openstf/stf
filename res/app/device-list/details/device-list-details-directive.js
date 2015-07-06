@@ -7,6 +7,7 @@ module.exports = function DeviceListDetailsDirective(
 , GroupService
 , $rootScope
 , LightboxImageService
+, StandaloneService
 ) {
   return {
     restrict: 'E'
@@ -47,8 +48,13 @@ module.exports = function DeviceListDetailsDirective(
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
 
-          if (e.shiftKey && device.state === 'available') {
+          if (e.altKey && device.state === 'available') {
             inviteDevice(device)
+            e.preventDefault()
+          }
+
+          if (e.shiftKey && device.state === 'available') {
+            StandaloneService.open(device)
             e.preventDefault()
           }
 

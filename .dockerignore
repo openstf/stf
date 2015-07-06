@@ -4,7 +4,6 @@
 .env
 .git/
 .idea/
-Dockerfile
 node_modules/
 npm-debug.log
 res/bower_components/

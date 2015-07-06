@@ -15,6 +15,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * Supports versions 2.3.3 (SDK level 10) to 5.1 (SDK level 22), plus Android M Developer Preview
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
+    * `root` is **not** required for any current functionality
 * Remote control any device from your browser
   - Real-time screen view
     * Refresh speed can reach 30-40 FPS depending on specs and Android version. See [minicap](https://github.com/openstf/minicap) for more information.

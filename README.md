@@ -1,5 +1,8 @@
 # STF
 
+[![Docker Repository on Quay.io](https://quay.io/repository/openstf/stf/status "Docker Repository on Quay.io")](https://quay.io/repository/openstf/stf)
+[![NPM version](https://img.shields.io/npm/v/stf.svg)](https://www.npmjs.com/package/stf)
+
 STF (or Smartphone Test Farm) is a web application for debugging smartphones, smartwatches and other gadgets remotely, from the comfort of your browser.
 
 It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices.

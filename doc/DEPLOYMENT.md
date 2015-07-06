@@ -55,6 +55,10 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-websocket@.service](#stf-websocketservice)
 * [stf-notify-hipchat.service](#stf-notify-hipchatservice)
 
+### Proxy role
+
+The proxy role ties all HTTP-based units together behind a common reverse proxy. See [nginx configuration](#nginx-configuration) for more information.
+
 ## Support units
 
 These external units are required for the actual STF units to work.
@@ -531,3 +535,194 @@ ExecStart=/usr/bin/docker run --rm \
     --connect-sub tcp://appside.stf.example.org:7150
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
+
+## Nginx configuration
+
+Now that you've got all the units ready, it's time to set up [nginx](http://nginx.org/) to tie all the processes together with a clean URL.
+
+So, to recap, our example setup is as follows:
+
+| Unit | IP | Port |
+|------|----|------|
+| [stf-app@3100.service](#stf-appservice) | 192.168.255.100 | 3100 |
+| [stf-auth@3200.service](#stf-authservice) | 192.168.255.150 | 3200 |
+| [stf-storage-plugin-apk@3300.service](#stf-storage-plugin-apkservice) | 192.168.255.100 | 3300 |
+| [stf-storage-plugin-image@3400.service](#stf-storage-plugin-imageservice) | 192.168.255.100 | 3400 |
+| [stf-storage-temp@3500.service](#stf-storage-tempservice) | 192.168.255.100 | 3500 |
+| [stf-websocket@3600.service](#stf-websocketservice) | 192.168.255.100 | 3600 |
+
+Furthermore, let's assume that we have the following providers set up:
+
+| Unit | IP | Identifier |
+|------|------------|
+| [stf-provider@floor4.service](#stf-providerservice) | 192.168.255.200 | floor4 |
+| [stf-provider@floor8.service](#stf-providerservice) | 192.168.255.201 | floor8 |
+
+Our base nginx configuration for `stf.example.org` would then be:
+
+```nginx
+daemon off;
+worker_processes 4;
+
+events {
+  worker_connections 1024;
+}
+
+http {
+  upstream stf_app {
+    server 192.168.255.100:3100 max_fails=0;
+  }
+
+  upstream stf_auth {
+    server 192.168.255.150:3200 max_fails=0;
+  }
+
+  upstream stf_storage_apk {
+    server 192.168.255.100:3300 max_fails=0;
+  }
+
+  upstream stf_storage_image {
+    server 192.168.255.100:3400 max_fails=0;
+  }
+
+  upstream stf_storage {
+    server 192.168.255.100:3500 max_fails=0;
+  }
+
+  upstream stf_websocket {
+    server 192.168.255.100:3600 max_fails=0;
+  }
+
+  types {
+    application/javascript  js;
+    image/gif               gif;
+    image/jpeg              jpg;
+    text/css                css;
+    text/html               html;
+  }
+
+  map $http_upgrade $connection_upgrade {
+    default  upgrade;
+    ''       close;
+  }
+
+  server {
+    listen 80;
+    server_name stf.example.org;
+    return 301 https://$server_name$request_uri;
+  }
+
+  server {
+    listen 443 ssl;
+    server_name stf.example.org;
+    keepalive_timeout 70;
+    root /dev/null;
+
+    # https://mozilla.github.io/server-side-tls/ssl-config-generator/
+    ssl_certificate /etc/nginx/ssl/cert.pem;
+    ssl_certificate_key /etc/nginx/ssl/cert.key;
+    ssl_session_timeout 5m;
+    ssl_session_cache shared:SSL:10m;
+    ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
+    ssl_prefer_server_ciphers on;
+
+    #add_header Strict-Transport-Security max-age=15768000;
+
+    #ssl_stapling on;
+    #ssl_stapling_verify on;
+    #ssl_trusted_certificate /etc/nginx/ssl/cert.pem;
+
+    resolver 8.8.4.4 8.8.8.8 valid=300s;
+    resolver_timeout 10s;
+
+    # Handle stf-provider@floor4.service
+    location ~ "^/d/floor4/([^/]+)/(?<port>[0-9]{5})/$" {
+      proxy_pass http://192.168.255.200:$port/;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $connection_upgrade;
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Handle stf-provider@floor8.service
+    location ~ "^/d/floor8/([^/]+)/(?<port>[0-9]{5})/$" {
+      proxy_pass http://192.168.255.201:$port/;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $connection_upgrade;
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /auth/mock/ {
+      proxy_pass http://stf_auth/auth/mock/;
+    }
+
+    location /s/image/ {
+      proxy_pass http://stf_storage_image;
+    }
+
+    location /s/apk/ {
+      proxy_pass http://stf_storage_apk;
+    }
+
+    location /s/ {
+      client_max_body_size 1024m;
+      client_body_buffer_size 128k;
+      proxy_pass http://stf_storage;
+    }
+
+    location /socket.io/ {
+      proxy_pass http://stf_websocket;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection $connection_upgrade;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Real-IP $http_x_real_ip;
+    }
+
+    location / {
+      proxy_pass http://stf_app;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Real-IP $http_x_real_ip;
+    }
+  }
+}
+
+```
+
+Here's one possible unit configuration for `nginx@.service`:
+
+```ini
+[Unit]
+Description=STF nginx public load balancer
+After=docker.service
+Requires=docker.service
+ConditionPathExists=/srv/ssl/stf.example.org.crt
+ConditionPathExists=/srv/ssl/stf.example.org.key
+ConditionPathExists=/srv/ssl/dhparam.pem
+ConditionPathExists=/srv/nginx/nginx.conf
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull nginx:1.7.10
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --net host \
+  -v /srv/ssl/stf.example.org.crt:/etc/nginx/ssl/cert.pem:ro \
+  -v /srv/ssl/stf.example.org.key:/etc/nginx/ssl/cert.key:ro \
+  -v /srv/ssl/dhparam.pem:/etc/nginx/ssl/dhparam.pem:ro \
+  -v /srv/nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
+  nginx:1.7.10 \
+  nginx
+ExecStop=/usr/bin/docker stop -t 2 %p
+```
+
+Start everything up and you should be good to go.

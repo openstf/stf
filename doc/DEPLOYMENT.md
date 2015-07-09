@@ -324,7 +324,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p
 
 The APK storage plugin loads raw blobs from the main storage unit and allows additional actions to be performed on APK files, such as retrieving the `AndroidManifest.xml`.
 
-This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storate-plugin-apk@3300.service` runs on port 3300). You can have multiple instances running on the same host by using different ports.
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-apk@3300.service` runs on port 3300). You can have multiple instances running on the same host by using different ports.
 
 ```ini
 [Unit]

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: app/components/stf/device/device-info-filter/index.js:119
@@ -38,7 +38,7 @@ msgid "A secure container mount point couldn't be accessed on external media."
 msgstr ""
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:160
+#: app/device-list/column/device-column-service.js:178
 msgid "ABI"
 msgstr "ABI"
 
@@ -146,23 +146,23 @@ msgstr "戻る"
 msgid "Battery"
 msgstr "バッテリー"
 
-#: app/device-list/column/device-column-service.js:187
+#: app/device-list/column/device-column-service.js:202
 msgid "Battery Health"
 msgstr "バッテリー健康状態"
 
-#: app/device-list/column/device-column-service.js:214
+#: app/device-list/column/device-column-service.js:226
 msgid "Battery Level"
 msgstr "バッテリーレベル"
 
-#: app/device-list/column/device-column-service.js:196
+#: app/device-list/column/device-column-service.js:210
 msgid "Battery Source"
 msgstr "バッテリー電力源"
 
-#: app/device-list/column/device-column-service.js:205
+#: app/device-list/column/device-column-service.js:218
 msgid "Battery Status"
 msgstr "バッテリー状態"
 
-#: app/device-list/column/device-column-service.js:228
+#: app/device-list/column/device-column-service.js:239
 msgid "Battery Temp"
 msgstr "バッテリー温度"
 
@@ -170,7 +170,7 @@ msgstr "バッテリー温度"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: app/device-list/column/device-column-service.js:135
+#: app/device-list/column/device-column-service.js:153
 msgid "Browser"
 msgstr "ブラウザ"
 
@@ -212,6 +212,11 @@ msgstr "充電中"
 msgid "Chat"
 msgstr "チャット"
 
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Check errors below"
+msgstr "下記エラーがありました"
+
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
 #: app/control-panes/advanced/run-js/run-js.html:2
 #: app/control-panes/logs/logs.html:20
@@ -239,6 +244,10 @@ msgstr "接続中"
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
 msgstr "接続できました。"
+
+#: app/menu/menu.html:1
+msgid "Control"
+msgstr "リモート操作"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -313,7 +322,7 @@ msgstr "開発者"
 msgid "Device"
 msgstr "デバイス"
 
-#: app/device-list/details/device-list-details-directive.js:35
+#: app/device-list/details/device-list-details-directive.js:36
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
@@ -519,6 +528,11 @@ msgstr "ID"
 msgid "IMEI"
 msgstr "IMEI"
 
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Incorrect login details"
+msgstr "不正ログイン情報"
+
 #: app/control-panes/control-panes-controller.js:26
 msgid "Info"
 msgstr "情報"
@@ -587,7 +601,7 @@ msgstr "レベル"
 msgid "Local Settings"
 msgstr "ローカル設定"
 
-#: app/device-list/column/device-column-service.js:240
+#: app/device-list/column/device-column-service.js:250
 msgid "Location"
 msgstr "場所"
 
@@ -604,7 +618,7 @@ msgid "Manage Apps"
 msgstr "アプリ管理"
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:147
+#: app/device-list/column/device-column-service.js:165
 msgid "Manufacturer"
 msgstr "メーカー"
 
@@ -673,7 +687,7 @@ msgid "Navigation"
 msgstr "ブラウジング"
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:111
+#: app/device-list/column/device-column-service.js:129
 msgid "Network"
 msgstr "ネットワーク"
 
@@ -729,7 +743,7 @@ msgstr "通常モード"
 msgid "Not Charging"
 msgstr "充電されていない"
 
-#: app/device-list/column/device-column-service.js:246
+#: app/device-list/column/device-column-service.js:256
 msgid "Notes"
 msgstr "注釈"
 
@@ -792,15 +806,15 @@ msgstr "パス"
 msgid "Pause"
 msgstr "停止"
 
-#: app/device-list/column/device-column-service.js:166
+#: app/device-list/column/device-column-service.js:184
 msgid "Phone"
 msgstr "電話番号"
 
-#: app/device-list/column/device-column-service.js:180
+#: app/device-list/column/device-column-service.js:196
 msgid "Phone ICCID"
 msgstr "携帯ICCID"
 
-#: app/device-list/column/device-column-service.js:173
+#: app/device-list/column/device-column-service.js:190
 msgid "Phone IMEI"
 msgstr "携帯IMEI"
 
@@ -827,6 +841,26 @@ msgstr "再生"
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
 msgstr "再生/停止"
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter a valid email"
+msgstr "有効なメールアドレスを入力してください"
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your email"
+msgstr "メールアドレスを入力してください"
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your LDAP username"
+msgstr "LDAPユーザー名を入力してください"
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your name"
+msgstr "お名前を入力してください"
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your password"
+msgstr "パスワードを入力してください"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Please enter your Store password"
@@ -1019,7 +1053,7 @@ msgstr "スクリーンショットを保存する"
 msgid "Save..."
 msgstr "保存する..."
 
-#: app/device-list/column/device-column-service.js:117
+#: app/device-list/column/device-column-service.js:135
 msgid "Screen"
 msgstr "解像度"
 
@@ -1036,7 +1070,7 @@ msgid "SD Card Mounted"
 msgstr "SDカード"
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:153
+#: app/device-list/column/device-column-service.js:171
 msgid "SDK"
 msgstr "SDK"
 
@@ -1053,9 +1087,14 @@ msgid "Selects Next IME"
 msgstr "入力モードの切り替え"
 
 #: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:141
+#: app/device-list/column/device-column-service.js:159
 msgid "Serial"
 msgstr "シリアル"
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Server error. Check log output."
+msgstr "サーバーエラー。ログを確認してください。"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Set"
@@ -1424,7 +1463,7 @@ msgstr "USB速度"
 msgid "Use"
 msgstr "利用する"
 
-#: app/device-list/column/device-column-service.js:252
+#: app/device-list/column/device-column-service.js:262
 msgid "User"
 msgstr "ユーザ"
 
@@ -1648,9 +1687,6 @@ msgstr "この実機はキックされました。"
 
 #~ msgid "Aa"
 #~ msgstr "あA"
-
-#~ msgid "Control"
-#~ msgstr "リモート操作"
 
 #~ msgid "Detected"
 #~ msgstr "検知済み"

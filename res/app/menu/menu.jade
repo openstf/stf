@@ -5,7 +5,7 @@
       li(ng-cloak)
         a(ng-href='/#!/control/{{lastUsedDevice}}', ng-show='lastUsedDevice')
           span.fa.fa-mobile
-          | {{ !$root.basicMode ? "Control" : '' | translate }}
+          | {{ !$root.basicMode ? "Control" : ''  | translate }}
         a(ng-href='/#!/devices', accesskey='1')
           span.fa.fa-sitemap
           | {{ !$root.basicMode ? "Devices" : '' | translate }}

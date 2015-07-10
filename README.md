@@ -342,6 +342,28 @@ The System TALKS USB 2.0 hub is very reliable, but has a few annoying drawbacks.
 
 Most powered USB 3.0 hubs we've tested have had a serious problem: the whole hub occasionally disconnected. This may have been caused by the specific combination of our components and/or OS, but as of yet we don't really know. Disabling USB 3.0 may help if you run into the same problem.
 
+## Translating
+
+Currently STF UI is available in English and Japanese.
+
+If you would like translate to any other language, please contribute in the [STF Transifex project](https://www.transifex.com/projects/p/stf/).
+
+For updating the source and all the translation files first you have to install the [Transifex client](http://docs.transifex.com/client/setup/).
+
+Then just run:
+```bash
+gulp translate
+```
+
+It will do the following:
+
+1. Convert all the `jade` files to `html`.
+2. Extract with gettext all translatable strings to `stf.pot`.
+3. Push `stf.pot` to Transifex.
+4. Pull from Transifex all `po` translations.
+5. Compile all `po` files to `json`.
+
+
 ## Testing
 
 See [TESTING.md](TESTING.md).

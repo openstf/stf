@@ -1,15 +1,14 @@
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: STF 1.0\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: Gunther Brunner <gunta85@gmail.com>\n"
-"Language-Team: STF Team <stf@cyberagent.co.jp>\n"
-"Language: ja\n"
-"MIME-Version: 1.0\n"
+"Project-Id-Version: STF\n"
+"PO-Revision-Date: 2015-07-10 10:08+0000\n"
+"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/p/stf/language/ja/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: app/components/stf/device/device-info-filter/index.js:119
@@ -244,10 +243,6 @@ msgstr "接続中"
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
 msgstr "接続できました。"
-
-#: app/menu/menu.html:1
-msgid "Control"
-msgstr "リモート操作"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -1030,16 +1025,12 @@ msgstr "JavaScript注入"
 #: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:31
 msgid ""
 "Run the following on your command line to debug the device from your Browser"
-msgstr ""
-"次のコマンドをコマンドラインで実行しますと、お使いのブラウザより端末のデバッ"
-"グができます。"
+msgstr "次のコマンドをコマンドラインで実行しますと、お使いのブラウザより端末のデバッグができます。"
 
 #: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:28
 msgid ""
 "Run the following on your command line to debug the device from your IDE"
-msgstr ""
-"次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグがで"
-"きます。"
+msgstr "次のコマンドをコマンドラインで実行しますと、お使いのIDEより端末のデバッグができます。"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Run this command to copy the key to your clipboard"
@@ -1260,8 +1251,8 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:36
 msgid ""
-"The new package failed while optimizing and validating its dex files, either "
-"because there was not enough storage or the validation failed."
+"The new package failed while optimizing and validating its dex files, either"
+" because there was not enough storage or the validation failed."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:64
@@ -1302,14 +1293,14 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:24
 msgid ""
-"The package manager service found that the device didn't have enough storage "
-"space to install the app."
+"The package manager service found that the device didn't have enough storage"
+" space to install the app."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:84
 msgid ""
-"The parser did not find any actionable tags (instrumentation or application) "
-"in the manifest."
+"The parser did not find any actionable tags (instrumentation or application)"
+" in the manifest."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:72
@@ -1326,8 +1317,8 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:76
 msgid ""
-"The parser encountered a CertificateEncodingException in one of the files in "
-"the .apk."
+"The parser encountered a CertificateEncodingException in one of the files in"
+" the .apk."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:70
@@ -1368,8 +1359,8 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:88
 msgid ""
-"The system failed to install the package because the user is restricted from "
-"installing apps."
+"The system failed to install the package because the user is restricted from"
+" installing apps."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:22
@@ -1548,232 +1539,3 @@ msgstr "はい"
 #: app/components/stf/device/device-info-filter/index.js:35
 msgid "You (or someone else) kicked the device."
 msgstr "この実機はキックされました。"
-
-#~ msgid "Busy devices"
-#~ msgstr "貸し出し中"
-
-#~ msgid "Developer Settings"
-#~ msgstr "開発者向け設定"
-
-#~ msgid ""
-#~ "This might be caused by a network error, or you might be trying to access "
-#~ "a secure view."
-#~ msgstr ""
-#~ "起因として考えられるものは下記の通りです。・ネットワーク・エラー・暗号化さ"
-#~ "れたビュー"
-
-#~ msgid "Total devices"
-#~ msgstr "全機種"
-
-#~ msgid "Usable devices"
-#~ msgstr "利用可能"
-
-#~ msgid "WiFi Enabled"
-#~ msgstr "無線LAN：ON"
-
-#~ msgid "WiFi Settings"
-#~ msgstr "無線LAN設定"
-
-#~ msgid "Error while reconnecting."
-#~ msgstr "再接続中にエラーが発生しました。"
-
-#~ msgid "Error."
-#~ msgstr "エラー"
-
-#~ msgid "Socket connection was lost, try again reloading the page."
-#~ msgstr "接続が切れました。ページをリロードしてみてください。"
-
-#~ msgid "Forward"
-#~ msgstr "フォーワード"
-
-#~ msgid "Unforward"
-#~ msgstr "フォーワード解除"
-
-#~ msgid "You are no longer controlling the device."
-#~ msgstr "この実機のリモート操作ができなくなりました。"
-
-#~ msgid "{{ device.enhancedName }} current status:"
-#~ msgstr "{{ device.enhancedName }}のステータス："
-
-#~ msgid "{{ device.enhancedName }} was disconnected"
-#~ msgstr "{{ device.enhancedName }}への接続が切れました"
-
-#~ msgid "Error: Forwarding ports failed."
-#~ msgstr "エラー：ポートフォワーディングが失敗しました。"
-
-#~ msgid "Error:"
-#~ msgstr "エラー："
-
-#~ msgid "Upload complete"
-#~ msgstr "アップロードが完了しました"
-
-#~ msgid "Reference"
-#~ msgstr "参考"
-
-#~ msgid "Relaunch"
-#~ msgstr "再起動"
-
-#~ msgid "Relaunch the browser"
-#~ msgstr "ブラウザを再起動する"
-
-#~ msgid "Run the following on your command line:"
-#~ msgstr "次のコマンドをコマンドラインで実行してください。"
-
-#~ msgid "Remove Accounts"
-#~ msgstr "アカウント削除"
-
-#~ msgid "Saved to: {{savedTo}}"
-#~ msgstr "保存先: {{savedTo}}"
-
-#~ msgid ""
-#~ "Are you sure you want to kick this device?Currently it is being used by"
-#~ msgstr ""
-#~ "このデバイスをキックしますか？\n"
-#~ "只今、次のユーザが使用中です："
-
-#~ msgid "Connecting..."
-#~ msgstr "接続中..."
-
-#~ msgid "Error while connecting."
-#~ msgstr "接続中にエラーが発生しました。"
-
-#~ msgid "N/A"
-#~ msgstr "適用なし"
-
-#~ msgid "Reconnecting..."
-#~ msgstr "再接続中..."
-
-#~ msgid "Show All"
-#~ msgstr "すべてを表示"
-
-#~ msgid "Forward Ports"
-#~ msgstr "ポートフォワード"
-
-#~ msgid "Model:"
-#~ msgstr "機種名："
-
-#~ msgid "(Absent)"
-#~ msgstr "（オフライン）"
-
-#~ msgid "Absent"
-#~ msgstr "不在"
-
-#~ msgid "Present"
-#~ msgstr "存在する"
-
-#~ msgid "Example: 3000"
-#~ msgstr "例：3000"
-
-#~ msgid "Local"
-#~ msgstr "ローカル"
-
-#~ msgid "Maker"
-#~ msgstr "メーカー"
-
-#~ msgid "Release"
-#~ msgstr "リリース"
-
-#~ msgid "Target IP / Hostname"
-#~ msgstr "ローカル側のIP / ホスト名"
-
-#~ msgid "Target Port"
-#~ msgstr "ローカル側のポート"
-
-#~ msgid "Target host (detect if blank)"
-#~ msgstr "対象ホスト（空のときは自動検知）"
-
-#~ msgid "(Needs refreshing the page)"
-#~ msgstr "（ページの再読込が必要）"
-
-#~ msgid "Aa"
-#~ msgstr "あA"
-
-#~ msgid "Detected"
-#~ msgstr "検知済み"
-
-#~ msgid "Failed to get device screen"
-#~ msgstr "端末の画面が取得できません"
-
-#~ msgid "H"
-#~ msgstr "高"
-
-#~ msgid "High"
-#~ msgstr "高画質"
-
-#~ msgid "High Quality"
-#~ msgstr "高画質"
-
-#~ msgid "Image Quality"
-#~ msgstr "画質"
-
-#~ msgid "Inspect"
-#~ msgstr "要素の検証"
-
-#~ msgid "Keyboard Input"
-#~ msgstr "キーボード入力"
-
-#~ msgid "L"
-#~ msgstr "低"
-
-#~ msgid "Local storage"
-#~ msgstr "ローカルストレージ"
-
-#~ msgid "Low"
-#~ msgstr "低画質"
-
-#~ msgid "Low Quality"
-#~ msgstr "低画質"
-
-#~ msgid "M"
-#~ msgstr "中"
-
-#~ msgid "Medium"
-#~ msgstr "中画質"
-
-#~ msgid "Medium Quality"
-#~ msgstr "中画質"
-
-#~ msgid "Original"
-#~ msgstr "原寸"
-
-#~ msgid "Other Keys"
-#~ msgstr "キー・その他"
-
-#~ msgid "Pageshot"
-#~ msgstr "ページ全体"
-
-#~ msgid "Release Date"
-#~ msgstr "発売日"
-
-#~ msgid "Resources"
-#~ msgstr "リソース"
-
-#~ msgid "Start Using"
-#~ msgstr "利用する"
-
-#~ msgid "System"
-#~ msgstr "システム"
-
-#~ msgid "Terminal"
-#~ msgstr "ターミナル"
-
-#~ msgid "Types text. Only ASCII characters are supported."
-#~ msgstr "テキストをタイピングします。ASCII文字のみ入力が可能。"
-
-#~ msgid "USB Speed Benchmark"
-#~ msgstr "USBベンチマーク"
-
-#~ msgid "{{ started ? 'Stop' : 'Start' }}"
-#~ msgstr "{{ started ? '停止' : '取得' }}"
-
-#~ msgid "Start"
-#~ msgstr "開始"
-
-#~ msgid "{{ device.control ? 'Stop' : 'Use' }}"
-#~ msgstr "{{ device.control ? '停止する' : '利用する' }}"
-
-#~ msgid "Inspect Current Page"
-#~ msgstr "開いているページを検証"
-
-#~ msgid "Input"
-#~ msgstr "入力"

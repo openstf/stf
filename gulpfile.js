@@ -49,7 +49,7 @@ gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'protractor'])
 
 gulp.task('build', function (cb) {
-  runSequence('clean', 'translate', 'webpack:build', cb)
+  runSequence('clean', 'webpack:build', cb)
 })
 
 gulp.task('karma_ci', function (done) {

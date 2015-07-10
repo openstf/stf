@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[stf.ui]
+file_filter = res/common/lang/po/stf.<lang>.po
+source_file = res/common/lang/po/stf.pot
+source_lang = en
+type = PO
+

@@ -1,4 +1,4 @@
-FROM openstf/base:v1.0.0
+FROM openstf/base:v1.0.1
 
 # Add a user for the app.
 RUN useradd --system \

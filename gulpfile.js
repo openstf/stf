@@ -17,6 +17,7 @@ var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
 var jscs = require('gulp-jscs')
+var run = require('gulp-run')
 
 gulp.task('jshint', function () {
   return gulp.src([
@@ -166,7 +167,7 @@ gulp.task("webpack:others", function (callback) {
   })
 })
 
-gulp.task('translate', ['jade', 'translate:extract', 'translate:compile'])
+gulp.task('translate', ['translate:compile'])
 
 gulp.task('jade', function (cb) {
   return gulp.src([
@@ -193,13 +194,28 @@ gulp.task('translate:extract', ['jade'], function (cb) {
     .pipe(gulp.dest('./res/common/lang/po/'))
 })
 
-gulp.task('translate:compile', ['translate:extract'], function (cb) {
+gulp.task('translate:compile', ['translate:pull'], function (cb) {
   return gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
     }))
     .pipe(gulp.dest('./res/common/lang/translations/'))
 })
+
+gulp.task('translate:push', ['translate:extract'], function () {
+  gutil.log('Pushing translation source to Transifex...')
+
+  return run('tx push -s').exec()
+})
+
+gulp.task('translate:pull', ['translate:push'], function () {
+  gutil.log('Pulling translations from Transifex...')
+
+  return run('tx pull').exec()
+})
+
+
+
 
 gulp.task('clean', function (cb) {
   del(['./tmp', './res/build'], cb)

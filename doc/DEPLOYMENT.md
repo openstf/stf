@@ -473,7 +473,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p
 
 The websocket unit provides the communication layer between client-side JavaScript and the server-side ZeroMQ+Protobuf combination. Almost every action in STF goes through the websocket unit.
 
-This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-image@3600.service` runs on port 3600). You can have multiple instances running on the same host by using different ports.
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-websocket@3600.service` runs on port 3600). You can have multiple instances running on the same host by using different ports.
 
 ```ini
 [Unit]

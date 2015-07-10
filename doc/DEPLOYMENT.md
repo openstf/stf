@@ -18,7 +18,7 @@ For this example deployment, the following assumptions will be made. You will ne
 * You have [Docker](https://www.docker.com/) running on each host
 * Each host has an `/etc/environment` (a la [CoreOS](https://coreos.com/)) file with `COREOS_PRIVATE_IPV4=MACHINE_IP_HERE`. This is used to load the machine IP address in configuration files.
   - You can create the file yourself or alternatively replace `${COREOS_PRIVATE_IPV4}` manually as required.
-* You're deploying [openstf/stf](https://registry.hub.docker.com/u/openstf/stf/):1.0.0. Adjust if another version required.
+* You're deploying [openstf/stf:latest](https://registry.hub.docker.com/u/openstf/stf/). There's also a fixed tag for each release if you're feeling less adventurous.
 * You want to access the app at https://stf.example.org/. Change to the actual URL you want to use.
 * You have RethinkDB running on `rethinkdb.stf.example.org`. Change to the actual address/IP where required.
   - You may also use SRV records by giving the url in `srv+tcp://rethinkdb-28015.skydns.stf.example.org` format.
@@ -138,7 +138,7 @@ BindsTo=rethinkdb-proxy-28015.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
@@ -146,7 +146,7 @@ ExecStart=/usr/bin/docker run --rm \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf app --port 3000 \
     --auth-url https://stf.example.org/auth/mock/ \
     --websocket-url https://stf.example.org/
@@ -173,14 +173,14 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf auth-mock --port 3000 \
     --app-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
@@ -203,13 +203,13 @@ BindsTo=rethinkdb-proxy-28015.service
 [Service]
 EnvironmentFile=/etc/environment
 Type=oneshot
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   --link rethinkdb-proxy-28015:rethinkdb \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf migrate
 ```
 
@@ -231,13 +231,13 @@ BindsTo=rethinkdb-proxy-28015.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --link rethinkdb-proxy-28015:rethinkdb \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf processor %p-%i \
     --connect-app-dealer tcp://appside.stf.example.org:7160 \
     --connect-dev-dealer tcp://devside.stf.example.org:7260
@@ -268,13 +268,13 @@ BindsTo=adbd.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --net host \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf provider \
     --name "%H/%i" \
     --connect-sub tcp://devside.stf.example.org:7250 \
@@ -306,13 +306,13 @@ BindsTo=rethinkdb-proxy-28015.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   --link rethinkdb-proxy-28015:rethinkdb \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf reaper dev \
     --connect-push tcp://devside.stf.example.org:7270 \
     --connect-sub tcp://appside.stf.example.org:7150 \
@@ -336,13 +336,13 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf storage-plugin-apk --port 3000 \
     --storage-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
@@ -364,13 +364,13 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf storage-plugin-image --port 3000 \
     --storage-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
@@ -390,14 +390,14 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -v /mnt/storage:/data \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf storage-temp --port 3000 \
     --save-dir /data
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
@@ -421,13 +421,13 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   --net host \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf triproxy app \
     --bind-pub "tcp://*:7150" \
     --bind-dealer "tcp://*:7160" \
@@ -453,13 +453,13 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   --net host \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf triproxy dev \
     --bind-pub "tcp://*:7250" \
     --bind-dealer "tcp://*:7260" \
@@ -485,7 +485,7 @@ BindsTo=rethinkdb-proxy-28015.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
@@ -493,7 +493,7 @@ ExecStart=/usr/bin/docker run --rm \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -p 127.0.0.1:%i:3000 \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf websocket --port 3000 \
     --storage-url https://stf.example.org/ \
     --connect-sub tcp://appside.stf.example.org:7150 \
@@ -523,14 +523,14 @@ BindsTo=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:1.0.0
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   -e "HIPCHAT_TOKEN=YOUR_HIPCHAT_TOKEN_HERE" \
   -e "HIPCHAT_ROOM=YOUR_HIPCHAT_ROOM_HERE" \
-  openstf/stf:1.0.0 \
+  openstf/stf:latest \
   stf notify-hipchat \
     --connect-sub tcp://appside.stf.example.org:7150
 ExecStop=-/usr/bin/docker stop -t 10 %p

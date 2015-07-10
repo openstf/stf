@@ -235,10 +235,6 @@ msgstr ""
 msgid "Connected successfully."
 msgstr ""
 
-#: app/menu/menu.html:1
-msgid "Control"
-msgstr ""
-
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
 msgstr ""

@@ -137,6 +137,12 @@ After the [webpack](http://webpack.github.io/) build process has finished (which
 
 Note that if you see your device ready to use but without a name or a proper image, we're probably missing the data for that model in [our device database](https://github.com/openstf/stf-device-db). Everything should work fine either way.
 
+If you want to access STF from other machines, you can add the `--public-ip` option for quick testing.
+
+```bash
+stf local --public-ip <your_internal_network_ip_here>
+```
+
 ## Updating
 
 To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.

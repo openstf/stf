@@ -47,7 +47,7 @@ gulp.task('jscs', function () {
 });
 
 gulp.task('lint', ['jshint', 'jsonlint'])
-gulp.task('test', ['lint', 'protractor'])
+gulp.task('test', ['lint'])
 
 gulp.task('build', function (cb) {
   runSequence('clean', 'webpack:build', cb)

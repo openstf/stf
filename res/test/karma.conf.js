@@ -74,8 +74,8 @@ module.exports = function (config) {
       require('karma-phantomjs-launcher'),
       require('karma-junit-reporter'),
       require('karma-ie-launcher'),
-      require('karma-safari-launcher'),
-      require('karma-opera-launcher')
+      require('karma-safari-launcher')
+      //require('karma-opera-launcher')
     ]
   })
 }

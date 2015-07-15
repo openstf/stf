@@ -9,8 +9,10 @@ addons:
     - libzmq3-dev
     - libprotobuf-dev
     - graphicsmagick
+    - rethinkdb
 before_script:
-  - ./node_modules/bower/bin/bower install
+  - npm install -g bower
+  - bower install
 cache:
   directories:
     - node_modules

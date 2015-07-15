@@ -3,8 +3,12 @@ node_js:
   - "0.12"
   - "0.10"
   - "iojs"
-before_install:
-  - sudo apt-get install -qq libzmq3-dev libsodium-dev
+addons:
+  apt:
+    packages:
+    - libzmq3-dev
+    - libprotobuf-dev
+    - graphicsmagick
 before_script:
   - ./node_modules/bower/bin/bower install
 cache:

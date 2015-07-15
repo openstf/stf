@@ -8,7 +8,6 @@ before_install:
 before_script:
   - ./node_modules/bower/bin/bower install
 cache:
-  apt
   directories:
     - node_modules
     - res/bower_components

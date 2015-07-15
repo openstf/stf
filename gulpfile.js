@@ -47,10 +47,16 @@ gulp.task('jscs', function () {
 });
 
 gulp.task('lint', ['jshint', 'jsonlint'])
-gulp.task('test', ['lint'])
+gulp.task('test', ['lint', 'run:checkversion'])
 
 gulp.task('build', function (cb) {
   runSequence('clean', 'webpack:build', cb)
+})
+
+gulp.task('run:checkversion', function () {
+  gutil.log('Checking STF version...')
+
+  return run('./bin/stf -V').exec()
 })
 
 gulp.task('karma_ci', function (done) {

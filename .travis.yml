@@ -1,4 +1,5 @@
 language: node_js
+sudo: false
 node_js:
   - "0.12"
   - "0.10"
@@ -10,6 +11,8 @@ addons:
     - libprotobuf-dev
     - graphicsmagick
     - rethinkdb
+script:
+  - gulp build
 before_script:
   - npm install -g bower
   - bower install

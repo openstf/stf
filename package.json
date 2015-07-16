@@ -29,7 +29,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "adbkit": "^2.3.0",
+    "adbkit": "^2.3.1",
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "bluebird": "^2.9.33",

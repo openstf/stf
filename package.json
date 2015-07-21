@@ -137,6 +137,5 @@
   "engines": {
     "node": ">= 0.10"
   },
-  "os": ["!win32"],
   "preferGlobal": true
 }

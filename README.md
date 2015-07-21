@@ -75,6 +75,8 @@ On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependen
 brew install rethinkdb graphicsmagick zeromq protobuf
 ```
 
+On Windows you're on your own. In theory you might be able to get STF installed via [Cygwin](https://www.cygwin.com/) or similar, but we've never tried. In principle we will not provide any Windows installation support, but please do send a documentation pull request if you figure out what to do.
+
 We also provide a [Docker](http://docker.com/) container in the [Docker Hub](https://hub.docker.com/) as [openstf/stf](https://registry.hub.docker.com/u/openstf/stf/). You can use our [Dockerfile](Dockerfile) as guidance if you'd prefer to do the installation yourself.
 
 You should now be ready to [build](#building) or [run](#running) STF.

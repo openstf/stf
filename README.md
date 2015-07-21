@@ -66,13 +66,14 @@ As the product has evolved from an internal tool running in our internal network
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
 * [ZeroMQ](http://zeromq.org/) libraries installed
 * [Protocol Buffers](https://github.com/google/protobuf) libraries installed
+* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config/) so that Node.js can find the libraries
 
 Note that you need these dependencies even if you've installed STF directly from [NPM](https://www.npmjs.com/), because they can't be included.
 
 On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependencies:
 
 ```bash
-brew install rethinkdb graphicsmagick zeromq protobuf
+brew install rethinkdb graphicsmagick zeromq protobuf pkg-config
 ```
 
 On Windows you're on your own. In theory you might be able to get STF installed via [Cygwin](https://www.cygwin.com/) or similar, but we've never tried. In principle we will not provide any Windows installation support, but please do send a documentation pull request if you figure out what to do.

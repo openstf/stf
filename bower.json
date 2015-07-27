@@ -2,12 +2,12 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "1.4.2",
-    "angular-cookies": "1.4.2",
-    "angular-route": "1.4.2",
-    "angular-sanitize": "1.4.2",
-    "angular-animate": "1.4.2",
-    "angular-touch": "1.4.2",
+    "angular": "1.4.3",
+    "angular-cookies": "1.4.3",
+    "angular-route": "1.4.3",
+    "angular-sanitize": "1.4.3",
+    "angular-animate": "1.4.3",
+    "angular-touch": "1.4.3",
     "lodash": "~3.10.0",
     "oboe": "~2.1.2",
     "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",
@@ -22,7 +22,7 @@
     "font-lato-2-subset": "~0.4.0",
     "packery": "~1.4.2",
     "draggabilly": "~1.2.4",
-    "angular-elastic": "~2.4.2",
+    "angular-elastic": "~2.5.0",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
     "angular-borderlayout": "git://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
     "angular-ui-bootstrap": "~0.12.1",
@@ -31,17 +31,17 @@
     "epoch": "~0.6.0",
     "ng-epoch": "~1.0.7",
     "eventEmitter": "~4.2.11",
-    "angular-ladda": "~0.2.2",
+    "angular-ladda": "~0.3.1",
     "d3": "~3.5.6",
-    "spin.js": "~2.3.1"
+    "spin.js": "~2.3.2"
   },
   "private": true,
   "devDependencies": {
-    "angular-mocks": "1.4.2"
+    "angular-mocks": "1.4.3"
   },
   "resolutions": {
-    "angular": "1.4.2",
+    "angular": "1.4.3",
     "d3": "~3.5.5",
-    "spin.js": "~2.3.1"
+    "spin.js": "~2.3.2"
   }
 }

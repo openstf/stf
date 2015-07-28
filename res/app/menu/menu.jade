@@ -5,13 +5,13 @@
       li(ng-cloak)
         a(ng-href='/#!/control/{{lastUsedDevice}}', ng-show='lastUsedDevice')
           span.fa.fa-mobile
-          | {{ !$root.basicMode ? "Control" : ''  | translate }}
+          span(ng-if='!$root.basicMode', translate) Control
         a(ng-href='/#!/devices', accesskey='1')
           span.fa.fa-sitemap
-          | {{ !$root.basicMode ? "Devices" : '' | translate }}
+          span(ng-if='!$root.basicMode', translate) Devices
         a(ng-href='/#!/settings')
           span.fa.fa-gears
-          | {{ !$root.basicMode ? "Settings" : '' | translate }}
+          span(ng-if='!$root.basicMode', translate) Settings
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
         .btn-group

@@ -48,13 +48,11 @@
   position: relative;
 }
 
-.stf-menu .stf-nav > li > a > span {
+.stf-menu .stf-nav > li > a > span.fa {
   display: inline-block;
   float: left;
   margin: 8px 8px 0 0;
   font-size: 28px;
-  /*width: 28px;*/
-  /*height: 28px;*/
 }
 
 .stf-menu .stf-nav > li > a > span.fa-mobile {

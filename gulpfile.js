@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var gutil = require('gulp-util')
 var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
+var standard = require('gulp-standard')
 var webpack = require('webpack')
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
 var webpackConfig = require('./webpack.config').webpack
@@ -45,6 +46,15 @@ gulp.task('jscs', function () {
   ])
     .pipe(jscs())
 });
+
+gulp.task('standard', function () {
+  // Check res/app for now
+  return gulp.src(['res/app/**/*.js', '!**/*-spec.js'])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true
+    }))
+})
 
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'run:checkversion'])

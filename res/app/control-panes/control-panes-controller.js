@@ -1,5 +1,5 @@
 module.exports =
-  function ControlPanesController($scope, $http, gettext, $routeParams,
+  function ControlPanesController ($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
     StorageService, FatalMessageService, SettingsService) {
 
@@ -39,7 +39,6 @@ module.exports =
       }
     ].concat(angular.copy(sharedTabs))
 
-
     $scope.belowTabs = [
       {
         title: gettext('Logs'),
@@ -53,7 +52,7 @@ module.exports =
     $scope.control = null
 
     // TODO: Move this out to Ctrl.resolve
-    function getDevice(serial) {
+    function getDevice (serial) {
       DeviceService.get(serial, $scope)
         .then(function (device) {
           return GroupService.invite(device)
@@ -63,7 +62,7 @@ module.exports =
           $scope.control = ControlService.create(device, device.channel)
 
           // TODO: Change title, flickers too much on Chrome
-          //$rootScope.pageTitle = device.name
+          // $rootScope.pageTitle = device.name
 
           SettingsService.set('lastUsedDevice', serial)
 

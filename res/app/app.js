@@ -20,7 +20,7 @@ require.ensure([], function (require) {
     require('stf/standalone').name
   ])
     .config(function ($routeProvider, $locationProvider) {
-      $locationProvider.hashPrefix('!');
+      $locationProvider.hashPrefix('!')
       $routeProvider
         .otherwise({
           redirectTo: '/devices'

@@ -1,11 +1,12 @@
 # 
 # Translators:
+# Gunther Brunner, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-07-10 10:08+0000\n"
-"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/p/stf/language/ja/)\n"
+"PO-Revision-Date: 2015-07-28 09:07+0000\n"
+"Last-Translator: Gunther Brunner\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/stf/language/ja/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
@@ -244,6 +245,10 @@ msgstr "接続中"
 msgid "Connected successfully."
 msgstr "接続できました。"
 
+#: app/menu/menu.html:1
+msgid "Control"
+msgstr "リモート操作"
+
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
 msgstr "クッキー"
@@ -346,7 +351,7 @@ msgstr "デバイスへの接続が切れました"
 msgid "Device was kicked by automatic timeout."
 msgstr "デバイスは自動タイムアウトにより切断されました。"
 
-#: app/device-list/device-list.html:1
+#: app/device-list/device-list.html:1 app/menu/menu.html:1
 msgid "Devices"
 msgstr "端末リスト"
 
@@ -600,7 +605,7 @@ msgstr "ローカル設定"
 msgid "Location"
 msgstr "場所"
 
-#: app/control-panes/control-panes-controller.js:45
+#: app/control-panes/control-panes-controller.js:44
 msgid "Logs"
 msgstr "ログ"
 
@@ -1095,7 +1100,7 @@ msgstr "設定"
 msgid "Set Cookie"
 msgstr "クッキー設定"
 
-#: app/control-panes/dashboard/apps/apps.html:1
+#: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
 msgid "Settings"
 msgstr "設定"
 

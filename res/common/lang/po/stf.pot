@@ -235,6 +235,10 @@ msgstr ""
 msgid "Connected successfully."
 msgstr ""
 
+#: app/menu/menu.html:1
+msgid "Control"
+msgstr ""
+
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
 msgstr ""
@@ -338,6 +342,7 @@ msgid "Device was kicked by automatic timeout."
 msgstr ""
 
 #: app/device-list/device-list.html:1
+#: app/menu/menu.html:1
 msgid "Devices"
 msgstr ""
 
@@ -592,7 +597,7 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:45
+#: app/control-panes/control-panes-controller.js:44
 msgid "Logs"
 msgstr ""
 
@@ -1086,6 +1091,7 @@ msgid "Set Cookie"
 msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
+#: app/menu/menu.html:1
 msgid "Settings"
 msgstr ""
 

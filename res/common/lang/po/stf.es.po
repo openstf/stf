@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-07-10 10:47+0000\n"
-"Last-Translator: Gunther Brunner\n"
-"Language-Team: Spanish (http://www.transifex.com/p/stf/language/es/)\n"
+"PO-Revision-Date: 2015-07-28 09:05+0000\n"
+"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/stf/language/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
@@ -246,6 +246,10 @@ msgstr ""
 msgid "Connected successfully."
 msgstr ""
 
+#: app/menu/menu.html:1
+msgid "Control"
+msgstr ""
+
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
 msgstr ""
@@ -348,7 +352,7 @@ msgstr ""
 msgid "Device was kicked by automatic timeout."
 msgstr ""
 
-#: app/device-list/device-list.html:1
+#: app/device-list/device-list.html:1 app/menu/menu.html:1
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -602,7 +606,7 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:45
+#: app/control-panes/control-panes-controller.js:44
 msgid "Logs"
 msgstr ""
 
@@ -1097,7 +1101,7 @@ msgstr ""
 msgid "Set Cookie"
 msgstr ""
 
-#: app/control-panes/dashboard/apps/apps.html:1
+#: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
 msgid "Settings"
 msgstr "Configuración"
 

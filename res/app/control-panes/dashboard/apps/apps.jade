@@ -3,7 +3,7 @@
     stacked-icon(icon='fa-th-large', color='color-lila')
     span(translate) Apps
 
-    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()')
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openSettings()')
       i.fa.fa-gear.fa-lg.color-darkgray
       .icon-title {{"Settings" | translate}}
 
@@ -12,15 +12,15 @@
       .icon-title {{"App Store" | translate}}
 
   .widget-content.padded
-    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()')
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWiFiSettings()')
       i.fa.fa-signal.fa-lg.color-skyblue
       .icon-title {{"WiFi" | translate}}
 
-    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()')
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openManageApps()')
       i.fa.fa-list.fa-lg.color-orange
       .icon-title {{"Manage Apps" | translate}}
 
-    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()')
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openDeveloperSettings()')
       i.fa.fa-sliders.fa-lg.color-darkgreen
       .icon-title {{"Developer" | translate}}
 

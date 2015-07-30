@@ -60,7 +60,6 @@ As the product has evolved from an internal tool running in our internal network
 ## Requirements
 
 * [Node.js](https://nodejs.org/) >= 0.12
-* [Bower](http://bower.io/) (`npm install -g bower`)
 * [ADB](http://developer.android.com/tools/help/adb.html) properly set up
 * [RethinkDB](http://rethinkdb.com/) >= 2.0.0
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
@@ -98,16 +97,10 @@ Now you're ready to [run](#running). For development, though, you should [build]
 
 After you've got all the [requirements](#requirements) installed, it's time to fetch the rest of the dependencies.
 
-First, fetch all NPM modules:
+First, fetch all NPM and Bower modules:
 
 ```bash
 npm install
-```
-
-Then, fetch all Bower modules:
-
-```bash
-bower install
 ```
 
 You may also wish to link the module so that you'll be able to access the `stf` command directly from the command line:
@@ -150,7 +143,7 @@ stf local --public-ip <your_internal_network_ip_here>
 
 ## Updating
 
-To update your development version, simply pull the repo and run `npm install` and `bower install` again. You may occasionally have to remove the whole `node_modules` folder to prevent NPM from complaining about version mismatches.
+To update your development version, simply pull the repo and run `npm install` again. You may occasionally have to remove the whole `node_modules` and `res/bower_components` folder to prevent NPM or Bower from complaining about version mismatches.
 
 ## FAQ
 

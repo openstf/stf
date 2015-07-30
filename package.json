@@ -26,7 +26,8 @@
     "stf": "./bin/stf"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
     "adbkit": "^2.3.1",
@@ -46,6 +47,7 @@
     "gm": "^1.17.0",
     "hipchatter": "^0.2.0",
     "http-proxy": "^1.9.0",
+    "in-publish": "^2.0.0",
     "jade": "^1.9.2",
     "jws": "^3.1.0",
     "ldapjs": "git+https://github.com/mcavage/node-ldapjs.git#acc1ca8f4314fd9d67561feabc8ce4c235076a5e",

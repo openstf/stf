@@ -43,7 +43,9 @@ The app role can contain any of the following units. You may distribute them as 
 * [rethinkdb-proxy-28015.service](#rethinkdb-proxy-28015service)
 * [stf-app@.service](#stf-appservice)
 * [stf-auth@.service](#stf-authservice)
+* [stf-log-rethinkdb.service](#stf-log-rethinkdbservice)
 * [stf-migrate.service](#stf-migrateservice)
+* [stf-notify-hipchat.service](#stf-notify-hipchatservice)
 * [stf-processor@.service](#stf-processorservice)
 * [stf-provider@.service](#stf-providerservice)
 * [stf-reaper.service](#stf-reaperservice)
@@ -53,7 +55,6 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-triproxy-app.service](#stf-triproxy-appservice)
 * [stf-triproxy-dev.service](#stf-triproxy-devservice)
 * [stf-websocket@.service](#stf-websocketservice)
-* [stf-notify-hipchat.service](#stf-notify-hipchatservice)
 
 ### Proxy role
 
@@ -504,6 +505,36 @@ ExecStop=/usr/bin/docker stop -t 10 %p-%i
 ## Optional units
 
 These units are optional and don't affect the way STF works in any way.
+
+### `stf-log-rethinkdb.service`
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+Allows you to store device log events into RethinkDB.
+
+Note that it doesn't make sense to have more than one instance of this unit running at once as you'd just record the same events twice.
+
+```ini
+[Unit]
+Description=STF RethinkDB log recorder
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  openstf/stf:latest \
+  stf log-rethinkdb \
+    --connect-sub tcp://appside.stf.example.org:7150
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
 
 ### `stf-notify-hipchat.service`
 

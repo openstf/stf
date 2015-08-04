@@ -20,3 +20,5 @@ cache:
   directories:
     - node_modules
     - res/bower_components
+notifications:
+  slack: openstf:qu01BtEgttJOrGGsRxKBJwki

@@ -379,7 +379,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 
 ### `stf-storage-temp@.service`
 
-This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-temp@3500.service` runs on port 3500). Currently, ** you cannot have more than one instance of this unit**, as both temporary files and an in-memory mapping is used. Using a template unit makes it easy to set the port.
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-temp@3500.service` runs on port 3500). Currently, **you cannot have more than one instance of this unit**, as both temporary files and an in-memory mapping is used. Using a template unit makes it easy to set the port.
 
 ```ini
 [Unit]
@@ -585,7 +585,7 @@ So, to recap, our example setup is as follows:
 Furthermore, let's assume that we have the following providers set up:
 
 | Unit | IP | Identifier |
-|------|------------|
+|------|----|------------|
 | [stf-provider@floor4.service](#stf-providerservice) | 192.168.255.200 | floor4 |
 | [stf-provider@floor8.service](#stf-providerservice) | 192.168.255.201 | floor8 |
 

@@ -8,12 +8,12 @@
     "angular-sanitize": "1.4.3",
     "angular-animate": "1.4.3",
     "angular-touch": "1.4.3",
-    "lodash": "~3.10.0",
+    "lodash": "~3.10.1",
     "oboe": "~2.1.2",
-    "ng-table": "git://github.com/esvit/ng-table.git#bd9ec42172389257fcd312330013302b2696ac2a",
-    "angular-gettext": "git://github.com/rubenv/angular-gettext.git#6bf6a66d8b4fd6c5e0fddcee050991391977cf87",
+    "ng-table": "~0.8.1",
+    "angular-gettext": "~2.1.0",
     "angular-ui-ace": "~0.2.3",
-    "angular-bootstrap": "~0.12.1",
+    "angular-bootstrap": "~0.13.2",
     "angular-dialog-service": "~5.2.6",
     "ng-file-upload": "~2.0.5",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.3",
@@ -25,7 +25,7 @@
     "angular-elastic": "~2.5.0",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
     "angular-borderlayout": "git://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
-    "angular-ui-bootstrap": "~0.12.1",
+    "angular-ui-bootstrap": "~0.13.2",
     "ng-context-menu": "~1.0.1",
     "components-font-awesome": "~4.4.0",
     "epoch": "~0.6.0",
@@ -42,6 +42,7 @@
   "resolutions": {
     "angular": "1.4.3",
     "d3": "~3.5.5",
-    "spin.js": "~2.3.2"
+    "spin.js": "~2.3.2",
+    "angular-bootstrap": "~0.13.2"
   }
 }

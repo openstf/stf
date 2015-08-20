@@ -24,7 +24,8 @@ COPY . /app/
 RUN export PATH=/app/node_modules/.bin:$PATH && \
     npm install && \
     bower install --allow-root && \
-    gulp build
+    gulp build && \
+    npm prune --production
 
 # Switch to weak user.
 USER stf

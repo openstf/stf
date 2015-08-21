@@ -119,7 +119,6 @@
     "karma-webpack": "^1.6.0",
     "less": "^2.4.0",
     "less-loader": "^2.1.0",
-    "ng-annotate-webpack-plugin": "^0.1.2",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
     "phantomjs": "^1.9.18",

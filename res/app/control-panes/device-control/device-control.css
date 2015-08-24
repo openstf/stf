@@ -240,7 +240,7 @@ device-screen input {
 }
 
 .stf-device-control .device-name-container {
-  overflow: hidden;
+  /*overflow: hidden;*/
   text-overflow: ellipsis;
 }
 

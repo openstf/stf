@@ -13,7 +13,6 @@
 /bower.json
 /component.json
 /gulpfile.js
-/node_modules/
 /npm-debug.log
 /res/bower_components/
 /res/test/

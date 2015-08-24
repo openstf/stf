@@ -2,6 +2,7 @@
 .DS_Store
 /*.tgz
 /.bowerrc
+/.dockerignore
 /.editorconfig
 /.env
 /.gitignore
@@ -9,6 +10,8 @@
 /.jscsrc
 /.npmignore
 /.npmrc
+/.travis.yml
+/docker
 /Dockerfile
 /bower.json
 /component.json

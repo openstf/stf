@@ -1,14 +1,4 @@
-FROM openstf/base:v1.0.1
-
-# Add a user for building and running the app.
-RUN useradd --system \
-      --create-home \
-      --shell /usr/sbin/nologin \
-      stf-build && \
-    useradd --system \
-      --no-create-home \
-      --shell /usr/sbin/nologin \
-      stf
+FROM openstf/base:v1.0.2
 
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
@@ -45,7 +35,7 @@ RUN set -x && \
     cd /app && \
     rm -rf /tmp/*
 
-# Switch to weak user.
+# Switch to the app user.
 USER stf
 
 # Show help by default.

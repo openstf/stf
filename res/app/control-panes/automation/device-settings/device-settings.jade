@@ -4,15 +4,20 @@
     span(translate) Device Settings
   .widget-content.padded
 
-    button.btn.btn-sm.btn-primary-outline(ng-click='toggleWifi()',
-    ng-model='wifiEnabled', btn-checkbox)
-      i.fa.fa-signal.fa-fw(ng-show='wifiEnabled', tooltip='{{"Disable WiFi" | translate}}')
-      i.fa.fa-signal.fa-fw(ng-hide='wifiEnabled', tooltip='{{"Enable WiFi" | translate}}')
+    div
+      h6(translate) WiFi
 
-    .btn-group
-      label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"SILENT"')
-        i.fa.fa-volume-off.fa-fw(tooltip='{{"Silent Mode" | translate}}')
-      label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"VIBRATE"')
-        i.fa.fa-mobile.fa-fw(tooltip='{{"Vibrate Mode" | translate}}')
-      label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"NORMAL"')
-        i.fa.fa-volume-up.fa-fw(tooltip='{{"Normal Mode" | translate}}')
+      button.btn.btn-sm.btn-primary-outline(ng-click='toggleWifi()',
+      ng-model='wifiEnabled', btn-checkbox)
+        i.fa.fa-wifi.fa-fw(ng-show='wifiEnabled', tooltip='{{"Disable WiFi" | translate}}')
+        i.fa.fa-wifi.fa-fw(ng-hide='wifiEnabled', tooltip='{{"Enable WiFi" | translate}}')
+
+    div
+      h6(translate) Manner Mode
+      .btn-group
+        label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"SILENT"')
+          i.fa.fa-volume-off.fa-fw(tooltip='{{"Silent Mode" | translate}}')
+        label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"VIBRATE"')
+          i.fa.fa-mobile.fa-fw(tooltip='{{"Vibrate Mode" | translate}}')
+        label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"NORMAL"')
+          i.fa.fa-volume-up.fa-fw(tooltip='{{"Normal Mode" | translate}}')

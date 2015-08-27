@@ -2,12 +2,13 @@
 # Translators:
 # Gunther Brunner, 2015
 # Gunther Brunner, 2015
+# takeshimiya <takeshimiya@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-07-28 09:05+0000\n"
+"PO-Revision-Date: 2015-08-25 09:53+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/stf/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/openstf/stf/language/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
@@ -57,11 +58,11 @@ msgstr "Cuenta"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Activity"
@@ -73,17 +74,17 @@ msgstr ""
 
 #: app/control-panes/resources/resources.html:1
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Add ADB Key"
-msgstr ""
+msgstr "Añadir Llave de ADB"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Add Key"
-msgstr ""
+msgstr "Añadir Llave"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Add the following ADB Key to STF?"
@@ -99,7 +100,7 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:20
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Advanced Input"
@@ -132,16 +133,16 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:14
 msgid "Automation"
-msgstr ""
+msgstr "Automatización"
 
 #: app/components/stf/device/device-info-filter/index.js:28
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: app/control-panes/info/info.html:1
 msgid "Battery"
@@ -190,7 +191,7 @@ msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: app/components/stf/upload/upload-error-filter.js:6
 msgid "Cannot access specified URL"
@@ -207,10 +208,6 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:67
 msgid "Charging"
-msgstr ""
-
-#: app/menu/menu.html:3
-msgid "Chat"
 msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
@@ -230,7 +227,7 @@ msgstr "Portapapeles"
 
 #: app/control-panes/advanced/input/input.html:5
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
@@ -248,7 +245,7 @@ msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Control"
-msgstr ""
+msgstr "Control"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -289,7 +286,7 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:35
 msgid "Dashboard"
-msgstr ""
+msgstr "Tablero"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
@@ -321,7 +318,7 @@ msgstr ""
 #: app/control-panes/inspect/inspect.html:3
 #: app/control-panes/logs/logs.html:20
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: app/device-list/details/device-list-details-directive.js:36
 #: app/device-list/icons/device-list-icons-directive.js:123
@@ -496,7 +493,7 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: app/menu/menu.html:22
+#: app/menu/menu.html:19
 msgid "Help"
 msgstr ""
 
@@ -536,7 +533,7 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:26
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 #: app/control-panes/inspect/inspect.html:3
 msgid "Inspect Device"
@@ -606,6 +603,10 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
+#: app/control-panes/automation/device-settings/device-settings.html:7
+msgid "Lock Rotation"
+msgstr ""
+
 #: app/control-panes/control-panes-controller.js:44
 msgid "Logs"
 msgstr ""
@@ -616,6 +617,10 @@ msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Manner Mode"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
@@ -1060,7 +1065,7 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:8
 msgid "Screenshots"
-msgstr ""
+msgstr "Capturas de Pantalla"
 
 #: app/control-panes/info/info.html:1
 msgid "SD Card Mounted"
@@ -1107,7 +1112,7 @@ msgstr "Configuración"
 
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Shell"
-msgstr ""
+msgstr "Línea de Comandos"
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Show Screen"
@@ -1420,6 +1425,10 @@ msgstr ""
 msgid "Unknown reason."
 msgstr ""
 
+#: app/control-panes/automation/device-settings/device-settings.html:6
+msgid "Unlock Rotation"
+msgstr ""
+
 #: app/components/stf/device/device-info-filter/index.js:51
 msgid "Unspecified Failure"
 msgstr ""
@@ -1518,6 +1527,7 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:105
 #: app/components/stf/device/device-info-filter/index.js:97
+#: app/control-panes/automation/device-settings/device-settings.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "WiFi"
 msgstr ""

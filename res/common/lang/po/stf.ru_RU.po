@@ -4,9 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-07-28 09:05+0000\n"
+"PO-Revision-Date: 2015-08-25 09:53+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/stf/language/ru_RU/)\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/openstf/stf/language/ru_RU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
@@ -207,10 +207,6 @@ msgstr "Категория"
 #: app/components/stf/device/device-info-filter/index.js:67
 msgid "Charging"
 msgstr "Заряжается"
-
-#: app/menu/menu.html:3
-msgid "Chat"
-msgstr "Чат"
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -495,7 +491,7 @@ msgstr "Состояние"
 msgid "Height"
 msgstr "Высота"
 
-#: app/menu/menu.html:22
+#: app/menu/menu.html:19
 msgid "Help"
 msgstr "Помощь"
 
@@ -605,6 +601,10 @@ msgstr "Локальные настройки"
 msgid "Location"
 msgstr "Местоположение"
 
+#: app/control-panes/automation/device-settings/device-settings.html:7
+msgid "Lock Rotation"
+msgstr ""
+
 #: app/control-panes/control-panes-controller.js:44
 msgid "Logs"
 msgstr "Журнал"
@@ -616,6 +616,10 @@ msgstr "Обслуживание"
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
 msgstr "Управление приложениями"
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Manner Mode"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:165
@@ -1419,6 +1423,10 @@ msgstr "Неизвестный"
 msgid "Unknown reason."
 msgstr "Неизвестная причина."
 
+#: app/control-panes/automation/device-settings/device-settings.html:6
+msgid "Unlock Rotation"
+msgstr ""
+
 #: app/components/stf/device/device-info-filter/index.js:51
 msgid "Unspecified Failure"
 msgstr ""
@@ -1517,6 +1525,7 @@ msgstr "Ширина"
 
 #: app/components/stf/device/device-info-filter/index.js:105
 #: app/components/stf/device/device-info-filter/index.js:97
+#: app/control-panes/automation/device-settings/device-settings.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "WiFi"
 msgstr "WiFi"

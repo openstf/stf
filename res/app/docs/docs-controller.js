@@ -2,7 +2,6 @@ module.exports =
   function DocsCtrl($rootScope, $scope, $window, $location) {
 
     function hasHistory() {
-      // TODO: watch this
       return $window.history.length > 1
     }
 

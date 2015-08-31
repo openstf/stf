@@ -1,7 +1,6 @@
 html, body {
     padding: 0;
     margin: 0;
-    /*height: 100%;*/
     cursor: text;
     background: #000;
 }
@@ -15,5 +14,4 @@ html, body {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     cursor: text;
-    /*min-height: 100%;*/
 }

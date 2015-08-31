@@ -13,12 +13,8 @@
 
   .widget-content.padded
 
-    //add-adb-key(show-clipboard='true', show-add='showAdd')
-
     nothing-to-show(icon='fa-key', message='{{"No access tokens" | translate}}',
     ng-if='!adbKeys.length && !showAdd')
-
-
 
     ul.list-group.key-list
       li.list-group-item(ng-repeat='key in adbKeys').animate-repeat

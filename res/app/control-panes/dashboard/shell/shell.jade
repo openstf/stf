@@ -7,22 +7,14 @@
 
   .widget-content.padded
 
-    // TODO: autofill doesn't work here
+    // NOTE: autofill doesn't work here
     form(method='post', enable-autofill, ng-submit='run(command)')
       .input-group.form-inline
         input(type=text, ng-model='command', Xtext-focus-select,
           autocapitalize='off', spellcheck='false',
           tabindex='30', accesskey='S', autocomplete='on').form-control.shell-input
         span.input-group-btn
-          // , tooltip='{{"Run Command"|translate}}'
           button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
-            //, tooltip='{{ "Run command" | translate }}')
             i.fa.fa-play
     pre.shell-results.selectable(ng-show='data') {{data}}
     pre.shell-results.selectable.shell-results-empty(ng-show='result.settled && !data') No output
-
-
-   // table
-      tr(ng-repeat='result in results track by result.device.serial')
-        td {{ result.device.serial }}
-        td {{ result.data }}

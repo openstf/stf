@@ -15,7 +15,6 @@ module.exports = function ShellCtrl($scope) {
   // TODO: Move this to server side
   // TODO: Android 2.x doesn't support openSetting(), account for that on the UI
 
-
   function openSetting(activity) {
     run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings\\$' +
     activity)
@@ -58,11 +57,6 @@ module.exports = function ShellCtrl($scope) {
   $scope.openDeveloperSettings = function () {
     openSetting('DevelopmentSettingsActivity')
   }
-
-
-  //'am start -n com.android.settings/.Settings\$PowerUsageSummaryActivity'
-  //'am start -a android.intent.action.POWER_USAGE_SUMMARY'
-
 
   $scope.clear = function () {
     $scope.command = ''

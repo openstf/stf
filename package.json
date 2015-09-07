@@ -57,6 +57,7 @@
     "minimatch": "^2.0.10",
     "my-local-ip": "^1.0.0",
     "node-uuid": "^1.4.3",
+    "openid": "^1.0.0",
     "passport": "^0.3.0",
     "passport-oauth2": "^1.1.2",
     "protobufjs": "^3.8.2",

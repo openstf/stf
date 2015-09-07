@@ -25,13 +25,6 @@ module.exports = function ActivityCtrl($scope, gettext, TimelineService) {
         serial: $scope.device.serial
       })
 
-//      $scope.timeline.push({
-//        title: title,
-//        message: message,
-//        serial: angular.copy($scope.device.serial),
-//        time: Date.now()
-//      })
-
     }
 
 

@@ -11,13 +11,8 @@
 .stf-info .table-infocard tbody > tr > td:first-child {
   text-align: right;
   margin-right: 20px;
-  /*color: #111111;*/
   font-weight: bold;
   white-space: nowrap;
-}
-
-.stf-info .table-infocard tbody > tr > td:last-child {
-  /*color: #555;*/
 }
 
 .stf-info .progress {

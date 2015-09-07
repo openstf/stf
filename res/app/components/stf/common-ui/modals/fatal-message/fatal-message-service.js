@@ -10,7 +10,6 @@ module.exports =
       $scope.ok = function () {
         $modalInstance.close(true)
         $route.reload()
-        //$location.path('/control/' + device.serial)
       }
 
       function update() {

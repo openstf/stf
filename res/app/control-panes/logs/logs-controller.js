@@ -50,10 +50,4 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     'tag',
     'priority'
   ])
-
-//  $scope.$watchCollection('filters', function (newValue, oldValue) {
-//    console.log(newValue)
-//  });
-
-
 }

@@ -40,10 +40,3 @@ div[angular-packery]:after {
     width: 100%;
   }
 }
-
-.packery-item.is-dragging,
-.packery-item.is-positioning-post-drag {
-  /*border-color: red;*/
-  /*background: #09F;*/
-  /*z-index: 2;*/
-}

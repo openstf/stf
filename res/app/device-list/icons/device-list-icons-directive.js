@@ -132,12 +132,6 @@ module.exports = function DeviceListDetailsDirective(
 
       element.on('click', function (e) {
 
-        // TODO: find a way to find the correct parent
-        //if (e.shiftKey) {
-        //  console.log(e)
-        //  //StandaloneService.open()
-        //  e.preventDefault()
-        //}
         var id
 
         if (e.target.classList.contains('thumbnail')) {

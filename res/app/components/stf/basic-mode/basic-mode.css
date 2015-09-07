@@ -1,18 +1,9 @@
-.basic-mode {
-  /*background: red;*/
-}
-
 .basic-mode .devices-icon-view {
   padding: 0;
 }
 
 .basic-mode .devices-icon-view li {
   margin: 3px;
-}
-
-.basic-mode .stf-vnc-bottom .btn-lg {
-  /*padding: 5px;*/
-  /*font-size: 12px;*/
 }
 
 .basic-mode .stf-vnc-bottom .btn-primary:hover,
@@ -27,8 +18,6 @@
 
 .basic-mode .basic-remote-control {
   width: 100%;
-  /*width: 320px;*/
-  /*height: 485px;*/
 }
 
 .basic-mode .stf-device-list .device-search {

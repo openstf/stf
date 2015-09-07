@@ -1,7 +1,4 @@
 .widget-container.scrollableX.messages.stf-activity(ng-controller='ActivityCtrl')
-  //.heading
-    i.fa
-    span(translate) Activity
   .widget-content.padded
 
     ul(ng-repeat='line in timeline.lines')
@@ -23,28 +20,4 @@
           p Socket connection was lost, try again reloading the page.
           div
             refresh-page
-
-
-        //a(href='/')
-          .status.unread
-          //i.fa.fa-exclamation-triangle.fa-2x.activity-icon
-          h2.activity-title WebSocket Disconnected
-            span.activity-date 2014/04/30 18:33:22
-
-          p.pull-left Socket connection was lost, try again reloading the page.
-          .activity-buttons.pull-right
-            refresh-page
-          .clearfix
-      //li.list-group-item
-        .reviewer-info
-          i.fa.fa-mobile.fa-2x.activity-icon
-          h5.activity-title 'Nexus 5' Disconnected
-          em.activity-date.pull-right 2014/04/30 15:33:22
-        .review-text
-          p.pull-left Device was disconnected because it timed out.
-          .activity-buttons.pull-right
-            button.btn.btn-sm.btn-primary-outline(ng-click='')
-              i.fa.fa-refresh
-              span(translate) Reconnect device
-
 

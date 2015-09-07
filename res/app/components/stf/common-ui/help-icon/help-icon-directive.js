@@ -1,5 +1,3 @@
-require('./help-icon.css')
-
 module.exports = function clearButtonDirective() {
   return {
     restrict: 'EA',

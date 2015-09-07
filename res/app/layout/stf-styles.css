@@ -1,8 +1,3 @@
-body {
-  /*font-size: 14px;*/
-  /*background: #eee;*/
-}
-
 .page-container {
   padding: 0 30px;
   margin: 0 auto;
@@ -93,10 +88,6 @@ Colors for awesome fonts
 
 .stf-ace-editor {
   height: 150px;
-}
-
-.stf-mini-ace-viewer {
-  /*min-height: 10px;*/
 }
 
 .ace_editor_wrapper {
@@ -215,7 +206,6 @@ svg {
 
 /* Movement Area */
 .movement-area-container {
-  /*background: #555;*/
   width: 100%;
   height: 100%;
 }
@@ -322,17 +312,12 @@ svg {
   text-align: right;
 }
 
-/* For se7en bootstrap */
+/* For nine-bootstrap */
 
 .btn [class^="fa"],
 .btn [class*="fa"] {
   margin-right: 0 !important;
 }
-
-/*.btn [class^="fa"]+span i,*/
-/*.btn [class*="fa"]+span {*/
-/*margin-right: 15px;*/
-/*}*/
 
 .interact-control .navbar {
   height: auto !important;
@@ -431,12 +416,4 @@ fieldset[disabled] input[type="text"].form-control
 {
   cursor: text;
 }
-
-/*
-  Fix scrolling behaviour change of overflow: auto; introduced in Chrome 41.
-  It prevented the y-scrolling of the parent while the mouse is positioned on
-  the child element.
-*/
-
-
 

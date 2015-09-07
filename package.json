@@ -62,6 +62,7 @@
     "my-local-ip": "^1.0.0",
     "node-uuid": "^1.4.3",
     "passport": "^0.3.2",
+    "openid": "^0.5.13",
     "passport-oauth2": "^1.1.2",
     "passport-saml": "^0.15.0",
     "protobufjs": "^3.8.2",
@@ -84,6 +85,7 @@
     "transliteration": "^0.1.1",
     "utf-8-validate": "^1.2.1",
     "ws": "^1.0.1",
+    "url-join": "0.0.1",
     "zmq": "^2.14.0"
   },
   "devDependencies": {

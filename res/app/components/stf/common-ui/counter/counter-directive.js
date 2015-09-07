@@ -3,8 +3,6 @@ module.exports = function counterDirective($timeout) {
     replace: false,
     scope: true,
     link: function (scope, element, attrs) {
-      // TODO: use $$rAF later
-
       var el = element[0]
       var num, refreshInterval, duration, steps, step, countTo, increment
 

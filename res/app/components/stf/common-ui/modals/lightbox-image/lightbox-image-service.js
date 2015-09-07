@@ -18,7 +18,7 @@ module.exports = function ServiceFactory($modal) {
     var modalInstance = $modal.open({
       template: require('./lightbox-image.jade'),
       controller: ModalInstanceCtrl,
-      windowClass: 'modal-size-xl', // TODO: Make width dynamic adjusting
+      windowClass: 'modal-size-xl',
       resolve: {
         title: function() {
           return title

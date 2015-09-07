@@ -29,8 +29,6 @@ module.exports = function BrowserInfoServiceFactory() {
     var windowWidth = window.screen.width < window.outerWidth ?
       window.screen.width : window.outerWidth
     return windowWidth < 800
-//    return !!(window.matchMedia &&
-//      window.matchMedia('only screen and (max-width: 760px)').matches)
   })
 
   addTest('mobile', function () {
@@ -58,38 +56,6 @@ module.exports = function BrowserInfoServiceFactory() {
   })
 
   addTest('ua', navigator.userAgent)
-
-
-  //function hasEvent() {
-  //  return (function (undefined) {
-  //    function isEventSupportedInner(eventName, element) {
-  //      var isSupported
-  //      if (!eventName) {
-  //        return false
-  //      }
-  //      if (!element || typeof element === 'string') {
-  //        element = createElement(element || 'div')
-  //      }
-  //      eventName = 'on' + eventName
-  //      isSupported = eventName in element
-  //      return isSupported
-  //    }
-  //
-  //    return isEventSupportedInner
-  //  })()
-  //}
-//  var domPrefixes = 'Webkit Moz O ms'.toLowerCase().split(' ')
-//  addTest('pointerevents', function () {
-//    var bool = false
-//    var i = domPrefixes.length
-//    bool = hasEvent('pointerdown')
-//    while (i-- && !bool) {
-//      if (hasEvent(domPrefixes[i] + 'pointerdown')) {
-//        bool = true
-//      }
-//    }
-//    return bool
-//  })
 
   addTest('devicemotion', 'DeviceMotionEvent' in window)
 

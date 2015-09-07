@@ -11,7 +11,6 @@
 
 .stf-menu .stf-top-bar {
   height: 44px;
-  /*border-bottom: 1px solid #e6e6e6;*/
   padding: 0 10px 0 20px;
   width: 100%;
   float: left;
@@ -42,7 +41,6 @@
   font-size: 15px;
   line-height: 44px;
   color: #777777;
-  /*border-bottom: 1px solid #eee;*/
   font-weight: 400;
   height: 44px;
   position: relative;
@@ -61,8 +59,6 @@
 
 .stf-menu .stf-nav > li > a.current {
   color: #007aff;
-  /*border-bottom: 1px solid #eee;*/
-  /*border-bottom-color: #007aff;*/
 }
 
 .stf-menu.navbar {

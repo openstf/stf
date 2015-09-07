@@ -7,9 +7,7 @@
     tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
       i.fa.fa-shopping-cart
   .widget-content.padded
-
     div
-
       form(name='storeLogin', novalidate, enable-autofill)
         .form-group
           .input-group
@@ -55,5 +53,4 @@
             td
               button.btn.btn-xs.btn-danger-outline(ng-click='removeAccount(account)')
                 i.fa.fa-sign-out
-                //i.fa.fa-trash-o
                 span(translate) Sign Out

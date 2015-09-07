@@ -6,11 +6,6 @@ module.exports = function ScreenshotsCtrl($scope) {
     $scope.screenshots = []
   }
 
-  //SettingsService.bind($scope, {
-  //  target: 'screenShotSize',
-  //  defaultValue: 200
-  //})
-
   $scope.shotSizeParameter = function (maxSize, multiplier) {
     var finalSize = $scope.screenShotSize * multiplier
     var finalMaxSize = maxSize * multiplier
@@ -36,5 +31,4 @@ module.exports = function ScreenshotsCtrl($scope) {
     }
     $scope.screenShotSize = newValue
   }
-
 }

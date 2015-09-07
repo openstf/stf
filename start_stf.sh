@@ -11,7 +11,7 @@ case $(uname) in
 		;;
 esac
 
-AUTH="--auth-type openid"
 
-node lib/cli.js local --public-ip $PUBLIC_IP $AUTH "$@"
+node lib/cli.js local --public-ip $PUBLIC_IP \
+    --auth-type openid --auth-options '["--identifier=https://login.netease.com/openid/"]'
 exit $?

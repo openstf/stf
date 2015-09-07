@@ -57,7 +57,7 @@
     "minimatch": "^2.0.10",
     "my-local-ip": "^1.0.0",
     "node-uuid": "^1.4.3",
-    "openid": "^1.0.0",
+    "openid": "^0.5.13",
     "passport": "^0.3.0",
     "passport-oauth2": "^1.1.2",
     "protobufjs": "^3.8.2",
@@ -77,6 +77,7 @@
     "stf-wiki": "^1.0.0",
     "temp": "^0.8.1",
     "transliteration": "^0.1.1",
+    "url-join": "0.0.1",
     "ws": "^0.8.0",
     "zmq": "^2.12.0"
   },

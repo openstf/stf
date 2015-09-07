@@ -293,7 +293,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
-The reaper unit receives heartbeat events from device workers, and marks lost devices as absent until a heartbeat is received again. The purpose of this unit is to ensure the integrity of the present/absent flag in the database, in case a provider shuts down unexpectedly or another unexpected failure occurs. It loads the current state from the database on startup and keeps keeps patching its internal view as events are routed to it.
+The reaper unit receives heartbeat events from device workers, and marks lost devices as absent until a heartbeat is received again. The purpose of this unit is to ensure the integrity of the present/absent flag in the database, in case a provider shuts down unexpectedly or another unexpected failure occurs. It loads the current state from the database on startup and keeps patching its internal view as events are routed to it.
 
 Note that it doesn't make sense to have more than one reaper running at once, as they would just duplicate the events.
 

@@ -105,7 +105,7 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull ctlc/ambassador:latest
+ExecStartPre=/usr/bin/docker pull openstf/ambassador:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
@@ -113,7 +113,7 @@ ExecStart=/usr/bin/docker run --rm \
   -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
   -p 28015 \
   -e RETHINKDB_PORT_28015_TCP=tcp://rethinkdb.stf.example.org:28015 \
-  ctlc/ambassador:latest
+  openstf/ambassador:latest
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 

@@ -688,8 +688,8 @@ http {
       proxy_set_header X-Real-IP $remote_addr;
     }
 
-    location /auth/mock/ {
-      proxy_pass http://stf_auth/auth/mock/;
+    location /auth/ {
+      proxy_pass http://stf_auth/auth/;
     }
 
     location /s/image/ {

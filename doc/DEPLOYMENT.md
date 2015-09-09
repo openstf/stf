@@ -146,7 +146,7 @@ ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf app --port 3000 \
     --auth-url https://stf.example.org/auth/mock/ \
@@ -180,7 +180,7 @@ ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf auth-mock --port 3000 \
     --app-url https://stf.example.org/
@@ -342,7 +342,7 @@ ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-plugin-apk --port 3000 \
     --storage-url https://stf.example.org/
@@ -370,7 +370,7 @@ ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-plugin-image --port 3000 \
     --storage-url https://stf.example.org/
@@ -397,7 +397,7 @@ ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -v /mnt/storage:/data \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-temp --port 3000 \
     --save-dir /data
@@ -493,7 +493,7 @@ ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf websocket --port 3000 \
     --storage-url https://stf.example.org/ \

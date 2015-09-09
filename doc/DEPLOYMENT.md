@@ -56,6 +56,12 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-triproxy-dev.service](#stf-triproxy-devservice)
 * [stf-websocket@.service](#stf-websocketservice)
 
+### Database role
+
+The database role requires the following units, UNLESS you already have a working RethinkDB server/cluster running somewhere. In that case you simply will not have this role, and should point your [rethinkdb-proxy-28015.service](#rethinkdb-proxy-28015service) to that server instead.
+
+* [rethinkdb.service](#rethinkdbservice)
+
 ### Proxy role
 
 The proxy role ties all HTTP-based units together behind a common reverse proxy. See [nginx configuration](#nginx-configuration) for more information.
@@ -91,14 +97,62 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 2 %p
 ```
 
+### `rethinkdb.service`
+
+As mentioned before, you only need this unit if you do not have an existing RethinkDB cluster. This configuration is provided as an example, and will get you going, but is not very robust or secure.
+
+If you need to expand your RethinkDB cluster beyond one server you may encounter problems that you'll have to solve by yourself, we're not going to help with that. There are many ways to configure the unit, this is just one possibility! Note that if you end up not using `--net host`, you will then have to give `rethinkdb` the `--canonical-address` option with the server's real IP, and expose the necessary ports somehow.
+
+You will also have to:
+
+1. Modify the `--cache-size` as you please. It limits the amount of memory RethinkDB uses and is given in megabytes, but is not an absolute limit! Real usage can be slightly higher.
+2. Update the version number in `rethinkdb:2.1.1` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
+3. The `AUTHKEY` environment variable is only for convenience when linking. So, the first time you set things up, you will have to access http://DB_SERVER_IP:8080 after starting the unit and run the following command:
+
+```javascript
+r.db('rethinkdb').table('cluster_config').get('auth').update({auth_key: 'newkey'})
+```
+
+More information can be found [here](https://rethinkdb.com/docs/security/). You will then need to replace `YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY` in the the rest of the units with the real authentication key.
+
+Here's the unit configuration itself.
+
+```ini
+[Unit]
+Description=RethinkDB
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull rethinkdb:2.1.1
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStartPre=/usr/bin/mkdir -p /srv/rethinkdb
+ExecStartPre=/usr/bin/chattr -R +C /srv/rethinkdb
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  -v /srv/rethinkdb:/data \
+  -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
+  --net host \
+  rethinkdb:2.1.1 \
+  rethinkdb --bind all \
+    --cache-size 8192
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
 ### `rethinkdb-proxy-28015.service`
 
 You need a single instance of the `rethinkdb-proxy-28015.service` unit on each host where you have another unit that needs to access the database. Having a local proxy simplifies configuration for other units and allows the `AUTHKEY` to be specified only once.
 
+Note that the `After` condition also specifies the [rethinkdb.service](#rethinkdbservice) unit just in case you're on a low budget and want to run the RethinkDB unit on the same server as the rest of the units, which by the way is NOT recommended at all.
+
 ```ini
 [Unit]
 Description=RethinkDB proxy/28015
-After=docker.service
+After=docker.service rethinkdb.service
 Requires=docker.service
 
 [Service]

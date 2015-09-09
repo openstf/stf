@@ -214,7 +214,7 @@ You may have to change the `--auth-url` depending on which authentication method
 
 You have multiple options here. STF currently provides authentication units for [OAuth 2.0](http://oauth.net/2/) and [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol), plus a mock implementation that simply asks for a name and an email address.
 
-Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables.
+Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables. Note that if your OAuth 2 provider uses a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
 
@@ -313,6 +313,8 @@ This is a template unit, meaning that you'll need to start it with an instance i
 
 Note that you cannot have more than one provider unit running on the same host, as they would compete over which one gets to control the devices. In the future we might add a negotiation protocol to allow for relatively seamless upgrades.
 
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
 ```ini
 [Unit]
 Description=STF provider
@@ -381,6 +383,8 @@ The APK storage plugin loads raw blobs from the main storage unit and allows add
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-apk@3300.service` runs on port 3300). You can have multiple instances running on the same host by using different ports.
 
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
 ```ini
 [Unit]
 Description=STF APK storage plugin
@@ -408,6 +412,8 @@ ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 The image storage plugin loads raw blobs from the main storage unit and and allows images to be resized using parameters.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-image@3400.service` runs on port 3400). You can have multiple instances running on the same host by using different ports.
+
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
 
 ```ini
 [Unit]
@@ -529,6 +535,8 @@ ExecStop=-/usr/bin/docker stop -t 10 %p
 The websocket unit provides the communication layer between client-side JavaScript and the server-side ZeroMQ+Protobuf combination. Almost every action in STF goes through the websocket unit.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-websocket@3600.service` runs on port 3600). You can have multiple instances running on the same host by using different ports.
+
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
 
 ```ini
 [Unit]

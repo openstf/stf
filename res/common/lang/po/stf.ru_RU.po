@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-08-25 09:53+0000\n"
+"PO-Revision-Date: 2015-09-10 06:06+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/openstf/stf/language/ru_RU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,6 @@ msgid "Add"
 msgstr "Добавить"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Add ADB Key"
 msgstr "Добавить ADB ключ"
 
@@ -107,10 +106,6 @@ msgstr "Расширенный ввод"
 #: app/control-panes/info/info.html:1
 msgid "Airplane Mode"
 msgstr "Режим В самолёте"
-
-#: app/control-panes/logs/logs.html:20
-msgid "App"
-msgstr "Приложение"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -214,18 +209,14 @@ msgid "Check errors below"
 msgstr "Проверьте сообщения об ошибках ниже"
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
-#: app/control-panes/advanced/run-js/run-js.html:2
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/advanced/run-js/run-js.html:1
+#: app/control-panes/logs/logs.html:1
 msgid "Clear"
 msgstr "Очистить"
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Clipboard"
 msgstr "Буфер обмена"
-
-#: app/control-panes/advanced/input/input.html:5
-msgid "Close"
-msgstr "Закрыть"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
@@ -262,23 +253,23 @@ msgstr "Процессор"
 msgid "Customize"
 msgstr "Настроить"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Center"
 msgstr "Центральная кнопка D-pad"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Down"
 msgstr "Вниз"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Left"
 msgstr "Влево"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Right"
 msgstr "Вправо"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Up"
 msgstr "Вверх"
 
@@ -313,8 +304,7 @@ msgstr "Разработчик"
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
-#: app/control-panes/inspect/inspect.html:3
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/inspect/inspect.html:1
 msgid "Device"
 msgstr "Устройство"
 
@@ -381,10 +371,6 @@ msgstr "Перетащите файл для загрузки"
 msgid "Dummy"
 msgstr "Макет"
 
-#: app/control-panes/advanced/input/input.html:7
-msgid "Eject"
-msgstr "Извлечь"
-
 #: app/settings/notifications/notifications.html:1
 msgid "Enable notifications"
 msgstr "Включить уведомления"
@@ -449,11 +435,11 @@ msgstr "Частота"
 msgid "Full"
 msgstr "Полный"
 
-#: app/settings/settings-controller.js:10
+#: app/settings/settings-controller.js:5
 msgid "General"
 msgstr "Общие"
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "Get"
 msgstr "Получить"
@@ -471,7 +457,7 @@ msgid "Go Forward"
 msgstr "Вперёд"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:95
+#: app/control-panes/control-panes-hotkeys-controller.js:89
 msgid "Go to Device List"
 msgstr "Открыть список устройств"
 
@@ -491,7 +477,7 @@ msgstr "Состояние"
 msgid "Height"
 msgstr "Высота"
 
-#: app/menu/menu.html:19
+#: app/menu/menu.html:1
 msgid "Help"
 msgstr "Помощь"
 
@@ -533,7 +519,7 @@ msgstr "Некорректные логин или пароль"
 msgid "Info"
 msgstr "Инфо"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
 msgstr "Инспектировать устройство"
 
@@ -541,7 +527,7 @@ msgstr "Инспектировать устройство"
 msgid "Inspecting is currently only supported in WebView"
 msgstr "Инспектирование пока поддерживается в WebView"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspector"
 msgstr "Инспекто"
 
@@ -569,7 +555,7 @@ msgstr "Устанавливаем приложение..."
 msgid "Key"
 msgstr "Ключ"
 
-#: app/settings/settings-controller.js:15
+#: app/settings/settings-controller.js:10
 msgid "Keys"
 msgstr "Ключи"
 
@@ -589,7 +575,7 @@ msgstr "Запустить приложение"
 msgid "Launching activity..."
 msgstr "Приложение запускается..."
 
-#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:20
+#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
 msgstr "Уровень"
 
@@ -668,8 +654,6 @@ msgid "More about Access Tokens"
 msgstr "Подробнее о ключах доступа"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:10
-#: app/settings/keys/adb-keys/adb-keys.html:44
 msgid "More about ADB Keys"
 msgstr "Подробнее о ADB ключах"
 
@@ -751,7 +735,7 @@ msgstr "Не заряжается"
 msgid "Notes"
 msgstr "Записи"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Nothing to inspect"
 msgstr ""
 
@@ -806,10 +790,6 @@ msgstr "Пароль"
 msgid "Path"
 msgstr "Путь"
 
-#: app/control-panes/advanced/input/input.html:3
-msgid "Pause"
-msgstr "Пауза"
-
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
 msgstr "Телефон"
@@ -826,7 +806,7 @@ msgstr ""
 msgid "Physical Device"
 msgstr "Физическое устройство"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "PID"
 msgstr ""
 
@@ -837,10 +817,6 @@ msgstr "Место"
 #: app/control-panes/info/info.html:1
 msgid "Platform"
 msgstr "Платформа"
-
-#: app/control-panes/advanced/input/input.html:1
-msgid "Play"
-msgstr "Играть"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
@@ -899,15 +875,15 @@ msgstr "Источник энергии"
 msgid "Preparing"
 msgstr "Подготовка"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:110
+#: app/control-panes/control-panes-hotkeys-controller.js:104
 msgid "Press Back button"
 msgstr "Нажмите кнопку Назад"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:109
+#: app/control-panes/control-panes-hotkeys-controller.js:103
 msgid "Press Home button"
 msgstr "Нажмите кнопку Домой"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:108
+#: app/control-panes/control-panes-hotkeys-controller.js:102
 msgid "Press Menu button"
 msgstr "Нажмите кнопку Меню"
 
@@ -941,10 +917,6 @@ msgstr "Готово"
 msgid "Reconnected successfully."
 msgstr "Переподключился успешно."
 
-#: app/control-panes/advanced/input/input.html:9
-msgid "Record"
-msgstr "Запись"
-
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
 msgstr "Обновить"
@@ -964,7 +936,7 @@ msgid "Remote debug"
 msgstr "Удалённая отладка"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:74
+#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
 msgstr "Удалить"
 
@@ -1006,26 +978,18 @@ msgid "ROM"
 msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:98
+#: app/control-panes/control-panes-hotkeys-controller.js:92
 msgid "Rotate Left"
 msgstr "Повернуть влево"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:99
+#: app/control-panes/control-panes-hotkeys-controller.js:93
 msgid "Rotate Right"
 msgstr "Повернуть вправо"
 
-#: app/control-panes/advanced/run-js/run-js.html:18
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run"
 msgstr "Выполнить"
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run command"
-msgstr "Выполнить команду"
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run Command"
-msgstr "Выполнить команду"
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run JavaScript"
@@ -1049,7 +1013,7 @@ msgstr "Выполните эту команду, чтобы скопирова�
 msgid "Save ScreenShot"
 msgstr "Сохранить скриншот"
 
-#: app/control-panes/advanced/run-js/run-js.html:2
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Save..."
 msgstr "Сохранить.."
 
@@ -1082,7 +1046,7 @@ msgstr "Поиск"
 msgid "Secure"
 msgstr "Безопасно"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:97
+#: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr ""
 
@@ -1148,7 +1112,7 @@ msgstr "Кто-то утащил ваше устройство"
 msgid "Special Keys"
 msgstr "Специальные кнопки"
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Start/Stop Logging"
 msgstr "Начать/Остановить журналирование"
 
@@ -1158,7 +1122,7 @@ msgid "Status"
 msgstr "Статус"
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Stop"
 msgstr "Стоп"
 
@@ -1176,11 +1140,10 @@ msgid "Sub Type"
 msgstr "Подтип"
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/advanced/input/input.html:41
 msgid "Switch Charset"
 msgstr "Переключить кодировку"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Tag"
 msgstr ""
 
@@ -1196,7 +1159,7 @@ msgstr "Сделать снимок экрана"
 msgid "Temperature"
 msgstr "Температура"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Text"
 msgstr "Текст"
 
@@ -1376,11 +1339,11 @@ msgstr "Не удалось установить пакет, так как да�
 msgid "The URI passed in is invalid."
 msgstr "Невалидный URI."
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "TID"
 msgstr "TID"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Time"
 msgstr "Время"
 
@@ -1388,7 +1351,7 @@ msgstr "Время"
 msgid "Tip:"
 msgstr "Подсказка:"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:113
+#: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr "Переключить Web/Native"
 

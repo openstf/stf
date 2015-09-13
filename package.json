@@ -40,6 +40,7 @@
     "compression": "^1.5.2",
     "cookie-session": "^1.2.0",
     "csurf": "^1.7.0",
+    "debug": "^2.2.0",
     "eventemitter3": "^0.1.6",
     "express": "^4.13.3",
     "express-validator": "^2.17.1",

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-08-25 09:53+0000\n"
+"PO-Revision-Date: 2015-09-10 06:06+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstf/stf/language/ja/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,6 @@ msgid "Add"
 msgstr "追加"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Add ADB Key"
 msgstr "ADBキーを追加"
 
@@ -107,10 +106,6 @@ msgstr "高度な入力"
 #: app/control-panes/info/info.html:1
 msgid "Airplane Mode"
 msgstr "機内モード"
-
-#: app/control-panes/logs/logs.html:20
-msgid "App"
-msgstr "アプリ"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -214,18 +209,14 @@ msgid "Check errors below"
 msgstr "下記エラーがありました"
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
-#: app/control-panes/advanced/run-js/run-js.html:2
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/advanced/run-js/run-js.html:1
+#: app/control-panes/logs/logs.html:1
 msgid "Clear"
 msgstr "クリア"
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Clipboard"
 msgstr "クリップボード"
-
-#: app/control-panes/advanced/input/input.html:5
-msgid "Close"
-msgstr "閉じる"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
@@ -262,23 +253,23 @@ msgstr "CPU"
 msgid "Customize"
 msgstr "カスタマイズ"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Center"
 msgstr "D-padセンター"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Down"
 msgstr "D-pad下"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Left"
 msgstr "D-pad左"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Right"
 msgstr "D-pad右"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Up"
 msgstr "D-pad上"
 
@@ -313,8 +304,7 @@ msgstr "開発者"
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
-#: app/control-panes/inspect/inspect.html:3
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/inspect/inspect.html:1
 msgid "Device"
 msgstr "デバイス"
 
@@ -381,10 +371,6 @@ msgstr "ここにファイルをドロップ"
 msgid "Dummy"
 msgstr "ダミー"
 
-#: app/control-panes/advanced/input/input.html:7
-msgid "Eject"
-msgstr "排出"
-
 #: app/settings/notifications/notifications.html:1
 msgid "Enable notifications"
 msgstr "通知を有効にする"
@@ -449,11 +435,11 @@ msgstr "クロック"
 msgid "Full"
 msgstr "フル"
 
-#: app/settings/settings-controller.js:10
+#: app/settings/settings-controller.js:5
 msgid "General"
 msgstr "一般"
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "Get"
 msgstr "取得"
@@ -471,7 +457,7 @@ msgid "Go Forward"
 msgstr "進む"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:95
+#: app/control-panes/control-panes-hotkeys-controller.js:89
 msgid "Go to Device List"
 msgstr "端末リストへ"
 
@@ -491,7 +477,7 @@ msgstr "健康状態"
 msgid "Height"
 msgstr "高さ"
 
-#: app/menu/menu.html:19
+#: app/menu/menu.html:1
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -533,7 +519,7 @@ msgstr "不正ログイン情報"
 msgid "Info"
 msgstr "情報"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
 msgstr "端末の要素検証"
 
@@ -541,7 +527,7 @@ msgstr "端末の要素検証"
 msgid "Inspecting is currently only supported in WebView"
 msgstr "要素の検証機能は、現在WebViewのみ対応"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspector"
 msgstr "要素の検証"
 
@@ -569,7 +555,7 @@ msgstr "アプリをインストール中..."
 msgid "Key"
 msgstr "キー"
 
-#: app/settings/settings-controller.js:15
+#: app/settings/settings-controller.js:10
 msgid "Keys"
 msgstr "認証キー"
 
@@ -589,7 +575,7 @@ msgstr "アクティビティを起動する"
 msgid "Launching activity..."
 msgstr "アクティビティを起動中..."
 
-#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:20
+#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
 msgstr "レベル"
 
@@ -668,8 +654,6 @@ msgid "More about Access Tokens"
 msgstr "アクセストークンについて"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:10
-#: app/settings/keys/adb-keys/adb-keys.html:44
 msgid "More about ADB Keys"
 msgstr "ADBキーについて"
 
@@ -751,7 +735,7 @@ msgstr "充電されていない"
 msgid "Notes"
 msgstr "注釈"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Nothing to inspect"
 msgstr "要素の検証対象はありません"
 
@@ -806,10 +790,6 @@ msgstr "パスワード"
 msgid "Path"
 msgstr "パス"
 
-#: app/control-panes/advanced/input/input.html:3
-msgid "Pause"
-msgstr "停止"
-
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
 msgstr "電話番号"
@@ -826,7 +806,7 @@ msgstr "携帯IMEI"
 msgid "Physical Device"
 msgstr "物理デバイス"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "PID"
 msgstr "PID"
 
@@ -837,10 +817,6 @@ msgstr "場所"
 #: app/control-panes/info/info.html:1
 msgid "Platform"
 msgstr "プラットホーム"
-
-#: app/control-panes/advanced/input/input.html:1
-msgid "Play"
-msgstr "再生"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
@@ -899,15 +875,15 @@ msgstr "電力源"
 msgid "Preparing"
 msgstr "準備中"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:110
+#: app/control-panes/control-panes-hotkeys-controller.js:104
 msgid "Press Back button"
 msgstr "戻るボタンを押す"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:109
+#: app/control-panes/control-panes-hotkeys-controller.js:103
 msgid "Press Home button"
 msgstr "ホームボタンを押す"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:108
+#: app/control-panes/control-panes-hotkeys-controller.js:102
 msgid "Press Menu button"
 msgstr "メニューボタンを押す"
 
@@ -941,10 +917,6 @@ msgstr "利用可能"
 msgid "Reconnected successfully."
 msgstr "正常に再接続しました。"
 
-#: app/control-panes/advanced/input/input.html:9
-msgid "Record"
-msgstr "記録する"
-
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
 msgstr "更新"
@@ -964,7 +936,7 @@ msgid "Remote debug"
 msgstr "リモートデバッグ"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:74
+#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
 msgstr "削除"
 
@@ -1006,26 +978,18 @@ msgid "ROM"
 msgstr "ROM"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:98
+#: app/control-panes/control-panes-hotkeys-controller.js:92
 msgid "Rotate Left"
 msgstr "左回りに回転"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:99
+#: app/control-panes/control-panes-hotkeys-controller.js:93
 msgid "Rotate Right"
 msgstr "右回りに回転"
 
-#: app/control-panes/advanced/run-js/run-js.html:18
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run"
 msgstr "実行"
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run command"
-msgstr "コマンドを実行する"
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run Command"
-msgstr "コマンドを実行"
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run JavaScript"
@@ -1049,7 +1013,7 @@ msgstr "次のコマンドを実行しますと、キーがコピーされます
 msgid "Save ScreenShot"
 msgstr "スクリーンショットを保存する"
 
-#: app/control-panes/advanced/run-js/run-js.html:2
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Save..."
 msgstr "保存する..."
 
@@ -1082,7 +1046,7 @@ msgstr "検索"
 msgid "Secure"
 msgstr "セキュア"
 
-#: app/control-panes/control-panes-hotkeys-controller.js:97
+#: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr "入力モードの切り替え"
 
@@ -1148,7 +1112,7 @@ msgstr "誰かはデバイスを盗みました。"
 msgid "Special Keys"
 msgstr "特別なキー"
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Start/Stop Logging"
 msgstr "ログ取得の開始／停止"
 
@@ -1158,7 +1122,7 @@ msgid "Status"
 msgstr "ステータス"
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Stop"
 msgstr "停止"
 
@@ -1176,11 +1140,10 @@ msgid "Sub Type"
 msgstr "サブタイプ"
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/advanced/input/input.html:41
 msgid "Switch Charset"
 msgstr "文字入力の切り替え"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Tag"
 msgstr "タグ"
 
@@ -1196,7 +1159,7 @@ msgstr "スクリーンショットを撮る"
 msgid "Temperature"
 msgstr "温度"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Text"
 msgstr "テキスト"
 
@@ -1376,11 +1339,11 @@ msgstr ""
 msgid "The URI passed in is invalid."
 msgstr "渡されたURIは無効です。"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "TID"
 msgstr "TID"
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Time"
 msgstr "時刻"
 
@@ -1388,7 +1351,7 @@ msgstr "時刻"
 msgid "Tip:"
 msgstr "ヒント："
 
-#: app/control-panes/control-panes-hotkeys-controller.js:113
+#: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr "ウェブ/ネイティブを選択"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-08-25 09:53+0000\n"
+"PO-Revision-Date: 2015-09-10 06:06+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstf/stf/language/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,7 +77,6 @@ msgid "Add"
 msgstr "Añadir"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Add ADB Key"
 msgstr "Añadir Llave de ADB"
 
@@ -108,10 +107,6 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Airplane Mode"
-msgstr ""
-
-#: app/control-panes/logs/logs.html:20
-msgid "App"
 msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
@@ -216,18 +211,14 @@ msgid "Check errors below"
 msgstr ""
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
-#: app/control-panes/advanced/run-js/run-js.html:2
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/advanced/run-js/run-js.html:1
+#: app/control-panes/logs/logs.html:1
 msgid "Clear"
 msgstr ""
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Clipboard"
 msgstr "Portapapeles"
-
-#: app/control-panes/advanced/input/input.html:5
-msgid "Close"
-msgstr "Cerrar"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
@@ -264,23 +255,23 @@ msgstr ""
 msgid "Customize"
 msgstr "Personalizar"
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Center"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Down"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Left"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Right"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:41
+#: app/control-panes/advanced/input/input.html:1
 msgid "D-pad Up"
 msgstr ""
 
@@ -315,8 +306,7 @@ msgstr ""
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
-#: app/control-panes/inspect/inspect.html:3
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/inspect/inspect.html:1
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -383,10 +373,6 @@ msgstr ""
 msgid "Dummy"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:7
-msgid "Eject"
-msgstr ""
-
 #: app/settings/notifications/notifications.html:1
 msgid "Enable notifications"
 msgstr ""
@@ -451,11 +437,11 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: app/settings/settings-controller.js:10
+#: app/settings/settings-controller.js:5
 msgid "General"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "Get"
 msgstr ""
@@ -473,7 +459,7 @@ msgid "Go Forward"
 msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:95
+#: app/control-panes/control-panes-hotkeys-controller.js:89
 msgid "Go to Device List"
 msgstr ""
 
@@ -493,7 +479,7 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: app/menu/menu.html:19
+#: app/menu/menu.html:1
 msgid "Help"
 msgstr ""
 
@@ -535,7 +521,7 @@ msgstr ""
 msgid "Info"
 msgstr "Información"
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
 msgstr ""
 
@@ -543,7 +529,7 @@ msgstr ""
 msgid "Inspecting is currently only supported in WebView"
 msgstr ""
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Inspector"
 msgstr ""
 
@@ -571,7 +557,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: app/settings/settings-controller.js:15
+#: app/settings/settings-controller.js:10
 msgid "Keys"
 msgstr ""
 
@@ -591,7 +577,7 @@ msgstr ""
 msgid "Launching activity..."
 msgstr ""
 
-#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:20
+#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
 msgstr ""
 
@@ -670,8 +656,6 @@ msgid "More about Access Tokens"
 msgstr ""
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:10
-#: app/settings/keys/adb-keys/adb-keys.html:44
 msgid "More about ADB Keys"
 msgstr ""
 
@@ -753,7 +737,7 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
-#: app/control-panes/inspect/inspect.html:3
+#: app/control-panes/inspect/inspect.html:1
 msgid "Nothing to inspect"
 msgstr ""
 
@@ -808,10 +792,6 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:3
-msgid "Pause"
-msgstr ""
-
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
 msgstr ""
@@ -828,7 +808,7 @@ msgstr ""
 msgid "Physical Device"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "PID"
 msgstr ""
 
@@ -838,10 +818,6 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Platform"
-msgstr ""
-
-#: app/control-panes/advanced/input/input.html:1
-msgid "Play"
 msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
@@ -901,15 +877,15 @@ msgstr ""
 msgid "Preparing"
 msgstr ""
 
-#: app/control-panes/control-panes-hotkeys-controller.js:110
+#: app/control-panes/control-panes-hotkeys-controller.js:104
 msgid "Press Back button"
 msgstr ""
 
-#: app/control-panes/control-panes-hotkeys-controller.js:109
+#: app/control-panes/control-panes-hotkeys-controller.js:103
 msgid "Press Home button"
 msgstr ""
 
-#: app/control-panes/control-panes-hotkeys-controller.js:108
+#: app/control-panes/control-panes-hotkeys-controller.js:102
 msgid "Press Menu button"
 msgstr ""
 
@@ -943,10 +919,6 @@ msgstr ""
 msgid "Reconnected successfully."
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:9
-msgid "Record"
-msgstr ""
-
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
 msgstr ""
@@ -966,7 +938,7 @@ msgid "Remote debug"
 msgstr "Conexión remota"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
-#: app/settings/keys/adb-keys/adb-keys.html:74
+#: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
 msgstr ""
 
@@ -1008,25 +980,17 @@ msgid "ROM"
 msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:98
+#: app/control-panes/control-panes-hotkeys-controller.js:92
 msgid "Rotate Left"
 msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
-#: app/control-panes/control-panes-hotkeys-controller.js:99
+#: app/control-panes/control-panes-hotkeys-controller.js:93
 msgid "Rotate Right"
 msgstr ""
 
-#: app/control-panes/advanced/run-js/run-js.html:18
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run"
-msgstr ""
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run command"
-msgstr ""
-
-#: app/control-panes/dashboard/shell/shell.html:1
-msgid "Run Command"
 msgstr ""
 
 #: app/control-panes/advanced/run-js/run-js.html:1
@@ -1051,7 +1015,7 @@ msgstr ""
 msgid "Save ScreenShot"
 msgstr ""
 
-#: app/control-panes/advanced/run-js/run-js.html:2
+#: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Save..."
 msgstr ""
 
@@ -1084,7 +1048,7 @@ msgstr ""
 msgid "Secure"
 msgstr ""
 
-#: app/control-panes/control-panes-hotkeys-controller.js:97
+#: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr ""
 
@@ -1150,7 +1114,7 @@ msgstr ""
 msgid "Special Keys"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Start/Stop Logging"
 msgstr ""
 
@@ -1160,7 +1124,7 @@ msgid "Status"
 msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/logs/logs.html:19
+#: app/control-panes/logs/logs.html:1
 msgid "Stop"
 msgstr ""
 
@@ -1178,11 +1142,10 @@ msgid "Sub Type"
 msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
-#: app/control-panes/advanced/input/input.html:41
 msgid "Switch Charset"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Tag"
 msgstr ""
 
@@ -1198,7 +1161,7 @@ msgstr ""
 msgid "Temperature"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Text"
 msgstr ""
 
@@ -1378,11 +1341,11 @@ msgstr ""
 msgid "The URI passed in is invalid."
 msgstr ""
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "TID"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:20
+#: app/control-panes/logs/logs.html:1
 msgid "Time"
 msgstr ""
 
@@ -1390,7 +1353,7 @@ msgstr ""
 msgid "Tip:"
 msgstr ""
 
-#: app/control-panes/control-panes-hotkeys-controller.js:113
+#: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr ""
 

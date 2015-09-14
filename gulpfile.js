@@ -173,7 +173,10 @@ gulp.task("webpack:others", function (callback) {
   })
 })
 
-gulp.task('translate', ['translate:compile'])
+gulp.task('translate', function (cb) {
+  runSequence('translate:extract', 'translate:push', 'translate:pull',
+    'translate:compile', cb)
+})
 
 gulp.task('jade', function (cb) {
   return gulp.src([
@@ -200,7 +203,7 @@ gulp.task('translate:extract', ['jade'], function (cb) {
     .pipe(gulp.dest('./res/common/lang/po/'))
 })
 
-gulp.task('translate:compile', ['translate:pull'], function (cb) {
+gulp.task('translate:compile', function (cb) {
   return gulp.src('./res/common/lang/po/**/*.po')
     .pipe(gettext.compile({
       format: 'json'
@@ -208,13 +211,13 @@ gulp.task('translate:compile', ['translate:pull'], function (cb) {
     .pipe(gulp.dest('./res/common/lang/translations/'))
 })
 
-gulp.task('translate:push', ['translate:extract'], function () {
+gulp.task('translate:push', function () {
   gutil.log('Pushing translation source to Transifex...')
 
   return run('tx push -s').exec()
 })
 
-gulp.task('translate:pull', ['translate:push'], function () {
+gulp.task('translate:pull', function () {
   gutil.log('Pulling translations from Transifex...')
 
   return run('tx pull').exec()

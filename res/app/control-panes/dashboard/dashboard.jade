@@ -1,3 +1,9 @@
+//.row
+  .col-md-6(ng-if='$root .platform == "native"')
+    div(ng-include='"control-panes/dashboard/xshell/shell.jade"')
+  .col-md-6
+    div(ng-include='"control-panes/dashboard/clipboard/clipboard.jade"')
+
 .row
   .col-md-6
     div(ng-include='"control-panes/dashboard/navigation/navigation.jade"')

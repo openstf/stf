@@ -72,6 +72,7 @@ enum MessageType {
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
   ReverseForwardsEvent       = 72;
+  DeviceScheduleBooking      = 81;
 }
 
 message Envelope {
@@ -529,4 +530,11 @@ message PhoneStateEvent {
 message RotationEvent {
   required string serial = 1;
   required int32 rotation = 2;
+}
+
+message DeviceScheduleBooking {
+  required string serial = 1;
+  required string email = 2;
+  required sint64 start = 3;
+  requires sint64 end = 4;
 }

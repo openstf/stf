@@ -1,6 +1,7 @@
 module.exports = angular.module('stf.dashboard', [
   require('./navigation/index').name,
   require('./shell/index').name,
+  require('./xshell/index').name,
   require('./install/index').name,
   require('./apps/index').name,
   require('./clipboard/index').name,

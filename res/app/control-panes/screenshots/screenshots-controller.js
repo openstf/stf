@@ -1,6 +1,8 @@
-module.exports = function ScreenshotsCtrl($scope) {
+module.exports = function ScreenshotsCtrl($scope, $interval) {
   $scope.screenshots = []
-  $scope.screenShotSize = 400
+  $scope.screenShotSize = 80
+  $scope.capturePromise = null
+  $scope.maxScreenshots = 50
 
   $scope.clear = function () {
     $scope.screenshots = []
@@ -18,8 +20,23 @@ module.exports = function ScreenshotsCtrl($scope) {
     $scope.control.screenshot().then(function (result) {
       $scope.$apply(function () {
         $scope.screenshots.unshift(result)
+        if ($scope.screenshots.length > $scope.maxScreenshots){
+          $scope.screenshots.pop()
+        }
       })
     })
+  }
+
+  $scope.takeScreenShotContinous = function(){
+    if ($scope.capturePromise) {
+      $interval.cancel($scope.capturePromise)
+      $scope.capturePromise = null
+      return
+    }
+
+    $scope.capturePromise = $interval(function(){
+      $scope.takeScreenShot()
+    }, 1000)
   }
 
   $scope.zoom = function (param) {

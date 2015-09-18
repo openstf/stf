@@ -10,15 +10,16 @@
       i.fa.fa-camera-retro(translate)
       span(translate) Pageshot
 
-    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShotContinous()',
-    title='{{"Take Screenshot Continous"|translate}}')
+    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShotContinuous()',
+    title='{{"Take Screenshot Continuously"|translate}}')
       i.fa.fa-video-camera
-      span(translate) {{capturePromise ? "StopCapture" : "ScreenCapture"}}
+      span(translate, ng-show='capturePromise') Stop Capture
+      span(translate, ng-hide='capturePromise') Start Capture
 
     .button-spacer
 
     input.input-sm(type='number' step='1' ng-model='maxScreenshots',
-    title="max number of capture images")
+    title='{{"Max number of captured images"|translate}')
 
     clear-button(ng-click='clear()', ng-disabled='!screenshots.length')
 

@@ -27,16 +27,23 @@ module.exports = function ScreenshotsCtrl($scope, $interval) {
     })
   }
 
-  $scope.takeScreenShotContinous = function(){
+  $scope.takeScreenShotContinuous = function(){
     if ($scope.capturePromise) {
-      $interval.cancel($scope.capturePromise)
-      $scope.capturePromise = null
+      stopCapture()
       return
     }
 
     $scope.capturePromise = $interval(function(){
       $scope.takeScreenShot()
     }, 1000)
+  }
+
+  var stopCapture = function(){
+    if ($scope.capturePromise) {
+      $interval.cancel($scope.capturePromise)
+      $scope.capturePromise = null
+      return
+    }    
   }
 
   $scope.zoom = function (param) {
@@ -48,4 +55,8 @@ module.exports = function ScreenshotsCtrl($scope, $interval) {
     }
     $scope.screenShotSize = newValue
   }
+
+  $scope.$on('$destroy', function(){
+    stopCapture()
+  })
 }

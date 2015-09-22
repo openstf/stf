@@ -24,7 +24,6 @@ module.exports = function TopAppCtrl($scope) {
   $scope.updateApp = function(){
     shell("dumpsys activity top", function(res){
       var m = res.data.match(/\s*ACTIVITY ([A-Za-z0-9_.]+)\/([A-Za-z0-9_.]+) \w+ pid=(\d+)/)
-      console.log(m[1]);
       $scope.pkgName = m[1];
       $scope.pkgActivity = m[2];
       $scope.pkgPid = m[3];
@@ -42,9 +41,7 @@ module.exports = function TopAppCtrl($scope) {
   $scope.startApp = function(){
     var command = ['monkey', '-p', $scope.pkgName, 
       '-c', 'android.intent.category.LAUNCHER', '1'].join(' ');
-    shell(command, function(res){
-      console.log(res.success);
-    })
+    shell(command, null);
   }
 
   $scope.clear = function () {

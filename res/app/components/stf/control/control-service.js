@@ -231,6 +231,12 @@ module.exports = function ControlServiceFactory(
       })
     }
 
+    this.fslist = function(dir){
+      return sendTwoWay('fs.list', {
+        dir: dir,
+      })
+    }
+
     this.checkAccount = function(type, account) {
       return sendTwoWay('account.check', {
         type: type

@@ -225,8 +225,8 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('screen.capture')
     }
 
-    this.fsretrive = function(file){
-      return sendTwoWay('fs.retrive', {
+    this.fsretrieve = function(file){
+      return sendTwoWay('fs.retrieve', {
         file: file,
       })
     }

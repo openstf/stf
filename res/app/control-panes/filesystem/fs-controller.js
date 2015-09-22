@@ -32,7 +32,7 @@ module.exports = function FsCtrl($scope, $timeout) {
 
   $scope.getFile = function(file){
     var path = '/'+$scope.paths.join('/')+'/'+file;
-    $scope.control.fsretrive(path)
+    $scope.control.fsretrieve(path)
       .then(function(result){
         location.href = result.body.href+"?download"
       })

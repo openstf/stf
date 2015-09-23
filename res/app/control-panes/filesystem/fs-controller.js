@@ -1,4 +1,4 @@
-module.exports = function FsCtrl($scope, $timeout) {
+module.exports = function FsCtrl($scope) {
   $scope.search = ''
   $scope.files = [];
   $scope.paths = [];
@@ -43,8 +43,5 @@ module.exports = function FsCtrl($scope, $timeout) {
 
 
   // init
-  // $scope.list($scope.dir); // FIXME(ssx): can't call immediately, do not known why.
-  $timeout(function(){
-    listdir();
-  }, 800);
+  listdir($scope.dir);
 }

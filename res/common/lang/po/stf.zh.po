@@ -21,17 +21,17 @@ msgstr ""
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "A new version of STF is available"
-msgstr ""
+msgstr "当前有个新版本的STF"
 
 #: app/components/stf/install/install-error-filter.js:26
 msgid "A package is already installed with the same name."
-msgstr ""
+msgstr "已经安装了一个相同名字的安装包"
 
 #: app/components/stf/install/install-error-filter.js:30
 msgid ""
 "A previously installed package of the same name has a different signature "
 "than the new package (and the old package's data was not removed)."
-msgstr ""
+msgstr "新安装包同之前的某个同名安装包发生了签名冲突(老的安装包的数据没有移除)"
 
 #: app/components/stf/install/install-error-filter.js:50
 msgid "A secure container mount point couldn't be accessed on external media."
@@ -85,15 +85,15 @@ msgstr "增加密钥"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Add the following ADB Key to STF?"
-msgstr ""
+msgstr "是否将下面的ADB密匙添加到STP"
 
 #: app/layout/layout-controller.js:7
 msgid "Admin mode has been disabled."
-msgstr ""
+msgstr "管理模式已禁用"
 
 #: app/layout/layout-controller.js:6
 msgid "Admin mode has been enabled."
-msgstr ""
+msgstr "管理模式已启用"
 
 #: app/control-panes/control-panes-controller.js:20
 msgid "Advanced"
@@ -168,7 +168,7 @@ msgstr "电池温度"
 
 #: app/control-panes/info/info.html:1
 msgid "Bettery Status"
-msgstr ""
+msgstr "电池状态"
 
 #: app/components/stf/device/device-info-filter/index.js:89
 msgid "Bluetooth"
@@ -202,7 +202,7 @@ msgstr "取消"
 
 #: app/components/stf/upload/upload-error-filter.js:6
 msgid "Cannot access specified URL"
-msgstr ""
+msgstr "无法访问指定URL"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:43
@@ -220,7 +220,7 @@ msgstr "充电中"
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Check errors below"
-msgstr ""
+msgstr "检查下面的错误"
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
 #: app/control-panes/advanced/run-js/run-js.html:1
@@ -244,7 +244,7 @@ msgstr "已连接"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
-msgstr ""
+msgstr "连接成功"
 
 #: app/menu/menu.html:1
 msgid "Control"
@@ -370,7 +370,7 @@ msgstr "显示"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
-msgstr ""
+msgstr "拖动文件上传"
 
 #: app/components/stf/device/device-info-filter/index.js:90
 msgid "Dummy"
@@ -394,11 +394,11 @@ msgstr ""
 
 #: app/components/stf/control/control-service.js:129
 msgid "Error while getting data"
-msgstr ""
+msgstr "获取数据时发生错误"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:35
 msgid "Error while reconnecting"
-msgstr ""
+msgstr "重新连接时发生错误"
 
 #: app/components/stf/device/device-info-filter/index.js:91
 msgid "Ethernet"
@@ -407,7 +407,7 @@ msgstr ""
 #: app/control-panes/dashboard/h12/h12.html:1
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Executes remote shell commands"
-msgstr ""
+msgstr "执行远程shell命名"
 
 #: app/control-panes/info/info.html:1
 msgid "FPS"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:5
 msgid "Failed to download file"
-msgstr ""
+msgstr "下载文件失败"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Fast Forward"
@@ -1369,7 +1369,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:86
 msgid "The system failed to install the package because of system issues."
-msgstr ""
+msgstr "由于系统问题未能安装安装包"
 
 #: app/components/stf/install/install-error-filter.js:88
 msgid ""
@@ -1383,7 +1383,7 @@ msgstr ""
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Tip:"
-msgstr ""
+msgstr "提示:"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
@@ -1396,7 +1396,7 @@ msgstr "全部设备"
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
 msgid "Try to reconnect"
-msgstr ""
+msgstr "尝试重新连接"
 
 #: app/control-panes/info/info.html:1
 msgid "Type"
@@ -1409,24 +1409,24 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:23
 #: app/components/stf/device/device-info-filter/index.js:8
 msgid "Unauthorized"
-msgstr ""
+msgstr "未认证的"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uninstall"
-msgstr ""
+msgstr "卸载"
 
 #: app/components/stf/device/device-info-filter/index.js:14
 #: app/components/stf/device/device-info-filter/index.js:29
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: app/components/stf/device/device-info-filter/index.js:40
 msgid "Unknown reason."
-msgstr ""
+msgstr "未知原因"
 
 #: app/control-panes/automation/device-settings/device-settings.html:6
 msgid "Unlock Rotation"
-msgstr ""
+msgstr "解锁旋转"
 
 #: app/components/stf/device/device-info-filter/index.js:51
 msgid "Unspecified Failure"
@@ -1438,15 +1438,15 @@ msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:7
 msgid "Upload failed"
-msgstr ""
+msgstr "上传失败"
 
 #: app/components/stf/upload/upload-error-filter.js:8
 msgid "Upload unknown error"
-msgstr ""
+msgstr "上传遇到未知错误"
 
 #: app/components/stf/upload/upload-error-filter.js:4
 msgid "Uploaded file is not valid"
-msgstr ""
+msgstr "上传文件不可用"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uploading..."
@@ -1486,7 +1486,7 @@ msgstr "版本"
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "Version Update"
-msgstr ""
+msgstr "版本更新"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
@@ -1545,7 +1545,7 @@ msgstr "是"
 
 #: app/components/stf/device/device-info-filter/index.js:35
 msgid "You (or someone else) kicked the device."
-msgstr ""
+msgstr "你或者某个人剔除了该设备"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/control-panes/resources/resources.html:1

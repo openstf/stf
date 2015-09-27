@@ -13,6 +13,7 @@ module.exports = angular.module('control-panes', [
   require('./logs').name,
   //require('./resources').name,
   require('./screenshots').name,
+  require('./filesystem').name,
   require('./info').name
 ])
   .config(['$routeProvider', function ($routeProvider) {

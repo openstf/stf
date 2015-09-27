@@ -1,0 +1,30 @@
+.stf-fs(ng-controller='FsCtrl')
+  .row: .col-md-6
+
+    span /{{paths.join("/")}}
+    button.btn.btn-xm.btn-primary-outline(ng-click='dirJump()')
+      span(translate) Back
+
+    form.input-group.form-inline(ng-submit='dirEnter(search)')
+      input(type=text, ng-model='search', placeholder="dir or file ...").form-control
+      span.input-group-btn
+        button.btn.btn-default.btn-primary-outline(type='submit')
+          i.fa.fa-search
+          span(translate) Enter
+
+    table.table
+      tr(ng-repeat='f in files | filter:search | orderBy: "-mode|isdir"')
+        td
+          span
+            i.fa.fa-folder-open(ng-show='f.mode|isdir')
+            i.fa.fa-file-o(ng-hide='f.mode|isdir')
+        td
+          button.btn.btn-sm.btn-primary-outline(
+          ng-click='dirEnter(f.name)', ng-show='f.mode|isdir')
+            {{f.name}} 
+          button.btn.btn-sm.btn-primary-outline(
+          ng-click='getFile(f.name)', ng-hide='f.mode|isdir')
+            {{f.name}}
+        td
+          i {{f.mode|mode2unix}}
+        td {{f.size}}

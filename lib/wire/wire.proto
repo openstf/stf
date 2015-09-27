@@ -72,6 +72,16 @@ enum MessageType {
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
   ReverseForwardsEvent       = 72;
+  FileSystemListMessage      = 81;
+  FileSystemGetMessage       = 82;
+}
+
+message FileSystemListMessage {
+  required string dir = 1;
+}
+
+message FileSystemGetMessage {
+  required string file = 1;
 }
 
 message Envelope {

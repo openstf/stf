@@ -23,6 +23,12 @@ module.exports =
         filters: ['native', 'web']
       },
       {
+        title: gettext('FileSystem'),
+        icon: 'fa-info color-orange',
+        templateUrl: 'control-panes/filesystem/fs.jade',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Info'),
         icon: 'fa-info color-orange',
         templateUrl: 'control-panes/info/info.jade',

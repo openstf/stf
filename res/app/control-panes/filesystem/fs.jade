@@ -20,11 +20,9 @@
             i.fa.fa-file-o(ng-hide='f.mode|isdir')
         td
           button.btn.btn-sm.btn-primary-outline(
-          ng-click='dirEnter(f.name)', ng-show='f.mode|isdir')
-            {{f.name}} 
+          ng-click='dirEnter(f.name)', ng-show='f.mode|isdir') {{f.name}}
           button.btn.btn-sm.btn-primary-outline(
-          ng-click='getFile(f.name)', ng-hide='f.mode|isdir')
-            {{f.name}}
+          ng-click='getFile(f.name)', ng-hide='f.mode|isdir') {{f.name}}
         td
           i {{f.mode|mode2unix}}
         td {{f.size}}

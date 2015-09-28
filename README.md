@@ -43,6 +43,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * Run any `adb` command locally, including shell access
     * [Android Studio](http://developer.android.com/tools/studio/index.html) and other IDE support, debug your app while watching the device screen on your browser
     * Supports [Chrome remote debug tools](https://developer.chrome.com/devtools/docs/remote-debugging)
+  - Experimental VNC support (work in progress)
 * Manage your device inventory
   - See which devices are connected, offline/unavailable (indicating a weak USB connection), unauthorized or unplugged
   - See who's using a device

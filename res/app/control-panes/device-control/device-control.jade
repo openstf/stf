@@ -15,7 +15,7 @@
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
 
-        .device-name-container(dropdown)
+        .device-name-container.dropdown.pull-left
           a.stf-vnc-device-name.pointer.unselectable(dropdown-toggle)
             p
               .device-small-image

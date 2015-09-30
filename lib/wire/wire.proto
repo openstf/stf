@@ -536,5 +536,5 @@ message DeviceScheduleBooking {
   required string serial = 1;
   required string email = 2;
   required sint64 start = 3;
-  requires sint64 end = 4;
+  required sint64 end = 4;
 }

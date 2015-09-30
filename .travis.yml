@@ -10,6 +10,7 @@ addons:
     - libprotobuf-dev
     - graphicsmagick
     - rethinkdb
+    - yasm
 script:
   - gulp build
 before_script:

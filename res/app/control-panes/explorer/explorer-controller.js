@@ -1,47 +1,46 @@
 module.exports = function ExplorerCtrl($scope) {
   $scope.search = ''
-  $scope.files = [];
-  $scope.paths = [];
+  $scope.files = []
+  $scope.paths = []
 
-  var listdir = function(){
-    var path = '/'+$scope.paths.join('/');
+  var listDir = function () {
+    var path = '/' + $scope.paths.join('/')
     $scope.control.fslist(path)
-      .then(function(result){
+      .then(function (result) {
         $scope.files = result.body;
         $scope.$digest();
       })
-      .catch(function(err){
+      .catch(function (err) {
         alert(err.message);
       })
   }
 
-  $scope.dirEnter = function(name){
-    if (name){
-      $scope.paths.push(name);
+  $scope.dirEnter = function (name) {
+    if (name) {
+      $scope.paths.push(name)
     }
-    listdir();
-    $scope.search = '';
+    listDir()
+    $scope.search = ''
   }
 
-  $scope.dirJump = function(){
-    if ($scope.paths.length !== 0){
-      $scope.paths.pop();
+  $scope.dirJump = function () {
+    if ($scope.paths.length !== 0) {
+      $scope.paths.pop()
     }
-    listdir();
+    listDir()
   }
 
-  $scope.getFile = function(file){
-    var path = '/'+$scope.paths.join('/')+'/'+file;
+  $scope.getFile = function (file) {
+    var path = '/' + $scope.paths.join('/') + '/' + file
     $scope.control.fsretrieve(path)
-      .then(function(result){
-        location.href = result.body.href+"?download"
+      .then(function (result) {
+        location.href = result.body.href + "?download"
       })
-      .catch(function(err){
-        alert(err.message);
+      .catch(function (err) {
+        alert(err.message)
       })
   }
 
-
-  // init
-  listdir($scope.dir);
+  // Initialize
+  listDir($scope.dir)
 }

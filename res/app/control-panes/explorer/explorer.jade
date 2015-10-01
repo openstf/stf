@@ -28,7 +28,7 @@
           th
             div(translate) Permissions
       tbody
-        tr.header(ng-repeat='f in files | filter:search | orderBy: "-mode|isdir"')
+        tr.header(ng-repeat='f in files | filter:search | orderBy: ["-mode|isdir", "+name"]')
           td
             button.btn.btn-sm.btn-primary-outline(
             ng-click='dirEnter(f.name)', ng-show='f.mode|isdir')
@@ -43,7 +43,8 @@
               span {{f.name}}
           td
             span(ng-show='f.mode|isdir') -
-            span(ng-hide='f.mode|isdir') {{ f.size }}
-          td Date
+            span(ng-hide='f.mode|isdir') {{f.size}}
+          td
+            span {{f.mtime}}
           td
             i {{f.mode|mode2unix}}

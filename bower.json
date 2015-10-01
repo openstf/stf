@@ -43,6 +43,7 @@
     "angular": "~1.5.0",
     "d3": "~3.5.5",
     "spin.js": "~2.3.2",
-    "angular-bootstrap": "~0.13.4"
+    "angular-bootstrap": "~0.13.4",
+    "angular-cookies": "~1.5.0"
   }
 }

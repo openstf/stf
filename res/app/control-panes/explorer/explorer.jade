@@ -28,23 +28,23 @@
           th
             div(translate) Permissions
       tbody
-        tr.header(ng-repeat='f in files | filter:search | orderBy: ["-mode|isdir", "+name"]')
+        tr.header(ng-repeat='f in files | filter:search | orderBy: ["-mode|fileIsDir", "+name"]')
           td
             button.btn.btn-sm.btn-primary-outline(
-            ng-click='dirEnter(f.name)', ng-show='f.mode|isdir')
+            ng-click='dirEnter(f.name)', ng-show='f.mode|fileIsDir')
               span
                 i.fa.fa-folder-open
               span {{f.name}}
 
             button.btn.btn-sm.btn-primary-outline(
-            ng-click='getFile(f.name)', ng-hide='f.mode|isdir')
+            ng-click='getFile(f.name)', ng-hide='f.mode|fileIsDir')
               span
                 i.fa.fa-file-o
               span {{f.name}}
           td
-            span(ng-show='f.mode|isdir') -
-            span(ng-hide='f.mode|isdir') {{f.size|formattedSize}}
+            span(ng-show='f.mode|fileIsDir') -
+            span(ng-hide='f.mode|fileIsDir') {{f.size|formatFileSize}}
           td
-            span {{f.mtime}}
+            span {{f.mtime|formatFileDate}}
           td
-            i {{f.mode|mode2unix}}
+            i {{f.mode|formatPermissionMode}}

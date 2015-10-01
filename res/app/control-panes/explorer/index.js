@@ -6,7 +6,7 @@ module.exports = angular.module('stf.explorer', [])
       require('./explorer.jade')
     )
   }])
-  .filter('mode2unix', function () {
+  .filter('formatPermissionMode', function () {
     return function (mode) {
       if (mode !== null) {
         var res = [];
@@ -25,7 +25,7 @@ module.exports = angular.module('stf.explorer', [])
       }
     }
   })
-  .filter('isdir', function () {
+  .filter('fileIsDir', function () {
     return function (mode) {
       if (mode !== null) {
         mode = parseInt(mode, 10)
@@ -34,17 +34,26 @@ module.exports = angular.module('stf.explorer', [])
       }
     }
   })
-  .filter('formattedSize', function () {
+  .filter('formatFileSize', function () {
     return function (size) {
       var formattedSize
       if (size < 1024) {
         formattedSize = size + ' B'
-      } else if ( size >= 1024 && size < 1024*1024) {
+      } else if (size >= 1024 && size < 1024 * 1024) {
         formattedSize = Math.round(size / 1024, 1) + ' Kb'
       } else {
-        formattedSize = Math.round(size / (1024*1024), 1) + ' Mb'
+        formattedSize = Math.round(size / (1024 * 1024), 1) + ' Mb'
       }
       return formattedSize
     }
   })
+  .filter('formatFileDate', function () {
+    return function (inputString) {
+      input = new Date(inputString)
+      return input instanceof Date ?
+        input.toISOString().substring(0, 19).replace('T', ' ') :
+        (input.toLocaleString || input.toString).apply(input)
+    }
+  })
+
   .controller('ExplorerCtrl', require('./explorer-controller'))

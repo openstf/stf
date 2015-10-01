@@ -5,13 +5,14 @@ module.exports = function ExplorerCtrl($scope) {
 
   var listDir = function () {
     var path = '/' + $scope.paths.join('/')
+
     $scope.control.fslist(path)
       .then(function (result) {
         $scope.files = result.body;
         $scope.$digest();
       })
       .catch(function (err) {
-        alert(err.message);
+        alert(err.message)
       })
   }
 

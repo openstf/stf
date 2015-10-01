@@ -34,4 +34,17 @@ module.exports = angular.module('stf.explorer', [])
       }
     }
   })
+  .filter('formattedSize', function () {
+    return function (size) {
+      var formattedSize
+      if (size < 1024) {
+        formattedSize = size + ' B'
+      } else if ( size >= 1024 && size < 1024*1024) {
+        formattedSize = Math.round(size / 1024, 1) + ' Kb'
+      } else {
+        formattedSize = Math.round(size / (1024*1024), 1) + ' Mb'
+      }
+      return formattedSize
+    }
+  })
   .controller('ExplorerCtrl', require('./explorer-controller'))

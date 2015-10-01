@@ -43,7 +43,7 @@
               span {{f.name}}
           td
             span(ng-show='f.mode|isdir') -
-            span(ng-hide='f.mode|isdir') {{f.size}}
+            span(ng-hide='f.mode|isdir') {{f.size|formattedSize}}
           td
             span {{f.mtime}}
           td

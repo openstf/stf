@@ -1,14 +1,25 @@
 module.exports = function ExplorerCtrl($scope) {
-  $scope.search = ''
-  $scope.files = []
-  $scope.paths = []
+  $scope.explorer = {
+    search: '',
+    files: [],
+    paths: []
+  }
 
-  var listDir = function () {
-    var path = '/' + $scope.paths.join('/')
+  $scope.getAbsolutePath = function () {
+    return ('/' + $scope.explorer.paths.join('/')).replace(/\/\/+/g, '/')
+  }
+
+  function resetPaths(path) {
+    $scope.explorer.paths = path.split('/')
+  }
+
+  var listDir = function listDir() {
+    var path = $scope.getAbsolutePath()
+    $scope.explorer.search = path
 
     $scope.control.fslist(path)
       .then(function (result) {
-        $scope.files = result.body;
+        $scope.explorer.files = result.body;
         $scope.$digest();
       })
       .catch(function (err) {
@@ -16,26 +27,37 @@ module.exports = function ExplorerCtrl($scope) {
       })
   }
 
-  $scope.dirEnter = function (name) {
-    if (name) {
-      $scope.paths.push(name)
+  $scope.dirEnterLocation = function () {
+    if ($scope.explorer.search) {
+      resetPaths($scope.explorer.search)
+      listDir()
+      $scope.explorer.search = $scope.getAbsolutePath()
     }
-    listDir()
-    $scope.search = ''
   }
 
-  $scope.dirJump = function () {
-    if ($scope.paths.length !== 0) {
-      $scope.paths.pop()
+  $scope.dirEnter = function (name) {
+    if (name) {
+      $scope.explorer.paths.push(name)
     }
     listDir()
+    $scope.explorer.search = $scope.getAbsolutePath()
+  }
+
+  $scope.dirUp = function () {
+    if ($scope.explorer.paths.length !== 0) {
+      $scope.explorer.paths.pop()
+    }
+    listDir()
+    $scope.explorer.search = $scope.getAbsolutePath()
   }
 
   $scope.getFile = function (file) {
-    var path = '/' + $scope.paths.join('/') + '/' + file
+    var path = $scope.getAbsolutePath() + '/' + file
     $scope.control.fsretrieve(path)
       .then(function (result) {
-        location.href = result.body.href + "?download"
+        if (result.body) {
+          location.href = result.body.href + "?download"
+        }
       })
       .catch(function (err) {
         alert(err.message)

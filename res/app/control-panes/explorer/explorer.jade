@@ -1,22 +1,19 @@
-//.stf-fs(ng-controller='ExplorerCtrl')
 .widget-container.fluid-height(ng-controller='ExplorerCtrl').stf-explorer
   .heading
-    //.row: .col-md-6
 
-    span /{{paths.join("/")}}
-    button.btn.btn-xm.btn-primary-outline(ng-click='dirJump()')
-      span(translate) Back
-
-    form.input-group.form-inline(ng-submit='dirEnter(search)')
-      input(type='text', ng-model='search', placeholder="Dir or file ...").form-control
+    form.input-group.form-inline(name='explorerForm', ng-submit='dirEnterLocation()')
       span.input-group-btn
-        button.btn.btn-default.btn-primary-outline(type='submit')
-          i.fa.fa-search
-          span(translate) Go
+        button.btn.btn-primary-outline(ng-click='dirUp()')
+          i.fa.fa-level-up
+      input(type='text', ng-model='explorer.search',
+      ng-enter='dirEnterLocation()'
+      autocorrect='off', autocapitalize='off', spellcheck='false').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(type='submit')
+          i.fa.fa-play
 
   .widget-content.padded.selectable
-
-    table.table.table-hover.dataTable.ng-table
+    table.table.table-hover.table-condensed.dataTable.ng-table
       thead
         tr
           th
@@ -28,7 +25,7 @@
           th
             div(translate) Permissions
       tbody
-        tr.header(ng-repeat='f in files | filter:search | orderBy: ["-mode|fileIsDir", "+name"]')
+        tr.header(ng-repeat='f in explorer.files | filter:search | orderBy: ["-mode|fileIsDir", "+name"]')
           td
             button.btn.btn-sm.btn-primary-outline(
             ng-click='dirEnter(f.name)', ng-show='f.mode|fileIsDir')

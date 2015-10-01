@@ -1,4 +1,4 @@
-.stf-fs(ng-controller='FsCtrl')
+.stf-fs(ng-controller='ExplorerCtrl')
   .row: .col-md-6
 
     span /{{paths.join("/")}}
@@ -6,11 +6,11 @@
       span(translate) Back
 
     form.input-group.form-inline(ng-submit='dirEnter(search)')
-      input(type=text, ng-model='search', placeholder="dir or file ...").form-control
+      input(type=text, ng-model='search', placeholder="Dir or file ...").form-control
       span.input-group-btn
         button.btn.btn-default.btn-primary-outline(type='submit')
           i.fa.fa-search
-          span(translate) Enter
+          span(translate) Go
 
     table.table
       tr(ng-repeat='f in files | filter:search | orderBy: "-mode|isdir"')

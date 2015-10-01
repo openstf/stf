@@ -23,9 +23,9 @@ module.exports =
         filters: ['native', 'web']
       },
       {
-        title: gettext('FileSystem'),
+        title: gettext('Explorer'),
         icon: 'fa-info color-orange',
-        templateUrl: 'control-panes/filesystem/fs.jade',
+        templateUrl: 'control-panes/explorer/explorer.jade',
         filters: ['native', 'web']
       },
       {

@@ -6,7 +6,7 @@ describe('FsCtrl', function () {
 
   beforeEach(inject(function ($rootScope, $controller) {
     scope = $rootScope.$new();
-    ctrl = $controller('FsCtrl', {$scope: scope});
+    ctrl = $controller('ExplorerCtrl', {$scope: scope});
   }));
 
   it('should ...', inject(function () {

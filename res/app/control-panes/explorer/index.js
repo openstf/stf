@@ -1,9 +1,9 @@
-require('./fs.less')
+require('./explorer.css')
 
-module.exports = angular.module('stf.filesystem', [])
+module.exports = angular.module('stf.explorer', [])
   .run(["$templateCache", function ($templateCache) {
-    $templateCache.put('control-panes/filesystem/fs.jade',
-      require('./fs.jade')
+    $templateCache.put('control-panes/explorer/explorer.jade',
+      require('./explorer.jade')
     )
   }])
   .filter('mode2unix', function(){
@@ -34,4 +34,4 @@ module.exports = angular.module('stf.filesystem', [])
   		}
   	}
   })
-  .controller('FsCtrl', require('./fs-controller'))
+  .controller('ExplorerCtrl', require('./explorer-controller'))

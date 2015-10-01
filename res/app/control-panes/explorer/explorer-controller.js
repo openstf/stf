@@ -1,4 +1,4 @@
-module.exports = function FsCtrl($scope) {
+module.exports = function ExplorerCtrl($scope) {
   $scope.search = ''
   $scope.files = [];
   $scope.paths = [];

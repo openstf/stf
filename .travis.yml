@@ -1,5 +1,8 @@
 language: node_js
 sudo: false
+os:
+  - linux
+  - osx
 node_js:
   - "4.1"
   - "0.12"
@@ -11,7 +14,11 @@ addons:
     - libprotobuf-dev
     - graphicsmagick
     - rethinkdb
+    - g++-4.8
     - yasm
+before_install:
+    - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-5.2; fi
+    - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install yasm; fi
 script:
   - gulp build
 before_script:

@@ -30,7 +30,7 @@ before_install:
   - node --version
   - npm --version
   - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-4.9; fi
-  - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install yasm; fi
+  - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install rethinkdb graphicsmagick zeromq protobuf yasm pkg-config; fi
 
 install:
   - npm install

@@ -14,7 +14,7 @@ addons:
     - libprotobuf-dev
     - graphicsmagick
     - rethinkdb
-    - g++-4.8
+    - g++-5.2
     - yasm
 before_install:
     - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-5.2; fi

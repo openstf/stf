@@ -1,12 +1,11 @@
-language: node_js
-sudo: false
+language: cpp
+
 os:
   - linux
   - osx
-node_js:
-  - "4.1"
-  - "0.12"
-  - "0.10"
+
+sudo: false
+
 addons:
   apt:
     sources:
@@ -18,17 +17,32 @@ addons:
       - rethinkdb
       - g++-4.9
       - yasm
+
+env:
+  matrix:
+    - NODE_VERSION=0.12
+    - NODE_VERSION=4
+
 before_install:
+  - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
+  - source ~/.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - node --version
+  - npm --version
   - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-4.9; fi
   - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install yasm; fi
+
+install:
+  - npm install
+  - export PATH=$PWD/node_modules/.bin:$PATH
+
 script:
   - gulp build
-before_script:
-  - npm install -g bower
-  - bower install
+
 cache:
   directories:
     - node_modules
     - res/bower_components
+
 notifications:
   slack: openstf:qu01BtEgttJOrGGsRxKBJwki

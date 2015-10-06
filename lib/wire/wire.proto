@@ -74,7 +74,7 @@ enum MessageType {
   ReverseForwardsEvent       = 72;
   FileSystemListMessage      = 81;
   FileSystemGetMessage       = 82;
-  DeviceScheduleBooking      = 91;
+  DeviceScheduleUpdated      = 91;
 }
 
 message FileSystemListMessage {
@@ -542,9 +542,6 @@ message RotationEvent {
   required int32 rotation = 2;
 }
 
-message DeviceScheduleBooking {
+message DeviceScheduleUpdated {
   required string serial = 1;
-  required string email = 2;
-  required sint64 start = 3;
-  required sint64 end = 4;
 }

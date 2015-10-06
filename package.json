@@ -82,7 +82,10 @@
     "zmq": "^2.13.0"
   },
   "devDependencies": {
+    "angular": "^1.4.7",
+    "angular-bootstrap-calendar": "^0.15.3",
     "async": "^1.4.2",
+    "bootstrap": "^3.3.5",
     "bower": "^1.5.2",
     "chai": "^3.2.0",
     "css-loader": "^0.14.0",
@@ -121,6 +124,7 @@
     "karma-webpack": "^1.6.0",
     "less": "^2.4.0",
     "less-loader": "^2.1.0",
+    "moment": "^2.10.6",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.3.3",
     "phantomjs": "^1.9.18",

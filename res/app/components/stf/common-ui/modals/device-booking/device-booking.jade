@@ -1,0 +1,26 @@
+.stf-modal
+  .modal-header.dialog-header-info
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title.text-danger
+      i.fa &#9997;
+      .button-spacer
+      span(translate) Book Device
+      
+  .modal-body
+
+    .row
+      .col-xs-6
+        mwl-calendar(view='"day"', current-day='targetDate', events='events', view-title='"this is title"', auto-open="true" delete-event-html="'<span>remove</span>'"
+            on-timespan-click='addRecord(calendarDate)' on-event-times-changed='eventEdited(calendarEvent, calendarNewEventStart, calendarNewEventEnd)'
+            on-event-click="selected = calendarEvent").device-schedule
+      .col-xs-6
+        form(ng-show='selected != null')
+          .form-group
+            span email
+            span {{ selected.schedule.email }}
+          .form-group
+            span start
+            span {{ selected.schedule.start }}
+          .form-group
+            span end
+            span {{ selected.schedule.end }}

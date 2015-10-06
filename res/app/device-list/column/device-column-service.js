@@ -18,7 +18,7 @@ var filterOps = {
   }
 }
 
-module.exports = function DeviceColumnService($filter, gettext) {
+module.exports = function DeviceColumnService($filter, gettext, DeviceBookingService) {
   // Definitions for all possible values.
   return {
     state: DeviceStatusCell({
@@ -268,6 +268,16 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.owner ? device.enhancedUserProfileUrl : ''
       }
     })
+  , book: ButtonCell({
+      title: gettext('Book')
+    , escape: false
+    , value: function(device) {
+        return '&#9997;'
+      }
+    , click: function(device) {
+        DeviceBookingService.open(device)
+      }
+    })
   }
 }
 
@@ -393,6 +403,7 @@ function LinkCell(options) {
   return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
+  , escape: true
   , build: function () {
       var td = document.createElement('td')
         , a = document.createElement('a')
@@ -422,6 +433,42 @@ function LinkCell(options) {
     }
   })
 }
+
+function ButtonCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , escape: true
+  , build: function () {
+      var td = document.createElement('td')
+        , b = document.createElement('button')
+      b.appendChild(document.createTextNode(''))
+      td.appendChild(b)
+      return td
+    }
+  , update: function(td, item) {
+      var b = td.firstChild
+        , t = b.firstChild
+      b.onclick = function (e) {
+        options.click(item)
+      }
+      var text = options.value(item)
+      if (options.escape) {
+        t.nodeValue = text
+      } else {
+        b.innerHTML = text
+      }
+      return td
+    }
+  , compare: function(a, b) {
+      return compareIgnoreCase(options.value(a), options.value(b))
+    }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
+    }
+  })
+}
+
 
 function DeviceBrowserCell(options) {
   return _.defaults(options, {
@@ -470,6 +517,7 @@ function DeviceBrowserCell(options) {
     }
   })
 }
+
 
 function DeviceModelCell(options) {
   return _.defaults(options, {

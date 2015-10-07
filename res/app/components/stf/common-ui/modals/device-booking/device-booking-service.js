@@ -2,10 +2,13 @@ require('./device-booking.less')
 var _ = require('lodash')
 
 module.exports =
-  function DeviceBookingServiceFactory($modal, $location, $window, DeviceScheduleService, UserService) {
+  function DeviceBookingServiceFactory($modal, $location, $window, $filter, gettext, DeviceScheduleService, UserService) {
     var service = {}
     var curUser = UserService.currentUser
-
+    var translate = $filter('translate')
+    var MY_BOOK = translate(gettext('Reserved'))
+    var OTHERS = translate(gettext('Other'))
+    var ONEHOURE = 60 * 60 * 1000
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, device) {
       $scope.device = device
@@ -13,11 +16,14 @@ module.exports =
       $scope.targetDate = new Date()
       $scope.newrecord = null
       $scope.selected = null
+      $scope.datepicker = {
+        minDate: new Date()
+        , opened: false
+      }
       
       // modal controll
       $scope.ok = function () {
         $modalInstance.close(true)
-        // todo: something
       }
 
       $scope.cancel = function () {
@@ -25,6 +31,7 @@ module.exports =
       }
 
       // schedule booking
+
       $scope.eventEdited = function (event, newStart, newEnd) {
         var newEvent = {
           id: event.schedule.id
@@ -44,11 +51,15 @@ module.exports =
         }
       }
 
-      $scope.eventDeleted = function (event) {
-        alert('deleted event: ' + event.title)
+      $scope.deleteEvent = function () {
+        var target = $scope.selected
+        $scope.selected = null
+        _.remove($scope.events, function(event) {
+          return event.schedule.id === target.schedule.id
+        })
         DeviceScheduleService.remove({
-          id: event.schedule.id
-        , serial: event.schedule.serial
+          id: target.schedule.id
+        , serial: target.schedule.serial
         })
       }
 
@@ -76,7 +87,24 @@ module.exports =
           DeviceScheduleService.add(newSchedule)
         }
       }
+      
+      $scope.eventClick = function (clickedEvent) {
+        if (clickedEvent) {
+          console.log('event clicked. id; ' + clickedEvent.schedule.id)
+          $scope.selected = clickedEvent
+        }
+      }
 
+      // date control
+      $scope.$watch('targetDate', function(oldValue, newValue) {
+        $scope.selected = null
+        loadEvents()
+      })
+      $scope.openDatepicker = function(e) {
+        $scope.datepicker.opened = true
+      }
+
+      // utility
       function loadEvents() {
         DeviceScheduleService.load(device.serial, $scope.targetDate)
           .then(function(schedules) {
@@ -85,27 +113,31 @@ module.exports =
               var own = curUser.email == schedule.email;
               $scope.events.push({
                 schedule: schedule,
-                title: schedule.email,
+                title: (own? MY_BOOK : OTHERS) + '&nbsp;&#128270;',
                 type: own? 'success': 'warning', 
                 startsAt: new Date(schedule.start),
                 endsAt: new Date(schedule.end),
                 deletable: own,
                 draggable: own,
                 resizable: own,
-                cssClass: 'a-css-class-name'
+                cssClass: 'a-css-class-name',
+                own: own
               })
             })
           })
       }
       
       function validate(newSchedule) {
+        var diff = newSchedule.start.getTime() - Date.now()
+        if (diff < ONEHOURE) {
+          return false
+        }
         var result = true
         _.forEach($scope.events, function(event) {
           var schedule = event.schedule
           if (newSchedule.id !== schedule.id &&
               newSchedule.start.getTime() < new Date(schedule.end).getTime() &&
               new Date(schedule.start).getTime() < newSchedule.end.getTime()) {
-            console.log('overlapped')
             result = false
             return false
           }

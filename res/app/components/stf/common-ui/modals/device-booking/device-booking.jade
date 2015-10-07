@@ -1,26 +1,39 @@
-.stf-modal
+.stf-modal.device-schedule
   .modal-header.dialog-header-info
     button(type='button', ng-click='cancel()').close &times;
     h4.modal-title.text-danger
       i.fa &#9997;
       .button-spacer
       span(translate) Book Device
-      
   .modal-body
-
     .row
-      .col-xs-6
-        mwl-calendar(view='"day"', current-day='targetDate', events='events', view-title='"this is title"', auto-open="true" delete-event-html="'<span>remove</span>'"
-            on-timespan-click='addRecord(calendarDate)' on-event-times-changed='eventEdited(calendarEvent, calendarNewEventStart, calendarNewEventEnd)'
-            on-event-click="selected = calendarEvent").device-schedule
-      .col-xs-6
-        form(ng-show='selected != null')
-          .form-group
-            span email
+      .col-md-6
+        .row
+          .events-area
+            mwl-calendar(view='"day"', current-day='targetDate', events='events', auto-open="true", on-timespan-click='addRecord(calendarDate)', on-event-times-changed='eventEdited(calendarEvent, calendarNewEventStart, calendarNewEventEnd)', on-event-click="eventClick(calendarEvent)").device-schedule
+      .col-md-6
+        .schedule-targetdate.center-block
+          datepicker(ng-model='targetDate', min-date='datepicker.minDate').well.well-sm
+        .widget-container(ng-show='selected != null')
+          .heading
+            stacked-icon(icon='fa-location-arrow', color='color-pink')
             span {{ selected.schedule.email }}
-          .form-group
-            span start
-            span {{ selected.schedule.start }}
-          .form-group
-            span end
-            span {{ selected.schedule.end }}
+            .pull-right(ng-show='selected.own')
+              button(ng-click='deleteEvent(selected)').btn.btn-xs.btn-primary-outline
+                i.fa.fa-remove
+                span(translate) Cancel
+          .widget-content.padded-small
+            .form-horizontal
+              .form-group
+                label(translate).col-sm-2.control-label Email
+                .col-sm-10
+                  span.form-control-static {{ selected.schedule.email }}
+              .form-group
+                label(translate).col-sm-2.control-label Start
+                .col-sm-10
+                  span.form-control-static {{ selected.schedule.start | date : 'HH:mm'}}
+              .form-group
+                label(translate).col-sm-2.control-label End
+                .col-sm-10
+                  span.form-control-static {{ selected.schedule.end | date : 'HH:mm'}}
+

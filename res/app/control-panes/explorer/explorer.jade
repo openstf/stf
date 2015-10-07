@@ -1,0 +1,47 @@
+.widget-container.fluid-height(ng-controller='ExplorerCtrl').stf-explorer
+  .heading
+
+    form.input-group.form-inline(name='explorerForm', ng-submit='dirEnterLocation()')
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='dirUp()')
+          i.fa.fa-level-up
+      input(type='text', ng-model='explorer.search',
+      ng-enter='dirEnterLocation()'
+      autocorrect='off', autocapitalize='off', spellcheck='false').form-control
+      span.input-group-btn
+        button.btn.btn-primary-outline(type='submit')
+          i.fa.fa-play
+
+  .widget-content.padded.selectable
+    table.table.table-hover.table-condensed.dataTable.ng-table
+      thead
+        tr
+          th
+            div(translate) Name
+          th
+            div(translate) Size
+          th
+            div(translate) Date
+          th
+            div(translate) Permissions
+      tbody
+        tr.header(ng-repeat='f in explorer.files | filter:search | orderBy: ["-mode|fileIsDir", "+name"]')
+          td
+            button.btn.btn-sm.btn-primary-outline(
+            ng-click='dirEnter(f.name)', ng-show='f.mode|fileIsDir')
+              span
+                i.fa.fa-folder-open
+              span {{f.name}}
+
+            button.btn.btn-sm.btn-primary-outline(
+            ng-click='getFile(f.name)', ng-hide='f.mode|fileIsDir')
+              span
+                i.fa.fa-file-o
+              span {{f.name}}
+          td
+            span(ng-show='f.mode|fileIsDir') -
+            span(ng-hide='f.mode|fileIsDir') {{f.size|formatFileSize}}
+          td
+            span {{f.mtime|formatFileDate}}
+          td
+            i {{f.mode|formatPermissionMode}}

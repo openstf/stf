@@ -1,5 +1,5 @@
 
-module.exports = function DeviceScheduleServiceFactory($q, $http, $rootScope, socket, UserService) {
+module.exports = function DeviceScheduleServiceFactory($q, $http, $rootScope, socket) {
   var deviceScheduleService = {}
 
 

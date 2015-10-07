@@ -2,7 +2,8 @@ require('./device-booking.less')
 var _ = require('lodash')
 
 module.exports =
-  function DeviceBookingServiceFactory($modal, $location, $window, $filter, gettext, DeviceScheduleService, UserService) {
+  function DeviceBookingServiceFactory($modal, $location, $window, $filter,
+                                       gettext, DeviceScheduleService, UserService) {
     var service = {}
     var curUser = UserService.currentUser
     var translate = $filter('translate')
@@ -33,6 +34,8 @@ module.exports =
       // schedule booking
 
       $scope.eventEdited = function (event, newStart, newEnd) {
+        $scope.selected = null
+
         var newEvent = {
           id: event.schedule.id
         , serial: event.schedule.serial
@@ -96,13 +99,10 @@ module.exports =
       }
 
       // date control
-      $scope.$watch('targetDate', function(oldValue, newValue) {
+      $scope.$watch('targetDate', function() {
         $scope.selected = null
         loadEvents()
       })
-      $scope.openDatepicker = function(e) {
-        $scope.datepicker.opened = true
-      }
 
       // utility
       function loadEvents() {

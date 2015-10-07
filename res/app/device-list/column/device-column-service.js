@@ -271,7 +271,7 @@ module.exports = function DeviceColumnService($filter, gettext, DeviceBookingSer
   , book: ButtonCell({
       title: gettext('Book')
     , escape: false
-    , value: function(device) {
+    , value: function() {
         return '&#9997;'
       }
     , click: function(device) {
@@ -449,7 +449,7 @@ function ButtonCell(options) {
   , update: function(td, item) {
       var b = td.firstChild
         , t = b.firstChild
-      b.onclick = function (e) {
+      b.onclick = function () {
         options.click(item)
       }
       var text = options.value(item)

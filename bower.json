@@ -25,12 +25,12 @@
     "angular-elastic": "~2.5.1",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
     "angular-borderlayout": "git://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
-    "angular-ui-bootstrap": "~0.13.4",
+    "angular-ui-bootstrap": "~0.14.0",
     "ng-context-menu": "~1.0.2",
     "components-font-awesome": "~4.4.0",
     "epoch": "~0.6.0",
     "ng-epoch": "~1.0.7",
-    "eventEmitter": "~4.2.11",
+    "eventEmitter": "~4.3.0",
     "angular-ladda": "~0.3.1",
     "d3": "~3.5.6",
     "spin.js": "~2.3.2"
@@ -42,8 +42,6 @@
   "resolutions": {
     "angular": "~1.5.0",
     "d3": "~3.5.5",
-    "spin.js": "~2.3.2",
-    "angular-bootstrap": "~0.13.4",
-    "angular-cookies": "~1.5.0"
+    "spin.js": "~2.3.2"
   }
 }

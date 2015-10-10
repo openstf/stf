@@ -9,7 +9,6 @@ var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
 var jade = require('gulp-jade')
 var del = require('del')
-var runSequence = require('run-sequence').use(gulp)
 //var protractor = require('gulp-protractor')
 var protractor = require('./res/test/e2e/helpers/gulp-protractor-adv')
 var protractorConfig = './res/test/protractor.conf'
@@ -58,9 +57,7 @@ gulp.task('standard', function () {
 gulp.task('lint', ['jshint', 'jsonlint'])
 gulp.task('test', ['lint', 'run:checkversion'])
 
-gulp.task('build', function (cb) {
-  runSequence('clean', 'webpack:build', cb)
-})
+gulp.task('build', ['clean', 'webpack:build'])
 
 gulp.task('run:checkversion', function () {
   gutil.log('Checking STF version...')
@@ -173,10 +170,12 @@ gulp.task("webpack:others", function (callback) {
   })
 })
 
-gulp.task('translate', function (cb) {
-  runSequence('translate:extract', 'translate:push', 'translate:pull',
-    'translate:compile', cb)
-})
+gulp.task('translate', [
+  'translate:extract'
+, 'translate:push'
+, 'translate:pull'
+, 'translate:compile'
+])
 
 gulp.task('jade', function (cb) {
   return gulp.src([

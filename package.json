@@ -128,7 +128,6 @@
     "protractor": "^2.5.1",
     "protractor-html-screenshot-reporter": "0.0.21",
     "raw-loader": "^0.5.1",
-    "run-sequence": "^1.1.2",
     "sass-loader": "^3.0.0",
     "script-loader": "^0.6.1",
     "sinon": "^1.16.1",

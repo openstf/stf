@@ -42,6 +42,8 @@
   "resolutions": {
     "angular": "~1.5.0",
     "d3": "~3.5.5",
-    "spin.js": "~2.3.2"
+    "spin.js": "~2.3.2",
+    "eventEmitter": "~4.3.0",
+    "angular-bootstrap": "~0.13.4"
   }
 }

@@ -1,4 +1,4 @@
-FROM openstf/base:v1.0.5
+FROM openstf/base:v1.0.6
 
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
@@ -24,7 +24,7 @@ USER stf-build
 RUN set -x && \
     cd /tmp/build && \
     export PATH=$PWD/node_modules/.bin:$PATH && \
-    npm install && \
+    npm install --log-level http && \
     npm pack && \
     tar xzf stf-*.tgz --strip-components 1 -C /app && \
     bower cache clean && \

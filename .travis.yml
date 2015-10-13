@@ -37,14 +37,15 @@ install:
   - export PATH=$PWD/node_modules/.bin:$PATH
 
 before_script:
-  - rethinkdb --daemon
+#  - rethinkdb --daemon
 
 script:
   - npm test
-  - ./bin/stf local
+#  - ./bin/stf local
+  - gulp build
 
 after_script:
-  - killall rethinkdb
+#  - killall rethinkdb
 
 cache:
   directories:

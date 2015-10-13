@@ -6,13 +6,13 @@
     div
       h6(translate) Special Keys
       div.special-keys-buttons
-        button(tooltip='{{ "Power" | translate }}', ng-click='press("power")').btn.btn-danger
+        button(tooltip='{{ "Power" | translate }}', ng-click='press("power")').btn.btn-danger.btn-xs
           i.fa.fa-power-off
-        button(tooltip='{{ "Camera" | translate }}', ng-click='press("camera")').btn.btn-primary
+        button(tooltip='{{ "Camera" | translate }}', ng-click='press("camera")').btn.btn-primary.btn-xs
           i.fa.fa-camera
-        button(tooltip='{{ "Switch Charset" | translate }}', ng-click='press("switch_charset")').btn.btn-primary.btn-info
+        button(tooltip='{{ "Switch Charset" | translate }}', ng-click='press("switch_charset")').btn.btn-primary.btn-info.btn-xs
           i.fa  Aa
-        button(tooltip='{{ "Search" | translate }}', ng-click='press("search")').btn.btn-primary
+        button(tooltip='{{ "Search" | translate }}', ng-click='press("search")').btn.btn-primary.btn-xs
           i.fa.fa-search
 
         h6(translate) Volume
@@ -38,8 +38,8 @@
             i.fa.fa-step-forward
           button(tooltip='{{ "Fast Forward" | translate }}', ng-click='press("media_fast_forward")').btn.btn-primary.btn-xs
             i.fa.fa-fast-forward
-    h6 D-pad
-    table.special-keys-dpad-buttons
+    //h6 D-pad
+    //table.special-keys-dpad-buttons
       tr
         td
         td

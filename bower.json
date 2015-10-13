@@ -13,7 +13,6 @@
     "ng-table": "~1.0.0-beta.5",
     "angular-gettext": "~2.1.0",
     "angular-ui-ace": "~0.2.3",
-    "angular-bootstrap": "~0.13.4",
     "angular-dialog-service": "~5.2.6",
     "ng-file-upload": "~2.0.5",
     "angular-growl-v2": "JanStevens/angular-growl-2#~0.7.3",
@@ -44,6 +43,6 @@
     "d3": "~3.5.5",
     "spin.js": "~2.3.2",
     "eventEmitter": "~4.3.0",
-    "angular-bootstrap": "~0.14.1"
+    "angular-bootstrap": "~0.13.4"
   }
 }

@@ -119,7 +119,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-safari-launcher": "^0.1.1",
     "karma-webpack": "^1.6.0",
-    "less": "^2.4.0",
+    "less": "^2.5.3",
     "less-loader": "^2.1.0",
     "memory-fs": "^0.2.0",
     "node-libs-browser": "^0.5.2",

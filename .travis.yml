@@ -41,7 +41,7 @@ before_script:
 
 script:
   - npm test
-  - stf local
+  - ./bin/stf local
 
 after_script:
   - killall rethinkdb

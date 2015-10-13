@@ -65,7 +65,7 @@
     "proxy-addr": "^1.0.7",
     "request": "^2.61.0",
     "request-progress": "^0.3.1",
-    "rethinkdb": "^2.0.2",
+    "rethinkdb": "^2.1.1",
     "semver": "^5.0.1",
     "serve-favicon": "^2.2.0",
     "serve-static": "^1.9.2",

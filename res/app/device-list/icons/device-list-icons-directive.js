@@ -1,6 +1,6 @@
 var patchArray = require('./../util/patch-array')
 
-module.exports = function DeviceListDetailsDirective(
+module.exports = function DeviceListIconsDirective(
   $filter
 , gettext
 , DeviceColumnService

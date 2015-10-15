@@ -109,7 +109,7 @@
     "jshint-loader": "^0.8.3",
     "jshint-stylish": "^2.0.0",
     "json-loader": "^0.5.1",
-    "karma": "^0.13.9",
+    "karma": "^0.13.11",
     "karma-chrome-launcher": "^0.2.0",
     "karma-firefox-launcher": "^0.1.4",
     "karma-ie-launcher": "^0.2.0",

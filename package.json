@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "async": "^1.4.2",
-    "bower": "^1.5.2",
+    "bower": "^1.6.2",
     "chai": "^3.2.0",
     "css-loader": "^0.19.0",
     "del": "^2.0.1",

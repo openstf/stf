@@ -23,6 +23,11 @@ env:
     - NODE_VERSION=0.12
     - NODE_VERSION=4
 
+matrix:
+  allow_failures:
+    - os: osx
+  fast_finish: true
+
 before_install:
   - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
   - source ~/.nvm/nvm.sh

@@ -14,4 +14,4 @@ config.capabilities = {
   browserName: 'Chrome'
 }
 
-exports.config = config
+module.exports.config = config

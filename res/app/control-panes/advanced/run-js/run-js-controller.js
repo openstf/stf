@@ -1,3 +1,3 @@
-module.exports = function RunJsCtrl($scope) {
-    
+module.exports = function RunJsCtrl() {
+
 }

@@ -96,10 +96,10 @@ if (gutil.env.multi) {
   protractorConfig = './res/test/protractor-appium.conf'
 }
 
-gulp.task('webdriver-update', protractor.webdriver_update)
-gulp.task('webdriver-standalone', protractor.webdriver_standalone)
+gulp.task('webdriver-update', protractor.webdriverUpdate)
+gulp.task('webdriver-standalone', protractor.webdriverStandalone)
 gulp.task('protractor-explorer', function (callback) {
-  protractor.protractor_explorer({
+  protractor.protractorExplorer({
     url: require(protractorConfig).config.baseUrl
   }, callback)
 })

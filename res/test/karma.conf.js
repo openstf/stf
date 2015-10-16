@@ -1,4 +1,3 @@
-var _ = require('lodash')
 var webpackConfig = require('./../../webpack.config')
 
 var webpack = require('webpack')

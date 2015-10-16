@@ -2,7 +2,7 @@ describe('ExternalUrlModalService', function() {
 
   beforeEach(angular.mock.module(require('./').name));
 
-  it('should ...', inject(function(ExternalUrlModalService) {
+  it('should ...', inject(function() {
 
 	//expect(FatalMessageService.doSomething()).toEqual('something');
 

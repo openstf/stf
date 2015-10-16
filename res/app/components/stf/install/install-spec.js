@@ -2,9 +2,9 @@ describe('install', function() {
 
   beforeEach(angular.mock.module(require('./').name))
 
-	it('should ...', inject(function($filter) {
+	it('should ...', inject(function() {
 
-    var filter = $filter('installError')
+    //var filter = $filter('installError')
 
 		//expect(filter('input')).toEqual('output')
 

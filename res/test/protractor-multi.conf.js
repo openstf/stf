@@ -1,7 +1,7 @@
 var config = require('./protractor.conf').config
-var LoginPage = require('./e2e/login')
-var HtmlReporter = require('protractor-html-screenshot-reporter')
-var WaitUrl = require('./e2e/helpers/wait-url')
+//var LoginPage = require('./e2e/login')
+//var HtmlReporter = require('protractor-html-screenshot-reporter')
+//var WaitUrl = require('./e2e/helpers/wait-url')
 
 config.chromeOnly = false
 config.capabilities = null
@@ -34,4 +34,4 @@ config.multiCapabilities = [
 //}
 
 
-exports.config = config
+module.exports.config = config

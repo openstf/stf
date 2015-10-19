@@ -2,6 +2,7 @@
 .DS_Store
 /*.tgz
 /.bowerrc
+/.dockerignore
 /.editorconfig
 /.env
 /.gitignore
@@ -9,11 +10,12 @@
 /.jscsrc
 /.npmignore
 /.npmrc
+/.travis.yml
+/docker
 /Dockerfile
 /bower.json
 /component.json
 /gulpfile.js
-/node_modules/
 /npm-debug.log
 /res/bower_components/
 /res/test/

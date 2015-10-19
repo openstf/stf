@@ -10,12 +10,6 @@ module.exports =
       },
       nextDevice: function () {
         console.log('next')
-        // console.log('$scope.groupTracker.devices', $scope.groupTracker.devices)
-        // console.log('$scope.groupTracker.devices', $scope.groupDevices)
-
-        // groupDevice in $scope.groupTracker.devices
-        // groupDevice.serial === device.serial
-        // $location.path('/control/' + device.serial)
       },
       deviceList: function () {
         $location.path('/devices/')

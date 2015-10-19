@@ -8,10 +8,8 @@
  */
 
 var es = require('event-stream')
-var fs = require('fs')
 var path = require('path')
-var child_process = require('child_process')
-var async = require('async')
+var childProcess = require('child_process')
 var PluginError = require('gulp-util').PluginError
 var winExt = /^win/.test(process.platform) ? ".cmd" : ""
 var http = require('http')
@@ -72,7 +70,7 @@ var protractor = function (options) {
     args.unshift(options.configFile)
 
     child =
-      child_process.spawn(path.resolve(getProtractorDir() + '/protractor' +
+      childProcess.spawn(path.resolve(getProtractorDir() + '/protractor' +
       winExt), args, {
         stdio: 'inherit',
         env: process.env
@@ -93,30 +91,30 @@ var protractor = function (options) {
   })
 }
 
-var webdriver_update = function (opts, cb) {
+var webdriverUpdate = function (opts, cb) {
   var callback = (cb ? cb : opts)
   var options = (cb ? opts : null)
   var args = ["update", "--standalone"]
   if (options) {
     if (options.browsers) {
-      options.browsers.forEach(function (element, index, array) {
+      options.browsers.forEach(function (element) {
         args.push("--" + element)
       })
     }
   }
-  child_process.spawn(path.resolve(getProtractorDir() + '/webdriver-manager' +
+  childProcess.spawn(path.resolve(getProtractorDir() + '/webdriver-manager' +
   winExt), args, {
     stdio: 'inherit'
   }).once('close', callback)
 }
 
-var webdriver_update_specific = function (opts) {
-  return webdriver_update.bind(this, opts)
+var webdriverUpdateSpecific = function (opts) {
+  return webdriverUpdate.bind(this, opts)
 }
 
-webdriver_update.bind(null, ["ie", "chrome"])
+webdriverUpdate.bind(null, ["ie", "chrome"])
 
-var webdriver_standalone = function (opts, cb) {
+var webdriverStandalone = function (opts, cb) {
   var callback = (cb ? cb : opts)
   var options = (cb ? opts : null)
   var stdio = 'inherit'
@@ -127,7 +125,7 @@ var webdriver_standalone = function (opts, cb) {
     }
   }
 
-  var child = child_process.spawn(path.resolve(getProtractorDir() +
+  var child = childProcess.spawn(path.resolve(getProtractorDir() +
   '/webdriver-manager' + winExt), ['start'], {
     stdio: stdio
   })
@@ -179,18 +177,18 @@ var isWebDriverRunning = function () {
   })
 }
 
-var ensureWebDriverRunning = function () {
-  return new Promise(function (resolve) {
-    isWebDriverRunning().then(function (running) {
-      if (running) {
-        resolve()
-      }
-    })
-  })
-}
+//var ensureWebDriverRunning = function () {
+//  return new Promise(function (resolve) {
+//    isWebDriverRunning().then(function (running) {
+//      if (running) {
+//        resolve()
+//      }
+//    })
+//  })
+//}
 
 
-var protractor_explorer = function (opts, cb) {
+var protractorExplorer = function (opts, cb) {
   var callback = (cb ? cb : opts)
   var options = (cb ? opts : null)
   var url = 'https://angularjs.org/'
@@ -209,7 +207,7 @@ var protractor_explorer = function (opts, cb) {
   }
 
   function runElementExplorer(callback) {
-    var child = child_process.spawn(path.resolve(getProtractorExplorerDir() +
+    var child = childProcess.spawn(path.resolve(getProtractorExplorerDir() +
     '/elementexplorer.js'), [url], {
       stdio: 'inherit'
     })
@@ -226,7 +224,7 @@ var protractor_explorer = function (opts, cb) {
       if (running) {
         runElementExplorer(callback)
       } else {
-        webdriver_standalone({stdio: ['pipe', 'pipe', process.stderr]},
+        webdriverStandalone({stdio: ['pipe', 'pipe', process.stderr]},
           function () {
 
           })
@@ -243,9 +241,9 @@ var protractor_explorer = function (opts, cb) {
 module.exports = {
   getProtractorDir: getProtractorDir,
   protractor: protractor,
-  webdriver_standalone: webdriver_standalone,
-  webdriver_update: webdriver_update,
-  webdriver_update_specific: webdriver_update_specific,
-  protractor_explorer: protractor_explorer,
+  webdriverStandalone: webdriverStandalone,
+  webdriverUpdate: webdriverUpdate,
+  webdriverUpdateSpecific: webdriverUpdateSpecific,
+  protractorExplorer: protractorExplorer,
   isWebDriverRunning: isWebDriverRunning
 }

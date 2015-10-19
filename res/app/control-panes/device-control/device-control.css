@@ -202,7 +202,6 @@ device-screen input {
 /* VNC buttons */
 .stf-vnc-bottom .btn-primary:hover {
   background: rgba(255, 255, 255, 1.0);
-  /*border-color: rgba(255, 255, 255, 1.0);*/
   border: none;
 }
 
@@ -210,12 +209,10 @@ device-screen input {
   border-radius: 0;
 }
 
-/*.stf-vnc-bottom .btn-primary:active,*/
 .stf-vnc-bottom .btn-primary:active {
   background: rgba(250, 250, 250, 0.75);
   border: none;
   color: #0d3fa4;
-  /*border-color: rgba(255, 255, 255, 0.7);*/
 }
 
 .stf-vnc-navbar-buttons {
@@ -229,8 +226,6 @@ device-screen input {
 }
 
 .stf-device-control .stf-vnc-device-name {
-  /*padding: 6px 2px 6px 15px;*/
-  /*float: left;*/
   font-size: 16px;
   line-height: 20px;
   text-overflow: ellipsis;
@@ -240,7 +235,6 @@ device-screen input {
 }
 
 .stf-device-control .device-name-container {
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 

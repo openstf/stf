@@ -36,7 +36,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
-        return device.name || ''
+        return device.name || device.model || device.serial
       }
     })
   , operator: TextCell({

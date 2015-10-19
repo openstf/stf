@@ -9,8 +9,6 @@ module.exports = function refreshPageDirective($window) {
       scope.reloadWindow = function () {
         $window.location.reload()
       }
-
-      // TODO: reload with $route.reload()
     }
   }
 }

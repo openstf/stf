@@ -36,9 +36,9 @@ describe('Control Page', function () {
   })
 
   describe('Remote Control', function () {
-    var RemoteCtrl = function () {
-      this.paneHandleHorizontal = element(by.css('.fa-pane-handle.horizontal'))
-    }
+    //var RemoteCtrl = function () {
+    //  this.paneHandleHorizontal = element(by.css('.fa-pane-handle.horizontal'))
+    //}
     it('should resize panel to the right', function () {
 
     })

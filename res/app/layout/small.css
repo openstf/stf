@@ -1,11 +1,3 @@
-/*.row {*/
-/*margin: 0 !important;*/
-/*}*/
-
-/* Fix Bootstrap */
-
-/* Make tabs smaller */
-
 .row {
     margin: 0 5px;
 }
@@ -23,7 +15,6 @@
     margin-top: 0;
 }
 
-/*@media (max-width: 1200px) {*/
 [class*="col-sm"],
 [class*="col-md"],
 [class*="col-lg"],
@@ -31,7 +22,6 @@
     margin-bottom: 10px;
 }
 
-/*}*/
 
 .row [class^="col-"] {
     padding: 0 5px;
@@ -39,10 +29,6 @@
 
 .btn .btn-xs span {
     font-size: 12px;
-}
-
-.btn .btn-sm span {
-    /*font-size: 12px;*/
 }
 
 .btn i+span,
@@ -65,29 +51,3 @@ a tab-heading i + span {
 table.table .btn {
     margin: 0;
 }
-
-/* Widget Container */
-/*.widget-container .heading-for-tabs {*/
-/*background: rgba(255, 255, 255, 0.94);*/
-/*height: 50px;*/
-/*padding: 15px 15px;*/
-/*color: #007aff;*/
-/*font-size: 15px;*/
-/*width: 100%;*/
-/*font-weight: 400;*/
-/*margin: 0;*/
-/*height: 44px;*/
-/*}*/
-
-/*.widget-container .heading-for-tabs [class^="fa"],*/
-/*.widget-container .heading-for-tabs [class*="fa"] {*/
-/*margin-right: 5px;*/
-/*}*/
-
-/*.widget-container .heading-for-tabs [class^="fa"].pull-right,*/
-/*.widget-container .heading-for-tabs [class*="fa"].pull-right {*/
-/*margin-right: 0;*/
-/*margin-left: 15px;*/
-/*opacity: 0.35;*/
-/*font-size: 1.1em;*/
-/*}*/

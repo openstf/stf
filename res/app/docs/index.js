@@ -18,6 +18,7 @@ module.exports = angular.module('stf.help.docs', [
       .when('/docs/:document*', {
         templateUrl: function (params) {
           var lang = languageProvider.$get().selectedLanguage
+          lang = 'en' // Only English for now
           var document = params.document.replace('.md', '')
           return '/static/wiki/[' + lang + ']-' + document
         }
@@ -25,6 +26,7 @@ module.exports = angular.module('stf.help.docs', [
       .when('/help', {
         templateUrl: function () {
           var lang = languageProvider.$get().selectedLanguage
+          lang = 'en' // Only English for now
           return '/static/wiki/[' + lang + ']-' + 'Help'
         }
       })

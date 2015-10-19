@@ -1,11 +1,6 @@
 module.exports = function SettingsCtrl($scope, gettext) {
 
   $scope.settingTabs = [
-    //{
-    //  title: gettext('Keys'),
-    //  icon: 'fa-key fa-fw',
-    //  templateUrl: 'settings/keys/keys.jade'
-    //},
     {
       title: gettext('General'),
       icon: 'fa-gears fa-fw',

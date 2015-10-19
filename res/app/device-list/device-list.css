@@ -3,15 +3,12 @@
 }
 
 .stf-device-list .filtering-buttons {
-  /*margin-top: -32px;*/
-
   position: absolute;
   top: 10px;
   right: 20px;
 }
 
 .stf-device-list .device-not-usable {
-  /*background: rgb(245, 245, 245);*/
   opacity: 0.8;
 }
 
@@ -26,7 +23,6 @@
 .stf-device-list .line {
   height: 1px;
   width: 100%;
-  /*padding: 10px 15px 12px 2px;*/
   border-bottom: 1px solid #e2e2e2;
   margin: 0;
 }
@@ -61,12 +57,10 @@ img.device-icon-smallest {
 .device-list-active-tabs.ng-enter {
   -webkit-transition: 250ms;
   transition: 250ms;
-  /*margin-top: -100%;*/
   opacity: 0;
 }
 
 .device-list-active-tabs.ng-enter-active {
-  /*margin-top: 0;*/
   opacity: 1;
 }
 
@@ -77,17 +71,3 @@ img.device-icon-smallest {
 .stf-device-list .device-product-name-using {
   border-bottom: 1px solid; /* leaving out the color inherits text color */
 }
-
-
-.device-status .using {
-
-}
-
-/*using: 'state-using btn-primary',*/
-/*busy: 'state-busy btn-warning',*/
-/*available: 'state-available btn-primary-outline',*/
-/*ready: 'state-ready btn-primary-outline',*/
-/*present: 'state-present btn-primary-outline',*/
-/*preparing: 'state-preparing btn-primary-outline btn-success-outline',*/
-/*unauthorized: 'state-unauthorized btn-danger-outline',*/
-/*offline: 'state-offline btn-warning-outline'*/

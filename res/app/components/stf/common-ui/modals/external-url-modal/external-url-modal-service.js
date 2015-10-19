@@ -19,7 +19,6 @@ module.exports = function ServiceFactory($modal, $sce) {
     var modalInstance = $modal.open({
       template: require('./external-url-modal.jade'),
       controller: ModalInstanceCtrl,
-//      size: 'lg',
       windowClass: 'modal-size-80p',
       resolve: {
         title: function() {

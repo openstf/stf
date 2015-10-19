@@ -56,6 +56,12 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-triproxy-dev.service](#stf-triproxy-devservice)
 * [stf-websocket@.service](#stf-websocketservice)
 
+### Database role
+
+The database role requires the following units, UNLESS you already have a working RethinkDB server/cluster running somewhere. In that case you simply will not have this role, and should point your [rethinkdb-proxy-28015.service](#rethinkdb-proxy-28015service) to that server instead.
+
+* [rethinkdb.service](#rethinkdbservice)
+
 ### Proxy role
 
 The proxy role ties all HTTP-based units together behind a common reverse proxy. See [nginx configuration](#nginx-configuration) for more information.
@@ -91,13 +97,29 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 2 %p
 ```
 
-### `rethinkdb-proxy-28015.service`
+### `rethinkdb.service`
 
-You need a single instance of the `rethinkdb-proxy-28015.service` unit on each host where you have another unit that needs to access the database. Having a local proxy simplifies configuration for other units and allows the `AUTHKEY` to be specified only once.
+As mentioned before, you only need this unit if you do not have an existing RethinkDB cluster. This configuration is provided as an example, and will get you going, but is not very robust or secure.
+
+If you need to expand your RethinkDB cluster beyond one server you may encounter problems that you'll have to solve by yourself, we're not going to help with that. There are many ways to configure the unit, this is just one possibility! Note that if you end up not using `--net host`, you will then have to give `rethinkdb` the `--canonical-address` option with the server's real IP, and expose the necessary ports somehow.
+
+You will also have to:
+
+1. Modify the `--cache-size` as you please. It limits the amount of memory RethinkDB uses and is given in megabytes, but is not an absolute limit! Real usage can be slightly higher.
+2. Update the version number in `rethinkdb:2.1.1` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
+3. The `AUTHKEY` environment variable is only for convenience when linking. So, the first time you set things up, you will have to access http://DB_SERVER_IP:8080 after starting the unit and run the following command:
+
+```javascript
+r.db('rethinkdb').table('cluster_config').get('auth').update({auth_key: 'newkey'})
+```
+
+More information can be found [here](https://rethinkdb.com/docs/security/). You will then need to replace `YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY` in the the rest of the units with the real authentication key.
+
+Here's the unit configuration itself.
 
 ```ini
 [Unit]
-Description=RethinkDB proxy/28015
+Description=RethinkDB
 After=docker.service
 Requires=docker.service
 
@@ -105,7 +127,39 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull ctlc/ambassador:latest
+ExecStartPre=/usr/bin/docker pull rethinkdb:2.1.1
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStartPre=/usr/bin/mkdir -p /srv/rethinkdb
+ExecStartPre=/usr/bin/chattr -R +C /srv/rethinkdb
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  -v /srv/rethinkdb:/data \
+  -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
+  --net host \
+  rethinkdb:2.1.1 \
+  rethinkdb --bind all \
+    --cache-size 8192
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
+### `rethinkdb-proxy-28015.service`
+
+You need a single instance of the `rethinkdb-proxy-28015.service` unit on each host where you have another unit that needs to access the database. Having a local proxy simplifies configuration for other units and allows the `AUTHKEY` to be specified only once.
+
+Note that the `After` condition also specifies the [rethinkdb.service](#rethinkdbservice) unit just in case you're on a low budget and want to run the RethinkDB unit on the same server as the rest of the units, which by the way is NOT recommended at all.
+
+```ini
+[Unit]
+Description=RethinkDB proxy/28015
+After=docker.service rethinkdb.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/ambassador:latest
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
@@ -113,7 +167,7 @@ ExecStart=/usr/bin/docker run --rm \
   -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
   -p 28015 \
   -e RETHINKDB_PORT_28015_TCP=tcp://rethinkdb.stf.example.org:28015 \
-  ctlc/ambassador:latest
+  openstf/ambassador:latest
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
@@ -146,7 +200,7 @@ ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf app --port 3000 \
     --auth-url https://stf.example.org/auth/mock/ \
@@ -160,7 +214,7 @@ You may have to change the `--auth-url` depending on which authentication method
 
 You have multiple options here. STF currently provides authentication units for [OAuth 2.0](http://oauth.net/2/) and [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol), plus a mock implementation that simply asks for a name and an email address.
 
-Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables.
+Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables. Note that if your OAuth 2 provider uses a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
 
@@ -180,7 +234,7 @@ ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf auth-mock --port 3000 \
     --app-url https://stf.example.org/
@@ -259,6 +313,8 @@ This is a template unit, meaning that you'll need to start it with an instance i
 
 Note that you cannot have more than one provider unit running on the same host, as they would compete over which one gets to control the devices. In the future we might add a negotiation protocol to allow for relatively seamless upgrades.
 
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
 ```ini
 [Unit]
 Description=STF provider
@@ -293,7 +349,7 @@ ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
-The reaper unit receives heartbeat events from device workers, and marks lost devices as absent until a heartbeat is received again. The purpose of this unit is to ensure the integrity of the present/absent flag in the database, in case a provider shuts down unexpectedly or another unexpected failure occurs. It loads the current state from the database on startup and keeps keeps patching its internal view as events are routed to it.
+The reaper unit receives heartbeat events from device workers, and marks lost devices as absent until a heartbeat is received again. The purpose of this unit is to ensure the integrity of the present/absent flag in the database, in case a provider shuts down unexpectedly or another unexpected failure occurs. It loads the current state from the database on startup and keeps patching its internal view as events are routed to it.
 
 Note that it doesn't make sense to have more than one reaper running at once, as they would just duplicate the events.
 
@@ -327,6 +383,8 @@ The APK storage plugin loads raw blobs from the main storage unit and allows add
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-apk@3300.service` runs on port 3300). You can have multiple instances running on the same host by using different ports.
 
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
 ```ini
 [Unit]
 Description=STF APK storage plugin
@@ -342,7 +400,7 @@ ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-plugin-apk --port 3000 \
     --storage-url https://stf.example.org/
@@ -354,6 +412,8 @@ ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 The image storage plugin loads raw blobs from the main storage unit and and allows images to be resized using parameters.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-plugin-image@3400.service` runs on port 3400). You can have multiple instances running on the same host by using different ports.
+
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
 
 ```ini
 [Unit]
@@ -370,7 +430,7 @@ ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-plugin-image --port 3000 \
     --storage-url https://stf.example.org/
@@ -397,7 +457,7 @@ ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -v /mnt/storage:/data \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf storage-temp --port 3000 \
     --save-dir /data
@@ -476,6 +536,8 @@ The websocket unit provides the communication layer between client-side JavaScri
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-websocket@3600.service` runs on port 3600). You can have multiple instances running on the same host by using different ports.
 
+Furthermore, if you're using a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
 ```ini
 [Unit]
 Description=STF websocket
@@ -493,7 +555,7 @@ ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   --link rethinkdb-proxy-28015:rethinkdb \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -p 127.0.0.1:%i:3000 \
+  -p %i:3000 \
   openstf/stf:latest \
   stf websocket --port 3000 \
     --storage-url https://stf.example.org/ \
@@ -688,8 +750,8 @@ http {
       proxy_set_header X-Real-IP $remote_addr;
     }
 
-    location /auth/mock/ {
-      proxy_pass http://stf_auth/auth/mock/;
+    location /auth/ {
+      proxy_pass http://stf_auth/auth/;
     }
 
     location /s/image/ {

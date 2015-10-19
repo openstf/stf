@@ -1,45 +1,13 @@
 .stf-logs(ng-controller='LogsCtrl')
   .widget-container.fluid-height
-    //.heading
-      .form-inline
-        button(ng-click='toggle()', ng-class="{active: started}", title='Start/Stop Logging').btn.btn-sm.btn-primary-outline
-          i.fa.fa-list-alt
-            span  {{ started ? 'Stop Logging' : 'Start Logging' }}
-
-        clear-button(ng-click='clear()', ng-disabled='!hasLines')
-
-        label.checkbox.pull-right
-          input(type='checkbox', ng-model='autoScroll')
-          span  Auto Scroll
-
     .widget-content
-      //nothing-to-show(ng-show='!hasLines', message='No logs captured', icon='fa-list-alt')
-
-      //table.table.table-condensed(ng-show='filters.show')
-
-      //
-
       table.table.table-condensed.logcat-filters-table(ng-show='true')
-
-        //tr
-          th(width='4%')//Line
-          th(width='10%') Device
-          th(width='8%') Level
-          th(width='8%') Time
-          th(width='4%') PID
-          th(width='4%') TID
-          th(width='10%') App
-          th(width='16%') Tag
-          th(width='46%') Text
         tr
           td(width='1%')
             button(ng-model='started', btn-checkbox, title='{{"Start/Stop Logging"|translate}}').btn.btn-xs.btn-primary-outline
               i.fa.fa-list-alt
               span(ng-if='started') {{"Stop"|translate}}
               span(ng-if='!started') {{"Get"|translate}}
-          //td(width='10%')
-            select(ng-model='filters.deviceName', ng-options='d for d in filters.devicesList')
-              option(value='') {{"Device"|translate}}
           td(width='6%')
             select(ng-model='filters.priority', ng-options='l.name for l in filters.levelNumbers')
               option(value='', disabled, selected) {{"Level"|translate}}
@@ -49,8 +17,6 @@
             input(ng-model='filters.pid', type='text', placeholder='{{"PID"|translate}}').input-sm.form-control
           td(width='8%', ng-if='$root.platform == "native"')
             input(ng-model='filters.tid', type='text', placeholder='{{"TID"|translate}}').input-sm.form-control
-          //td(width='14%', ng-if='$root.platform == "native"')
-            input(ng-model='filters.app', type='text', placeholder='{{"App"|translate}}').input-sm.form-control
           td(width='14%', ng-if='$root.platform == "native"')
             input(ng-model='filters.tag', type='text', placeholder='{{"Tag"|translate}}').input-sm.form-control
           td(width='40%')
@@ -61,19 +27,3 @@
               span(translate)  Clear
 
       logcat-table(add-row='lastEntry')
-      //#logcatParent.force-gpu
-        table#logcatTable.console-message-text.tableX.table-condensedX.selectableX
-          //thead
-            tr
-              th(width='4%')
-              th(width='10%')
-              th(width='8%')
-              th(width='8%')
-              th(width='4%')
-              th(width='4%')
-              th(width='10%')
-              th(width='16%')
-              th(width='46%')
-          tbody#logcatBody
-            pre {{ logEntries | json }}
-            br

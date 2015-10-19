@@ -1,0 +1,28 @@
+.widget-container.fluid-height.stf-vnc(ng-controller='VNCCtrl')
+  .heading
+    stacked-icon(icon='fa-eye', color='color-darkgreen')
+    span(translate) VNC
+
+    button.btn.pull-right.btn-sm.btn-primary-outline(
+    ng-click='generateVNCLogin()', tooltip='{{"Generate Login for VNC"|translate}}')
+      i.fa.fa-plus.fa-fw
+
+  .widget-content.padded
+    form(name='vncloginform', ng-show='vnc.serverHost')
+      table.table.table-condensed
+        thead
+          tr
+            th(colspan='1')
+              span(translate) Server
+            th(colspan='1')
+              span(translate) Port
+            th(colspan='1')
+              span(translate) Password
+        tbody
+          tr
+            td(width='50%')
+              input.form-control.input-sm(type='text', ng-model='vnc.serverHost', readonly, text-focus-select).vnc-server-host
+            td(width='20%')
+              input.form-control.input-sm(type='text', ng-model='vnc.serverPort', readonly, text-focus-select).vnc-server-port
+            td(width='30%')
+              input.form-control.input-sm(type='text', ng-model='vnc.serverPassword', readonly, text-focus-select).vnc-server-password

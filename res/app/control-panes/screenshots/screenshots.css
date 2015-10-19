@@ -9,8 +9,6 @@
 .stf-screenshots .screenshot-image {
   -webkit-transition: 1000ms;
   transition: 1000ms;
-  /*-webkit-transition: width 2s; */
-  /*transition: width 2s;*/
 }
 
 .stf-screenshots .screenshot-image.ng-image-not-loaded {

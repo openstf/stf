@@ -943,6 +943,12 @@ fieldset[disabled] .btn {
   color: #a6a6a6;
 }
 
+.btn.disabled:hover,
+.btn[disabled]:hover,
+fieldset[disabled] .btn:hover {
+  background: transparent;
+}
+
 .checkbox, .radio {
   padding-left: 20px;
 }

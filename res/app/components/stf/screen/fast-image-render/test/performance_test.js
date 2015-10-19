@@ -7,6 +7,10 @@ var frame = {
   current: 0
 }
 
+function FastImageRender () {
+
+}
+
 var imageRender = new FastImageRender(
   canvasElement
 , {

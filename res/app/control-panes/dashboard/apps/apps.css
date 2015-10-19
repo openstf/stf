@@ -12,6 +12,10 @@
   margin-top: -8px;
 }
 
+.stf-apps .icon-app:hover .fa {
+  color: #fff;
+}
+
 .stf-apps .heading .icon-app .fa {
   font-size: 19px !important;
   line-height: 14px !important;

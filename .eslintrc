@@ -1,0 +1,14 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "comma-style": [2, "first"],
+    "no-extra-semi": 2,
+    "no-underscore-dangle": 0,
+    "quotes": [2, "single"],
+    "semi": [2, "never"],
+    "space-before-blocks": [2, "always"],
+    "strict": [0, "function"]
+  }
+}

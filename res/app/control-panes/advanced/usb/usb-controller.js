@@ -1,3 +1,3 @@
-module.exports = function UsbCtrl($scope) {
-    
+module.exports = function UsbCtrl() {
+
 }

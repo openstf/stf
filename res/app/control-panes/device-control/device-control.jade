@@ -11,7 +11,6 @@
               ng-model='currentRotation', btn-radio='"landscape"').pointer
               i.fa.fa-mobile.fa-rotate-90(tooltip='{{ "Landscape" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
           .button-spacer
-          // NOTE: ui-bootstrap bug: tooltip breaks btn-checkbox so don't put in the same button
           button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
@@ -23,7 +22,6 @@
                 img(ng-src='/static/app/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')
               span.device-name-text {{ device.enhancedName }}
               span.caret(ng-show='groupDevices.length > 0')
-            //span(ng-show='device && !device.present', translate) (Absent)
 
           ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
             li(ng-repeat='groupDevice in groupDevices')

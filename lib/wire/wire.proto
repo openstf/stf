@@ -17,6 +17,8 @@ enum MessageType {
   PhysicalIdentifyMessage    = 29;
   JoinGroupMessage           = 11;
   JoinGroupByAdbFingerprintMessage = 69;
+  JoinGroupByVncAuthResponseMessage = 90;
+  VncAuthResponsesUpdatedMessage = 91;
   AutoGroupMessage           = 70;
   AdbKeysUpdatedMessage      = 71;
   KeyDownMessage             = 12;
@@ -72,6 +74,16 @@ enum MessageType {
   AccountRemoveMessage       = 55;
   SdStatusMessage            = 61;
   ReverseForwardsEvent       = 72;
+  FileSystemListMessage      = 81;
+  FileSystemGetMessage       = 82;
+}
+
+message FileSystemListMessage {
+  required string dir = 1;
+}
+
+message FileSystemGetMessage {
+  required string file = 1;
 }
 
 message Envelope {
@@ -261,7 +273,16 @@ message JoinGroupByAdbFingerprintMessage {
   optional string currentGroup = 4;
 }
 
+message JoinGroupByVncAuthResponseMessage {
+  required string serial = 1;
+  required string response = 2;
+  optional string currentGroup = 4;
+}
+
 message AdbKeysUpdatedMessage {
+}
+
+message VncAuthResponsesUpdatedMessage {
 }
 
 message LeaveGroupMessage {

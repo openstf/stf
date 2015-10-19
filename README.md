@@ -17,7 +17,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 5.1 (SDK level 22), plus Android M Developer Preview
+    * Supports versions 2.3.3 (SDK level 10) to 5.1 (SDK level 22), plus Android M Developer Preview 3
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality
@@ -43,6 +43,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * Run any `adb` command locally, including shell access
     * [Android Studio](http://developer.android.com/tools/studio/index.html) and other IDE support, debug your app while watching the device screen on your browser
     * Supports [Chrome remote debug tools](https://developer.chrome.com/devtools/docs/remote-debugging)
+  - Experimental VNC support (work in progress)
 * Manage your device inventory
   - See which devices are connected, offline/unavailable (indicating a weak USB connection), unauthorized or unplugged
   - See who's using a device
@@ -65,14 +66,15 @@ As the product has evolved from an internal tool running in our internal network
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
 * [ZeroMQ](http://zeromq.org/) libraries installed
 * [Protocol Buffers](https://github.com/google/protobuf) libraries installed
+* [yasm](http://yasm.tortall.net/) installed (for compiling embedded [libjpeg-turbo](https://github.com/sorccu/node-jpeg-turbo))
 * [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config/) so that Node.js can find the libraries
 
-Note that you need these dependencies even if you've installed STF directly from [NPM](https://www.npmjs.com/), because they can't be included.
+Note that you need these dependencies even if you've installed STF directly from [NPM](https://www.npmjs.com/), because they can't be included in the package.
 
 On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependencies:
 
 ```bash
-brew install rethinkdb graphicsmagick zeromq protobuf pkg-config
+brew install rethinkdb graphicsmagick zeromq protobuf yasm pkg-config
 ```
 
 On Windows you're on your own. In theory you might be able to get STF installed via [Cygwin](https://www.cygwin.com/) or similar, but we've never tried. In principle we will not provide any Windows installation support, but please do send a documentation pull request if you figure out what to do.

@@ -1,6 +1,6 @@
 var patchArray = require('./../util/patch-array')
 
-module.exports = function DeviceListDetailsDirective(
+module.exports = function DeviceListIconsDirective(
   $filter
 , gettext
 , DeviceColumnService
@@ -132,12 +132,6 @@ module.exports = function DeviceListDetailsDirective(
 
       element.on('click', function (e) {
 
-        // TODO: find a way to find the correct parent
-        //if (e.shiftKey) {
-        //  console.log(e)
-        //  //StandaloneService.open()
-        //  e.preventDefault()
-        //}
         var id
 
         if (e.target.classList.contains('thumbnail')) {
@@ -146,6 +140,8 @@ module.exports = function DeviceListDetailsDirective(
           e.target.classList.contains('device-photo-small') ||
           e.target.classList.contains('device-name')) {
           id = e.target.parentNode.parentNode.id
+        } else if (e.target.parentNode.classList.contains('device-photo-small')) {
+          id = e.target.parentNode.parentNode.parentNode.id
         }
 
         if (id) {

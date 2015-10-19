@@ -157,9 +157,10 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('device.reboot')
     }
 
-    this.rotate = function(rotation) {
+    this.rotate = function(rotation, lock) {
       return sendOneWay('display.rotate', {
-        rotation: rotation
+        rotation: rotation,
+        lock: lock
       })
     }
 
@@ -222,6 +223,18 @@ module.exports = function ControlServiceFactory(
 
     this.screenshot = function() {
       return sendTwoWay('screen.capture')
+    }
+
+    this.fsretrieve = function(file){
+      return sendTwoWay('fs.retrieve', {
+        file: file,
+      })
+    }
+
+    this.fslist = function(dir){
+      return sendTwoWay('fs.list', {
+        dir: dir,
+      })
     }
 
     this.checkAccount = function(type, account) {

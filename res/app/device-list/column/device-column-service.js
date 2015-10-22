@@ -18,7 +18,7 @@ var filterOps = {
   }
 }
 
-module.exports = function DeviceColumnService($filter, gettext) {
+module.exports = function DeviceColumnService($filter, $compile, gettext) {
   // Definitions for all possible values.
   return {
     state: DeviceStatusCell({
@@ -252,8 +252,14 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.provider ? device.provider.name : ''
       }
     })
-  , notes: TextCell({
+  , notes: XEditableCell({
       title: gettext('Notes')
+    , compile: $compile
+    , scopeRequired: true
+    , attrs: {
+        model: 'device.notes'
+      , onbeforesave: 'updateNote(device.serial, $data)'
+    }
     , value: function(device) {
         return device.notes || ''
       }
@@ -610,6 +616,41 @@ function DeviceStatusCell(options) {
     })()
   , filter: function(device, filter) {
       return device.state === filter.query
+    }
+  })
+}
+
+function XEditableCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , build: function (scope) {
+      var td = document.createElement('td')
+        , a  = document.createElement('a')
+
+      // Ref: http://vitalets.github.io/angular-xeditable/#text-simple
+      a.setAttribute('href', '#')
+      a.setAttribute('editable-text', options.attrs.model)
+      a.setAttribute('onbeforesave', options.attrs.onbeforesave)
+
+      a.appendChild(document.createTextNode(options.attrs.model))
+      td.appendChild(a)
+
+      // compile with new scope
+      options.compile(td)(scope)
+      return td
+    }
+  , update: function(td, item) {
+      var a = td.firstChild
+        , t = a.firstChild
+      t.nodeValue = options.value(item) || 'click to add'
+      return td
+    }
+  , compare: function(a, b) {
+      return compareIgnoreCase(options.value(a), options.value(b))
+    }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
     }
   })
 }

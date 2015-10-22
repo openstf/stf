@@ -2,10 +2,12 @@ var patchArray = require('./../util/patch-array')
 
 module.exports = function DeviceListDetailsDirective(
   $filter
+, $compile
+, $rootScope
 , gettext
 , DeviceColumnService
 , GroupService
-, $rootScope
+, DeviceService
 , LightboxImageService
 , StandaloneService
 ) {
@@ -277,6 +279,20 @@ module.exports = function DeviceListDetailsDirective(
         }
       })()
 
+      // check if new column needs a new scope or not
+      // and build accordingly
+      function buildColumn(col, device) {
+        var td
+
+        if (col.scopeRequired) {
+          var childScope = scope.$new()
+          childScope.device = device
+          td = col.build(childScope)
+        } else {
+          td = col.build()
+        }
+        return td
+      }
       // Creates a completely new row for the device. Means that this is
       // the first time we see the device.
       function createRow(device) {
@@ -291,14 +307,20 @@ module.exports = function DeviceListDetailsDirective(
         }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          td = scope.columnDefinitions[activeColumns[i]].build()
-          scope.columnDefinitions[activeColumns[i]].update(td, device)
+          var col = scope.columnDefinitions[activeColumns[i]]
+
+          td = buildColumn(col, device)
+          col.update(td, device)
           tr.appendChild(td)
         }
 
         mapping[id] = device
 
         return tr
+      }
+
+      scope.updateNote = function(serial, note) {
+        DeviceService.updateNote(serial, note)
       }
 
       // Patches all rows.
@@ -317,7 +339,7 @@ module.exports = function DeviceListDetailsDirective(
           switch (op[0]) {
           case 'insert':
             var col = scope.columnDefinitions[op[2]]
-            tr.insertBefore(col.update(col.build(), device), tr.cells[op[1]])
+            tr.insertBefore(col.update(buildColumn(col, device), device), tr.cells[op[1]])
             break
           case 'remove':
             tr.deleteCell(op[1])

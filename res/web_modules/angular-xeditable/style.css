@@ -1,0 +1,17 @@
+a.editable-click {
+  text-decoration: none;
+  color: #167FFC;
+  border-bottom: none;
+}
+
+a.editable-click:hover {
+  color: #808080;
+}
+
+a.editable-empty {
+  color: transparent;
+}
+
+a.editable-empty:focus {
+  color: #808080;
+}

@@ -392,9 +392,11 @@ dl {
   }
 }
 
-.btn &.disabled,
-.btn &[disabled] {
-  font-weight: 300;
+.btn {
+  &.disabled,
+  &[disabled] {
+    font-weight: 300;
+  }
 }
 
 @mixin btn-base($primary, $secondary) {
@@ -1105,5 +1107,3 @@ input[type="range"] {
   }
 
 }
-
-

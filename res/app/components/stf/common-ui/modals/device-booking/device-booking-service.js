@@ -21,7 +21,7 @@ module.exports =
         minDate: new Date()
         , opened: false
       }
-      
+
       // modal controll
       $scope.ok = function () {
         $modalInstance.close(true)
@@ -44,7 +44,7 @@ module.exports =
         }
         if (validate(newEvent)) {
           DeviceScheduleService.update(newEvent)
-          
+
           event.startsAt = newStart
           event.endsAt = newEnd
           event.deletable = false
@@ -90,10 +90,9 @@ module.exports =
           DeviceScheduleService.add(newSchedule)
         }
       }
-      
+
       $scope.eventClick = function (clickedEvent) {
         if (clickedEvent) {
-          console.log('event clicked. id; ' + clickedEvent.schedule.id)
           $scope.selected = clickedEvent
         }
       }
@@ -114,7 +113,7 @@ module.exports =
               $scope.events.push({
                 schedule: schedule,
                 title: (own? MY_BOOK : OTHERS) + '&nbsp;&#128270;',
-                type: own? 'success': 'warning', 
+                type: own? 'success': 'warning',
                 startsAt: new Date(schedule.start),
                 endsAt: new Date(schedule.end),
                 deletable: own,
@@ -126,7 +125,7 @@ module.exports =
             })
           })
       }
-      
+
       function validate(newSchedule) {
         var diff = newSchedule.start.getTime() - Date.now()
         if (diff < ONEHOURE) {

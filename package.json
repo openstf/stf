@@ -83,7 +83,6 @@
   },
   "devDependencies": {
     "angular": "^1.4.7",
-    "angular-bootstrap-calendar": "^0.15.3",
     "async": "^1.4.2",
     "bootstrap": "^3.3.5",
     "bower": "^1.6.3",

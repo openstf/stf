@@ -1,4 +1,4 @@
-FROM openstf/base:v1.0.4
+FROM openstf/base:v1.0.6
 
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH

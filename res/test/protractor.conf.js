@@ -1,11 +1,11 @@
 // Reference: https://github.com/angular/protractor/blob/master/referenceConf.js
 var LoginPage = require('./e2e/login')
 var BrowserLogs = require('./e2e/helpers/browser-logs')
-var FailFast = require('./e2e/helpers/fail-fast')
+//var FailFast = require('./e2e/helpers/fail-fast')
 var HtmlReporter = require('protractor-html-screenshot-reporter')
 var WaitUrl = require('./e2e/helpers/wait-url')
 
-exports.config = {
+module.exports.config = {
   baseUrl: process.env.STF_URL || 'http://localhost:7100/#!/',
   suites: {
     control: 'e2e/control/**/*-spec.js',

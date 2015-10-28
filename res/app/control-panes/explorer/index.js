@@ -49,7 +49,7 @@ module.exports = angular.module('stf.explorer', [])
   })
   .filter('formatFileDate', function () {
     return function (inputString) {
-      input = new Date(inputString)
+      var input = new Date(inputString)
       return input instanceof Date ?
         input.toISOString().substring(0, 19).replace('T', ' ') :
         (input.toLocaleString || input.toString).apply(input)

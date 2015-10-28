@@ -23,6 +23,11 @@ env:
     - NODE_VERSION=0.12
     - NODE_VERSION=4
 
+matrix:
+  allow_failures:
+    - os: osx
+  fast_finish: true
+
 before_install:
   - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
   - source ~/.nvm/nvm.sh
@@ -36,8 +41,16 @@ install:
   - npm install
   - export PATH=$PWD/node_modules/.bin:$PATH
 
+before_script:
+#  - rethinkdb --daemon
+
 script:
+  - npm test
+#  - ./bin/stf local
   - gulp build
+
+after_script:
+#  - killall rethinkdb
 
 cache:
   directories:

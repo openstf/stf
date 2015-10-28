@@ -5,7 +5,7 @@ module.exports = function textHistoryDirective() {
   return {
     restrict: 'A',
     template: '',
-    link: function (scope, element, attrs) {
+    link: function () {
 
     }
   }

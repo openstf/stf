@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-09-11 15:08+0000\n"
+"PO-Revision-Date: 2015-10-02 05:23+0000\n"
 "Last-Translator: JINYOUNGYOO <miss0110@naver.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstf/stf/language/ko_KR/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -365,7 +365,7 @@ msgstr "도메인"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
-msgstr "업로드 파일 놓기"
+msgstr "업로드 할 파일을 올려놓으세요"
 
 #: app/components/stf/device/device-info-filter/index.js:90
 msgid "Dummy"
@@ -389,11 +389,11 @@ msgstr "오류"
 
 #: app/components/stf/control/control-service.js:129
 msgid "Error while getting data"
-msgstr ""
+msgstr "데이터를 얻어오는데 실패했습니다"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:35
 msgid "Error while reconnecting"
-msgstr ""
+msgstr "재연결이 실패 했습니다"
 
 #: app/components/stf/device/device-info-filter/index.js:91
 msgid "Ethernet"
@@ -401,7 +401,7 @@ msgstr "이더넷"
 
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Executes remote shell commands"
-msgstr ""
+msgstr "원격 쉘 명령을 실행합니다"
 
 #: app/components/stf/upload/upload-error-filter.js:5
 msgid "Failed to download file"
@@ -873,19 +873,19 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:24
 #: app/components/stf/device/device-info-filter/index.js:9
 msgid "Preparing"
-msgstr ""
+msgstr "준비중"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:104
 msgid "Press Back button"
-msgstr ""
+msgstr "뒤로가기 버튼을 누르세요"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:103
 msgid "Press Home button"
-msgstr ""
+msgstr "홈 버튼을 누르세요"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:102
 msgid "Press Menu button"
-msgstr ""
+msgstr "메뉴 버튼을 누르세요"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Previous"
@@ -1058,7 +1058,7 @@ msgstr "일련 번호"
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Server error. Check log output."
-msgstr ""
+msgstr "서버 에러. 로그를 확인하세요"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Set"
@@ -1066,7 +1066,7 @@ msgstr "Set"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Set Cookie"
-msgstr ""
+msgstr "쿠키 설정"
 
 #: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
 msgid "Settings"
@@ -1408,7 +1408,7 @@ msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:4
 msgid "Uploaded file is not valid"
-msgstr ""
+msgstr "업로드된 파일이 유효하지 않습니다"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uploading..."

@@ -54,6 +54,24 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
 
+## Status
+
+STF is in continued, active development, but as of late 2015 the team is operating mostly on their private time and funds. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. [Contact us][contact-link] if you'd like to support future development or even become our next sponsor.
+
+We're also actively working to expand the team.
+
+### Sponsors wanted
+
+Is your company (or you!) a heavy user of STF? Consider becoming a hardware sponsor. If you find a device that doesn't work, or would simply like to ensure support for a new model, [send it to us][contact-link]! While we can't guarantee a fix, we can promise that someone will take a detailed look into what's going on with your device, and fix it when possible. For difficult cases you may need to use our [consulting services](#consulting-services) instead.
+
+You can also sponsor a feature or bug fix and get it attributed to you or your company in the release notes.
+
+### Consulting services
+
+If you're running a business that uses STF or would like to use STF, you will sometimes want to have an expert, i.e. one of the original developers or a skilled contributor, work with you to set up a prototype for evaluation purposes, add support for new or old hardware, figure out an issue, fix a bug or add some new feature. Our services are similar to [FFmpeg's](https://ffmpeg.org/consulting.html). [Contact us][contact-link] with details and we'll see what we can do.
+
+Availability is limited and tied to individual developer's schedules.
+
 ## A quick note about security
 
 As the product has evolved from an internal tool running in our internal network, we have made certain assumptions about the trustworthiness of our users. As such, there is little to no security or encryption between the different processes. Furthermore, devices do not get completely reset between uses, potentially leaving accounts logged in or exposing other sensitive data. This is not an issue for us, as all of our devices are test devices and are only used with test accounts, but it may be an issue for you if you plan on deploying STF to a multiuser environment. We welcome contributions in this area.
@@ -377,3 +395,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 See [LICENSE](LICENSE).
 
 Copyright © CyberAgent, Inc. All Rights Reserved.
+
+[contact-link]: mailto:contact@openstf.io

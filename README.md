@@ -17,7 +17,8 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 5.1 (SDK level 22), plus Android M Developer Preview 3
+    * Supports versions 2.3.3 (SDK level 10) to 6.0 (SDK level 23)
+      - **Note: build from master for 6.0 support until 1.1.0 is out.**
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality
@@ -58,7 +59,17 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 STF is in continued, active development, but as of late 2015 the team is operating mostly on their private time and funds. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. [Contact us][contact-link] if you'd like to support future development or even become our next sponsor.
 
-We're also actively working to expand the team.
+We're also actively working to expand the team. Welcome **@vbanthia** as our newest full contributor!
+
+### Short term goals
+
+Here are some things we are planning to address ASAP.
+
+1. Properly expose the new VNC functionality in the UI
+2. Release 1.1.0 so that we have stable version with Android 6.0 support
+3. Implement a basic REST API for programmatically using devices
+4. Properly reset user data between uses (Android 4.0+)
+5. Automated scheduled restarts for devices
 
 ### Sponsors wanted
 

@@ -79,7 +79,7 @@ You can also sponsor a feature or bug fix and get it attributed to you or your c
 
 ### Consulting services
 
-If you're running a business that uses STF or would like to use STF, you will sometimes want to have an expert, i.e. one of the original developers or a skilled contributor, work with you to set up a prototype for evaluation purposes, add support for new or old hardware, figure out an issue, fix a bug or add some new feature. Our services are similar to [FFmpeg's](https://ffmpeg.org/consulting.html). [Contact us][contact-link] with details and we'll see what we can do.
+We highly encourage open participation in the community. However, if you're running a business that uses STF or would like to use STF, you may sometimes want to have an expert, i.e. one of the original developers or a skilled contributor, work with you to set up a prototype for evaluation purposes, add support for new or old hardware, figure out an issue, fix a bug or add some new feature. Our services are similar to [FFmpeg's](https://ffmpeg.org/consulting.html). [Contact us][contact-link] with details and we'll see what we can do.
 
 Availability is limited and tied to individual developer's schedules.
 

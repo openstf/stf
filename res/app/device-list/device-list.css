@@ -71,3 +71,15 @@ img.device-icon-smallest {
 .stf-device-list .device-product-name-using {
   border-bottom: 1px solid; /* leaving out the color inherits text color */
 }
+
+.stf-device-list .device-note {
+}
+
+.stf-device-list .device-note-edit {
+  margin-left: 15px;
+  visibility: hidden;
+}
+
+.stf-device-list .device-note:hover .device-note-edit {
+  visibility: visible;
+}

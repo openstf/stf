@@ -30,6 +30,7 @@ module.exports = function DeviceListDetailsDirective(
         , rows = tbody.rows
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
+        , childScopes = Object.create(null)
 
 
       function kickDevice(device, force) {
@@ -84,9 +85,72 @@ module.exports = function DeviceListDetailsDirective(
         }
       }
 
+      // On clicking device-note-edit icon
+      // This function will create a new angular-xeditable span
+      // inside xeditableWrapper and compile it with
+      // new child scope.
+      // Childscope will be destroyed when the editing will be over
+      function checkDeviceNote(e) {
+        if (e.target.classList.contains('device-note-edit')) {
+
+          var i = e.target
+            , id = i.parentNode.parentNode.id
+            , device = mapping[id]
+            , xeditableWrapper = i.parentNode.firstChild
+            , xeditableSpan = document.createElement('span')
+            , childScope = scope.$new()
+
+          // Ref: http://vitalets.github.io/angular-xeditable/#text-btn
+          xeditableSpan.setAttribute('editable-text', 'device.notes')
+          xeditableSpan.setAttribute('onbeforesave', 'updateNote(id, device.serial, $data)')
+          xeditableSpan.setAttribute('onCancel', 'onDeviceNoteCancel(id)')
+
+          childScope.id = id
+          childScope.device = device
+          childScopes[id] = childScope
+
+          $compile(xeditableSpan)(childScope)
+          xeditableWrapper.appendChild(xeditableSpan)
+
+          // Trigger click to open the form.
+          angular.element(xeditableSpan).triggerHandler('click')
+        }
+      }
+
+      function destroyXeditableNote(id) {
+        var tr = tbody.children[id]
+        for (var i = 0; i < tr.cells.length; i++) {
+          var col = tr.cells[i]
+
+          if (col.firstChild &&
+              col.firstChild.nodeName.toLowerCase() == 'span' &&
+              col.firstChild.classList.contains('xeditable-wrapper')) {
+
+            var xeditableWrapper = col.firstChild
+              , children = xeditableWrapper.children
+
+            // Remove all childs under xeditablerWrapper
+            for (var j = 0; j < children.length; j++) {
+              xeditableWrapper.removeChild(children[j])
+            }
+          }
+        }
+        childScopes[id].$destroy()
+      }
+
+      scope.updateNote = function(id, serial, note) {
+        DeviceService.updateNote(serial, note)
+        destroyXeditableNote(id)
+      }
+
+      scope.onDeviceNoteCancel = function(id) {
+        destroyXeditableNote(id)
+      }
+
       element.on('click', function (e) {
         checkDeviceStatus(e)
         checkDeviceSmallImage(e)
+        checkDeviceNote(e)
       })
 
       // Import column definitions
@@ -279,20 +343,6 @@ module.exports = function DeviceListDetailsDirective(
         }
       })()
 
-      // check if new column needs a new scope or not
-      // and build accordingly
-      function buildColumn(col, device) {
-        var td
-
-        if (col.scopeRequired) {
-          var childScope = scope.$new()
-          childScope.device = device
-          td = col.build(childScope)
-        } else {
-          td = col.build()
-        }
-        return td
-      }
       // Creates a completely new row for the device. Means that this is
       // the first time we see the device.
       function createRow(device) {
@@ -307,20 +357,14 @@ module.exports = function DeviceListDetailsDirective(
         }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          var col = scope.columnDefinitions[activeColumns[i]]
-
-          td = buildColumn(col, device)
-          col.update(td, device)
+          td = scope.columnDefinitions[activeColumns[i]].build()
+          scope.columnDefinitions[activeColumns[i]].update(td, device)
           tr.appendChild(td)
         }
 
         mapping[id] = device
 
         return tr
-      }
-
-      scope.updateNote = function(serial, note) {
-        DeviceService.updateNote(serial, note)
       }
 
       // Patches all rows.
@@ -339,7 +383,7 @@ module.exports = function DeviceListDetailsDirective(
           switch (op[0]) {
           case 'insert':
             var col = scope.columnDefinitions[op[2]]
-            tr.insertBefore(col.update(buildColumn(col, device), device), tr.cells[op[1]])
+            tr.insertBefore(col.update(col.build(), device), tr.cells[op[1]])
             break
           case 'remove':
             tr.deleteCell(op[1])

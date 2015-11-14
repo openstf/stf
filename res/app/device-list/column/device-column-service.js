@@ -619,9 +619,9 @@ function DeviceNoteCell(options) {
     title: options.title
   , defaultOrder: 'asc'
   , build: function () {
-    var td = document.createElement('td')
-      , span = document.createElement('span')
-      , i = document.createElement('i')
+      var td = document.createElement('td')
+        , span = document.createElement('span')
+        , i = document.createElement('i')
 
       td.className = 'device-note'
       span.className = 'xeditable-wrapper'

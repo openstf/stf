@@ -9,6 +9,10 @@
 }
 
 .stf-device-list .device-not-usable {
+  color: #bbb
+}
+
+.stf-device-list .device-not-usable img {
   opacity: 0.8;
 }
 

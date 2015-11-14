@@ -252,7 +252,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.provider ? device.provider.name : ''
       }
     })
-  , notes: TextCell({
+  , notes: DeviceNoteCell({
       title: gettext('Notes')
     , value: function(device) {
         return device.notes || ''
@@ -610,6 +610,42 @@ function DeviceStatusCell(options) {
     })()
   , filter: function(device, filter) {
       return device.state === filter.query
+    }
+  })
+}
+
+function DeviceNoteCell(options) {
+  return _.defaults(options, {
+    title: options.title
+  , defaultOrder: 'asc'
+  , build: function () {
+      var td = document.createElement('td')
+        , span = document.createElement('span')
+        , i = document.createElement('i')
+
+      td.className = 'device-note'
+      span.className = 'xeditable-wrapper'
+      span.appendChild(document.createTextNode(''))
+
+      i.className = 'device-note-edit fa fa-pencil pointer'
+
+      td.appendChild(span)
+      td.appendChild(i)
+
+      return td
+    }
+  , update: function(td, item) {
+      var span = td.firstChild
+        , t = span.firstChild
+
+      t.nodeValue = options.value(item)
+      return td
+    }
+  , compare: function(a, b) {
+      return compareIgnoreCase(options.value(a), options.value(b))
+    }
+  , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
     }
   })
 }

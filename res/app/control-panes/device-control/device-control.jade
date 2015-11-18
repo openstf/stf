@@ -25,7 +25,7 @@
 
           ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
             li(ng-repeat='groupDevice in groupDevices')
-              a.stf-device-control(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
+              a.device-name-menu-element(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
                 .pull-left
                   .device-small-image
                     img(ng-src='/static/app/devices/icon/x24/{{ groupDevice.image || "E30HT.jpg" }}')

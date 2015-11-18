@@ -183,7 +183,6 @@ device-screen input {
 
 .stf-device-control .kick-device {
   color: #9c9c9c;
-  margin-left: 25px;
 }
 
 .stf-device-control .kick-device:hover {
@@ -267,6 +266,10 @@ device-screen input {
 
 .stf-vnc-right-buttons .button-spacer {
   width: 12px;
+}
+
+.stf-device-control > .device-name-menu-element {
+  margin-left: 7px;
 }
 
 .no-transition {

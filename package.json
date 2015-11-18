@@ -62,7 +62,7 @@
     "node-uuid": "^1.4.3",
     "passport": "^0.3.0",
     "passport-oauth2": "^1.1.2",
-    "protobufjs": "^3.8.2",
+    "protobufjs": "^4.1.2",
     "proxy-addr": "^1.0.7",
     "request": "^2.65.0",
     "request-progress": "^0.3.1",

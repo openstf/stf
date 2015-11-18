@@ -126,7 +126,7 @@
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.3.3",
     "phantomjs": "^1.9.18",
-    "protractor": "^2.5.1",
+    "protractor": "^3.0.0",
     "protractor-html-screenshot-reporter": "0.0.21",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.0.0",

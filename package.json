@@ -86,7 +86,7 @@
     "async": "^1.4.2",
     "bower": "^1.6.3",
     "chai": "^3.2.0",
-    "css-loader": "^0.20.1",
+    "css-loader": "^0.22.0",
     "del": "^2.0.1",
     "event-stream": "^3.3.2",
     "exports-loader": "^0.6.2",

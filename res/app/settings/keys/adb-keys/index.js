@@ -1,6 +1,6 @@
 require('./adb-keys.css')
 
-module.exports = angular.module('stf.settings.adb-keys', [
+module.exports = angular.module('stf.settings.keys.adb-keys', [
   require('stf/common-ui').name,
   require('stf/keys/add-adb-key').name
 ])

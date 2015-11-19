@@ -1,52 +1,7 @@
-.stf-adb-keys .key-list-icon {
-
-}
-
-.stf-adb-keys .key-list a {
-  padding: 10px;
-  border-bottom: 1px solid #dddddd;
-}
-
-.stf-adb-keys .key-list-details {
-  display: inline-block;
-}
-
-.stf-adb-keys .key-list-title {
-  color: #007aff;
-  font-size: 14px;
-  font-weight: 300;
-  margin: 2px 0 6px;
-}
-
 .stf-adb-keys .key-list-fingerprint {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 10px;
   margin-bottom: 2px;
   color: #999999;
   font-weight: 300;
-}
-
-.stf-adb-keys .key-list-remove {
-  display: inline-block;
-}
-
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
-  -webkit-transition: all ease-out 150ms;
-  transition: all ease-out 150ms;
-}
-
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
-  opacity: 0;
-  max-height: 0;
-}
-
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
-  opacity: 1;
-  max-height: 100px;
 }

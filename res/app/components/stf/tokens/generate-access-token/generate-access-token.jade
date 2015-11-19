@@ -1,0 +1,20 @@
+.panel.panel-default.stf-generate-access-token(ng-show='showGenerate')
+  .panel-heading
+    h3.panel-title(translate) Generate Access Token
+  .panel-body
+
+    form.form-horizontal(name='generateAccessTokenForm', ng-submit='generateToken(title)')
+
+      .form-group
+        label.control-label
+          i.fa.fa-key.fa-fw
+          span(translate) Title
+
+        input(id='access-token-title', type='text', name='accessTokenTitle', ng-model='generateForm.title', ng-required='true',
+        text-focus-select).form-control
+
+      button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+        i.fa.fa-plus.fa-fw
+        span(translate) Generate New Token
+
+    error-message(message='{{error}}')

@@ -96,7 +96,7 @@
     "gulp-angular-gettext": "^2.1.0",
     "gulp-jade": "^1.0.0",
     "gulp-jscs": "^3.0.0",
-    "gulp-jshint": "^1.11.2",
+    "gulp-jshint": "^2.0.0",
     "gulp-jsonlint": "^1.0.2",
     "gulp-protractor": "^1.0.0",
     "gulp-run": "^1.6.10",

@@ -1,6 +1,6 @@
 # Deployment
 
-So you've got STF running via `stf local` and now you'd like to deploy it to real servers. While there are of course various ways to set everything up, this document will focus on a [systemd](http://www.freedesktop.org/wiki/Software/systemd/) + [Docker](https://www.docker.com/) deployment. Even if you've got a different setup, you should be able to use the configuration files as a rough guide.
+So you've got STF running via `stf local` and now you'd like to deploy it to real servers. While there are of course various ways to set everything up, this document will focus on a [systemd](http://www.freedesktop.org/wiki/Software/systemd/) + [Docker](https://www.docker.com/) deployment. Even if you've got a different setup, you should be able to use the configuration files as a rough guide. You can also check some [Setup Examples](https://github.com/openstf/setup-examples) which uses [Vagrant](https://www.vagrantup.com/) and [Virtual Box](https://www.virtualbox.org/) to create a virtual setup. But before going there, it is highly recommended that you read this document thoroughly.
 
 STF consists of multiple independent processes communicating via [ZeroMQ](http://zeromq.org/) and [Protocol Buffers](https://github.com/google/protobuf). We call each process a "unit" to match systemd terminology.
 

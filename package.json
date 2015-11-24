@@ -102,7 +102,7 @@
     "gulp-run": "^1.6.10",
     "gulp-standard": "^5.1.0",
     "gulp-util": "^3.0.4",
-    "html-loader": "^0.3.0",
+    "html-loader": "^0.4.0",
     "imports-loader": "^0.6.5",
     "jasmine-core": "^2.3.4",
     "jasmine-reporters": "^2.0.5",

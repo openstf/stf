@@ -7,7 +7,7 @@ describe('Device Page', function () {
     it('should go to Devices List page', function () {
       deviceListPage.get()
       browser.getLocationAbsUrl().then(function (newUrl) {
-        expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')
+        expect(newUrl).toBe(browser.baseUrl + 'devices')
       })
     })
 

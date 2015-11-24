@@ -4,7 +4,7 @@ describe('Control Page', function () {
 
   var ControlPage = function () {
     this.get = function () {
-      browser.get(protractor.getInstance().baseUrl + 'control')
+      browser.get(browser.baseUrl + 'control')
     }
     this.kickDeviceButton = element.all(by.css('.kick-device')).first()
     this.kickDevice = function () {
@@ -27,7 +27,7 @@ describe('Control Page', function () {
     browser.sleep(500)
 
     browser.getLocationAbsUrl().then(function (newUrl) {
-      expect(newUrl).toMatch(protractor.getInstance().baseUrl + 'control')
+      expect(newUrl).toMatch(browser.baseUrl + 'control')
     })
   })
 
@@ -138,7 +138,7 @@ describe('Control Page', function () {
     waitUrl(/devices/)
 
     browser.getLocationAbsUrl().then(function (newUrl) {
-      expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')
+      expect(newUrl).toBe(browser.baseUrl + 'devices')
     })
   })
 

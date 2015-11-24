@@ -9,7 +9,7 @@ describe('Login Page', function () {
   it('should login with method: "' + loginPage.login.method + '"', function () {
     loginPage.doLogin().then(function () {
       browser.getLocationAbsUrl().then(function (newUrl) {
-        expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')
+        expect(newUrl).toBe(browser.baseUrl + 'devices')
       })
     })
   })

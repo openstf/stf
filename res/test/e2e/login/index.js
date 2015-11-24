@@ -1,5 +1,5 @@
 module.exports = function LoginPage() {
-  this.login = protractor.getInstance().params.login
+  this.login = browser.params.login
 
   this.get = function () {
     return browser.get(this.login.url)

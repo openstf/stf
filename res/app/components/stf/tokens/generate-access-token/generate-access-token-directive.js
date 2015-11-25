@@ -4,16 +4,15 @@ module.exports = function generateAccessTokenDirective() {
     replace: true,
     scope: {
       showGenerate: '=',
-      showClipboard: '=',
     },
     template: require('./generate-access-token.jade'),
-    controller: function($scope, UserService) {
+    controller: function($scope, AccessTokenService) {
       $scope.generateForm = {
         title: ''
       }
 
       $scope.generateToken = function () {
-        UserService.generateAccessToken($scope.generateForm.title)
+        AccessTokenService.generateAccessToken($scope.generateForm.title)
         $scope.closeGenerateToken()
       }
 

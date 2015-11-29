@@ -2,10 +2,12 @@ var patchArray = require('./../util/patch-array')
 
 module.exports = function DeviceListDetailsDirective(
   $filter
+, $compile
+, $rootScope
 , gettext
 , DeviceColumnService
 , GroupService
-, $rootScope
+, DeviceService
 , LightboxImageService
 , StandaloneService
 ) {
@@ -28,6 +30,7 @@ module.exports = function DeviceListDetailsDirective(
         , rows = tbody.rows
         , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
         , mapping = Object.create(null)
+        , childScopes = Object.create(null)
 
 
       function kickDevice(device, force) {
@@ -82,9 +85,72 @@ module.exports = function DeviceListDetailsDirective(
         }
       }
 
+      // On clicking device-note-edit icon
+      // This function will create a new angular-xeditable span
+      // inside xeditableWrapper and compile it with
+      // new child scope.
+      // Childscope will be destroyed when the editing will be over
+      function checkDeviceNote(e) {
+        if (e.target.classList.contains('device-note-edit')) {
+
+          var i = e.target
+            , id = i.parentNode.parentNode.id
+            , device = mapping[id]
+            , xeditableWrapper = i.parentNode.firstChild
+            , xeditableSpan = document.createElement('span')
+            , childScope = scope.$new()
+
+          // Ref: http://vitalets.github.io/angular-xeditable/#text-btn
+          xeditableSpan.setAttribute('editable-text', 'device.notes')
+          xeditableSpan.setAttribute('onbeforesave', 'updateNote(id, device.serial, $data)')
+          xeditableSpan.setAttribute('onCancel', 'onDeviceNoteCancel(id)')
+
+          childScope.id = id
+          childScope.device = device
+          childScopes[id] = childScope
+
+          $compile(xeditableSpan)(childScope)
+          xeditableWrapper.appendChild(xeditableSpan)
+
+          // Trigger click to open the form.
+          angular.element(xeditableSpan).triggerHandler('click')
+        }
+      }
+
+      function destroyXeditableNote(id) {
+        var tr = tbody.children[id]
+        for (var i = 0; i < tr.cells.length; i++) {
+          var col = tr.cells[i]
+
+          if (col.firstChild &&
+              col.firstChild.nodeName.toLowerCase() == 'span' &&
+              col.firstChild.classList.contains('xeditable-wrapper')) {
+
+            var xeditableWrapper = col.firstChild
+              , children = xeditableWrapper.children
+
+            // Remove all childs under xeditablerWrapper
+            for (var j = 0; j < children.length; j++) {
+              xeditableWrapper.removeChild(children[j])
+            }
+          }
+        }
+        childScopes[id].$destroy()
+      }
+
+      scope.updateNote = function(id, serial, note) {
+        DeviceService.updateNote(serial, note)
+        destroyXeditableNote(id)
+      }
+
+      scope.onDeviceNoteCancel = function(id) {
+        destroyXeditableNote(id)
+      }
+
       element.on('click', function (e) {
         checkDeviceStatus(e)
         checkDeviceSmallImage(e)
+        checkDeviceNote(e)
       })
 
       // Import column definitions

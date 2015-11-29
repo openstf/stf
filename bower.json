@@ -33,6 +33,7 @@
     "angular-ladda": "~0.3.1",
     "d3": "~3.5.6",
     "spin.js": "~2.3.2",
+    "angular-xeditable": "~0.1.9",
     "angular-bootstrap-calendar": "~0.15.5",
     "moment": "~2.10.6",
     "interact": "~1.2.6"

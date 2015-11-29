@@ -1,6 +1,7 @@
 require('./device-list.css')
 
 module.exports = angular.module('device-list', [
+  require('angular-xeditable').name,
   require('stf/device').name,
   require('stf/user/group').name,
   require('stf/control').name,
@@ -21,4 +22,8 @@ module.exports = angular.module('device-list', [
         controller: 'DeviceListCtrl'
       })
   }])
+  .run(function(editableOptions) {
+    // bootstrap3 theme for xeditables
+    editableOptions.theme = 'bs3'
+  })
   .controller('DeviceListCtrl', require('./device-list-controller'))

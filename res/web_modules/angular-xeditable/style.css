@@ -1,0 +1,52 @@
+/*
+  Currently angular-xeditable does not support popover
+  This is a work around to make angular-xeditable look like
+  popover
+*/
+
+.xeditable-wrapper {
+  position: relative;
+}
+
+.xeditable-wrapper form {
+  background: #FFF;
+  border: 1px solid #AAA;
+  border-radius: 5px;
+  display: inline-block;
+  left: 50%;
+  margin-left: -190px;
+  padding: 7px;
+  position: absolute;
+  top: -55px;
+  width: 380px;
+  z-index: 101;
+}
+
+.xeditable-wrapper form:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #AAA;
+  position: absolute;
+  bottom: -10px;
+  left: 190px;
+}
+
+.xeditable-wrapper form:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #FFF;
+  position: absolute;
+  bottom: -9px;
+  left: 191px;
+}
+
+.xeditable-wrapper .editable-buttons .btn {
+  margin-left: 6px !important;
+  cursor: pointer;
+}

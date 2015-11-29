@@ -17,7 +17,8 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 5.1 (SDK level 22), plus Android M Developer Preview 3
+    * Supports versions 2.3.3 (SDK level 10) to 6.0 (SDK level 23)
+      - **Note: build from master for 6.0 support until 1.1.0 is out.**
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality
@@ -53,6 +54,34 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
   - Rudimentary Play Store account management
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
+
+## Status
+
+STF is in continued, active development, but as of late 2015 the team is operating mostly on their private time and funds. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. [Contact us][contact-link] if you'd like to support future development or even become our next sponsor.
+
+We're also actively working to expand the team. Welcome **@vbanthia** as our newest full contributor!
+
+### Short term goals
+
+Here are some things we are planning to address ASAP.
+
+1. Properly expose the new VNC functionality in the UI
+2. Release 1.1.0 so that we have stable version with Android 6.0 support
+3. Implement a basic REST API for programmatically using devices
+4. Properly reset user data between uses (Android 4.0+)
+5. Automated scheduled restarts for devices
+
+### Sponsors wanted
+
+Is your company (or you!) a heavy user of STF? Consider becoming a hardware sponsor. If you find a device that doesn't work, or would simply like to ensure support for a new model, [send it to us][contact-link]! While we can't guarantee a fix, we can promise that someone will take a detailed look into what's going on with your device, and fix it when possible. For difficult cases you may need to use our [consulting services](#consulting-services) instead.
+
+You can also sponsor a feature or bug fix and get it attributed to you or your company in the release notes.
+
+### Consulting services
+
+We highly encourage open participation in the community. However, if you're running a business that uses STF or would like to use STF, you may sometimes want to have an expert, i.e. one of the original developers or a skilled contributor, work with you to set up a prototype for evaluation purposes, add support for new or old hardware, figure out an issue, fix a bug or add some new feature. Our services are similar to [FFmpeg's](https://ffmpeg.org/consulting.html). [Contact us][contact-link] with details and we'll see what we can do.
+
+Availability is limited and tied to individual developer's schedules.
 
 ## A quick note about security
 
@@ -115,7 +144,7 @@ You should now have a working installation for local development.
 
 ## Running
 
-STF comprises of several independent processes that must normally be launched separately. In our own setup each one these processes is its own [systemd](http://www.freedesktop.org/wiki/Software/systemd/) unit. See [DEPLOYMENT.md](doc/DEPLOYMENT.md) if you're interested.
+STF comprises of several independent processes that must normally be launched separately. In our own setup each one these processes is its own [systemd](http://www.freedesktop.org/wiki/Software/systemd/) unit. See [DEPLOYMENT.md](doc/DEPLOYMENT.md) and [Setup Examples](https://github.com/openstf/setup-examples) if you're interested.
 
 For development purposes, however, there's a helper command to quickly launch all required processes along with a mock login implementation. Note that you **must** have RethinkDB running first.
 
@@ -151,7 +180,7 @@ To update your development version, simply pull the repo and run `npm install` a
 
 ### Can I deploy STF to actual servers?
 
-Yes, see [DEPLOYMENT.md](doc/DEPLOYMENT.md).
+Yes, see [DEPLOYMENT.md](doc/DEPLOYMENT.md) and [Setup Examples](https://github.com/openstf/setup-examples).
 
 ### Will I have to change battery packs all the time?
 
@@ -377,3 +406,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 See [LICENSE](LICENSE).
 
 Copyright © CyberAgent, Inc. All Rights Reserved.
+
+[contact-link]: mailto:contact@openstf.io

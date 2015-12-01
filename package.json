@@ -34,7 +34,7 @@
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.2.3",
-    "bluebird": "^2.9.34",
+    "bluebird": "^3.0.6",
     "body-parser": "^1.13.3",
     "chalk": "~1.1.1",
     "commander": "^2.9.0",

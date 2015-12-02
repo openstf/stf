@@ -49,6 +49,21 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /accessTokens:
+    x-swagger-router-controller: token
+    get:
+      summary: Access Tokens
+      description: Return Current User Access Tokens titles
+      operationId: getAccessTokens
+      responses:
+        "200":
+          description: Access Tokens titles
+          schema:
+            $ref: "#/definitions/AccessTokensResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /devices:
     x-swagger-router-controller: device
     get:
@@ -101,6 +116,14 @@ definitions:
         type: array
         items:
           type: object
+  AccessTokensResponse:
+    required:
+      - tokens
+    properties:
+      tokens:
+        type: array
+        items:
+          type: string
   DeviceListResponse:
     required:
       - devices

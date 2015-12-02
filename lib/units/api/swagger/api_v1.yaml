@@ -9,7 +9,7 @@ info:
   contact:
     url: http://openstf.io/
     email: contact@openstf.io
-basePath: /api/v1/
+basePath: /api/v1
 schemes:
   - http
   - https
@@ -33,6 +33,42 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /devices:
+    x-swagger-router-controller: device
+    get:
+      summary: Device List
+      description: List of all the STF devices including Disconnected and Offline
+      operationId: getDevices
+      responses:
+        "200":
+          description: List of Devices
+          schema:
+            $ref: "#/definitions/DeviceListResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /devices/{serial}:
+    x-swagger-router-controller: device
+    get:
+      summary: Device Information
+      description: Device Information
+      operationId: getDeviceBySerial
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device Information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
 
 definitions:
   UserResponse:
@@ -40,6 +76,20 @@ definitions:
       - user
     properties:
       user:
+        type: object
+  DeviceListResponse:
+    required:
+      - devices
+    properties:
+      devices:
+        type: array
+        items:
+          type: object
+  DeviceResponse:
+    required:
+      - device
+    properties:
+      device:
         type: object
   ErrorResponse:
     required:

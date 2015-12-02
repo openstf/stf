@@ -33,6 +33,22 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+# TODO: Change group endpoint with something more easy to understandable endpoint
+  /group:
+    x-swagger-router-controller: user
+    get:
+      summary: User Group
+      description: The User Group endpoint returns information about user group of current authorized user.
+      operationId: getCurrentUserGroup
+      responses:
+        "200":
+          description: Current User Group information
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /devices:
     x-swagger-router-controller: device
     get:
@@ -77,6 +93,14 @@ definitions:
     properties:
       user:
         type: object
+  GroupResponse:
+    required:
+      - devices
+    properties:
+      devices:
+        type: array
+        items:
+          type: object
   DeviceListResponse:
     required:
       - devices

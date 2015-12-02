@@ -33,6 +33,7 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+
 definitions:
   UserResponse:
     required:

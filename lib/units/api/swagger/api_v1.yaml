@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  version: "1.0.10"
+  title: Smartphone Test Farm
+  description: Control and manager real Smartphone devices from browser and apis
+  license:
+    name: Apache-2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: http://openstf.io/
+    email: contact@openstf.io
+basePath: /api/v1/
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /me:
+    x-swagger-router-controller: user
+    get:
+      summary: User Profile
+      description: The User Profile endpoint returns information about current authorized user.
+      operationId: getCurrentUser
+      responses:
+        "200":
+          description: Current User Profile information
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  UserResponse:
+    required:
+      - user
+    properties:
+      user:
+        type: object
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

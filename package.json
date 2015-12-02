@@ -82,6 +82,7 @@
     "stf-device-db": "^1.2.0",
     "stf-syrup": "^1.0.0",
     "stf-wiki": "^1.0.0",
+    "swagger-express-mw": "^0.6.0",
     "temp": "^0.8.1",
     "transliteration": "^0.1.1",
     "utf-8-validate": "^1.2.1",

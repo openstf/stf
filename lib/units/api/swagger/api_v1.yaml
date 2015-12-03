@@ -128,6 +128,58 @@ paths:
         - accessTokenAuth: []
   /swagger.json:
     x-swagger-pipe: swagger_raw
+  /devices/{serial}/reserve:
+    x-swagger-router-controller: device
+    put:
+      summary: Reseve Device
+      description: The device reserve enpoint will reserve a device if device it usable
+      operationId: reserveDeviceBySerial
+      tags:
+        - device
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device Information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /devices/{serial}/release:
+    x-swagger-router-controller: device
+    put:
+      summary: Device Information
+      description: The device reserve enpoint will release a device
+      operationId: releaseDeviceBySerial
+      tags:
+        - device
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device Information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /swagger.json:
+    x-swagger-pipe: swagger_raw
 definitions:
   UserResponse:
     required:

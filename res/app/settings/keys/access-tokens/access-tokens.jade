@@ -29,7 +29,7 @@
         textarea(readonly, rows='1', text-focus-select, ng-model='newToken.tokenId').form-control.token-id-textarea
 
     ul.list-group.key-list
-      li.list-group-item(ng-repeat='title in accessTokenTitles').animate-repeat
+      li.list-group-item(ng-repeat='title in accessTokenTitles track by $index').animate-repeat
         a
           i.fa.fa-key.fa-2x.fa-fw.key-list-icon
           .key-list-details.selectable

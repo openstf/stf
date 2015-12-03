@@ -100,7 +100,8 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-
+  /swagger.json:
+    x-swagger-pipe: swagger_raw
 definitions:
   UserResponse:
     required:

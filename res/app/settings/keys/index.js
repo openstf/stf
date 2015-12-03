@@ -1,6 +1,6 @@
 require('./keys.css')
 
-module.exports = angular.module('stf.keys', [
+module.exports = angular.module('stf.settings.keys', [
   require('./adb-keys').name,
   require('./access-tokens').name
 ])

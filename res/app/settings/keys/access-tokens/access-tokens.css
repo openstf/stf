@@ -1,3 +1,11 @@
-.stf-access-tokens {
+.stf-access-tokens .access-token-generated-okay {
+  display: inline-block;
+}
 
+.stf-access-tokens .token-id-textarea {
+  resize: none;
+  cursor: text;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  width: 85%;
 }

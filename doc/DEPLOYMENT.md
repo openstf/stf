@@ -55,6 +55,7 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-triproxy-app.service](#stf-triproxy-appservice)
 * [stf-triproxy-dev.service](#stf-triproxy-devservice)
 * [stf-websocket@.service](#stf-websocketservice)
+* [stf-api@.service](#stf-apiservice)
 
 ### Database role
 
@@ -179,7 +180,7 @@ These units are required for proper operation of STF. Unless mentioned otherwise
 
 **Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
 
-The app unit provides the main HTTP server and currently a very, very modest API for the client-side. It also serves all static resources including images, scripts and stylesheets.
+The app unit provides the main HTTP server and it serves all static resources including images, scripts and stylesheets.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-app@3100.service` runs on port 3100). You can have multiple instances running on the same host by using different ports.
 
@@ -653,6 +654,37 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=/usr/bin/docker stop -t 10 %p-%i
 ```
 
+### `stf-api@.service`
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The api unit provides all the major RESTful APIs for STF. Users can generate their personal access token from STF UI and can use that token to access these api from any interface.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-api@3700.service` runs on port 3700). You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=STF api
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -p %i:3000 \
+  openstf/stf:latest \
+  stf app --port 3000
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
 ## Optional units
 
 These units are optional and don't affect the way STF works in any way.
@@ -836,6 +868,10 @@ http {
     server 192.168.255.100:3600 max_fails=0;
   }
 
+  upstream stf_api {
+    server 192.168.255.100:3700 max_fails=0;
+  }
+
   types {
     application/javascript  js;
     image/gif               gif;
@@ -902,6 +938,10 @@ http {
 
     location /auth/ {
       proxy_pass http://stf_auth/auth/;
+    }
+
+    location /api/ {
+      proxy_pass http://stf_api/api/;
     }
 
     location /s/image/ {

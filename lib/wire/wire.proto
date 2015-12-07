@@ -76,6 +76,17 @@ enum MessageType {
   ReverseForwardsEvent       = 72;
   FileSystemListMessage      = 81;
   FileSystemGetMessage       = 82;
+  ConnectStartedMessage      = 92;
+  ConnectStoppedMessage      = 93;
+}
+
+message ConnectStartedMessage {
+  required string serial = 1;
+  required string url = 2;
+}
+
+message ConnectStoppedMessage {
+  required string serial = 1;
 }
 
 message FileSystemListMessage {

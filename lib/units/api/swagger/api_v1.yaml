@@ -84,6 +84,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+  /user/devices/{serial}:
+    x-swagger-router-controller: user
     delete:
       summary: Release device from user
       description: The User Devices endpoint will request for device release from stf server.
@@ -91,12 +93,11 @@ paths:
       tags:
         - user
       parameters:
-        - name: device
-          in: body
-          description: Device to add
+        - name: serial
+          in: path
+          description: Device Serial
           required: true
-          schema:
-            $ref: "#/definitions/DeviceDeletePayload"
+          type: string
       responses:
         "202":
           description: Device Release Request Status
@@ -222,14 +223,6 @@ definitions:
       timeout:
         description: Device timeout in ms. If device is kept idle for this period, it will be automatically disconnected. Default is provider group timeout.
         type: integer
-  DeviceDeletePayload:
-    description: payload object for deleting device from user
-    required:
-      - serial
-    properties:
-      serial:
-        description: Device Serial
-        type: string
 
 securityDefinitions:
   accessTokenAuth:

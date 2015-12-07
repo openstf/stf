@@ -181,7 +181,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     , digest: true
     })
 
-    oboe('/api/v1/group')
+    oboe('/api/v1/user/devices')
       .node('devices[*]', function (device) {
         tracker.add(device)
       })

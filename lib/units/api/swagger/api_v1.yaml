@@ -135,6 +135,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+  # I do know this is against REST principal to use verb as endpoint. But I feel it is more easy to
+  # understand in comparision of using PUT/PATCH
   /user/devices/{serial}/remoteConnect:
     x-swagger-router-controller: user
     post:

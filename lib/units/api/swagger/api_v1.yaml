@@ -86,6 +86,34 @@ paths:
         - accessTokenAuth: []
   /user/devices/{serial}:
     x-swagger-router-controller: user
+    get:
+      summary: Device Information
+      description: The device enpoint return information about a single device.
+      operationId: getUserDeviceBySerial
+      tags:
+        - user
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Device Information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
     delete:
       summary: Release device from user
       description: The User Devices endpoint will request for device release from stf server.
@@ -101,6 +129,50 @@ paths:
       responses:
         "202":
           description: Device Release Request Status
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /user/devices/{serial}/remoteConnect:
+    x-swagger-router-controller: user
+    post:
+      summary: Remote Connect
+      description: The device connect endpoint will request stf server to connect remotely
+      operationId: connectDeviceBySerial
+      tags:
+        - user
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+      responses:
+        "202":
+          description: Device Connect Request Status
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Remote Disconnect
+      description: The device connect endpoint will request stf server to disconnect remotely
+      operationId: disconnectDeviceBySerial
+      tags:
+        - user
+      parameters:
+        - name: serial
+          in: path
+          description: Device Serial
+          required: true
+          type: string
+      responses:
+        "202":
+          description: Device Disconnect Request Status
         default:
           description: Unexpected Error
           schema:

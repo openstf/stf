@@ -2,12 +2,12 @@ swagger: "2.0"
 info:
   version: "2.0.0"
   title: Smartphone Test Farm
-  description: Control and manager real Smartphone devices from browser and restful apis
+  description: Control and manages real Smartphone devices from browser and restful apis
   license:
     name: Apache-2.0
     url: http://www.apache.org/licenses/LICENSE-2.0
   contact:
-    name: STF Support
+    name: STF Team
     email: contact@openstf.io
     url: http://openstf.io/
 basePath: /api/v1
@@ -21,15 +21,15 @@ produces:
 tags:
   - name: user
     description: User Operations
-  - name: device
+  - name: devices
     description: Device Operations
 paths:
   /user:
     x-swagger-router-controller: user
     get:
       summary: User Profile
-      description: The User Profile endpoint returns information about current authorized user.
-      operationId: getCurrentUser
+      description: The User Profile endpoint returns information about current authorized user
+      operationId: getUser
       tags:
         - user
       responses:
@@ -47,13 +47,19 @@ paths:
     x-swagger-router-controller: user
     get:
       summary: List devices owned by current user
-      description: The User Devices endpoint returns information about user group of current authorized user.
-      operationId: getCurrentUserDevices
+      description: The User Devices endpoint returns device list owner by current authorized user
+      operationId: getUserDevices
       tags:
         - user
+      parameters:
+        - name: fields
+          in: query
+          description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
+          required: false
+          type: string
       responses:
         "200":
-          description: Current User Devices information
+          description: Current User Devices List
           schema:
             $ref: "#/definitions/DeviceListResponse"
         default:
@@ -63,21 +69,23 @@ paths:
       security:
         - accessTokenAuth: []
     post:
-      summary: Add device to a user
-      description: The User Devices endpoint will request stf server for a new device. It will return request accepted if device is usable.
-      operationId: addDeviceToUser
+      summary: Add a device to a user
+      description: The User Devices endpoint will request stf server for a new device. It will return request accepted if device is usable
+      operationId: addUserDevice
       tags:
         - user
       parameters:
-        - name: device
+        - name: devices
           in: body
           description: Device to add
           required: true
           schema:
-            $ref: "#/definitions/DeviceAddPayload"
+            $ref: "#/definitions/AddUserDevicePayload"
       responses:
         "202":
-          description: Device Add Request Status
+          description: Add User Device Request Status and polling Url
+          schema:
+            $ref: "#/definitions/AddUserDeviceResponse"
         default:
           description: Unexpected Error
           schema:
@@ -88,7 +96,7 @@ paths:
     x-swagger-router-controller: user
     get:
       summary: Device Information
-      description: The device enpoint return information about a single device.
+      description: The device enpoint return information about device owned by user
       operationId: getUserDeviceBySerial
       tags:
         - user
@@ -105,9 +113,9 @@ paths:
           type: string
       responses:
         "200":
-          description: Device Information
+          description: Delete User Device Request Status and polling Url
           schema:
-            $ref: "#/definitions/DeviceResponse"
+            $ref: "#/definitions/DeleteUserDeviceBySerialResponse"
         default:
           description: Unexpected Error
           schema:
@@ -116,8 +124,8 @@ paths:
         - accessTokenAuth: []
     delete:
       summary: Release device from user
-      description: The User Devices endpoint will request for device release from stf server.
-      operationId: deleteDeviceFromUser
+      description: The User Devices endpoint will request for device release from stf server. It will return request accepted if device is being used by current user
+      operationId: deleteUserDeviceBySerial
       tags:
         - user
       parameters:
@@ -142,7 +150,7 @@ paths:
     post:
       summary: Remote Connect
       description: The device connect endpoint will request stf server to connect remotely
-      operationId: connectDeviceBySerial
+      operationId: remoteConnectUserDeviceBySerial
       tags:
         - user
       parameters:
@@ -153,7 +161,9 @@ paths:
           type: string
       responses:
         "202":
-          description: Device Connect Request Status
+          description: Remote Connect User Device Request Status
+          schema:
+            $ref: "#/definitions/RemoteConnectUserDeviceResponse"
         default:
           description: Unexpected Error
           schema:
@@ -163,7 +173,7 @@ paths:
     delete:
       summary: Remote Disconnect
       description: The device connect endpoint will request stf server to disconnect remotely
-      operationId: disconnectDeviceBySerial
+      operationId: remoteDisconnectUserDeviceBySerial
       tags:
         - user
       parameters:
@@ -174,7 +184,9 @@ paths:
           type: string
       responses:
         "202":
-          description: Device Disconnect Request Status
+          description: Remote Disonnect User Device Request Status
+          schema:
+            $ref: "#/definitions/RemoteDisconnectUserDeviceResponse"
         default:
           description: Unexpected Error
           schema:
@@ -185,8 +197,8 @@ paths:
     x-swagger-router-controller: token
     get:
       summary: Access Tokens
-      description: The Access Tokens endpoints returns titles of all the valid access tokens.
-      operationId: getAccessTokens
+      description: The Access Tokens endpoints returns titles of all the valid access tokens
+      operationId: getUserAccessTokens
       tags:
         - user
       responses:
@@ -201,13 +213,19 @@ paths:
       security:
         - accessTokenAuth: []
   /devices:
-    x-swagger-router-controller: device
+    x-swagger-router-controller: devices
     get:
       summary: Device List
-      description: The devices enpoint return list of all the STF devices including Disconnected and Offline
+      description: The devices endpoint return list of all the STF devices including Disconnected and Offline
       operationId: getDevices
       tags:
-        - device
+        - devices
+      parameters:
+        - name: fields
+          in: query
+          description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
+          required: false
+          type: string
       responses:
         "200":
           description: List of Devices
@@ -220,13 +238,13 @@ paths:
       security:
         - accessTokenAuth: []
   /devices/{serial}:
-    x-swagger-router-controller: device
+    x-swagger-router-controller: devices
     get:
       summary: Device Information
-      description: The device enpoint return information about a single device.
+      description: The device enpoint return information about a single device
       operationId: getDeviceBySerial
       tags:
-        - device
+        - devices
       parameters:
         - name: serial
           in: path
@@ -280,13 +298,37 @@ definitions:
     properties:
       device:
         type: object
+  AddUserDeviceResponse:
+    required:
+      - pollingUrl
+    properties:
+      pollingUrl:
+        type: string
+  DeleteUserDeviceBySerialResponse:
+    required:
+      - pollingUrl
+    properties:
+      pollingUrl:
+        type: string
+  RemoteDisconnectUserDeviceResponse:
+    required:
+      - pollingUrl
+    properties:
+      pollingUrl:
+        type: string
+  RemoteConnectUserDeviceResponse:
+    required:
+      - pollingUrl
+    properties:
+      pollingUrl:
+        type: string
   ErrorResponse:
     required:
       - message
     properties:
       message:
         type: string
-  DeviceAddPayload:
+  AddUserDevicePayload:
     description: payload object for adding device to user
     required:
       - serial
@@ -295,11 +337,11 @@ definitions:
         description: Device Serial
         type: string
       timeout:
-        description: Device timeout in ms. If device is kept idle for this period, it will be automatically disconnected. Default is provider group timeout.
+        description: Device timeout in ms. If device is kept idle for this period, it will be automatically disconnected. Default is provider group timeout
         type: integer
 
 securityDefinitions:
   accessTokenAuth:
     type: apiKey
-    name: accessTokenAuth
+    name: authorization
     in: header

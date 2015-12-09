@@ -1,11 +1,11 @@
-.widget-container.fluid-height.stf-access-tokens(ng-controller='AccessTokensCtrl')
+.widget-container.fluid-height.stf-keys.stf-access-tokens(ng-controller='AccessTokensCtrl')
   .heading
     i.fa.fa-key
     span(translate) Access Tokens
 
     button.btn.pull-right.btn-sm(
-    ng-click='showAdd = !showAdd',
-    ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
+    ng-click='showGenerate = !showGenerate',
+    ng-class='{ "btn-primary-outline": !showGenerate, "btn-primary": showGenerate }')
       i.fa.fa-plus.fa-fw
 
     a(ng-href='/#!/docs/Access-Tokens').pull-right.btn.btn-sm
@@ -14,16 +14,27 @@
   .widget-content.padded
 
     nothing-to-show(icon='fa-key', message='{{"No access tokens" | translate}}',
-    ng-if='!adbKeys.length && !showAdd')
+    ng-if='!accessTokenTitles.length && !showGenerate && !showGenerated')
+
+    generate-access-token(show-clipboard='true', show-generate='showGenerate')
+
+    div(ng-show='showGenerated')
+      .alert.alert-info.selectable
+        strong(translate) Warning:
+        span &nbsp;
+        span(translate) Make sure to copy your access token now. You won't be able to see it again!
+        br
+        button.btn.pull-right.btn-primary.btn-sm(ng-click='closeGenerated()')
+          i.fa.fa-check.fa-fw
+        textarea(readonly, rows='1', text-focus-select, ng-model='newToken.tokenId').form-control.token-id-textarea
 
     ul.list-group.key-list
-      li.list-group-item(ng-repeat='key in adbKeys').animate-repeat
+      li.list-group-item(ng-repeat='title in accessTokenTitles track by $index').animate-repeat
         a
           i.fa.fa-key.fa-2x.fa-fw.key-list-icon
           .key-list-details.selectable
-            .key-list-title(ng-bind='key.title')
-            .key-list-fingerprint(ng-bind='key.fingerprint')
+            .key-list-title(ng-bind='title')
 
-          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeKey(key)')
+          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='removeToken(title)')
             i.fa.fa-trash-o
             span(translate) Remove

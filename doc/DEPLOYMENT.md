@@ -681,7 +681,7 @@ ExecStart=/usr/bin/docker run --rm \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -p %i:3000 \
   openstf/stf:latest \
-  stf app --port 3000
+  stf api --port 3000
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 

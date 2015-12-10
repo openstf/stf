@@ -555,4 +555,8 @@ message RotationEvent {
 
 message ReserveUpdatedMessage {
   required string serial = 1;
+  required string email = 2;
+  required uint64 start = 3;
+  required uint64 end = 4;
+  required bool canceled = 5;
 }

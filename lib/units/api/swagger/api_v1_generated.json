@@ -67,7 +67,7 @@
     },
     "/user/devices": {
       "get": {
-        "summary": "List devices owned by current user",
+        "summary": "User Devices",
         "description": "The User Devices endpoint returns device list owner by current authorized user",
         "operationId": "getUserDevices",
         "tags": [
@@ -104,14 +104,14 @@
       },
       "post": {
         "summary": "Add a device to a user",
-        "description": "The User Devices endpoint will request stf server for a new device. It will return request accepted if device is usable",
+        "description": "The User Devices endpoint will request stf server for a new device.",
         "operationId": "addUserDevice",
         "tags": [
           "user"
         ],
         "parameters": [
           {
-            "name": "devices",
+            "name": "device",
             "in": "body",
             "description": "Device to add",
             "required": true,
@@ -121,11 +121,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Add User Device Request Status and polling Url",
-            "schema": {
-              "$ref": "#/definitions/AddUserDeviceResponse"
-            }
+          "200": {
+            "description": "Add User Device Status"
           },
           "default": {
             "description": "Unexpected Error",
@@ -143,8 +140,8 @@
     },
     "/user/devices/{serial}": {
       "get": {
-        "summary": "Device Information",
-        "description": "The device enpoint return information about device owned by user",
+        "summary": "User Device",
+        "description": "The devices enpoint return information about device owned by user",
         "operationId": "getUserDeviceBySerial",
         "tags": [
           "user"
@@ -167,9 +164,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Delete User Device Request Status and polling Url",
+            "description": "Device Information owned by user",
             "schema": {
-              "$ref": "#/definitions/DeleteUserDeviceBySerialResponse"
+              "$ref": "#/definitions/DeviceResponse"
             }
           },
           "default": {
@@ -186,7 +183,7 @@
         ]
       },
       "delete": {
-        "summary": "Release device from user",
+        "summary": "Delete User Device",
         "description": "The User Devices endpoint will request for device release from stf server. It will return request accepted if device is being used by current user",
         "operationId": "deleteUserDeviceBySerial",
         "tags": [
@@ -202,8 +199,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Device Release Request Status"
+          "200": {
+            "description": "Delete User Device Status"
           },
           "default": {
             "description": "Unexpected Error",
@@ -237,7 +234,7 @@
           }
         ],
         "responses": {
-          "202": {
+          "200": {
             "description": "Remote Connect User Device Request Status",
             "schema": {
               "$ref": "#/definitions/RemoteConnectUserDeviceResponse"
@@ -273,11 +270,8 @@
           }
         ],
         "responses": {
-          "202": {
-            "description": "Remote Disonnect User Device Request Status",
-            "schema": {
-              "$ref": "#/definitions/RemoteDisconnectUserDeviceResponse"
-            }
+          "200": {
+            "description": "Remote Disonnect User Device Request Status"
           },
           "default": {
             "description": "Unexpected Error",
@@ -454,52 +448,16 @@
         }
       }
     },
-    "AddUserDeviceResponse": {
-      "required": [
-        "pollingUrl"
-      ],
-      "properties": {
-        "pollingUrl": {
-          "type": "string"
-        }
-      }
-    },
-    "DeleteUserDeviceBySerialResponse": {
-      "required": [
-        "pollingUrl"
-      ],
-      "properties": {
-        "pollingUrl": {
-          "type": "string"
-        }
-      }
-    },
-    "RemoteDisconnectUserDeviceResponse": {
-      "required": [
-        "pollingUrl"
-      ],
-      "properties": {
-        "pollingUrl": {
-          "type": "string"
-        }
-      }
-    },
     "RemoteConnectUserDeviceResponse": {
       "required": [
-        "pollingUrl"
+        "remoteConnectUrl",
+        "serial"
       ],
       "properties": {
-        "pollingUrl": {
+        "remoteConnectUrl": {
           "type": "string"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "required": [
-        "message"
-      ],
-      "properties": {
-        "message": {
+        },
+        "serial": {
           "type": "string"
         }
       }
@@ -517,6 +475,16 @@
         "timeout": {
           "description": "Device timeout in ms. If device is kept idle for this period, it will be automatically disconnected. Default is provider group timeout",
           "type": "integer"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "message": {
+          "type": "string"
         }
       }
     }

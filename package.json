@@ -74,7 +74,7 @@
     "split": "^1.0.0",
     "stf-appstore-db": "^1.0.0",
     "stf-browser-db": "^1.0.2",
-    "stf-device-db": "^1.1.1",
+    "stf-device-db": "^1.2.0",
     "stf-syrup": "^1.0.0",
     "stf-wiki": "^1.0.0",
     "temp": "^0.8.1",

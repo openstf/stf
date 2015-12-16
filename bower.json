@@ -2,12 +2,12 @@
   "name": "stf",
   "version": "0.1.0",
   "dependencies": {
-    "angular": "~1.4.7",
-    "angular-cookies": "~1.4.7",
-    "angular-route": "~1.4.7",
-    "angular-sanitize": "~1.4.7",
-    "angular-animate": "~1.4.7",
-    "angular-touch": "~1.4.7",
+    "angular": "~1.5.0-rc.0",
+    "angular-cookies": "~1.5.0-rc.0",
+    "angular-route": "~1.5.0-rc.0",
+    "angular-sanitize": "~1.5.0-rc.0",
+    "angular-animate": "~1.5.0-rc.0",
+    "angular-touch": "~1.5.0-rc.0",
     "lodash": "~3.10.1",
     "oboe": "~2.1.2",
     "ng-table": "~1.0.0-beta.7",
@@ -26,21 +26,21 @@
     "angular-borderlayout": "git://github.com/filearts/angular-borderlayout.git#7c9716aebd9260763f798561ca49d6fbfd4a5c67",
     "angular-ui-bootstrap": "~0.14.2",
     "ng-context-menu": "AdiDahan/ng-context-menu#~1.0.5",
-    "components-font-awesome": "~4.4.0",
+    "components-font-awesome": "~4.5.0",
     "epoch": "~0.6.0",
     "ng-epoch": "~1.0.7",
     "eventEmitter": "~4.3.0",
     "angular-ladda": "~0.3.1",
-    "d3": "~3.5.6",
+    "d3": "~3.5.11",
     "spin.js": "~2.3.2",
     "angular-xeditable": "~0.1.9"
   },
   "private": true,
   "devDependencies": {
-    "angular-mocks": "~1.4.7"
+    "angular-mocks": "~1.5.0-rc.0"
   },
   "resolutions": {
-    "angular": "~1.4.7",
+    "angular": "~1.5.0-rc.0",
     "d3": "~3.5.5",
     "spin.js": "~2.3.2",
     "eventEmitter": "~4.3.0"

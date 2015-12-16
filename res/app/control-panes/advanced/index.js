@@ -4,7 +4,7 @@ module.exports = angular.module('stf.advanced', [
   require('./input').name,
 //  require('./run-js').name,
 //  require('./usb').name,
-  require('./vnc').name,
+//  require('./vnc').name,
   require('./port-forwarding').name,
   require('./maintenance').name
 ])

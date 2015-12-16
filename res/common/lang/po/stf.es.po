@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-09-10 06:06+0000\n"
+"PO-Revision-Date: 2015-12-16 07:58+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstf/stf/language/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -255,32 +255,36 @@ msgstr ""
 msgid "Customize"
 msgstr "Personalizar"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:20
 msgid "D-pad Down"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:9
 msgid "D-pad Left"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:15
 msgid "D-pad Right"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:4
 msgid "D-pad Up"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:35
+#: app/control-panes/control-panes-controller.js:41
 msgid "Dashboard"
 msgstr "Tablero"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
+msgstr ""
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Date"
 msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:48
@@ -310,7 +314,7 @@ msgstr ""
 msgid "Device"
 msgstr "Dispositivo"
 
-#: app/device-list/details/device-list-details-directive.js:36
+#: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr ""
@@ -361,10 +365,6 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-#: app/control-panes/resources/resources.html:1
-msgid "Domain"
-msgstr ""
-
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
 msgstr ""
@@ -413,6 +413,10 @@ msgstr ""
 msgid "Fast Forward"
 msgstr ""
 
+#: app/control-panes/control-panes-controller.js:26
+msgid "File Explorer"
+msgstr ""
+
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
 msgstr ""
@@ -439,6 +443,18 @@ msgstr ""
 
 #: app/settings/settings-controller.js:5
 msgid "General"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
 msgstr ""
 
 #: app/control-panes/logs/logs.html:1
@@ -517,7 +533,7 @@ msgstr ""
 msgid "Incorrect login details"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:26
+#: app/control-panes/control-panes-controller.js:32
 msgid "Info"
 msgstr "Información"
 
@@ -593,12 +609,17 @@ msgstr ""
 msgid "Lock Rotation"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:44
+#: app/control-panes/control-panes-controller.js:50
 msgid "Logs"
 msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Maintenance"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid ""
+"Make sure to copy your access token now. You won't be able to see it again!"
 msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -663,8 +684,8 @@ msgstr ""
 msgid "Mute"
 msgstr ""
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
-#: app/control-panes/resources/resources.html:1
 msgid "Name"
 msgstr ""
 
@@ -784,12 +805,13 @@ msgstr ""
 msgid "Package"
 msgstr ""
 
+#: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
 msgstr ""
 
-#: app/control-panes/resources/resources.html:1
-msgid "Path"
+#: app/control-panes/explorer/explorer.html:1
+msgid "Permissions"
 msgstr ""
 
 #: app/device-list/column/device-column-service.js:184
@@ -853,6 +875,7 @@ msgid "Please enter your Store username"
 msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Port"
 msgstr ""
 
@@ -1044,10 +1067,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: app/control-panes/resources/resources.html:1
-msgid "Secure"
-msgstr ""
-
 #: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr ""
@@ -1055,6 +1074,10 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:159
 msgid "Serial"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
 msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
@@ -1098,6 +1121,7 @@ msgstr ""
 msgid "SIM"
 msgstr ""
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
 msgid "Size"
 msgstr ""
@@ -1353,6 +1377,10 @@ msgstr ""
 msgid "Tip:"
 msgstr ""
 
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr ""
+
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr ""
@@ -1360,6 +1388,11 @@ msgstr ""
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Total Devices"
 msgstr "Dispositivos Totales"
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "translate"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
@@ -1448,10 +1481,6 @@ msgstr ""
 msgid "Using Fallback"
 msgstr ""
 
-#: app/control-panes/resources/resources.html:1
-msgid "Value"
-msgstr ""
-
 #: app/control-panes/info/info.html:1
 msgid "Version"
 msgstr ""
@@ -1462,6 +1491,10 @@ msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
@@ -1478,6 +1511,10 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
 msgstr ""
 
 #: app/menu/menu.html:1

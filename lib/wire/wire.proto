@@ -76,7 +76,8 @@ enum MessageType {
   ReverseForwardsEvent       = 72;
   FileSystemListMessage      = 81;
   FileSystemGetMessage       = 82;
-  ReserveUpdatedMessage      = 91;
+  ReserveUpdatedMessage          = 91;
+  ReserveFetchNextRequestMessage = 92;
 }
 
 message FileSystemListMessage {
@@ -554,9 +555,14 @@ message RotationEvent {
 }
 
 message ReserveUpdatedMessage {
-  required string serial = 1;
-  required string email = 2;
-  required uint64 start = 3;
-  required uint64 end = 4;
-  required bool canceled = 5;
+  required string id = 1;
+  required string serial = 2;
+  required string email = 3;
+  required uint64 start = 4;
+  required uint64 end = 5;
+  required bool canceled = 6;
+}
+message ReserveFetchNextRequestMessage {
+  required string id = 1;
+  required string channel = 2;
 }

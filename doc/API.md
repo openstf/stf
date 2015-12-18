@@ -22,7 +22,7 @@ Put access token in the header of every request
 
 Curl Sample
 ```bash
-curl -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
 ```
 
 NodeJS Sample
@@ -37,7 +37,7 @@ var AUTH_TOKEN  = 'xx-xxxx-xx';
 var client = new Swagger({
   url: SWAGGER_URL
 , authorizations: {
-    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'bearer ' + AUTH_TOKEN, 'header')
+    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'Bearer ' + AUTH_TOKEN, 'header')
   }
 , success: function() {
     client.user.getUser(function(user) {
@@ -51,7 +51,7 @@ var clientWithPromise = new Swagger({
   url: SWAGGER_URL
 , usePromise: true
 , authorizations: {
-    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'bearer ' + AUTH_TOKEN, 'header')
+    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'Bearer ' + AUTH_TOKEN, 'header')
   }
 })
 
@@ -75,7 +75,7 @@ GET /api/v1/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices
 ```
 
 NodeJS Sample
@@ -108,7 +108,7 @@ GET /api/v1/devices/{serial}
 Curl Sample
 
 ```bash
-curl -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices/xxxxxxxxx
+curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices/xxxxxxxxx
 ```
 
 NodeJS Sample
@@ -142,7 +142,7 @@ GET /api/v1/user
 Curl Sample
 
 ```bash
-curl -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
 ```
 
 NodeJS Sample
@@ -167,7 +167,7 @@ GET /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
 ```
 
 NodeJS Sample
@@ -198,7 +198,7 @@ POST /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
 ```
 
 NodeJS Sample
@@ -226,7 +226,7 @@ DELETE /api/v1/user/devices/{serial}
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}
 ```
 
 NodeJS Sample
@@ -254,7 +254,7 @@ POST /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample
@@ -280,7 +280,7 @@ DELETE /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample

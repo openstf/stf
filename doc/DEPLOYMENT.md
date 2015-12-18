@@ -128,7 +128,7 @@ Requires=docker.service
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull rethinkdb:2.1.1
+ExecStartPre=/usr/bin/docker pull rethinkdb:2.1.5
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStartPre=/usr/bin/mkdir -p /srv/rethinkdb
@@ -138,7 +138,7 @@ ExecStart=/usr/bin/docker run --rm \
   -v /srv/rethinkdb:/data \
   -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
   --net host \
-  rethinkdb:2.1.1 \
+  rethinkdb:2.1.5 \
   rethinkdb --bind all \
     --cache-size 8192
 ExecStop=-/usr/bin/docker stop -t 10 %p
@@ -681,7 +681,9 @@ ExecStart=/usr/bin/docker run --rm \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -p %i:3000 \
   openstf/stf:latest \
-  stf api --port 3000
+  stf api --port 3000 \
+  --connect-sub tcp://appside.stf.example.org:7150 \
+  --connect-push tcp://appside.stf.example.org:7170  
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 

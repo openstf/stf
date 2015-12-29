@@ -629,6 +629,38 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
+### `stf-storage-s3@.service`
+
+If you want to store data such as screenshots and apk files into [Amazon S3](https://aws.amazon.com/s3/) instead of locally, then you can use this optional unit. Before using this you will need to setup your amazon account and get proper credentials for S3 bucket. You can read more about this at [AWS documentation](https://aws.amazon.com/s3/).
+
+** NOTE** If you are using this storage, you will not need [stf-storage-temp@.service](#stf-storage-tempservice) unit, since both do the same thing. Only the storage location is different.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-storage-s3@3500.service` runs on port 3500). Currently, **you cannot have more than one instance of this unit**, as both temporary files and an in-memory mapping is used. Using a template unit makes it easy to set the port.
+
+```ini
+[Unit]
+Description=STF s3 storage
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \  
+  -p %i:3000 \
+  openstf/stf:latest \
+  stf storage-s3 --port 3000 \
+    --bucket YOUR_S3_BUCKET_NAME_HERE \
+    --profile YOUR_AWS_CREDENTIALS_PROFILE \
+    --endpoint YOUR_BUCKET_ENDPOING_HERE
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
 ## Nginx configuration
 
 Now that you've got all the units ready, it's time to set up [nginx](http://nginx.org/) to tie all the processes together with a clean URL.

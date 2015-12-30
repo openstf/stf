@@ -79,7 +79,7 @@
     "stf-wiki": "^1.0.0",
     "temp": "^0.8.1",
     "transliteration": "^0.1.1",
-    "ws": "^0.8.0",
+    "ws": "^1.0.0",
     "zmq": "^2.14.0"
   },
   "devDependencies": {

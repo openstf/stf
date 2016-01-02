@@ -83,7 +83,7 @@
     "zmq": "^2.14.0"
   },
   "devDependencies": {
-    "async": "^1.4.2",
+    "async": "^1.5.1",
     "bower": "^1.7.1",
     "chai": "^3.4.1",
     "css-loader": "^0.23.0",

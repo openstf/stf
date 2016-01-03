@@ -90,7 +90,7 @@
     "del": "^2.0.1",
     "event-stream": "^3.3.2",
     "exports-loader": "^0.6.2",
-    "extract-text-webpack-plugin": "^0.9.1",
+    "extract-text-webpack-plugin": "^1.0.0",
     "file-loader": "^0.8.5",
     "gulp": "^3.8.11",
     "gulp-angular-gettext": "^2.1.0",

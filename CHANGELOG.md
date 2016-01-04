@@ -1,9 +1,16 @@
+## CHANGES IN VERSION 2.0 (from 1.1)
+
+Major release addressing the following:
+
+### Enhancements
+- STF REST APIs, refer [API Doc](./doc/API.md)
+
 ## CHANGES IN VERSION 1.1.1 (from 1.1)
 
 Patch release addressing the following:
 
 ### Fixes
-- [Disabled Nagle Algorithm in adbkit connection](https://github.com/openstf/adbkit/issues/41) to improve remote debugging speed 
+- [Disabled Nagle Algorithm in adbkit connection](https://github.com/openstf/adbkit/issues/41) to improve remote debugging speed
 
 ## CHANGES IN VERSION 1.1 (from 1.0.10)
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0 ()
+
+Major release addressing the following:
+
+### Enhancements
+
+- STF REST API, refer [API Doc](./doc/API.md)
+
+
 ## 1.2.0 (2016-07-22)
 
 Minor release addressing the following:

@@ -63,7 +63,7 @@ clientWithPromise.then(function(api) {
   api.user.getUser()
     .then(function(res) {
       console.log(res.obj.user.email)
-      // vishal.banthia.vb@gmail.com
+      // vishal@example.com
     })
 })
 ```
@@ -162,7 +162,7 @@ clientWithPromise.then(function(api) {
   api.user.getUser()
     .then(function(res) {
       console.log(res.obj.user.email)
-      // vishal.banthia.vb@gmail.com
+      // vishal@example.com
     })
 })
 ```
@@ -330,17 +330,17 @@ var SWAGGER_URL = 'https://stf.example.org/api/v1/swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 // Using Promise
-var clientWithPromise = new Swagger({
+var client = new Swagger({
   url: SWAGGER_URL
 , usePromise: true
 , authorizations: {
-    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'bearer ' + AUTH_TOKEN, 'header')
+    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'Bearer ' + AUTH_TOKEN, 'header')
   }
 })
 
 var serial = process.argv.slice(2)[0]
 
-clientWithPromise.then(function(api) {
+client.then(function(api) {
   return api.devices.getDeviceBySerial({
     serial: serial
   , fields: 'serial,present,ready,using,owner'
@@ -348,9 +348,11 @@ clientWithPromise.then(function(api) {
       // check if device can be added or not
       var device = res.obj.device
       if (!device.present || !device.ready || device.using || device.owner) {
-        throw new Error('Device is not available')
+        console.log('Device is not available')
+        return
       }
 
+      // add device to user
       return api.user.addUserDevice({
         device: {
           serial: device.serial
@@ -358,9 +360,11 @@ clientWithPromise.then(function(api) {
         }
       }).then(function(res) {
         if (!res.obj.success) {
-          throw new Error('Could not connect to device')
+          console.log('Could not add device')
+          return
         }
 
+        // get remote connect url
         return api.user.remoteConnectUserDeviceBySerial({
           serial: device.serial
         }).then(function(res) {
@@ -383,26 +387,25 @@ var Swagger = require('swagger-client');
 var SWAGGER_URL = 'https://stf.example.org/api/v1/swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
-// Using Promise
-var clientWithPromise = new Swagger({
+var client = new Swagger({
   url: SWAGGER_URL
 , usePromise: true
 , authorizations: {
-    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'bearer ' + AUTH_TOKEN, 'header')
+    accessTokenAuth: new Swagger.ApiKeyAuthorization('Authorization', 'Bearer ' + AUTH_TOKEN, 'header')
   }
 })
 
 var serial = process.argv.slice(2)[0]
 
-clientWithPromise.then(function(api) {
+client.then(function(api) {  
   return api.user.getUserDevices({
     serial: serial
   , fields: 'serial,present,ready,using,owner'
   }).then(function(res) {
-      // check if device can be added or not
+      // check if user has that device or not
       var devices = res.obj.devices
-
       var hasDevice = false
+
       devices.forEach(function(device) {
         if(device.serial === serial) {
           hasDevice = true;
@@ -410,16 +413,17 @@ clientWithPromise.then(function(api) {
       })
 
       if (!hasDevice) {
-        throw new Error('You are not owner')
+        console.log('You do not own that device')
+        return
       }
 
       return api.user.deleteUserDeviceBySerial({
         serial: serial
       }).then(function(res) {
         if (!res.obj.success) {
-          throw new Error('Could not disconnect to device')
+          console.log('Could not disconnect')
+          return
         }
-
         console.log('Device disconnected successfully!')
       })
   })

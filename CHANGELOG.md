@@ -1,3 +1,10 @@
+## CHANGES IN VERSION 2.0 (from 1.1)
+
+Major release addressing the following:
+
+### Enhancements
+- STF REST APIs, refer [API Doc](./doc/API.md)
+
 ## CHANGES IN VERSION 1.1 (from 1.0.10)
 
 Minor release addressing the following:

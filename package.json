@@ -65,7 +65,7 @@
     "protobufjs": "^3.8.2",
     "proxy-addr": "^1.0.10",
     "request": "^2.67.0",
-    "request-progress": "^0.3.1",
+    "request-progress": "^1.0.0",
     "rethinkdb": "^2.0.2",
     "semver": "^5.0.1",
     "serve-favicon": "^2.2.0",

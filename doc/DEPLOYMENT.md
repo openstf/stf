@@ -661,6 +661,41 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
+### `stf-auth@.service` (SAML2.0)
+
+This is one of the multiple options for authentication provided by STF. It uses [SAML 2.0](http://saml.xml.org/saml-specifications) protocol. If your company uses [Okta](https://www.okta.com/) or some other SAML2.0 supported id provider, you can use it.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
+
+** NOTE** Don't forget to change `--app-url` parameter for `stf-app` unit. It will become `https://stf.example.org/auth/saml/`
+
+```ini
+[Unit]
+Description=STF auth
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -v /srv/ssl/id_provider.cert:/etc/id_provider.cert:ro \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -e "SAML_ID_PROVIDER_ENTRY_POINT_URL=YOUR_ID_PROVIDER_ENTRY_POINT" \
+  -e "SAML_ID_PROVIDER_ISSUER=YOUR_ID_PROVIDER_ISSUER" \
+  -e "SAML_ID_PROVIDER_CERT_PATH=/etc/id_proider.cert" \
+  -p %i:3000 \
+  openstf/stf:latest \
+  stf auth-saml2 --port 3000 \
+    --app-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
 ## Nginx configuration
 
 Now that you've got all the units ready, it's time to set up [nginx](http://nginx.org/) to tie all the processes together with a clean URL.

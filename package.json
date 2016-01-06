@@ -138,7 +138,7 @@
     "style-loader": "^0.13.0",
     "template-html-loader": "^0.0.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9",
+    "webpack": "^1.12.10",
     "webpack-dev-server": "^1.14.0"
   },
   "engines": {

@@ -63,7 +63,7 @@
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",
     "passport-saml": "^0.14.0",
-    "protobufjs": "^3.8.2",
+    "protobufjs": "^5.0.1",
     "proxy-addr": "^1.0.10",
     "request": "^2.67.0",
     "request-progress": "^0.3.1",

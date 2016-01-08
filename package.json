@@ -134,7 +134,7 @@
     "script-loader": "^0.6.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.7.0",
-    "socket.io-client": "1.3.7",
+    "socket.io-client": "1.4.2",
     "style-loader": "^0.13.0",
     "template-html-loader": "^0.0.3",
     "url-loader": "^0.5.7",

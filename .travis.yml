@@ -1,61 +1,53 @@
 language: cpp
-
 os:
-  - linux
-  - osx
-
+- linux
+- osx
 sudo: false
-
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - libzmq3-dev
-      - libprotobuf-dev
-      - graphicsmagick
-      - rethinkdb
-      - g++-4.9
-      - yasm
-
+    - libzmq3-dev
+    - libprotobuf-dev
+    - graphicsmagick
+    - rethinkdb
+    - g++-4.9
+    - yasm
 env:
   matrix:
-    - NODE_VERSION=0.12
-    - NODE_VERSION=4
-
+  - NODE_VERSION=0.12
+  - NODE_VERSION=4
 matrix:
   allow_failures:
-    - os: osx
+  - os: osx
   fast_finish: true
-
 before_install:
-  - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
-  - source ~/.nvm/nvm.sh
-  - nvm install $NODE_VERSION
-  - node --version
-  - npm --version
-  - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-4.9; fi
-  - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install rethinkdb graphicsmagick zeromq protobuf yasm pkg-config; fi
-
+- rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
+- source ~/.nvm/nvm.sh
+- nvm install $NODE_VERSION
+- node --version
+- npm --version
+- if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-4.9; fi
+- if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install rethinkdb graphicsmagick
+  zeromq protobuf yasm pkg-config; fi
 install:
-  - npm install
-  - export PATH=$PWD/node_modules/.bin:$PATH
-
+- npm install
+- export PATH=$PWD/node_modules/.bin:$PATH
 before_script:
 #  - rethinkdb --daemon
 
 script:
-  - npm test
+- npm test
 #  - ./bin/stf local
-  - gulp build
-
+- gulp build
 after_script:
 #  - killall rethinkdb
 
 cache:
   directories:
-    - node_modules
-    - res/bower_components
-
+  - node_modules
+  - res/bower_components
 notifications:
-  slack: openstf:qu01BtEgttJOrGGsRxKBJwki
+  slack:
+    secure: F+Xq1LGQgPZtEkHB2EX6rK1MEdoCRAig8gl16hiRBJ8di6bvKvUS8sF/vLtRrbX1LdjyxsbZDhX2qrA+3bBkzLgsVulcH+jdmaiRI0kNjjTxvLXYfIgTrHhiyXUg9lItEMR0JjcGFe3D5FVkPx4bcvS5ZrfsIu1a/Hm7JzdxI3BaBkHe5k9xshvnyr+joc2DyPQp+rvVBukhr9sSrJMrGvGtMgzlpUlb3dr7BeeSTKqdG7NgGc3NL2mb2ugookh+vPP26RT6Vsk6wFGY/hnP7EFbHmM1L8yEEskjLuOMxl6xmcA/fCpJov/6kXf+KxQIwtl5XUgR0HM5O8BHXid2rLIxIu4YIpd4pAXuuUTqXdnETbGBfzn8DP4h0y0zYGRLWC/NEuBalWU165KbA/wgsU24Zo6tcViqozzpiyjGJSxElVTcIkiAbKyHGjahNdPBj3kz0KwiV36B/eo3IHHl5Udm2DL2nvqUD/BtitprnCYSInXF5x/3T69pgV6M7rIztH0rmWRiSvRy3mqgB8mTbfMD+9rvS5DY6zygb1tUPOTGeVSTLARi+Kn1UladA2XYxvBUYwWua+wB4wOiLfY+HBuXeXQBSYVLjz8pBMUF9dGBwsrlb9DeQviCEIaDavqnLliEnPHH7yPp32QD0zPE2s5P9TPLByypL8VFuTs/hNI=

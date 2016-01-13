@@ -1,3 +1,10 @@
+## CHANGES IN VERSION 1.1.1 (from 1.1)
+
+Patch release addressing the following:
+
+### Fixes
+- [TCP_NODEDELAY adbkit fix](https://github.com/openstf/adbkit/issues/41)
+
 ## CHANGES IN VERSION 1.1 (from 1.0.10)
 
 Minor release addressing the following:

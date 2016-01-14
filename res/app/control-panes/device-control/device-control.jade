@@ -11,11 +11,11 @@
               ng-model='currentRotation', btn-radio='"landscape"').pointer
               i.fa.fa-mobile.fa-rotate-90(tooltip='{{ "Landscape" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
           .button-spacer
-          button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
+          button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-xs.btn-info
             i(ng-show='showScreen', tooltip-html-unsafe='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
             i(ng-show='!showScreen', tooltip-html-unsafe='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
-          button(type='button', ng-click='kickDevice(device); $event.stopPropagation()').btn.btn-sm.btn-danger
-            i(tooltip-html-unsafe='{{"Stop Using"|translate}}', tooltip-placement='bottom').fa.fa-times.fa-lg
+          button(type='button', ng-click='kickDevice(device); $event.stopPropagation()').btn.btn-sm.btn-danger-outline
+            i(tooltip-html-unsafe='{{"Stop Using"|translate}}', tooltip-placement='bottom').fa.fa-times.fa-lgX
 
 
         .device-name-container.pull-left(dropdown)

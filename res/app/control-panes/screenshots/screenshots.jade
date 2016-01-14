@@ -10,7 +10,16 @@
       i.fa.fa-camera-retro(translate)
       span(translate) Pageshot
 
+    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShotContinuous()',
+    title='{{"Take Screenshot Continuously"|translate}}')
+      i.fa.fa-video-camera
+      span(translate, ng-show='capturePromise') Stop Capture
+      span(translate, ng-hide='capturePromise') Start Capture
+
     .button-spacer
+
+    input.input-sm(type='number' step='1' ng-model='maxScreenshots',
+    title='{{"Max number of captured images"|translate}')
 
     clear-button(ng-click='clear()', ng-disabled='!screenshots.length')
 
@@ -18,11 +27,11 @@
 
     .pull-right
       button.btn.btn-primary-outline.btn-sm.transparent-border(
-        ng-click='zoom({min: 80, step: -50})',
+        ng-click='zoom({min: 40, step: -50})',
         ng-disabled='!screenshots.length')
         i.fa.fa-minus
 
-      input(type='range', ng-model='screenShotSize', min='80', max='480', step='10',
+      input(type='range', ng-model='screenShotSize', min='40', max='480', step='10',
       ng-model-options='{ updateOn: "default blur", debounce: { default: 100, blur: 0} }',
       ng-disabled='!screenshots.length').zoom-range
 

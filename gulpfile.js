@@ -4,6 +4,7 @@ var gulp = require('gulp')
 var gutil = require('gulp-util')
 var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
+var eslint = require('gulp-eslint')
 var standard = require('gulp-standard')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.config').webpack
@@ -45,6 +46,28 @@ gulp.task('jsonlint', function () {
     .pipe(jsonlint())
     .pipe(jsonlint.reporter())
 })
+
+gulp.task('eslint', function () {
+  return gulp.src([
+      'lib/**/*.js'
+    , 'res/app/**/*.js'
+    , 'res/auth-ldap/**/*.js'
+    , 'res/auth-mock/**/*.js'
+    , 'res/common/**/*.js'
+    , 'res/test/**/*.js'
+    , '*.js'
+    , '!node_modules/**'
+  ])
+    // eslint() attaches the lint output to the "eslint" property
+    // of the file object so it can be used by other modules.
+    .pipe(eslint())
+    // eslint.format() outputs the lint results to the console.
+    // Alternatively use eslint.formatEach() (see Docs).
+    .pipe(eslint.format())
+    // To have the process exit with an error code (1) on
+    // lint error, return the stream and pipe to failAfterError last.
+    .pipe(eslint.failAfterError());
+});
 
 gulp.task('jscs', function () {
   return gulp.src([

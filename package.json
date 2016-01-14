@@ -95,6 +95,7 @@
     "file-loader": "^0.8.5",
     "gulp": "^3.8.11",
     "gulp-angular-gettext": "^2.1.0",
+    "gulp-eslint": "^1.1.1",
     "gulp-jade": "^1.0.0",
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^1.12.0",

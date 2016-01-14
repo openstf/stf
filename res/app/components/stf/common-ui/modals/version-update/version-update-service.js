@@ -1,19 +1,19 @@
-module.exports = function ServiceFactory($modal, $location) {
+module.exports = function ServiceFactory($uibModal, $location) {
   var service = {}
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance) {
+  var ModalInstanceCtrl = function ($scope, $uibModalInstance) {
     $scope.ok = function () {
-      $modalInstance.close(true)
+      $uibModalInstance.close(true)
       $location.path('/')
     }
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel')
+      $uibModalInstance.dismiss('cancel')
     }
   }
 
   service.open = function () {
-    var modalInstance = $modal.open({
+    var modalInstance = $uibModal.open({
       template: require('./version-update.jade'),
       controller: ModalInstanceCtrl
     })

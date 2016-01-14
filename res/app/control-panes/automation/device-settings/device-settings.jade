@@ -7,24 +7,26 @@
       .col-md-6
         h6(translate) Manner Mode
         .btn-group
-          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"SILENT"')
-            i.fa.fa-volume-off.fa-fw(tooltip='{{"Silent Mode" | translate}}')
-          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"VIBRATE"')
-            i.fa.fa-mobile.fa-fw(tooltip='{{"Vibrate Mode" | translate}}')
-          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', btn-radio='"NORMAL"')
-            i.fa.fa-volume-up.fa-fw(tooltip='{{"Normal Mode" | translate}}')
+          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', uib-btn-radio='"SILENT"', uib-tooltip='{{"Silent Mode" | translate}}')
+            i.fa.fa-volume-off.fa-fw
+          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', uib-btn-radio='"VIBRATE"', uib-tooltip='{{"Vibrate Mode" | translate}}')
+            i.fa.fa-mobile.fa-fw
+          label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', uib-btn-radio='"NORMAL"', uib-tooltip='{{"Normal Mode" | translate}}')
+            i.fa.fa-volume-up.fa-fw
 
       .col-md-6
         h6(translate) WiFi
-        button.btn.btn-sm.btn-primary-outline(ng-click='toggleWifi()',
-        ng-model='wifiEnabled', btn-checkbox)
-          i.fa.fa-wifi.fa-fw(ng-show='wifiEnabled', tooltip='{{"Disable WiFi" | translate}}')
-          i.fa.fa-wifi.fa-fw(ng-hide='wifiEnabled', tooltip='{{"Enable WiFi" | translate}}')
+        .btn-group
+          label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', ng-click='toggleWifi(false)', uib-btn-radio='false', uib-tooltip='{{"Disable WiFi" | translate}}')
+            i.fa.fa-power-off.fa-fw
+          label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', ng-click='toggleWifi(true)', uib-btn-radio='true', uib-tooltip='{{"Enable WiFi" | translate}}')
+            i.fa.fa-wifi.fa-fw
+
     //.row
       .col-md-12
         h6(translate) Lock Rotation
 
         button.btn.btn-sm.btn-primary-outline(ng-click='toggleLockRotation()',
-        ng-model='lockRotation', btn-checkbox)
-          i.fa.fa-repeat.fa-fw(ng-show='lockRotation', tooltip='{{"Unlock Rotation" | translate}}')
-          i.fa.fa-repeat.fa-fw(ng-hide='lockRotation', tooltip='{{"Lock Rotation" | translate}}')
+        ng-model='lockRotation', uib-btn-checkbox)
+          i.fa.fa-repeat.fa-fw(ng-show='lockRotation', uib-tooltip='{{"Unlock Rotation" | translate}}')
+          i.fa.fa-repeat.fa-fw(ng-hide='lockRotation', uib-tooltip='{{"Lock Rotation" | translate}}')

@@ -1,14 +1,14 @@
 module.exports =
-  function FatalMessageServiceFactory($modal, $location, $route, $interval,
+  function FatalMessageServiceFactory($uibModal, $location, $route, $interval,
     StateClassesService) {
     var FatalMessageService = {}
 
     var intervalDeviceInfo
 
-    var ModalInstanceCtrl = function ($scope, $modalInstance, device,
+    var ModalInstanceCtrl = function ($scope, $uibModalInstance, device,
       tryToReconnect) {
       $scope.ok = function () {
-        $modalInstance.close(true)
+        $uibModalInstance.close(true)
         $route.reload()
       }
 
@@ -35,12 +35,12 @@ module.exports =
       }
 
       $scope.second = function () {
-        $modalInstance.dismiss()
+        $uibModalInstance.dismiss()
         $location.path('/devices/')
       }
 
       $scope.cancel = function () {
-        $modalInstance.dismiss('cancel')
+        $uibModalInstance.dismiss('cancel')
       }
 
       var destroyInterval = function () {
@@ -56,7 +56,7 @@ module.exports =
     }
 
     FatalMessageService.open = function (device, tryToReconnect) {
-      var modalInstance = $modal.open({
+      var modalInstance = $uibModal.open({
         template: require('./fatal-message.jade'),
         controller: ModalInstanceCtrl,
         resolve: {

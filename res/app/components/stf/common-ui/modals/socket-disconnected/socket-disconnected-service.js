@@ -1,23 +1,23 @@
 module.exports =
-  function SocketDisconnectedServiceFactory($modal, $location, $window) {
+  function SocketDisconnectedServiceFactory($uibModal, $location, $window) {
     var service = {}
 
-    var ModalInstanceCtrl = function ($scope, $modalInstance, message) {
+    var ModalInstanceCtrl = function ($scope, $uibModalInstance, message) {
       $scope.ok = function () {
-        $modalInstance.close(true)
+        $uibModalInstance.close(true)
         $window.location.reload()
       }
 
       $scope.message = message
 
       $scope.cancel = function () {
-        $modalInstance.dismiss('cancel')
+        $uibModalInstance.dismiss('cancel')
       }
 
     }
 
     service.open = function (message) {
-      var modalInstance = $modal.open({
+      var modalInstance = $uibModal.open({
         template: require('./socket-disconnected.jade'),
         controller: ModalInstanceCtrl,
         resolve: {

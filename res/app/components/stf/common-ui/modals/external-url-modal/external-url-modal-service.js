@@ -1,9 +1,9 @@
-module.exports = function ServiceFactory($modal, $sce) {
+module.exports = function ServiceFactory($uibModal, $sce) {
   var service = {}
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance, url, title, icon) {
+  var ModalInstanceCtrl = function ($scope, $uibModalInstance, url, title, icon) {
     $scope.ok = function () {
-      $modalInstance.close(true)
+      $uibModalInstance.close(true)
     }
 
     $scope.url = $sce.trustAsResourceUrl(url)
@@ -11,12 +11,12 @@ module.exports = function ServiceFactory($modal, $sce) {
     $scope.icon = icon
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel')
+      $uibModalInstance.dismiss('cancel')
     }
   }
 
   service.open = function (url, title, icon) {
-    var modalInstance = $modal.open({
+    var modalInstance = $uibModal.open({
       template: require('./external-url-modal.jade'),
       controller: ModalInstanceCtrl,
       windowClass: 'modal-size-80p',

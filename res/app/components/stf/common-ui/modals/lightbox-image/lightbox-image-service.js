@@ -1,21 +1,21 @@
-module.exports = function ServiceFactory($modal) {
+module.exports = function ServiceFactory($uibModal) {
   var service = {}
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance, title, imageUrl) {
+  var ModalInstanceCtrl = function ($scope, $uibModalInstance, title, imageUrl) {
     $scope.ok = function () {
-      $modalInstance.close(true)
+      $uibModalInstance.close(true)
     }
 
     $scope.title = title
     $scope.imageUrl = imageUrl
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel')
+      $uibModalInstance.dismiss('cancel')
     }
   }
 
   service.open = function (title, imageUrl) {
-    var modalInstance = $modal.open({
+    var modalInstance = $uibModal.open({
       template: require('./lightbox-image.jade'),
       controller: ModalInstanceCtrl,
       windowClass: 'modal-size-xl',

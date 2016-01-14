@@ -40,11 +40,11 @@
     font-size: 14px;
 }
 
-a tab-heading {
+a uib-tab-heading {
     font-size: 13px;
 }
 
-a tab-heading i + span {
+a uib-tab-heading i + span {
     margin-left: 5px;
 }
 

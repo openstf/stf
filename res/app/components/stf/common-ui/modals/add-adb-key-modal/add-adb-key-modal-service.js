@@ -1,15 +1,15 @@
 module.exports =
-  function AddAdbKeyModalServiceFactory($modal) {
+  function AddAdbKeyModalServiceFactory($uibModal) {
     var service = {}
 
-    var ModalInstanceCtrl = function ($scope, $modalInstance, data) {
+    var ModalInstanceCtrl = function ($scope, $uibModalInstance, data) {
       $scope.modal = {}
       $scope.modal.showAdd = true
       $scope.modal.fingerprint = data.fingerprint
       $scope.modal.title = data.title
 
       $scope.ok = function () {
-        $modalInstance.close(true)
+        $uibModalInstance.close(true)
       }
 
       $scope.$watch('modal.showAdd', function (newValue) {
@@ -19,12 +19,12 @@ module.exports =
       })
 
       $scope.cancel = function () {
-        $modalInstance.dismiss('cancel')
+        $uibModalInstance.dismiss('cancel')
       }
     }
 
     service.open = function (data) {
-      var modalInstance = $modal.open({
+      var modalInstance = $uibModal.open({
         template: require('./add-adb-key-modal.jade'),
         controller: ModalInstanceCtrl,
         resolve: {

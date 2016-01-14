@@ -12,11 +12,9 @@ module.exports = function DeviceSettingsCtrl($scope, $timeout) {
   }
   getWifiStatus()
 
-  $scope.toggleWifi = function () {
+  $scope.toggleWifi = function (enable) {
     if ($scope.control) {
-      $scope.control.setWifiEnabled(!$scope.wifiEnabled)
-      $scope.wifiEnabled = !$scope.wifiEnabled
-      $timeout(getWifiStatus, 300)
+      $scope.control.setWifiEnabled(enable)
       $timeout(getWifiStatus, 2500)
     }
   }

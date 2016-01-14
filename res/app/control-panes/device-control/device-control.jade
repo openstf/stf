@@ -5,11 +5,13 @@
         .stf-vnc-right-buttons.pull-right
           .btn-group
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',
-            ng-model='currentRotation', uib-btn-radio='"portrait"').pointer
-              i.fa.fa-mobile(uib-tooltip='{{ "Portrait" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
+            ng-model='currentRotation', uib-btn-radio='"portrait"',
+            uib-tooltip='{{ "Portrait" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+              i.fa.fa-mobile
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("landscape")',
-              ng-model='currentRotation', uib-btn-radio='"landscape"').pointer
-              i.fa.fa-mobile.fa-rotate-90(uib-tooltip='{{ "Landscape" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
+              ng-model='currentRotation', uib-btn-radio='"landscape"',
+            uib-tooltip='{{ "Landscape" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+              i.fa.fa-mobile.fa-rotate-90
           .button-spacer
           button(type='button', ng-model='showScreen', uib-btn-checkbox).btn.btn-xs.btn-info
             i(ng-show='showScreen', uib-tooltip='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye

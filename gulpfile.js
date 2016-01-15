@@ -2,10 +2,8 @@ var path = require('path')
 
 var gulp = require('gulp')
 var gutil = require('gulp-util')
-var jshint = require('gulp-jshint')
 var jsonlint = require('gulp-jsonlint')
 var eslint = require('gulp-eslint')
-var standard = require('gulp-standard')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.config').webpack
 var webpackStatusConfig = require('./res/common/status/webpack.config')
@@ -18,7 +16,6 @@ var protractorConfig = './res/test/protractor.conf'
 var karma = require('karma').server
 var karmaConfig = '/res/test/karma.conf.js'
 var stream = require('stream')
-var jscs = require('gulp-jscs')
 var run = require('gulp-run')
 
 gulp.task('jshint', function () {
@@ -69,29 +66,9 @@ gulp.task('eslint', function () {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('jscs', function () {
-  return gulp.src([
-      'lib/**/*.js'
-    , 'res/app/**/*.js'
-    , 'res/auth-ldap/**/*.js'
-    , 'res/auth-mock/**/*.js'
-    , 'res/common/**/*.js'
-    , 'res/test/**/*.js'
-    , '*.js'
-    ])
-    .pipe(jscs())
-})
 
-gulp.task('standard', function () {
-  // Check res/app for now
-  return gulp.src(['res/app/**/*.js', '!**/*-spec.js'])
-    .pipe(standard())
-    .pipe(standard.reporter('default', {
-      breakOnError: true
-    }))
-})
 
-gulp.task('lint', ['jshint', 'jsonlint'])
+gulp.task('lint', ['jsonlint'])
 gulp.task('test', ['lint', 'run:checkversion'])
 gulp.task('build', ['clean', 'webpack:build'])
 

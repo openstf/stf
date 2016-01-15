@@ -67,13 +67,14 @@ module.exports = {
         { test: /uuid\.js$/, loader: 'imports?require=>undefined'},
         { test: /dialogs\.js$/, loader: 'script'}
       ],
-      preLoaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules|bower_components/,
-          loader: 'jshint-loader'
-        }
-      ],
+      // TODO: enable when its sane
+      //preLoaders: [
+      //  {
+      //    test: /\.js$/,
+      //    exclude: /node_modules|bower_components/,
+      //    loader: 'eslint-loader'
+      //  }
+      //],
       noParse: [
         //pathutil.resource('bower_components')
       ]

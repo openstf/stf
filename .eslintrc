@@ -48,7 +48,7 @@
     "no-new-wrappers": 2,
     "no-new": 2,
     "no-octal-escape": 2,
-    "no-octal": 2,
+    "no-octal": 1, // TODO: accept until we use ES6 0o755 notation
     "no-param-reassign": 2,
     "no-process-env": 0, // `2` is recommended
     "no-proto": 2,
@@ -62,7 +62,7 @@
     "no-useless-call": 2, // `2` is recommended
     "no-useless-concat": 2,
     "no-void": 2,
-    "no-warning-comments": 1, // `[0, { "terms": ["todo", "fixme", "xxx"], "location": "start" }]` is recommended
+    "no-warning-comments": [1, { "terms": ["todo", "fixme", "@todo", "@fixme"]}], // `[0, { "terms": ["todo", "fixme", "xxx"], "location": "start" }]` is recommended
     "no-with": 2,
     "radix": 1, // `2` is recommended
     "vars-on-top": 0, // `2` is recommended TODO: review this
@@ -78,7 +78,7 @@
     "no-label-var": 2,
     "no-shadow-restricted-names": 2,
     "no-shadow": 0, // TODO: 1 may be ok
-    "no-undefined": 2,
+    "no-undefined": 1,
     "no-unused-vars": 1,
     "no-use-before-define": 1, // TODO: 0 or 2 may be ok, sometimes there are ciclic dependencies
 
@@ -86,7 +86,7 @@
     "array-bracket-spacing": [2, "never"], // optionally set `[2, "never", {"singleValue": true, "objectsInArrays": true, "arraysInArrays": true}]`
     "block-spacing": [2, "always"], // optionally set `[2, "always"]`
     "brace-style": [2, "stroustrup", {"allowSingleLine": false}],
-    "camelcase": [2, {"properties": "always"}], // TODO: 2 might be too much
+    "camelcase": [2, {"properties": "never"}], // TODO: 2 might be too much
     "comma-spacing": [2, {"before": false, "after": true}],
     "comma-style": [1, "first"], // optionally set `[2, "first", {"exceptions": {"ArrayExpression": true, "ObjectExpression": true}}]`
     "computed-property-spacing": [2, "never"],

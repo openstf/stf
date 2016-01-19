@@ -31,11 +31,8 @@ gulp.task('jsonlint', function() {
 gulp.task('eslint', function() {
   return gulp.src([
       'lib/**/*.js'
-    , 'res/app/**/*.js'
-    , 'res/auth-ldap/**/*.js'
-    , 'res/auth-mock/**/*.js'
-    , 'res/common/**/*.js'
-    , 'res/test/**/*.js'
+    , 'res/**/*.js'
+    , '!res/bower_components/**'
     , '*.js'
     , '!node_modules/**'
   ])
@@ -50,7 +47,7 @@ gulp.task('eslint', function() {
     .pipe(eslint.failAfterError())
 })
 
-gulp.task('lint', ['jsonlint'])
+gulp.task('lint', ['jsonlint', 'eslint'])
 gulp.task('test', ['lint', 'run:checkversion'])
 gulp.task('build', ['clean', 'webpack:build'])
 

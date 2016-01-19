@@ -7,7 +7,7 @@ module.exports = angular.module('device-control', [
   require('ng-context-menu').name,
   require('stf/device-context-menu').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('control-panes/device-control/device-control.jade',
       require('./device-control.jade')
     )

@@ -9,7 +9,7 @@ module.exports = function SocketStateDirectiveFactory(
   return {
     restrict: 'EA',
     template: require('./socket-state.jade'),
-    link: function (scope) {
+    link: function(scope) {
       var hasFailedOnce = false
 
       function setState(state) {
@@ -40,36 +40,36 @@ module.exports = function SocketStateDirectiveFactory(
           break
         }
 
-        scope.$apply(function () {
+        scope.$apply(function() {
           scope.socketState = state
         })
       }
 
       var socketListeners = {
-        'connect': function () {
+        connect: function() {
           setState('connect')
         }
-      , 'disconnect': function () {
+      , disconnect: function() {
           setState('disconnect')
           hasFailedOnce = true
         }
-      , 'error': function () {
+      , error: function() {
           setState('error')
           hasFailedOnce = true
         }
-      , 'connect_error': function () {
+      , connect_error: function() {
           setState('connect_error')
           hasFailedOnce = true
         }
-      , 'reconnect_error': function () {
+      , reconnect_error: function() {
           setState('reconnect_error')
           hasFailedOnce = true
         }
-      , 'reconnect_failed': function () {
+      , reconnect_failed: function() {
           setState('reconnect_failed')
           hasFailedOnce = true
         }
-      , 'reconnect': function () {
+      , reconnect: function() {
           setState('reconnect')
           hasFailedOnce = true
         }

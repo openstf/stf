@@ -5,9 +5,9 @@ module.exports =
 
     var intervalDeviceInfo
 
-    var ModalInstanceCtrl = function ($scope, $uibModalInstance, device,
+    var ModalInstanceCtrl = function($scope, $uibModalInstance, device,
       tryToReconnect) {
-      $scope.ok = function () {
+      $scope.ok = function() {
         $uibModalInstance.close(true)
         $route.reload()
       }
@@ -24,7 +24,7 @@ module.exports =
 
       if (tryToReconnect) {
         // TODO: this is ugly, find why its not updated correctly (also on the device list)
-        intervalDeviceInfo = $interval(function () {
+        intervalDeviceInfo = $interval(function() {
           update()
 
           if (device.usable) {
@@ -34,43 +34,43 @@ module.exports =
         }, 1000, 500)
       }
 
-      $scope.second = function () {
+      $scope.second = function() {
         $uibModalInstance.dismiss()
         $location.path('/devices/')
       }
 
-      $scope.cancel = function () {
+      $scope.cancel = function() {
         $uibModalInstance.dismiss('cancel')
       }
 
-      var destroyInterval = function () {
+      var destroyInterval = function() {
         if (angular.isDefined(intervalDeviceInfo)) {
           $interval.cancel(intervalDeviceInfo)
           intervalDeviceInfo = undefined
         }
       }
 
-      $scope.$on('$destroy', function () {
+      $scope.$on('$destroy', function() {
         destroyInterval()
       })
     }
 
-    FatalMessageService.open = function (device, tryToReconnect) {
+    FatalMessageService.open = function(device, tryToReconnect) {
       var modalInstance = $uibModal.open({
         template: require('./fatal-message.jade'),
         controller: ModalInstanceCtrl,
         resolve: {
-          device: function () {
+          device: function() {
             return device
           },
-          tryToReconnect: function () {
+          tryToReconnect: function() {
             return tryToReconnect
           }
         }
       })
 
-      modalInstance.result.then(function () {
-      }, function () {
+      modalInstance.result.then(function() {
+      }, function() {
 
       })
     }

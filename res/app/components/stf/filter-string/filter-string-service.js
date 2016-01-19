@@ -6,11 +6,11 @@ module.exports = function FilterStringServiceFactory() {
   /**
    * Filters integer
    *
-   * @param searchValue
-   * @param str
+   * @param {string} searchValue Value to search
+   * @param {string} str Value to compare
    * @returns {boolean} true if matched
    */
-  service.filterInteger = function (searchValue, str) {
+  service.filterInteger = function(searchValue, str) {
     var matched = true
     matched = service.filterString(searchValue + '', str + '')
     return matched
@@ -19,11 +19,11 @@ module.exports = function FilterStringServiceFactory() {
   /**
    * Filters string
    *
-   * @param searchValue
-   * @param str
+   * @param {string} searchValue Value to search
+   * @param {string} str Value to compare
    * @returns {boolean} true if matched
    */
-  service.filterString = function (searchValue, str) {
+  service.filterString = function(searchValue, str) {
     var matched = true
     var searchLowerCase = searchValue.toLowerCase()
     var searchContent = searchValue.slice(1)

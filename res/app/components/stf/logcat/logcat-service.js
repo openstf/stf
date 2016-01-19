@@ -23,14 +23,14 @@ module.exports = function LogcatServiceFactory(socket, FilterStringService) {
   var _filters = {}
 
   function defineFilterProperties(properties) {
-    _.forEach(properties, function (prop) {
+    _.forEach(properties, function(prop) {
       Object.defineProperty(service.filters, prop, {
-        get: function () {
+        get: function() {
           return _filters[prop]
         },
-        set: function (value) {
-          _filters[prop] = value ? value : null
-          service.serverFilters[0][prop] = value ? value : undefined
+        set: function(value) {
+          _filters[prop] = value || null
+          service.serverFilters[0][prop] = value || undefined
           service.filters.filterLines()
         }
       })
@@ -63,11 +63,11 @@ module.exports = function LogcatServiceFactory(socket, FilterStringService) {
     'SILENT'
   ]
 
-  var logLevelsLowerCase = _.map(service.logLevels, function (level) {
+  var logLevelsLowerCase = _.map(service.logLevels, function(level) {
     return level.toLowerCase()
   })
 
-  var logLevelsCapitalized = _.map(logLevelsLowerCase, function (level) {
+  var logLevelsCapitalized = _.map(logLevelsLowerCase, function(level) {
     return _s.capitalize(level)
   })
 
@@ -90,26 +90,26 @@ module.exports = function LogcatServiceFactory(socket, FilterStringService) {
     return data
   }
 
-  socket.on('logcat.entry', function (rawData) {
+  socket.on('logcat.entry', function(rawData) {
     service.numberOfEntries++
     service.entries.push(enhanceEntry(rawData))
 
-    if (typeof(service.addEntryListener) === 'function') {
+    if (typeof (service.addEntryListener) === 'function') {
       if (filterLine(rawData)) {
         service.addEntryListener(rawData)
       }
     }
   })
 
-  service.clear = function () {
+  service.clear = function() {
     service.numberOfEntries = 0
     service.entries = []
   }
 
-  service.filters.filterLines = function () {
+  service.filters.filterLines = function() {
     service.filters.entries = _.filter(service.entries, filterLine)
 
-    if (typeof(service.addFilteredEntriesListener) === 'function') {
+    if (typeof (service.addFilteredEntriesListener) === 'function') {
       service.addFilteredEntriesListener(service.filters.entries)
     }
   }

@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 var assert = require('assert')
 
 var patchArray = require('./patch-array')

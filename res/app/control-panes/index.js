@@ -16,7 +16,7 @@ module.exports = angular.module('control-panes', [
   require('./explorer').name,
   require('./info').name
 ])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
       .when('/control', {

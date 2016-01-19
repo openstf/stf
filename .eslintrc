@@ -8,7 +8,7 @@
     "no-cond-assign": 2, // TODO: conflicts with no-extra-parens for while use case
     "no-extra-parens": 0, // For now going with 0 since 1 does more harm than good
     "no-unexpected-multiline": 2,
-    "valid-jsdoc": 2,
+    "valid-jsdoc": 1,
     "valid-typeof": 2,
 
     // Best practices
@@ -90,7 +90,7 @@
     "comma-spacing": [2, {"before": false, "after": true}],
     "comma-style": [1, "first"], // optionally set `[2, "first", {"exceptions": {"ArrayExpression": true, "ObjectExpression": true}}]`
     "computed-property-spacing": [2, "never"],
-    "consistent-this": [2, "self"],
+    "consistent-this": [2, "that"],
     "eol-last": 2,
     "func-names": 0,
     "func-style": 0, // optionally set `[2, "expression"]`
@@ -128,7 +128,7 @@
     "operator-assignment": [2, "always"], // optionally set `[2, "always"]`
     "operator-linebreak": [2, "after"], // optionally set `[2, "before", {"overrides": {"?": "after"}}]` // TODO: check for conditionals
     "padded-blocks": [2, "never"],
-    "quote-props": [2, "consistent-as-needed"],
+    "quote-props": [2, "as-needed", { "numbers": true }],
     "quotes": [2, "single", "avoid-escape"],
     "require-jsdoc": 0,
     "semi-spacing": [2, {"before": false, "after": true}],

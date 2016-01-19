@@ -12,14 +12,11 @@ module.exports = function patchArray(a, b) {
   var ops = []
 
   var workA = [].concat(a)
-    , inA = Object.create(null)
-    , itemA
-    , cursorA
+  var inA = Object.create(null)
+  var itemA, cursorA, itemB, cursorB
 
   var inB = existenceMap(b)
-    , posB = Object.create(null)
-    , itemB
-    , cursorB
+  var posB = Object.create(null)
 
   // First, check what was removed from a.
   for (cursorA = 0; cursorA < workA.length;) {

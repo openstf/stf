@@ -8,7 +8,7 @@ var packery = require('packery/js/packery.js')
 module.exports = angular.module('stf.angular-packery', [
   require('stf/angular-draggabilly').name
 ])
-  .factory('PackeryService', function () {
+  .factory('PackeryService', function() {
     return packery
   })
   .directive('angularPackery', require('./angular-packery-directive'))

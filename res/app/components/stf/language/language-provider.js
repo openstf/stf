@@ -12,7 +12,7 @@ module.exports = function LanguageProvider(AppStateProvider) {
   }
 
   return {
-    $get: function () {
+    $get: function() {
       return provider
     }
   }

@@ -10,7 +10,7 @@ module.exports = angular.module('stf.install', [
   require('stf/install').name,
   require('stf/upload').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('control-panes/dashboard/install/install.jade',
       require('./install.jade')
     )

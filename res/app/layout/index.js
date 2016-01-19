@@ -14,7 +14,7 @@ module.exports = angular.module('layout', [
   require('stf/common-ui/modals/socket-disconnected').name,
   require('stf/browser-info').name
 ])
-  .config(['$uibTooltipProvider', function ($uibTooltipProvider) {
+  .config(['$uibTooltipProvider', function($uibTooltipProvider) {
     $uibTooltipProvider.options({
       appendToBody: true,
       animation: false

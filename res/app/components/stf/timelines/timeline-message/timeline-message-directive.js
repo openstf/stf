@@ -11,15 +11,15 @@ module.exports = function timelineMessageDirective(Timelines, $sce, $interpolate
     replace: true,
     template: '',
     transclude: true,
-    link: function (scope, iElem, iAttrs, ctrls, transcludeFn) {
+    link: function(scope, iElem, iAttrs, ctrls, transcludeFn) {
 
       var options = angular.extend({}, defaults, scope.$eval(iAttrs.timelineMessage))
 
-      transcludeFn(function (elem, scope) {
+      transcludeFn(function(elem, scope) {
         var e,
           html,
           interpolateFn,
-          safeHtml;
+          safeHtml
 
         // Create temporary wrapper element so we can grab the inner html
         e = angular.element(document.createElement('div'))

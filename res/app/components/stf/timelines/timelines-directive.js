@@ -4,9 +4,9 @@ module.exports = function timelinesDirective(Timelines) {
     replace: false,
     scope: {},
     template: require('./timelines.jade'),
-    link: function (scope) {
-      scope.cssPrefix = Timelines.options.cssPrefix;
-      scope.notifications = Timelines.notifications;
+    link: function(scope) {
+      scope.cssPrefix = Timelines.options.cssPrefix
+      scope.notifications = Timelines.notifications
     }
   }
 }

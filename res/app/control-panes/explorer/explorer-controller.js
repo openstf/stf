@@ -5,7 +5,7 @@ module.exports = function ExplorerCtrl($scope) {
     paths: []
   }
 
-  $scope.getAbsolutePath = function () {
+  $scope.getAbsolutePath = function() {
     return ('/' + $scope.explorer.paths.join('/')).replace(/\/\/+/g, '/')
   }
 
@@ -18,16 +18,16 @@ module.exports = function ExplorerCtrl($scope) {
     $scope.explorer.search = path
 
     $scope.control.fslist(path)
-      .then(function (result) {
-        $scope.explorer.files = result.body;
-        $scope.$digest();
+      .then(function(result) {
+        $scope.explorer.files = result.body
+        $scope.$digest()
       })
-      .catch(function (err) {
-        alert(err.message)
+      .catch(function(err) {
+        throw new Error(err.message)
       })
   }
 
-  $scope.dirEnterLocation = function () {
+  $scope.dirEnterLocation = function() {
     if ($scope.explorer.search) {
       resetPaths($scope.explorer.search)
       listDir()
@@ -35,7 +35,7 @@ module.exports = function ExplorerCtrl($scope) {
     }
   }
 
-  $scope.dirEnter = function (name) {
+  $scope.dirEnter = function(name) {
     if (name) {
       $scope.explorer.paths.push(name)
     }
@@ -43,7 +43,7 @@ module.exports = function ExplorerCtrl($scope) {
     $scope.explorer.search = $scope.getAbsolutePath()
   }
 
-  $scope.dirUp = function () {
+  $scope.dirUp = function() {
     if ($scope.explorer.paths.length !== 0) {
       $scope.explorer.paths.pop()
     }
@@ -51,16 +51,16 @@ module.exports = function ExplorerCtrl($scope) {
     $scope.explorer.search = $scope.getAbsolutePath()
   }
 
-  $scope.getFile = function (file) {
+  $scope.getFile = function(file) {
     var path = $scope.getAbsolutePath() + '/' + file
     $scope.control.fsretrieve(path)
-      .then(function (result) {
+      .then(function(result) {
         if (result.body) {
-          location.href = result.body.href + "?download"
+          location.href = result.body.href + '?download'
         }
       })
-      .catch(function (err) {
-        alert(err.message)
+      .catch(function(err) {
+        throw new Error(err.message)
       })
   }
 

@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 var rotator = require('./rotator')
 
 var tests = [

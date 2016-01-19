@@ -4,7 +4,7 @@ function TransactionError(result) {
   Error.captureStackTrace(this, TransactionError)
 }
 
-TransactionError.prototype = Object.create(Error.prototype);
-TransactionError.prototype.constructor = TransactionError;
+TransactionError.prototype = Object.create(Error.prototype)
+TransactionError.prototype.constructor = TransactionError
 
 module.exports = TransactionError

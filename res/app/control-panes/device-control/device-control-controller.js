@@ -9,7 +9,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.groupDevices = $scope.groupTracker.devices
 
-  $scope.kickDevice = function (device) {
+  $scope.kickDevice = function(device) {
 
     if (!device || !$scope.device) {
       alert('No device found')
@@ -24,24 +24,24 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
         if ($scope.groupDevices.length > 1) {
 
           // Control first free device first
-          var firstFreeDevice = _.find($scope.groupDevices, function (dev) {
+          var firstFreeDevice = _.find($scope.groupDevices, function(dev) {
             return dev.serial !== $scope.device.serial
           })
           $scope.controlDevice(firstFreeDevice)
 
           // Then kick the old device
-          GroupService.kick(device).then(function () {
+          GroupService.kick(device).then(function() {
             $scope.$digest()
           })
         } else {
           // Kick the device
-          GroupService.kick(device).then(function () {
+          GroupService.kick(device).then(function() {
             $scope.$digest()
           })
           $location.path('/devices/')
         }
       } else {
-        GroupService.kick(device).then(function () {
+        GroupService.kick(device).then(function() {
           $scope.$digest()
         })
       }
@@ -50,35 +50,37 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
     }
   }
 
-  $scope.controlDevice = function (device) {
+  $scope.controlDevice = function(device) {
     $location.path('/control/' + device.serial)
   }
 
-  function isPortrait(value) {
+  function isPortrait(val) {
+    var value = val
     if (typeof value === 'undefined' && $scope.device) {
       value = $scope.device.display.rotation
     }
     return (value === 0 || value === 180)
   }
 
-  function isLandscape(value) {
+  function isLandscape(val) {
+    var value = val
     if (typeof value === 'undefined' && $scope.device) {
       value = $scope.device.display.rotation
     }
     return (value === 90 || value === 270)
   }
 
-  $scope.tryToRotate = function (rotation) {
+  $scope.tryToRotate = function(rotation) {
     if (rotation === 'portrait') {
       $scope.control.rotate(0)
-      $timeout(function () {
+      $timeout(function() {
         if (isLandscape()) {
           $scope.currentRotation = 'landscape'
         }
       }, 400)
     } else if (rotation === 'landscape') {
       $scope.control.rotate(90)
-      $timeout(function () {
+      $timeout(function() {
         if (isPortrait()) {
           $scope.currentRotation = 'portrait'
         }
@@ -88,7 +90,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
 
   $scope.currentRotation = 'portrait'
 
-  $scope.$watch('device.display.rotation', function (newValue) {
+  $scope.$watch('device.display.rotation', function(newValue) {
     if (isPortrait(newValue)) {
       $scope.currentRotation = 'portrait'
     } else if (isLandscape(newValue)) {
@@ -97,7 +99,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
   })
 
   // TODO: Refactor this inside control and server-side
-  $scope.rotateLeft = function () {
+  $scope.rotateLeft = function() {
     var angle = 0
     if ($scope.device && $scope.device.display) {
       angle = $scope.device.display.rotation
@@ -114,7 +116,7 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
     }
   }
 
-  $scope.rotateRight = function () {
+  $scope.rotateRight = function() {
     var angle = 0
     if ($scope.device && $scope.device.display) {
       angle = $scope.device.display.rotation

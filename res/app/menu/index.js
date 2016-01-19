@@ -7,6 +7,6 @@ module.exports = angular.module('stf.menu', [
   require('stf/native-url').name
 ])
   .controller('MenuCtrl', require('./menu-controller'))
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('menu.jade', require('./menu.jade'))
   }])

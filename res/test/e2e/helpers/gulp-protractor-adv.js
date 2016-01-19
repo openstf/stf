@@ -7,13 +7,13 @@
  - Added feature to detect if selenium is running or not
  */
 
-var es = require('event-stream')
+var es = require('event-that')
 var path = require('path')
 var childProcess = require('child_process')
 var PluginError = require('gulp-util').PluginError
-var winExt = /^win/.test(process.platform) ? ".cmd" : ""
+var winExt = /^win/.test(process.platform) ? '.cmd' : ''
 var http = require('http')
-var Promise = require("bluebird")
+var Promise = require('bluebird')
 
 // optimization: cache for protractor binaries directory
 var protractorDir = null
@@ -22,32 +22,31 @@ function getProtractorDir() {
   if (protractorDir) {
     return protractorDir
   }
-  var result = require.resolve("protractor")
+  var result = require.resolve('protractor')
   if (result) {
     // result is now something like
     // c:\\Source\\gulp-protractor\\node_modules\\protractor\\lib\\protractor.js
     protractorDir =
-      path.resolve(path.join(path.dirname(result), "..", "..", ".bin"))
+      path.resolve(path.join(path.dirname(result), '..', '..', '.bin'))
     return protractorDir
   }
-  throw new Error("No protractor installation found.")
+  throw new Error('No protractor installation found.')
 }
 
-var protractor = function (options) {
-  var files = [],
-    child, args
-
-  options = options || {}
-  args = options.args || []
+var protractor = function(opts) {
+  var files = []
+  var options = opts || {}
+  var args = options.args || []
+  var child
 
   if (!options.configFile) {
     this.emit('error', new PluginError('gulp-protractor',
       'Please specify the protractor config file'))
   }
-  return es.through(function (file) {
+  return es.through(function(file) {
     files.push(file.path)
-  }, function () {
-    var stream = this
+  }, function() {
+    var that = this
 
     // Enable debug mode
     if (options.debug) {
@@ -74,31 +73,31 @@ var protractor = function (options) {
       winExt), args, {
         stdio: 'inherit',
         env: process.env
-      }).on('exit', function (code) {
+      }).on('exit', function(code) {
         if (child) {
           child.kill()
         }
-        if (stream) {
+        if (that) {
           if (code) {
-            stream.emit('error', new PluginError('gulp-protractor',
+            that.emit('error', new PluginError('gulp-protractor',
               'protractor exited with code ' + code))
           }
           else {
-            stream.emit('end')
+            that.emit('end')
           }
         }
       })
   })
 }
 
-var webdriverUpdate = function (opts, cb) {
-  var callback = (cb ? cb : opts)
+var webdriverUpdate = function(opts, cb) {
+  var callback = cb || opts
   var options = (cb ? opts : null)
-  var args = ["update", "--standalone"]
+  var args = ['update', '--standalone']
   if (options) {
     if (options.browsers) {
-      options.browsers.forEach(function (element) {
-        args.push("--" + element)
+      options.browsers.forEach(function(element) {
+        args.push('--' + element)
       })
     }
   }
@@ -108,14 +107,14 @@ var webdriverUpdate = function (opts, cb) {
   }).once('close', callback)
 }
 
-var webdriverUpdateSpecific = function (opts) {
+var webdriverUpdateSpecific = function(opts) {
   return webdriverUpdate.bind(this, opts)
 }
 
-webdriverUpdate.bind(null, ["ie", "chrome"])
+webdriverUpdate.bind(null, ['ie', 'chrome'])
 
-var webdriverStandalone = function (opts, cb) {
-  var callback = (cb ? cb : opts)
+var webdriverStandalone = function(opts, cb) {
+  var callback = cb || opts
   var options = (cb ? opts : null)
   var stdio = 'inherit'
 
@@ -130,7 +129,7 @@ var webdriverStandalone = function (opts, cb) {
     stdio: stdio
   })
     .once('close', callback)
-    .on('exit', function (code) {
+    .on('exit', function(code) {
       if (child) {
         child.kill()
       }
@@ -142,33 +141,33 @@ function getProtractorExplorerDir() {
   if (protractorExplorerDir) {
     return protractorExplorerDir
   }
-  var result = require.resolve("protractor")
+  var result = require.resolve('protractor')
   if (result) {
     // result is now something like
     // c:\\Source\\gulp-protractor\\node_modules\\protractor\\lib\\protractor.js
     protractorExplorerDir =
-      path.resolve(path.join(path.dirname(result), "..", "bin"))
+      path.resolve(path.join(path.dirname(result), '..', 'bin'))
     return protractorExplorerDir
   }
-  throw new Error("No protractor installation found.")
+  throw new Error('No protractor installation found.')
 }
 
-var isWebDriverRunning = function () {
-  return new Promise(function (resolve) {
+var isWebDriverRunning = function() {
+  return new Promise(function(resolve) {
     var options = {
       hostname: 'localhost',
       port: 4444,
       path: '/wd/hub/status'
     }
 
-    var req = http.request(options, function (res) {
+    var req = http.request(options, function(res) {
       if (res.statusCode !== 200) {
         throw new Error('Selenium is running but status code is' +
         res.statusCode)
       }
       resolve(true)
     })
-    req.on('error', function () {
+    req.on('error', function() {
       resolve(false)
     })
     req.write('data\n')
@@ -188,8 +187,8 @@ var isWebDriverRunning = function () {
 //}
 
 
-var protractorExplorer = function (opts, cb) {
-  var callback = (cb ? cb : opts)
+var protractorExplorer = function(opts, cb) {
+  var callback = cb || opts
   var options = (cb ? opts : null)
   var url = 'https://angularjs.org/'
 
@@ -211,7 +210,7 @@ var protractorExplorer = function (opts, cb) {
     '/elementexplorer.js'), [url], {
       stdio: 'inherit'
     })
-      .on('exit', function () {
+      .on('exit', function() {
         if (child) {
           child.kill()
         }
@@ -220,16 +219,16 @@ var protractorExplorer = function (opts, cb) {
   }
 
   function runWebDriver() {
-    isWebDriverRunning().then(function (running) {
+    isWebDriverRunning().then(function(running) {
       if (running) {
         runElementExplorer(callback)
       } else {
         webdriverStandalone({stdio: ['pipe', 'pipe', process.stderr]},
-          function () {
+          function() {
 
           })
 
-        setTimeout(function () {
+        setTimeout(function() {
           runElementExplorer(callback)
         }, 2000)
       }

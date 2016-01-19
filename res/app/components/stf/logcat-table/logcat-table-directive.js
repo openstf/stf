@@ -6,7 +6,7 @@ module.exports =
       restrict: 'E',
       replace: true,
       template: require('./logcat-table.jade'),
-      link: function (scope, element) {
+      link: function(scope, element) {
         var autoScroll = true
         var autoScrollDependingOnScrollPosition = true
         var scrollPosition = 0
@@ -23,15 +23,15 @@ module.exports =
           }
         }
 
-        LogcatService.addEntryListener = function (entry) {
+        LogcatService.addEntryListener = function(entry) {
           incrementNumberEntry()
           addRow(body, entry)
         }
 
-        LogcatService.addFilteredEntriesListener = function (entries) {
+        LogcatService.addFilteredEntriesListener = function(entries) {
           clearTable()
           //var fragment = document.createDocumentFragment()
-          _.each(entries, function (entry) {
+          _.each(entries, function(entry) {
             // TODO: This is not adding all the entries after first scope creation
             incrementNumberEntry()
             addRow(body, entry, true)
@@ -56,7 +56,7 @@ module.exports =
 
         function scrollToBottom() {
           parent.scrollTop = parent.scrollHeight + 20
-          $timeout(function () {
+          $timeout(function() {
             parent.scrollTop = parent.scrollHeight
           }, 10)
         }
@@ -99,13 +99,13 @@ module.exports =
           body = newBody
         }
 
-        scope.clearTable = function () {
+        scope.clearTable = function() {
           LogcatService.clear()
           numberOfEntries = 0
           clearTable()
         }
 
-        scope.$on('$destroy', function () {
+        scope.$on('$destroy', function() {
           parent.removeEventListener('scroll', throttledScrollListener)
         })
       }

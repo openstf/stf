@@ -8,14 +8,14 @@ module.exports = function SettingsServiceFactory(
   var SettingsService = {}
 
   var settings = UserService.currentUser.settings || {}
-    , syncListeners = []
+  var syncListeners = []
 
   function createListener(object, options, monitor) {
     var source = options.source || options.target
     return function() {
-      var value = object[options.target] = (source in settings)
-        ? settings[source]
-        : options.defaultValue
+      var value = object[options.target] = (source in settings) ?
+        settings[source] :
+        options.defaultValue
 
       if (monitor) {
         monitor(value)
@@ -28,7 +28,9 @@ module.exports = function SettingsServiceFactory(
     $rootScope.safeApply(function() {
       _.merge(settings, delta, function(a, b) {
         // New Arrays overwrite old Arrays
-        return _.isArray(b) ? b : undefined
+        if (_.isArray(b)) {
+          return b
+        }
       })
 
       for (var i = 0, l = syncListeners.length; i < l; ++i) {
@@ -42,7 +44,7 @@ module.exports = function SettingsServiceFactory(
     applyDelta(delta)
   }
 
-  SettingsService.get = function (key) {
+  SettingsService.get = function(key) {
     return settings[key]
   }
 
@@ -60,11 +62,11 @@ module.exports = function SettingsServiceFactory(
 
   SettingsService.bind = function(scope, options) {
     function value(possibleValue, defaultValue) {
-      return (possibleValue !== void 0) ? possibleValue : defaultValue
+      return (typeof possibleValue !== 'undefined') ? possibleValue : defaultValue
     }
 
     var source = options.source || options.target
-      , defaultValue = value(options.defaultValue, scope[options.target])
+    var defaultValue = value(options.defaultValue, scope[options.target])
 
     scope.$watch(
       options.target

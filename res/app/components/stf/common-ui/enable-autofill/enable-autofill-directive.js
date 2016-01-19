@@ -15,7 +15,7 @@ module.exports = function enableAutofillDirective($rootElement, $cookies) {
         tElement.attr('method', 'post')
       } else {
         if (!tAttrs.method.match(/post/i)) {
-          console.error('Auto-fill only works with form POST method')
+          throw new Error('Auto-fill only works with form POST method')
         }
       }
 
@@ -43,7 +43,7 @@ module.exports = function enableAutofillDirective($rootElement, $cookies) {
       }
 
       return {
-        pre: function (scope, element, attrs) {
+        pre: function(scope, element, attrs) {
           // Angular needs this so the form action doesn't get removed
           // Also, trying to set a url at this time doesn't work neither
           attrs.action = ''

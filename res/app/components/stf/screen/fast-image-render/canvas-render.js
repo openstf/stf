@@ -26,11 +26,11 @@ function CanvasRender(canvasElement, options) {
   }
 }
 
-CanvasRender.prototype.draw = function (image) {
+CanvasRender.prototype.draw = function(image) {
   this.context.drawImage(image, 0, 0)
 }
 
-CanvasRender.prototype.clear = function () {
+CanvasRender.prototype.clear = function() {
   this.context.clearRect(0, 0, this.context.canvas.width,
     this.context.canvas.height)
 }

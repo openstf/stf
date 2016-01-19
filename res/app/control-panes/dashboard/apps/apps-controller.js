@@ -3,12 +3,13 @@
 module.exports = function ShellCtrl($scope) {
   $scope.result = null
 
-  var run = function (command) {
+  var run = function(cmd) {
+    var command = cmd
     // Force run activity
     command += ' --activity-clear-top'
     return $scope.control.shell(command)
-      .then(function (result) {
-        console.log(result)
+      .then(function(result) {
+        // console.log(result)
       })
   }
 
@@ -20,45 +21,45 @@ module.exports = function ShellCtrl($scope) {
     activity)
   }
 
-  $scope.openSettings = function () {
+  $scope.openSettings = function() {
     run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings')
   }
 
-  $scope.openWiFiSettings = function () {
+  $scope.openWiFiSettings = function() {
     //openSetting('WifiSettingsActivity')
     run('am start -a android.settings.WIFI_SETTINGS')
   }
 
-  $scope.openLocaleSettings = function () {
+  $scope.openLocaleSettings = function() {
     openSetting('LocalePickerActivity')
   }
 
-  $scope.openIMESettings = function () {
+  $scope.openIMESettings = function() {
     openSetting('KeyboardLayoutPickerActivity')
   }
 
-  $scope.openDisplaySettings = function () {
+  $scope.openDisplaySettings = function() {
     openSetting('DisplaySettingsActivity')
   }
 
-  $scope.openDeviceInfo = function () {
+  $scope.openDeviceInfo = function() {
     openSetting('DeviceInfoSettingsActivity')
   }
 
-  $scope.openManageApps = function () {
+  $scope.openManageApps = function() {
     //openSetting('ManageApplicationsActivity')
     run('am start -a android.settings.APPLICATION_SETTINGS')
   }
 
-  $scope.openRunningApps = function () {
+  $scope.openRunningApps = function() {
     openSetting('RunningServicesActivity')
   }
 
-  $scope.openDeveloperSettings = function () {
+  $scope.openDeveloperSettings = function() {
     openSetting('DevelopmentSettingsActivity')
   }
 
-  $scope.clear = function () {
+  $scope.clear = function() {
     $scope.command = ''
     $scope.data = ''
     $scope.result = null

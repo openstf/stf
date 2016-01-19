@@ -39,12 +39,12 @@ module.exports = function DeviceListIconsDirective(
       }
     , update: function(li, device) {
         var a = li.firstChild
-          , img = a.firstChild.firstChild
-          , name = a.firstChild.nextSibling
-          , nt = name.firstChild
-          , button = name.nextSibling
-          , at = button.firstChild
-          , classes = 'btn btn-xs device-status '
+        var img = a.firstChild.firstChild
+        var name = a.firstChild.nextSibling
+        var nt = name.firstChild
+        var button = name.nextSibling
+        var at = button.firstChild
+        var classes = 'btn btn-xs device-status '
 
         // .device-photo-small
         if (img.getAttribute('src') !== device.enhancedImage120) {
@@ -105,32 +105,32 @@ module.exports = function DeviceListIconsDirective(
     , sort: '=sort'
     , filter: '&filter'
     }
-  , link: function (scope, element) {
+  , link: function(scope, element) {
       var tracker = scope.tracker()
-        , activeColumns = []
-        , activeSorting = []
-        , activeFilters = []
-        , list = element.find('ul')[0]
-        , items = list.childNodes
-        , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
-        , mapping = Object.create(null)
-        , builder = DeviceItem()
+      var activeColumns = []
+      var activeSorting = []
+      var activeFilters = []
+      var list = element.find('ul')[0]
+      var items = list.childNodes
+      var prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
+      var mapping = Object.create(null)
+      var builder = DeviceItem()
 
 
       function kickDevice(device, force) {
-        return GroupService.kick(device, force).catch(function (e) {
-          console.log(e)
+        return GroupService.kick(device, force).catch(function(e) {
           alert($filter('translate')(gettext('Device cannot get kicked from the group')))
+          throw new Error(e)
         })
       }
 
       function inviteDevice(device) {
-        return GroupService.invite(device).then(function () {
+        return GroupService.invite(device).then(function() {
           scope.$digest()
         })
       }
 
-      element.on('click', function (e) {
+      element.on('click', function(e) {
 
         var id
 
@@ -286,7 +286,7 @@ module.exports = function DeviceListIconsDirective(
       function match(device) {
         for (var i = 0, l = activeFilters.length; i < l; ++i) {
           var filter = activeFilters[i]
-            , column
+          var column
           if (filter.field) {
             column = scope.columnDefinitions[filter.field]
             if (column && !column.filter(device, filter)) {
@@ -358,7 +358,7 @@ module.exports = function DeviceListIconsDirective(
       // the first time we see the device.
       function createItem(device) {
         var id = calculateId(device)
-          , item = builder.build()
+        var item = builder.build()
 
         item.id = id
         builder.update(item, device)
@@ -403,8 +403,10 @@ module.exports = function DeviceListIconsDirective(
       // according to current sorting. The value of `hi` is the index
       // of the last item in the segment, or -1 if none. The value of `lo`
       // is the index of the first item in the segment, or 0 if none.
-      function insertItemToSegment(item, deviceA, lo, hi) {
+      function insertItemToSegment(item, deviceA, low, high) {
         var total = items.length
+        var lo = low
+        var hi = high
 
         if (lo > hi) {
           // This means that `lo` refers to the first item of the next
@@ -414,8 +416,8 @@ module.exports = function DeviceListIconsDirective(
         }
         else {
           var after = true
-            , pivot = 0
-            , deviceB
+          var pivot = 0
+          var deviceB
 
           while (lo <= hi) {
             pivot = ~~((lo + hi) / 2)
@@ -453,8 +455,8 @@ module.exports = function DeviceListIconsDirective(
       // item, or 0 if the position is already correct.
       function compareItem(item, device) {
         var prev = item.previousSibling
-          , next = item.nextSibling
-          , diff
+        var next = item.nextSibling
+        var diff
 
         if (prev) {
           diff = compare(device, mapping[prev.id])
@@ -498,7 +500,7 @@ module.exports = function DeviceListIconsDirective(
       // Triggers when the tracker notices that a device changed.
       function changeListener(device) {
         var id = calculateId(device)
-          , item = list.children[id]
+        var item = list.children[id]
 
         if (item) {
           // First, update columns
@@ -519,7 +521,7 @@ module.exports = function DeviceListIconsDirective(
       // Triggers when a device is removed entirely from the tracker.
       function removeListener(device) {
         var id = calculateId(device)
-          , item = list.children[id]
+        var item = list.children[id]
 
         if (item) {
           list.removeChild(item)

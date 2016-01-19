@@ -1,78 +1,78 @@
 module.exports = angular.module('stf.device-status', [])
-  .filter('statusNameAction', function (gettext) {
-    return function (text) {
+  .filter('statusNameAction', function(gettext) {
+    return function(text) {
       return {
-        'absent': gettext('Disconnected'),
-        'present': gettext('Connected'),
-        'offline': gettext('Offline'),
-        'unauthorized': gettext('Unauthorized'),
-        'preparing': gettext('Preparing'),
-        'ready': gettext('Ready'),
-        'using': gettext('Stop Using'),
-        'busy': gettext('Busy'),
-        'available': gettext('Use')
+        absent: gettext('Disconnected'),
+        present: gettext('Connected'),
+        offline: gettext('Offline'),
+        unauthorized: gettext('Unauthorized'),
+        preparing: gettext('Preparing'),
+        ready: gettext('Ready'),
+        using: gettext('Stop Using'),
+        busy: gettext('Busy'),
+        available: gettext('Use')
       }[text] || gettext('Unknown')
     }
   })
-  .filter('statusNamePassive', function (gettext) {
-    return function (text) {
+  .filter('statusNamePassive', function(gettext) {
+    return function(text) {
       return {
-        'absent': gettext('Disconnected'),
-        'present': gettext('Connected'),
-        'offline': gettext('Offline'),
-        'unauthorized': gettext('Unauthorized'),
-        'preparing': gettext('Preparing'),
-        'ready': gettext('Ready'),
-        'using': gettext('Using'),
-        'busy': gettext('Busy'),
-        'available': gettext('Available')
+        absent: gettext('Disconnected'),
+        present: gettext('Connected'),
+        offline: gettext('Offline'),
+        unauthorized: gettext('Unauthorized'),
+        preparing: gettext('Preparing'),
+        ready: gettext('Ready'),
+        using: gettext('Using'),
+        busy: gettext('Busy'),
+        available: gettext('Available')
       }[text] || gettext('Unknown')
     }
   })
- .filter('likelyLeaveReason', function (gettext) {
-    return function (text) {
+ .filter('likelyLeaveReason', function(gettext) {
+    return function(text) {
       return {
-        'ungroup_request': gettext('You (or someone else) kicked the device.'),
-        'owner_change': gettext('Someone stole your device.'),
-        'automatic_timeout': gettext('Device was kicked by automatic timeout.	'),
-        'device_absent': gettext('Device is not present anymore for some reason.'),
-        'status_change': gettext('Device is present but offline.')
+        ungroup_request: gettext('You (or someone else) kicked the device.'),
+        owner_change: gettext('Someone stole your device.'),
+        automatic_timeout: gettext('Device was kicked by automatic timeout.	'),
+        device_absent: gettext('Device is not present anymore for some reason.'),
+        status_change: gettext('Device is present but offline.')
       }[text] || gettext('Unknown reason.')
     }
   })
-  .filter('batteryHealth', function (gettext) {
-    return function (text) {
+  .filter('batteryHealth', function(gettext) {
+    return function(text) {
       return {
-        'cold': gettext('Cold'),
-        'good': gettext('Good'),
-        'dead': gettext('Dead'),
-        'over_voltage': gettext('Over Voltage'),
-        'overheat': gettext('Overheat'),
-        'unspecified_failure': gettext('Unspecified Failure')
+        cold: gettext('Cold'),
+        good: gettext('Good'),
+        dead: gettext('Dead'),
+        over_voltage: gettext('Over Voltage'),
+        overheat: gettext('Overheat'),
+        unspecified_failure: gettext('Unspecified Failure')
       }[text] || gettext('-')
     }
   })
-  .filter('batterySource', function (gettext) {
-    return function (text) {
+  .filter('batterySource', function(gettext) {
+    return function(text) {
       return {
-        'ac': gettext('AC'),
-        'usb': gettext('USB'),
-        'wireless': gettext('Wireless')
+        ac: gettext('AC'),
+        usb: gettext('USB'),
+        wireless: gettext('Wireless')
       }[text] || gettext('-')
     }
   })
-  .filter('batteryStatus', function (gettext) {
-    return function (text) {
+  .filter('batteryStatus', function(gettext) {
+    return function(text) {
       return {
-        'charging': gettext('Charging'),
-        'discharging': gettext('Discharging'),
-        'full': gettext('Full'),
-        'not_charging': gettext('Not Charging')
+        charging: gettext('Charging'),
+        discharging: gettext('Discharging'),
+        full: gettext('Full'),
+        not_charging: gettext('Not Charging')
       }[text] || gettext('-')
     }
   })
-  .filter('displayDensity', function () {
-    return function (text) {
+  .filter('displayDensity', function() {
+    return function(text) {
       return {
         '0.5': 'LDPI', // (120 dpi)
         '1': 'MDPI', // (160 dpi)
@@ -83,38 +83,36 @@ module.exports = angular.module('stf.device-status', [])
       }[text] || text
     }
   })
-  .filter('networkType', function (gettext) {
-    return function (text) {
+  .filter('networkType', function(gettext) {
+    return function(text) {
       return {
-        'bluetooth': gettext('Bluetooth'),
-        'dummy': gettext('Dummy'),
-        'ethernet': gettext('Ethernet'),
-        'mobile': gettext('Mobile'),
-        'mobile_dun': gettext('Mobile DUN'),
-        'mobile_hipri': gettext('Mobile High Priority'),
-        'mobile_mms': gettext('Mobile MMS'),
-        'mobile_supl': gettext('Mobile SUPL'),
-        'mobile_wifi': gettext('WiFi'),
-        'wimax': gettext('WiMAX')
+        bluetooth: gettext('Bluetooth'),
+        dummy: gettext('Dummy'),
+        ethernet: gettext('Ethernet'),
+        mobile: gettext('Mobile'),
+        mobile_dun: gettext('Mobile DUN'),
+        mobile_hipri: gettext('Mobile High Priority'),
+        mobile_mms: gettext('Mobile MMS'),
+        mobile_supl: gettext('Mobile SUPL'),
+        mobile_wifi: gettext('WiFi'),
+        wimax: gettext('WiMAX')
       }[text] || text
     }
   })
-  .filter('networkSubType', function (gettext) {
-    return function (text) {
+  .filter('networkSubType', function(gettext) {
+    return function(text) {
       return {
-        'mobile_wifi': gettext('WiFi')
+        mobile_wifi: gettext('WiFi')
       }[text] || text
     }
   })
-  .filter('humanizedBool', function (gettext) {
-    return function (text) {
+  .filter('humanizedBool', function(gettext) {
+    return function(text) {
       switch (text) {
         case true:
           return gettext('Yes')
-          break;
         case false:
           return gettext('No')
-          break;
         default:
           return gettext('-')
       }

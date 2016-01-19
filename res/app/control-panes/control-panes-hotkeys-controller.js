@@ -1,24 +1,24 @@
 module.exports =
-  function ($scope, gettext, $location, $rootScope, ScopedHotkeysService,
+  function($scope, gettext, $location, $rootScope, ScopedHotkeysService,
     $window) {
 
     $scope.remotePaneSize = '30% + 2px'
 
     var actions = {
-      previousDevice: function () {
-        console.log('prev')
+      previousDevice: function() {
+        // console.log('prev')
       },
-      nextDevice: function () {
-        console.log('next')
+      nextDevice: function() {
+        // console.log('next')
       },
-      deviceList: function () {
+      deviceList: function() {
         $location.path('/devices/')
       },
-      switchCharset: function () {
+      switchCharset: function() {
         $scope.control.keyPress('switch_charset')
       },
       // TODO: Refactor this
-      rotateLeft: function () {
+      rotateLeft: function() {
         var angle = 0
         if ($scope.device && $scope.device.display) {
           angle = $scope.device.display.rotation
@@ -35,7 +35,7 @@ module.exports =
         }
 
       },
-      rotateRight: function () {
+      rotateRight: function() {
         var angle = 0
         if ($scope.device && $scope.device.display) {
           angle = $scope.device.display.rotation
@@ -51,34 +51,34 @@ module.exports =
           $window.resizeTo($window.outerHeight, $window.outerWidth)
         }
       },
-      focusUrlBar: function () {
+      focusUrlBar: function() {
         // TODO: Switch tab and focus
-        console.log('focus')
+        // console.log('focus')
       },
-      takeScreenShot: function () {
+      takeScreenShot: function() {
         // TODO: Switch tab and take screenshot
         //$scope.takeScreenShot()
       },
-      pressMenu: function () {
+      pressMenu: function() {
         $scope.control.menu()
       },
-      pressHome: function () {
+      pressHome: function() {
         $scope.control.home()
       },
-      pressBack: function () {
+      pressBack: function() {
         $scope.control.back()
       },
-      toggleDevice: function () {
+      toggleDevice: function() {
         // $scope.controlScreen.show = !$scope.controlScreen.show
       },
-      togglePlatform: function () {
+      togglePlatform: function() {
         if ($rootScope.platform === 'web') {
           $rootScope.platform = 'native'
         } else {
           $rootScope.platform = 'web'
         }
       },
-      scale: function () {
+      scale: function() {
         // TODO: scale size
       }
     }

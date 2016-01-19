@@ -3,7 +3,7 @@ require('./usb.css')
 module.exports = angular.module('stf.usb', [
 
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('control-panes/advanced/usb/usb.jade',
       require('./usb.jade')
     )

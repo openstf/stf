@@ -5,14 +5,14 @@ module.exports = function DeviceListEmptyDirective() {
   , scope: {
       tracker: '&tracker'
     }
-  , link: function (scope) {
+  , link: function(scope) {
       var tracker = scope.tracker()
 
       scope.empty = !tracker.devices.length
 
       function update() {
         var oldEmpty = scope.empty
-          , newEmpty = !tracker.devices.length
+        var newEmpty = !tracker.devices.length
 
         if (oldEmpty !== newEmpty) {
           scope.$apply(function() {

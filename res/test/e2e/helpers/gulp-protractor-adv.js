@@ -7,7 +7,7 @@
  - Added feature to detect if selenium is running or not
  */
 
-var es = require('event-that')
+var es = require('event-stream')
 var path = require('path')
 var childProcess = require('child_process')
 var PluginError = require('gulp-util').PluginError

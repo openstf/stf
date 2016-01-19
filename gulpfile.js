@@ -20,9 +20,7 @@ var run = require('gulp-run')
 
 gulp.task('jsonlint', function() {
   return gulp.src([
-      '.jshintrc'
-    , 'res/.jshintrc'
-    , '.bowerrc'
+      '.bowerrc'
     , '.yo-rc.json'
     , '*.json'
     ])

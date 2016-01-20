@@ -4,6 +4,7 @@ var gulp = require('gulp')
 var gutil = require('gulp-util')
 var jsonlint = require('gulp-jsonlint')
 var eslint = require('gulp-eslint')
+var EslintCLIEngine = require('eslint').CLIEngine
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.config').webpack
 var webpackStatusConfig = require('./res/common/status/webpack.config')
@@ -28,13 +29,14 @@ gulp.task('jsonlint', function() {
     .pipe(jsonlint.reporter())
 })
 
+// Try to use eslint-cli directly instead of eslint-gulp
+// since it doesn't support cache yet
 gulp.task('eslint', function() {
   return gulp.src([
       'lib/**/*.js'
     , 'res/**/*.js'
     , '!res/bower_components/**'
     , '*.js'
-    , '!node_modules/**'
   ])
     // eslint() attaches the lint output to the "eslint" property
     // of the file object so it can be used by other modules.
@@ -47,7 +49,33 @@ gulp.task('eslint', function() {
     .pipe(eslint.failAfterError())
 })
 
-gulp.task('lint', ['jsonlint', 'eslint'])
+gulp.task('eslint-cli', function(done) {
+  var cli = new EslintCLIEngine({
+    cache: true
+  })
+
+  var report = cli.executeOnFiles([
+    'lib/**/*.js'
+    , 'res/app/**/*.js'
+    , 'res/auth/**/*.js'
+    , 'res/common/**/*.js'
+    , 'res/test/**/*.js'
+    , 'res/web_modules/**/*.js'
+    , '*.js'
+  ])
+  var formatter = cli.getFormatter()
+  console.log(formatter(report.results))
+
+  if (report.errorCount > 0) {
+    done(new gutil.PluginError('eslint-cli', new Error('ESLint error')))
+  }
+  else {
+    done()
+  }
+})
+
+
+gulp.task('lint', ['jsonlint', 'eslint-cli'])
 gulp.task('test', ['lint', 'run:checkversion'])
 gulp.task('build', ['clean', 'webpack:build'])
 
@@ -222,5 +250,9 @@ gulp.task('translate:pull', function() {
 })
 
 gulp.task('clean', function(cb) {
-  del(['./tmp', './res/build'], cb)
+  del([
+    './tmp'
+    , './res/build'
+    , '.eslintcache'
+  ], cb)
 })

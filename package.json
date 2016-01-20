@@ -89,6 +89,7 @@
     "chai": "^3.4.1",
     "css-loader": "^0.23.1",
     "del": "^2.0.1",
+    "eslint": "^1.10.3",
     "eslint-loader": "^1.2.0",
     "event-stream": "^3.3.2",
     "exports-loader": "^0.6.2",

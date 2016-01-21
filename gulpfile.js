@@ -52,6 +52,7 @@ gulp.task('eslint', function() {
 gulp.task('eslint-cli', function(done) {
   var cli = new EslintCLIEngine({
     cache: true
+  , fix: false
   })
 
   var report = cli.executeOnFiles([

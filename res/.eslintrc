@@ -5,8 +5,7 @@
     "commonjs": true,
     "browser": true,
     "node": false,
-    "jasmine": true,
-    "protractor": true
+    "jasmine": true
   },
   "rules": {
     // TODO: for now lets just mute them

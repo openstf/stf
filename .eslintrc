@@ -134,13 +134,10 @@
     "semi-spacing": [2, {"before": false, "after": true}],
     "semi": [2, "never"],
     "sort-vars": 0, // optaionlly set `[2, {"ignoreCase": true}]`
-    "space-after-keywords": [2, "always"],
-    "space-before-keywords": [2, "always"],
     "space-before-blocks": [2, "always"], // optionally set `[2, {"functions": "never", "keywords": "always"}]`
     "space-before-function-paren": [2, "never"], // optionally set `[2, {"anonymous": "always", "named": "never"}]`
     "space-in-parens": [2, "never"], // optionally set `[2, "always", {"exceptions": ["empty"]}]`
     "space-infix-ops": 2,
-    "space-return-throw-case": 2,
     "space-unary-ops": [2, {"words": true, "nonwords": false}],
     "spaced-comment": [1, "always", {"exceptions": ["/"]}], // optionally set `[2, "always", {"exceptions": ["-", "+"], "markers": ["/"]}]`
     "wrap-regex": 0, // TODO: 2 is ok but the division edge case is too edgy
@@ -154,6 +151,9 @@
     "no-path-concat": 2, // `2` is default
     "no-process-exit": 0, // `2` is default
     "no-restricted-modules": 0, // no default, optionally set `[2, "fs", "os"]`
-    "no-sync": 1 // `2` is default
+    "no-sync": 1, // `2` is default
+
+    // eslint v2
+    "keyword-spacing": 2
   }
 }

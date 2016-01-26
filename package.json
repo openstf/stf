@@ -91,7 +91,6 @@
     "css-loader": "^0.23.1",
     "del": "^2.0.1",
     "eslint": "^2.0.0-beta.1",
-    "eslint-loader": "^1.2.0",
     "event-stream": "^3.3.2",
     "exports-loader": "^0.6.2",
     "extract-text-webpack-plugin": "^1.0.1",

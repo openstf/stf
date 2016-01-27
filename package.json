@@ -138,8 +138,9 @@
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"
   },
+  "engineStrict" : true,
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 4.2"
   },
   "preferGlobal": true
 }

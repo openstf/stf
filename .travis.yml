@@ -28,6 +28,7 @@ before_install:
 - nvm install $NODE_VERSION
 - node --version
 - npm --version
+- npm set progress=false
 - if [ "${TRAVIS_OS_NAME}" == "linux" ]; then export CXX=g++-4.9; fi
 - if [ "${TRAVIS_OS_NAME}" == "osx" ]; then brew install rethinkdb graphicsmagick
   zeromq protobuf yasm pkg-config; fi

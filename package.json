@@ -142,5 +142,12 @@
   "engines": {
     "node": ">= 4.2"
   },
+  "externalDependencies": {
+    "rethinkdb": ">= 2.2",
+    "zeromq": ">= 4",
+    "protobuf": "~2",
+    "gm": "~1",
+    "adb": "~1"
+  },
   "preferGlobal": true
 }

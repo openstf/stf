@@ -76,6 +76,9 @@ enum MessageType {
   ReverseForwardsEvent       = 72;
   FileSystemListMessage      = 81;
   FileSystemGetMessage       = 82;
+  InitialPackagesSaveMessage = 92;
+  InitialPackagesGetMessage  = 93;
+  InitialPackagesReceivedMessage = 94;
 }
 
 message FileSystemListMessage {
@@ -550,4 +553,17 @@ message PhoneStateEvent {
 message RotationEvent {
   required string serial = 1;
   required int32 rotation = 2;
+}
+
+message InitialPackagesSaveMessage {
+  required string serial = 1;
+  repeated string packageNames = 2;
+}
+
+message InitialPackagesGetMessage {
+  required string serial = 1;
+}
+
+message InitialPackagesReceivedMessage {
+  repeated string packageNames = 2;
 }

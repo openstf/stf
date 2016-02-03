@@ -34,6 +34,7 @@
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.2.3",
+    "basic-auth": "^1.0.3",
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "bufferutil": "^1.2.1",

@@ -25,7 +25,6 @@
     "no-caller": 2,
     "no-div-regex": 2,
     "no-else-return": 0, // `2` may be ok, but indent consistency is better
-    "no-empty-label": 2,
     "no-empty-pattern": 2,
     "no-eq-null": 2,
     "no-eval": 2,

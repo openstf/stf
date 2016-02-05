@@ -1,0 +1,37 @@
+.widget-container.fluid-height.stf-shell(ng-controller='TopAppCtrl')
+  .heading
+    stacked-icon(icon='fa-paw', color='color-lila')
+    span(translate) Top App
+    button(ng-click='updateApp()').btn.btn-xs.btn-primary-outline.pull-right
+      i.fa.fa-refresh
+      span(translate) Refresh
+    help-icon(topic='Dashboard', tooltip='{{"Show current running application" | translate}}')
+
+  .widget-content.padded
+    table.table
+      tr
+        td
+          span(translate) Package Name
+        td
+          input(type=text, ng-model='pkgName').form-control
+      tr
+        td
+          span(translate) Activity
+        td
+          input(type=text, ng-model='pkgActivity').form-control
+      tr
+        td
+          span(translate) Pid
+        td
+          input(type=text, ng-model='pkgPid').form-control
+      
+    div
+      button.btn.btn-primary-outline(ng-click='updateApp()')
+        stacked-icon(icon='fa-refresh')
+        span(translate) Refresh
+      button.btn.btn-primary-outline(ng-click='startApp()', ng-disabled='!pkgName')
+        stacked-icon(icon='fa-play')
+        span(translate) Start App
+      button.btn.btn-primary-outline(ng-click='killApp()', ng-disabled='!pkgName')
+        stacked-icon(icon='fa-remove')
+        span(translate) Kill App

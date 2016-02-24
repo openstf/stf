@@ -3,7 +3,7 @@ Description=Build openstf/stf's %I base image for armv7l
 After=docker.service
 Requires=docker.service
 ConditionArchitecture=arm
-Wants=stf-armv7l-clone@%i.service
+Requires=stf-armv7l-clone@%i.service
 After=stf-armv7l-clone@%i.service
 
 [Service]

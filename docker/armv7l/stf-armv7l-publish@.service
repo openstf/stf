@@ -1,5 +1,5 @@
 [Unit]
-Description=Publish openstf/stf's %I for armv7l
+Description=Publish openstf/stf %I for armv7l
 After=docker.service
 Requires=docker.service
 ConditionArchitecture=arm

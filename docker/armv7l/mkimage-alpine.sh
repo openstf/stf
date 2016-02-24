@@ -18,6 +18,8 @@ usage() {
 tmp() {
 	TMP=$(mktemp -d ${TMPDIR:-/var/tmp}/alpine-docker-XXXXXXXXXX)
 	ROOTFS=$(mktemp -d ${TMPDIR:-/var/tmp}/alpine-docker-rootfs-XXXXXXXXXX)
+	# This needs to be done or overlayfs won't be happy with our imported image.
+	chmod 755 $ROOTFS
 	trap "rm -rf $TMP $ROOTFS" EXIT TERM INT
 }
 

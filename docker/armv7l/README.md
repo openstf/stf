@@ -6,5 +6,5 @@ To build the image, run the following commands from the repo root directory (**n
 
 ```bash
 ARCH=armhf docker/armv7l/mkimage-alpine.sh
-docker build -f docker/armv7l/Dockerfile -t openstf/stf-armv7l:latest
+docker build -f docker/armv7l/Dockerfile -t openstf/stf-armv7l:latest .
 ```

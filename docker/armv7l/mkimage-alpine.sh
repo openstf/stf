@@ -11,7 +11,7 @@ set -e
 }
 
 usage() {
-	printf >&2 '%s: [-r release] [-m mirror] [-s]  [-c additional repository]\n' "$0"
+	printf >&2 '%s: [-r release] [-m mirror] [-s] [-i image]\n' "$0"
 	exit 1
 }
 
@@ -45,10 +45,8 @@ conf() {
 
 pack() {
 	local id
-	id=$(tar --numeric-owner -C $ROOTFS -c . | docker import - alpine:$REL)
-
-	docker tag $id alpine:latest
-	docker run -i -t --rm alpine printf 'alpine:%s with id=%s created!\n' $REL $id
+	id=$(tar --numeric-owner -C $ROOTFS -c . | docker import - $IMAGE)
+	docker run -i -t --rm $IMAGE printf '%s with id=%s created!\n' $IMAGE $id
 }
 
 save() {
@@ -57,7 +55,7 @@ save() {
 	tar --numeric-owner -C $ROOTFS -c . | xz > rootfs.tar.xz
 }
 
-while getopts "hr:m:s" opt; do
+while getopts "hr:m:si:" opt; do
 	case $opt in
 		r)
 			REL=$OPTARG
@@ -68,8 +66,8 @@ while getopts "hr:m:s" opt; do
 		s)
 			SAVE=1
 			;;
-		c)
-			ADDITIONALREPO=community
+		i)
+			IMAGE=$OPTARG
 			;;
 		*)
 			usage
@@ -83,6 +81,7 @@ SAVE=${SAVE:-0}
 MAINREPO=$MIRROR/$REL/main
 ADDITIONALREPO=$MIRROR/$REL/community
 ARCH=${ARCH:-$(uname -m)}
+IMAGE=${IMAGE:-alpine:$REL}
 
 tmp
 getapk

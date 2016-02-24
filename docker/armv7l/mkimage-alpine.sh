@@ -46,7 +46,7 @@ conf() {
 pack() {
 	local id
 	id=$(tar --numeric-owner -C $ROOTFS -c . | docker import - $IMAGE)
-	docker run -i -t --rm $IMAGE printf '%s with id=%s created!\n' $IMAGE $id
+	docker run -i --rm $IMAGE printf '%s with id=%s created!\n' $IMAGE $id
 }
 
 save() {

@@ -1,0 +1,12 @@
+[Unit]
+Description=Publish openstf/stf master as latest for armv7l
+After=docker.service
+Requires=docker.service
+ConditionArchitecture=arm
+Requires=stf-armv7l-publish@master.service
+After=stf-armv7l-publish@master.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker tag openstf/stf-armv7l:master openstf/stf-armv7l:latest
+ExecStart=/usr/bin/docker push openstf/stf-armv7l:latest

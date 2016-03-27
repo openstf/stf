@@ -6,7 +6,7 @@ module.exports = angular.module('stf.dashboard', [
   require('./clipboard/index').name,
   require('./remote-debug/index').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put(
       'control-panes/dashboard/dashboard.jade'
       , require('./dashboard.jade')

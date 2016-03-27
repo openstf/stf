@@ -9,7 +9,7 @@
       i.fa.fa-plus.fa-fw
 
     a(ng-href='/#!/docs/Access-Tokens').pull-right.btn.btn-sm
-      i.fa.fa-question-circle(tooltip='{{"More about Access Tokens" | translate}}', tooltip-placement='left')
+      i.fa.fa-question-circle(uib-tooltip='{{"More about Access Tokens" | translate}}', tooltip-placement='left')
 
   .widget-content.padded
 
@@ -22,11 +22,11 @@
       .alert.alert-info.selectable
         strong(translate) Warning:
         span &nbsp;
-        span(translate) Make sure to copy your access token now. You won't be able to see it again!
+        span(translate) Make sure to copy your access token now. You won't be able to see it again.
         br
         button.btn.pull-right.btn-primary.btn-sm(ng-click='closeGenerated()')
           i.fa.fa-check.fa-fw
-        textarea(readonly, rows='1', text-focus-select, ng-model='newToken.tokenId').form-control.token-id-textarea
+        textarea(readonly, rows='2', text-focus-select, ng-model='newToken.tokenId').form-control.token-id-textarea
 
     ul.list-group.key-list
       li.list-group-item(ng-repeat='title in accessTokenTitles track by $index').animate-repeat

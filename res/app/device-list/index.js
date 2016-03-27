@@ -15,7 +15,7 @@ module.exports = angular.module('device-list', [
   require('./customize').name,
   require('./search').name
 ])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/devices', {
         template: require('./device-list.jade'),

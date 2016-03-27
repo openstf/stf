@@ -1,7 +1,7 @@
 module.exports = function AdbKeysServiceFactory() {
   var service = {}
 
-  service.hostNameFromKey = function (key) {
+  service.hostNameFromKey = function(key) {
     if (key.match(/.+= (.+)/)) {
       return key.replace(/.+= (.+)/g, '$1')
     }

@@ -7,7 +7,7 @@
  * @param {WebGLRenderingContext} gl The GL context.
  * @constructor
  */
-var Renderer = function (gl) {
+var Renderer = function(gl) {
   /**
    * The GL context.
    * @type {WebGLRenderingContext}
@@ -92,13 +92,13 @@ var Renderer = function (gl) {
 }
 
 
-Renderer.prototype.finishInit = function () {
+Renderer.prototype.finishInit = function() {
   this.draw()
 }
 
 
 Renderer.prototype.createDxtTexture =
-  function (dxtData, width, height, format) {
+  function(dxtData, width, height, format) {
     var gl = this.gl_
     var tex = gl.createTexture()
     gl.bindTexture(gl.TEXTURE_2D, tex)
@@ -120,7 +120,7 @@ Renderer.prototype.createDxtTexture =
   }
 
 
-Renderer.prototype.createRgb565Texture = function (rgb565Data, width, height) {
+Renderer.prototype.createRgb565Texture = function(rgb565Data, width, height) {
   var gl = this.gl_
   var tex = gl.createTexture()
   gl.bindTexture(gl.TEXTURE_2D, tex)
@@ -144,7 +144,7 @@ Renderer.prototype.createRgb565Texture = function (rgb565Data, width, height) {
 }
 
 
-Renderer.prototype.drawTexture = function (texture, width, height) {
+Renderer.prototype.drawTexture = function(texture, width, height) {
   var gl = this.gl_
   // draw scene
   gl.clearColor(0, 0, 0, 1)
@@ -171,7 +171,7 @@ Renderer.prototype.drawTexture = function (texture, width, height) {
  * @return {WebGLShader} The new WebGLShader.
  * @private
  */
-Renderer.prototype.compileShader_ = function (shaderSource, type) {
+Renderer.prototype.compileShader_ = function(shaderSource, type) {
   var gl = this.gl_
   var shader = gl.createShader(type)
   gl.shaderSource(shader, shaderSource)
@@ -247,7 +247,7 @@ function WebGLRender(canvasElement) {
   //this.setup()
 }
 
-WebGLRender.prototype.setup = function () {
+WebGLRender.prototype.setup = function() {
   // create shaders
   var vertexShaderSrc =
     'attribute vec2 aVertex;' +
@@ -305,13 +305,13 @@ WebGLRender.prototype.setup = function () {
 
 }
 
-WebGLRender.prototype.draw = function (image) {
+WebGLRender.prototype.draw = function(image) {
 //  this.renderer.drawTexture(image, image.width, image.height)
   this.renderer.drawTexture(image, 643, 1149)
 }
 
 
-WebGLRender.prototype.drawOld = function (image) {
+WebGLRender.prototype.drawOld = function(image) {
   var tex = this.ctx.createTexture()
   this.ctx.bindTexture(this.ctx.TEXTURE_2D, tex)
   this.ctx.texParameteri(
@@ -354,7 +354,7 @@ WebGLRender.prototype.drawOld = function (image) {
   this.ctx.vertexAttribPointer(this.tloc, 2, this.ctx.FLOAT, false, 0, 0)
 }
 
-WebGLRender.prototype.clear = function () {
+WebGLRender.prototype.clear = function() {
 
 }
 

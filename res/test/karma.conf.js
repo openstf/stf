@@ -2,12 +2,12 @@ var webpackConfig = require('./../../webpack.config')
 
 var webpack = require('webpack')
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     frameworks: ['jasmine'],
     files: [
       'helpers/**/*.js',
-      '../app/**/*-spec.js',
+      '../app/**/*-spec.js'
 //      '../app/components/stf/common-ui/clear-button/*-spec.js'
     ],
 

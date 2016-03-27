@@ -1,17 +1,15 @@
 /* Based on https://ryankaskel.com/blog/2013/05/27/
  a-different-approach-to-angularjs-navigation-menus */
 
-module.exports = function ($location) {
+module.exports = function($location) {
   return {
     restrict: 'EA',
     scope: {},
-    link: function (scope, element, attrs) {
+    link: function(scope, element, attrs) {
       var links = element.find('a')
       var onClass = attrs.navMenu || 'current'
-      var routePattern
-      var link
-      var url
       var urlMap = []
+      var routePattern, link, url
 
       if (!$location.$$html5) {
         routePattern = /\/#[^/]*/

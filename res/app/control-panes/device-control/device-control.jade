@@ -5,18 +5,23 @@
         .stf-vnc-right-buttons.pull-right
           .btn-group
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',
-            ng-model='currentRotation', btn-radio='"portrait"').pointer
-              i.fa.fa-mobile(tooltip='{{ "Portrait" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
+            ng-model='currentRotation', uib-btn-radio='"portrait"',
+            uib-tooltip='{{ "Portrait" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+              i.fa.fa-mobile
             label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("landscape")',
-              ng-model='currentRotation', btn-radio='"landscape"').pointer
-              i.fa.fa-mobile.fa-rotate-90(tooltip='{{ "Landscape" | translate }} (Current rotation: {{ device.display.rotation }}°)', tooltip-placement='bottom')
+              ng-model='currentRotation', uib-btn-radio='"landscape"',
+            uib-tooltip='{{ "Landscape" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+              i.fa.fa-mobile.fa-rotate-90
           .button-spacer
-          button(type='button', ng-model='showScreen', btn-checkbox).btn.btn-sm.btn-danger
-            i(ng-show='showScreen', tooltip-html-unsafe='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
-            i(ng-show='!showScreen', tooltip-html-unsafe='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
+          button(type='button', ng-model='showScreen', uib-btn-checkbox).btn.btn-xs.btn-info
+            i(ng-show='showScreen', uib-tooltip='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
+            i(ng-show='!showScreen', uib-tooltip='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
+          button(type='button', ng-click='kickDevice(device); $event.stopPropagation()', uib-tooltip='{{"Stop Using"|translate}}', tooltip-placement='bottom').btn.btn-sm.btn-danger-outline
+            i.fa.fa-times
 
-        .device-name-container.pull-left(dropdown)
-          a.stf-vnc-device-name.pointer.unselectable(dropdown-toggle)
+
+        .device-name-container.pull-left(uib-dropdown)
+          a.stf-vnc-device-name.pointer.unselectable(uib-dropdown-toggle)
             p
               .device-small-image
                 img(ng-src='/static/app/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')

@@ -55,13 +55,13 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
 
     if (device.owner) {
       device.enhancedUserProfileUrl = enhanceUserProfileUrl(device.owner.email)
-      device.enhancedUserName = device.owner.name || "No name"
+      device.enhancedUserName = device.owner.name || 'No name'
     }
   }
 
   function enhanceUserProfileUrl(email) {
     var url
-    var userProfileUrl = (function () {
+    var userProfileUrl = (function() {
       if (AppState && AppState.config && AppState.config.userProfileUrl) {
         return AppState.config.userProfileUrl
       }
@@ -73,7 +73,7 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
       if (userProfileUrl && email) {
         url = userProfileUrl.indexOf('{user}') !== -1 ?
           userProfileUrl.replace('{user}', email) :
-          userProfileUrl + email;
+          userProfileUrl + email
       }
     } else if (email.indexOf('@') !== -1) {
       url = 'mailto:' + email
@@ -83,7 +83,7 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
     return url
   }
 
-  service.enhance = function (device) {
+  service.enhance = function(device) {
     setState(device)
     enhanceDevice(device)
     enhanceDeviceDetails(device)

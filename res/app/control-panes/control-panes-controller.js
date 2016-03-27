@@ -1,5 +1,5 @@
 module.exports =
-  function ControlPanesController ($scope, $http, gettext, $routeParams,
+  function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
     StorageService, FatalMessageService, SettingsService) {
 
@@ -58,12 +58,12 @@ module.exports =
     $scope.control = null
 
     // TODO: Move this out to Ctrl.resolve
-    function getDevice (serial) {
+    function getDevice(serial) {
       DeviceService.get(serial, $scope)
-        .then(function (device) {
+        .then(function(device) {
           return GroupService.invite(device)
         })
-        .then(function (device) {
+        .then(function(device) {
           $scope.device = device
           $scope.control = ControlService.create(device, device.channel)
 
@@ -74,8 +74,8 @@ module.exports =
 
           return device
         })
-        .catch(function () {
-          $timeout(function () {
+        .catch(function() {
+          $timeout(function() {
             $location.path('/')
           })
         })
@@ -83,7 +83,7 @@ module.exports =
 
     getDevice($routeParams.serial)
 
-    $scope.$watch('device.state', function (newValue, oldValue) {
+    $scope.$watch('device.state', function(newValue, oldValue) {
       if (newValue !== oldValue) {
         if (oldValue === 'using') {
           FatalMessageService.open($scope.device, false)

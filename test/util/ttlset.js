@@ -6,7 +6,6 @@ chai.use(require('sinon-chai'))
 var TtlSet = require('../../lib/util/ttlset')
 
 describe('TtlSet', function() {
-
   it('should emit "drop" for entries with expired TTL', function(done) {
     var ttlset = new TtlSet(50)
 
@@ -30,7 +29,6 @@ describe('TtlSet', function() {
   })
 
   describe('bump', function() {
-
     it('should emit "insert" for new entries', function(done) {
       var ttlset = new TtlSet(50)
 
@@ -126,11 +124,9 @@ describe('TtlSet', function() {
       expect(ttlset.tail.prev).to.equal(ttlset.head)
       done()
     })
-
   })
 
   describe('drop', function() {
-
     it('should emit "drop" for the dropped entry', function(done) {
       var ttlset = new TtlSet(50)
 
@@ -193,7 +189,5 @@ describe('TtlSet', function() {
       expect(ttlset.tail.value).to.equal(2)
       done()
     })
-
   })
-
 })

@@ -20,33 +20,33 @@ module.exports = function DeviceListDetailsDirective(
     , sort: '=sort'
     , filter: '&filter'
     }
-  , link: function (scope, element) {
+  , link: function(scope, element) {
       var tracker = scope.tracker()
-        , activeColumns = []
-        , activeSorting = []
-        , activeFilters = []
-        , table = element.find('table')[0]
-        , tbody = table.createTBody()
-        , rows = tbody.rows
-        , prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
-        , mapping = Object.create(null)
-        , childScopes = Object.create(null)
+      var activeColumns = []
+      var activeSorting = []
+      var activeFilters = []
+      var table = element.find('table')[0]
+      var tbody = table.createTBody()
+      var rows = tbody.rows
+      var prefix = 'd' + Math.floor(Math.random() * 1000000) + '-'
+      var mapping = Object.create(null)
+      var childScopes = Object.create(null)
 
 
       function kickDevice(device, force) {
-        return GroupService.kick(device, force).catch(function (e) {
-          console.log(e)
+        return GroupService.kick(device, force).catch(function(e) {
           alert($filter('translate')(gettext('Device cannot get kicked from the group')))
+          throw new Error(e)
         })
       }
 
       function inviteDevice(device) {
-        return GroupService.invite(device).then(function () {
+        return GroupService.invite(device).then(function() {
           scope.$digest()
         })
       }
 
-      function checkDeviceStatus (e) {
+      function checkDeviceStatus(e) {
         if (e.target.classList.contains('device-status')) {
           var id = e.target.parentNode.parentNode.id
           var device = mapping[id]
@@ -94,11 +94,11 @@ module.exports = function DeviceListDetailsDirective(
         if (e.target.classList.contains('device-note-edit')) {
 
           var i = e.target
-            , id = i.parentNode.parentNode.id
-            , device = mapping[id]
-            , xeditableWrapper = i.parentNode.firstChild
-            , xeditableSpan = document.createElement('span')
-            , childScope = scope.$new()
+          var id = i.parentNode.parentNode.id
+          var device = mapping[id]
+          var xeditableWrapper = i.parentNode.firstChild
+          var xeditableSpan = document.createElement('span')
+          var childScope = scope.$new()
 
           // Ref: http://vitalets.github.io/angular-xeditable/#text-btn
           xeditableSpan.setAttribute('editable-text', 'device.notes')
@@ -123,11 +123,11 @@ module.exports = function DeviceListDetailsDirective(
           var col = tr.cells[i]
 
           if (col.firstChild &&
-              col.firstChild.nodeName.toLowerCase() == 'span' &&
+              col.firstChild.nodeName.toLowerCase() === 'span' &&
               col.firstChild.classList.contains('xeditable-wrapper')) {
 
             var xeditableWrapper = col.firstChild
-              , children = xeditableWrapper.children
+            var children = xeditableWrapper.children
 
             // Remove all childs under xeditablerWrapper
             for (var j = 0; j < children.length; j++) {
@@ -147,7 +147,7 @@ module.exports = function DeviceListDetailsDirective(
         destroyXeditableNote(id)
       }
 
-      element.on('click', function (e) {
+      element.on('click', function(e) {
         checkDeviceStatus(e)
         checkDeviceSmallImage(e)
         checkDeviceNote(e)
@@ -275,7 +275,7 @@ module.exports = function DeviceListDetailsDirective(
       function match(device) {
         for (var i = 0, l = activeFilters.length; i < l; ++i) {
           var filter = activeFilters[i]
-            , column
+          var column
           if (filter.field) {
             column = scope.columnDefinitions[filter.field]
             if (column && !column.filter(device, filter)) {
@@ -347,8 +347,8 @@ module.exports = function DeviceListDetailsDirective(
       // the first time we see the device.
       function createRow(device) {
         var id = calculateId(device)
-          , tr = document.createElement('tr')
-          , td
+        var tr = document.createElement('tr')
+        var td
 
         tr.id = id
 
@@ -430,8 +430,10 @@ module.exports = function DeviceListDetailsDirective(
       // according to current sorting. The value of `hi` is the index
       // of the last item in the segment, or -1 if none. The value of `lo`
       // is the index of the first item in the segment, or 0 if none.
-      function insertRowToSegment(tr, deviceA, lo, hi) {
+      function insertRowToSegment(tr, deviceA, low, high) {
         var total = rows.length
+        var lo = low
+        var hi = high
 
         if (lo > hi) {
           // This means that `lo` refers to the first item of the next
@@ -441,8 +443,8 @@ module.exports = function DeviceListDetailsDirective(
         }
         else {
           var after = true
-            , pivot = 0
-            , deviceB
+          var pivot = 0
+          var deviceB
 
           while (lo <= hi) {
             pivot = ~~((lo + hi) / 2)
@@ -480,8 +482,8 @@ module.exports = function DeviceListDetailsDirective(
       // row, or 0 if the position is already correct.
       function compareRow(tr, device) {
         var prev = tr.previousSibling
-          , next = tr.nextSibling
-          , diff
+        var next = tr.nextSibling
+        var diff
 
         if (prev) {
           diff = compare(device, mapping[prev.id])
@@ -525,7 +527,7 @@ module.exports = function DeviceListDetailsDirective(
       // Triggers when the tracker notices that a device changed.
       function changeListener(device) {
         var id = calculateId(device)
-          , tr = tbody.children[id]
+        var tr = tbody.children[id]
 
         if (tr) {
           // First, update columns
@@ -548,7 +550,7 @@ module.exports = function DeviceListDetailsDirective(
       // Triggers when a device is removed entirely from the tracker.
       function removeListener(device) {
         var id = calculateId(device)
-          , tr = tbody.children[id]
+        var tr = tbody.children[id]
 
         if (tr) {
           tbody.removeChild(tr)

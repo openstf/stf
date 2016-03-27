@@ -6,7 +6,7 @@ module.exports =
       $scope.adbKeys = UserService.getAdbKeys()
     }
 
-    $scope.removeKey = function (key) {
+    $scope.removeKey = function(key) {
       UserService.removeAdbKey(key)
     }
 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Build openstf/stf %I for armv7l
+After=docker.service
+Requires=docker.service
+ConditionArchitecture=arm
+Requires=stf-armv7l-baseimage@%i.service
+After=stf-armv7l-baseimage@%i.service
+
+[Service]
+Type=oneshot
+User=stf-armv7l
+WorkingDirectory=/home/stf-armv7l/repo-%i
+ExecStart=/usr/bin/docker build -f docker/armv7l/Dockerfile -t openstf/stf-armv7l:%i .

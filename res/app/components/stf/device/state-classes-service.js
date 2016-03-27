@@ -1,7 +1,7 @@
 module.exports = function StateClassesService() {
   var service = {}
 
-  service.stateButton = function (state) {
+  service.stateButton = function(state) {
     var stateClasses = {
       using: 'state-using btn-primary',
       busy: 'state-busy btn-warning',
@@ -18,7 +18,7 @@ module.exports = function StateClassesService() {
     return stateClasses
   }
 
-  service.stateColor = function (state) {
+  service.stateColor = function(state) {
     var stateClasses = {
       using: 'state-using',
       busy: 'state-busy',

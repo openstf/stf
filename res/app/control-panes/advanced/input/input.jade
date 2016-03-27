@@ -6,59 +6,59 @@
     div
       h6(translate) Special Keys
       div.special-keys-buttons
-        button(tooltip='{{ "Power" | translate }}', ng-click='press("power")').btn.btn-danger.btn-xs
+        button(uib-tooltip='{{ "Power" | translate }}', ng-click='press("power")').btn.btn-danger.btn-xs
           i.fa.fa-power-off
-        button(tooltip='{{ "Camera" | translate }}', ng-click='press("camera")').btn.btn-primary.btn-xs
+        button(uib-tooltip='{{ "Camera" | translate }}', ng-click='press("camera")').btn.btn-primary.btn-xs
           i.fa.fa-camera
-        button(tooltip='{{ "Switch Charset" | translate }}', ng-click='press("switch_charset")').btn.btn-primary.btn-info.btn-xs
+        button(uib-tooltip='{{ "Switch Charset" | translate }}', ng-click='press("switch_charset")').btn.btn-primary.btn-info.btn-xs
           i.fa  Aa
-        button(tooltip='{{ "Search" | translate }}', ng-click='press("search")').btn.btn-primary.btn-xs
+        button(uib-tooltip='{{ "Search" | translate }}', ng-click='press("search")').btn.btn-primary.btn-xs
           i.fa.fa-search
 
         h6(translate) Volume
         .btn-group
-          button(tooltip='{{ "Mute" | translate }}', ng-click='press("mute")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Mute" | translate }}', ng-click='press("mute")').btn.btn-primary.btn-xs
             i.fa.fa-volume-off
-          button(tooltip='{{ "Volume Down" | translate }}', ng-click='press("volume_down")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Volume Down" | translate }}', ng-click='press("volume_down")').btn.btn-primary.btn-xs
             i.fa.fa-volume-down
-          button(tooltip='{{ "Volume Up" | translate }}', ng-click='press("volume_up")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Volume Up" | translate }}', ng-click='press("volume_up")').btn.btn-primary.btn-xs
             i.fa.fa-volume-up
 
         h6(translate) Media
         .btn-group
-          button(tooltip='{{ "Rewind" | translate }}', ng-click='press("media_rewind")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Rewind" | translate }}', ng-click='press("media_rewind")').btn.btn-primary.btn-xs
             i.fa.fa-fast-backward
-          button(tooltip='{{ "Previous" | translate }}', ng-click='press("media_previous")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Previous" | translate }}', ng-click='press("media_previous")').btn.btn-primary.btn-xs
             i.fa.fa-step-backward
-          button(tooltip='{{ "Play/Pause" | translate }}', ng-click='press("media_play_pause")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Play/Pause" | translate }}', ng-click='press("media_play_pause")').btn.btn-primary.btn-xs
             i.fa.fa-youtube-play
-          button(tooltip='{{ "Stop" | translate }}', ng-click='press("media_stop")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Stop" | translate }}', ng-click='press("media_stop")').btn.btn-primary.btn-xs
             i.fa.fa-stop
-          button(tooltip='{{ "Next" | translate }}', ng-click='press("media_next")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Next" | translate }}', ng-click='press("media_next")').btn.btn-primary.btn-xs
             i.fa.fa-step-forward
-          button(tooltip='{{ "Fast Forward" | translate }}', ng-click='press("media_fast_forward")').btn.btn-primary.btn-xs
+          button(uib-tooltip='{{ "Fast Forward" | translate }}', ng-click='press("media_fast_forward")').btn.btn-primary.btn-xs
             i.fa.fa-fast-forward
     //h6 D-pad
     //table.special-keys-dpad-buttons
       tr
         td
         td
-          button(tooltip='{{ "D-pad Up" | translate }}', ng-click='press("dpad_up")').btn.btn-info.btn-xs
+          button(uib-tooltip='{{ "D-pad Up" | translate }}', ng-click='press("dpad_up")').btn.btn-info.btn-xs
             i.fa.fa-chevron-up
         td
       tr
         td
-          button(tooltip='{{ "D-pad Left" | translate }}', ng-click='press("dpad_left")').btn.btn-info.btn-xs
+          button(uib-tooltip='{{ "D-pad Left" | translate }}', ng-click='press("dpad_left")').btn.btn-info.btn-xs
             i.fa.fa-chevron-left
         td
-          button(tooltip='{{ "D-pad Center" | translate }}', ng-click='press("dpad_center")').btn.btn-info.btn-xs
+          button(uib-tooltip='{{ "D-pad Center" | translate }}', ng-click='press("dpad_center")').btn.btn-info.btn-xs
             i.fa.fa-circle-o
         td
-          button(tooltip='{{ "D-pad Right" | translate }}', ng-click='press("dpad_right")').btn.btn-info.btn-xs
+          button(uib-tooltip='{{ "D-pad Right" | translate }}', ng-click='press("dpad_right")').btn.btn-info.btn-xs
             i.fa.fa-chevron-right
       tr
         td
         td
-          button(tooltip='{{ "D-pad Down" | translate }}', ng-click='press("dpad_down")').btn.btn-info.btn-xs
+          button(uib-tooltip='{{ "D-pad Down" | translate }}', ng-click='press("dpad_down")').btn.btn-info.btn-xs
             i.fa.fa-chevron-down
         td

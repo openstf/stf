@@ -1,0 +1,10 @@
+[Unit]
+Description=Clone openstf/stf %I for armv7l
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=stf-armv7l
+ExecStart=/usr/bin/rm -rf /home/stf-armv7l/repo-%i
+ExecStart=/usr/bin/git -C /home/stf-armv7l clone --depth 1 -b "%I" https://github.com/openstf/stf.git repo-%i

@@ -8,16 +8,16 @@ module.exports = function AppStateProvider() {
     }
   }
 
-  /*globals GLOBAL_APPSTATE:false*/
+  /* global GLOBAL_APPSTATE:false */
   if (typeof GLOBAL_APPSTATE !== 'undefined') {
     values = angular.extend(values, GLOBAL_APPSTATE)
   }
 
   return {
-    set: function (constants) {
+    set: function(constants) {
       angular.extend(values, constants)
     },
-    $get: function () {
+    $get: function() {
       return values
     }
   }

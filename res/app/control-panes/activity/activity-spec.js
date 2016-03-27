@@ -1,17 +1,17 @@
-describe('ActivityCtrl', function () {
+describe('ActivityCtrl', function() {
 
-  beforeEach(angular.mock.module(require('./').name));
+  beforeEach(angular.mock.module(require('./').name))
 
-  var scope, ctrl;
+  var scope, ctrl
 
-  beforeEach(inject(function ($rootScope, $controller) {
-    scope = $rootScope.$new();
-    ctrl = $controller('ActivityCtrl', {$scope: scope});
-  }));
+  beforeEach(inject(function($rootScope, $controller) {
+    scope = $rootScope.$new()
+    ctrl = $controller('ActivityCtrl', {$scope: scope})
+  }))
 
-  it('should ...', inject(function () {
-    expect(1).toEqual(1);
+  it('should ...', inject(function() {
+    expect(1).toEqual(1)
 
-  }));
+  }))
 
-});
+})

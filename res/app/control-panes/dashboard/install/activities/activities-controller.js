@@ -15,33 +15,33 @@ module.exports = function ActivitiesCtrl($scope) {
   $scope.packageNames = [$scope.selectedPackageName]
   $scope.activityNames = []
 
-  $scope.$watch('installation.manifest.application', function (newValue) {
+  $scope.$watch('installation.manifest.application', function(newValue) {
     if (newValue.activities) {
       var activityActions = []
       var activityCategories = []
       var activityData = []
       var activityNames = []
 
-      _.forEach(newValue.activities, function (activity) {
+      _.forEach(newValue.activities, function(activity) {
         if (activity.name) {
           activityNames.push(activity.name)
         }
 
-        _.forEach(activity.intentFilters, function (intentFilter) {
+        _.forEach(activity.intentFilters, function(intentFilter) {
 
-          _.forEach(intentFilter.actions, function (action) {
+          _.forEach(intentFilter.actions, function(action) {
             if (action.name) {
               activityActions.push(action.name)
             }
           })
 
-          _.forEach(intentFilter.categories, function (category) {
+          _.forEach(intentFilter.categories, function(category) {
             if (category.name) {
               activityCategories.push(category.name)
             }
           })
 
-          _.forEach(intentFilter.data, function (data) {
+          _.forEach(intentFilter.data, function(data) {
             if (data.scheme) {
               var uri = data.scheme + '://'
               if (data.host) {
@@ -72,7 +72,7 @@ module.exports = function ActivitiesCtrl($scope) {
     }
   })
 
-  $scope.runActivity = function () {
+  $scope.runActivity = function() {
     var command = 'am start'
     if ($scope.selectedAction) {
       command += ' -a ' + $scope.selectedAction
@@ -89,8 +89,8 @@ module.exports = function ActivitiesCtrl($scope) {
     }
 
     return $scope.control.shell(command)
-      .then(function (result) {
-        console.log(result)
+      .then(function(result) {
+        // console.log(result)
       })
   }
 }

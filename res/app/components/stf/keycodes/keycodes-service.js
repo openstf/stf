@@ -57,11 +57,11 @@ module.exports = function KeycodesServiceFactory(KeycodesAndroid, KeycodesJS) {
     [j.SINGLE_QUOTE, a.KEYCODE_APOSTROPHE]
   ]
 
-  service.mapToDevice = function (keyCode) {
+  service.mapToDevice = function(keyCode) {
     return service.mapToAndroid(keyCode)
   }
 
-  service.mapToAndroid = function (key) {
+  service.mapToAndroid = function(key) {
     // All special keys
     for (var i = 0; i < androidMap.length; ++i) {
       if (androidMap[i][0] === key) {

@@ -13,27 +13,27 @@ module.exports = function TimelineServiceFactory() {
     })
   }
 
-  TimelineService.info = function (line) {
+  TimelineService.info = function(line) {
     addLine(line, 'info')
   }
 
-  TimelineService.warn = function (line) {
+  TimelineService.warn = function(line) {
     addLine(line, 'warn')
   }
 
-  TimelineService.success = function (line) {
+  TimelineService.success = function(line) {
     addLine(line, 'success')
   }
 
-  TimelineService.error = function (line) {
+  TimelineService.error = function(line) {
     addLine(line, 'error')
   }
 
-  TimelineService.fatal = function (line) {
+  TimelineService.fatal = function(line) {
     addLine(line, 'fatal')
   }
 
-  TimelineService.clear = function () {
+  TimelineService.clear = function() {
     TimelineService.lines = []
   }
 

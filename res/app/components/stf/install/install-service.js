@@ -60,14 +60,14 @@ module.exports = function InstallService(
     this.emit('change')
   }
 
-  installService.installUrl = function (control, url) {
+  installService.installUrl = function(control, url) {
     var installation = new Installation('downloading')
     $rootScope.$broadcast('installation', installation)
     return control.uploadUrl(url)
-      .progressed(function (uploadResult) {
+      .progressed(function(uploadResult) {
         installation.update(uploadResult.progress / 2, uploadResult.lastData)
       })
-      .then(function (uploadResult) {
+      .then(function(uploadResult) {
         installation.update(uploadResult.progress / 2, uploadResult.lastData)
         installation.manifest = uploadResult.body
         return control.install({
@@ -75,7 +75,7 @@ module.exports = function InstallService(
           , manifest: installation.manifest
           , launch: installation.launch
           })
-          .progressed(function (result) {
+          .progressed(function(result) {
             installation.update(50 + result.progress / 2, result.lastData)
           })
       })
@@ -87,7 +87,7 @@ module.exports = function InstallService(
       })
   }
 
-  installService.installFile = function (control, $files) {
+  installService.installFile = function(control, $files) {
     var installation = new Installation('uploading')
     $rootScope.$broadcast('installation', installation)
     return StorageService.storeFile('apk', $files, {
@@ -112,7 +112,7 @@ module.exports = function InstallService(
                 , manifest: installation.manifest
                 , launch: installation.launch
                 })
-                .progressed(function (result) {
+                .progressed(function(result) {
                   installation.update(50 + result.progress / 2, result.lastData)
                 })
             }

@@ -1,15 +1,15 @@
-describe('deviceContextMenu', function () {
+describe('deviceContextMenu', function() {
 
   beforeEach(angular.mock.module(require('./').name))
 
   var scope, compile
 
-  beforeEach(inject(function ($rootScope, $compile) {
+  beforeEach(inject(function($rootScope, $compile) {
     scope = $rootScope.$new()
     compile = $compile
   }))
 
-  it('should ...', function () {
+  it('should ...', function() {
 
     /*
      To test your directive, you need to create some html that would use your directive,

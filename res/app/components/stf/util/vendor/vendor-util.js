@@ -4,7 +4,7 @@ module.exports = function VendorUtilFactory() {
   vendorUtil.style = function(props) {
     var testee = document.createElement('span')
     for (var i = 0, l = props.length; i < l; ++i) {
-      if (testee.style[props[i]] !== void 0) {
+      if (typeof testee.style[props[i]] !== 'undefined') {
         return props[i]
       }
     }

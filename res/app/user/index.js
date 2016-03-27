@@ -1,5 +1,5 @@
 module.exports = angular.module('stf.user-profile', [])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
 
     $routeProvider
       .when('/user/:user*', {

@@ -1,14 +1,158 @@
 {
+  "extends": "eslint:recommended",
   "env": {
     "node": true
   },
   "rules": {
-    "comma-style": [2, "first"],
-    "no-extra-semi": 2,
+    // Possible errors
+    "no-cond-assign": 2, // TODO: conflicts with no-extra-parens for while use case
+    "no-extra-parens": 0, // For now going with 0 since 1 does more harm than good
+    "no-unexpected-multiline": 2,
+    "valid-jsdoc": 1,
+    "valid-typeof": 2,
+
+    // Best practices
+    "accessor-pairs": 2,
+    "block-scoped-var": 2,
+    "complexity": 0,
+    "consistent-return": 1,
+    "curly": 2,
+    "dot-location": [2, "property"], // defaults to "object"
+    "dot-notation": 2,
+    "eqeqeq": [2, "smart"], // `2` is recommended
+    "guard-for-in": 2,
+    "no-alert": 1, // `2` is recommended
+    "no-caller": 2,
+    "no-div-regex": 2,
+    "no-else-return": 0, // `2` may be ok, but indent consistency is better
+    "no-empty-pattern": 2,
+    "no-eq-null": 2,
+    "no-eval": 2,
+    "no-extend-native": 2,
+    "no-extra-bind": 2,
+    "no-fallthrough": 1, // `2` is recommended
+    "no-floating-decimal": 1, // `2` is recommended
+    "no-implicit-coercion": [2, {"boolean": false, "number": true, "string": false}], // `[2, {"boolean": true, "number": true, "string": true}],` is recommended
+    "no-implied-eval": 2,
+    "no-invalid-this": 1, // `2` is recommended
+    "no-iterator": 2,
+    "no-labels": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 2,
+    "no-magic-numbers": 0, // `1` would also be fine
+    "no-multi-spaces": 2,
+    "no-multi-str": 2,
+    "no-native-reassign": 2,
+    "no-new-func": 2,
+    "no-new-wrappers": 2,
+    "no-new": 2,
+    "no-octal-escape": 2,
+    "no-octal": 1, // TODO: accept until we use ES6 0o755 notation
+    "no-param-reassign": 2,
+    "no-process-env": 0, // `2` is recommended
+    "no-proto": 2,
+    "no-redeclare": [2, {"builtinGlobals": true}], // `2` is recommended and actually defaults to `[2, {"builtinGlobals": false}]`
+    "no-return-assign": [2, "except-parens"],
+    "no-script-url": 2,
+    "no-self-compare": 2,
+    "no-sequences": 2,
+    "no-throw-literal": 2,
+    "no-unused-expressions": 2, // `2` is recommended and actually defaults to `[2, {"allowShortCircuit": false, "allowTernary": false}]`
+    "no-useless-call": 2, // `2` is recommended
+    "no-useless-concat": 2,
+    "no-void": 2,
+    "no-warning-comments": [1, { "terms": ["todo", "fixme", "@todo", "@fixme"]}], // `[0, { "terms": ["todo", "fixme", "xxx"], "location": "start" }]` is recommended
+    "no-with": 2,
+    "radix": 1, // `2` is recommended
+    "vars-on-top": 0, // `2` is recommended TODO: review this
+    "wrap-iife": [2, "inside"], // `[2, "outside"]` is recommended
+    "yoda": 2, // `[2, "never"]` is recommended, optionally set `[2, "never", {"exceptRange": true, "onlyEquality": false}]
+
+    // Strict
+    "strict": [0, "function"],
+
+    // Variables
+    "init-declarations": [0, "always"], // `[2, "always"]` is recommended
+    "no-delete-var": 2,
+    "no-label-var": 2,
+    "no-shadow-restricted-names": 2,
+    "no-shadow": 0, // TODO: 1 may be ok
+    "no-undefined": 1,
+    "no-unused-vars": 1,
+    "no-use-before-define": 1, // TODO: 0 or 2 may be ok, sometimes there are ciclic dependencies
+
+    // Style
+    "array-bracket-spacing": [2, "never"], // optionally set `[2, "never", {"singleValue": true, "objectsInArrays": true, "arraysInArrays": true}]`
+    "block-spacing": [2, "always"], // optionally set `[2, "always"]`
+    "brace-style": [2, "stroustrup", {"allowSingleLine": false}],
+    "camelcase": [2, {"properties": "never"}], // TODO: 2 might be too much
+    "comma-spacing": [2, {"before": false, "after": true}],
+    "comma-style": [1, "first"], // optionally set `[2, "first", {"exceptions": {"ArrayExpression": true, "ObjectExpression": true}}]`
+    "computed-property-spacing": [2, "never"],
+    "consistent-this": [2, "that"],
+    "eol-last": 2,
+    "func-names": 0,
+    "func-style": 0, // optionally set `[2, "expression"]`
+    "id-length": 0, // optionally set `[2, {"min": 3, "max": 10, "properties": "never", "exceptions": ["x"]}]`
+    "id-match": 0, // optionally set `[2, "^[a-z]+([A-Z][a-z]+)*$", {"properties": false}]`
+    "indent": [0, 2, {"SwitchCase": 0, "VariableDeclarator": 2}], // TODO: optionally set `[2, 2, {"SwitchCase": 1, "VariableDeclarator": {"var": 2, "let": 2, "const": 3}}]` this gives too many errors
+    "jsx-quotes": [2, "prefer-single"],
+    "key-spacing": [2, {"beforeColon": false, "afterColon": true, "mode": "strict"}], // optionally set `[2, {"beforeColon": false, "afterColon": true, "mode": "strict", "align": "colon"}]`
+    "lines-around-comment": 2, // optionally set `[2, {"beforeBlockComment": true, "beforeLineComment": true, "allowBlockStart": true}]`
+    "linebreak-style": 0, // optionally set `[1, "unix"]`
+    "max-len": [2, 100, 2, {"ignoreComments": true, "ignoreUrls": true}], // NOTE: Our limit is 80 however ESLint does not have an ignoreStrings so lets have more buffer
+    "max-nested-callbacks": [1, 5],
+    "new-cap": 2, // optionally set `[2, {"capIsNewExceptions": ["Person"]}]`
+    "new-parens": 2,
+    "newline-after-var": [0, "always"], // TODO: 1 may be ok
+    "no-array-constructor": 2,
+    "no-bitwise": 0, // We use them
+    "no-continue": 1,
+    "no-inline-comments": 0,
+    "no-lonely-if": 0, // TODO: 1 may be ok
+    "no-mixed-spaces-and-tabs": 2, // optionally set `[2, "smart-tabs"]`
+    "no-multiple-empty-lines": [1, {"max": 2}],
+    "no-negated-condition": 0, // Prioritize intent order over readability
+    "no-nested-ternary": 2,
+    "no-new-object": 2, // TODO: check this one
+    "no-plusplus": 0,
+    "no-restricted-syntax": 0, // optionally set `[2, "FunctionExpression", "WithStatement"]`
+    "no-spaced-func": 2,
+    "no-ternary": 0,
+    "no-trailing-spaces": [2, {"skipBlankLines": true}],
     "no-underscore-dangle": 0,
-    "quotes": [2, "single"],
+    "no-unneeded-ternary": [2, {"defaultAssignment": false}],
+    "object-curly-spacing": [2, "never"], // optionally set `[2, "always", {"objectsInObjects": false, "arraysInObjects": false}]` // TODO: check if always or never is being more used
+    "one-var": [2, {"uninitialized": "always", "initialized": "never"}], // optionally set `[2, {"var": "always", "let": "never", "const": "never"}]`
+    "operator-assignment": [2, "always"], // optionally set `[2, "always"]`
+    "operator-linebreak": [2, "after"], // optionally set `[2, "before", {"overrides": {"?": "after"}}]` // TODO: check for conditionals
+    "padded-blocks": [2, "never"],
+    "quote-props": [2, "as-needed", { "numbers": true }],
+    "quotes": [2, "single", "avoid-escape"],
+    "require-jsdoc": 0,
+    "semi-spacing": [2, {"before": false, "after": true}],
     "semi": [2, "never"],
-    "space-before-blocks": [2, "always"],
-    "strict": [0, "function"]
+    "sort-vars": 0, // optaionlly set `[2, {"ignoreCase": true}]`
+    "space-before-blocks": [2, "always"], // optionally set `[2, {"functions": "never", "keywords": "always"}]`
+    "space-before-function-paren": [2, "never"], // optionally set `[2, {"anonymous": "always", "named": "never"}]`
+    "space-in-parens": [2, "never"], // optionally set `[2, "always", {"exceptions": ["empty"]}]`
+    "space-infix-ops": 2,
+    "space-unary-ops": [2, {"words": true, "nonwords": false}],
+    "spaced-comment": [1, "always", {"exceptions": ["/"]}], // optionally set `[2, "always", {"exceptions": ["-", "+"], "markers": ["/"]}]`
+    "wrap-regex": 0, // TODO: 2 is ok but the division edge case is too edgy
+
+    // Node.js / Common.js
+    "callback-return": 1, // `2` is default, optionally set `[2, ["callback", "cb", "next"]]`
+    "global-require": 0, // `2` is default
+    "handle-callback-err": 1, // `2` is default, optionally set `[2, "^(err|error)$"]`
+    "no-mixed-requires": [0, {"grouping": true}], // [2, false] is default
+    "no-new-require": 2, // `2` is default
+    "no-path-concat": 2, // `2` is default
+    "no-process-exit": 0, // `2` is default
+    "no-restricted-modules": 0, // no default, optionally set `[2, "fs", "os"]`
+    "no-sync": 1, // `2` is default
+
+    // eslint v2
+    "keyword-spacing": 2
   }
 }

@@ -21,12 +21,12 @@
               text-focus-select, accesskey='4').form-control.input-sm.device-search.pull-right
 
             span.pull-right(ng-if='activeTabs.details && !$root.basicMode')
-              .btn-group(dropdown).pull-right
-                button.btn.btn-sm.btn-primary-outline(type='button', dropdown-toggle)
+              .btn-group(uib-dropdown).pull-right
+                button.btn.btn-sm.btn-primary-outline(type='button', uib-dropdown-toggle)
                   i.fa.fa-columns
                   span(ng-bind='"Customize"|translate')
 
-                ul.dropdown-menu(role='menu').pointer.stf-device-details-customize
+                ul.uib-dropdown-menu(role='menu').pointer.stf-device-details-customize
                   li(ng-repeat='column in columns track by column.name',
                   ng-hide='!adminMode && columnDefinitions[column.name].admin',
                   ng-click='$event.stopPropagation()')
@@ -38,17 +38,17 @@
                       i.fa.fa-trash-o
                       span(ng-bind='"Reset"|translate')
 
-          tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
-            tab(active='activeTabs.icons', select='focusSearch()')
-              tab-heading
+          uib-tabset.overflow-auto.device-list-active-tabs(ng-if='activeTabs')
+            uib-tab(active='activeTabs.icons', select='focusSearch()')
+              uib-tab-heading
                 i.fa.fa-th-large
                 span(translate) Devices
               div.device-list-devices-content(ng-if='activeTabs.icons').selectable
 
                 device-list-icons(tracker='tracker', columns='columns', sort='sort', filter='filter')
 
-            tab(active='activeTabs.details', select='focusSearch()', ng-if='!$root.basicMode')
-              tab-heading
+            uib-tab(active='activeTabs.details', select='focusSearch()', ng-if='!$root.basicMode')
+              uib-tab-heading
                 i.fa.fa-list
                 span(translate) Details
               div.device-list-details-content(ng-if='activeTabs.details').selectable

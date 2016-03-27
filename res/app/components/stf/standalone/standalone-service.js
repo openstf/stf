@@ -39,7 +39,7 @@ module.exports =
     }
 
 
-    service.open = function (device) {
+    service.open = function(device) {
       var url = '#!/c/' + (device.serial ? device.serial : '') + '?standalone'
 
       var projected = fitDeviceInGuestScreen(device)
@@ -74,7 +74,7 @@ module.exports =
           newWindow.document.title = windowTitle
         }
 
-        $timeout(function () {
+        $timeout(function() {
           if (newWindow.document) {
             newWindow.document.title = windowTitle
           }
@@ -84,10 +84,10 @@ module.exports =
       setWindowTitle(newWindow, device)
 
 
-      newWindow.onbeforeunload = function () {
+      newWindow.onbeforeunload = function() {
 
         // TODO: check for usage
-        GroupService.kick(device).then(function () {
+        GroupService.kick(device).then(function() {
           $rootScope.$digest()
         })
 

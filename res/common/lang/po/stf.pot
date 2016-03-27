@@ -243,23 +243,23 @@ msgstr ""
 msgid "Customize"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:20
 msgid "D-pad Down"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:9
 msgid "D-pad Left"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:15
 msgid "D-pad Right"
 msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:4
 msgid "D-pad Up"
 msgstr ""
 
@@ -302,7 +302,7 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: app/device-list/details/device-list-details-directive.js:36
+#: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr ""
@@ -432,6 +432,18 @@ msgstr ""
 
 #: app/settings/settings-controller.js:5
 msgid "General"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
 msgstr ""
 
 #: app/control-panes/logs/logs.html:1
@@ -593,6 +605,10 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Maintenance"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Make sure to copy your access token now. You won't be able to see it again!"
 msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -778,6 +794,7 @@ msgstr ""
 msgid "Package"
 msgstr ""
 
+#: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
 msgstr ""
@@ -847,6 +864,7 @@ msgid "Please enter your Store username"
 msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Port"
 msgstr ""
 
@@ -1043,6 +1061,10 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:159
 msgid "Serial"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
 msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
@@ -1311,6 +1333,10 @@ msgstr ""
 msgid "Tip:"
 msgstr ""
 
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr ""
+
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr ""
@@ -1423,6 +1449,10 @@ msgstr ""
 msgid "Vibrate Mode"
 msgstr ""
 
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
+msgstr ""
+
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
 msgstr ""
@@ -1437,6 +1467,10 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
 msgstr ""
 
 #: app/menu/menu.html:1

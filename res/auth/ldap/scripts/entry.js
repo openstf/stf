@@ -1,4 +1,4 @@
-require.ensure([], function (require) {
+require.ensure([], function(require) {
   require('nine-bootstrap')
 
   require('angular')
@@ -11,7 +11,7 @@ require.ensure([], function (require) {
     require('gettext').name,
     require('./signin').name
   ])
-    .config(function ($routeProvider, $locationProvider) {
+    .config(function($routeProvider, $locationProvider) {
       $locationProvider.html5Mode(true)
       $routeProvider
         .otherwise({

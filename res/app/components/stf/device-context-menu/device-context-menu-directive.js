@@ -8,15 +8,15 @@ module.exports = function deviceContextMenuDirective($window) {
     //},
     transclude: true,
     template: require('./device-context-menu.jade'),
-    link: function (scope) {
+    link: function(scope) {
       //var device = scope.device()
       //var control = scope.control()
-      scope.windowClose = function () {
+      scope.windowClose = function() {
         $window.close()
       }
 
-      scope.saveScreenShot = function () {
-        scope.control.screenshot().then(function (result) {
+      scope.saveScreenShot = function() {
+        scope.control.screenshot().then(function(result) {
           location.href = result.body.href + '?download'
         })
       }

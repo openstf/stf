@@ -11,3 +11,4 @@ res/build/
 rethinkdb_data/
 temp/
 tmp/
+.eslintcache

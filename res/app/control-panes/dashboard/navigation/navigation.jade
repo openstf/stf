@@ -4,7 +4,7 @@
     span(translate) Navigation
     span
       button.btn.btn-xs.btn-danger-outline.pull-right(ng-click='clearSettings()',
-        tooltip='{{ "Reset all browser settings" | translate }}')
+      uib-tooltip='{{ "Reset all browser settings" | translate }}')
         i.fa.fa-trash-o
         span(translate) Reset
       //.button-spacer.pull-right
@@ -26,6 +26,6 @@
 
     .btn-group
       .btn-group.browser-buttons(ng-click='nav.focusUrl = true')
-        label.btn.btn-default-outline(ng-repeat='browserRadio in device.browser.apps track by browserRadio.id', ng-model='$root.browser', btn-radio='browserRadio',
-        tooltip='{{browserRadio.name}} ({{browserRadio.developer}})')
+        label.btn.btn-default-outline(ng-repeat='browserRadio in device.browser.apps track by browserRadio.id', ng-model='$root.browser', uib-btn-radio='browserRadio',
+        uib-tooltip='{{browserRadio.name}} ({{browserRadio.developer}})')
           img(ng-src='/static/app/browsers/icon/36x36/{{browserRadio.type}}.png', ng-show='browserRadio.type').browser-icon.pointer

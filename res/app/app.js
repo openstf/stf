@@ -1,5 +1,4 @@
-require.ensure([], function (require) {
-
+require.ensure([], function(require) {
   require('angular')
   require('angular-route')
   require('angular-touch')
@@ -19,7 +18,7 @@ require.ensure([], function (require) {
     require('./../common/lang').name,
     require('stf/standalone').name
   ])
-    .config(function ($routeProvider, $locationProvider) {
+    .config(function($routeProvider, $locationProvider) {
       $locationProvider.hashPrefix('!')
       $routeProvider
         .otherwise({
@@ -27,7 +26,7 @@ require.ensure([], function (require) {
         })
     })
 
-    .config(function (hotkeysProvider) {
+    .config(function(hotkeysProvider) {
       hotkeysProvider.templateTitle = 'Keyboard Shortcuts:'
     })
 })

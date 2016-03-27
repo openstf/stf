@@ -1,0 +1,9 @@
+// TODO: Some day use eslint-plugin-angular
+// https://github.com/Gillespie59/eslint-plugin-angular
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "protractor": true
+  }
+}

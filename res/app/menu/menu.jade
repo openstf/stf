@@ -15,8 +15,8 @@
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
         .btn-group
-          button(type='button', ng-model='$root.platform', btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
-          button(type='button', ng-model='$root.platform', btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
+          button(type='button', ng-model='$root.platform', uib-btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
+          button(type='button', ng-model='$root.platform', uib-btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
 
       li(ng-show='!$root.basicMode')
         a(ng-href='/#!/help', accesskey='6')

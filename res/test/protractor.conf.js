@@ -38,7 +38,7 @@ module.exports.config = {
     }
   },
   chromeOnly: true,
-  onPrepare: function () {
+  onPrepare: function() {
     var loginPage = new LoginPage()
     loginPage.doLogin()
     loginPage.cleanUp()
@@ -49,12 +49,12 @@ module.exports.config = {
       baseDirectory: './res/test/test_out/screenshots'
     }))
 
-    afterEach(function () {
+    afterEach(function() {
       BrowserLogs({expectNoLogs: true})
       //FailFast()
     })
   },
-  onComplete: function () {
+  onComplete: function() {
 
   }
 }

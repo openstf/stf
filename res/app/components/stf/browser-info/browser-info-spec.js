@@ -4,7 +4,7 @@ describe('BrowserInfo', function() {
 
   it('should ...', inject(function() {
 
-	//expect(BrowserInfo.doSomething()).toEqual('something');
+	// expect(BrowserInfo.doSomething()).toEqual('something')
 
   }))
 

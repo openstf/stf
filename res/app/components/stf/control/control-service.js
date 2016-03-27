@@ -71,28 +71,28 @@ module.exports = function ControlServiceFactory(
       })
     }
 
-    this.touchUp   = function(seq, contact) {
+    this.touchUp = function(seq, contact) {
       sendOneWay('input.touchUp', {
         seq: seq
       , contact: contact
       })
     }
 
-    this.touchCommit   = function(seq) {
+    this.touchCommit = function(seq) {
       sendOneWay('input.touchCommit', {
         seq: seq
       })
     }
 
-    this.touchReset   = function(seq) {
+    this.touchReset = function(seq) {
       sendOneWay('input.touchReset', {
         seq: seq
       })
     }
 
-    this.keyDown   = keySender('input.keyDown')
-    this.keyUp     = keySender('input.keyUp')
-    this.keyPress  = keySender('input.keyPress')
+    this.keyDown = keySender('input.keyDown')
+    this.keyUp = keySender('input.keyUp')
+    this.keyPress = keySender('input.keyPress')
 
     this.home = keySender('input.keyPress', 'home')
     this.menu = keySender('input.keyPress', 'menu')
@@ -116,9 +116,9 @@ module.exports = function ControlServiceFactory(
 
     //@TODO: Refactor this please
     var that = this
-    this.getClipboardContent = function () {
-      that.copy().then(function (result) {
-        $rootScope.$apply(function () {
+    this.getClipboardContent = function() {
+      that.copy().then(function(result) {
+        $rootScope.$apply(function() {
           if (result.success) {
             if (result.lastData) {
               that.clipboardContent = result.lastData
@@ -167,16 +167,16 @@ module.exports = function ControlServiceFactory(
     this.testForward = function(forward) {
       return sendTwoWay('forward.test', {
         targetHost: forward.targetHost
-      , targetPort: +forward.targetPort
+      , targetPort: Number(forward.targetPort)
       })
     }
 
     this.createForward = function(forward) {
       return sendTwoWay('forward.create', {
         id: forward.id
-      , devicePort: +forward.devicePort
+      , devicePort: Number(forward.devicePort)
       , targetHost: forward.targetHost
-      , targetPort: +forward.targetPort
+      , targetPort: Number(forward.targetPort)
       })
     }
 
@@ -225,15 +225,15 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('screen.capture')
     }
 
-    this.fsretrieve = function(file){
+    this.fsretrieve = function(file) {
       return sendTwoWay('fs.retrieve', {
-        file: file,
+        file: file
       })
     }
 
-    this.fslist = function(dir){
+    this.fslist = function(dir) {
       return sendTwoWay('fs.list', {
-        dir: dir,
+        dir: dir
       })
     }
 

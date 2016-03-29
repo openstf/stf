@@ -27,7 +27,7 @@ var mapping = {
 
 module.exports = function rotator(oldRotation, newRotation) {
   var r1 = oldRotation < 0 ? 360 + oldRotation % 360 : oldRotation % 360
-    , r2 = newRotation < 0 ? 360 + newRotation % 360 : newRotation % 360
+  var r2 = newRotation < 0 ? 360 + newRotation % 360 : newRotation % 360
 
   return mapping[r1][r2]
 }

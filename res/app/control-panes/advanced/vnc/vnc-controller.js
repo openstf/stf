@@ -1,7 +1,7 @@
 module.exports = function RemoteDebugCtrl($scope) {
   $scope.vnc = {}
 
-  $scope.generateVNCLogin = function () {
+  $scope.generateVNCLogin = function() {
     $scope.vnc = {
       serverHost: 'localhost'
     , serverPort: '7042'

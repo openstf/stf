@@ -7,7 +7,7 @@ module.exports = angular.module('device-control.standalone', [
   require('stf/settings').name,
   require('stf/screen/scaling').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('control-panes/device-control/standalone/standalone.jade',
       require('./standalone.jade')
     )

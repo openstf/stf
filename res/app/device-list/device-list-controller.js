@@ -154,7 +154,7 @@ module.exports = function DeviceListCtrl(
   , source: 'deviceListActiveTabs'
   })
 
-  $scope.toggle = function (device) {
+  $scope.toggle = function(device) {
     if (device.using) {
       $scope.kick(device)
     } else {
@@ -162,8 +162,8 @@ module.exports = function DeviceListCtrl(
     }
   }
 
-  $scope.invite = function (device) {
-    return GroupService.invite(device).then(function () {
+  $scope.invite = function(device) {
+    return GroupService.invite(device).then(function() {
       $scope.$digest()
     })
   }
@@ -177,13 +177,13 @@ module.exports = function DeviceListCtrl(
     focusElement: false
   }
 
-  $scope.focusSearch = function () {
+  $scope.focusSearch = function() {
     if (!$scope.basicMode) {
       $scope.search.focusElement = true
     }
   }
 
-  $scope.reset = function () {
+  $scope.reset = function() {
     $scope.search.deviceFilter = ''
     $scope.filter = []
     $scope.sort = defaultSort

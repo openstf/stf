@@ -3,7 +3,7 @@ require('./docs.css')
 module.exports = angular.module('stf.help.docs', [
   require('stf/language').name
 ])
-  .config(function ($routeProvider, languageProvider) {
+  .config(function($routeProvider, languageProvider) {
     // TODO: Solutions to the lang problem
     //
     // 1) Use $route inside a controller instead of $routeProvider
@@ -16,7 +16,7 @@ module.exports = angular.module('stf.help.docs', [
 
     $routeProvider
       .when('/docs/:document*', {
-        templateUrl: function (params) {
+        templateUrl: function(params) {
           var lang = languageProvider.$get().selectedLanguage
           lang = 'en' // Only English for now
           var document = params.document.replace('.md', '')
@@ -24,10 +24,10 @@ module.exports = angular.module('stf.help.docs', [
         }
       })
       .when('/help', {
-        templateUrl: function () {
+        templateUrl: function() {
           var lang = languageProvider.$get().selectedLanguage
           lang = 'en' // Only English for now
-          return '/static/wiki/[' + lang + ']-' + 'Help'
+          return '/static/wiki/[' + lang + ']-Help'
         }
       })
       //.when('/docs/:lang/:document*', {

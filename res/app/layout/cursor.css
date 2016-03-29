@@ -11,7 +11,7 @@
 */
 .cursor,
 .console-message-text,
-tab-heading {
+uib-tab-heading {
     cursor: default;
 }
 
@@ -19,7 +19,7 @@ tab-heading {
     Text unselectable
 */
 .unselectable,
-tab-heading {
+uib-tab-heading {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

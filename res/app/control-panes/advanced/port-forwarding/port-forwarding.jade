@@ -2,13 +2,13 @@
   .heading
     span
       stacked-icon(icon='fa-random', color='color-orange')
-      span(translate, ng-click='isCollapsed = !isCollapsed').pointer Port Forwarding
+      span(translate).pointer Port Forwarding
 
       button.btn.pull-right.btn-sm.btn-primary-outline(
         ng-click='addRow()')
         i.fa.fa-plus.fa-fw
 
-  .widget-content.padded(collapse='isCollapsed')
+  .widget-content.padded
 
     nothing-to-show(icon='fa-random', message='{{"No Ports Forwarded" | translate}}',
     ng-if='!reversePortForwards.length')

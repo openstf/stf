@@ -1,7 +1,7 @@
 module.exports = function ActivityCtrl($scope, gettext, TimelineService) {
   $scope.timeline = TimelineService
 
-  $scope.$watch('device.state', function (newValue, oldValue) {
+  $scope.$watch('device.state', function(newValue, oldValue) {
 
     if (newValue !== oldValue) {
 

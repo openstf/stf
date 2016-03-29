@@ -22,7 +22,7 @@ module.exports = function ShellCtrl($scope) {
       })
   }
 
-  $scope.clear = function () {
+  $scope.clear = function() {
     $scope.command = ''
     $scope.data = ''
     $scope.result = null

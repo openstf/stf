@@ -25,31 +25,31 @@ module.exports = function NativeUrlServiceFactory($window, $timeout) {
   // TODO: use a central on-blur event
   var cachedWindowOnBlur = $window.onblur
 
-  service.open = function (options) {
+  service.open = function(options) {
 
     switch (fallbackMethod) {
       case 'USE_NEW_WINDOW':
         // Doesn't work well on Chrome
         windowOpened = $window.open(options.nativeUrl)
 
-        $timeout(function () {
+        $timeout(function() {
           if (windowOpened) {
             windowOpened.close()
           }
         }, 500)
 
         $window.location.href = options.webUrl
-        break;
+        break
       case 'USE_ON_BLUR':
         // Doesn't work on Safari
 
-        $window.onblur = function () {
+        $window.onblur = function() {
           wasBlured = true
         }
 
         $window.location.href = options.nativeUrl
 
-        $timeout(function () {
+        $timeout(function() {
           if (wasBlured) {
             wasBlured = false
           } else {
@@ -59,14 +59,14 @@ module.exports = function NativeUrlServiceFactory($window, $timeout) {
           $window.onblur = cachedWindowOnBlur
         }, 250)
 
-        break;
+        break
       case 'USE_TIME_ELAPSED':
         // Doesn't work on Chrome
 
         var start, end, elapsed
         start = new Date().getTime()
 
-        console.log(' window.performance.webkitNow()', window.performance.now())
+        // console.log(' window.performance.webkitNow()', window.performance.now())
 
         // This depends on the fact that JS is single-thread
         document.location = options.nativeUrl
@@ -79,7 +79,7 @@ module.exports = function NativeUrlServiceFactory($window, $timeout) {
           document.location = options.webUrl
         }
 
-        break;
+        break
       default:
     }
 

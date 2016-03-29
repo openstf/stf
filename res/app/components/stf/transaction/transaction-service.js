@@ -10,8 +10,8 @@ module.exports = function TransactionServiceFactory(socket, TransactionError) {
 
   function MultiTargetTransaction(targets, options) {
     var pending = Object.create(null)
-      , results = []
-      , channel = createChannel()
+    var results = []
+    var channel = createChannel()
 
     function doneListener(someChannel, data) {
       if (someChannel === channel) {
@@ -62,8 +62,8 @@ module.exports = function TransactionServiceFactory(socket, TransactionError) {
 
   function SingleTargetTransaction(target, options) {
     var result = new options.result(target)
-      , pending = new PendingTransactionResult(result)
-      , channel = createChannel()
+    var pending = new PendingTransactionResult(result)
+    var channel = createChannel()
 
     function doneListener(someChannel, data) {
       if (someChannel === channel) {
@@ -107,16 +107,16 @@ module.exports = function TransactionServiceFactory(socket, TransactionError) {
 
   function PendingTransactionResult(result) {
     var resolver = Promise.defer()
-      , seq = 0
-      , last = Infinity
-      , unplaced = []
+    var seq = 0
+    var last = Infinity
+    var unplaced = []
 
     function readQueue() {
       var message
-        , foundAny = false
+      var foundAny = false
 
       while (seq <= last && (message = unplaced[seq])) {
-        unplaced[seq] = void 0
+        unplaced[seq] = undefined
 
         if (seq === last) {
           result.success = message.success

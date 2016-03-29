@@ -5,7 +5,7 @@ module.exports = function angularPackeryDirective(PackeryService,
 
   return {
     restrict: 'AE',
-    link: function (scope, element, attrs) {
+    link: function(scope, element, attrs) {
       var container = element[0]
       var parsedAttrs = $parse(attrs.angularPackery)()
       if (typeof parsedAttrs !== 'object') {
@@ -24,10 +24,10 @@ module.exports = function angularPackeryDirective(PackeryService,
       pckry.bindResize()
       bindDraggable()
 
-      $timeout(function () {
+      $timeout(function() {
         pckry.layout()
       }, 0)
-      $timeout(function () {
+      $timeout(function() {
         pckry.layout()
       }, 100)
 
@@ -56,7 +56,7 @@ module.exports = function angularPackeryDirective(PackeryService,
 
       scope.$on('panelsResized', _.throttle(onPanelsResized, 300))
 
-      scope.$on('$destroy', function () {
+      scope.$on('$destroy', function() {
         pckry.unbindResize()
         pckry.off('layoutComplete', onLayoutComplete)
         pckry.destroy()

@@ -44,7 +44,7 @@
             tr
               td(translate) Level
               td
-                progressbar(value='device.battery.level', animate='false', max='device.battery.scale', type='success')
+                uib-progressbar(value='device.battery.level', animate='false', max='device.battery.scale', type='success')
                   span {{ device.battery.level / device.battery.scale * 100 }}%
             tr
               td(translate) Temperature

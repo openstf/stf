@@ -2,7 +2,7 @@ module.exports = function ScalingServiceFactory() {
   var scalingService = {
   }
 
-  scalingService.coordinator = function (realWidth, realHeight) {
+  scalingService.coordinator = function(realWidth, realHeight) {
     var realRatio = realWidth / realHeight
 
     /**
@@ -48,7 +48,7 @@ module.exports = function ScalingServiceFactory() {
      * |--------------|------|---------|---------|---------|
      */
     return {
-      coords: function (boundingW, boundingH, relX, relY, rotation) {
+      coords: function(boundingW, boundingH, relX, relY, rotation) {
         var w, h, x, y, ratio, scaledValue
 
         switch (rotation) {
@@ -138,7 +138,9 @@ module.exports = function ScalingServiceFactory() {
         , yP: y / h
         }
       }
-    , size: function (width, height) {
+    , size: function(sizeWidth, sizeHeight) {
+        var width = sizeWidth
+        var height = sizeHeight
         var ratio = width / height
 
         if (realRatio > ratio) {
@@ -171,7 +173,7 @@ module.exports = function ScalingServiceFactory() {
         , height: height
         }
       }
-    , projectedSize: function (boundingW, boundingH, rotation) {
+    , projectedSize: function(boundingW, boundingH, rotation) {
         var w, h
 
         switch (rotation) {

@@ -4,7 +4,7 @@
       table.table.table-condensed.logcat-filters-table(ng-show='true')
         tr
           td(width='1%')
-            button(ng-model='started', btn-checkbox, title='{{"Start/Stop Logging"|translate}}').btn.btn-xs.btn-primary-outline
+            button(ng-model='started', uib-btn-checkbox, title='{{"Start/Stop Logging"|translate}}').btn.btn-xs.btn-primary-outline
               i.fa.fa-list-alt
               span(ng-if='started') {{"Stop"|translate}}
               span(ng-if='!started') {{"Get"|translate}}

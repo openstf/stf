@@ -1,10 +1,11 @@
 # 
 # Translators:
 # Gunther Brunner, 2015
+# takeshimiya <takeshimiya@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-09-10 06:06+0000\n"
+"PO-Revision-Date: 2015-12-16 08:07+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstf/stf/language/ja/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -253,33 +254,37 @@ msgstr "CPU"
 msgid "Customize"
 msgstr "カスタマイズ"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
 msgstr "D-padセンター"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:20
 msgid "D-pad Down"
 msgstr "D-pad下"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:9
 msgid "D-pad Left"
 msgstr "D-pad左"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:15
 msgid "D-pad Right"
 msgstr "D-pad右"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:4
 msgid "D-pad Up"
 msgstr "D-pad上"
 
-#: app/control-panes/control-panes-controller.js:35
+#: app/control-panes/control-panes-controller.js:41
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
 msgstr "データ"
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Date"
+msgstr "日付"
 
 #: app/components/stf/device/device-info-filter/index.js:48
 msgid "Dead"
@@ -308,7 +313,7 @@ msgstr "開発者"
 msgid "Device"
 msgstr "デバイス"
 
-#: app/device-list/details/device-list-details-directive.js:36
+#: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr "このデバイスはグループからキックできません。"
@@ -359,10 +364,6 @@ msgstr "切断中"
 msgid "Display"
 msgstr "ディスプレー"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Domain"
-msgstr "ドメイン"
-
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
 msgstr "ここにファイルをドロップ"
@@ -411,6 +412,10 @@ msgstr "ファイルのダウンロードが失敗しした。"
 msgid "Fast Forward"
 msgstr "早送り"
 
+#: app/control-panes/control-panes-controller.js:26
+msgid "File Explorer"
+msgstr "エクスプローラー"
+
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
 msgstr "フィルター"
@@ -438,6 +443,18 @@ msgstr "フル"
 #: app/settings/settings-controller.js:5
 msgid "General"
 msgstr "一般"
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr "アクセストークン生成"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr "VNC用にログイン情報生成"
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
+msgstr "新規トークン生成"
 
 #: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
@@ -515,7 +532,7 @@ msgstr "IMEI"
 msgid "Incorrect login details"
 msgstr "不正ログイン情報"
 
-#: app/control-panes/control-panes-controller.js:26
+#: app/control-panes/control-panes-controller.js:32
 msgid "Info"
 msgstr "情報"
 
@@ -589,9 +606,9 @@ msgstr "場所"
 
 #: app/control-panes/automation/device-settings/device-settings.html:7
 msgid "Lock Rotation"
-msgstr ""
+msgstr "回転ロック"
 
-#: app/control-panes/control-panes-controller.js:44
+#: app/control-panes/control-panes-controller.js:50
 msgid "Logs"
 msgstr "ログ"
 
@@ -599,13 +616,18 @@ msgstr "ログ"
 msgid "Maintenance"
 msgstr "メンテナンス"
 
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid ""
+"Make sure to copy your access token now. You won't be able to see it again!"
+msgstr "アクセストークンをコピーしてください。閲覧できるのは今限りです。"
+
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
 msgstr "アプリ管理"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Manner Mode"
-msgstr ""
+msgstr "マナーモード"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:165
@@ -661,8 +683,8 @@ msgstr "ADBキーについて"
 msgid "Mute"
 msgstr "音を消す"
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
-#: app/control-panes/resources/resources.html:1
 msgid "Name"
 msgstr "名称"
 
@@ -782,13 +804,14 @@ msgstr "過熱"
 msgid "Package"
 msgstr "パッケージ"
 
+#: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
 msgstr "パスワード"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Path"
-msgstr "パス"
+#: app/control-panes/explorer/explorer.html:1
+msgid "Permissions"
+msgstr "権限"
 
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
@@ -851,6 +874,7 @@ msgid "Please enter your Store username"
 msgstr "ストアのユーザ名を入力してください"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Port"
 msgstr "ポート"
 
@@ -1042,10 +1066,6 @@ msgstr "SDK"
 msgid "Search"
 msgstr "検索"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Secure"
-msgstr "セキュア"
-
 #: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr "入力モードの切り替え"
@@ -1054,6 +1074,10 @@ msgstr "入力モードの切り替え"
 #: app/device-list/column/device-column-service.js:159
 msgid "Serial"
 msgstr "シリアル"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
+msgstr "サーバー"
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -1096,6 +1120,7 @@ msgstr "マナーモード"
 msgid "SIM"
 msgstr "SIM"
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
 msgid "Size"
 msgstr "サイズ"
@@ -1351,6 +1376,10 @@ msgstr "時刻"
 msgid "Tip:"
 msgstr "ヒント："
 
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr "タイトル"
+
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr "ウェブ/ネイティブを選択"
@@ -1358,6 +1387,11 @@ msgstr "ウェブ/ネイティブを選択"
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Total Devices"
 msgstr "全機種"
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "translate"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
@@ -1388,7 +1422,7 @@ msgstr "未知。"
 
 #: app/control-panes/automation/device-settings/device-settings.html:6
 msgid "Unlock Rotation"
-msgstr ""
+msgstr "回転アンロック"
 
 #: app/components/stf/device/device-info-filter/index.js:51
 msgid "Unspecified Failure"
@@ -1446,10 +1480,6 @@ msgstr "利用中"
 msgid "Using Fallback"
 msgstr "フォールバックを使用中"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Value"
-msgstr "値"
-
 #: app/control-panes/info/info.html:1
 msgid "Version"
 msgstr "バージョン"
@@ -1461,6 +1491,10 @@ msgstr "バージョンアップ"
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
 msgstr "マナーモード（バイブON）"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
+msgstr "VNC"
 
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
@@ -1477,6 +1511,10 @@ msgstr "音量↓"
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
 msgstr "音量↑"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
+msgstr "注意:"
 
 #: app/menu/menu.html:1
 msgid "Web"

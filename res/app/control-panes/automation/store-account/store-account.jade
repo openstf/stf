@@ -4,7 +4,7 @@
     span(translate) Store Account
 
     button.btn.btn-sm.btn-primary-outline.pull-right(ng-click='control.openStore()',
-    tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
+    uib-tooltip='{{"App Store" | translate}}', tooltip-placement="bottom")
       i.fa.fa-shopping-cart
   .widget-content.padded
     div
@@ -28,7 +28,7 @@
 
         .btn-group
           label.btn.btn-sm.btn-default-outline(ng-repeat='a in deviceAppStores track by a.id',
-            ng-model='currentAppStore', btn-radio='currentAppStore', tooltip='{{a.name}}')
+            ng-model='currentAppStore', uib-btn-radio='currentAppStore', uib-tooltip='{{a.name}}')
             img(ng-src='/static/app/appstores/icon/24x24/{{a.type}}.png', ng-show='a.type').appstore-icon.pointer
 
         // TODO: ladda disabled for now because of a gettext bug

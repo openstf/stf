@@ -1,7 +1,7 @@
 module.exports = function DeviceControlKeyDirective() {
   return {
     restrict: 'A'
-  , link: function (scope, element, attrs) {
+  , link: function(scope, element, attrs) {
       var key = attrs.deviceControlKey
 
       function up() {

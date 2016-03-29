@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 var canvasElement = document.querySelector('canvas')
 var frameNumberElement = document.querySelector('#frame-number')
 var totalTimeElement = document.querySelector('#total-time')
@@ -7,7 +9,7 @@ var frame = {
   current: 0
 }
 
-function FastImageRender () {
+function FastImageRender() {
 
 }
 
@@ -35,7 +37,7 @@ var startTime = new Date().getTime()
 
 loadNext()
 
-imageRender.onLoad = function (image) {
+imageRender.onLoad = function(image) {
   console.timeEnd('load')
   console.time('draw')
   imageRender.draw(image)

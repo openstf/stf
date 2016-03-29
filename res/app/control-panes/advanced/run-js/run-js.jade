@@ -17,9 +17,9 @@
           i.fa.fa-save
           span(translate)  Save...
         button(type='button',
-        ng-disabled='!hasSnippets()').btn.btn-sm.btn-default-outline.dropdown-toggle
+        ng-disabled='!hasSnippets()').btn.btn-sm.btn-default-outline.uib-dropdown-toggle
           span.caret
-        ul.dropdown-menu.pull-right
+        ul.uib-dropdown-menu.pull-right
           li(ng-repeat='snip in snippets')
             a(ng-click='openSnippet(snip)').btn-link {{snip.name}}
           li.divider
@@ -33,8 +33,8 @@
       p
         div(ui-ace="aceOptions", scope-instance='editorInstance', ng-model='snippet.editorText').stf-ace-editor
       div(ng-controller='ReturnJavaScriptCtrl')
-        tabset.unselectable(ng-show='results.length')
-          tab(heading='Results')
+        uib-tabset.unselectable(ng-show='results.length')
+          uib-tab(heading='Results')
             table.table.table-hover(ng-table='tableParams').selectable
               tr(ng-repeat='result in $data')
                 td(width='30%', title="'Device'", sortable='deviceName')
@@ -47,7 +47,7 @@
                     .value-next-to-progress {{ result.value }}
                 td(width='40%', ng-show='result.isSpecialValue')
                   div(ng-show='result.isNumber')
-                    progressbar.table-progress(value='result.percentage', max='100')
+                    uib-progressbar.table-progress(value='result.percentage', max='100')
                   div(ng-show='result.isObject')
                     div.label.label-info Object
                   div(ng-show='result.isFunction')
@@ -60,6 +60,6 @@
                     div.label(style='width=100%', ng-class="{'label-success': result.value, 'label-important': !result.value}")
                       i.fa(ng-class="{'fa-check': result.value, 'fa-times-circle': !result.value }")
                       span {{ result.value.toString() }}
-          tab(heading='Raw')
+          uib-tab(heading='Raw')
             pre.selectable {{results | json}}
           clear-button(ng-click='clear()', ng-disabled='!results.length')

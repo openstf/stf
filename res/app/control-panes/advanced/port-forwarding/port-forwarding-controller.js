@@ -34,17 +34,17 @@ module.exports = function PortForwardingCtrl(
     $scope.reversePortForwards.forEach(function(forward) {
       var deviceForward = map[forward.id]
       forward.enabled = !!(deviceForward && deviceForward.id === forward.id &&
-        deviceForward.devicePort == forward.devicePort)
+        deviceForward.devicePort === forward.devicePort)
     })
   })
 
-  $scope.applyForward = function (forward) {
-    return forward.enabled
-      ? $scope.control.createForward(forward)
-      : $scope.control.removeForward(forward)
+  $scope.applyForward = function(forward) {
+    return forward.enabled ?
+      $scope.control.createForward(forward) :
+      $scope.control.removeForward(forward)
   }
 
-  $scope.enableForward = function (forward) {
+  $scope.enableForward = function(forward) {
     if (forward.enabled) {
       return Promise.resolve()
     }
@@ -52,7 +52,7 @@ module.exports = function PortForwardingCtrl(
     return $scope.control.createForward(forward)
   }
 
-  $scope.disableForward = function (forward) {
+  $scope.disableForward = function(forward) {
     if (!forward.enabled) {
       return Promise.resolve()
     }
@@ -60,11 +60,11 @@ module.exports = function PortForwardingCtrl(
     return $scope.control.removeForward(forward)
   }
 
-  $scope.addRow = function () {
+  $scope.addRow = function() {
     $scope.reversePortForwards.push(defaults(uuid.v4()))
   }
 
-  $scope.removeRow = function (forward) {
+  $scope.removeRow = function(forward) {
     $scope.disableForward(forward)
     $scope.reversePortForwards.splice(
       $scope.reversePortForwards.indexOf(forward), 1)

@@ -1,0 +1,9 @@
+[Unit]
+Description=Run docker-cleanup-dangling-images.service daily
+
+[Timer]
+OnCalendar=*-*-* 10:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

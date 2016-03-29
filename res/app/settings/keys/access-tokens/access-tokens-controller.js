@@ -10,7 +10,7 @@ module.exports = function AccessTokensCtrl($scope, AccessTokenService) {
         })
     }
 
-    $scope.removeToken = function (title) {
+    $scope.removeToken = function(title) {
       AccessTokenService.removeAccessToken(title)
     }
 

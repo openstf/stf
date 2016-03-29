@@ -1,15 +1,14 @@
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: zh\n"
-"MIME-Version: 1.0\n"
+"Project-Id-Version: STF\n"
+"PO-Revision-Date: 2015-12-16 07:58+0000\n"
+"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"Language-Team: Chinese (http://www.transifex.com/openstf/stf/language/zh/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: app/components/stf/device/device-info-filter/index.js:119
@@ -46,17 +45,13 @@ msgstr ""
 msgid "AC"
 msgstr ""
 
-#: app/settings/keys/adb-keys/adb-keys.html:1
-msgid "ADB Keys"
-msgstr "ADB密钥"
-
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "Access Tokens"
-msgstr "访问令牌"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Account"
-msgstr "帐户"
+msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Action"
@@ -70,18 +65,22 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "ADB Keys"
+msgstr ""
+
 #: app/control-panes/resources/resources.html:1
 msgid "Add"
-msgstr "添加"
+msgstr ""
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Add ADB Key"
-msgstr "增加ADB密钥"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Add Key"
-msgstr "增加密钥"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Add the following ADB Key to STF?"
@@ -97,7 +96,7 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:20
 msgid "Advanced"
-msgstr "高级"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Advanced Input"
@@ -105,20 +104,16 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Airplane Mode"
-msgstr "飞行模式"
-
-#: app/control-panes/dashboard/h12/h12.html:1
-msgid "App Info"
-msgstr "应用信息"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "App Store"
-msgstr "应用商店"
+msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:1
 msgid "App Upload"
-msgstr "应用安装"
+msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Apps"
@@ -126,79 +121,69 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance-controller.js:9
 msgid "Are you sure you want to reboot this device?"
-msgstr "确定需要重启该设备吗？"
+msgstr ""
 
 #: app/control-panes/control-panes-controller.js:14
 msgid "Automation"
-msgstr "自动化"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:28
 msgid "Available"
-msgstr "可用"
+msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
 msgid "Back"
-msgstr "返回"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Battery"
-msgstr "电池"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:202
 msgid "Battery Health"
-msgstr "电池健康状态"
+msgstr ""
 
-#: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:226
 msgid "Battery Level"
-msgstr "电池电量"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:210
 msgid "Battery Source"
-msgstr "供电"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:218
 msgid "Battery Status"
-msgstr "电池状态"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:239
 msgid "Battery Temp"
-msgstr "电池温度"
-
-#: app/control-panes/info/info.html:1
-msgid "Bettery Status"
 msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:89
 msgid "Bluetooth"
-msgstr "蓝牙"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:153
 msgid "Browser"
-msgstr "浏览器"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:12
 #: app/components/stf/device/device-info-filter/index.js:27
 msgid "Busy"
-msgstr "使用中"
+msgstr ""
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Busy Devices"
-msgstr "使用中的设备"
-
-#: app/control-panes/info/info.html:1
-#: app/control-panes/performance/cpu/cpu.html:1
-msgid "CPU"
 msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Camera"
-msgstr "摄像机"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:6
 msgid "Cannot access specified URL"
@@ -207,7 +192,7 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:43
 msgid "Carrier"
-msgstr "运营商"
+msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Category"
@@ -215,7 +200,7 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:67
 msgid "Charging"
-msgstr "充电中"
+msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -226,21 +211,21 @@ msgstr ""
 #: app/control-panes/advanced/run-js/run-js.html:1
 #: app/control-panes/logs/logs.html:1
 msgid "Clear"
-msgstr "清空"
+msgstr ""
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Clipboard"
-msgstr "剪贴板"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
-msgstr "低温"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:21
 #: app/components/stf/device/device-info-filter/index.js:6
 #: app/control-panes/info/info.html:1
 msgid "Connected"
-msgstr "已连接"
+msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
@@ -248,7 +233,7 @@ msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Control"
-msgstr "控制面板"
+msgstr ""
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -256,79 +241,80 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Cores"
-msgstr "核心数"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/control-panes/performance/cpu/cpu.html:1
+msgid "CPU"
+msgstr ""
 
 #: app/device-list/device-list.html:1
 msgid "Customize"
-msgstr "选择列"
+msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
-msgstr "确定"
+msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:20
 msgid "D-pad Down"
-msgstr "下"
+msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:9
 msgid "D-pad Left"
-msgstr "左"
+msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:15
 msgid "D-pad Right"
-msgstr "右"
+msgstr ""
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:4
 msgid "D-pad Up"
-msgstr "上"
+msgstr ""
 
-#: app/control-panes/control-panes-controller.js:35
+#: app/control-panes/control-panes-controller.js:41
 msgid "Dashboard"
-msgstr "控制面板"
+msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
-msgstr "数据"
+msgstr ""
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Date"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:48
 msgid "Dead"
-msgstr "损坏"
+msgstr ""
 
 #: app/control-panes/resources/resources.html:1
 msgid "Delete"
-msgstr "删除"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Density"
-msgstr "像素密度"
+msgstr ""
 
 #: app/device-list/device-list.html:1
 msgid "Details"
-msgstr "详情"
+msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Developer"
-msgstr "开发者"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 #: app/control-panes/inspect/inspect.html:1
 msgid "Device"
-msgstr "设备"
-
-#: app/control-panes/info/info.html:1
-msgid "Device Photo"
 msgstr ""
 
-#: app/control-panes/automation/device-settings/device-settings.html:1
-msgid "Device Settings"
-msgstr "设备设置"
-
-#: app/device-list/details/device-list-details-directive.js:36
+#: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
-msgstr "设备无法停止使用"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:38
 msgid "Device is not present anymore for some reason."
@@ -336,11 +322,19 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:39
 msgid "Device is present but offline."
-msgstr "设备离线"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Device Photo"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Device Settings"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 msgid "Device was disconnected"
-msgstr "设备已断开"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:37
 msgid "Device was kicked by automatic timeout."
@@ -348,11 +342,11 @@ msgstr ""
 
 #: app/device-list/device-list.html:1 app/menu/menu.html:1
 msgid "Devices"
-msgstr "设备"
+msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Disable WiFi"
-msgstr "关闭WiFi"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:68
 msgid "Discharging"
@@ -362,11 +356,11 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:20
 #: app/components/stf/device/device-info-filter/index.js:5
 msgid "Disconnected"
-msgstr "未连接"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Display"
-msgstr "显示"
+msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
@@ -376,17 +370,17 @@ msgstr ""
 msgid "Dummy"
 msgstr ""
 
-#: app/control-panes/automation/device-settings/device-settings.html:1
-msgid "Enable WiFi"
-msgstr "打开WiFi"
-
 #: app/settings/notifications/notifications.html:1
 msgid "Enable notifications"
-msgstr "打开通知"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Enable WiFi"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Encrypted"
-msgstr "加密"
+msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:31
 msgid "Error"
@@ -404,13 +398,8 @@ msgstr ""
 msgid "Ethernet"
 msgstr ""
 
-#: app/control-panes/dashboard/h12/h12.html:1
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Executes remote shell commands"
-msgstr ""
-
-#: app/control-panes/info/info.html:1
-msgid "FPS"
 msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:5
@@ -421,29 +410,49 @@ msgstr ""
 msgid "Fast Forward"
 msgstr ""
 
+#: app/control-panes/control-panes-controller.js:26
+msgid "File Explorer"
+msgstr ""
+
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Find Device"
-msgstr "搜寻设备"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Fingerprint"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
+msgid "FPS"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
 msgid "Frequency"
-msgstr "主频"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:69
 msgid "Full"
-msgstr "满"
+msgstr ""
 
 #: app/settings/settings-controller.js:5
 msgid "General"
-msgstr "通用"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
+msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
@@ -469,44 +478,40 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:47
 msgid "Good"
-msgstr "良好"
-
-#: app/control-panes/dashboard/h12/h12.html:1
-msgid "H12"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Hardware"
-msgstr "硬件"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Health"
-msgstr "健康状态"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Height"
-msgstr "高"
+msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Help"
-msgstr "帮助"
+msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Hide Screen"
-msgstr "隐藏屏幕"
+msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
 msgid "Home"
-msgstr "首页"
+msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "Host"
-msgstr "主机"
+msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "Hostname"
-msgstr "主机名"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "ICCID"
@@ -525,9 +530,9 @@ msgstr ""
 msgid "Incorrect login details"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:26
+#: app/control-panes/control-panes-controller.js:32
 msgid "Info"
-msgstr "信息"
+msgstr ""
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
@@ -543,7 +548,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:13
 msgid "Installation canceled by user."
-msgstr "安装被用户中断"
+msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:9
 msgid "Installation failed due to an unknown error."
@@ -551,15 +556,15 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:7
 msgid "Installation succeeded."
-msgstr "安装成功"
+msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:11
 msgid "Installation timed out."
-msgstr "安装过程超时"
+msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Installing app..."
-msgstr "安装应用中..."
+msgstr ""
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Key"
@@ -567,11 +572,7 @@ msgstr ""
 
 #: app/settings/settings-controller.js:10
 msgid "Keys"
-msgstr "密钥"
-
-#: app/control-panes/dashboard/h12/h12.html:1
-msgid "Kill App"
-msgstr "杀掉应用"
+msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Landscape"
@@ -579,82 +580,69 @@ msgstr ""
 
 #: app/settings/general/language/language.html:1
 msgid "Language"
-msgstr "语言"
+msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Launch Activity"
-msgstr "启动应用"
+msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Launching activity..."
-msgstr "启动应用中..."
+msgstr ""
 
-#: app/control-panes/logs/logs.html:1
+#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
 msgstr ""
 
 #: app/settings/general/local/local-settings.html:1
 msgid "Local Settings"
-msgstr "本地设置"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:250
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:7
 msgid "Lock Rotation"
-msgstr "方向锁定"
+msgstr ""
 
-#: app/control-panes/control-panes-controller.js:41
 #: app/control-panes/control-panes-controller.js:50
 msgid "Logs"
-msgstr "logcat日志"
+msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Maintenance"
-msgstr "维护"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid ""
+"Make sure to copy your access token now. You won't be able to see it again!"
+msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
-msgstr "管理应用"
+msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Manner Mode"
-msgstr "静音模式"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:165
 msgid "Manufacturer"
-msgstr "制造商"
-
-#: app/control-panes/screenshots/screenshots.html:5
-msgid ""
-"Max number of captured images&quot;|translate}\" class=\"input-sm\"/><clear-"
-"button ng-click=\"clear()\" ng-disabled=\"!screenshots.length\"></clear-"
-"button><div class=\"button-spacer\"></div><div class=\"pull-right\"><button "
-"ng-click=\"zoom({min: 40, step: -50})\" ng-disabled=\"!screenshots.length\" "
-"class=\"btn btn-primary-outline btn-sm transparent-border\"><i class=\"fa fa-"
-"minus\"></i></button><input type=\"range\" ng-model=\"screenShotSize\" min="
-"\"40\" max=\"480\" step=\"10\" ng-model-options=\"{ updateOn: &quot;default "
-"blur&quot;, debounce: { default: 100, blur: 0} }\" ng-disabled=\"!"
-"screenshots.length\" class=\"zoom-range\"/><button ng-click=\"zoom({max: "
-"480, step: 50})\" ng-disabled=\"!screenshots.length\" class=\"btn btn-"
-"primary-outline btn-sm transparent-border\"><i class=\"fa fa-plus\"></i></"
-"button></div></div><div class=\"widget-content padded\"><nothing-to-show "
-"message=\"{{&quot;No screenshots taken"
 msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Media"
-msgstr "媒体功能"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Memory"
-msgstr "内存"
+msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Menu"
-msgstr "菜单"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:92
 msgid "Mobile"
@@ -679,23 +667,24 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:31
 msgid "Model"
-msgstr "型号"
-
-#: app/settings/keys/adb-keys/adb-keys.html:1
-msgid "More about ADB Keys"
 msgstr ""
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "More about Access Tokens"
 msgstr ""
 
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "More about ADB Keys"
+msgstr ""
+
 #: app/control-panes/advanced/input/input.html:1
 msgid "Mute"
 msgstr ""
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Native"
@@ -703,12 +692,12 @@ msgstr ""
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Navigation"
-msgstr "导航"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:129
 msgid "Network"
-msgstr "网络"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Next"
@@ -718,16 +707,12 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: app/settings/keys/adb-keys/adb-keys.html:1
-msgid "No ADB keys"
-msgstr ""
-
-#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
-msgid "No Ports Forwarded"
-msgstr ""
-
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "No access tokens"
+msgstr ""
+
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "No ADB keys"
 msgstr ""
 
 #: app/components/stf/control/control-service.js:126
@@ -750,9 +735,17 @@ msgstr ""
 msgid "No photo available"
 msgstr ""
 
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+msgid "No Ports Forwarded"
+msgstr ""
+
+#: app/control-panes/screenshots/screenshots.html:5
+msgid "No screenshots taken"
+msgstr ""
+
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Normal Mode"
-msgstr "普通模式"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:70
 msgid "Not Charging"
@@ -760,7 +753,7 @@ msgstr ""
 
 #: app/device-list/column/device-column-service.js:256
 msgid "Notes"
-msgstr "备注"
+msgstr ""
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Nothing to inspect"
@@ -772,12 +765,7 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Number"
-msgstr "号码"
-
-#: app/control-panes/info/info.html:1
-#: app/device-list/column/device-column-service.js:55
-msgid "OS"
-msgstr "操作系统"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:22
 #: app/components/stf/device/device-info-filter/index.js:7
@@ -791,11 +779,16 @@ msgstr ""
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Open"
-msgstr "打开"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Orientation"
-msgstr "方向"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:55
+msgid "OS"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:49
 msgid "Over Voltage"
@@ -805,41 +798,46 @@ msgstr ""
 msgid "Overheat"
 msgstr ""
 
-#: app/control-panes/logs/logs.html:1
-msgid "PID"
-msgstr ""
-
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Package"
 msgstr ""
 
+#: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
-msgstr "密码"
+msgstr ""
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Permissions"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
-msgstr "手机"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:196
 msgid "Phone ICCID"
-msgstr "手机ICCID"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:190
 msgid "Phone IMEI"
-msgstr "手机IMEI"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Physical Device"
-msgstr "物理设备"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "PID"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Place"
-msgstr "位置"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Platform"
-msgstr "平台"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
@@ -849,20 +847,12 @@ msgstr ""
 msgid "Please enter a valid email"
 msgstr ""
 
-#: auth/ldap/scripts/signin/signin.html:1
-msgid "Please enter your LDAP username"
-msgstr ""
-
-#: app/control-panes/automation/store-account/store-account.html:1
-msgid "Please enter your Store password"
-msgstr ""
-
-#: app/control-panes/automation/store-account/store-account.html:1
-msgid "Please enter your Store username"
-msgstr ""
-
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter your email"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your LDAP username"
 msgstr ""
 
 #: auth/mock/scripts/signin/signin.html:1
@@ -873,13 +863,22 @@ msgstr ""
 msgid "Please enter your password"
 msgstr ""
 
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Please enter your Store password"
+msgstr ""
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Please enter your Store username"
+msgstr ""
+
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Port"
 msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "Port Forwarding"
-msgstr "端口转发"
+msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Portrait"
@@ -891,7 +890,7 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Power Source"
-msgstr "供电"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:24
 #: app/components/stf/device/device-info-filter/index.js:9
@@ -921,7 +920,7 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:37
 msgid "Product"
-msgstr "产品"
+msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Pushing app..."
@@ -931,10 +930,6 @@ msgstr ""
 msgid "RAM"
 msgstr ""
 
-#: app/control-panes/info/info.html:1
-msgid "ROM"
-msgstr ""
-
 #: app/components/stf/device/device-info-filter/index.js:10
 #: app/components/stf/device/device-info-filter/index.js:25
 msgid "Ready"
@@ -942,55 +937,55 @@ msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:39
 msgid "Reconnected successfully."
-msgstr "重连成功"
+msgstr ""
 
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
-msgstr "刷新"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:49
 msgid "Released"
-msgstr "发售日期"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reload"
-msgstr "重新加载"
+msgstr ""
 
 #: app/control-panes/dashboard/remote-debug/remote-debug.html:1
 msgid "Remote debug"
-msgstr "远程调试"
+msgstr ""
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
-msgstr "移除"
+msgstr ""
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 #: app/device-list/device-list.html:1
 msgid "Reset"
-msgstr "重置"
-
-#: app/settings/general/local/local-settings.html:1
-msgid "Reset Settings"
-msgstr "重置"
+msgstr ""
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reset all browser settings"
 msgstr ""
 
+#: app/settings/general/local/local-settings.html:1
+msgid "Reset Settings"
+msgstr ""
+
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Restart Device"
-msgstr "重启设备"
+msgstr ""
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retrieving the device screen has timed out."
-msgstr "获取设备截屏超时"
+msgstr ""
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retry"
-msgstr "重试"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Rewind"
@@ -998,17 +993,21 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Roaming"
-msgstr "漫游"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "ROM"
+msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/control-panes-hotkeys-controller.js:92
 msgid "Rotate Left"
-msgstr "向左旋转"
+msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/control-panes-hotkeys-controller.js:93
 msgid "Rotate Right"
-msgstr "向右旋转"
+msgstr ""
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run"
@@ -1032,6 +1031,26 @@ msgstr ""
 msgid "Run this command to copy the key to your clipboard"
 msgstr ""
 
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+msgid "Save ScreenShot"
+msgstr ""
+
+#: app/control-panes/advanced/run-js/run-js.html:1
+msgid "Save..."
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:135
+msgid "Screen"
+msgstr ""
+
+#: app/control-panes/screenshots/screenshots.html:1
+msgid "Screenshot"
+msgstr ""
+
+#: app/control-panes/control-panes-controller.js:8
+msgid "Screenshots"
+msgstr ""
+
 #: app/control-panes/info/info.html:1
 msgid "SD Card Mounted"
 msgstr ""
@@ -1040,30 +1059,6 @@ msgstr ""
 #: app/device-list/column/device-column-service.js:171
 msgid "SDK"
 msgstr ""
-
-#: app/control-panes/info/info.html:1
-msgid "SIM"
-msgstr "SIM卡"
-
-#: app/components/stf/device-context-menu/device-context-menu.html:1
-msgid "Save ScreenShot"
-msgstr "保存截图"
-
-#: app/control-panes/advanced/run-js/run-js.html:1
-msgid "Save..."
-msgstr "保存"
-
-#: app/device-list/column/device-column-service.js:135
-msgid "Screen"
-msgstr "屏幕"
-
-#: app/control-panes/screenshots/screenshots.html:1
-msgid "Screenshot"
-msgstr "截图"
-
-#: app/control-panes/control-panes-controller.js:8
-msgid "Screenshots"
-msgstr "截图"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Search"
@@ -1076,7 +1071,11 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:159
 msgid "Serial"
-msgstr "序列号"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
+msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -1093,7 +1092,7 @@ msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
 msgid "Settings"
-msgstr "设置"
+msgstr ""
 
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Shell"
@@ -1101,27 +1100,32 @@ msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Show Screen"
-msgstr "显示屏幕"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Sign In"
-msgstr "登入"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Sign Out"
-msgstr "登出"
+msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Silent Mode"
-msgstr "静音模式"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
+msgid "SIM"
+msgstr ""
+
+#: app/control-panes/explorer/explorer.html:1
+#: app/control-panes/info/info.html:1
 msgid "Size"
-msgstr "尺寸"
+msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:26
 msgid "Socket connection was lost"
-msgstr "Socket连接中断"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:36
 msgid "Someone stole your device."
@@ -1129,52 +1133,37 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Special Keys"
-msgstr "特殊按键"
-
-#: app/control-panes/dashboard/h12/h12.html:1
-msgid "Start App"
-msgstr "启动应用"
-
-#: app/control-panes/screenshots/screenshots.html:5
-msgid "Start Capture"
-msgstr "开始连续截图"
+msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 msgid "Start/Stop Logging"
 msgstr ""
 
+#: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:25
 msgid "Status"
-msgstr "状态"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 #: app/control-panes/logs/logs.html:1
 msgid "Stop"
-msgstr "停止"
-
-#: app/control-panes/screenshots/screenshots.html:5
-msgid "Stop Capture"
-msgstr "停止连续截图"
+msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/components/stf/device/device-info-filter/index.js:11
 msgid "Stop Using"
-msgstr "停止使用"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Store Account"
-msgstr "应用商店账户"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Sub Type"
-msgstr "子类型"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Switch Charset"
-msgstr ""
-
-#: app/control-panes/logs/logs.html:1
-msgid "TID"
 msgstr ""
 
 #: app/control-panes/logs/logs.html:1
@@ -1187,22 +1176,14 @@ msgstr ""
 
 #: app/control-panes/screenshots/screenshots.html:1
 msgid "Take Screenshot"
-msgstr "截图"
-
-#: app/control-panes/screenshots/screenshots.html:5
-msgid "Take Screenshot Continuously"
 msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Temperature"
-msgstr "温度"
+msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 msgid "Text"
-msgstr ""
-
-#: app/components/stf/install/install-error-filter.js:22
-msgid "The URI passed in is invalid."
 msgstr ""
 
 #: app/components/stf/screen/screen.html:1
@@ -1265,8 +1246,8 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:36
 msgid ""
-"The new package failed while optimizing and validating its dex files, either "
-"because there was not enough storage or the validation failed."
+"The new package failed while optimizing and validating its dex files, either"
+" because there was not enough storage or the validation failed."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:64
@@ -1307,24 +1288,18 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:24
 msgid ""
-"The package manager service found that the device didn't have enough storage "
-"space to install the app."
+"The package manager service found that the device didn't have enough storage"
+" space to install the app."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:84
 msgid ""
-"The parser did not find any actionable tags (instrumentation or application) "
-"in the manifest."
+"The parser did not find any actionable tags (instrumentation or application)"
+" in the manifest."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:72
 msgid "The parser did not find any certificates in the .apk."
-msgstr ""
-
-#: app/components/stf/install/install-error-filter.js:76
-msgid ""
-"The parser encountered a CertificateEncodingException in one of the files in "
-"the .apk."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:78
@@ -1333,6 +1308,12 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:80
 msgid "The parser encountered a bad shared user id name in the manifest."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:76
+msgid ""
+"The parser encountered a CertificateEncodingException in one of the files in"
+" the .apk."
 msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:70
@@ -1373,8 +1354,16 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:88
 msgid ""
-"The system failed to install the package because the user is restricted from "
-"installing apps."
+"The system failed to install the package because the user is restricted from"
+" installing apps."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:22
+msgid "The URI passed in is invalid."
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "TID"
 msgstr ""
 
 #: app/control-panes/logs/logs.html:1
@@ -1385,13 +1374,22 @@ msgstr ""
 msgid "Tip:"
 msgstr ""
 
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr ""
+
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr ""
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Total Devices"
-msgstr "全部设备"
+msgstr ""
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "translate"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
@@ -1400,10 +1398,6 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Type"
-msgstr "网络类型"
-
-#: app/components/stf/device/device-info-filter/index.js:59
-msgid "USB"
 msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:23
@@ -1432,12 +1426,12 @@ msgstr ""
 msgid "Unspecified Failure"
 msgstr ""
 
-#: app/control-panes/dashboard/install/install.html:5
-msgid "Upload From Link"
-msgstr ""
-
 #: app/components/stf/upload/upload-error-filter.js:7
 msgid "Upload failed"
+msgstr ""
+
+#: app/control-panes/dashboard/install/install.html:5
+msgid "Upload From Link"
 msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:8
@@ -1450,11 +1444,15 @@ msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uploading..."
-msgstr "上传中"
+msgstr ""
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Usable Devices"
-msgstr "可用设备"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:59
+msgid "USB"
+msgstr ""
 
 #: app/control-panes/advanced/usb/usb.html:1
 msgid "Usb speed"
@@ -1462,15 +1460,15 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:13
 msgid "Use"
-msgstr "使用"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:262
 msgid "User"
-msgstr "用户"
+msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Username"
-msgstr "用户名"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:26
 msgid "Using"
@@ -1482,7 +1480,7 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Version"
-msgstr "版本"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "Version Update"
@@ -1490,26 +1488,38 @@ msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
-msgstr "震动模式"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
-msgstr "电压"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume"
-msgstr "音量"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Down"
-msgstr "音量-"
+msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
-msgstr "音量+"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
+msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Web"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Width"
 msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:105
@@ -1523,37 +1533,22 @@ msgstr ""
 msgid "WiMAX"
 msgstr ""
 
-#: app/control-panes/info/info.html:1
-msgid "Width"
-msgstr "宽"
-
 #: app/components/stf/device/device-info-filter/index.js:60
 msgid "Wireless"
-msgstr "无限"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "X DPI"
-msgstr "X轴DPI"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Y DPI"
-msgstr "Y轴DPI"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:113
 msgid "Yes"
-msgstr "是"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:35
 msgid "You (or someone else) kicked the device."
 msgstr ""
-
-#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
-#: app/control-panes/resources/resources.html:1
-msgid "translate"
-msgstr ""
-
-#~ msgid "No screenshots taken"
-#~ msgstr "目前没有截图"
-
-#~ msgid "Take Screenshot Continous"
-#~ msgstr "连续截图"

@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-10-02 05:23+0000\n"
-"Last-Translator: JINYOUNGYOO <miss0110@naver.com>\n"
+"PO-Revision-Date: 2015-12-16 07:58+0000\n"
+"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstf/stf/language/ko_KR/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -253,33 +253,37 @@ msgstr "CPU"
 msgid "Customize"
 msgstr "사용자 지정"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
 msgstr "D-pad 가운데"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:20
 msgid "D-pad Down"
 msgstr "D-pad 아래쪽"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:9
 msgid "D-pad Left"
 msgstr "D-pad 왼쪽"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:15
 msgid "D-pad Right"
 msgstr "D-pad 오른쪽"
 
-#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/advanced/input/input.html:4
 msgid "D-pad Up"
 msgstr "D-pad 위쪽"
 
-#: app/control-panes/control-panes-controller.js:35
+#: app/control-panes/control-panes-controller.js:41
 msgid "Dashboard"
 msgstr "대시보드"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
 msgstr "데이터"
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Date"
+msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:48
 msgid "Dead"
@@ -308,7 +312,7 @@ msgstr "개발자"
 msgid "Device"
 msgstr "단말기"
 
-#: app/device-list/details/device-list-details-directive.js:36
+#: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
 msgid "Device cannot get kicked from the group"
 msgstr ""
@@ -359,10 +363,6 @@ msgstr "연결 끊김"
 msgid "Display"
 msgstr "화면"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Domain"
-msgstr "도메인"
-
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
 msgstr "업로드 할 파일을 올려놓으세요"
@@ -411,6 +411,10 @@ msgstr ""
 msgid "Fast Forward"
 msgstr "빨리 감기"
 
+#: app/control-panes/control-panes-controller.js:26
+msgid "File Explorer"
+msgstr ""
+
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
 msgstr "필터"
@@ -438,6 +442,18 @@ msgstr "전체"
 #: app/settings/settings-controller.js:5
 msgid "General"
 msgstr "일반"
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
+msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
@@ -515,7 +531,7 @@ msgstr "IMEI"
 msgid "Incorrect login details"
 msgstr ""
 
-#: app/control-panes/control-panes-controller.js:26
+#: app/control-panes/control-panes-controller.js:32
 msgid "Info"
 msgstr "정보"
 
@@ -591,13 +607,18 @@ msgstr "위치"
 msgid "Lock Rotation"
 msgstr "화면 잠금"
 
-#: app/control-panes/control-panes-controller.js:44
+#: app/control-panes/control-panes-controller.js:50
 msgid "Logs"
 msgstr "로그"
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Maintenance"
 msgstr "유지 관리"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid ""
+"Make sure to copy your access token now. You won't be able to see it again!"
+msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
@@ -661,8 +682,8 @@ msgstr ""
 msgid "Mute"
 msgstr "음소거"
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
-#: app/control-panes/resources/resources.html:1
 msgid "Name"
 msgstr "이름"
 
@@ -782,13 +803,14 @@ msgstr ""
 msgid "Package"
 msgstr "패키지"
 
+#: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
 msgstr "비밀번호"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Path"
-msgstr "경로"
+#: app/control-panes/explorer/explorer.html:1
+msgid "Permissions"
+msgstr ""
 
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
@@ -851,6 +873,7 @@ msgid "Please enter your Store username"
 msgstr ""
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Port"
 msgstr "포트"
 
@@ -1042,10 +1065,6 @@ msgstr "SDK"
 msgid "Search"
 msgstr "검색"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Secure"
-msgstr "보안"
-
 #: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
 msgstr ""
@@ -1054,6 +1073,10 @@ msgstr ""
 #: app/device-list/column/device-column-service.js:159
 msgid "Serial"
 msgstr "일련 번호"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
+msgstr ""
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -1096,6 +1119,7 @@ msgstr "음소거"
 msgid "SIM"
 msgstr "SIM"
 
+#: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
 msgid "Size"
 msgstr "크기"
@@ -1351,6 +1375,10 @@ msgstr "시간"
 msgid "Tip:"
 msgstr "팁"
 
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr ""
+
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
 msgstr "웹/네이티브 전환"
@@ -1358,6 +1386,11 @@ msgstr "웹/네이티브 전환"
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Total Devices"
 msgstr "총 단말기 수"
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "translate"
+msgstr ""
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
@@ -1446,10 +1479,6 @@ msgstr "사용중"
 msgid "Using Fallback"
 msgstr "대체 사용"
 
-#: app/control-panes/resources/resources.html:1
-msgid "Value"
-msgstr "값"
-
 #: app/control-panes/info/info.html:1
 msgid "Version"
 msgstr "버전"
@@ -1461,6 +1490,10 @@ msgstr "버전 업데이트"
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
 msgstr "진동"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
+msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
@@ -1477,6 +1510,10 @@ msgstr "음량 줄이기"
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
 msgstr "음량 올리기"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
+msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Web"

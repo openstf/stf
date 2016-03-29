@@ -4,7 +4,7 @@ module.exports = angular.module('ui-settings', [
   require('stf/common-ui/nice-tabs').name
   //require('./notifications').name
 ])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/settings', {
       template: require('./settings.jade')
     })

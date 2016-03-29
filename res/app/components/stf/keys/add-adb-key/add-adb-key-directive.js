@@ -13,7 +13,7 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
       , key: ''
       }
 
-      $scope.addKey = function () {
+      $scope.addKey = function() {
         UserService.addAdbKey({
           title: $scope.addForm.title
         , key: $scope.addForm.key
@@ -21,7 +21,7 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
         $scope.closeAddKey()
       }
 
-      $scope.closeAddKey = function () {
+      $scope.closeAddKey = function() {
         $scope.addForm.title = ''
         $scope.addForm.key = ''
         // TODO: cannot access to the form by name inside a directive?
@@ -29,8 +29,8 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
         $scope.showAdd = false
       }
     },
-    link: function (scope) {
-      scope.$watch('addForm.key', function (newValue) {
+    link: function(scope) {
+      scope.$watch('addForm.key', function(newValue) {
         if (newValue && !scope.addForm.title) {
           // By default sets the title to the ADB key comment because
           // usually it happens to be username@hostname.

@@ -10,7 +10,7 @@
       placeholder='http://...').form-control
       span.input-group-btn
         button.btn.btn-primary-outline(ng-click='installUrl(remoteUrl)',
-        tooltip='{{ "Upload From Link" | translate }}', ng-disabled='!remoteUrl')
+        uib-tooltip='{{ "Upload From Link" | translate }}', ng-disabled='!remoteUrl')
           i.fa.fa-upload
 
     .drop-area(ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').file-input.btn-file
@@ -20,7 +20,7 @@
       .drop-area-text(translate) Drop file to upload
 
     .upload-status(ng-if='installation').selectable
-      progressbar(max='100', value='installation.progress', ng-if='!installation.settled',
+      uib-progressbar(max='100', value='installation.progress', ng-if='!installation.settled',
         ng-class='{"active": !installation.settled}').progress-striped
 
       div(ng-if='!installation.error')
@@ -52,7 +52,7 @@
                     i.fa.fa-trash-o
                     span(translate) Uninstall
                 div(ng-include='"control-panes/dashboard/install/activities/activities.jade"')
-                button.btn.btn-sm.btn-primary-outline(btn-checkbox, ng-model='showManifest')
+                button.btn.btn-sm.btn-primary-outline(uib-btn-checkbox, ng-model='showManifest')
                   i.fa.fa-list
                   span(ng-if='showManifest') Hide Manifest
                   span(ng-if='!showManifest') Show Manifest

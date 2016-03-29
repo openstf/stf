@@ -1,7 +1,7 @@
 module.exports = function iconInsideInputDirective() {
   return {
     restrict: 'A',
-    link: function (scope, element, attrs) {
+    link: function(scope, element, attrs) {
       // NOTE: this doesn't work on Chrome with auto-fill, known Chrome bug
       element.css({
         'background-repeat': 'no-repeat',
@@ -11,7 +11,7 @@ module.exports = function iconInsideInputDirective() {
 
       attrs.$observe('iconInsideInput', function(value) {
         element.css({
-          'background-image': 'url(' + value +')'
+          'background-image': 'url(' + value + ')'
         })
       })
     }

@@ -8,11 +8,11 @@ module.exports = function LogsCtrl($scope, LogcatService) {
 
   LogcatService.filters.filterLines()
 
-  $scope.$watch('started', function (newValue, oldValue) {
+  $scope.$watch('started', function(newValue, oldValue) {
     if (newValue !== oldValue) {
       LogcatService.started = newValue
       if (newValue) {
-        $scope.control.startLogcat([]).then(function () {
+        $scope.control.startLogcat([]).then(function() {
         })
       } else {
         $scope.control.stopLogcat()
@@ -20,19 +20,19 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     }
   })
 
-  window.onbeforeunload = function () {
+  window.onbeforeunload = function() {
     if ($scope.control) {
       $scope.control.stopLogcat()
     }
   }
 
-  $scope.clear = function () {
+  $scope.clear = function() {
     LogcatService.clear()
   }
 
   function defineFilterWatchers(props) {
-    angular.forEach(props, function (prop) {
-      $scope.$watch('filters.' + prop, function (newValue, oldValue) {
+    angular.forEach(props, function(prop) {
+      $scope.$watch('filters.' + prop, function(newValue, oldValue) {
         if (!angular.equals(newValue, oldValue)) {
           LogcatService.filters[prop] = newValue
         }

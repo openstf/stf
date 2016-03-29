@@ -11,17 +11,17 @@ module.exports = function SocketFactory(
     reconnection: false, transports: ['websocket']
   })
 
-  socket.scoped = function ($scope) {
+  socket.scoped = function($scope) {
     var listeners = []
 
-    $scope.$on('$destroy', function () {
-      listeners.forEach(function (listener) {
+    $scope.$on('$destroy', function() {
+      listeners.forEach(function(listener) {
         socket.removeListener(listener.event, listener.handler)
       })
     })
 
     return {
-      on: function (event, handler) {
+      on: function(event, handler) {
         listeners.push({
           event: event, handler: handler
         })
@@ -31,12 +31,12 @@ module.exports = function SocketFactory(
     }
   }
 
-  socket.on('outdated', function () {
+  socket.on('outdated', function() {
     VersionUpdateService.open()
   })
 
-  socket.on('socket.ip', function (ip) {
-    $rootScope.$apply(function () {
+  socket.on('socket.ip', function(ip) {
+    $rootScope.$apply(function() {
       socket.ip = ip
     })
   })

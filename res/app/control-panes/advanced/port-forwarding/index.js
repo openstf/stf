@@ -5,7 +5,7 @@ module.exports = angular.module('stf.port-forwarding', [
   require('stf/settings').name,
   require('gettext').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put(
       'control-panes/advanced/port-forwarding/port-forwarding.jade',
       require('./port-forwarding.jade')

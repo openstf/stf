@@ -1,7 +1,7 @@
 module.exports = function LoginPage() {
   this.login = protractor.getInstance().params.login
 
-  this.get = function () {
+  this.get = function() {
     return browser.get(this.login.url)
   }
 
@@ -14,19 +14,19 @@ module.exports = function LoginPage() {
   }
 
 
-  this.setName = function (username) {
+  this.setName = function(username) {
     return this.username.sendKeys(username)
   }
-  this.setEmail = function (email) {
+  this.setEmail = function(email) {
     return this.email.sendKeys(email)
   }
-  this.setPassword = function (password) {
+  this.setPassword = function(password) {
     return this.password.sendKeys(password)
   }
-  this.submit = function () {
+  this.submit = function() {
     return this.username.submit()
   }
-  this.doLogin = function () {
+  this.doLogin = function() {
     this.get()
     this.setName(this.login.username)
     if (this.login.method === 'ldap') {
@@ -37,13 +37,13 @@ module.exports = function LoginPage() {
 
     this.submit()
 
-    return browser.driver.wait(function () {
-      return browser.driver.getCurrentUrl().then(function (url) {
+    return browser.driver.wait(function() {
+      return browser.driver.getCurrentUrl().then(function(url) {
         return /devices/.test(url)
       })
     })
   }
-  this.cleanUp = function () {
+  this.cleanUp = function() {
     this.username = null
     this.password = null
     this.email = null

@@ -1,0 +1,8 @@
+[Unit]
+Description=Clean up dangling Docker images
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env sh -c '/usr/bin/docker images -q --filter "dangling=true" | xargs -t --no-run-if-empty /usr/bin/docker rmi'

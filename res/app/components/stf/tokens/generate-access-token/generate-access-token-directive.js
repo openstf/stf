@@ -3,7 +3,7 @@ module.exports = function generateAccessTokenDirective() {
     restrict: 'EA',
     replace: true,
     scope: {
-      showGenerate: '=',
+      showGenerate: '='
     },
     template: require('./generate-access-token.jade'),
     controller: function($scope, AccessTokenService) {
@@ -11,12 +11,12 @@ module.exports = function generateAccessTokenDirective() {
         title: ''
       }
 
-      $scope.generateToken = function () {
+      $scope.generateToken = function() {
         AccessTokenService.generateAccessToken($scope.generateForm.title)
         $scope.closeGenerateToken()
       }
 
-      $scope.closeGenerateToken = function () {
+      $scope.closeGenerateToken = function() {
         $scope.title = ''
         $scope.showGenerate = false
       }

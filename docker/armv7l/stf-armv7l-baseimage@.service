@@ -1,0 +1,14 @@
+[Unit]
+Description=Build openstf/stf %I base image for armv7l
+After=docker.service
+Requires=docker.service
+ConditionArchitecture=arm
+Requires=stf-armv7l-clone@%i.service
+After=stf-armv7l-clone@%i.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/stf-armv7l/repo-%i
+Environment="ARCH=armhf"
+ExecStart=/bin/sh docker/armv7l/mkimage-alpine.sh -r edge -i alpine-stf-armv7l-%i:edge
+ExecStart=/usr/bin/sed -i.bak 's/FROM alpine:edge/FROM alpine-stf-armv7l-%i:edge/' docker/armv7l/Dockerfile

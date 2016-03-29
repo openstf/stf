@@ -1,0 +1,11 @@
+[Unit]
+Description=Publish openstf/stf %I for armv7l
+After=docker.service
+Requires=docker.service
+ConditionArchitecture=arm
+Requires=stf-armv7l-build@%i.service
+After=stf-armv7l-build@%i.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker push openstf/stf-armv7l:%i

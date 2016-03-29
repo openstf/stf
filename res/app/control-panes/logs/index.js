@@ -4,7 +4,7 @@ module.exports = angular.module('stf.logs', [
   require('stf/logcat').name,
   require('stf/logcat-table').name
 ])
-  .run(["$templateCache", function ($templateCache) {
+  .run(['$templateCache', function($templateCache) {
     $templateCache.put('control-panes/logs/logs.jade',
       require('./logs.jade')
     )

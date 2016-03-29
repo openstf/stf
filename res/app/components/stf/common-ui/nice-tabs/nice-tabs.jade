@@ -1,7 +1,7 @@
 .heading-for-tabs.tabs
-  tabset
-    tab(ng-repeat='tab in tabs', active='tab.active', ng-hide='!tabFound(tab)')
-      tab-heading
+  uib-tabset
+    uib-tab(ng-repeat='tab in tabs', active='tab.active', ng-hide='!tabFound(tab)')
+      uib-tab-heading
         i.fa(ng-class='tab.icon')
         span {{tab.title | translate }}
       div(ng-if='tab.active')

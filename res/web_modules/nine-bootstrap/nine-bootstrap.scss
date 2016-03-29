@@ -441,6 +441,7 @@ dl {
 }
 
 .btn-info {
+  border-color: transparent !important;
   &:hover, &.active {
     background: transparent;
     color: $info;

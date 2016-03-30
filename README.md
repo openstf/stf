@@ -392,6 +392,11 @@ It will do the following:
 4. Pull from Transifex all `po` translations.
 5. Compile all `po` files to `json`.
 
+Then in order to add it officially (only needs to be done once):
+
+1. Add the language to `res/common/lang/langs.json`.
+2. Pull the specific language `tx pull -l <lang>`.
+3. Run `gulp translate`.
 
 ## Testing
 

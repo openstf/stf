@@ -1,10 +1,12 @@
 # 
 # Translators:
+# Yu Can <fineaisa@gmail.com>, 2016
+# dq wang <newbiner@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-12-16 07:58+0000\n"
-"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"PO-Revision-Date: 2016-03-28 17:04+0000\n"
+"Last-Translator: Yu Can <fineaisa@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/openstf/stf/language/zh/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +22,11 @@ msgstr ""
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "A new version of STF is available"
-msgstr ""
+msgstr "STF有新版本可下载"
 
 #: app/components/stf/install/install-error-filter.js:26
 msgid "A package is already installed with the same name."
-msgstr ""
+msgstr "軟體已安裝"
 
 #: app/components/stf/install/install-error-filter.js:30
 msgid ""
@@ -51,19 +53,19 @@ msgstr ""
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Account"
-msgstr ""
+msgstr "帳號"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Action"
-msgstr ""
+msgstr "動作"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Actions"
-msgstr ""
+msgstr "更多動作"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Activity"
-msgstr ""
+msgstr "活動"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "ADB Keys"
@@ -71,7 +73,7 @@ msgstr ""
 
 #: app/control-panes/resources/resources.html:1
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Add ADB Key"
@@ -88,15 +90,15 @@ msgstr ""
 
 #: app/layout/layout-controller.js:7
 msgid "Admin mode has been disabled."
-msgstr ""
+msgstr "停用 Admin 模式"
 
 #: app/layout/layout-controller.js:6
 msgid "Admin mode has been enabled."
-msgstr ""
+msgstr "啟用 Admin 模式"
 
 #: app/control-panes/control-panes-controller.js:20
 msgid "Advanced"
-msgstr ""
+msgstr "進階"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Advanced Input"
@@ -104,16 +106,16 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Airplane Mode"
-msgstr ""
+msgstr "飛行模式"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "App Store"
-msgstr ""
+msgstr "App Store"
 
 #: app/control-panes/dashboard/install/install.html:1
 msgid "App Upload"
-msgstr ""
+msgstr "上傳 App"
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Apps"
@@ -121,69 +123,69 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance-controller.js:9
 msgid "Are you sure you want to reboot this device?"
-msgstr ""
+msgstr "你確定要重開這台裝置 ?"
 
 #: app/control-panes/control-panes-controller.js:14
 msgid "Automation"
-msgstr ""
+msgstr "自動化"
 
 #: app/components/stf/device/device-info-filter/index.js:28
 msgid "Available"
-msgstr ""
+msgstr "可用"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: app/control-panes/info/info.html:1
 msgid "Battery"
-msgstr ""
+msgstr "電池"
 
 #: app/device-list/column/device-column-service.js:202
 msgid "Battery Health"
-msgstr ""
+msgstr "電池健康"
 
 #: app/device-list/column/device-column-service.js:226
 msgid "Battery Level"
-msgstr ""
+msgstr "電池電量"
 
 #: app/device-list/column/device-column-service.js:210
 msgid "Battery Source"
-msgstr ""
+msgstr "電池電源"
 
 #: app/device-list/column/device-column-service.js:218
 msgid "Battery Status"
-msgstr ""
+msgstr "電池狀態"
 
 #: app/device-list/column/device-column-service.js:239
 msgid "Battery Temp"
-msgstr ""
+msgstr "電池溫度"
 
 #: app/components/stf/device/device-info-filter/index.js:89
 msgid "Bluetooth"
-msgstr ""
+msgstr "藍芽"
 
 #: app/device-list/column/device-column-service.js:153
 msgid "Browser"
-msgstr ""
+msgstr "瀏覽器"
 
 #: app/components/stf/device/device-info-filter/index.js:12
 #: app/components/stf/device/device-info-filter/index.js:27
 msgid "Busy"
-msgstr ""
+msgstr "忙碌"
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Busy Devices"
-msgstr ""
+msgstr "忙碌中的裝置"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Camera"
-msgstr ""
+msgstr "相機"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: app/components/stf/upload/upload-error-filter.js:6
 msgid "Cannot access specified URL"
@@ -196,26 +198,26 @@ msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Category"
-msgstr ""
+msgstr "分類"
 
 #: app/components/stf/device/device-info-filter/index.js:67
 msgid "Charging"
-msgstr ""
+msgstr "充電中"
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Check errors below"
-msgstr ""
+msgstr "請確認下面的錯誤"
 
 #: app/components/stf/common-ui/clear-button/clear-button.html:1
 #: app/control-panes/advanced/run-js/run-js.html:1
 #: app/control-panes/logs/logs.html:1
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Clipboard"
-msgstr ""
+msgstr "剪貼簿"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
@@ -225,15 +227,15 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:6
 #: app/control-panes/info/info.html:1
 msgid "Connected"
-msgstr ""
+msgstr "已連線"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
-msgstr ""
+msgstr "連線成功"
 
 #: app/menu/menu.html:1
 msgid "Control"
-msgstr ""
+msgstr "控制"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -241,7 +243,7 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Cores"
-msgstr ""
+msgstr "核心"
 
 #: app/control-panes/info/info.html:1
 #: app/control-panes/performance/cpu/cpu.html:1
@@ -250,7 +252,7 @@ msgstr ""
 
 #: app/device-list/device-list.html:1
 msgid "Customize"
-msgstr ""
+msgstr "自訂"
 
 #: app/control-panes/advanced/input/input.html:12
 msgid "D-pad Center"
@@ -278,11 +280,11 @@ msgstr ""
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Data"
-msgstr ""
+msgstr "資料"
 
 #: app/control-panes/explorer/explorer.html:1
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: app/components/stf/device/device-info-filter/index.js:48
 msgid "Dead"
@@ -290,7 +292,7 @@ msgstr ""
 
 #: app/control-panes/resources/resources.html:1
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: app/control-panes/info/info.html:1
 msgid "Density"
@@ -298,18 +300,18 @@ msgstr ""
 
 #: app/device-list/device-list.html:1
 msgid "Details"
-msgstr ""
+msgstr "細項"
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Developer"
-msgstr ""
+msgstr "開發者"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 #: app/control-panes/inspect/inspect.html:1
 msgid "Device"
-msgstr ""
+msgstr "裝置"
 
 #: app/device-list/details/device-list-details-directive.js:39
 #: app/device-list/icons/device-list-icons-directive.js:123
@@ -326,15 +328,15 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Device Photo"
-msgstr ""
+msgstr "裝置相片"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Device Settings"
-msgstr ""
+msgstr "裝置設定"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 msgid "Device was disconnected"
-msgstr ""
+msgstr "裝置已離線"
 
 #: app/components/stf/device/device-info-filter/index.js:37
 msgid "Device was kicked by automatic timeout."
@@ -346,25 +348,25 @@ msgstr ""
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Disable WiFi"
-msgstr ""
+msgstr "關閉 WiFi"
 
 #: app/components/stf/device/device-info-filter/index.js:68
 msgid "Discharging"
-msgstr ""
+msgstr "放電中"
 
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
 #: app/components/stf/device/device-info-filter/index.js:20
 #: app/components/stf/device/device-info-filter/index.js:5
 msgid "Disconnected"
-msgstr ""
+msgstr "離線"
 
 #: app/control-panes/info/info.html:1
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Drop file to upload"
-msgstr ""
+msgstr "拖曳到此上傳"
 
 #: app/components/stf/device/device-info-filter/index.js:90
 msgid "Dummy"
@@ -372,11 +374,11 @@ msgstr ""
 
 #: app/settings/notifications/notifications.html:1
 msgid "Enable notifications"
-msgstr ""
+msgstr "開啟通知"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Enable WiFi"
-msgstr ""
+msgstr "開啟 WiFi"
 
 #: app/control-panes/info/info.html:1
 msgid "Encrypted"
@@ -384,15 +386,15 @@ msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:31
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: app/components/stf/control/control-service.js:129
 msgid "Error while getting data"
-msgstr ""
+msgstr "取得資料時錯誤"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:35
 msgid "Error while reconnecting"
-msgstr ""
+msgstr "重新連線時錯誤"
 
 #: app/components/stf/device/device-info-filter/index.js:91
 msgid "Ethernet"
@@ -404,7 +406,7 @@ msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:5
 msgid "Failed to download file"
-msgstr ""
+msgstr "下載檔案失敗"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Fast Forward"
@@ -412,19 +414,19 @@ msgstr ""
 
 #: app/control-panes/control-panes-controller.js:26
 msgid "File Explorer"
-msgstr ""
+msgstr "檔案瀏覽器"
 
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
-msgstr ""
+msgstr "篩選"
 
 #: app/control-panes/info/info.html:1
 msgid "Find Device"
-msgstr ""
+msgstr "尋找裝置"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Fingerprint"
-msgstr ""
+msgstr "指紋"
 
 #: app/control-panes/info/info.html:1
 msgid "FPS"
@@ -432,7 +434,7 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Frequency"
-msgstr ""
+msgstr "頻率"
 
 #: app/components/stf/device/device-info-filter/index.js:69
 msgid "Full"
@@ -440,7 +442,7 @@ msgstr ""
 
 #: app/settings/settings-controller.js:5
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
 msgid "Generate Access Token"
@@ -461,11 +463,11 @@ msgstr ""
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Get clipboard contents"
-msgstr ""
+msgstr "取得剪貼簿內容"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Go Back"
-msgstr ""
+msgstr "返回"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Go Forward"
@@ -474,7 +476,7 @@ msgstr ""
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/control-panes/control-panes-hotkeys-controller.js:89
 msgid "Go to Device List"
-msgstr ""
+msgstr "前往裝置清單"
 
 #: app/components/stf/device/device-info-filter/index.js:47
 msgid "Good"
@@ -482,11 +484,11 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Hardware"
-msgstr ""
+msgstr "硬體"
 
 #: app/control-panes/info/info.html:1
 msgid "Health"
-msgstr ""
+msgstr "健康"
 
 #: app/control-panes/info/info.html:1
 msgid "Height"
@@ -494,11 +496,11 @@ msgstr ""
 
 #: app/menu/menu.html:1
 msgid "Help"
-msgstr ""
+msgstr "幫助"
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Hide Screen"
-msgstr ""
+msgstr "隱藏畫面"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
@@ -528,7 +530,7 @@ msgstr ""
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Incorrect login details"
-msgstr ""
+msgstr "不正確的登入資訊"
 
 #: app/control-panes/control-panes-controller.js:32
 msgid "Info"
@@ -536,7 +538,7 @@ msgstr ""
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
-msgstr ""
+msgstr "查看裝置"
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspecting is currently only supported in WebView"
@@ -548,23 +550,23 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:13
 msgid "Installation canceled by user."
-msgstr ""
+msgstr "使用者取消安裝"
 
 #: app/components/stf/install/install-error-filter.js:9
 msgid "Installation failed due to an unknown error."
-msgstr ""
+msgstr "不明原因的安裝錯誤"
 
 #: app/components/stf/install/install-error-filter.js:7
 msgid "Installation succeeded."
-msgstr ""
+msgstr "安裝成功"
 
 #: app/components/stf/install/install-error-filter.js:11
 msgid "Installation timed out."
-msgstr ""
+msgstr "安裝超時"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Installing app..."
-msgstr ""
+msgstr "App 安裝中..."
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Key"
@@ -576,19 +578,19 @@ msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Landscape"
-msgstr ""
+msgstr "橫式"
 
 #: app/settings/general/language/language.html:1
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Launch Activity"
-msgstr ""
+msgstr "執行活動"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Launching activity..."
-msgstr ""
+msgstr "活動執行中"
 
 #: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
@@ -596,15 +598,15 @@ msgstr ""
 
 #: app/settings/general/local/local-settings.html:1
 msgid "Local Settings"
-msgstr ""
+msgstr "本機設定"
 
 #: app/device-list/column/device-column-service.js:250
 msgid "Location"
-msgstr ""
+msgstr "地點"
 
 #: app/control-panes/automation/device-settings/device-settings.html:7
 msgid "Lock Rotation"
-msgstr ""
+msgstr "鎖定螢幕旋轉"
 
 #: app/control-panes/control-panes-controller.js:50
 msgid "Logs"
@@ -612,25 +614,25 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Maintenance"
-msgstr ""
+msgstr "維護"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid ""
 "Make sure to copy your access token now. You won't be able to see it again!"
-msgstr ""
+msgstr "務必確定已經複製存取憑證. 這不會再出現囉！"
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
-msgstr ""
+msgstr "管理 Apps"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Manner Mode"
-msgstr ""
+msgstr "管理模式"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:165
 msgid "Manufacturer"
-msgstr ""
+msgstr "製造商"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Media"
@@ -638,11 +640,11 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Memory"
-msgstr ""
+msgstr "記憶體"
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Menu"
-msgstr ""
+msgstr "選單"
 
 #: app/components/stf/device/device-info-filter/index.js:92
 msgid "Mobile"
@@ -667,11 +669,11 @@ msgstr ""
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:31
 msgid "Model"
-msgstr ""
+msgstr "型號"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "More about Access Tokens"
-msgstr ""
+msgstr "關於存取憑證"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "More about ADB Keys"
@@ -679,12 +681,12 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Mute"
-msgstr ""
+msgstr "靜音"
 
 #: app/control-panes/explorer/explorer.html:1
 #: app/control-panes/info/info.html:1
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: app/menu/menu.html:1
 msgid "Native"
@@ -692,12 +694,12 @@ msgstr ""
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Navigation"
-msgstr ""
+msgstr "導航"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:129
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Next"
@@ -709,7 +711,7 @@ msgstr ""
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "No access tokens"
-msgstr ""
+msgstr "沒有存取憑證"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "No ADB keys"
@@ -717,7 +719,7 @@ msgstr ""
 
 #: app/components/stf/control/control-service.js:126
 msgid "No clipboard data"
-msgstr ""
+msgstr "剪貼簿無資料"
 
 #: app/control-panes/resources/resources.html:1
 msgid "No cookies to show"
@@ -725,15 +727,15 @@ msgstr ""
 
 #: app/components/stf/screen/screen.html:1
 msgid "No device screen"
-msgstr ""
+msgstr "沒有裝置畫面"
 
 #: app/device-list/empty/device-list-empty.html:1
 msgid "No devices connected"
-msgstr ""
+msgstr "無裝置連線"
 
 #: app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html:1
 msgid "No photo available"
-msgstr ""
+msgstr "沒有可用的照片"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "No Ports Forwarded"
@@ -741,15 +743,15 @@ msgstr ""
 
 #: app/control-panes/screenshots/screenshots.html:5
 msgid "No screenshots taken"
-msgstr ""
+msgstr "尚未拍截圖"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Normal Mode"
-msgstr ""
+msgstr "正常模式"
 
 #: app/components/stf/device/device-info-filter/index.js:70
 msgid "Not Charging"
-msgstr ""
+msgstr "未充電"
 
 #: app/device-list/column/device-column-service.js:256
 msgid "Notes"
@@ -761,7 +763,7 @@ msgstr ""
 
 #: app/settings/notifications/notifications.html:1
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: app/control-panes/info/info.html:1
 msgid "Number"
@@ -770,25 +772,25 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:22
 #: app/components/stf/device/device-info-filter/index.js:7
 msgid "Offline"
-msgstr ""
+msgstr "離線"
 
 #: app/components/stf/common-ui/error-message/error-message.html:1
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Oops!"
-msgstr ""
+msgstr "糟糕了！有錯誤發生"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: app/control-panes/info/info.html:1
 msgid "Orientation"
-msgstr ""
+msgstr "螢幕方向"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:55
 msgid "OS"
-msgstr ""
+msgstr "平台"
 
 #: app/components/stf/device/device-info-filter/index.js:49
 msgid "Over Voltage"
@@ -796,7 +798,7 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:50
 msgid "Overheat"
-msgstr ""
+msgstr "過熱"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Package"
@@ -805,27 +807,27 @@ msgstr ""
 #: app/control-panes/advanced/vnc/vnc.html:1
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: app/control-panes/explorer/explorer.html:1
 msgid "Permissions"
-msgstr ""
+msgstr "權限"
 
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
-msgstr ""
+msgstr "手機"
 
 #: app/device-list/column/device-column-service.js:196
 msgid "Phone ICCID"
-msgstr ""
+msgstr "手機 ICCID"
 
 #: app/device-list/column/device-column-service.js:190
 msgid "Phone IMEI"
-msgstr ""
+msgstr "手機 IMEI"
 
 #: app/control-panes/info/info.html:1
 msgid "Physical Device"
-msgstr ""
+msgstr "實體裝置"
 
 #: app/control-panes/logs/logs.html:1
 msgid "PID"
@@ -837,39 +839,39 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Platform"
-msgstr ""
+msgstr "平台"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Play/Pause"
-msgstr ""
+msgstr "播放 / 暫停"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter a valid email"
-msgstr ""
+msgstr "請輸入正確的 email"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter your email"
-msgstr ""
+msgstr "請輸入你的 email"
 
 #: auth/ldap/scripts/signin/signin.html:1
 msgid "Please enter your LDAP username"
-msgstr ""
+msgstr "請輸入你的 LDAP 帳號"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter your name"
-msgstr ""
+msgstr "請輸入你的名字"
 
 #: auth/ldap/scripts/signin/signin.html:1
 msgid "Please enter your password"
-msgstr ""
+msgstr "請輸入你的密碼"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Please enter your Store password"
-msgstr ""
+msgstr "請輸入你儲存的密碼"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Please enter your Store username"
-msgstr ""
+msgstr "請輸入你儲存的帳號"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 #: app/control-panes/advanced/vnc/vnc.html:1
@@ -886,7 +888,7 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Power"
-msgstr ""
+msgstr "電源"
 
 #: app/control-panes/info/info.html:1
 msgid "Power Source"
@@ -895,19 +897,19 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:24
 #: app/components/stf/device/device-info-filter/index.js:9
 msgid "Preparing"
-msgstr ""
+msgstr "準備中"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:104
 msgid "Press Back button"
-msgstr ""
+msgstr "按返回鍵"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:103
 msgid "Press Home button"
-msgstr ""
+msgstr "按主目錄鍵"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:102
 msgid "Press Menu button"
-msgstr ""
+msgstr "按選單鍵"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Previous"
@@ -915,7 +917,7 @@ msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Processing..."
-msgstr ""
+msgstr "處理中..."
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:37
@@ -933,25 +935,25 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:10
 #: app/components/stf/device/device-info-filter/index.js:25
 msgid "Ready"
-msgstr ""
+msgstr "就緒"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:39
 msgid "Reconnected successfully."
-msgstr ""
+msgstr "重新連線成功"
 
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:49
 msgid "Released"
-msgstr ""
+msgstr "發佈"
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reload"
-msgstr ""
+msgstr "重新讀取"
 
 #: app/control-panes/dashboard/remote-debug/remote-debug.html:1
 msgid "Remote debug"
@@ -960,32 +962,32 @@ msgstr ""
 #: app/settings/keys/access-tokens/access-tokens.html:1
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 #: app/device-list/device-list.html:1
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reset all browser settings"
-msgstr ""
+msgstr "重設所有瀏覽器設定"
 
 #: app/settings/general/local/local-settings.html:1
 msgid "Reset Settings"
-msgstr ""
+msgstr "重設設定"
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Restart Device"
-msgstr ""
+msgstr "裝置重新啟動"
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retrieving the device screen has timed out."
-msgstr ""
+msgstr "取得裝置畫面已超時"
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retry"
-msgstr ""
+msgstr "重試"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Rewind"
@@ -1002,20 +1004,20 @@ msgstr ""
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/control-panes-hotkeys-controller.js:92
 msgid "Rotate Left"
-msgstr ""
+msgstr "向左旋轉"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/control-panes-hotkeys-controller.js:93
 msgid "Rotate Right"
-msgstr ""
+msgstr "向右旋轉"
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run"
-msgstr ""
+msgstr "執行"
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Run JavaScript"
-msgstr ""
+msgstr "執行 JavaScript"
 
 #: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:31
 msgid ""
@@ -1033,7 +1035,7 @@ msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 msgid "Save ScreenShot"
-msgstr ""
+msgstr "儲存螢幕截圖"
 
 #: app/control-panes/advanced/run-js/run-js.html:1
 msgid "Save..."
@@ -1041,15 +1043,15 @@ msgstr ""
 
 #: app/device-list/column/device-column-service.js:135
 msgid "Screen"
-msgstr ""
+msgstr "螢幕"
 
 #: app/control-panes/screenshots/screenshots.html:1
 msgid "Screenshot"
-msgstr ""
+msgstr "螢幕截圖"
 
 #: app/control-panes/control-panes-controller.js:8
 msgid "Screenshots"
-msgstr ""
+msgstr "更多螢幕截圖"
 
 #: app/control-panes/info/info.html:1
 msgid "SD Card Mounted"
@@ -1062,11 +1064,11 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:91
 msgid "Selects Next IME"
-msgstr ""
+msgstr "選擇下一個輸入法"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:159
@@ -1075,12 +1077,12 @@ msgstr ""
 
 #: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Server"
-msgstr ""
+msgstr "伺服器"
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Server error. Check log output."
-msgstr ""
+msgstr "伺服器錯誤. 請確認輸出的紀錄"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Set"
@@ -1092,7 +1094,7 @@ msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: app/control-panes/dashboard/shell/shell.html:1
 msgid "Shell"
@@ -1100,15 +1102,15 @@ msgstr ""
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Show Screen"
-msgstr ""
+msgstr "顯示畫面"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Sign In"
-msgstr ""
+msgstr "登入"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Sign Out"
-msgstr ""
+msgstr "登出"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Silent Mode"
@@ -1133,30 +1135,30 @@ msgstr ""
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Special Keys"
-msgstr ""
+msgstr "特殊案件"
 
 #: app/control-panes/logs/logs.html:1
 msgid "Start/Stop Logging"
-msgstr ""
+msgstr "開始 / 停止 紀錄"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:25
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: app/control-panes/advanced/input/input.html:1
 #: app/control-panes/logs/logs.html:1
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/components/stf/device/device-info-filter/index.js:11
 msgid "Stop Using"
-msgstr ""
+msgstr "停止使用"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Store Account"
-msgstr ""
+msgstr "儲存帳號"
 
 #: app/control-panes/info/info.html:1
 msgid "Sub Type"
@@ -1168,7 +1170,7 @@ msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 msgid "Tag"
-msgstr ""
+msgstr "標籤"
 
 #: app/control-panes/screenshots/screenshots.html:1
 msgid "Take Pageshot (Needs WebView running)"
@@ -1176,15 +1178,15 @@ msgstr ""
 
 #: app/control-panes/screenshots/screenshots.html:1
 msgid "Take Screenshot"
-msgstr ""
+msgstr "截圖"
 
 #: app/control-panes/info/info.html:1
 msgid "Temperature"
-msgstr ""
+msgstr "溫度"
 
 #: app/control-panes/logs/logs.html:1
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: app/components/stf/screen/screen.html:1
 msgid "The current view is marked secure and cannot be viewed remotely."
@@ -1192,7 +1194,7 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance-controller.js:10
 msgid "The device will be unavailable for a moment."
-msgstr ""
+msgstr "此裝置暫時無法使用"
 
 #: app/components/stf/install/install-error-filter.js:34
 msgid "The existing package could not be deleted."
@@ -1368,15 +1370,15 @@ msgstr ""
 
 #: app/control-panes/logs/logs.html:1
 msgid "Time"
-msgstr ""
+msgstr "時間"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Tip:"
-msgstr ""
+msgstr "提示:"
 
 #: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
 msgid "Title"
-msgstr ""
+msgstr "標題"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
@@ -1384,17 +1386,17 @@ msgstr ""
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Total Devices"
-msgstr ""
+msgstr "所有裝置"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "translate"
-msgstr ""
+msgstr "翻譯"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
 msgid "Try to reconnect"
-msgstr ""
+msgstr "嘗試重新連線"
 
 #: app/control-panes/info/info.html:1
 msgid "Type"
@@ -1403,20 +1405,20 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:23
 #: app/components/stf/device/device-info-filter/index.js:8
 msgid "Unauthorized"
-msgstr ""
+msgstr "未授權"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uninstall"
-msgstr ""
+msgstr "移除"
 
 #: app/components/stf/device/device-info-filter/index.js:14
 #: app/components/stf/device/device-info-filter/index.js:29
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: app/components/stf/device/device-info-filter/index.js:40
 msgid "Unknown reason."
-msgstr ""
+msgstr "未知原因"
 
 #: app/control-panes/automation/device-settings/device-settings.html:6
 msgid "Unlock Rotation"
@@ -1428,15 +1430,15 @@ msgstr ""
 
 #: app/components/stf/upload/upload-error-filter.js:7
 msgid "Upload failed"
-msgstr ""
+msgstr "上傳失敗"
 
 #: app/control-panes/dashboard/install/install.html:5
 msgid "Upload From Link"
-msgstr ""
+msgstr "從連結上傳"
 
 #: app/components/stf/upload/upload-error-filter.js:8
 msgid "Upload unknown error"
-msgstr ""
+msgstr "未知的上傳錯誤"
 
 #: app/components/stf/upload/upload-error-filter.js:4
 msgid "Uploaded file is not valid"
@@ -1444,7 +1446,7 @@ msgstr ""
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Uploading..."
-msgstr ""
+msgstr "上傳中..."
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Usable Devices"
@@ -1456,7 +1458,7 @@ msgstr ""
 
 #: app/control-panes/advanced/usb/usb.html:1
 msgid "Usb speed"
-msgstr ""
+msgstr "Usb 速度"
 
 #: app/components/stf/device/device-info-filter/index.js:13
 msgid "Use"
@@ -1464,15 +1466,15 @@ msgstr ""
 
 #: app/device-list/column/device-column-service.js:262
 msgid "User"
-msgstr ""
+msgstr "使用者"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Username"
-msgstr ""
+msgstr "帳號"
 
 #: app/components/stf/device/device-info-filter/index.js:26
 msgid "Using"
-msgstr ""
+msgstr "使用中"
 
 #: app/control-panes/info/info.html:1
 msgid "Using Fallback"
@@ -1480,35 +1482,35 @@ msgstr ""
 
 #: app/control-panes/info/info.html:1
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "Version Update"
-msgstr ""
+msgstr "版本更新"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Vibrate Mode"
-msgstr ""
+msgstr "震動模式"
 
 #: app/control-panes/advanced/vnc/vnc.html:1
 msgid "VNC"
-msgstr ""
+msgstr "VNC"
 
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
-msgstr ""
+msgstr "電壓"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume"
-msgstr ""
+msgstr "音量"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Down"
-msgstr ""
+msgstr "降低音量"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Volume Up"
-msgstr ""
+msgstr "提高音量"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "Warning:"
@@ -1527,11 +1529,11 @@ msgstr ""
 #: app/control-panes/automation/device-settings/device-settings.html:1
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "WiFi"
-msgstr ""
+msgstr "WiFi"
 
 #: app/components/stf/device/device-info-filter/index.js:98
 msgid "WiMAX"
-msgstr ""
+msgstr "WiMAX"
 
 #: app/components/stf/device/device-info-filter/index.js:60
 msgid "Wireless"
@@ -1551,4 +1553,4 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:35
 msgid "You (or someone else) kicked the device."
-msgstr ""
+msgstr "你 (或別人) 把裝置踢掉了."

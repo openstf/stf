@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-12-16 07:58+0000\n"
+"PO-Revision-Date: 2016-03-30 08:24+0000\n"
 "Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/openstf/stf/language/ru_RU/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/components/stf/device/device-info-filter/index.js:119
+#: app/components/stf/device/device-info-filter/index.js:117
 #: app/components/stf/device/device-info-filter/index.js:52
 #: app/components/stf/device/device-info-filter/index.js:61
 #: app/components/stf/device/device-info-filter/index.js:71
@@ -120,7 +120,7 @@ msgstr "Загрузка приложения"
 msgid "Apps"
 msgstr "Приложения"
 
-#: app/control-panes/advanced/maintenance/maintenance-controller.js:9
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:10
 msgid "Are you sure you want to reboot this device?"
 msgstr "Вы уверены, что хотите перезагрузить устройство?"
 
@@ -249,6 +249,10 @@ msgstr "Ядер"
 msgid "CPU"
 msgstr "Процессор"
 
+#: app/control-panes/device-control/device-control.html:1
+msgid "Current rotation:"
+msgstr ""
+
 #: app/device-list/device-list.html:1
 msgid "Customize"
 msgstr "Настроить"
@@ -312,8 +316,8 @@ msgstr "Разработчик"
 msgid "Device"
 msgstr "Устройство"
 
-#: app/device-list/details/device-list-details-directive.js:39
-#: app/device-list/icons/device-list-icons-directive.js:123
+#: app/device-list/details/device-list-details-directive.js:38
+#: app/device-list/icons/device-list-icons-directive.js:122
 msgid "Device cannot get kicked from the group"
 msgstr "Устройство не может быть исключено из группы"
 
@@ -617,7 +621,7 @@ msgstr "Обслуживание"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid ""
-"Make sure to copy your access token now. You won't be able to see it again!"
+"Make sure to copy your access token now. You won't be able to see it again."
 msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -704,7 +708,7 @@ msgstr "Сеть"
 msgid "Next"
 msgstr "Следующий"
 
-#: app/components/stf/device/device-info-filter/index.js:116
+#: app/components/stf/device/device-info-filter/index.js:115
 msgid "No"
 msgstr "Нет"
 
@@ -1152,6 +1156,7 @@ msgstr "Стоп"
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/components/stf/device/device-info-filter/index.js:11
+#: app/control-panes/device-control/device-control.html:1
 msgid "Stop Using"
 msgstr "Освободить"
 
@@ -1191,7 +1196,7 @@ msgstr "Текст"
 msgid "The current view is marked secure and cannot be viewed remotely."
 msgstr "Текущий просмотр отмечен как безопасный и к нему нельзя получить доступ удалённо."
 
-#: app/control-panes/advanced/maintenance/maintenance-controller.js:10
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:11
 msgid "The device will be unavailable for a moment."
 msgstr "Устройство будет временно недоступно."
 

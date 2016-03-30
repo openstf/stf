@@ -1,11 +1,11 @@
 # 
 # Translators:
-# JINYOUNGYOO <miss0110@naver.com>, 2015
+# JINYOUNGYOO <miss0110@naver.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2015-12-16 07:58+0000\n"
-"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"PO-Revision-Date: 2016-01-13 14:56+0000\n"
+"Last-Translator: JINYOUNGYOO <miss0110@naver.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstf/stf/language/ko_KR/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: app/components/stf/device/device-info-filter/index.js:61
 #: app/components/stf/device/device-info-filter/index.js:71
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 msgid "A new version of STF is available"
@@ -25,13 +25,13 @@ msgstr "새 버전의 STF를 사용 가능 합니다"
 
 #: app/components/stf/install/install-error-filter.js:26
 msgid "A package is already installed with the same name."
-msgstr "동일한 패키지가 설치되어 있습니다"
+msgstr "동일한 패키지가 설치되어 있습니다."
 
 #: app/components/stf/install/install-error-filter.js:30
 msgid ""
 "A previously installed package of the same name has a different signature "
 "than the new package (and the old package's data was not removed)."
-msgstr ""
+msgstr "이전에 설치된 패키지와 새로운 패키지의 서명이 다릅니다(또한 이전에 설치된 패키지 데이터가 삭제되지 않았습니다)."
 
 #: app/components/stf/install/install-error-filter.js:50
 msgid "A secure container mount point couldn't be accessed on external media."
@@ -85,15 +85,15 @@ msgstr "키 추가"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 msgid "Add the following ADB Key to STF?"
-msgstr ""
+msgstr "다음 ADB 키를 STF에 추가 하시겠습니까?"
 
 #: app/layout/layout-controller.js:7
 msgid "Admin mode has been disabled."
-msgstr ""
+msgstr "관리자 모드가 비활성화 되었습니다."
 
 #: app/layout/layout-controller.js:6
 msgid "Admin mode has been enabled."
-msgstr ""
+msgstr "관리자 모드가 활성화 되었습니다."
 
 #: app/control-panes/control-panes-controller.js:20
 msgid "Advanced"
@@ -176,7 +176,7 @@ msgstr "점유중"
 
 #: app/device-list/stats/device-list-stats.html:1
 msgid "Busy Devices"
-msgstr "점유중인 단말기"
+msgstr "사용 중인 단말기"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Camera"
@@ -193,7 +193,7 @@ msgstr "지정한 URL에 접근 할 수 없습니다"
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:43
 msgid "Carrier"
-msgstr "이동통신사"
+msgstr "통신사"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Category"
@@ -220,21 +220,21 @@ msgstr "클립보드"
 
 #: app/components/stf/device/device-info-filter/index.js:46
 msgid "Cold"
-msgstr ""
+msgstr "양호"
 
 #: app/components/stf/device/device-info-filter/index.js:21
 #: app/components/stf/device/device-info-filter/index.js:6
 #: app/control-panes/info/info.html:1
 msgid "Connected"
-msgstr "연결됨"
+msgstr "연결"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:20
 msgid "Connected successfully."
-msgstr "잘 연결했습니다"
+msgstr "연결했습니다"
 
 #: app/menu/menu.html:1
 msgid "Control"
-msgstr "컨트롤"
+msgstr "컨트롤 화면"
 
 #: app/control-panes/resources/resources.html:1
 msgid "Cookies"
@@ -242,7 +242,7 @@ msgstr "쿠키"
 
 #: app/control-panes/info/info.html:1
 msgid "Cores"
-msgstr "코어"
+msgstr "코어 종류"
 
 #: app/control-panes/info/info.html:1
 #: app/control-panes/performance/cpu/cpu.html:1
@@ -283,7 +283,7 @@ msgstr "데이터"
 
 #: app/control-panes/explorer/explorer.html:1
 msgid "Date"
-msgstr ""
+msgstr "날짜"
 
 #: app/components/stf/device/device-info-filter/index.js:48
 msgid "Dead"
@@ -295,7 +295,7 @@ msgstr "삭제"
 
 #: app/control-panes/info/info.html:1
 msgid "Density"
-msgstr "밀도"
+msgstr "해상도"
 
 #: app/device-list/device-list.html:1
 msgid "Details"
@@ -303,7 +303,7 @@ msgstr "세부 정보"
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Developer"
-msgstr "개발자"
+msgstr "개발자 옵션"
 
 #: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
@@ -319,15 +319,15 @@ msgstr ""
 
 #: app/components/stf/device/device-info-filter/index.js:38
 msgid "Device is not present anymore for some reason."
-msgstr ""
+msgstr "더이상 단말기가 존재하지 않습니다."
 
 #: app/components/stf/device/device-info-filter/index.js:39
 msgid "Device is present but offline."
-msgstr ""
+msgstr "장치가 연결되어 있지만 오프라인 상태입니다."
 
 #: app/control-panes/info/info.html:1
 msgid "Device Photo"
-msgstr ""
+msgstr "단말기 사진"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Device Settings"
@@ -335,15 +335,15 @@ msgstr "단말기 설정"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 msgid "Device was disconnected"
-msgstr ""
+msgstr "연결이 끊어졌습니다"
 
 #: app/components/stf/device/device-info-filter/index.js:37
 msgid "Device was kicked by automatic timeout."
-msgstr ""
+msgstr "시간초과로 인해 단말기 사용이 종료되었습니다."
 
 #: app/device-list/device-list.html:1 app/menu/menu.html:1
 msgid "Devices"
-msgstr "단말기"
+msgstr "단말기 리스트"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Disable WiFi"
@@ -381,7 +381,7 @@ msgstr "WiFi 활성화"
 
 #: app/control-panes/info/info.html:1
 msgid "Encrypted"
-msgstr "암호화된"
+msgstr "암호화"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:31
 msgid "Error"
@@ -405,7 +405,7 @@ msgstr "원격 쉘 명령을 실행합니다"
 
 #: app/components/stf/upload/upload-error-filter.js:5
 msgid "Failed to download file"
-msgstr ""
+msgstr "파일을 다운로드 할 수 없습니다"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Fast Forward"
@@ -413,7 +413,7 @@ msgstr "빨리 감기"
 
 #: app/control-panes/control-panes-controller.js:26
 msgid "File Explorer"
-msgstr ""
+msgstr "파일 탐색기"
 
 #: app/components/stf/common-ui/filter-button/filter-button.html:1
 msgid "Filter"
@@ -433,7 +433,7 @@ msgstr "FPS"
 
 #: app/control-panes/info/info.html:1
 msgid "Frequency"
-msgstr "주파수"
+msgstr "속도"
 
 #: app/components/stf/device/device-info-filter/index.js:69
 msgid "Full"
@@ -445,24 +445,24 @@ msgstr "일반"
 
 #: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
 msgid "Generate Access Token"
-msgstr ""
+msgstr "액세스 토큰 생성"
 
 #: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Generate Login for VNC"
-msgstr ""
+msgstr "VNC 로그인 생성"
 
 #: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
 msgid "Generate New Token"
-msgstr ""
+msgstr "새로운 토큰 생성"
 
 #: app/control-panes/logs/logs.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "Get"
-msgstr ""
+msgstr "시작"
 
 #: app/control-panes/dashboard/clipboard/clipboard.html:1
 msgid "Get clipboard contents"
-msgstr ""
+msgstr "클립보드 내용을 가져옵니다"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Go Back"
@@ -491,7 +491,7 @@ msgstr "상태"
 
 #: app/control-panes/info/info.html:1
 msgid "Height"
-msgstr "높이이"
+msgstr "높이"
 
 #: app/menu/menu.html:1
 msgid "Help"
@@ -529,11 +529,11 @@ msgstr "IMEI"
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Incorrect login details"
-msgstr ""
+msgstr "잘못된 로그인 정보"
 
 #: app/control-panes/control-panes-controller.js:32
 msgid "Info"
-msgstr "정보"
+msgstr "단말기 정보"
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspect Device"
@@ -541,7 +541,7 @@ msgstr "단말기 검사"
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspecting is currently only supported in WebView"
-msgstr ""
+msgstr "검사는 웹뷰에서만 지원합니다"
 
 #: app/control-panes/inspect/inspect.html:1
 msgid "Inspector"
@@ -549,23 +549,23 @@ msgstr "검사기"
 
 #: app/components/stf/install/install-error-filter.js:13
 msgid "Installation canceled by user."
-msgstr ""
+msgstr "사용자가 설치를 취소했습니다"
 
 #: app/components/stf/install/install-error-filter.js:9
 msgid "Installation failed due to an unknown error."
-msgstr ""
+msgstr "알 수 없는 오류로 설치가 실패했습니다"
 
 #: app/components/stf/install/install-error-filter.js:7
 msgid "Installation succeeded."
-msgstr ""
+msgstr "설치가 성공했습니다"
 
 #: app/components/stf/install/install-error-filter.js:11
 msgid "Installation timed out."
-msgstr ""
+msgstr "설치 시간 초과"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Installing app..."
-msgstr ""
+msgstr "앱 설치중..."
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Key"
@@ -585,11 +585,11 @@ msgstr "언어"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Launch Activity"
-msgstr ""
+msgstr "액티비티 실행"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Launching activity..."
-msgstr ""
+msgstr "액티비티 실행중..."
 
 #: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
 msgid "Level"
@@ -618,7 +618,7 @@ msgstr "유지 관리"
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid ""
 "Make sure to copy your access token now. You won't be able to see it again!"
-msgstr ""
+msgstr "엑세스 토큰을 복사하세요. 다시 확인할 수 없습니다!"
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"
@@ -672,11 +672,11 @@ msgstr "모델"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "More about Access Tokens"
-msgstr ""
+msgstr "좀 더 자세한 엑세스 토큰에 대해서 확인하기"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "More about ADB Keys"
-msgstr ""
+msgstr "좀 더 자세하게 ADB 키에 대해서 확인하기"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Mute"
@@ -710,19 +710,19 @@ msgstr "아니오"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "No access tokens"
-msgstr ""
+msgstr "등록된 엑세스 토큰이 없습니다"
 
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "No ADB keys"
-msgstr ""
+msgstr "등록된 ADB 키가 없습니다"
 
 #: app/components/stf/control/control-service.js:126
 msgid "No clipboard data"
-msgstr ""
+msgstr "클립보드 데이터가 없습니다"
 
 #: app/control-panes/resources/resources.html:1
 msgid "No cookies to show"
-msgstr ""
+msgstr "어떤 쿠키도 없습니다"
 
 #: app/components/stf/screen/screen.html:1
 msgid "No device screen"
@@ -730,19 +730,19 @@ msgstr ""
 
 #: app/device-list/empty/device-list-empty.html:1
 msgid "No devices connected"
-msgstr ""
+msgstr "연결된 단말기가 없습니다"
 
 #: app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html:1
 msgid "No photo available"
-msgstr ""
+msgstr "이용 가능한 사진이 없습니다"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "No Ports Forwarded"
-msgstr ""
+msgstr "포트 포워딩 설정이 없습니다"
 
 #: app/control-panes/screenshots/screenshots.html:5
 msgid "No screenshots taken"
-msgstr ""
+msgstr "저장된 스크린샷이 없습니다"
 
 #: app/control-panes/automation/device-settings/device-settings.html:1
 msgid "Normal Mode"
@@ -766,7 +766,7 @@ msgstr "알림"
 
 #: app/control-panes/info/info.html:1
 msgid "Number"
-msgstr ""
+msgstr "전화번호"
 
 #: app/components/stf/device/device-info-filter/index.js:22
 #: app/components/stf/device/device-info-filter/index.js:7
@@ -784,12 +784,12 @@ msgstr "열기"
 
 #: app/control-panes/info/info.html:1
 msgid "Orientation"
-msgstr "방향"
+msgstr "화면 방향"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:55
 msgid "OS"
-msgstr "OS"
+msgstr "운영체제"
 
 #: app/components/stf/device/device-info-filter/index.js:49
 msgid "Over Voltage"
@@ -797,7 +797,7 @@ msgstr "과전압"
 
 #: app/components/stf/device/device-info-filter/index.js:50
 msgid "Overheat"
-msgstr ""
+msgstr "과열"
 
 #: app/control-panes/dashboard/install/activities/activities.html:1
 msgid "Package"
@@ -810,7 +810,7 @@ msgstr "비밀번호"
 
 #: app/control-panes/explorer/explorer.html:1
 msgid "Permissions"
-msgstr ""
+msgstr "권한"
 
 #: app/device-list/column/device-column-service.js:184
 msgid "Phone"
@@ -834,7 +834,7 @@ msgstr "PID"
 
 #: app/control-panes/info/info.html:1
 msgid "Place"
-msgstr ""
+msgstr "위치"
 
 #: app/control-panes/info/info.html:1
 msgid "Platform"
@@ -846,31 +846,31 @@ msgstr "재생/일시 중지"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter a valid email"
-msgstr ""
+msgstr "유효한 이메일 주소를 입력하세요"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter your email"
-msgstr ""
+msgstr "이메일 주소를 입력하세요"
 
 #: auth/ldap/scripts/signin/signin.html:1
 msgid "Please enter your LDAP username"
-msgstr ""
+msgstr "LDAP 사용자 이름을 입력하세요"
 
 #: auth/mock/scripts/signin/signin.html:1
 msgid "Please enter your name"
-msgstr ""
+msgstr "이름을 입력하세요"
 
 #: auth/ldap/scripts/signin/signin.html:1
 msgid "Please enter your password"
-msgstr ""
+msgstr "비밀번호를 입력하세요"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Please enter your Store password"
-msgstr ""
+msgstr "앱 스토어 비밀번호를 입력하세요"
 
 #: app/control-panes/automation/store-account/store-account.html:1
 msgid "Please enter your Store username"
-msgstr ""
+msgstr "앱 스토어 아이디를 입력하세요"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 #: app/control-panes/advanced/vnc/vnc.html:1
@@ -887,11 +887,11 @@ msgstr "세로"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Power"
-msgstr ""
+msgstr "전력"
 
 #: app/control-panes/info/info.html:1
 msgid "Power Source"
-msgstr ""
+msgstr "전력원"
 
 #: app/components/stf/device/device-info-filter/index.js:24
 #: app/components/stf/device/device-info-filter/index.js:9
@@ -912,20 +912,20 @@ msgstr "메뉴 버튼을 누르세요"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Processing..."
-msgstr ""
+msgstr "처리중..."
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:37
 msgid "Product"
-msgstr ""
+msgstr "제품명"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Pushing app..."
-msgstr ""
+msgstr "앱 전송중..."
 
 #: app/control-panes/info/info.html:1
 msgid "RAM"
@@ -938,51 +938,51 @@ msgstr ""
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:39
 msgid "Reconnected successfully."
-msgstr ""
+msgstr "재연결이 성공했습니다"
 
 #: app/components/stf/common-ui/refresh-page/refresh-page.html:1
 msgid "Refresh"
-msgstr ""
+msgstr "새로고침"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:49
 msgid "Released"
-msgstr ""
+msgstr "릴리즈"
 
 #: app/components/stf/common-ui/modals/version-update/version-update.html:1
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reload"
-msgstr ""
+msgstr "다시 로드"
 
 #: app/control-panes/dashboard/remote-debug/remote-debug.html:1
 msgid "Remote debug"
-msgstr ""
+msgstr "원격 디버그"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 #: app/settings/keys/adb-keys/adb-keys.html:1
 msgid "Remove"
-msgstr ""
+msgstr "제거"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 #: app/device-list/device-list.html:1
 msgid "Reset"
-msgstr ""
+msgstr "초기화"
 
 #: app/control-panes/dashboard/navigation/navigation.html:1
 msgid "Reset all browser settings"
-msgstr ""
+msgstr "모든 브라우저 설정 초기화"
 
 #: app/settings/general/local/local-settings.html:1
 msgid "Reset Settings"
-msgstr ""
+msgstr "설정 초기화"
 
 #: app/control-panes/advanced/maintenance/maintenance.html:1
 msgid "Restart Device"
-msgstr ""
+msgstr "단말기 재시작"
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retrieving the device screen has timed out."
-msgstr ""
+msgstr "단말기 화면을 가져 오는 시간이 초과 되었습니다."
 
 #: app/components/stf/screen/screen.html:1
 msgid "Retry"
@@ -1026,7 +1026,7 @@ msgstr ""
 #: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:28
 msgid ""
 "Run the following on your command line to debug the device from your IDE"
-msgstr ""
+msgstr "아래의 명령줄을 실행하여 IDE에서 디버그를 실행하세요"
 
 #: app/components/stf/keys/add-adb-key/add-adb-key.html:1
 msgid "Run this command to copy the key to your clipboard"
@@ -1054,7 +1054,7 @@ msgstr "스크린 샷"
 
 #: app/control-panes/info/info.html:1
 msgid "SD Card Mounted"
-msgstr "SD카드가 탑재되었습니다"
+msgstr "SD카드 마운트"
 
 #: app/control-panes/info/info.html:1
 #: app/device-list/column/device-column-service.js:171
@@ -1076,7 +1076,7 @@ msgstr "일련 번호"
 
 #: app/control-panes/advanced/vnc/vnc.html:1
 msgid "Server"
-msgstr ""
+msgstr "서버"
 
 #: auth/ldap/scripts/signin/signin.html:1
 #: auth/mock/scripts/signin/signin.html:1
@@ -1126,7 +1126,7 @@ msgstr "크기"
 
 #: app/components/stf/socket/socket-state/socket-state-directive.js:26
 msgid "Socket connection was lost"
-msgstr ""
+msgstr "소켓 연결이 끊겼습니다"
 
 #: app/components/stf/device/device-info-filter/index.js:36
 msgid "Someone stole your device."
@@ -1193,39 +1193,39 @@ msgstr ""
 
 #: app/control-panes/advanced/maintenance/maintenance-controller.js:10
 msgid "The device will be unavailable for a moment."
-msgstr ""
+msgstr "이 단말기는 잠시동안 사용 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:34
 msgid "The existing package could not be deleted."
-msgstr ""
+msgstr "기존 패키지를 삭제 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:58
 msgid ""
 "The new package couldn't be installed because the verification did not "
 "succeed."
-msgstr ""
+msgstr "검증되지 않은 새로운 패키지는 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:56
 msgid ""
 "The new package couldn't be installed because the verification timed out."
-msgstr ""
+msgstr "검증 시간이 초과하여 새로운 패키지를 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:54
 msgid ""
 "The new package couldn't be installed in the specified install location "
 "because the media is not available."
-msgstr ""
+msgstr "미디어를 사용할 수 없어 지정한 위치에 새로운 패키지를 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:52
 msgid ""
 "The new package couldn't be installed in the specified install location."
-msgstr ""
+msgstr "지정한 위치에 새로운 패키지를 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:40
 msgid ""
 "The new package failed because it contains a content provider with thesame "
 "authority as a provider already installed in the system."
-msgstr ""
+msgstr "이미 동일한 패키지가 설치되어 있어 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:44
 msgid ""
@@ -1237,13 +1237,13 @@ msgstr ""
 msgid ""
 "The new package failed because the current SDK version is newer than that "
 "required by the package."
-msgstr ""
+msgstr "SDK 버전이 높아 새로운 패키지를 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:38
 msgid ""
 "The new package failed because the current SDK version is older than that "
 "required by the package."
-msgstr ""
+msgstr "SDK 버전이 낮아 새로운 패키지를 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:36
 msgid ""
@@ -1255,11 +1255,11 @@ msgstr ""
 msgid ""
 "The new package has an older version code than the currently installed "
 "package."
-msgstr ""
+msgstr "새로운 패키지에 오래된 버전의 코드가 존재하여 설치 할 수 없습니다."
 
 #: app/components/stf/install/install-error-filter.js:62
 msgid "The new package is assigned a different UID than it previously held."
-msgstr ""
+msgstr "새로운 패키지는 이전 패키지와 다른 UID가 할당 됐습니다."
 
 #: app/components/stf/install/install-error-filter.js:48
 msgid "The new package uses a feature that is not available."
@@ -1271,7 +1271,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:20
 msgid "The package archive file is invalid."
-msgstr ""
+msgstr "패키지 아카이브 파일이 잘못 되었습니다."
 
 #: app/components/stf/install/install-error-filter.js:46
 msgid ""
@@ -1285,7 +1285,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:18
 msgid "The package is already installed."
-msgstr ""
+msgstr "패키지가 이미 설치 되어 있습니다."
 
 #: app/components/stf/install/install-error-filter.js:24
 msgid ""
@@ -1305,11 +1305,11 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:78
 msgid "The parser encountered a bad or missing package name in the manifest."
-msgstr ""
+msgstr "매니페스트에 잘못되거나 누락된 패키지 이름을 발견했습니다."
 
 #: app/components/stf/install/install-error-filter.js:80
 msgid "The parser encountered a bad shared user id name in the manifest."
-msgstr ""
+msgstr "매니페스트에 잘못된 아이디나 이름을 발견했습니다."
 
 #: app/components/stf/install/install-error-filter.js:76
 msgid ""
@@ -1319,15 +1319,15 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:70
 msgid "The parser encountered an unexpected exception."
-msgstr ""
+msgstr "예상하지 못한 예외가 발생하였습니다."
 
 #: app/components/stf/install/install-error-filter.js:82
 msgid "The parser encountered some structural problem in the manifest."
-msgstr ""
+msgstr "매니페스트에 몇 가지 구조적인 문제가 발생 했습니다."
 
 #: app/components/stf/install/install-error-filter.js:74
 msgid "The parser found inconsistent certificates on the files in the .apk."
-msgstr ""
+msgstr ".apk 파일에서 일치하지 않은 인증서를 발견 했습니다."
 
 #: app/components/stf/install/install-error-filter.js:66
 msgid ""
@@ -1341,7 +1341,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:28
 msgid "The requested shared user does not exist."
-msgstr ""
+msgstr "요청된 공용 사용자가 존재하지 않습니다."
 
 #: app/components/stf/install/install-error-filter.js:90
 msgid ""
@@ -1361,7 +1361,7 @@ msgstr ""
 
 #: app/components/stf/install/install-error-filter.js:22
 msgid "The URI passed in is invalid."
-msgstr ""
+msgstr "URL이 잘못 전달 됐습니다."
 
 #: app/control-panes/logs/logs.html:1
 msgid "TID"
@@ -1377,7 +1377,7 @@ msgstr "팁"
 
 #: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: app/control-panes/control-panes-hotkeys-controller.js:107
 msgid "Toggle Web/Native"
@@ -1390,7 +1390,7 @@ msgstr "총 단말기 수"
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/control-panes/resources/resources.html:1
 msgid "translate"
-msgstr ""
+msgstr "번역"
 
 #: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
 #: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
@@ -1437,7 +1437,7 @@ msgstr "링크로 업로드"
 
 #: app/components/stf/upload/upload-error-filter.js:8
 msgid "Upload unknown error"
-msgstr ""
+msgstr "업로드시 알수 없는 에러가 발생하였습니다"
 
 #: app/components/stf/upload/upload-error-filter.js:4
 msgid "Uploaded file is not valid"
@@ -1477,7 +1477,7 @@ msgstr "사용중"
 
 #: app/control-panes/info/info.html:1
 msgid "Using Fallback"
-msgstr "대체 사용"
+msgstr "대체"
 
 #: app/control-panes/info/info.html:1
 msgid "Version"
@@ -1493,7 +1493,7 @@ msgstr "진동"
 
 #: app/control-panes/advanced/vnc/vnc.html:1
 msgid "VNC"
-msgstr ""
+msgstr "VNC"
 
 #: app/control-panes/info/info.html:1
 msgid "Voltage"
@@ -1513,7 +1513,7 @@ msgstr "음량 올리기"
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid "Warning:"
-msgstr ""
+msgstr "경고"
 
 #: app/menu/menu.html:1
 msgid "Web"
@@ -1552,4 +1552,4 @@ msgstr "네"
 
 #: app/components/stf/device/device-info-filter/index.js:35
 msgid "You (or someone else) kicked the device."
-msgstr ""
+msgstr "당신(혹은 다른 누군가)이 단말기를 사용 종료 하였습니다."

@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: app/components/stf/device/device-info-filter/index.js:119
+#: app/components/stf/device/device-info-filter/index.js:117
 #: app/components/stf/device/device-info-filter/index.js:52
 #: app/components/stf/device/device-info-filter/index.js:61
 #: app/components/stf/device/device-info-filter/index.js:71
@@ -110,7 +110,7 @@ msgstr ""
 msgid "Apps"
 msgstr ""
 
-#: app/control-panes/advanced/maintenance/maintenance-controller.js:9
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:10
 msgid "Are you sure you want to reboot this device?"
 msgstr ""
 
@@ -239,6 +239,10 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
+#: app/control-panes/device-control/device-control.html:1
+msgid "Current rotation:"
+msgstr ""
+
 #: app/device-list/device-list.html:1
 msgid "Customize"
 msgstr ""
@@ -302,8 +306,8 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: app/device-list/details/device-list-details-directive.js:39
-#: app/device-list/icons/device-list-icons-directive.js:123
+#: app/device-list/details/device-list-details-directive.js:38
+#: app/device-list/icons/device-list-icons-directive.js:122
 msgid "Device cannot get kicked from the group"
 msgstr ""
 
@@ -608,7 +612,7 @@ msgid "Maintenance"
 msgstr ""
 
 #: app/settings/keys/access-tokens/access-tokens.html:1
-msgid "Make sure to copy your access token now. You won't be able to see it again!"
+msgid "Make sure to copy your access token now. You won't be able to see it again."
 msgstr ""
 
 #: app/control-panes/dashboard/apps/apps.html:1
@@ -695,7 +699,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: app/components/stf/device/device-info-filter/index.js:116
+#: app/components/stf/device/device-info-filter/index.js:115
 msgid "No"
 msgstr ""
 
@@ -1142,6 +1146,7 @@ msgstr ""
 
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/components/stf/device/device-info-filter/index.js:11
+#: app/control-panes/device-control/device-control.html:1
 msgid "Stop Using"
 msgstr ""
 
@@ -1181,7 +1186,7 @@ msgstr ""
 msgid "The current view is marked secure and cannot be viewed remotely."
 msgstr ""
 
-#: app/control-panes/advanced/maintenance/maintenance-controller.js:10
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:11
 msgid "The device will be unavailable for a moment."
 msgstr ""
 

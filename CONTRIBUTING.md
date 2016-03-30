@@ -8,7 +8,8 @@ We are happy to accept any contributions that make sense and respect the rules l
 2. Create a feature branch for your contribution out of the `master` branch. Only one contribution per branch is accepted.
 3. Implement your contribution while respecting our rules (see below).
 4. If possible, add tests for your contribution to make sure it actually works.
-5. Submit a pull request against our `master` branch!
+5. Don't forget to run `npm test` just right before submitting, it also checks for code styling issues.
+6. Submit a pull request against our `master` branch!
 
 ## Rules
 

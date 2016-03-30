@@ -33,4 +33,4 @@ Thank you for submitting an issue for STF!
 * Version used:
 * Environment name and version (e.g. Chrome 39, node.js 5.4):
 * Operating System and version:
-* If there was a problem with a specific device, 
+* If there was a problem with a specific device, include model number and the according logs:

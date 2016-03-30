@@ -1,0 +1,1561 @@
+# 
+# Translators:
+# Jakub Mucha <biuro@muchastudio.com.pl>, 2016
+# Mateusz Bartos <mbartos@wikia-inc.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: STF\n"
+"PO-Revision-Date: 2016-03-30 08:24+0000\n"
+"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.com/openstf/stf/language/pl/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: app/components/stf/device/device-info-filter/index.js:117
+#: app/components/stf/device/device-info-filter/index.js:52
+#: app/components/stf/device/device-info-filter/index.js:61
+#: app/components/stf/device/device-info-filter/index.js:71
+msgid "-"
+msgstr "-"
+
+#: app/components/stf/common-ui/modals/version-update/version-update.html:1
+msgid "A new version of STF is available"
+msgstr "Nowa wersja STF jest dostępna"
+
+#: app/components/stf/install/install-error-filter.js:26
+msgid "A package is already installed with the same name."
+msgstr "Pakiet o tej samej nazwie jest już zainstalowany"
+
+#: app/components/stf/install/install-error-filter.js:30
+msgid ""
+"A previously installed package of the same name has a different signature "
+"than the new package (and the old package's data was not removed)."
+msgstr "Poprzednio zainstalowana paczka o tej samej nazwie ma inną sygnaturę od nowej (oraz dane starej paczki nie zostały usunięte)."
+
+#: app/components/stf/install/install-error-filter.js:50
+msgid "A secure container mount point couldn't be accessed on external media."
+msgstr "Zewnętrzne media nie mogą uzyskać dostępu do punktu montowania zabezpieczonego kontenera."
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:178
+msgid "ABI"
+msgstr "ABI"
+
+#: app/components/stf/device/device-info-filter/index.js:58
+msgid "AC"
+msgstr "AC"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Access Tokens"
+msgstr "Tokeny dostępu"
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Account"
+msgstr "Konto"
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Action"
+msgstr "Akcja"
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Actions"
+msgstr "Akcje"
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Activity"
+msgstr "Aktywność"
+
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "ADB Keys"
+msgstr "Klucze ADB"
+
+#: app/control-panes/resources/resources.html:1
+msgid "Add"
+msgstr "Dodaj"
+
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+msgid "Add ADB Key"
+msgstr "Dodaj klucz ADB"
+
+#: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+msgid "Add Key"
+msgstr "Dodaj klucz"
+
+#: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
+msgid "Add the following ADB Key to STF?"
+msgstr "Dodać następujący klucz ADB do STF?"
+
+#: app/layout/layout-controller.js:7
+msgid "Admin mode has been disabled."
+msgstr "Tryb admina został wyłączony."
+
+#: app/layout/layout-controller.js:6
+msgid "Admin mode has been enabled."
+msgstr "Tryb admina został włączony"
+
+#: app/control-panes/control-panes-controller.js:20
+msgid "Advanced"
+msgstr "Zaawansowany"
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Advanced Input"
+msgstr "Wprowadzanie zaawansowane"
+
+#: app/control-panes/info/info.html:1
+msgid "Airplane Mode"
+msgstr "Tryb samolotowy"
+
+#: app/control-panes/automation/store-account/store-account.html:1
+#: app/control-panes/dashboard/apps/apps.html:1
+msgid "App Store"
+msgstr "Sklep"
+
+#: app/control-panes/dashboard/install/install.html:1
+msgid "App Upload"
+msgstr "Wysyłanie aplikacji"
+
+#: app/control-panes/dashboard/apps/apps.html:1
+msgid "Apps"
+msgstr "Aplikacje"
+
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:10
+msgid "Are you sure you want to reboot this device?"
+msgstr "Czy na pewno chcesz zrestartować to urządzenie?"
+
+#: app/control-panes/control-panes-controller.js:14
+msgid "Automation"
+msgstr "Automatyzacja"
+
+#: app/components/stf/device/device-info-filter/index.js:28
+msgid "Available"
+msgstr "Dostępny"
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+#: app/control-panes/device-control/device-control.html:1
+msgid "Back"
+msgstr "Wróć"
+
+#: app/control-panes/info/info.html:1
+msgid "Battery"
+msgstr "Bateria"
+
+#: app/device-list/column/device-column-service.js:202
+msgid "Battery Health"
+msgstr "Kondycja baterii"
+
+#: app/device-list/column/device-column-service.js:226
+msgid "Battery Level"
+msgstr "Poziom baterii"
+
+#: app/device-list/column/device-column-service.js:210
+msgid "Battery Source"
+msgstr "Źródło baterii"
+
+#: app/device-list/column/device-column-service.js:218
+msgid "Battery Status"
+msgstr "Status baterii"
+
+#: app/device-list/column/device-column-service.js:239
+msgid "Battery Temp"
+msgstr "Temperatura baterii"
+
+#: app/components/stf/device/device-info-filter/index.js:89
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: app/device-list/column/device-column-service.js:153
+msgid "Browser"
+msgstr "Przeglądarka"
+
+#: app/components/stf/device/device-info-filter/index.js:12
+#: app/components/stf/device/device-info-filter/index.js:27
+msgid "Busy"
+msgstr "Zajęty"
+
+#: app/device-list/stats/device-list-stats.html:1
+msgid "Busy Devices"
+msgstr "Zajęte urządzenia"
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Camera"
+msgstr "Aparat"
+
+#: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: app/components/stf/upload/upload-error-filter.js:6
+msgid "Cannot access specified URL"
+msgstr "Nie można uzyskać dostępu do podanego adresu URL"
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:43
+msgid "Carrier"
+msgstr "Kariera"
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Category"
+msgstr "Kategoria"
+
+#: app/components/stf/device/device-info-filter/index.js:67
+msgid "Charging"
+msgstr "Ładowanie"
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Check errors below"
+msgstr "Zwróć uwagę na błędy"
+
+#: app/components/stf/common-ui/clear-button/clear-button.html:1
+#: app/control-panes/advanced/run-js/run-js.html:1
+#: app/control-panes/logs/logs.html:1
+msgid "Clear"
+msgstr "Czysty"
+
+#: app/control-panes/dashboard/clipboard/clipboard.html:1
+msgid "Clipboard"
+msgstr "Schowek"
+
+#: app/components/stf/device/device-info-filter/index.js:46
+msgid "Cold"
+msgstr "Chłodny"
+
+#: app/components/stf/device/device-info-filter/index.js:21
+#: app/components/stf/device/device-info-filter/index.js:6
+#: app/control-panes/info/info.html:1
+msgid "Connected"
+msgstr "Połączony"
+
+#: app/components/stf/socket/socket-state/socket-state-directive.js:20
+msgid "Connected successfully."
+msgstr "Połączono pomyślnie."
+
+#: app/menu/menu.html:1
+msgid "Control"
+msgstr "Kontrola"
+
+#: app/control-panes/resources/resources.html:1
+msgid "Cookies"
+msgstr "Ciasteczka"
+
+#: app/control-panes/info/info.html:1
+msgid "Cores"
+msgstr "Rdzenia"
+
+#: app/control-panes/info/info.html:1
+#: app/control-panes/performance/cpu/cpu.html:1
+msgid "CPU"
+msgstr "CPU"
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Current rotation:"
+msgstr ""
+
+#: app/device-list/device-list.html:1
+msgid "Customize"
+msgstr "Personalizuj"
+
+#: app/control-panes/advanced/input/input.html:12
+msgid "D-pad Center"
+msgstr "D-Pad Środek"
+
+#: app/control-panes/advanced/input/input.html:20
+msgid "D-pad Down"
+msgstr "D-pad Dół"
+
+#: app/control-panes/advanced/input/input.html:9
+msgid "D-pad Left"
+msgstr "D-pad Lewo"
+
+#: app/control-panes/advanced/input/input.html:15
+msgid "D-pad Right"
+msgstr "D-pad Prawo"
+
+#: app/control-panes/advanced/input/input.html:4
+msgid "D-pad Up"
+msgstr "D-pad Góra"
+
+#: app/control-panes/control-panes-controller.js:41
+msgid "Dashboard"
+msgstr "Kokpit"
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Data"
+msgstr "Dane"
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Date"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:48
+msgid "Dead"
+msgstr "Martwy"
+
+#: app/control-panes/resources/resources.html:1
+msgid "Delete"
+msgstr "Usuń"
+
+#: app/control-panes/info/info.html:1
+msgid "Density"
+msgstr "Gęstość"
+
+#: app/device-list/device-list.html:1
+msgid "Details"
+msgstr "Szczegóły"
+
+#: app/control-panes/dashboard/apps/apps.html:1
+msgid "Developer"
+msgstr "Developer"
+
+#: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/inspect/inspect.html:1
+msgid "Device"
+msgstr "Urządzenie"
+
+#: app/device-list/details/device-list-details-directive.js:38
+#: app/device-list/icons/device-list-icons-directive.js:122
+msgid "Device cannot get kicked from the group"
+msgstr "Urządzenie nie może zostać wyrzucone z grupy"
+
+#: app/components/stf/device/device-info-filter/index.js:38
+msgid "Device is not present anymore for some reason."
+msgstr "Urządzenie z jakiegoś powodu nie jest już dostępne"
+
+#: app/components/stf/device/device-info-filter/index.js:39
+msgid "Device is present but offline."
+msgstr "Urządzenie jest dostępne, lecz jest offline."
+
+#: app/control-panes/info/info.html:1
+msgid "Device Photo"
+msgstr "Zdjęcie urządzenia"
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Device Settings"
+msgstr "Ustawienia urządzenia"
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+msgid "Device was disconnected"
+msgstr "Urządzenie zostało odłączone"
+
+#: app/components/stf/device/device-info-filter/index.js:37
+msgid "Device was kicked by automatic timeout."
+msgstr "Urządzenie zostało wyrzucone z powodu braku aktywności."
+
+#: app/device-list/device-list.html:1 app/menu/menu.html:1
+msgid "Devices"
+msgstr "Urządzenia"
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Disable WiFi"
+msgstr "Wyłącz WiFi"
+
+#: app/components/stf/device/device-info-filter/index.js:68
+msgid "Discharging"
+msgstr "Rozładowywanie"
+
+#: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
+#: app/components/stf/device/device-info-filter/index.js:20
+#: app/components/stf/device/device-info-filter/index.js:5
+msgid "Disconnected"
+msgstr "Odłączone"
+
+#: app/control-panes/info/info.html:1
+msgid "Display"
+msgstr "Wyświetlacz"
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Drop file to upload"
+msgstr "Upuść plik aby go wysłać"
+
+#: app/components/stf/device/device-info-filter/index.js:90
+msgid "Dummy"
+msgstr "Głupie"
+
+#: app/settings/notifications/notifications.html:1
+msgid "Enable notifications"
+msgstr "Włącz powiadomienia"
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Enable WiFi"
+msgstr "Włącz WiFi"
+
+#: app/control-panes/info/info.html:1
+msgid "Encrypted"
+msgstr "Zaszyfrowane"
+
+#: app/components/stf/socket/socket-state/socket-state-directive.js:31
+msgid "Error"
+msgstr "Błąd"
+
+#: app/components/stf/control/control-service.js:129
+msgid "Error while getting data"
+msgstr "Zapytanie o dane zakończone błędem"
+
+#: app/components/stf/socket/socket-state/socket-state-directive.js:35
+msgid "Error while reconnecting"
+msgstr "Ponowne połączenie nie powiodło się"
+
+#: app/components/stf/device/device-info-filter/index.js:91
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: app/control-panes/dashboard/shell/shell.html:1
+msgid "Executes remote shell commands"
+msgstr "Wykonuje zdalne polecenia powłoki"
+
+#: app/components/stf/upload/upload-error-filter.js:5
+msgid "Failed to download file"
+msgstr "Pobieranie zakończone niepowodzeniem"
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Fast Forward"
+msgstr "Przekaż do"
+
+#: app/control-panes/control-panes-controller.js:26
+msgid "File Explorer"
+msgstr "Przeglądaj pliki"
+
+#: app/components/stf/common-ui/filter-button/filter-button.html:1
+msgid "Filter"
+msgstr "Filtr"
+
+#: app/control-panes/info/info.html:1
+msgid "Find Device"
+msgstr "Znajdź urządzenie"
+
+#: app/components/stf/common-ui/modals/add-adb-key-modal/add-adb-key-modal.html:1
+msgid "Fingerprint"
+msgstr "Odcisk palca"
+
+#: app/control-panes/info/info.html:1
+msgid "FPS"
+msgstr "FPS"
+
+#: app/control-panes/info/info.html:1
+msgid "Frequency"
+msgstr "Częstotliwość"
+
+#: app/components/stf/device/device-info-filter/index.js:69
+msgid "Full"
+msgstr "Pełny"
+
+#: app/settings/settings-controller.js:5
+msgid "General"
+msgstr "Ogólne"
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate Access Token"
+msgstr "Generuj token dostępu"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Generate Login for VNC"
+msgstr "Generuj login do VNC"
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Generate New Token"
+msgstr "Wygeneruj nowy token"
+
+#: app/control-panes/logs/logs.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "Get"
+msgstr "Weź"
+
+#: app/control-panes/dashboard/clipboard/clipboard.html:1
+msgid "Get clipboard contents"
+msgstr "Kopiuj zawartość schowka"
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Go Back"
+msgstr "Wróć"
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Go Forward"
+msgstr "Przejdź do"
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/control-panes-hotkeys-controller.js:89
+msgid "Go to Device List"
+msgstr "Przejdź do listy urządzeń"
+
+#: app/components/stf/device/device-info-filter/index.js:47
+msgid "Good"
+msgstr "Dobrze"
+
+#: app/control-panes/info/info.html:1
+msgid "Hardware"
+msgstr "Hardware"
+
+#: app/control-panes/info/info.html:1
+msgid "Health"
+msgstr "Kondycja"
+
+#: app/control-panes/info/info.html:1
+msgid "Height"
+msgstr "Wysokość"
+
+#: app/menu/menu.html:1
+msgid "Help"
+msgstr "Pomoc"
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Hide Screen"
+msgstr "Ukryj ekran"
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+#: app/control-panes/device-control/device-control.html:1
+msgid "Home"
+msgstr "Dom"
+
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+msgid "Host"
+msgstr "Gospodarz"
+
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+msgid "Hostname"
+msgstr "Nazwa gospodarza"
+
+#: app/control-panes/info/info.html:1
+msgid "ICCID"
+msgstr "ICCID"
+
+#: app/control-panes/info/info.html:1
+msgid "ID"
+msgstr "ID"
+
+#: app/control-panes/info/info.html:1
+msgid "IMEI"
+msgstr "IMEI"
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Incorrect login details"
+msgstr "Niepoprawne dane logowania"
+
+#: app/control-panes/control-panes-controller.js:32
+msgid "Info"
+msgstr "Info"
+
+#: app/control-panes/inspect/inspect.html:1
+msgid "Inspect Device"
+msgstr "Zbadaj urządzenie"
+
+#: app/control-panes/inspect/inspect.html:1
+msgid "Inspecting is currently only supported in WebView"
+msgstr ""
+
+#: app/control-panes/inspect/inspect.html:1
+msgid "Inspector"
+msgstr "Inspektor"
+
+#: app/components/stf/install/install-error-filter.js:13
+msgid "Installation canceled by user."
+msgstr "Instalacja anulowana przez użytkownika."
+
+#: app/components/stf/install/install-error-filter.js:9
+msgid "Installation failed due to an unknown error."
+msgstr "Instalacja nie powiodła się z powodu nieznanego błedu."
+
+#: app/components/stf/install/install-error-filter.js:7
+msgid "Installation succeeded."
+msgstr "Instalacja powiodła się."
+
+#: app/components/stf/install/install-error-filter.js:11
+msgid "Installation timed out."
+msgstr ""
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Installing app..."
+msgstr "Instalowanie aplikacji.."
+
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+msgid "Key"
+msgstr "Klucz"
+
+#: app/settings/settings-controller.js:10
+msgid "Keys"
+msgstr "Klucze"
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Landscape"
+msgstr ""
+
+#: app/settings/general/language/language.html:1
+msgid "Language"
+msgstr "Język"
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Launch Activity"
+msgstr "Uruchom aktywność"
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Launching activity..."
+msgstr "Uruchamianie aktywności.."
+
+#: app/control-panes/info/info.html:1 app/control-panes/logs/logs.html:1
+msgid "Level"
+msgstr "Poziom"
+
+#: app/settings/general/local/local-settings.html:1
+msgid "Local Settings"
+msgstr "Ustawienia lokalne"
+
+#: app/device-list/column/device-column-service.js:250
+msgid "Location"
+msgstr "Lokacja"
+
+#: app/control-panes/automation/device-settings/device-settings.html:7
+msgid "Lock Rotation"
+msgstr "Zablokuj rotację"
+
+#: app/control-panes/control-panes-controller.js:50
+msgid "Logs"
+msgstr "Logi"
+
+#: app/control-panes/advanced/maintenance/maintenance.html:1
+msgid "Maintenance"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid ""
+"Make sure to copy your access token now. You won't be able to see it again."
+msgstr ""
+
+#: app/control-panes/dashboard/apps/apps.html:1
+msgid "Manage Apps"
+msgstr "Zarządzaj aplikacjami"
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Manner Mode"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:165
+msgid "Manufacturer"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Media"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Memory"
+msgstr "Pamięć"
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Menu"
+msgstr "Menu"
+
+#: app/components/stf/device/device-info-filter/index.js:92
+msgid "Mobile"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:93
+msgid "Mobile DUN"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:94
+msgid "Mobile High Priority"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:95
+msgid "Mobile MMS"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:96
+msgid "Mobile SUPL"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:31
+msgid "Model"
+msgstr "Model"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "More about Access Tokens"
+msgstr ""
+
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "More about ADB Keys"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Mute"
+msgstr "Wycisz"
+
+#: app/control-panes/explorer/explorer.html:1
+#: app/control-panes/info/info.html:1
+msgid "Name"
+msgstr "Nazwa"
+
+#: app/menu/menu.html:1
+msgid "Native"
+msgstr ""
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Navigation"
+msgstr "Nawigacja"
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:129
+msgid "Network"
+msgstr "Sieć"
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Next"
+msgstr "Dalej"
+
+#: app/components/stf/device/device-info-filter/index.js:115
+msgid "No"
+msgstr "Nie"
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "No access tokens"
+msgstr "Brak kluczy dostępu"
+
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "No ADB keys"
+msgstr "Brak kluczy ADB"
+
+#: app/components/stf/control/control-service.js:126
+msgid "No clipboard data"
+msgstr "Brak danych w schowku"
+
+#: app/control-panes/resources/resources.html:1
+msgid "No cookies to show"
+msgstr "Brak ciastek do pokazania"
+
+#: app/components/stf/screen/screen.html:1
+msgid "No device screen"
+msgstr "Brak obrazu urządzenia"
+
+#: app/device-list/empty/device-list-empty.html:1
+msgid "No devices connected"
+msgstr "Brak podłączonych urządzeń"
+
+#: app/components/stf/common-ui/modals/lightbox-image/lightbox-image.html:1
+msgid "No photo available"
+msgstr "Brak zdjęć"
+
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+msgid "No Ports Forwarded"
+msgstr "Brak przekierowań portów"
+
+#: app/control-panes/screenshots/screenshots.html:5
+msgid "No screenshots taken"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Normal Mode"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:70
+msgid "Not Charging"
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:256
+msgid "Notes"
+msgstr ""
+
+#: app/control-panes/inspect/inspect.html:1
+msgid "Nothing to inspect"
+msgstr ""
+
+#: app/settings/notifications/notifications.html:1
+msgid "Notifications"
+msgstr "Notyfikacje"
+
+#: app/control-panes/info/info.html:1
+msgid "Number"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:22
+#: app/components/stf/device/device-info-filter/index.js:7
+msgid "Offline"
+msgstr "Offline"
+
+#: app/components/stf/common-ui/error-message/error-message.html:1
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Oops!"
+msgstr "Ups!"
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Open"
+msgstr "Otwórz"
+
+#: app/control-panes/info/info.html:1
+msgid "Orientation"
+msgstr "Orientacja"
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:55
+msgid "OS"
+msgstr "OS"
+
+#: app/components/stf/device/device-info-filter/index.js:49
+msgid "Over Voltage"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:50
+msgid "Overheat"
+msgstr ""
+
+#: app/control-panes/dashboard/install/activities/activities.html:1
+msgid "Package"
+msgstr "Paczka"
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Password"
+msgstr "Hasło"
+
+#: app/control-panes/explorer/explorer.html:1
+msgid "Permissions"
+msgstr "Pozwolenia"
+
+#: app/device-list/column/device-column-service.js:184
+msgid "Phone"
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:196
+msgid "Phone ICCID"
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:190
+msgid "Phone IMEI"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Physical Device"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "PID"
+msgstr "PID"
+
+#: app/control-panes/info/info.html:1
+msgid "Place"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Platform"
+msgstr "Platforma"
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Play/Pause"
+msgstr ""
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter a valid email"
+msgstr "Proszę wpisać poprawny adres email"
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your email"
+msgstr "Proszę wpisać adres email"
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your LDAP username"
+msgstr ""
+
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Please enter your name"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+msgid "Please enter your password"
+msgstr "Proszę wpisać swoje hasło"
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Please enter your Store password"
+msgstr "Proszę wpisać swoje hasło do sklepu"
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Please enter your Store username"
+msgstr ""
+
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Port"
+msgstr "Port"
+
+#: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
+msgid "Port Forwarding"
+msgstr "Przekierowanie portów"
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Portrait"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Power"
+msgstr "Zasilanie"
+
+#: app/control-panes/info/info.html:1
+msgid "Power Source"
+msgstr "Źródło zasilania"
+
+#: app/components/stf/device/device-info-filter/index.js:24
+#: app/components/stf/device/device-info-filter/index.js:9
+msgid "Preparing"
+msgstr "Przygotowywanie"
+
+#: app/control-panes/control-panes-hotkeys-controller.js:104
+msgid "Press Back button"
+msgstr "Naciśnij klawisz \"Wstecz\""
+
+#: app/control-panes/control-panes-hotkeys-controller.js:103
+msgid "Press Home button"
+msgstr "Naciśnij klawicz \"Home\""
+
+#: app/control-panes/control-panes-hotkeys-controller.js:102
+msgid "Press Menu button"
+msgstr "Naciśnij klawicz \"Menu\""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Previous"
+msgstr "Poprzednie"
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Processing..."
+msgstr "Przetwarzanie.."
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:37
+msgid "Product"
+msgstr "Produkt"
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Pushing app..."
+msgstr "Pushowanie aplikacji.."
+
+#: app/control-panes/info/info.html:1
+msgid "RAM"
+msgstr "RAM"
+
+#: app/components/stf/device/device-info-filter/index.js:10
+#: app/components/stf/device/device-info-filter/index.js:25
+msgid "Ready"
+msgstr "Gotowe"
+
+#: app/components/stf/socket/socket-state/socket-state-directive.js:39
+msgid "Reconnected successfully."
+msgstr ""
+
+#: app/components/stf/common-ui/refresh-page/refresh-page.html:1
+msgid "Refresh"
+msgstr "Odśwież"
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:49
+msgid "Released"
+msgstr ""
+
+#: app/components/stf/common-ui/modals/version-update/version-update.html:1
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Reload"
+msgstr ""
+
+#: app/control-panes/dashboard/remote-debug/remote-debug.html:1
+msgid "Remote debug"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+#: app/settings/keys/adb-keys/adb-keys.html:1
+msgid "Remove"
+msgstr "Usuń"
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+#: app/device-list/device-list.html:1
+msgid "Reset"
+msgstr ""
+
+#: app/control-panes/dashboard/navigation/navigation.html:1
+msgid "Reset all browser settings"
+msgstr ""
+
+#: app/settings/general/local/local-settings.html:1
+msgid "Reset Settings"
+msgstr ""
+
+#: app/control-panes/advanced/maintenance/maintenance.html:1
+msgid "Restart Device"
+msgstr ""
+
+#: app/components/stf/screen/screen.html:1
+msgid "Retrieving the device screen has timed out."
+msgstr ""
+
+#: app/components/stf/screen/screen.html:1
+msgid "Retry"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Rewind"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Roaming"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "ROM"
+msgstr ""
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+#: app/control-panes/control-panes-hotkeys-controller.js:92
+msgid "Rotate Left"
+msgstr ""
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+#: app/control-panes/control-panes-hotkeys-controller.js:93
+msgid "Rotate Right"
+msgstr ""
+
+#: app/control-panes/advanced/run-js/run-js.html:1
+msgid "Run"
+msgstr ""
+
+#: app/control-panes/advanced/run-js/run-js.html:1
+msgid "Run JavaScript"
+msgstr ""
+
+#: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:31
+msgid ""
+"Run the following on your command line to debug the device from your Browser"
+msgstr ""
+
+#: app/control-panes/dashboard/remote-debug/remote-debug-controller.js:28
+msgid ""
+"Run the following on your command line to debug the device from your IDE"
+msgstr ""
+
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+msgid "Run this command to copy the key to your clipboard"
+msgstr ""
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+msgid "Save ScreenShot"
+msgstr ""
+
+#: app/control-panes/advanced/run-js/run-js.html:1
+msgid "Save..."
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:135
+msgid "Screen"
+msgstr ""
+
+#: app/control-panes/screenshots/screenshots.html:1
+msgid "Screenshot"
+msgstr ""
+
+#: app/control-panes/control-panes-controller.js:8
+msgid "Screenshots"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "SD Card Mounted"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:171
+msgid "SDK"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Search"
+msgstr ""
+
+#: app/control-panes/control-panes-hotkeys-controller.js:91
+msgid "Selects Next IME"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:159
+msgid "Serial"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "Server"
+msgstr ""
+
+#: auth/ldap/scripts/signin/signin.html:1
+#: auth/mock/scripts/signin/signin.html:1
+msgid "Server error. Check log output."
+msgstr ""
+
+#: app/control-panes/resources/resources.html:1
+msgid "Set"
+msgstr ""
+
+#: app/control-panes/resources/resources.html:1
+msgid "Set Cookie"
+msgstr ""
+
+#: app/control-panes/dashboard/apps/apps.html:1 app/menu/menu.html:1
+msgid "Settings"
+msgstr ""
+
+#: app/control-panes/dashboard/shell/shell.html:1
+msgid "Shell"
+msgstr ""
+
+#: app/control-panes/device-control/device-control.html:1
+msgid "Show Screen"
+msgstr ""
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Sign In"
+msgstr ""
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Sign Out"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Silent Mode"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "SIM"
+msgstr ""
+
+#: app/control-panes/explorer/explorer.html:1
+#: app/control-panes/info/info.html:1
+msgid "Size"
+msgstr ""
+
+#: app/components/stf/socket/socket-state/socket-state-directive.js:26
+msgid "Socket connection was lost"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:36
+msgid "Someone stole your device."
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Special Keys"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "Start/Stop Logging"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+#: app/device-list/column/device-column-service.js:25
+msgid "Status"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+#: app/control-panes/logs/logs.html:1
+msgid "Stop"
+msgstr ""
+
+#: app/components/stf/device-context-menu/device-context-menu.html:1
+#: app/components/stf/device/device-info-filter/index.js:11
+#: app/control-panes/device-control/device-control.html:1
+msgid "Stop Using"
+msgstr ""
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Store Account"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Sub Type"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Switch Charset"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "Tag"
+msgstr ""
+
+#: app/control-panes/screenshots/screenshots.html:1
+msgid "Take Pageshot (Needs WebView running)"
+msgstr ""
+
+#: app/control-panes/screenshots/screenshots.html:1
+msgid "Take Screenshot"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Temperature"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "Text"
+msgstr ""
+
+#: app/components/stf/screen/screen.html:1
+msgid "The current view is marked secure and cannot be viewed remotely."
+msgstr ""
+
+#: app/control-panes/advanced/maintenance/maintenance-controller.js:11
+msgid "The device will be unavailable for a moment."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:34
+msgid "The existing package could not be deleted."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:58
+msgid ""
+"The new package couldn't be installed because the verification did not "
+"succeed."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:56
+msgid ""
+"The new package couldn't be installed because the verification timed out."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:54
+msgid ""
+"The new package couldn't be installed in the specified install location "
+"because the media is not available."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:52
+msgid ""
+"The new package couldn't be installed in the specified install location."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:40
+msgid ""
+"The new package failed because it contains a content provider with thesame "
+"authority as a provider already installed in the system."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:44
+msgid ""
+"The new package failed because it has specified that it is a test-only "
+"package and the caller has not supplied the INSTALL_ALLOW_TEST flag."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:42
+msgid ""
+"The new package failed because the current SDK version is newer than that "
+"required by the package."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:38
+msgid ""
+"The new package failed because the current SDK version is older than that "
+"required by the package."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:36
+msgid ""
+"The new package failed while optimizing and validating its dex files, either"
+" because there was not enough storage or the validation failed."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:64
+msgid ""
+"The new package has an older version code than the currently installed "
+"package."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:62
+msgid "The new package is assigned a different UID than it previously held."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:48
+msgid "The new package uses a feature that is not available."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:32
+msgid "The new package uses a shared library that is not available."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:20
+msgid "The package archive file is invalid."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:46
+msgid ""
+"The package being installed contains native code, but none that is "
+"compatible with the device's CPU_ABI."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:60
+msgid "The package changed from what the calling program expected."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:18
+msgid "The package is already installed."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:24
+msgid ""
+"The package manager service found that the device didn't have enough storage"
+" space to install the app."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:84
+msgid ""
+"The parser did not find any actionable tags (instrumentation or application)"
+" in the manifest."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:72
+msgid "The parser did not find any certificates in the .apk."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:78
+msgid "The parser encountered a bad or missing package name in the manifest."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:80
+msgid "The parser encountered a bad shared user id name in the manifest."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:76
+msgid ""
+"The parser encountered a CertificateEncodingException in one of the files in"
+" the .apk."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:70
+msgid "The parser encountered an unexpected exception."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:82
+msgid "The parser encountered some structural problem in the manifest."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:74
+msgid "The parser found inconsistent certificates on the files in the .apk."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:66
+msgid ""
+"The parser was given a path that is not a file, or does not end with the "
+"expected '.apk' extension."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:68
+msgid "The parser was unable to retrieve the AndroidManifest.xml file."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:28
+msgid "The requested shared user does not exist."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:90
+msgid ""
+"The system failed to install the package because its packaged native code "
+"did not match any of the ABIs supported by the system."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:86
+msgid "The system failed to install the package because of system issues."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:88
+msgid ""
+"The system failed to install the package because the user is restricted from"
+" installing apps."
+msgstr ""
+
+#: app/components/stf/install/install-error-filter.js:22
+msgid "The URI passed in is invalid."
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "TID"
+msgstr ""
+
+#: app/control-panes/logs/logs.html:1
+msgid "Time"
+msgstr ""
+
+#: app/components/stf/keys/add-adb-key/add-adb-key.html:1
+msgid "Tip:"
+msgstr ""
+
+#: app/components/stf/tokens/generate-access-token/generate-access-token.html:1
+msgid "Title"
+msgstr ""
+
+#: app/control-panes/control-panes-hotkeys-controller.js:107
+msgid "Toggle Web/Native"
+msgstr ""
+
+#: app/device-list/stats/device-list-stats.html:1
+msgid "Total Devices"
+msgstr ""
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/control-panes/resources/resources.html:1
+msgid "translate"
+msgstr ""
+
+#: app/components/stf/common-ui/modals/fatal-message/fatal-message.html:1
+#: app/components/stf/common-ui/modals/socket-disconnected/socket-disconnected.html:1
+msgid "Try to reconnect"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Type"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:23
+#: app/components/stf/device/device-info-filter/index.js:8
+msgid "Unauthorized"
+msgstr ""
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Uninstall"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:14
+#: app/components/stf/device/device-info-filter/index.js:29
+msgid "Unknown"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:40
+msgid "Unknown reason."
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:6
+msgid "Unlock Rotation"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:51
+msgid "Unspecified Failure"
+msgstr ""
+
+#: app/components/stf/upload/upload-error-filter.js:7
+msgid "Upload failed"
+msgstr ""
+
+#: app/control-panes/dashboard/install/install.html:5
+msgid "Upload From Link"
+msgstr ""
+
+#: app/components/stf/upload/upload-error-filter.js:8
+msgid "Upload unknown error"
+msgstr ""
+
+#: app/components/stf/upload/upload-error-filter.js:4
+msgid "Uploaded file is not valid"
+msgstr ""
+
+#: app/control-panes/dashboard/install/install.html:7
+msgid "Uploading..."
+msgstr ""
+
+#: app/device-list/stats/device-list-stats.html:1
+msgid "Usable Devices"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:59
+msgid "USB"
+msgstr ""
+
+#: app/control-panes/advanced/usb/usb.html:1
+msgid "Usb speed"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:13
+msgid "Use"
+msgstr ""
+
+#: app/device-list/column/device-column-service.js:262
+msgid "User"
+msgstr ""
+
+#: app/control-panes/automation/store-account/store-account.html:1
+msgid "Username"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:26
+msgid "Using"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Using Fallback"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Version"
+msgstr ""
+
+#: app/components/stf/common-ui/modals/version-update/version-update.html:1
+msgid "Version Update"
+msgstr ""
+
+#: app/control-panes/automation/device-settings/device-settings.html:1
+msgid "Vibrate Mode"
+msgstr ""
+
+#: app/control-panes/advanced/vnc/vnc.html:1
+msgid "VNC"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Voltage"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Volume"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Volume Down"
+msgstr ""
+
+#: app/control-panes/advanced/input/input.html:1
+msgid "Volume Up"
+msgstr ""
+
+#: app/settings/keys/access-tokens/access-tokens.html:1
+msgid "Warning:"
+msgstr ""
+
+#: app/menu/menu.html:1
+msgid "Web"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Width"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:105
+#: app/components/stf/device/device-info-filter/index.js:97
+#: app/control-panes/automation/device-settings/device-settings.html:1
+#: app/control-panes/dashboard/apps/apps.html:1
+msgid "WiFi"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:98
+msgid "WiMAX"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:60
+msgid "Wireless"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "X DPI"
+msgstr ""
+
+#: app/control-panes/info/info.html:1
+msgid "Y DPI"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:113
+msgid "Yes"
+msgstr ""
+
+#: app/components/stf/device/device-info-filter/index.js:35
+msgid "You (or someone else) kicked the device."
+msgstr ""

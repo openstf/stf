@@ -2,53 +2,52 @@
   .as-cell.fill-height
     .as-table.fill-height
       .stf-vnc-navbar.as-row(ng-show='!$root.basicMode && !$root.standalone')
-        .stf-vnc-right-buttons.pull-right
-          .btn-group
-            label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',
-            ng-model='currentRotation', uib-btn-radio='"portrait"',
-            uib-tooltip='{{ "Portrait" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
-              i.fa.fa-mobile
-            label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("landscape")',
-              ng-model='currentRotation', uib-btn-radio='"landscape"',
-            uib-tooltip='{{ "Landscape" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
-              i.fa.fa-mobile.fa-rotate-90
-          .button-spacer
-          button(type='button', ng-model='showScreen', uib-btn-checkbox).btn.btn-xs.btn-info
-            i(ng-show='showScreen', uib-tooltip='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
-            i(ng-show='!showScreen', uib-tooltip='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
-          button(type='button', ng-click='kickDevice(device); $event.stopPropagation()', uib-tooltip='{{"Stop Using"|translate}}', tooltip-placement='bottom').btn.btn-sm.btn-danger-outline
-            i.fa.fa-times
+        .stf-vnc-control-header.as-cell
+          .stf-vnc-right-buttons.pull-right
+            .btn-group
+              label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("portrait")',
+              ng-model='currentRotation', uib-btn-radio='"portrait"',
+              uib-tooltip='{{ "Portrait" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+                i.fa.fa-mobile
+              label.btn-sm.btn-primary-outline(type='button', ng-click='tryToRotate("landscape")',
+                ng-model='currentRotation', uib-btn-radio='"landscape"',
+              uib-tooltip='{{ "Landscape" | translate }} ({{ "Current rotation:" | translate }} {{ device.display.rotation }}°)', tooltip-placement='bottom').pointer
+                i.fa.fa-mobile.fa-rotate-90
+            .button-spacer
+            button(type='button', ng-model='showScreen', uib-btn-checkbox).btn.btn-xs.btn-info
+              i(ng-show='showScreen', uib-tooltip='{{"Hide Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye
+              i(ng-show='!showScreen', uib-tooltip='{{"Show Screen"|translate}}', tooltip-placement='bottom').fa.fa-eye-slash
+            button(type='button', ng-click='kickDevice(device); $event.stopPropagation()', uib-tooltip='{{"Stop Using"|translate}}', tooltip-placement='bottom').btn.btn-sm.btn-danger-outline
+              i.fa.fa-times
 
+          .device-name-container.pull-left(uib-dropdown)
+            a.stf-vnc-device-name.pointer.unselectable(uib-dropdown-toggle)
+              p
+                .device-small-image
+                  img(ng-src='/static/app/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')
+                span.device-name-text {{ device.enhancedName }}
+                span.caret(ng-show='groupDevices.length > 0')
 
-        .device-name-container.pull-left(uib-dropdown)
-          a.stf-vnc-device-name.pointer.unselectable(uib-dropdown-toggle)
-            p
-              .device-small-image
-                img(ng-src='/static/app/devices/icon/x24/{{ device.image || "E30HT.jpg" }}')
-              span.device-name-text {{ device.enhancedName }}
-              span.caret(ng-show='groupDevices.length > 0')
+            ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
+              li(ng-repeat='groupDevice in groupDevices')
+                a.device-name-menu-element(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
+                  .pull-left
+                    .device-small-image
+                      img(ng-src='/static/app/devices/icon/x24/{{ groupDevice.image || "E30HT.jpg" }}')
+                    span(ng-class='{"current-device": groupDevice.serial === device.serial }') {{ groupDevice.enhancedName }}
 
-          ul.dropdown-menu(role='menu', data-toggle='dropdown', ng-show='groupDevices.length > 0').pointer.unselectable
-            li(ng-repeat='groupDevice in groupDevices')
-              a.device-name-menu-element(ng-click='controlDevice(groupDevice); $event.stopPropagation()')
-                .pull-left
-                  .device-small-image
-                    img(ng-src='/static/app/devices/icon/x24/{{ groupDevice.image || "E30HT.jpg" }}')
-                  span(ng-class='{"current-device": groupDevice.serial === device.serial }') {{ groupDevice.enhancedName }}
-
-                .pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
-                  i.fa.fa-times
-                .clearfix
+                  .pull-right(ng-click='kickDevice(groupDevice); $event.stopPropagation()').kick-device
+                    i.fa.fa-times
+                  .clearfix
 
       .as-row.fill-height
-
-        div(ng-controller='DeviceScreenCtrl', ng-if='device').fill-height
+        div(ng-controller='DeviceScreenCtrl', ng-if='device').as-cell.fill-height
           div(ng-file-drop='installFile($files)', ng-file-drag-over-class='dragover').fill-height
             device-context-menu(device='device', control='control')
               device-screen(device='device', control='control')
 
       .stf-vnc-bottom.as-row(ng-hide='$root.standalone')
-        .controls
+        .controls.as-cell
           .btn-group.btn-group-justified
             a(device-control-key='menu', title='{{"Menu"|translate}}').btn.btn-primary.btn-lg.no-transition
               i.fa.fa-bars

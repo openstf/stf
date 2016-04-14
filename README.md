@@ -14,11 +14,16 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 ![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
 
+## Announcements
+
+* Thanks to @qband, @juliusspencer and Anonymous donors, we've been able to confirm [Android N Preview 1 support!](https://github.com/openstf/stf/issues/279)
+* We've added a [donation transparency report](DONATION-TRANSPARENCY.md) for all to see.
+
 ## Features
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 6.0 (SDK level 23)
+    * Supports versions 2.3.3 (SDK level 10) to Android N Preview 1 (which still shows up as SDK level 23)
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality

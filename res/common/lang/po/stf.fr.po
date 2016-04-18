@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: STF\n"
-"PO-Revision-Date: 2016-03-30 08:24+0000\n"
-"Last-Translator: takeshimiya <takeshimiya@gmail.com>\n"
+"PO-Revision-Date: 2016-04-04 09:12+0000\n"
+"Last-Translator: Guillaume Chertier <gchertier.ext@orange.com>\n"
 "Language-Team: French (http://www.transifex.com/openstf/stf/language/fr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -251,7 +251,7 @@ msgstr "CPU"
 
 #: app/control-panes/device-control/device-control.html:1
 msgid "Current rotation:"
-msgstr ""
+msgstr "Rotation actuelle"
 
 #: app/device-list/device-list.html:1
 msgid "Customize"
@@ -622,7 +622,7 @@ msgstr "Maintenance"
 #: app/settings/keys/access-tokens/access-tokens.html:1
 msgid ""
 "Make sure to copy your access token now. You won't be able to see it again."
-msgstr ""
+msgstr "Assurez-vous de copier votre jeton d'accès maintenant. Vous ne serez pas en mesure de le voir à nouveau."
 
 #: app/control-panes/dashboard/apps/apps.html:1
 msgid "Manage Apps"

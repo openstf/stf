@@ -30,7 +30,7 @@
     "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
-    "adbkit": "^2.4.0",
+    "adbkit": "^2.4.1",
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.2.3",

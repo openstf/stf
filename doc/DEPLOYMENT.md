@@ -214,13 +214,17 @@ You may have to change the `--auth-url` depending on which authentication method
 
 You have multiple options here. STF currently provides authentication units for [OAuth 2.0](http://oauth.net/2/) and [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol), plus a mock implementation that simply asks for a name and an email address.
 
-Since the other providers require quite a bit of configuration, we'll simply set up a mock auth unit here. If you'd rather use the real providers, see `stf auth-oauth2 --help` and `stf auth-ldap --help` for the required variables. Note that if your OAuth 2 provider uses a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+#### Option A: Mock auth
+
+With the mock auth provider the user simply enters their name and email and the system trusts those values. This is what the development version uses by default. Obviously not very secure, but very easy to set up if you can trust your users.
 
 This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
 
+**NOTE:** Don't forget to change the `--auth-url` option in the `stf-app` unit. For mock auth, the value should be `https://stf.example.org/auth/mock/`.
+
 ```ini
 [Unit]
-Description=STF auth
+Description=STF mock auth
 After=docker.service
 Requires=docker.service
 
@@ -240,6 +244,91 @@ ExecStart=/usr/bin/docker run --rm \
     --app-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
+
+#### Option B: OAuth 2.0
+
+We'll set up [Google's OAuth 2.0 provider](https://developers.google.com/identity/protocols/OpenIDConnect#appsetup) as an example, allowing users to log in with their Google accounts. You must be able to sign up for the API and configure the authorized URLs by yourself, we won't help you. You can see the callback URL in the unit config below. Proceed once you've received the client id and client secret.
+
+Note that if you use another OAuth 2 provider that uses a self-signed cert, you may have to add `-e "NODE_TLS_REJECT_UNAUTHORIZED=0"` to the `docker run` command. Don't forget to end the line with `\`.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
+
+**NOTE:** Don't forget to change the `--auth-url` option in the `stf-app` unit. For OAuth 2.0, the value should be `https://stf.example.org/auth/oauth/`.
+
+```ini
+[Unit]
+Description=STF OAuth 2.0 auth
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -e "OAUTH_AUTHORIZATION_URL=https://accounts.google.com/o/oauth2/v2/auth" \
+  -e "OAUTH_TOKEN_URL=https://www.googleapis.com/oauth2/v4/token" \
+  -e "OAUTH_USERINFO_URL=https://www.googleapis.com/oauth2/v3/userinfo" \
+  -e "OAUTH_CLIENT_ID=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.apps.googleusercontent.com" \
+  -e "OAUTH_CLIENT_SECRET=BBBBBBBBBBBBBBBBBBBBBBBB" \
+  -e "OAUTH_CALLBACK_URL=https://stf.example.org/auth/oauth/callback" \
+  -e "OAUTH_SCOPE=openid email" \
+  -p %i:3000 \
+  openstf/stf:latest \
+  stf auth-oauth2 --port 3000 \
+    --app-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+#### Option C: LDAP
+
+See `stf auth-ldap --help` and change one of the unit files above as required.
+
+**NOTE:** Don't forget to change the `--auth-url` option in the `stf-app` unit. For LDAP, the value should be `https://stf.example.org/auth/ldap/`.
+
+#### Option D: SAML 2.0
+
+This is one of the multiple options for authentication provided by STF. It uses [SAML 2.0](http://saml.xml.org/saml-specifications) protocol. If your company uses [Okta](https://www.okta.com/) or some other SAML 2.0 supported id provider, you can use it.
+
+This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
+
+**NOTE:** Don't forget to change the `--auth-url` option in the `stf-app` unit. For SAML 2.0, the value should be `https://stf.example.org/auth/saml/`.
+
+```ini
+[Unit]
+Description=STF SAML 2.0 auth
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -v /srv/ssl/id_provider.cert:/etc/id_provider.cert:ro \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  -e "SAML_ID_PROVIDER_ENTRY_POINT_URL=YOUR_ID_PROVIDER_ENTRY_POINT" \
+  -e "SAML_ID_PROVIDER_ISSUER=YOUR_ID_PROVIDER_ISSUER" \
+  -e "SAML_ID_PROVIDER_CERT_PATH=/etc/id_proider.cert" \
+  -p %i:3000 \
+  openstf/stf:latest \
+  stf auth-saml2 --port 3000 \
+    --app-url https://stf.example.org/
+ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+#### Other options
+
+See `stf -h` for other possible options.
 
 ### `stf-migrate.service`
 
@@ -658,41 +747,6 @@ ExecStart=/usr/bin/docker run --rm \
     --bucket YOUR_S3_BUCKET_NAME_HERE \
     --profile YOUR_AWS_CREDENTIALS_PROFILE \
     --endpoint YOUR_BUCKET_ENDPOING_HERE
-ExecStop=-/usr/bin/docker stop -t 10 %p-%i
-```
-
-### `stf-auth@.service` (SAML2.0)
-
-This is one of the multiple options for authentication provided by STF. It uses [SAML 2.0](http://saml.xml.org/saml-specifications) protocol. If your company uses [Okta](https://www.okta.com/) or some other SAML2.0 supported id provider, you can use it.
-
-This is a template unit, meaning that you'll need to start it with an instance identifier. In this example configuration the identifier is used to specify the exposed port number (i.e. `stf-auth@3200.service` runs on port 3200). You can have multiple instances running on the same host by using different ports.
-
-** NOTE** Don't forget to change `--app-url` parameter for `stf-app` unit. It will become `https://stf.example.org/auth/saml/`
-
-```ini
-[Unit]
-Description=STF auth
-After=docker.service
-Requires=docker.service
-
-[Service]
-EnvironmentFile=/etc/environment
-TimeoutStartSec=0
-Restart=always
-ExecStartPre=/usr/bin/docker pull openstf/stf:latest
-ExecStartPre=-/usr/bin/docker kill %p-%i
-ExecStartPre=-/usr/bin/docker rm %p-%i
-ExecStart=/usr/bin/docker run --rm \
-  --name %p-%i \
-  -v /srv/ssl/id_provider.cert:/etc/id_provider.cert:ro \
-  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
-  -e "SAML_ID_PROVIDER_ENTRY_POINT_URL=YOUR_ID_PROVIDER_ENTRY_POINT" \
-  -e "SAML_ID_PROVIDER_ISSUER=YOUR_ID_PROVIDER_ISSUER" \
-  -e "SAML_ID_PROVIDER_CERT_PATH=/etc/id_proider.cert" \
-  -p %i:3000 \
-  openstf/stf:latest \
-  stf auth-saml2 --port 3000 \
-    --app-url https://stf.example.org/
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 

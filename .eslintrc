@@ -52,7 +52,7 @@
     "no-process-env": 0, // `2` is recommended
     "no-proto": 2,
     "no-redeclare": [2, {"builtinGlobals": true}], // `2` is recommended and actually defaults to `[2, {"builtinGlobals": false}]`
-    "no-return-assign": [2, "except-parens"],
+    "no-return-assign": [1, "except-parens"],
     "no-script-url": 2,
     "no-self-compare": 2,
     "no-sequences": 2,
@@ -153,6 +153,6 @@
     "no-sync": 1, // `2` is default
 
     // eslint v2
-    "keyword-spacing": 2
+    //"keyword-spacing": 2
   }
 }

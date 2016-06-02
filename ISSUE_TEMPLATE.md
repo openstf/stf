@@ -1,5 +1,8 @@
 <!---
 
+IF YOU REMOVE THIS TEMPLATE WE WILL CLOSE YOUR ISSUE WITHOUT RESPONSE.
+Just read it. See the commonly asked questions and fill in the details we're asking, it saves so much of our time.
+
 Hi there!
 
 Please be sure to run `stf doctor` before submitting an issue. Please include screenshots, command output and log files if any.

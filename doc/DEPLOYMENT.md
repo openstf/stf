@@ -718,6 +718,35 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
+### `stf-notify-slack.service`
+
+The optional [Slack](https://slack.com/) notifier unit can be enabled to push STF notifications to a public or private Slack channel. To use it, generate an [API Token](https://api.slack.com/docs/oauth-test-tokens) and select or create a destination channel. Run `stf notify-slack --help` for additional configuration options.
+
+As with other notification units, running multiple instances of this unit at once results in message duplication and is not advised.
+
+```ini
+[Unit]
+Description=STF Slack notifier
+After=docker.service
+BindsTo=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  -e "SLACK_TOKEN=YOUR_SLACK_TOKEN_HERE" \
+  -e "SLACK_CHANNEL=YOUR_SLACK_CHANNEL_HERE" \
+  openstf/stf:latest \
+  stf notify-slack \
+    --connect-sub tcp://appside.stf.example.org:7150
+ExecStop=-/usr/bin/docker stop -t 10 %p
+```
+
 ### `stf-storage-s3@.service`
 
 If you want to store data such as screenshots and apk files into [Amazon S3](https://aws.amazon.com/s3/) instead of locally, then you can use this optional unit. Before using this you will need to setup your amazon account and get proper credentials for S3 bucket. You can read more about this at [AWS documentation](https://aws.amazon.com/s3/).

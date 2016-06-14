@@ -78,6 +78,7 @@ enum MessageType {
   FileSystemGetMessage       = 82;
   ReserveUpdatedMessage          = 91;
   ReserveFetchNextRequestMessage = 92;
+  ReserveEnforceRequest          = 93;
 }
 
 message FileSystemListMessage {
@@ -563,6 +564,10 @@ message ReserveUpdatedMessage {
   required bool canceled = 6;
 }
 message ReserveFetchNextRequestMessage {
+  required string serial = 1;
+  optional string currentId = 2;
+}
+message ReserveEnforceRequest {
   required string id = 1;
   required string channel = 2;
 }

@@ -42,7 +42,7 @@
     "commander": "^2.9.0",
     "compression": "^1.5.2",
     "cookie-session": "^1.2.0",
-    "csurf": "^1.7.0",
+    "csurf": "^1.8.3",
     "debug": "^2.2.0",
     "eventemitter3": "^0.1.6",
     "express": "^4.13.3",

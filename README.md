@@ -18,7 +18,7 @@ Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if
 
 ### Gold Sponsor
 
-[<img src="doc/sponsors/headspin-wordmark-orange.svg?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
+[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
 
 [HeadSpin](https://headspin.io/) offers a generous monthly contribution towards STF development. HeadSpin allows you to test and monitor your apps on cell networks around the globe without adding any code.
 

@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "author": {
-    "name": "CyberAgent, Inc.",
-    "email": "npm@cyberagent.co.jp",
-    "url": "http://www.cyberagent.co.jp/"
+    "name": "The OpenSTF Project",
+    "email": "contact@openstf.io",
+    "url": "https://openstf.io"
   },
   "repository": {
     "type": "git",

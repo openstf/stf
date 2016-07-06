@@ -4,20 +4,33 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/openstf/stf.svg)](https://hub.docker.com/r/openstf/stf/)
 [![NPM version](https://img.shields.io/npm/v/stf.svg)](https://www.npmjs.com/package/stf)
 
-[Help keep OpenSTF up to date and in active development!](https://salt.bountysource.com/teams/openstf)
-
 **STF** (or Smartphone Test Farm) is a web application for debugging smartphones, smartwatches and other gadgets remotely, from the comfort of your browser.
 
-It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices.
+STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://headspin.io/) and [other individual contributors](https://www.bountysource.com/teams/openstf).
+
+Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if you'd like to support future development. How are your donations being used? Check out our [donation transparency report](DONATION-TRANSPARENCY.md).
 
 ![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
 
 ![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
 
+## Sponsors
+
+### Gold Sponsor
+
+[<img src="doc/sponsors/headspin-wordmark-orange.svg?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
+
+[HeadSpin](https://headspin.io/) offers a generous monthly contribution towards STF development. HeadSpin allows you to test and monitor your apps on cell networks around the globe without adding any code.
+
+### How to become a sponsor
+
+Please [contact us][contact-link] for sponsor arrangements. Both recurring and one-time contributions are most welcome. Contributions towards a specific issue or feature are also possible, and can be attributed to your company in our release notes and other related materials. Hardware-only contributions, whether new or used, are also extremely helpful and well received, especially if you find a device that doesn't work. Please see our [donation transparency report](DONATION-TRANSPARENCY.md) for past hardware contributions.
+
 ## Announcements
 
 * Thanks to @qband, @juliusspencer and Anonymous donors, we've been able to confirm [Android N Preview 4 support!](https://github.com/openstf/stf/issues/279)
 * We've added a [donation transparency report](DONATION-TRANSPARENCY.md) for all to see.
+* [HeadSpin](https://headspin.io/) is now sponsoring future development!
 
 ## Features
 
@@ -63,7 +76,7 @@ It is currently being used at [CyberAgent](https://www.cyberagent.co.jp/en/) to 
 
 ## Status
 
-STF is in continued, active development, but as of late 2015 the team is operating mostly on their private time and funds. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. [Contact us][contact-link] if you'd like to support future development or even become our next sponsor.
+STF is in continued, active development, but development is still largely funded by individual team members and their unpaid free time, leading to slow progress. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. See [how to become a sponsor](#how-to-become-a-sponsor) if you or your company would like to support future development.
 
 We're also actively working to expand the team. Welcome **@vbanthia** as our newest full contributor!
 
@@ -75,12 +88,6 @@ Here are some things we are planning to address ASAP.
 2. Implement a basic REST API for programmatically using devices
 3. Properly reset user data between uses (Android 4.0+)
 4. Automated scheduled restarts for devices
-
-### Sponsors wanted
-
-Is your company (or you!) a heavy user of STF? Consider becoming a hardware sponsor. If you find a device that doesn't work, or would simply like to ensure support for a new model, [send it to us][contact-link]! While we can't guarantee a fix, we can promise that someone will take a detailed look into what's going on with your device, and fix it when possible. For difficult cases you may need to use our [consulting services](#consulting-services) instead.
-
-You can also sponsor a feature or bug fix and get it attributed to you or your company in the release notes.
 
 ### Consulting services
 
@@ -415,6 +422,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 See [LICENSE](LICENSE).
 
-Copyright © CyberAgent, Inc. All Rights Reserved.
+Copyright © The OpenSTF Project. All Rights Reserved.
 
 [contact-link]: mailto:contact@openstf.io

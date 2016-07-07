@@ -20,7 +20,9 @@ Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if
 
 [<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
 
-[HeadSpin](https://headspin.io/) offers a generous monthly contribution towards STF development. HeadSpin allows you to test and monitor your apps on cell networks around the globe without adding any code.
+> [HeadSpin](https://headspin.io/) enables developers launch high quality and high performing apps Worldwide. Using HeadSpin’s global distributed device cloud infrastructure, developers can test and monitor their apps instantly on 1,500 global cell networks and local devices. HeadSpin seamlessly plugs into your development workflow with no code changes to your apps.
+
+HeadSpin offers a generous monthly contribution towards STF development.
 
 ### How to become a sponsor
 

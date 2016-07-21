@@ -1,14 +1,10 @@
 ## Overview
 
-This document describes important RESTful APIs of STF. These APIs may open the door to new creative uses of STF. You can use these APIs for running UI tests on real devices. Integrating STF with CI tools such as Jenkins etc. Building device farm for data extraction for smartphone app data mining. You can even use these apis for creating bitcoin mining farm. Possibilities are infinite!
-
-*PS: Please, don't forget to give us our share, if you successfully mine some bitcoins ;)*.
-
-Let's talk about APIs now. Internally STF uses [Swagger](http://swagger.io/) interface for its API implementation. For those who don't know about Swagger, Swagger provides specifications for RESTful apis. By using it you can generate documentations and client SDKs in various language automatically for Swagger-enabled apps. This gives you power to use STF APIs in any language of your favorite. You can read more about Swagger at [here](http://swagger.io/getting-started/).
+STF API is a RESTful API which allows you to reserve and release any STF device. Internally STF uses [Swagger](http://swagger.io/) interface for its API implementation. For those who don't know about Swagger, Swagger provides specifications for RESTful apis. By using it you can generate documentations and client SDKs in various language automatically for Swagger-enabled apps. This gives you power to use STF APIs in any language of your favorite. You can read more about Swagger at [here](http://swagger.io/getting-started/).
 
 ### Swagger Documentations
 
-You can check swagger documentations for STF APIs from [here](https://vbanthia.github.io/angular-swagger-ui). From this document you can check latest APIs, their definitions, usage etc.
+You can check swagger documentations for STF API from [here](https://vbanthia.github.io/angular-swagger-ui).
 
 ## APIs
 - [Authentication](#authentication)

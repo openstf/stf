@@ -30,7 +30,7 @@ Please [contact us][contact-link] for sponsor arrangements. Both recurring and o
 
 ## Announcements
 
-* Thanks to @qband, @juliusspencer and Anonymous donors, we've been able to confirm [Android N Preview 4 support!](https://github.com/openstf/stf/issues/279)
+* Thanks to @qband, @juliusspencer and Anonymous donors, we've been able to confirm [Android N Preview 5 support!](https://github.com/openstf/stf/issues/279)
 * We've added a [donation transparency report](DONATION-TRANSPARENCY.md) for all to see.
 * [HeadSpin](https://headspin.io/) is now sponsoring future development!
 
@@ -38,7 +38,7 @@ Please [contact us][contact-link] for sponsor arrangements. Both recurring and o
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to Android N Preview 4
+    * Supports versions 2.3.3 (SDK level 10) to Android N Preview 5
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality

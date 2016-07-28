@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 (2016-07-29)
+
+No changes, just a retag due to issues with NPM tags.
+
 ## 2.0.0 (2016-07-29)
 
 Major release addressing the following:

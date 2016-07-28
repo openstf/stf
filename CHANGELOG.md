@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (next)
+## 2.0.0 (2016-07-29)
 
 Major release addressing the following:
 

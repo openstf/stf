@@ -278,6 +278,8 @@ clientWithPromise.then(function(api) {
 
 Allows you to retrieve the remote debug URL (i.e. an `adb connect`able address) for a device the authenticated user controls.
 
+_Note that if you haven't added your ADB key to STF yet, the device may be in unauthorized state after connecting to it for the first time. We recommend you make sure your ADB key has already been set up properly before you start using this API. You can add your ADB key from the settings page, or by connecting to a device you're actively using in the UI and responding to the dialog that appears._
+
 ```bash
 POST /api/v1/user/devices/{serial}/remoteConnect
 ```

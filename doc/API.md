@@ -1,31 +1,35 @@
+# STF API
+
 ## Overview
 
-STF API is a RESTful API which allows you to reserve and release any STF device. Internally STF uses [Swagger](http://swagger.io/) interface for its API implementation. For those who don't know about Swagger, Swagger provides specifications for RESTful apis. By using it you can generate documentations and client SDKs in various language automatically for Swagger-enabled apps. This gives you power to use STF APIs in any language of your favorite. You can read more about Swagger at [here](http://swagger.io/getting-started/).
+STF API is a RESTful API which allows you to reserve and release any STF device. Internally STF uses [Swagger](http://swagger.io/) interface for its API implementation. For those who don't know about Swagger, Swagger provides specifications for RESTful apis. By using it you can generate documentation and client SDKs in various language automatically for Swagger-enabled apps. This gives you power to use STF APIs in any language of your favorite. You can read more about Swagger [here](http://swagger.io/getting-started/).
 
-### Swagger Documentations
+## Swagger documentation
 
-You can check swagger documentations for STF API from [here](https://vbanthia.github.io/angular-swagger-ui).
+Swagger documentation for the API is available [here](https://vbanthia.github.io/angular-swagger-ui).
 
 ## APIs
+
 - [Authentication](#authentication)
 - [Devices](#devices)
 - [User](#user)
 
-## Sample Usages
-- [ConnectDevice](#connect-device)
-- [DisconnectDevice](#disconnect-device)
+A few [examples](#examples) are also provided.
 
 ### Authentication
-STF uses oauth2 for RESTful APIs authentication. In order to use APIs, you will first need to generate an access token. Access tokens can be easily generated from STF UI. Just go to the **Settings** tab and generate new access token from keys section. Don't forget to save this token somewhere, you will not be able to see it again.
 
-Put access token in the header of every request
+STF uses OAuth 2.0 for authentication. In order to use the API, you will first need to generate an access token. Access tokens can be easily generated from the STF UI. Just go to the **Settings** tab and generate a new access token in **Keys** section. Don't forget to save this token somewhere, you will not be able to see it again.
 
-Curl Sample
+The access token must be included in every request.
+
+Using cURL:
+
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user
 ```
 
-NodeJS Sample
+Using Node.js:
+
 ```js
 
 var Swagger = require('swagger-client');
@@ -64,22 +68,33 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-### Devices
-#### /devices
+### Pretty printing output
 
-**List all STF devices including disconnected or offline ones**
+Please use [jq](https://stedolan.github.io/jq/manual/) for pretty printing. It's very easy to use:
+
+```sh
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/devices | jq .
+```
+
+It also provides much more complex patterns for retrieving and/or filtering data.
+
+### Devices
+
+#### GET /devices
+
+List **all** STF devices (including disconnected or otherwise inaccessible devices).
 
 ```bash
 GET /api/v1/devices
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/devices
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -101,21 +116,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-#### /devices/{serial}
+#### GET /devices/{serial}
 
-**Provide information to specific device**
+Returns information about a specific device.
 
 ```bash
 GET /api/v1/devices/{serial}
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices/xxxxxxxxx
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/devices/xxxxxxxxx
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -137,21 +152,22 @@ clientWithPromise.then(function(api) {
 ```
 
 ### User
-#### /user
 
-**Provides current authenticated user information**
+#### GET /user
+
+Returns information about yourself (the authenticated user).
 
 ```bash
 GET /api/v1/user
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -163,21 +179,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-#### /user/devices
+#### GET /user/devices
 
-**Provide devices owned by user**
+Returns a list of devices currently being used by the authenticated user.
 
 ```bash
 GET /api/v1/user/devices
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -198,19 +214,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-**Add new device for user**
+#### POST /user/devices
+
+Attempts to add a device under the authenticated user's control. This is analogous to pressing "Use" in the UI.
 
 ```bash
 POST /api/v1/user/devices
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -X POST --header "Content-Type: application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 var device = {serial: 'yyyy', timeout: 900000 }
@@ -227,19 +245,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-**Delete a device from user**
+#### DELETE /user/devices/{serial}
+
+Removes a device from the authenticated user's device list. This is analogous to pressing "Stop using" in the UI.
 
 ```bash
 DELETE /api/v1/user/devices/{serial}
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}
+curl -X DELETE -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices/{serial}
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -254,21 +274,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-#### /user/devices/{serial}/remoteConnect
+#### POST /user/devices/{serial}/remoteConnect
 
-**Remote Connect**
+Allows you to retrieve the remote debug URL (i.e. an `adb connect`able address) for a device the authenticated user controls.
 
 ```bash
 POST /api/v1/user/devices/{serial}/remoteConnect
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X POST --header "Content-Type: application/json" -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -285,19 +305,21 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-**Remote Disconnect**
+#### DELETE /api/v1/user/devices/{serial}/remoteConnect
+
+Disconnect a remote debugging session.
 
 ```bash
 DELETE /api/v1/user/devices/{serial}/remoteConnect
 ```
 
-Curl Sample
+Using cURL:
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X DELETE -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
 ```
 
-NodeJS Sample
+Using Node.js:
 
 ```js
 clientWithPromise.then(function(api) {
@@ -314,8 +336,9 @@ clientWithPromise.then(function(api) {
 })
 ```
 
-## Sample Usages
-### Connect Device
+## Examples
+
+### Connect to a device and retrieve its remote debug URL
 
 ```js
 // stf-connect.js
@@ -370,12 +393,13 @@ client.then(function(api) {
   })
 })
 ```
+
 ```bash
 node stf-connect.js xxxx
 # $PROVIDR_IP:16829
 ```
 
-### Disconnect Device
+### Disconnect a device once you no longer need it
 
 ```js
 var Swagger = require('swagger-client');

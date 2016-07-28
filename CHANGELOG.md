@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 (2016-07-29)
+
+Major release addressing the following:
+
+### Enhancements
+
+- Added a simple [REST API](doc/API.md). Huge thanks to @vbanthia!
+    * Also, we have an example showing [how to use the API with Appium](https://github.com/openstf/stf-appium-example).
+
+### Breaking changes
+
+- The API server is a new app unit that must be added to your deployment. Please see the [deployment guide](doc/DEPLOYMENT.md) for up to date instructions.
+
 ## 1.2.0 (2016-07-22)
 
 Minor release addressing the following:

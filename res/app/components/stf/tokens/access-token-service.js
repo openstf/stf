@@ -6,7 +6,7 @@ module.exports = function AccessTokenServiceFactory(
   var AccessTokenService = {}
 
   AccessTokenService.getAccessTokens = function() {
-    return $http.get('/app/api/v1/accessTokens')
+    return $http.get('/api/v1/user/accessTokens')
   }
 
   AccessTokenService.generateAccessToken = function(title) {

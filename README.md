@@ -75,21 +75,23 @@ Please [contact us][contact-link] for sponsor arrangements. Both recurring and o
   - Rudimentary Play Store account management
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
+* Simple REST [API](doc/API.md)
 
 ## Status
 
 STF is in continued, active development, but development is still largely funded by individual team members and their unpaid free time, leading to slow progress. While normal for many open source projects, STF is quite heavy on the hardware side, and is therefore somewhat of a money sink. See [how to become a sponsor](#how-to-become-a-sponsor) if you or your company would like to support future development.
 
-We're also actively working to expand the team. Welcome **@vbanthia** as our newest full contributor!
+We're also actively working to expand the team, don't be afraid to ask if you're interested.
 
 ### Short term goals
 
 Here are some things we are planning to address ASAP.
 
-1. Properly expose the new VNC functionality in the UI
-2. Implement a basic REST API for programmatically using devices
+1. Performance
+2. Properly expose the new VNC functionality in the UI
 3. Properly reset user data between uses (Android 4.0+)
 4. Automated scheduled restarts for devices
+5. More!
 
 ### Consulting services
 

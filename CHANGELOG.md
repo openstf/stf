@@ -7,6 +7,7 @@ Major release addressing the following:
 ### Enhancements
 
 - Added a simple [REST API](doc/API.md). Huge thanks to @vbanthia!
+    * Also, we have an example showing [how to use the API with Appium](https://github.com/openstf/stf-appium-example).
 
 ### Breaking changes
 

@@ -14,7 +14,7 @@ Swagger documentation for the API is available [here](https://vbanthia.github.io
 - [Devices](#devices)
 - [User](#user)
 
-A few [examples](#examples) are also provided.
+A few [examples](#examples) are also provided. We also have a more advanced example showing [how to use the API with Appium](https://github.com/openstf/stf-appium-example).
 
 ### Authentication
 

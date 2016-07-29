@@ -33,7 +33,7 @@ Since we're dealing with actual physical devices, some units need to be deployed
 
 The provider role requires the following units, which must be together on a single or more hosts.
 
-* [adbd.service](#adbservice)
+* [adbd.service](#adbdservice)
 * [stf-provider@.service](#stf-providerservice)
 
 ### App role
@@ -95,7 +95,7 @@ ExecStart=/usr/bin/docker run --rm \
   -v /dev/bus/usb:/dev/bus/usb \
   --net host \
   sorccu/adb:latest
-ExecStop=-/usr/bin/docker stop -t 2 %p
+ExecStop=/usr/bin/docker exec %p adb kill-server
 ```
 
 ### `rethinkdb.service`

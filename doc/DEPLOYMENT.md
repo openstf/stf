@@ -107,7 +107,7 @@ If you need to expand your RethinkDB cluster beyond one server you may encounter
 You will also have to:
 
 1. Modify the `--cache-size` as you please. It limits the amount of memory RethinkDB uses and is given in megabytes, but is not an absolute limit! Real usage can be slightly higher.
-2. Update the version number in `rethinkdb:2.1.1` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
+2. Update the version number in `rethinkdb:2.3` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
 3. The `AUTHKEY` environment variable is only for convenience when linking. So, the first time you set things up, you will have to access http://DB_SERVER_IP:8080 after starting the unit and run the following command:
 
 ```javascript
@@ -138,7 +138,7 @@ ExecStart=/usr/bin/docker run --rm \
   -v /srv/rethinkdb:/data \
   -e "AUTHKEY=YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY" \
   --net host \
-  rethinkdb:2.1.5 \
+  rethinkdb:2.3 \
   rethinkdb --bind all \
     --cache-size 8192
 ExecStop=-/usr/bin/docker stop -t 10 %p

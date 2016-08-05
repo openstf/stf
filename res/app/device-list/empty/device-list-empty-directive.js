@@ -1,7 +1,7 @@
 module.exports = function DeviceListEmptyDirective() {
   return {
     restrict: 'E'
-  , template: require('./device-list-empty.jade')
+  , template: require('./device-list-empty.pug')
   , scope: {
       tracker: '&tracker'
     }

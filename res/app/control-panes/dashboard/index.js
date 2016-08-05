@@ -8,8 +8,8 @@ module.exports = angular.module('stf.dashboard', [
 ])
   .run(['$templateCache', function($templateCache) {
     $templateCache.put(
-      'control-panes/dashboard/dashboard.jade'
-      , require('./dashboard.jade')
+      'control-panes/dashboard/dashboard.pug'
+      , require('./dashboard.pug')
     )
   }])
   .controller('DashboardCtrl', require('./dashboard-controller'))

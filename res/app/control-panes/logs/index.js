@@ -5,8 +5,8 @@ module.exports = angular.module('stf.logs', [
   require('stf/logcat-table').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/logs/logs.jade',
-      require('./logs.jade')
+    $templateCache.put('control-panes/logs/logs.pug',
+      require('./logs.pug')
     )
   }])
   .controller('LogsCtrl', require('./logs-controller'))

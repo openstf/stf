@@ -6,7 +6,7 @@ module.exports = angular.module('stf.settings.keys.adb-keys', [
 ])
   .run(['$templateCache', function($templateCache) {
     $templateCache.put(
-      'settings/keys/adb-keys/adb-keys.jade', require('./adb-keys.jade')
+      'settings/keys/adb-keys/adb-keys.pug', require('./adb-keys.pug')
     )
   }])
   .controller('AdbKeysCtrl', require('./adb-keys-controller'))

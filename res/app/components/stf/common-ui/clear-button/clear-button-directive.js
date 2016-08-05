@@ -3,6 +3,6 @@ module.exports = function clearButtonDirective() {
     restrict: 'EA',
     replace: true,
     scope: {},
-    template: require('./clear-button.jade')
+    template: require('./clear-button.pug')
   }
 }

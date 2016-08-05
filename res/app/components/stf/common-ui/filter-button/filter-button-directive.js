@@ -4,6 +4,6 @@ module.exports = function filterButtonDirective() {
     restrict: 'EA',
     replace: true,
     scope: {},
-    template: require('./filter-button.jade')
+    template: require('./filter-button.pug')
   }
 }

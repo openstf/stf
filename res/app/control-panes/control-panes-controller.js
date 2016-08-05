@@ -7,31 +7,31 @@ module.exports =
       {
         title: gettext('Screenshots'),
         icon: 'fa-camera color-skyblue',
-        templateUrl: 'control-panes/screenshots/screenshots.jade',
+        templateUrl: 'control-panes/screenshots/screenshots.pug',
         filters: ['native', 'web']
       },
       {
         title: gettext('Automation'),
         icon: 'fa-road color-lila',
-        templateUrl: 'control-panes/automation/automation.jade',
+        templateUrl: 'control-panes/automation/automation.pug',
         filters: ['native', 'web']
       },
       {
         title: gettext('Advanced'),
         icon: 'fa-bolt color-brown',
-        templateUrl: 'control-panes/advanced/advanced.jade',
+        templateUrl: 'control-panes/advanced/advanced.pug',
         filters: ['native', 'web']
       },
       {
         title: gettext('File Explorer'),
         icon: 'fa-folder-open color-blue',
-        templateUrl: 'control-panes/explorer/explorer.jade',
+        templateUrl: 'control-panes/explorer/explorer.pug',
         filters: ['native', 'web']
       },
       {
         title: gettext('Info'),
         icon: 'fa-info color-orange',
-        templateUrl: 'control-panes/info/info.jade',
+        templateUrl: 'control-panes/info/info.pug',
         filters: ['native', 'web']
       }
     ]
@@ -40,7 +40,7 @@ module.exports =
       {
         title: gettext('Dashboard'),
         icon: 'fa-dashboard fa-fw color-pink',
-        templateUrl: 'control-panes/dashboard/dashboard.jade',
+        templateUrl: 'control-panes/dashboard/dashboard.pug',
         filters: ['native', 'web']
       }
     ].concat(angular.copy(sharedTabs))
@@ -49,7 +49,7 @@ module.exports =
       {
         title: gettext('Logs'),
         icon: 'fa-list-alt color-red',
-        templateUrl: 'control-panes/logs/logs.jade',
+        templateUrl: 'control-panes/logs/logs.pug',
         filters: ['native', 'web']
       }
     ].concat(angular.copy(sharedTabs))

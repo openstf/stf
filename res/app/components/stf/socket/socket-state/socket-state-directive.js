@@ -8,7 +8,7 @@ module.exports = function SocketStateDirectiveFactory(
 ) {
   return {
     restrict: 'EA',
-    template: require('./socket-state.jade'),
+    template: require('./socket-state.pug'),
     link: function(scope) {
       var hasFailedOnce = false
 

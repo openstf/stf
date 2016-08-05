@@ -3,7 +3,7 @@ module.exports = function DeviceListStatsDirective(
 ) {
   return {
     restrict: 'E'
-  , template: require('./device-list-stats.jade')
+  , template: require('./device-list-stats.pug')
   , scope: {
       tracker: '&tracker'
     }

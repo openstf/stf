@@ -9,7 +9,7 @@ var webpack = require('webpack')
 var webpackConfig = require('./webpack.config').webpack
 var webpackStatusConfig = require('./res/common/status/webpack.config')
 var gettext = require('gulp-angular-gettext')
-var jade = require('gulp-jade')
+var pug = require('gulp-pug')
 var del = require('del')
 // var protractor = require('gulp-protractor')
 var protractor = require('./res/test/e2e/helpers/gulp-protractor-adv')
@@ -204,14 +204,14 @@ gulp.task('translate', [
 , 'translate:compile'
 ])
 
-gulp.task('jade', function() {
+gulp.task('pug', function() {
   return gulp.src([
-      './res/**/*.jade'
+    , './res/**/*.pug'
     , '!./res/bower_components/**'
     ])
-    .pipe(jade({
+    .pipe(pug({
       locals: {
-        // So res/views/docs.jade doesn't complain
+        // So res/views/docs.pug doesn't complain
         markdownFile: {
           parseContent: function() {
           }
@@ -221,7 +221,7 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('./tmp/html/'))
 })
 
-gulp.task('translate:extract', ['jade'], function() {
+gulp.task('translate:extract', ['pug'], function() {
   return gulp.src([
       './tmp/html/**/*.html'
     , './res/**/*.js'

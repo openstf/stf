@@ -7,7 +7,7 @@ module.exports = angular.module('stf.settings.keys.access-tokens', [
 ])
   .run(['$templateCache', function($templateCache) {
     $templateCache.put(
-      'settings/keys/access-tokens/access-tokens.jade', require('./access-tokens.jade')
+      'settings/keys/access-tokens/access-tokens.pug', require('./access-tokens.pug')
     )
   }])
   .controller('AccessTokensCtrl', require('./access-tokens-controller'))

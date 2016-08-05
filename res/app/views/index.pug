@@ -19,7 +19,7 @@ html(ng-app='app')
           pane-size='{{!$root.basicMode && !$root.standalone ? 44 : 0 }}px',
 
           pane-handle='')
-          div(ng-include='"menu.jade"')
+          div(ng-include='"menu.pug"')
 
         .pane-center(fa-pane, pane-id='main', pane-anchor='center').fill-height
           socket-state

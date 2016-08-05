@@ -98,7 +98,7 @@ module.exports = function DeviceListIconsDirective(
 
   return {
     restrict: 'E'
-  , template: require('./device-list-icons.jade')
+  , template: require('./device-list-icons.pug')
   , scope: {
       tracker: '&tracker'
     , columns: '&columns'

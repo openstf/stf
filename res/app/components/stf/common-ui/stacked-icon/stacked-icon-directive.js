@@ -8,6 +8,6 @@ module.exports = function clearButtonDirective() {
       icon: '@',
       color: '@'
     },
-    template: require('./stacked-icon.jade')
+    template: require('./stacked-icon.pug')
   }
 }

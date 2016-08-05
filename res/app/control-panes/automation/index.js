@@ -4,7 +4,7 @@ module.exports = angular.module('stf.automation', [
 ])
   .run(['$templateCache', function($templateCache) {
     $templateCache.put(
-      'control-panes/automation/automation.jade'
-      , require('./automation.jade')
+      'control-panes/automation/automation.pug'
+      , require('./automation.pug')
     )
   }])

@@ -13,7 +13,7 @@ module.exports = function DeviceListDetailsDirective(
 ) {
   return {
     restrict: 'E'
-  , template: require('./device-list-details.jade')
+  , template: require('./device-list-details.pug')
   , scope: {
       tracker: '&tracker'
     , columns: '&columns'

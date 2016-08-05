@@ -6,7 +6,7 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
       showAdd: '=',
       showClipboard: '='
     },
-    template: require('./add-adb-key.jade'),
+    template: require('./add-adb-key.pug'),
     controller: function($scope, UserService) {
       $scope.addForm = {
         title: ''

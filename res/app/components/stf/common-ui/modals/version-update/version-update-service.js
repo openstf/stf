@@ -14,7 +14,7 @@ module.exports = function ServiceFactory($uibModal, $location) {
 
   service.open = function() {
     var modalInstance = $uibModal.open({
-      template: require('./version-update.jade'),
+      template: require('./version-update.pug'),
       controller: ModalInstanceCtrl
     })
 

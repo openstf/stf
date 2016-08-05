@@ -8,8 +8,8 @@ module.exports = angular.module('device-control.standalone', [
   require('stf/screen/scaling').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/device-control/standalone/standalone.jade',
-      require('./standalone.jade')
+    $templateCache.put('control-panes/device-control/standalone/standalone.pug',
+      require('./standalone.pug')
     )
   }])
   .controller('StandaloneCtrl', require('./standalone-controller'))

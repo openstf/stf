@@ -2,7 +2,7 @@ module.exports = function niceTabsDirective() {
   return {
     restrict: 'EA',
     replace: true,
-    template: require('./nice-tabs.jade'),
+    template: require('./nice-tabs.pug'),
     link: function(scope, element, attrs) {
       // TODO: add support for 'key' for saving in Settings
       // TODO: add support for 'direction=below' for below tabs

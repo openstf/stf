@@ -5,7 +5,7 @@ module.exports =
     return {
       restrict: 'E',
       replace: true,
-      template: require('./logcat-table.jade'),
+      template: require('./logcat-table.pug'),
       link: function(scope, element) {
         var autoScroll = true
         var autoScrollDependingOnScrollPosition = true

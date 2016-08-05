@@ -18,7 +18,7 @@ module.exports = angular.module('device-list', [
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/devices', {
-        template: require('./device-list.jade'),
+        template: require('./device-list.pug'),
         controller: 'DeviceListCtrl'
       })
   }])

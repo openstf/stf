@@ -3,7 +3,7 @@ module.exports = angular.module('stf.user-profile', [])
 
     $routeProvider
       .when('/user/:user*', {
-        template: require('./user.jade')
+        template: require('./user.pug')
       })
   })
   .controller('UserProfileCtrl', require('./user-controller'))

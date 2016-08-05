@@ -6,8 +6,8 @@ module.exports = angular.module('stf.settings.general', [
 ])
   .run(['$templateCache', function($templateCache) {
     $templateCache.put(
-      'settings/general/general.jade'
-      , require('./general.jade')
+      'settings/general/general.pug'
+      , require('./general.pug')
     )
   }])
   .controller('GeneralCtrl', require('./general-controller'))

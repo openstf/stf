@@ -12,7 +12,7 @@ module.exports = function DeviceScreenDirective(
 ) {
   return {
     restrict: 'E'
-  , template: require('./screen.jade')
+  , template: require('./screen.pug')
   , scope: {
       control: '&'
     , device: '&'

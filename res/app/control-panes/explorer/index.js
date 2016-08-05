@@ -2,8 +2,8 @@ require('./explorer.css')
 
 module.exports = angular.module('stf.explorer', [])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/explorer/explorer.jade',
-      require('./explorer.jade')
+    $templateCache.put('control-panes/explorer/explorer.pug',
+      require('./explorer.pug')
     )
   }])
   .filter('formatPermissionMode', function() {

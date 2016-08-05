@@ -7,8 +7,8 @@ module.exports = angular.module('stf.clipboard', [
   require('gettext').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/dashboard/clipboard/clipboard.jade',
-      require('./clipboard.jade')
+    $templateCache.put('control-panes/dashboard/clipboard/clipboard.pug',
+      require('./clipboard.pug')
     )
   }])
   .controller('ClipboardCtrl', require('./clipboard-controller'))

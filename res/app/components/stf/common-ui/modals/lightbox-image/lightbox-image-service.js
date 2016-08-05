@@ -16,7 +16,7 @@ module.exports = function ServiceFactory($uibModal) {
 
   service.open = function(title, imageUrl) {
     var modalInstance = $uibModal.open({
-      template: require('./lightbox-image.jade'),
+      template: require('./lightbox-image.pug'),
       controller: ModalInstanceCtrl,
       windowClass: 'modal-size-xl',
       resolve: {

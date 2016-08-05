@@ -6,6 +6,6 @@ module.exports = function clearButtonDirective() {
       topic: '@',
       tooltip: '@'
     },
-    template: require('./help-icon.jade')
+    template: require('./help-icon.pug')
   }
 }

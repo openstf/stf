@@ -1,4 +1,5 @@
 var supportedLanguages = require('./../../../../common/lang/langs.json')
+var _ = require('lodash')
 
 module.exports =
   function LanguageServiceFactory(SettingsService, gettextCatalog) {
@@ -7,8 +8,13 @@ module.exports =
     var LanguageService = {}
 
     function detectLanguage() {
-      return (navigator.language || navigator.userLanguage || 'en-US')
-        .substring(0, 2)
+      return navigator.language || navigator.userLanguage
+    }
+
+    function browserToSupportedLang(lang) {
+      //supportedLanguages.
+
+      //return lang.replace(/([A-Za-z]{2})(-|_)?([A-Za-z]{0,4})/gm, '$1')
     }
 
     function isSupported(lang) {

@@ -4,12 +4,12 @@ module.exports = function SettingsCtrl($scope, gettext) {
     {
       title: gettext('General'),
       icon: 'fa-gears fa-fw',
-      templateUrl: 'settings/general/general.jade'
+      templateUrl: 'settings/general/general.pug'
     },
     {
       title: gettext('Keys'),
       icon: 'fa-key fa-fw',
-      templateUrl: 'settings/keys/keys.jade'
+      templateUrl: 'settings/keys/keys.pug'
     }
   ]
 }

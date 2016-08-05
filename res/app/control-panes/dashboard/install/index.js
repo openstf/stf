@@ -11,8 +11,8 @@ module.exports = angular.module('stf.install', [
   require('stf/upload').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/dashboard/install/install.jade',
-      require('./install.jade')
+    $templateCache.put('control-panes/dashboard/install/install.pug',
+      require('./install.pug')
     )
   }])
   .controller('InstallCtrl', require('./install-controller'))

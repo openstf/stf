@@ -5,8 +5,8 @@ module.exports = angular.module('stf.screenshots', [
   require('stf/settings').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/screenshots/screenshots.jade',
-      require('./screenshots.jade')
+    $templateCache.put('control-panes/screenshots/screenshots.pug',
+      require('./screenshots.pug')
     )
   }])
   .controller('ScreenshotsCtrl', require('./screenshots-controller'))

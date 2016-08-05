@@ -9,8 +9,8 @@ module.exports = angular.module('stf.advanced', [
   require('./maintenance').name
 ])
   .run(['$templateCache', function($templateCache) {
-    $templateCache.put('control-panes/advanced/advanced.jade',
-      require('./advanced.jade')
+    $templateCache.put('control-panes/advanced/advanced.pug',
+      require('./advanced.pug')
     )
   }])
   .controller('AdvancedCtrl', require('./advanced-controller'))

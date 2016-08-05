@@ -51,7 +51,7 @@
                   ng-click='uninstall(installation.manifest.package)', ng-show='installation.success')
                     i.fa.fa-trash-o
                     span(translate) Uninstall
-                div(ng-include='"control-panes/dashboard/install/activities/activities.jade"')
+                div(ng-include='"control-panes/dashboard/install/activities/activities.pug"')
                 button.btn.btn-sm.btn-primary-outline(uib-btn-checkbox, ng-model='showManifest')
                   i.fa.fa-list
                   span(ng-if='showManifest') Hide Manifest

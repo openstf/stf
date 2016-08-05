@@ -5,7 +5,7 @@ module.exports = function generateAccessTokenDirective() {
     scope: {
       showGenerate: '='
     },
-    template: require('./generate-access-token.jade'),
+    template: require('./generate-access-token.pug'),
     controller: function($scope, AccessTokenService) {
       $scope.generateForm = {
         title: ''

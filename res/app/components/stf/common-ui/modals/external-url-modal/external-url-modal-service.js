@@ -17,7 +17,7 @@ module.exports = function ServiceFactory($uibModal, $sce) {
 
   service.open = function(url, title, icon) {
     var modalInstance = $uibModal.open({
-      template: require('./external-url-modal.jade'),
+      template: require('./external-url-modal.pug'),
       controller: ModalInstanceCtrl,
       windowClass: 'modal-size-80p',
       resolve: {

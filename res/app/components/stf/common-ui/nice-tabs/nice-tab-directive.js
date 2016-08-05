@@ -5,7 +5,7 @@ module.exports = function niceTabDirective() {
     replace: true,
     scope: {
     },
-    template: require('./nice-tab.jade'),
+    template: require('./nice-tab.pug'),
     link: function() {
     }
   }

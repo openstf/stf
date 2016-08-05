@@ -206,7 +206,7 @@ gulp.task('translate', [
 
 gulp.task('pug', function() {
   return gulp.src([
-    , './res/**/*.pug'
+      './res/**/*.pug'
     , '!./res/bower_components/**'
     ])
     .pipe(pug({

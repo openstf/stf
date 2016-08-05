@@ -56,7 +56,7 @@ module.exports = {
         , {test: /\.otf/, loader: 'url?limit=1&mimetype=application/font-woff'}
         , {test: /\.ttf/, loader: 'url?limit=1&mimetype=application/font-woff'}
         , {test: /\.eot/, loader: 'url?limit=1&mimetype=vnd.ms-fontobject'}
-        , {test: /\.pug$/, loader: 'template-html-loader'}
+        , {test: /\.pug$/, loader: 'template-html-loader?engine=jade'}
         , {test: /\.html$/, loader: 'html-loader'}
         , {test: /angular\.js$/, loader: 'exports?angular'}
         , {test: /angular-cookies\.js$/, loader: 'imports?angular=angular'}

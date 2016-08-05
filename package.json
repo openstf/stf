@@ -30,6 +30,7 @@
     "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
+    "@slack/client": "^3.5.4",
     "adbkit": "^2.4.1",
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
@@ -74,7 +75,6 @@
     "semver": "^5.0.1",
     "serve-favicon": "^2.2.0",
     "serve-static": "^1.9.2",
-    "slack-client": "^2.0.0-beta.3",
     "socket.io": "1.4.8",
     "split": "^1.0.0",
     "stf-appstore-db": "^1.0.0",
@@ -140,6 +140,7 @@
     "socket.io-client": "1.4.8",
     "style-loader": "^0.13.0",
     "template-html-loader": "^0.0.3",
+    "then-jade": "^2.4.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"

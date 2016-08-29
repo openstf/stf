@@ -131,7 +131,7 @@ Restart=always
 ExecStartPre=/usr/bin/docker pull rethinkdb:2.3
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
-ExecStartPre=/usr/bin/mkdir -p /srv/rethinkdb
+ExecStartPre=/bin/mkdir -p /srv/rethinkdb
 ExecStartPre=/usr/bin/chattr -R +C /srv/rethinkdb
 ExecStart=/usr/bin/docker run --rm \
   --name %p \

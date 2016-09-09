@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@slack/client": "^3.5.4",
-    "adbkit": "^2.5.1",
+    "adbkit": "^2.6.0",
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.4.13",

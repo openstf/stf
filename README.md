@@ -200,11 +200,11 @@ Yes, see [DEPLOYMENT.md](doc/DEPLOYMENT.md) and [Setup Examples](https://github.
 
 ### Will I have to change battery packs all the time?
 
-Nope, we've had many devices running since the initial prototype phase about two years ago, and we've only had a single incident so far. The battery expanded causing the casing to split from the seams. The device itself was working fine and reporting full battery health, but it was discarded due to safety reasons.
+No, not all the time. Aside from a single early failure we had within only a few months, all of our devices were doing fine for about two years. However, having reached the 2-3 year mark, several devices have started to experience visibly expanded batteries. Expanded batteries should be replaced as soon as possible. Note that this issue isn't specific to STF, it's just what happens over time. You should be prepared to replace the batteries every now and then. In any case, we consider 2 years per battery pack to be fairly good value for a device lab.
 
-Devices should be allowed to turn their screens off when idle, which is what we are doing. All of our devices report perfect battery health so far.
+You should set up your devices so that the display is allowed to turn off entirely after a short timeout. 30 seconds or so should do just fine, STF will wake it up when necessary. Otherwise you risk reducing the lifetime of your device.
 
-Note that you may have a problem if your USB hubs are unable to both provide enough power and support the data connection at the same time. This can cause a device to stop charging when being used, resulting in many charging cycles. If this happens you will just need to [get a better USB hub](#recommended-hardware).
+Note that you may have a problem if your USB hubs are unable to both provide enough power for charging and support a data connection at the same time (data connections require power, too). This can cause a device to stop charging when being used, resulting in many charging cycles. If this happens you will just need to [get a better USB hub](#recommended-hardware).
 
 ### Is the system secure?
 

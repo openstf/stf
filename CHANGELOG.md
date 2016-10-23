@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.1.0 (2016-10-24)
+
+Minor release addressing the following:
+
+### Enhancements
+
+- Android 7.1 support!
+
+### Fixes
+
+- [STFService.apk](https://github.com/openstf/STFService.apk) now uses abstract sockets instead of TCP sockets. This fixes stability issues with devices connected in RNDIS mode.
+- Updated [adbkit](https://github.com/openstf/adbkit) to fix `logcat` issues on newer Android versions.
+- General reliability improvements in [adbkit](https://github.com/openstf/adbkit).
+- Fixed [minitouch](https://github.com/openstf/minitouch) on Alcatel Idol 3.
+
 ## 2.0.1 (2016-07-29)
 
 No changes, just a retag due to issues with NPM tags.

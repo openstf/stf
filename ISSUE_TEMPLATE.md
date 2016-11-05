@@ -8,4 +8,6 @@
 
 **What is the expected behavior?**
 
+**Do you see errors or warnings in the `stf local` output? If so, please paste them or the full log here.**
+
 **Please run `stf doctor` and paste the output here.**

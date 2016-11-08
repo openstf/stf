@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.0 (2016-11-09)
+
+Minor release addressing the following:
+
+### Fixes
+
+- Fixed [minicap](https://github.com/openstf/minicap) on some/all Samsung devices running Android 5.1.1, which did not work previously. Thanks to @dkw72n for tracking down the issue and coming up with a fix!
+
+### Misc
+
+- The [openstf/stf-armv7l](https://hub.docker.com/r/openstf/stf-armv7l/) Docker image is being built again. Our previous armv7l build server died and [Scaleway](https://www.scaleway.com/) did not have more available until recently.
+
 ## 2.1.0 (2016-10-24)
 
 Minor release addressing the following:

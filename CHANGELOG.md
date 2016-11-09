@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.0 (2016-11-09)
+
+Minor release addressing the following:
+
+### Fixes
+
+- Fixed [minicap](https://github.com/openstf/minicap) on various devices running Android 4.2, incl. Qumo Quest 405, Yoga Tablet 8 etc. There may still be some that do not work, as 4.2 was customized pretty heavily by some makers. Thanks to @dkw72n for tracking down the issue and coming up with a fix! And as always, please let us know if you find any device (running any Android version) that does not work.
+
 ## 2.2.0 (2016-11-09)
 
 Minor release addressing the following:

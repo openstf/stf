@@ -1,5 +1,15 @@
 # Changelog
 
+## HEAD
+
+### Fixes
+
+- Fixed Lenovo A806 and most likely other cheap Lenovo devices as well by updating [adbkit](https://github.com/openstf/adbkit).
+
+### Misc
+
+- We now use [please-update-dependencies](https://github.com/sorccu/please-update-dependencies) to check for outdated dependencies when running from source. It's a super quick local check that compares `package.json` with installed dependencies. Should help avoid unnecessary issues caused by forgetting to run `npm install` after `git pull`.
+
 ## 2.3.0 (2016-11-09)
 
 Minor release addressing the following:

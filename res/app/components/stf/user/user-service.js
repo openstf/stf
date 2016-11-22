@@ -24,6 +24,10 @@ module.exports = function UserServiceFactory(
     socket.emit('user.keys.adb.remove', key)
   }
 
+  socket.on('user.keys.adb.error', function(error) {
+    $rootScope.$broadcast('user.keys.adb.error', error)
+  })
+
   socket.on('user.keys.adb.added', function(key) {
     UserService.getAdbKeys().push(key)
     $rootScope.$broadcast('user.keys.adb.updated', user.adbKeys)

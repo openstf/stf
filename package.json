@@ -62,7 +62,6 @@
     "minicap-prebuilt": "^1.2.0",
     "minimatch": "^3.0.3",
     "my-local-ip": "^1.0.0",
-    "node-uuid": "^1.4.3",
     "openid": "^2.0.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",
@@ -89,6 +88,7 @@
     "transliteration": "^1.1.6",
     "url-join": "1.1.0",
     "utf-8-validate": "^1.2.1",
+    "uuid": "^3.0.0",
     "ws": "^1.0.1",
     "zmq": "^2.14.0"
   },

@@ -571,6 +571,7 @@ function DeviceStatusCell(options) {
   , preparing: 'state-preparing btn-primary-outline btn-success-outline'
   , unauthorized: 'state-unauthorized btn-danger-outline'
   , offline: 'state-offline btn-warning-outline'
+  , automation: 'state-automation btn-info'
   }
 
   return _.defaults(options, {

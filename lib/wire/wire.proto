@@ -261,6 +261,7 @@ message GroupMessage {
   required OwnerMessage owner = 1;
   optional uint32 timeout = 2;
   repeated DeviceRequirement requirements = 3;
+  optional string usage = 4;
 }
 
 message AutoGroupMessage {
@@ -275,6 +276,7 @@ message UngroupMessage {
 message JoinGroupMessage {
   required string serial = 1;
   required OwnerMessage owner = 2;
+  optional string usage = 3;
 }
 
 message JoinGroupByAdbFingerprintMessage {

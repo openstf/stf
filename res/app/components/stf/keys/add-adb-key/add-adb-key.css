@@ -1,3 +1,7 @@
-.stf-add-adb-key {
+.stf-add-adb-key .form-adb-key {
+  margin-bottom: 60px;
+}
 
+.stf-add-adb-key .clip-board {
+  margin-bottom: 20px;
 }

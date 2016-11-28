@@ -2,6 +2,10 @@
 
 ## HEAD
 
+### Enhancements
+
+- You can now set screen JPEG quality with the `SCREEN_JPEG_QUALITY` environment variable at launch time. Can be useful for slow networks.
+
 ### Fixes
 
 - Fixed Lenovo A806 and most likely other cheap Lenovo devices as well by updating [adbkit](https://github.com/openstf/adbkit).

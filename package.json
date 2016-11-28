@@ -129,7 +129,6 @@
     "less": "^2.4.0",
     "less-loader": "^2.2.2",
     "memory-fs": "^0.3.0",
-    "minicap-prebuilt": "^1.0.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "phantomjs-prebuilt": "^2.1.11",

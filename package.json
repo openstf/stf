@@ -40,7 +40,6 @@
     "body-parser": "^1.13.3",
     "bufferutil": "^1.2.1",
     "chalk": "~1.1.1",
-    "commander": "^2.9.0",
     "compression": "^1.5.2",
     "cookie-session": "^2.0.0-alpha.1",
     "csurf": "^1.7.0",
@@ -90,6 +89,7 @@
     "utf-8-validate": "^1.2.1",
     "uuid": "^3.0.0",
     "ws": "^1.0.1",
+    "yargs": "^6.5.0",
     "zmq": "^2.14.0"
   },
   "devDependencies": {

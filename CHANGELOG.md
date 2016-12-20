@@ -5,6 +5,11 @@
 ### Enhancements
 
 - You can now set screen JPEG quality with the `SCREEN_JPEG_QUALITY` environment variable at launch time. Can be useful for slow networks.
+- Switched to [yargs](http://yargs.js.org) for option parsing to make it easier to modify the CLI.
+- Almost all command line options can now be specified with environment variables.
+- Internal commands are now hidden from help output but can still be used.
+- Running the `stf` binary without a command now errors and shows help output (previously there was no output whatsoever).
+- Improved help messages for various options.
 
 ### Fixes
 
@@ -13,6 +18,12 @@
 ### Misc
 
 - We now use [please-update-dependencies](https://github.com/sorccu/please-update-dependencies) to check for outdated dependencies when running from source. It's a super quick local check that compares `package.json` with installed dependencies. Should help avoid unnecessary issues caused by forgetting to run `npm install` after `git pull`.
+
+### Breaking changes
+
+- The `-C` shortcut for the `--no-cleanup` option has been removed due to the switch to [yargs](http://yargs.js.org). Please use the full `--no-cleanup` option instead.
+- Although likely not used by anyone, it was possible to give multiple ZeroMQ endpoints to options such as `--connect-push` by separating them with commas. This is still possible but now works in a different way due to the switch to [yargs](http://yargs.js.org). Comma-separated hosts in a single value are no longer accepted. If you need to specify multiple hosts, simply use the option as many times as you like. This change is unlikely to have any impact whatsoever on most users.
+- The `--devices` option of `stf doctor` has been removed due to unnecessary complexity.
 
 ## 2.3.0 (2016-11-09)
 

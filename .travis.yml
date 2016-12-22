@@ -11,7 +11,6 @@ addons:
     - libzmq3-dev
     - libprotobuf-dev
     - graphicsmagick
-    - rethinkdb
     - g++-4.9
     - yasm
 env:
@@ -35,15 +34,10 @@ before_install:
 install:
 - npm install
 - export PATH=$PWD/node_modules/.bin:$PATH
-before_script:
-#  - rethinkdb --daemon
 
 script:
 - npm test
-#  - ./bin/stf local
 - gulp build
-after_script:
-#  - killall rethinkdb
 
 cache:
   directories:

@@ -161,6 +161,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.serial || ''
       }
     })
+  , mygroups: TextCell({
+    title: gettext('Control Groups')
+    , value: function(device) {
+        return device.controlGroups || ''
+      }
+    })
   , manufacturer: TextCell({
       title: gettext('Manufacturer')
     , value: function(device) {

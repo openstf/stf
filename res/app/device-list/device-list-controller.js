@@ -8,6 +8,7 @@ module.exports = function DeviceListCtrl(
 , ControlService
 , SettingsService
 , $location
+, AppState
 ) {
   $scope.tracker = DeviceService.trackAll($scope)
   $scope.control = ControlService.create($scope.tracker.devices, '*ALL')
@@ -34,6 +35,10 @@ module.exports = function DeviceListCtrl(
   , {
       name: 'operator'
     , selected: true
+    }
+  , {
+      name: 'mygroups'
+      , selected: false
     }
   , {
       name: 'releasedAt'
@@ -147,6 +152,7 @@ module.exports = function DeviceListCtrl(
   $scope.activeTabs = {
     icons: true
   , details: false
+  , admin: false
   }
 
   SettingsService.bind($scope, {
@@ -176,6 +182,13 @@ module.exports = function DeviceListCtrl(
     deviceFilter: '',
     focusElement: false
   }
+
+  if (AppState.user.privileges == 'admin'){
+    $scope.isAdmin = true;
+  }else {
+    $scope.isAdmin = false;
+  }
+
 
   $scope.focusSearch = function() {
     if (!$scope.basicMode) {

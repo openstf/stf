@@ -1,0 +1,70 @@
+//h1(align="center") Admin Page
+
+//table(style="width:100%" border="1")
+div
+  button.btn(type='reset', ng-click="clickfunc()") New
+  table.table(style="width:100%")
+    tr
+      td(colspan="7" align="center")
+        select(name="main" ng-model="mainGroup" ng-change="groupChange()")
+          option(value='{{group.id}}' ng-repeat="group in groups") {{group.name}}
+
+
+        button.btn(type='reset', onclick='location.href=' + '') New
+        button.btn(type='reset', onclick='location.href=' + '') Delete
+
+    tr
+      td Users exists in selected group
+      td
+      td All available users list
+      td
+      td Devices exists in selected group
+      td
+      td All available devices list
+
+    tr
+      td(width="20%")
+        select(name='users' multiple="multiple" size="10" style="width: 100%;")
+          option(value='0', selected= false) user 1
+          option(value='0', selected= false) user 2
+
+      td(width="5%")
+        table(align="center")
+          tr
+            td
+              button.btn(type='reset', onclick='location.href=' + '') ->
+          tr
+            td
+              button.btn(type='reset', onclick='location.href=' + '') <-
+
+      td(width="20%")
+        select(name='users' multiple="multiple" size="10" style="width: 100%;")
+          option(value='0', selected= false) user 3
+          option(value='0', selected= false) user 4
+          option(value='0', selected= false) user 5
+          option(value='0', selected= false) user 6
+
+      td(width="10%")
+
+      td(width="20%")
+        select(name='users' multiple="multiple" size="10" style="width: 100%;")
+          option(value='0', selected= false) device 1
+          option(value='0', selected= false) device 2
+
+      td(width="5%")
+        table(align="center")
+          tr
+            td
+              button.btn(type='reset', onclick='location.href=' + '') ->
+          tr
+            td
+              button.btn(type='groupAdd', ng-click="clickDeviceGroupAdd()") <-
+
+      td(width="20%")
+        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
+        //  option(value='0', selected= false) device 3
+        //  option(value='0', selected= false) device 4
+
+        select(name="allDevices" ng-model="availableDevices" multiple="multiple" size="10" style="width: 100%;")
+          option(value='{{device}}' ng-repeat="device in adminAvailableDevices") {{device}}
+

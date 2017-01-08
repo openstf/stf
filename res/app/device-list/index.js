@@ -13,7 +13,8 @@ module.exports = angular.module('device-list', [
   require('./icons').name,
   require('./stats').name,
   require('./customize').name,
-  require('./search').name
+  require('./search').name,
+  require('./admin').name
 ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider

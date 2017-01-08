@@ -1,0 +1,88 @@
+ul.devices-admin-view {
+  margin: 0;
+  display: inline-block;
+  list-style-type: none;
+  font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
+}
+
+ul.devices-icon-view li {
+  width: 126px;
+  height: 170px;
+  background: white;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid #e9e9e9;
+  float: left;
+  clear: none;
+  margin: 6px;
+  text-align: center;
+}
+
+ul.devices-admin-view li:active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+
+ul.devices-admin-view li:hover {
+  background-color: #fcfcfc;
+}
+
+ul.devices-admin-view li:hover .device-photo-small img {
+  -webkit-filter: brightness(120%);
+  filter: brightness(120%);
+}
+
+ul.devices-admin-view .device-photo-small {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+ul.devices-admin-view .device-photo-small img {
+  width: auto;
+  height: 90px;
+  max-width: 95%; /* TODO: Fix this with a new container */
+}
+
+ul.devices-admin-view .device-name-bigtext {
+  display: inline-block;
+  width: 80%;
+}
+
+ul.devices-admin-view .device-name {
+  color: #3FA9F5;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ul.devices-admin-view .device-product {
+  font-size: 16px;
+  color: #555;
+}
+
+ul.devices-admin-view .device-is-busy {
+  opacity: 0.6;
+  cursor: not-allowed;
+  /*-webkit-filter: grayscale(100%);*/
+  /*filter: grayscale(100%);*/
+}
+
+ul.devices-admin-view .device-is-busy .btn {
+  cursor: not-allowed;
+}
+
+ul.devices-admin-view .device-is-busy .device-photo-small img {
+  opacity: 0.5;
+}
+
+ul.devices-admin-view .device-status.state-available {
+  display: none;
+}
+
+ul.devices-admin-view .device-name.state-available {
+  white-space: normal;
+  max-height: 45px;
+}

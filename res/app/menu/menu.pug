@@ -22,3 +22,13 @@
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}
+      
+      //- li(ng-show='!$root.basicMode')
+      //-   a(ng-href='/', accesskey='6')
+      //-     i.fa.fa-question-circle.fa-fw
+      //-     | {{ "Log Out" | translate }}
+        
+      li(ng-show='!root.basicMode')
+        button(ng-click='logout()').btn-primary
+          i.fa.fa-sign-out
+          span(translate) LogOut

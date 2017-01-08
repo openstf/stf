@@ -2,7 +2,7 @@ var oboe = require('oboe')
 var _ = require('lodash')
 var EventEmitter = require('eventemitter3')
 
-module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceService) {
+module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceService, AppState) {
   var deviceService = {}
 
   function Tracker($scope, options) {
@@ -109,14 +109,37 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     }
 
     function addListener(event) {
-      var device = get(event.data)
+
+      //##############################################################
+      // check if device in control group for this user,
+      //if not, make this device disconnected
+      var result = false
+      if (event.data.controlGroups) {
+        event.data.controlGroups.forEach(function (item) {
+          if (AppState.user.userGroups.indexOf(item) >= 0) {
+            result = true
+          }
+        })
+      }
+
+      if (AppState.user.privileges == 'admin'){
+        result = true
+      }
+
+      var data = event.data
+      if (!result){
+        data['present'] = false
+      }
+      //##############################################################
+
+      var device = get(data)
       if (device) {
-        modify(device, event.data)
+        modify(device, data)
         notify(event)
       }
       else {
-        if (options.filter(event.data)) {
-          insert(event.data)
+        if (options.filter(data)) {
+          insert(data)
           notify(event)
         }
       }

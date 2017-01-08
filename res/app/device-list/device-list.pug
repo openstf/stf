@@ -54,3 +54,11 @@
               div.device-list-details-content(ng-if='activeTabs.details').selectable
 
                 device-list-details(tracker='tracker', columns='columns', sort='sort', filter='filter').selectable
+
+            uib-tab(active='activeTabs.admin', select='focusSearch()', ng-if='isAdmin')
+              uib-tab-heading
+                i.fa.fa-th-large
+                span(translate) Admin Page
+              div.device-list-admin-content(ng-if='activeTabs.admin').selectable
+
+                device-list-admin(tracker='tracker', columns='columns', sort='sort', filter='filter')

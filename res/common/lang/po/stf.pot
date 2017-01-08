@@ -476,6 +476,10 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
+#: app/device-list/column/device-column-service.js:184
+msgid "Groups"
+msgstr ""
+
 #: app/control-panes/info/info.html:1
 msgid "Hardware"
 msgstr ""

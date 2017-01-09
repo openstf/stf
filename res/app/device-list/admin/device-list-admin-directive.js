@@ -8,7 +8,6 @@ module.exports = function DeviceListAdminDirective($filter
   , LightboxImageService
   , StandaloneService
   , socket) {
-  console.log(socket.emit('test',{"one": "two"}))
   return {
     restrict: 'E',
     template: require('./device-list-admin.pug'),
@@ -18,22 +17,44 @@ module.exports = function DeviceListAdminDirective($filter
     controller: function($scope){
       $scope.clickfunc = function () {
         console.log($scope)
-        alert('work')
+        // $location.$$path = "/"
+
       },
         $scope.groupChange = function () {
           console.log($scope)
-          alert($scope.mainGroup)
+          $scope.$emit('refresh')
+          // alert($scope.mainGroup)
         },
       $scope.groups = [
-        {id:'1', name:'g1'},
-        {id:'2', name:'g2'},
-        {id:'2', name:'g3'}
+        {id:'g1', name:'g1'},
+        {id:'g2', name:'g2'},
+        {id:'g3', name:'g3'}
       ];
         $scope.user = {
           name: 'daniel'
         },
           $scope.clickDeviceGroupAdd = function () {
-            console.log($scope);
+            if (!("selectedAvailableDevices" in $scope)){
+              alert("Select device to add")
+            }else {
+              socket.emit('admin.Add.Group', {
+                serial: $scope.selectedAvailableDevices[0],
+                newGroup: $scope.mainGroup
+              })
+              $scope.$emit('refresh')
+            }
+          },
+          $scope.clickDeviceGroupRemove = function () {
+            console.log($scope)
+            if (!("selectedGroupDevices" in $scope)){
+              alert("Select device to remove")
+            }else {
+              socket.emit('admin.Remove.Group', {
+                serial: $scope.selectedGroupDevices[0],
+                newGroup: $scope.mainGroup
+              })
+              $scope.$emit('refresh')
+            }
           }
     }, link: function(scope, element) {
       var tracker = scope.tracker()
@@ -57,78 +78,56 @@ module.exports = function DeviceListAdminDirective($filter
 
       scope.adminAvailableDevices = [];
       scope.adminGroupDevices = [];
-
-      function createRow(device) {
-        var id = calculateId(device)
-        var tr = document.createElement('tr')
-        var td
-
-        tr.id = id
-
-        if (!device.usable) {
-          tr.classList.add('device-not-usable')
-        }
-
-        for (var i = 0, l = activeColumns.length; i < l; ++i) {
-          td = scope.columnDefinitions[activeColumns[i]].build()
-          scope.columnDefinitions[activeColumns[i]].update(td, device)
-          tr.appendChild(td)
-        }
-
-        mapping[id] = device
-        console.log(tr)
-        return tr
-      }
-      function filterRow(row, device) {
-        if (match(device)) {
-          row.classList.remove('filter-out')
-        }
-        else {
-          row.classList.add('filter-out')
-        }
-      }
-      function insertRow(tr, deviceA) {
-        return insertRowToSegment(tr, deviceA, 0, rows.length - 1)
-      }
+      scope.allDevices = []
+      scope.mainGroup = scope.groups[0]['id']
 
       function sortDevices(device) {
         console.log("sort")
-        if (!("controlGroups" in device)){
-          if ("model" in device)
-          {
-            return device['model']
-          }else {
-          }
-        }else if(device['controlGroups'][0] == 'default'){
-          if ("model" in device)
-          {
-            return device['model']
-          }else {
-          }
+        if (!("controlGroups" in device)) {
+          return false
+        }else if (!("mainGroup" in scope)){
+          return false
+        }else if(device['controlGroups'].indexOf(scope.mainGroup) > 0 ){
+          return true
         }else{
-          console.log("3")
+          return false
         }
-        return false
       }
       function createAvailableGroup(device) {
-        tmp = sortDevices(device)
-        if ((tmp) && ((scope.adminAvailableDevices.indexOf(tmp) < 0 ))){
-          console.log(tmp)
-          console.log(scope.adminAvailableDevices)
-          scope.adminAvailableDevices.push(tmp)
-        }else if ((!tmp) && ((scope.adminGroupDevices.indexOf(tmp) < 0 ))){
-          scope.adminGroupDevices.push()
+        var sortResult = sortDevices(device)
+        if (sortResult){
+          scope.adminGroupDevices.push({"serial":device['serial'], "model": device['model']})
+        }else {
+          scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+
         }
-        console.log("add+")
-        console.log(scope.adminAvailableDevices)
+      }
+      function refreshData(){
+        scope.adminAvailableDevices = [];
+        scope.adminGroupDevices = [];
+        scope.allDevices.forEach(function (serial) {
+          DeviceService.load(serial).then(function (device) {
+            if (!("controlGroups" in device)) {
+              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+            }else if (!("mainGroup" in scope)){
+              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+            }else if(device['controlGroups'].indexOf(scope.mainGroup) > 0 ){
+              scope.adminGroupDevices.push({"serial":device['serial'], "model": device['model']})
+            }else{
+              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+            }
+          })
+        })
+
       }
 
 
       // Triggers when the tracker sees a device for the first time.
       function addListener(device) {
-        console.log("add")
-        socket.emit('test',{"one": "two"})
         createAvailableGroup(device)
+        if (!(device['serial'] in scope.allDevices)) {
+          scope.allDevices.push(device['serial'])
+        }
       }
 
       function calculateId(device) {
@@ -138,8 +137,7 @@ module.exports = function DeviceListAdminDirective($filter
 
       // Triggers when the tracker notices that a device changed.
       function changeListener(device) {
-        console.log("change")
-        createAvailableGroup(device)
+        refreshData()
       }
 
       // Triggers when a device is removed entirely from the tracker.
@@ -156,6 +154,7 @@ module.exports = function DeviceListAdminDirective($filter
 
       tracker.on('add', addListener)
       tracker.on('change', changeListener)
+      scope.$on('refresh', changeListener)
       // tracker.on('remove', removeListener)
 
       // Maybe we're already late

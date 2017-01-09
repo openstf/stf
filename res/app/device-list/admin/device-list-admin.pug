@@ -47,15 +47,18 @@ div
       td(width="10%")
 
       td(width="20%")
-        select(name='users' multiple="multiple" size="10" style="width: 100%;")
-          option(value='0', selected= false) device 1
-          option(value='0', selected= false) device 2
+        select(name="groupDevices" ng-model="selectedGroupDevices" multiple="multiple" size="10" style="width: 100%;")
+          option(value='{{device.serial}}' ng-repeat="device in adminGroupDevices") {{device.model}}
+
+        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
+        //  option(value='0', selected= false) device 1
+        //  option(value='0', selected= false) device 2
 
       td(width="5%")
         table(align="center")
           tr
             td
-              button.btn(type='reset', onclick='location.href=' + '') ->
+              button.btn(type='groupRemove', ng-click="clickDeviceGroupRemove()") ->
           tr
             td
               button.btn(type='groupAdd', ng-click="clickDeviceGroupAdd()") <-
@@ -65,6 +68,6 @@ div
         //  option(value='0', selected= false) device 3
         //  option(value='0', selected= false) device 4
 
-        select(name="allDevices" ng-model="availableDevices" multiple="multiple" size="10" style="width: 100%;")
-          option(value='{{device}}' ng-repeat="device in adminAvailableDevices") {{device}}
+        select(name="allDevices" ng-model="selectedAvailableDevices" multiple="multiple" size="10" style="width: 100%;")
+          option(value='{{device.serial}}' ng-repeat="device in adminAvailableDevices") {{device.model}}
 

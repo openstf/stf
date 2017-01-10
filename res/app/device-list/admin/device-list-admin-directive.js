@@ -7,7 +7,9 @@ module.exports = function DeviceListAdminDirective($filter
   , DeviceService
   , LightboxImageService
   , StandaloneService
-  , socket) {
+  , socket
+  , UserService) {
+  // console.log(UserService)
   return {
     restrict: 'E',
     template: require('./device-list-admin.pug'),
@@ -15,21 +17,37 @@ module.exports = function DeviceListAdminDirective($filter
       tracker: '&tracker'
     },
     controller: function($scope){
+
+
       $scope.clickfunc = function () {
         console.log($scope)
-        // $location.$$path = "/"
+        socket.emit('load.admin.groups')
+
+        socket.on('admin.groups', function(data) {
+          console.log("data")
+          console.log(data)
+          // $scope.groups = data
+        })
 
       },
         $scope.groupChange = function () {
-          console.log($scope)
           $scope.$emit('refresh')
           // alert($scope.mainGroup)
         },
-      $scope.groups = [
-        {id:'g1', name:'g1'},
-        {id:'g2', name:'g2'},
-        {id:'g3', name:'g3'}
-      ];
+        $scope.initGroups = function () {
+          socket.emit('load.admin.groups')
+
+          socket.on('admin.groups', function(data) {
+            $scope.groups = data.data
+            $scope.mainGroup = "0"
+            $scope.$emit('refresh')
+          })
+        }
+      // $scope.groups = [
+      //   {id:'g1', name:'g1'},
+      //   {id:'g2', name:'g2'},
+      //   {id:'g3', name:'g3'}
+      // ];
         $scope.user = {
           name: 'daniel'
         },
@@ -45,7 +63,6 @@ module.exports = function DeviceListAdminDirective($filter
             }
           },
           $scope.clickDeviceGroupRemove = function () {
-            console.log($scope)
             if (!("selectedGroupDevices" in $scope)){
               alert("Select device to remove")
             }else {
@@ -65,21 +82,17 @@ module.exports = function DeviceListAdminDirective($filter
       var mapping = Object.create(null)
       var childScopes = Object.create(null)
 
-      // socket.emit('test',{"one": "two"})
 
-      // console.log("1")
-      // var dbapi = require('../../../../lib/db/api')
-      // console.log("2")
-      //
-      // var dbDevices = dbapi.loadDevices()
-      // console.log("3")
-      //
-      // console.log(dbDevices)
 
       scope.adminAvailableDevices = [];
       scope.adminGroupDevices = [];
       scope.allDevices = []
-      scope.mainGroup = scope.groups[0]['id']
+
+      function getUsersData(){
+
+      }
+
+
 
       function sortDevices(device) {
         console.log("sort")

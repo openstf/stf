@@ -6,7 +6,7 @@ div
   table.table(style="width:100%")
     tr
       td(colspan="7" align="center")
-        select(name="main" ng-model="mainGroup" ng-change="groupChange()")
+        select(name="main" ng-model="mainGroup" ng-change="groupChange()" ng-init="initGroups()")
           option(value='{{group.id}}' ng-repeat="group in groups") {{group.name}}
 
 

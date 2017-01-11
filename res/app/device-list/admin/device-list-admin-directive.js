@@ -7,9 +7,8 @@ module.exports = function DeviceListAdminDirective($filter
   , DeviceService
   , LightboxImageService
   , StandaloneService
-  , socket
-  , UserService) {
-  // console.log(UserService)
+  , socket) {
+  // console.log(socket)
   return {
     restrict: 'E',
     template: require('./device-list-admin.pug'),
@@ -21,27 +20,81 @@ module.exports = function DeviceListAdminDirective($filter
 
       $scope.clickfunc = function () {
         console.log($scope)
-        socket.emit('load.admin.groups')
-
-        socket.on('admin.groups', function(data) {
-          console.log("data")
-          console.log(data)
-          // $scope.groups = data
-        })
+        socket.io.emit('logout')
 
       },
         $scope.groupChange = function () {
           $scope.$emit('refresh')
+          $scope.$emit('refreshUsers')
           // alert($scope.mainGroup)
         },
+        $scope.initUsers = function () {
+          console.log("init user")
+          $scope.$emit('refreshUsers')
+        },
         $scope.initGroups = function () {
+
           socket.emit('load.admin.groups')
 
           socket.on('admin.groups', function(data) {
             $scope.groups = data.data
-            $scope.mainGroup = "0"
             $scope.$emit('refresh')
           })
+        },
+        $scope.addNewGroup = function () {
+          var name = window.prompt("Enter New Group","");
+          if ((name) && (name.trim())) {
+            name = name.trim()
+            var status = true
+            $scope.groups.forEach(function (item) {
+              if (item.name == name){
+                status = false
+              }
+            })
+            if (!(status)){
+              alert("This Group name already exists!")
+            }else{
+              socket.emit('save.admin.group',{
+                name: name
+              })
+              $scope.adminAvailableUsers = []
+              $scope.adminGroupUsers = [];
+              $scope.adminAvailableDevices = [];
+              $scope.adminGroupDevices = [];
+              $scope.mainGroup = name
+              $scope.initGroups()
+              $scope.$emit('refresh')
+            }
+          }
+        },
+        $scope.deleteGroup = function () {
+          console.log("delete")
+          console.log($scope.mainGroup)
+          console.log($scope.adminGroupUsers)
+          console.log($scope.adminGroupDevices)
+          if (confirm('Are you sure you want to delete group: '+$scope.mainGroup)) {
+            $scope.adminGroupUsers.forEach(function (user) {
+              socket.emit('admin.Remove.User', {
+                email: user.email,
+                newGroup: $scope.mainGroup
+              })
+            })
+            $scope.adminGroupDevices.forEach(function (device) {
+              socket.emit('admin.Remove.Group', {
+                serial: device.serial,
+                newGroup: $scope.mainGroup
+              })
+            })
+            socket.emit('delete.admin.group', {
+              name: $scope.mainGroup
+            }).then(function () {
+              $scope.initGroups()
+              console.log($scope.groups)
+              $scope.mainGroup = $scope.groups[0].name
+              $scope.$emit('refreshUsers')
+              $scope.$emit('refresh')
+            })
+          }
         }
       // $scope.groups = [
       //   {id:'g1', name:'g1'},
@@ -72,6 +125,31 @@ module.exports = function DeviceListAdminDirective($filter
               })
               $scope.$emit('refresh')
             }
+          },
+          $scope.clickUserGroupAdd = function () {
+
+            if (!("selectedAvailableUsers" in $scope)){
+              alert("Select user to add")
+            }else {
+              socket.emit('admin.Add.User', {
+                email: $scope.selectedAvailableUsers[0],
+                newGroup: $scope.mainGroup
+              })
+              $scope.$emit('refreshUsers')
+              $scope.$emit('refresh')
+            }
+          },
+          $scope.clickUserGroupRemove = function () {
+            if (!("selectedGroupUsers" in $scope)){
+              alert("Select user to remove")
+            }else {
+              socket.emit('admin.Remove.User', {
+                email: $scope.selectedGroupUsers[0],
+                newGroup: $scope.mainGroup
+              })
+              $scope.$emit('refreshUsers')
+              $scope.$emit('refresh')
+            }
           }
     }, link: function(scope, element) {
       var tracker = scope.tracker()
@@ -83,15 +161,12 @@ module.exports = function DeviceListAdminDirective($filter
       var childScopes = Object.create(null)
 
 
-
+      scope.adminAvailableUsers = []
+      scope.adminGroupUsers = [];
       scope.adminAvailableDevices = [];
       scope.adminGroupDevices = [];
       scope.allDevices = []
-
-      function getUsersData(){
-
-      }
-
+      scope.mainGroup = "default"
 
 
       function sortDevices(device) {
@@ -119,25 +194,49 @@ module.exports = function DeviceListAdminDirective($filter
         scope.adminAvailableDevices = [];
         scope.adminGroupDevices = [];
         scope.allDevices.forEach(function (serial) {
+          console.log("1")
           DeviceService.load(serial).then(function (device) {
             if (!("controlGroups" in device)) {
               scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
             }else if (!("mainGroup" in scope)){
               scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
-            }else if(device['controlGroups'].indexOf(scope.mainGroup) > 0 ){
+            }else if(device['controlGroups'].indexOf(scope.mainGroup) > -1 ){
               scope.adminGroupDevices.push({"serial":device['serial'], "model": device['model']})
             }else{
               scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
             }
           })
         })
+      }
 
+      function refreshUserData(){
+        console.log("refresh user")
+        socket.emit('get.Users')
+
+        socket.on('admin.users', function(data) {
+          // console.log(data.data)
+          scope.adminAvailableUsers = [];
+          scope.adminGroupUsers = [];
+          scope.allUsers = data.data
+          data.data.forEach(function (user) {
+            if (!("userGroups" in user)) {
+              scope.adminAvailableUsers.push({"email":user['email'], "name": user['name']})
+            }else if (!("mainGroup" in scope)){
+              scope.adminAvailableUsers.push({"email":user['email'], "name": user['name']})
+            }else if(user['userGroups'].indexOf(scope.mainGroup.toString()) > -1 ){
+              scope.adminGroupUsers.push({"email":user['email'], "name": user['name']})
+            }else{
+              scope.adminAvailableUsers.push({"email":user['email'], "name": user['name']})
+            }
+          })
+        })
       }
 
 
       // Triggers when the tracker sees a device for the first time.
       function addListener(device) {
         createAvailableGroup(device)
+        refreshUserData()
         if (!(device['serial'] in scope.allDevices)) {
           scope.allDevices.push(device['serial'])
         }
@@ -168,6 +267,11 @@ module.exports = function DeviceListAdminDirective($filter
       tracker.on('add', addListener)
       tracker.on('change', changeListener)
       scope.$on('refresh', changeListener)
+      scope.$on('refreshUsers', refreshUserData)
+      scope.$on('refreshDevices', refreshData)
+      // scope.$on('refreshUsers', function () {
+      //   console.log("sadasd")
+      // })
       // tracker.on('remove', removeListener)
 
       // Maybe we're already late
@@ -181,3 +285,4 @@ module.exports = function DeviceListAdminDirective($filter
     }
   };
 }
+

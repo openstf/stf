@@ -605,6 +605,11 @@ function DeviceStatusCell(options) {
 
       t.nodeValue = options.value(device)
 
+      if (device.status==100) {
+        t.nodeValue = "No Permissions"
+        a.className = 'btn btn-xs device-status ' + "state-unauthorized btn-danger-outline"
+      }
+
       return td
     }
   , compare: (function() {

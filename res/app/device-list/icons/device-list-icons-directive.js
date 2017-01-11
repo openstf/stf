@@ -75,6 +75,10 @@ module.exports = function DeviceListIconsDirective(
         }
 
         button.className = classes + getStateClasses(device.state)
+        if (device.status==100) {
+          at.nodeValue = "No Permissions"
+          button.className = classes + "state-unauthorized btn-danger-outline"
+        }
 
         if (device.state === 'available') {
           name.classList.add('state-available')

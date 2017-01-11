@@ -129,6 +129,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       var data = event.data
       if (!result){
         data['present'] = false
+        data['status'] = 100
       }
       //##############################################################
 

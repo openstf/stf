@@ -208,6 +208,7 @@ message DeviceBrowserMessage {
 
 message DevicePhoneMessage {
   optional string imei = 1;
+  optional string imsi = 5;
   optional string phoneNumber = 2;
   optional string iccid = 3;
   optional string network = 4;

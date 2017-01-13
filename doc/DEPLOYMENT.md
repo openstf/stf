@@ -544,6 +544,8 @@ Restart=always
 ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStartPre=/bin/mkdir -p /mnt/storage
+ExecStartPre=/bin/chmod 777 /mnt/storage
 ExecStart=/usr/bin/docker run --rm \
   --name %p-%i \
   -v /mnt/storage:/data \

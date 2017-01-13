@@ -76,6 +76,10 @@ module.exports = function DeviceListCtrl(
     , selected: false
     }
   , {
+      name: 'imsi'
+    , selected: false
+    }
+  , {
       name: 'iccid'
     , selected: false
     }

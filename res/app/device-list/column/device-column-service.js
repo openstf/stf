@@ -192,6 +192,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.phone ? device.phone.imei : ''
       }
     })
+  , imsi: TextCell({
+      title: gettext('Phone IMSI')
+    , value: function(device) {
+        return device.phone ? device.phone.imsi : ''
+      }
+    })
   , iccid: TextCell({
       title: gettext('Phone ICCID')
     , value: function(device) {

@@ -33,8 +33,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm node-v*.tar.xz && \
     su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
-    apt-get update \
-    sudo apt-get install android-tools-adb android-tools-fastboot \
+    apt-get install android-tools-adb android-tools-fastboot &&\
     apt-get clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
@@ -52,7 +51,7 @@ USER stf-build
 RUN set -x && \
     cd /tmp/build && \
     export PATH=$PWD/node_modules/.bin:$PATH && \
-    RUN export RETHINKDB_PORT_28015_TCP=tcp://db:28015 \
+    export RETHINKDB_PORT_28015_TCP=tcp://db:28015 && \
     npm install --loglevel http && \
     npm pack && \
     tar xzf stf-*.tgz --strip-components 1 -C /app && \

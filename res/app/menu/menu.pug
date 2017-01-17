@@ -12,8 +12,27 @@
         a(ng-href='/#!/settings')
           span.fa.fa-gears
           span(ng-if='!$root.basicMode', translate) Settings
-    ul.nav.stf-nav(nav-menu='current').unselectable
-      h3(ng-init="init()" style="color:blue;") Hello {{activeUser}}
+
+    //ul.nav.stf-nav.pull-right(nav-menu='current').unselectable
+    //  div(style="vertical-align: middle;")
+    //    h5(ng-init="init()" style="color:blue;") {{activeUser}}
+    ul.nav.stf-nav.pull-right(nav-menu='current').unselectable
+      div(class="btn-group" uib-dropdown dropdown-append-to-body ng-init="init()")
+        button(id="btn-append-to-body" type="button" style="border: none; background: none;")
+          img(ng-src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kirito-kazuto-kirigaya-sword-art-online-hollow-realization-76.7.jpg" height="32" width="32" uib-dropdown-toggle)
+          span(class="caret")
+            ul(class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body").dropdown-menu-right
+              div(style="text-align:center;")
+                h4
+                  b
+                   u {{activeUser}}
+              div(style="text-align:center;")
+                a(href="" ng-click='logout()') logOut
+              div
+                br
+              div(style="text-align:center;")
+                a(href="#") Refresh
+
 
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
@@ -31,7 +50,7 @@
       //-     i.fa.fa-question-circle.fa-fw
       //-     | {{ "Log Out" | translate }}
 
-      li(ng-show='!root.basicMode')
-        button(ng-click='logout()').btn-primary
-          i.fa.fa-sign-out
-          span(translate) LogOut
+      //li(ng-show='!root.basicMode')
+      //  button(ng-click='logout()').btn-primary
+      //    i.fa.fa-sign-out
+      //    span(translate) LogOut

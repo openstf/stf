@@ -107,11 +107,16 @@ If you need to expand your RethinkDB cluster beyond one server you may encounter
 You will also have to:
 
 1. Modify the `--cache-size` as you please. It limits the amount of memory RethinkDB uses and is given in megabytes, but is not an absolute limit! Real usage can be slightly higher.
-2. Update the version number in `rethinkdb:2.3` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
-3. The `AUTHKEY` environment variable is only for convenience when linking. So, the first time you set things up, you will have to access http://DB_SERVER_IP:8080 after starting the unit and run the following command:
 
+2. Update the version number in `rethinkdb:2.3` for the latest release. We don't use `rethinkdb:latest` here because then you might occasionally have to manually rebuild your indexes after an update and not even realize it, bringing the whole system effectively down.
+
+3. The `AUTHKEY` environment variable is only for convenience when linking. So, the first time you set things up, you will have to access http://DB_SERVER_IP:8080 after starting the unit and run the following command:
 ```javascript
-r.db('rethinkdb').table('cluster_config').get('auth').update({auth_key: 'newkey'})
+r.db('rethinkdb').table('users').get('admin').update({password:'yourBrandNewKey'})
+```
+OR, you can initialize rethinkdb with an initial key before starting the unit:
+```bash
+docker run --rm -v /srv/rethinkdb:/data rethinkdb:2.3 rethinkdb --initial-password yourBrandNewKey
 ```
 
 More information can be found [here](https://rethinkdb.com/docs/security/). You will then need to replace `YOUR_RETHINKDB_AUTH_KEY_HERE_IF_ANY` in the the rest of the units with the real authentication key.

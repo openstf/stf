@@ -16,22 +16,32 @@
     //ul.nav.stf-nav.pull-right(nav-menu='current').unselectable
     //  div(style="vertical-align: middle;")
     //    h5(ng-init="init()" style="color:blue;") {{activeUser}}
-    ul.nav.stf-nav.pull-right(nav-menu='current').unselectable
-      div(class="btn-group" uib-dropdown dropdown-append-to-body ng-init="init()")
-        button(id="btn-append-to-body" type="button" style="border: none; background: none;")
-          img(ng-src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kirito-kazuto-kirigaya-sword-art-online-hollow-realization-76.7.jpg" height="32" width="32" uib-dropdown-toggle)
+    ul.nav.stf-nav.pull-right(nav-menu='current' style="padding-left: 0px;").unselectable
+      div(class="btn-group" uib-dropdown dropdown-append-to-body )
+        button(id="btn-append-to-body" type="button" style="border: none; background: none;padding-right: 10px;")
+          img(ng-src="{{userFile}}" height="32" width="32" uib-dropdown-toggle ng-init="init()").pull-left
           span(class="caret")
-            ul(class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body").dropdown-menu-right
-              div(style="text-align:center;")
-                h4
-                  b
-                   u {{activeUser}}
-              div(style="text-align:center;")
-                a(href="" ng-click='logout()') logOut
-              div
+            ul(class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" style="background-color: #F0F0F0;border: 1px solid black;").dropdown-menu-right
+              div(style="text-align:left;background-color: #F8F8F8;")
+                table
+                  tr
+                    td(rowspan="2")
+                      img(style="border-radius: 30px;" ng-src="{{userFile}}" height="60" width="60")
+                    td(style="padding-left:20px")
+                      h4(style="color:black")
+                        b
+                          u {{activeUser}}
+                  tr
+                    td(style="padding-left:20px")
+                      h5 {{activeUserEmail}}
+              div(style="text-align:left;")
+                h5(style="color:black") Upload Avatar
+                  input(type="file" nv-file-select ng-file-select="add()" ng-model="avatarFile" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*")
                 br
-              div(style="text-align:center;")
-                a(href="#") Refresh
+              div(style="text-align:left;margin-bottom: 20px;")
+                a(href="" ng-click='logout()' style="border: 1px solid black;margin-left: 20px;margin-right: 20px;color:black;padding-left: 12px;padding-right: 12px;") Log Out
+                //button.btn(type='logOut', ng-click="logout()") Log Out
+
 
 
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
@@ -40,7 +50,7 @@
           button(type='button', ng-model='$root.platform', uib-btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', uib-btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
 
-      li(ng-show='!$root.basicMode')
+      li(ng-show='!$root.basicMode' style="padding-right: 0px;")
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}

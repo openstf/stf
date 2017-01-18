@@ -194,7 +194,6 @@ module.exports = function DeviceListAdminDirective($filter
         scope.adminAvailableDevices = [];
         scope.adminGroupDevices = [];
         scope.allDevices.forEach(function (serial) {
-          console.log("1")
           DeviceService.load(serial).then(function (device) {
             if (!("controlGroups" in device)) {
               scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})

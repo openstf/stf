@@ -34,6 +34,11 @@ module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
     }else {
       $scope.userFile = "http://s3.narvii.com/image/h6pnvel4fum44j5bcxfae6lgn7tyozlj_128.jpg"
     }
+    if (("userGroups" in AppState.user) && (AppState.user.userGroups.length > 0)) {
+      $scope.userGroups = AppState.user.userGroups.toString()
+    }else {
+      $scope.userGroups = "Not in any group"
+    }
   }
 
   $scope.add = function(){

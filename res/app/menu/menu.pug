@@ -13,36 +13,37 @@
           span.fa.fa-gears
           span(ng-if='!$root.basicMode', translate) Settings
 
-    //ul.nav.stf-nav.pull-right(nav-menu='current').unselectable
-    //  div(style="vertical-align: middle;")
-    //    h5(ng-init="init()" style="color:blue;") {{activeUser}}
     ul.nav.stf-nav.pull-right(nav-menu='current' style="padding-left: 0px;").unselectable
       div(class="btn-group" uib-dropdown dropdown-append-to-body )
         button(id="btn-append-to-body" type="button" style="border: none; background: none;padding-right: 10px;")
-          img(ng-src="{{userFile}}" height="32" width="32" uib-dropdown-toggle ng-init="init()").pull-left
+          img(ng-src="{{userFile}}" height="40" width="40" uib-dropdown-toggle ng-init="init()" style="border-radius: 20px;").pull-left
           span(class="caret")
             ul(class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" style="background-color: #F0F0F0;border: 1px solid black;").dropdown-menu-right
               div(style="text-align:left;background-color: #F8F8F8;")
                 table
                   tr
-                    td(rowspan="2")
-                      img(style="border-radius: 30px;" ng-src="{{userFile}}" height="60" width="60")
-                    td(style="padding-left:20px")
-                      h4(style="color:black")
+                    td(rowspan="3")
+                      div(style="text-align:center;")
+                        button(style="border-radius: 45px;background-image: url({{userFile}}); height:90px; width:90px;background-size:cover;" type="file" nv-file-select ng-file-select="add()" ng-model="avatarFile" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*")
+                        h5(style="color:black") Upload Avatar
+                    td(style="padding-left:15px;vertical-align:bottom")
+                      h4(style="color:black;")
                         b
                           u {{activeUser}}
                   tr
-                    td(style="padding-left:20px")
+                    td(style="padding-left:15px;vertical-align:text-top;")
                       h5 {{activeUserEmail}}
+                  tr
+                    td
+                      br
               div(style="text-align:left;")
-                h5(style="color:black") Upload Avatar
-                  input(type="file" nv-file-select ng-file-select="add()" ng-model="avatarFile" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*")
+                table
+                  tr
+                    td(style="padding-left:1px;color:black;font-weight:bold;") Groups:
+                    td(style="padding-left:5px;") {{userGroups}}
                 br
               div(style="text-align:left;margin-bottom: 20px;")
                 a(href="" ng-click='logout()' style="border: 1px solid black;margin-left: 20px;margin-right: 20px;color:black;padding-left: 12px;padding-right: 12px;") Log Out
-                //button.btn(type='logOut', ng-click="logout()") Log Out
-
-
 
     ul.nav.stf-nav.stf-feedback.pull-right(ng-cloak, nav-menu='current').unselectable
       li.stf-nav-web-native-button(ng-if='!$root.basicMode && isControlRoute')
@@ -55,12 +56,3 @@
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}
 
-      //- li(ng-show='!$root.basicMode')
-      //-   a(ng-href='/', accesskey='6')
-      //-     i.fa.fa-question-circle.fa-fw
-      //-     | {{ "Log Out" | translate }}
-
-      //li(ng-show='!root.basicMode')
-      //  button(ng-click='logout()').btn-primary
-      //    i.fa.fa-sign-out
-      //    span(translate) LogOut

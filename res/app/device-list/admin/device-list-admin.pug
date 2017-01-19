@@ -1,8 +1,4 @@
-//h1(align="center") Admin Page
-
-//table(style="width:100%" border="1")
 div
-  //button.btn(type='reset', ng-click="clickfunc()") New
   table.table(style="width:100%")
     tr
       td(colspan="7" align="center")
@@ -27,10 +23,6 @@ div
         select(name="groupUsers" ng-model="selectedGroupUsers" multiple="multiple" size="10" style="width: 100%;" ng-init="initUsers()")
           option(value='{{user.email}}' ng-repeat="user in adminGroupUsers") {{user.name}}
 
-        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
-        //  option(value='0', selected= false) user 1
-        //  option(value='0', selected= false) user 2
-
       td(width="5%")
         table(align="center")
           tr
@@ -41,24 +33,14 @@ div
               button.btn(type='groupAddUser', ng-click="clickUserGroupAdd()") <-
 
       td(width="20%")
-        select(name="allUsers" ng-model="selectedAvailableUsers" multiple="multiple" size="10" style="width: 100%;")
+        select(name="allUsers" ng-model="selectedAvailableUsers" multiple="multiple" size="10" style="width: 100%;" ng-init="initUsers()")
           option(value='{{user.email}}' ng-repeat="user in adminAvailableUsers") {{user.name}}
-
-        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
-        //  option(value='0', selected= false) user 3
-        //  option(value='0', selected= false) user 4
-        //  option(value='0', selected= false) user 5
-        //  option(value='0', selected= false) user 6
 
       td(width="10%")
 
       td(width="20%")
         select(name="groupDevices" ng-model="selectedGroupDevices" multiple="multiple" size="10" style="width: 100%;")
           option(value='{{device.serial}}' ng-repeat="device in adminGroupDevices") {{device.model}}
-
-        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
-        //  option(value='0', selected= false) device 1
-        //  option(value='0', selected= false) device 2
 
       td(width="5%")
         table(align="center")
@@ -70,10 +52,6 @@ div
               button.btn(type='groupAdd', ng-click="clickDeviceGroupAdd()") <-
 
       td(width="20%")
-        //select(name='users' multiple="multiple" size="10" style="width: 100%;")
-        //  option(value='0', selected= false) device 3
-        //  option(value='0', selected= false) device 4
-
         select(name="allDevices" ng-model="selectedAvailableDevices" multiple="multiple" size="10" style="width: 100%;")
           option(value='{{device.serial}}' ng-repeat="device in adminAvailableDevices") {{device.model}}
 

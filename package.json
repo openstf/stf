@@ -1,6 +1,6 @@
 {
   "name": "stf",
-  "version": "2.0.1",
+  "version": "2.3.0",
   "description": "Smartphone Test Farm",
   "keywords": [
     "adb",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@slack/client": "^3.5.4",
-    "adbkit": "^2.6.0",
+    "adbkit": "^2.6.2",
     "adbkit-apkreader": "^1.0.0",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.4.13",
@@ -40,7 +40,6 @@
     "body-parser": "^1.13.3",
     "bufferutil": "^1.2.1",
     "chalk": "~1.1.1",
-    "commander": "^2.9.0",
     "compression": "^1.5.2",
     "cookie-session": "^2.0.0-alpha.1",
     "csurf": "^1.7.0",
@@ -59,13 +58,14 @@
     "lodash": "^4.14.2",
     "markdown-serve": "^0.3.2",
     "mime": "^1.3.4",
+    "minicap-prebuilt": "^1.3.0",
     "minimatch": "^3.0.3",
     "my-local-ip": "^1.0.0",
-    "node-uuid": "^1.4.3",
     "openid": "^2.0.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",
     "passport-saml": "^0.15.0",
+    "please-update-dependencies": "^1.0.0",
     "protobufjs": "^3.8.2",
     "proxy-addr": "^1.0.10",
     "pug": "^2.0.0-beta4",
@@ -87,7 +87,9 @@
     "transliteration": "^1.1.6",
     "url-join": "1.1.0",
     "utf-8-validate": "^1.2.1",
+    "uuid": "^3.0.0",
     "ws": "^1.0.1",
+    "yargs": "^6.5.0",
     "zmq": "^2.14.0"
   },
   "devDependencies": {

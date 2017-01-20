@@ -2,9 +2,9 @@
   .panel-heading
     h3.panel-title(translate) Add ADB Key
   .panel-body
-    form.form-horizontal(name='adbkeyform', ng-submit='addKey(key)')
+    form.form-horizontal.stf-add-adb-key.form-adb-key(name='adbkeyform', ng-submit='addKey(key)')
 
-      div(ng-show='showClipboard')
+      .stf-add-adb-key.clip-board(ng-show='showClipboard')
 
         .alert.alert-info.selectable
           strong(translate) Tip:
@@ -12,8 +12,6 @@
           span(translate) Run this command to copy the key to your clipboard
           textarea(readonly, rows='1', text-focus-select, ng-copy='focusAddKey = true'
           ).form-control.remote-debug-textarea pbcopy < ~/.android/adbkey.pub
-
-      br
 
       .form-group
         label.control-label(for='adb-device-key')
@@ -35,5 +33,6 @@
       button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
         i.fa.fa-plus.fa-fw
         span(translate) Add Key
+
 
     error-message(message='{{error}}')

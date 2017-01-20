@@ -13,12 +13,21 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
       , key: ''
       }
 
+      $scope.$on('user.keys.adb.error', function(event, error) {
+        $scope.$apply(function() {
+          $scope.error = error.message
+        })
+      })
+
+      $scope.$on('user.keys.adb.updated', function() {
+        $scope.closeAddKey()
+      })
+
       $scope.addKey = function() {
         UserService.addAdbKey({
           title: $scope.addForm.title
         , key: $scope.addForm.key
         })
-        $scope.closeAddKey()
       }
 
       $scope.closeAddKey = function() {
@@ -27,6 +36,7 @@ module.exports = function addAdbKeyDirective(AdbKeysService) {
         // TODO: cannot access to the form by name inside a directive?
         //$scope.adbkeyform.$setPristine()
         $scope.showAdd = false
+        $scope.error = ''
       }
     },
     link: function(scope) {

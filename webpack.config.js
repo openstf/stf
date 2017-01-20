@@ -64,7 +64,6 @@ module.exports = {
         , {test: /angular-touch\.js$/, loader: 'imports?angular=angular'}
         , {test: /angular-animate\.js$/, loader: 'imports?angular=angular'}
         , {test: /angular-growl\.js$/, loader: 'imports?angular=angular'}
-        , {test: /uuid\.js$/, loader: 'imports?require=>undefined'}
         , {test: /dialogs\.js$/, loader: 'script'}
       ]
       // TODO: enable when its sane

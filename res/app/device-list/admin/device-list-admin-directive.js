@@ -192,17 +192,24 @@ module.exports = function DeviceListAdminDirective($filter
       function refreshData(){
         scope.adminAvailableDevices = [];
         scope.adminGroupDevices = [];
-        scope.allDevices.forEach(function (serial) {
+        var adminAvailableDevices = [];
+        var adminGroupDevices = [];
+        Promise.each(scope.allDevices, function (serial) {
           DeviceService.load(serial).then(function (device) {
             if (!("controlGroups" in device)) {
-              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+              adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
             }else if (!("mainGroup" in scope)){
-              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+              adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
             }else if(device['controlGroups'].indexOf(scope.mainGroup) > -1 ){
-              scope.adminGroupDevices.push({"serial":device['serial'], "model": device['model']})
+              adminGroupDevices.push({"serial":device['serial'], "model": device['model']})
             }else{
-              scope.adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
+              adminAvailableDevices.push({"serial":device['serial'], "model": device['model']})
             }
+          })
+        }).then(function () {
+          scope.$apply(function () {
+            scope.adminAvailableDevices = adminAvailableDevices
+            scope.adminGroupDevices = adminGroupDevices
           })
         })
       }
@@ -241,7 +248,8 @@ module.exports = function DeviceListAdminDirective($filter
 
       // Triggers when the tracker sees a device for the first time.
       function addListener(device) {
-        createAvailableGroup(device)
+        // createAvailableGroup(device)
+        refreshData()
         refreshUserData()
         if (!(device['serial'] in scope.allDevices)) {
           scope.allDevices.push(device['serial'])

@@ -15,7 +15,6 @@ addons:
     - yasm
 env:
   matrix:
-  - NODE_VERSION=4
   - NODE_VERSION=6
 matrix:
   allow_failures:

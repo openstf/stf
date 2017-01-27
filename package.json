@@ -25,6 +25,9 @@
   "bin": {
     "stf": "./bin/stf"
   },
+  "yargs": {
+    "duplicate-arguments-array": false
+  },
   "scripts": {
     "test": "gulp test",
     "prepublish": "bower install && not-in-install && gulp build || in-install"

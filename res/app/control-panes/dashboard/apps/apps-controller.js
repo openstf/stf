@@ -52,11 +52,16 @@ module.exports = function ShellCtrl($scope) {
   }
 
   $scope.openRunningApps = function() {
-    openSetting('RunningServicesActivity')
+    // openSetting('RunningServicesActivity')
+    run('input keyevent KEYCODE_APP_SWITCH')
   }
 
   $scope.openDeveloperSettings = function() {
     openSetting('DevelopmentSettingsActivity')
+  }
+
+  $scope.openAdvertisingId = function() {
+    run('am start -n com.google.android.gms/com.google.android.gms.ads.settings.AdsSettingsActivity')
   }
 
   $scope.clear = function() {

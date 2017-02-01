@@ -1,7 +1,7 @@
 .widget-container.fluid-height.stf-apps(ng-controller='AppsCtrl')
   .heading
     stacked-icon(icon='fa-th-large', color='color-lila')
-    span(translate) Apps
+    span(translate) Pages
 
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openSettings()')
       i.fa.fa-gear.fa-lg.color-darkgray
@@ -10,6 +10,10 @@
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='control.openStore()').color-pink
       i.fa.fa-shopping-cart.fa-lg.color-blue
       .icon-title {{"App Store" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openAdvertisingId()')
+      i.fa.fa-usd.fa-lg.color-red
+      .icon-title {{"Advertising ID" | translate}}
 
   .widget-content.padded
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWiFiSettings()')
@@ -23,5 +27,9 @@
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openDeveloperSettings()')
       i.fa.fa-sliders.fa-lg.color-darkgreen
       .icon-title {{"Developer" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openRunningApps()')
+      i.fa.fa-object-ungroup.fa-lg.color-darkblue
+      .icon-title {{"Overview" | translate}}
 
     .clearfix

@@ -145,7 +145,8 @@ ExecStart=/usr/bin/docker run --rm \
   --net host \
   rethinkdb:2.3 \
   rethinkdb --bind all \
-    --cache-size 8192
+    --cache-size 8192 \
+    --no-update-check
 ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
@@ -690,7 +691,7 @@ ExecStart=/usr/bin/docker run --rm \
   openstf/stf:latest \
   stf api --port 3000 \
   --connect-sub tcp://appside.stf.example.org:7150 \
-  --connect-push tcp://appside.stf.example.org:7170  
+  --connect-push tcp://appside.stf.example.org:7170
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
@@ -810,7 +811,7 @@ ExecStartPre=/usr/bin/docker pull openstf/stf:latest
 ExecStartPre=-/usr/bin/docker kill %p-%i
 ExecStartPre=-/usr/bin/docker rm %p-%i
 ExecStart=/usr/bin/docker run --rm \
-  --name %p-%i \  
+  --name %p-%i \
   -p %i:3000 \
   openstf/stf:latest \
   stf storage-s3 --port 3000 \

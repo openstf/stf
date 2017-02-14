@@ -30,6 +30,7 @@
   },
   "scripts": {
     "test": "gulp test",
+    "test-mocha": "mocha 'test/**/*.js'",
     "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
@@ -132,6 +133,7 @@
     "less": "^2.4.0",
     "less-loader": "^2.2.2",
     "memory-fs": "^0.3.0",
+    "mocha": "^3.2.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "phantomjs-prebuilt": "^2.1.11",

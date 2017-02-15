@@ -150,9 +150,8 @@
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"
   },
-  "engineStrict": true,
   "engines": {
-    "node": ">= 4.2"
+    "node": ">= 6.9"
   },
   "externalDependencies": {
     "rethinkdb": ">= 2.2",

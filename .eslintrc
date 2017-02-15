@@ -3,6 +3,9 @@
   "env": {
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2015
+  },
   "rules": {
     // Possible errors
     "no-cond-assign": 2, // TODO: conflicts with no-extra-parens for while use case

@@ -23,7 +23,7 @@
 
 ### Breaking changes
 
-- Node v6.9.x or later is now required. Earlier versions will not work.
+- Node v6.9.x or later is now required. Earlier versions will not work. To avoid a sudden flood of issues about this change, [please-update-dependencies](https://github.com/sorccu/please-update-dependencies) enforces the minimum version and tells you if you need to update.
 - The `-C` shortcut for the `--no-cleanup` option has been removed due to the switch to [yargs](http://yargs.js.org). Please use the full `--no-cleanup` option instead.
 - Although likely not used by anyone, it was possible to give multiple ZeroMQ endpoints to options such as `--connect-push` by separating them with commas. This is still possible but now works in a different way due to the switch to [yargs](http://yargs.js.org). Comma-separated hosts in a single value are no longer accepted. If you need to specify multiple hosts, simply use the option as many times as you like. This change is unlikely to have any impact whatsoever on most users.
 - The `--devices` option of `stf doctor` has been removed due to unnecessary complexity.

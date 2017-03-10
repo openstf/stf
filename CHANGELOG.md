@@ -17,6 +17,7 @@
 - Fixed ZUK Z1, Z2 and others by adding an alternate install location for our binaries, since `/data/local/tmp` is mounted as noexec on those devices. Thanks @dkw72n!
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve issues with certain APK files that were unparseable and therefore failed installation. We've only seen a single a single APK with this issue, but there could be more.
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve another unrelated parsing issue with slightly malformed manifest files.
+- Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue where trailing spaces in an adb public key would cause an error during adb connect.
 
 ### Misc
 

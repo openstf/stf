@@ -18,6 +18,7 @@
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve issues with certain APK files that were unparseable and therefore failed installation. We've only seen a single a single APK with this issue, but there could be more.
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve another unrelated parsing issue with slightly malformed manifest files.
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue where trailing spaces in an adb public key would cause an error during adb connect.
+- Updated [adbkit](https://github.com/openstf/adbkit) to resolve issues with log parsing on Android 7.0 and later, caused by Android no longer transforming `\n` to `\r\n`.
 
 ### Misc
 

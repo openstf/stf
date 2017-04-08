@@ -32,7 +32,7 @@ Please [contact us][contact-link] for sponsor arrangements. Both recurring and o
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 7.1 (SDK level 25)
+    * Supports versions 2.3.3 (SDK level 10) to 7.1 (SDK level 25) and Android O Developer Preview 1
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality

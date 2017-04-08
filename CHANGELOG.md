@@ -4,6 +4,7 @@
 
 ### Enhancements
 
+- Added support for Android O Developer Preview 1
 - You can now set screen JPEG quality with the `SCREEN_JPEG_QUALITY` environment variable at launch time. Can be useful for slow networks.
 - Switched to [yargs](http://yargs.js.org) for option parsing to make it easier to modify the CLI.
 - Almost all command line options can now be specified with environment variables.

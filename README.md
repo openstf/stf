@@ -6,7 +6,7 @@
 
 **STF** (or Smartphone Test Farm) is a web application for debugging smartphones, smartwatches and other gadgets remotely, from the comfort of your browser.
 
-STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://headspin.io/) and [other individual contributors](https://www.bountysource.com/teams/openstf).
+STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://performance.headspin.io/) and [other individual contributors](https://www.bountysource.com/teams/openstf).
 
 Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if you'd like to support future development. How are your donations being used? Check out our [donation transparency report](DONATION-TRANSPARENCY.md).
 
@@ -18,9 +18,9 @@ Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if
 
 ### Gold Sponsor
 
-[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
+[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://performance.headspin.io/)
 
-> [HeadSpin](https://headspin.io/) enables developers launch high quality and high performing apps Worldwide. Using HeadSpin’s global distributed device cloud infrastructure, developers can test and monitor their apps instantly on 1,500 global cell networks and local devices. HeadSpin seamlessly plugs into your development workflow with no code changes to your apps.
+> [HeadSpin](https://performance.headspin.io/) enables developers launch high quality and high performing apps Worldwide. Using HeadSpin’s global distributed device cloud infrastructure, developers can test and monitor their apps instantly on 1,500 global cell networks and local devices. HeadSpin seamlessly plugs into your development workflow with no code changes to your apps.
 
 HeadSpin offers a generous monthly contribution towards STF development.
 

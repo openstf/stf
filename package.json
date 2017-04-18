@@ -25,14 +25,17 @@
   "bin": {
     "stf": "./bin/stf"
   },
+  "yargs": {
+    "duplicate-arguments-array": false
+  },
   "scripts": {
     "test": "gulp test",
     "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
     "@slack/client": "^3.5.4",
-    "adbkit": "^2.6.2",
-    "adbkit-apkreader": "^1.0.0",
+    "adbkit": "^2.9.0",
+    "adbkit-apkreader": "^2.1.1",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.4.13",
     "basic-auth": "^1.0.3",
@@ -58,14 +61,14 @@
     "lodash": "^4.14.2",
     "markdown-serve": "^0.3.2",
     "mime": "^1.3.4",
-    "minicap-prebuilt": "^1.3.0",
+    "minicap-prebuilt": "^1.4.0",
     "minimatch": "^3.0.3",
     "my-local-ip": "^1.0.0",
     "openid": "^2.0.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",
     "passport-saml": "^0.15.0",
-    "please-update-dependencies": "^1.0.0",
+    "please-update-dependencies": "^2.0.0",
     "protobufjs": "^3.8.2",
     "proxy-addr": "^1.0.10",
     "pug": "^2.0.0-beta4",
@@ -147,9 +150,8 @@
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"
   },
-  "engineStrict": true,
   "engines": {
-    "node": ">= 4.2"
+    "node": ">= 6.9"
   },
   "externalDependencies": {
     "rethinkdb": ">= 2.2",

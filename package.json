@@ -156,7 +156,7 @@
   "externalDependencies": {
     "rethinkdb": ">= 2.2",
     "zeromq": ">= 4",
-    "protobuf": "~2",
+    "protobuf": ">= 3",
     "gm": "~1",
     "adb": "~1"
   },

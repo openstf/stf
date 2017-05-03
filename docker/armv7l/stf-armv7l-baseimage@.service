@@ -10,5 +10,5 @@ After=stf-armv7l-clone@%i.service
 Type=oneshot
 WorkingDirectory=/home/stf-armv7l/repo-%i
 Environment="ARCH=armhf"
-ExecStart=/bin/sh docker/armv7l/mkimage-alpine.sh -r v3.4 -i alpine-stf-armv7l-%i:3.4
-ExecStart=/usr/bin/sed -i.bak 's/FROM alpine:3.4/FROM alpine-stf-armv7l-%i:3.4/' docker/armv7l/Dockerfile
+ExecStart=/bin/sh docker/armv7l/mkimage-alpine.sh -r v3.5 -i alpine-stf-armv7l-%i:3.5
+ExecStart=/usr/bin/sed -i.bak 's/FROM alpine:3.5/FROM alpine-stf-armv7l-%i:3.5/' docker/armv7l/Dockerfile

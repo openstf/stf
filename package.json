@@ -92,7 +92,7 @@
     "utf-8-validate": "^1.2.1",
     "uuid": "^3.0.0",
     "ws": "^1.0.1",
-    "yargs": "^6.5.0",
+    "yargs": "^6.6.0",
     "zmq": "^2.14.0"
   },
   "devDependencies": {

@@ -68,6 +68,9 @@ module.exports =
       pressBack: function() {
         $scope.control.back()
       },
+      pressAppSwitch: function() {
+        $scope.control.appSwitch()
+      },
       toggleDevice: function() {
         // $scope.controlScreen.show = !$scope.controlScreen.show
       },

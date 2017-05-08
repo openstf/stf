@@ -8,6 +8,10 @@
       a.pointer(role='menuitem', ng-click='control.home(); $event.preventDefault()')
         i.fa.fa-home.fa-fw
         span(translate) Home
+    li
+      a.pointer(role='menuitem', ng-click='control.appSwitch(); $event.preventDefault()')
+        i.fa.fa-square-o.fa-fw
+        span(translate) Recents
     li.divider
     li
       a.pointer(role='menuitem', ng-click='rotateRight(); $event.preventDefault()')

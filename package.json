@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@slack/client": "^3.5.4",
-    "adbkit": "^2.9.0",
+    "adbkit": "^2.9.2",
     "adbkit-apkreader": "^2.1.1",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.4.13",
@@ -92,7 +92,7 @@
     "utf-8-validate": "^1.2.1",
     "uuid": "^3.0.0",
     "ws": "^1.0.1",
-    "yargs": "^6.5.0",
+    "yargs": "^6.6.0",
     "zmq": "^2.14.0"
   },
   "devDependencies": {
@@ -156,7 +156,7 @@
   "externalDependencies": {
     "rethinkdb": ">= 2.2",
     "zeromq": ">= 4",
-    "protobuf": "~2",
+    "protobuf": ">= 3",
     "gm": "~1",
     "adb": "~1"
   },

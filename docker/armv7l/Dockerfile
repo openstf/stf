@@ -1,6 +1,6 @@
 # Get the base image by running the included `mkimage-alpine.sh` script, or
 # get a fresh copy from github.com/docker/docker/contrib/.
-FROM alpine:3.4
+FROM alpine:3.5
 
 # Copy app source.
 COPY . /tmp/build/
@@ -15,7 +15,6 @@ ENV PATH /app/bin:$PATH
 # Node build taken from https://github.com/mhart/alpine-node and slightly adapted.
 RUN set -xo pipefail && \
     echo '--- Updating repositories' && \
-    echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     apk update && \
     echo '--- Building node' && \
     apk add curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
@@ -32,7 +31,7 @@ RUN set -xo pipefail && \
     cd /tmp/build && \
     export PATH=$PWD/node_modules/.bin:$PATH && \
     sed -i'' -e '/phantomjs/d' package.json && \
-    apk add git zeromq-dev protobuf-dev graphicsmagick@community && \
+    apk add git zeromq-dev protobuf-dev graphicsmagick && \
     export JOBS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     echo 'npm install --no-optional' | su stf -s /bin/sh && \
     echo '--- Assembling app' && \

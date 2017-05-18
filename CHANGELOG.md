@@ -11,6 +11,7 @@
 - Internal commands are now hidden from help output but can still be used.
 - Running the `stf` binary without a command now errors and shows help output (previously there was no output whatsoever).
 - Improved help messages for various options.
+- Added an app switch key. Thanks @koral--!
 
 ### Fixes
 

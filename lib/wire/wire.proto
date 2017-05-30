@@ -78,8 +78,9 @@ enum MessageType {
   FileSystemGetMessage       = 82;
   ConnectStartedMessage      = 92;
   ConnectStoppedMessage      = 93;
-  ReserveUpdateMessage       = 100;
-  ReserveUpdateRequestMessage = 101;
+  ReserveMessage             = 100;
+  ReserveUpdateMessage       = 101;
+  ReserveUpdateRequestMessage = 102;
 }
 
 message ConnectStartedMessage {
@@ -568,9 +569,19 @@ message RotationEvent {
   required int32 rotation = 2;
 }
 
+message ReserveMessage {
+  required int64 from = 1;
+  required int64 to = 2;
+  required OwnerMessage owner = 3;
+}
+
 message ReserveUpdateMessage {
+  optional ReserveMessage current = 1;
+  optional ReserveMessage next = 2;
 }
 
 
 message ReserveUpdateRequestMessage {
+  required string serial = 1;
+  required string channel = 2;
 }

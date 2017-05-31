@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "title": "Smartphone Test Farm",
     "description": "Control and manages real Smartphone devices from browser and restful apis",
     "license": {
@@ -37,6 +37,7 @@
   ],
   "paths": {
     "/user": {
+      "x-swagger-router-controller": "user",
       "get": {
         "summary": "User Profile",
         "description": "The User Profile endpoint returns information about current authorized user",
@@ -66,6 +67,7 @@
       }
     },
     "/user/devices": {
+      "x-swagger-router-controller": "user",
       "get": {
         "summary": "User Devices",
         "description": "The User Devices endpoint returns device list owner by current authorized user",
@@ -139,6 +141,7 @@
       }
     },
     "/user/devices/{serial}": {
+      "x-swagger-router-controller": "user",
       "get": {
         "summary": "User Device",
         "description": "The devices enpoint return information about device owned by user",
@@ -186,6 +189,9 @@
         "summary": "Delete User Device",
         "description": "The User Devices endpoint will request for device release from stf server. It will return request accepted if device is being used by current user",
         "operationId": "deleteUserDeviceBySerial",
+        "consumes": [
+          "application/octet-stream"
+        ],
         "tags": [
           "user"
         ],
@@ -217,10 +223,14 @@
       }
     },
     "/user/devices/{serial}/remoteConnect": {
+      "x-swagger-router-controller": "user",
       "post": {
         "summary": "Remote Connect",
         "description": "The device connect endpoint will request stf server to connect remotely",
         "operationId": "remoteConnectUserDeviceBySerial",
+        "consumes": [
+          "application/octet-stream"
+        ],
         "tags": [
           "user"
         ],
@@ -257,6 +267,9 @@
         "summary": "Remote Disconnect",
         "description": "The device connect endpoint will request stf server to disconnect remotely",
         "operationId": "remoteDisconnectUserDeviceBySerial",
+        "consumes": [
+          "application/octet-stream"
+        ],
         "tags": [
           "user"
         ],
@@ -288,6 +301,7 @@
       }
     },
     "/user/accessTokens": {
+      "x-swagger-router-controller": "user",
       "get": {
         "summary": "Access Tokens",
         "description": "The Access Tokens endpoints returns titles of all the valid access tokens",
@@ -317,6 +331,7 @@
       }
     },
     "/devices": {
+      "x-swagger-router-controller": "devices",
       "get": {
         "summary": "Device List",
         "description": "The devices endpoint return list of all the STF devices including Disconnected and Offline",
@@ -355,6 +370,7 @@
       }
     },
     "/devices/{serial}": {
+      "x-swagger-router-controller": "devices",
       "get": {
         "summary": "Device Information",
         "description": "The device enpoint return information about a single device",
@@ -399,7 +415,9 @@
         ]
       }
     },
-    "/swagger.json": {}
+    "/swagger.json": {
+      "x-swagger-pipe": "swagger_raw"
+    }
   },
   "definitions": {
     "UserResponse": {

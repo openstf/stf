@@ -97,6 +97,7 @@ module.exports = function ControlServiceFactory(
     this.home = keySender('input.keyPress', 'home')
     this.menu = keySender('input.keyPress', 'menu')
     this.back = keySender('input.keyPress', 'back')
+    this.appSwitch = keySender('input.keyPress', 'app_switch')
 
     this.type = function(text) {
       return sendOneWay('input.type', {

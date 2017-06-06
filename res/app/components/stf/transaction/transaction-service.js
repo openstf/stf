@@ -1,5 +1,5 @@
 var Promise = require('bluebird')
-var uuid = require('node-uuid')
+var uuid = require('uuid')
 
 module.exports = function TransactionServiceFactory(socket, TransactionError) {
   var transactionService = {}

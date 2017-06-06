@@ -3,6 +3,9 @@
   "env": {
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2015
+  },
   "rules": {
     // Possible errors
     "no-cond-assign": 2, // TODO: conflicts with no-extra-parens for while use case
@@ -78,7 +81,7 @@
     "no-shadow-restricted-names": 2,
     "no-shadow": 0, // TODO: 1 may be ok
     "no-undefined": 1,
-    "no-unused-vars": 1,
+    "no-unused-vars": [1, {"varsIgnorePattern": "^_"}],
     "no-use-before-define": 1, // TODO: 0 or 2 may be ok, sometimes there are ciclic dependencies
 
     // Style

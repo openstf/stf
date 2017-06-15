@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2.0.1",
+    "version": "2.3.0",
     "title": "Smartphone Test Farm",
     "description": "Control and manages real Smartphone devices from browser and restful apis",
     "license": {
@@ -20,7 +20,8 @@
     "https"
   ],
   "consumes": [
-    "application/json"
+    "application/json",
+    "application/octet-stream"
   ],
   "produces": [
     "application/json"
@@ -189,9 +190,6 @@
         "summary": "Delete User Device",
         "description": "The User Devices endpoint will request for device release from stf server. It will return request accepted if device is being used by current user",
         "operationId": "deleteUserDeviceBySerial",
-        "consumes": [
-          "application/octet-stream"
-        ],
         "tags": [
           "user"
         ],
@@ -228,9 +226,6 @@
         "summary": "Remote Connect",
         "description": "The device connect endpoint will request stf server to connect remotely",
         "operationId": "remoteConnectUserDeviceBySerial",
-        "consumes": [
-          "application/octet-stream"
-        ],
         "tags": [
           "user"
         ],
@@ -267,9 +262,6 @@
         "summary": "Remote Disconnect",
         "description": "The device connect endpoint will request stf server to disconnect remotely",
         "operationId": "remoteDisconnectUserDeviceBySerial",
-        "consumes": [
-          "application/octet-stream"
-        ],
         "tags": [
           "user"
         ],

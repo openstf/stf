@@ -287,7 +287,7 @@ POST /api/v1/user/devices/{serial}/remoteConnect
 Using cURL:
 
 ```bash
-curl -X POST --header "Content-Type: application/json" -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X POST -H "Authorization: Bearer YOUR-TOKEN-HERE" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
 ```
 
 Using Node.js:
@@ -384,7 +384,7 @@ function add_device
 
 function remote_connect
 {
-    response=$(curl -X POST -H "Content-Type: application/json" \
+    response=$(curl -X POST \
                  -H "Authorization: Bearer $STF_TOKEN" \
                 $STF_URL/api/v1/user/devices/$DEVICE_SERIAL/remoteConnect)
 
@@ -404,7 +404,7 @@ function remote_connect
 
 function remove_device
 {
-    response=$(curl -X DELETE -H "Content-Type: application/json" \
+    response=$(curl -X DELETE \
                  -H "Authorization: Bearer $STF_TOKEN" \
                 $STF_URL/api/v1/user/devices/$DEVICE_SERIAL)
 

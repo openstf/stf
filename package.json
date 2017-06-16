@@ -79,7 +79,7 @@
     "semver": "^5.0.1",
     "serve-favicon": "^2.2.0",
     "serve-static": "^1.9.2",
-    "socket.io": "1.4.8",
+    "socket.io": "^2.0.3",
     "split": "^1.0.0",
     "stf-appstore-db": "^1.0.0",
     "stf-browser-db": "^1.0.2",
@@ -92,7 +92,7 @@
     "url-join": "1.1.0",
     "utf-8-validate": "^1.2.1",
     "uuid": "^3.0.0",
-    "ws": "^1.0.1",
+    "ws": "^3.0.0",
     "yargs": "^6.6.0",
     "zmq": "^2.14.0"
   },

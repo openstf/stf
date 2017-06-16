@@ -22,6 +22,7 @@
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue where trailing spaces in an adb public key would cause an error during adb connect.
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve issues with log parsing on Android 7.0 and later, caused by Android no longer transforming `\n` to `\r\n`.
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue with recent versions of ADB that include a null byte in `adbkey.pub`, which was causing validation to fail.
+- Fixed [minitouch](https://github.com/openstf/minitouch) on Blackberry PRIV.
 
 ### Misc
 

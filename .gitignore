@@ -1,6 +1,8 @@
 *.mo
 .DS_Store
+.eslintcache
 .idea/
+.python-version
 /*.tgz
 /.env
 /node_modules/
@@ -10,4 +12,3 @@
 /rethinkdb_data/
 /temp/
 /tmp/
-.eslintcache

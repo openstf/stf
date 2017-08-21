@@ -1,6 +1,6 @@
 {
   "name": "stf",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Smartphone Test Farm",
   "keywords": [
     "adb",

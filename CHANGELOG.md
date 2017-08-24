@@ -1,10 +1,16 @@
 # Changelog
 
-## HEAD
+## 3.0.1 (2017-08-21)
+
+### Fixes
+
+- Updated [adbkit](https://github.com/openstf/adbkit) to fix `RangeError: Index out of range` errors when parsing newer APKs that use UTF-8 encoding for their string pools.
+
+## 3.0.0 (2017-08-09)
 
 ### Enhancements
 
-- Added support for Android O Developer Preview 1
+- Added support for Android O Developer Preview 1 (note that any later previews are not supported yet)
 - You can now set screen JPEG quality with the `SCREEN_JPEG_QUALITY` environment variable at launch time. Can be useful for slow networks.
 - Switched to [yargs](http://yargs.js.org) for option parsing to make it easier to modify the CLI.
 - Almost all command line options can now be specified with environment variables.
@@ -22,6 +28,7 @@
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue where trailing spaces in an adb public key would cause an error during adb connect.
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve issues with log parsing on Android 7.0 and later, caused by Android no longer transforming `\n` to `\r\n`.
 - Updated [adbkit](https://github.com/openstf/adbkit) to resolve an issue with recent versions of ADB that include a null byte in `adbkey.pub`, which was causing validation to fail.
+- Fixed [minitouch](https://github.com/openstf/minitouch) on Blackberry PRIV.
 
 ### Misc
 

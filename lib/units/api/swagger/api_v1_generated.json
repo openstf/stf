@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2.0.0",
+    "version": "2.3.0",
     "title": "Smartphone Test Farm",
     "description": "Control and manages real Smartphone devices from browser and restful apis",
     "license": {
@@ -20,7 +20,8 @@
     "https"
   ],
   "consumes": [
-    "application/json"
+    "application/json",
+    "application/octet-stream"
   ],
   "produces": [
     "application/json"

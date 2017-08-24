@@ -10,11 +10,12 @@
 /.jscsrc
 /.npmignore
 /.npmrc
+/.python-version
 /.travis.yml
-/docker
 /Dockerfile
 /bower.json
 /component.json
+/docker
 /gulpfile.js
 /npm-debug.log
 /res/bower_components/

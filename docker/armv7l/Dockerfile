@@ -18,7 +18,7 @@ RUN set -xo pipefail && \
     apk update && \
     echo '--- Building node' && \
     apk add curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
-    curl -sSL https://nodejs.org/dist/v6.9.5/node-v6.9.5.tar.gz | tar -xz && \
+    curl -sSL https://nodejs.org/dist/v6.11.2/node-v6.11.2.tar.gz | tar -xz && \
     cd /node-v* && \
     ./configure --prefix=/usr && \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \

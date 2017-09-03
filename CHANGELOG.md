@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0 (2017-08-31)
+
+### Enhancements
+
+- Android 8.0 is now supported. Please note that Android O developer previews are no longer officially supported, though they may or may not still work.
+
 ## 3.0.1 (2017-08-21)
 
 ### Fixes

@@ -4280,9 +4280,9 @@ mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
-minicap-prebuilt@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/minicap-prebuilt/-/minicap-prebuilt-1.4.0.tgz#e30fd3b654d49a3956685bf2a1f79b9cdb668874"
+minicap-prebuilt@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/minicap-prebuilt/-/minicap-prebuilt-2.0.0.tgz#e63fac85a2d59520811c3f676f3caad83e75d087"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"
@@ -6946,6 +6946,15 @@ uglify-js@3.0.x:
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
+
+uglify-js@^2.4.19:
+  version "2.8.29"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  dependencies:
+    source-map "~0.5.1"
+    yargs "~3.10.0"
+  optionalDependencies:
+    uglify-to-browserify "~1.0.0"
 
 uglify-js@^2.6.1, uglify-js@~2.7.3:
   version "2.7.5"

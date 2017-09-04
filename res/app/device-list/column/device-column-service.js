@@ -128,7 +128,19 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , network: TextCell({
       title: gettext('Network')
     , value: function(device) {
-        return device.phone ? device.phone.network : ''
+        if (!device.network) {
+          return ''
+        }
+
+        if (!device.network.connected) {
+          return ''
+        }
+
+        if (device.network.subtype) {
+          return (device.network.type + ' (' + device.network.subtype + ')').toUpperCase()
+        }
+
+        return (device.network.type || '').toUpperCase()
       }
     })
   , display: TextCell({

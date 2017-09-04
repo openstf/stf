@@ -1,5 +1,11 @@
 # Changelog
 
+## HEAD
+
+### Enhancements
+
+- The network column in the device list is now based on a value that gets updated in real time. The format of the column has changed slightly due to this change.
+
 ## 3.1.0 (2017-08-31)
 
 ### Enhancements

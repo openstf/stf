@@ -422,6 +422,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 See [LICENSE](LICENSE).
 
-Copyright © The OpenSTF Project. All Rights Reserved.
+Copyright © 2017 The OpenSTF Project. All Rights Reserved.
 
 [contact-link]: mailto:contact@openstf.io

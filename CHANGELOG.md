@@ -6,6 +6,10 @@
 
 - The network column in the device list is now based on a value that gets updated in real time. The format of the column has changed slightly due to this change.
 
+### Fixes
+
+- Fixed an issue on Windows where our device binaries may have failed to install due to an `Out of fallback locations` error caused by a faulty mode check. Thanks @iqianxing!
+
 ## 3.1.0 (2017-08-31)
 
 ### Enhancements

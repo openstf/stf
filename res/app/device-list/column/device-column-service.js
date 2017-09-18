@@ -623,6 +623,7 @@ function DeviceStatusCell(options) {
   , compare: (function() {
       var order = {
         using: 10
+      , automation: 15
       , available: 20
       , busy: 30
       , ready: 40

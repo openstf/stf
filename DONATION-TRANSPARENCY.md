@@ -16,6 +16,8 @@ Here's a list of hardware purchases we've made using donated funds.
 
 Here's a list of hardware that has been given to the team for development purposes.
 
-*None as of yet.*
+| Date | Hardware | Type | Reason | Thanks to |
+|------|----------|------|--------|-----------|
+| 2017-09-21 | Google Pixel | Phone | Android O development | [Sauce Labs](https://saucelabs.com/) |
 
 Please [email us directly](mailto:contact@openstf.io) if you'd like to donate a device for development.

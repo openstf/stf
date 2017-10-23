@@ -338,26 +338,26 @@ function TextCell(options) {
       return compareIgnoreCase(options.value(a), options.value(b))
     }
   , filter: function(item, filter) {
-      if ( options.title == "Battery Level" || options.title == "Battery Temp" ) {
+      if (options.title === 'Battery Level' || options.title === 'Battery Temp') {
         //Exception in TextCell. We want to filter after integer values for two columns, Battery Level and Battery Temp
-        var remove_unit_character = ''
-        switch (options.title){
-        case "Battery Level":
-          remove_unit_character = "%"
+        var unitCharacterToRemove = ''
+        switch (options.title) {
+        case 'Battery Level':
+          unitCharacterToRemove = '%'
           break
-        case "Battery Temp":
-          remove_unit_character = "°C"
+        case 'Battery Temp':
+          unitCharacterToRemove = '°C'
           break
         }
 
-        var parsed_value = parseInt((options.value(item)).replace(remove_unit_character,''))
+        var valueWithoutUnit = parseInt((options.value(item)).replace(unitCharacterToRemove, ''))
 
         return filterOps[filter.op || '='](
-            parsed_value
+            valueWithoutUnit
           , Number(filter.query)
         )
       }
-      else{
+      else {
         return filterIgnoreCase(options.value(item), filter.query)
       }
     }

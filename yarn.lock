@@ -4280,9 +4280,9 @@ mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
 
-minicap-prebuilt@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/minicap-prebuilt/-/minicap-prebuilt-2.0.0.tgz#e63fac85a2d59520811c3f676f3caad83e75d087"
+minicap-prebuilt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/minicap-prebuilt/-/minicap-prebuilt-2.1.0.tgz#6c0ecd57786fd9227d60d91ae2e79fbb16b91a6e"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"

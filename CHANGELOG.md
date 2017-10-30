@@ -1,5 +1,18 @@
 # Changelog
 
+## HEAD
+
+### Enhancements
+
+- Android 8.1 Developer Preview 1 is now supported. Note that future preview versions may require more changes.
+- The network column in the device list is now based on a value that gets updated in real time. The format of the column has changed slightly due to this change.
+- The `--mute-master` option now accepts the values `never` (default), `inuse` (only when a device is being used), and `always` (mute pre-emptively during setup phase). For backwards compatibility, `--mute-master` with no value maps to `inuse`, and `--no-mute-master` to `never`.
+- The battery level and battery temperature columns are now filterable with comparison operators.
+
+### Fixes
+
+- Fixed an issue on Windows where our device binaries may have failed to install due to an `Out of fallback locations` error caused by a faulty mode check. Thanks @iqianxing!
+
 ## 3.1.0 (2017-08-31)
 
 ### Enhancements

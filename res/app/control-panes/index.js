@@ -3,6 +3,7 @@ module.exports = angular.module('control-panes', [
   require('stf/device').name,
   require('stf/control').name,
   require('stf/scoped-hotkeys').name,
+  require('stf/settings').name,
   require('./device-control').name,
   require('./advanced').name,
   require('./automation').name,
@@ -37,6 +38,10 @@ module.exports = angular.module('control-panes', [
         template: require('./control-panes.pug'),
         controller: 'ControlPanesCtrl'
       })
+      .when('/restart_emulator/:serial', {
+      template: require('./control-panes.pug'),
+      controller: 'EmulatorPanesCtrl'
+      })
   }])
   .factory('ControlPanesService', require('./control-panes-service'))
   .controller('ControlPanesCtrl', require('./control-panes-controller'))
@@ -44,3 +49,5 @@ module.exports = angular.module('control-panes', [
   require('./control-panes-no-device-controller'))
   .controller('ControlPanesHotKeysCtrl',
   require('./control-panes-hotkeys-controller'))
+  .controller('EmulatorPanesCtrl',
+  require('./emulator-panes-controller'))

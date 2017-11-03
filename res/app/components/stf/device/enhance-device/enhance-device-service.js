@@ -41,7 +41,11 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
   }
 
   function enhanceDevice(device) {
+    if (device.emulator_name.length > 0){
+      device.enhancedName = device.emulator_name
+    } else {
     device.enhancedName = device.name || device.model || device.serial || 'Unknown'
+    }
     device.enhancedModel = device.model || 'Unknown'
     device.enhancedImage120 = '/static/app/devices/icon/x120/' + (device.image || '_default.jpg')
     device.enhancedImage24 = '/static/app/devices/icon/x24/' + (device.image || '_default.jpg')

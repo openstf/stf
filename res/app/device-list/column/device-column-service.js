@@ -24,7 +24,17 @@ module.exports = function DeviceColumnService($filter, gettext) {
     state: DeviceStatusCell({
       title: gettext('Status')
     , value: function(device) {
-        return $filter('translate')(device.enhancedStateAction)
+        if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) {
+          return $filter('translate')( device.enhancedStateAction)
+          }
+        else {
+          if (device.enhancedStateAction == "Disconnected") {
+            return $filter('translate')("Restart Emulator")
+          }
+          else{
+            return $filter('translate')( device.enhancedStateAction)
+          }
+        }
       }
     })
   , model: DeviceModelCell({
@@ -36,7 +46,11 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
-        return device.name || device.model || device.serial
+        if (device.emulator_name.length > 0) {
+          return device.emulator_name
+        } else {
+          return device.name || device.model || device.serial
+        }
       }
     })
   , operator: TextCell({
@@ -591,6 +605,7 @@ function DeviceStatusCell(options) {
   , unauthorized: 'state-unauthorized btn-danger-outline'
   , offline: 'state-offline btn-warning-outline'
   , automation: 'state-automation btn-info'
+  , start_emulator: 'state-bringToAlive btn-restart'
   }
 
   return _.defaults(options, {
@@ -607,14 +622,33 @@ function DeviceStatusCell(options) {
       var a = td.firstChild
       var t = a.firstChild
 
-      a.className = 'btn btn-xs device-status ' +
-        (stateClasses[device.state] || 'btn-default-outline')
-
+      if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
+        a.className = 'btn btn-xs device-status ' +
+          (stateClasses[device.state] || 'btn-default-outline')
+      }
+      else {
+        if (device.state === "absent"){
+          a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
+        }
+        else {
+          a.className = 'btn btn-xs device-status ' +
+            (stateClasses[device.state] || 'btn-default-outline')
+        }
+      }
       if (device.usable && !device.using) {
         a.href = '#!/control/' + device.serial
       }
       else {
-        a.removeAttribute('href')
+        if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
+          a.removeAttribute('href')
+        }
+        else {
+          if (device.state === "absent"){
+            a.href = '#!/restart_emulator/' + device.emulator_name
+          } else {
+            a.removeAttribute('href')
+          }
+        }
       }
 
       t.nodeValue = options.value(device)

@@ -89,7 +89,7 @@ module.exports = function DeviceListIconsDirective(
         }
         else {
           if (!device.usable && device.emulator_name.length >0 ) {
-            a.href = '#!/restart_emulator/' + device.emulator_name
+            a.href = '#!/restart_emulator/' + device.emulator_name + '/' + device.serial
           }
           else {
             a.removeAttribute('href')

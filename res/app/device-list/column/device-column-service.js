@@ -644,7 +644,7 @@ function DeviceStatusCell(options) {
         }
         else {
           if (device.state === "restart_avd"){
-            a.href = '#!/restart_emulator/' + device.emulator_name
+            a.href = '#!/restart_emulator/' + device.emulator_name + '/' + device.serial
           } else {
             a.removeAttribute('href')
           }

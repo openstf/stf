@@ -38,7 +38,7 @@ module.exports = angular.module('control-panes', [
         template: require('./control-panes.pug'),
         controller: 'ControlPanesCtrl'
       })
-      .when('/restart_emulator/:serial', {
+      .when('/restart_emulator/:emulator_name/:serial', {
       template: require('./control-panes.pug'),
       controller: 'EmulatorPanesCtrl'
       })

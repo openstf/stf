@@ -38,6 +38,9 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
           break
       }
     }
+    else if (data.emulator_name.length > 0) {
+      data.state = 'restart_avd'
+    }
   }
 
   function enhanceDevice(device) {

@@ -627,7 +627,7 @@ function DeviceStatusCell(options) {
           (stateClasses[device.state] || 'btn-default-outline')
       }
       else {
-        if (device.state === "absent"){
+        if (device.state === "restart_avd"){
           a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
         }
         else {
@@ -643,7 +643,7 @@ function DeviceStatusCell(options) {
           a.removeAttribute('href')
         }
         else {
-          if (device.state === "absent"){
+          if (device.state === "restart_avd"){
             a.href = '#!/restart_emulator/' + device.emulator_name
           } else {
             a.removeAttribute('href')

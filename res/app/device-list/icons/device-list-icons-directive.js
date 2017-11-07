@@ -88,8 +88,13 @@ module.exports = function DeviceListIconsDirective(
           li.classList.remove('device-is-busy')
         }
         else {
-          a.removeAttribute('href')
-          li.classList.add('device-is-busy')
+          if (!device.usable && device.emulator_name.length >0 ) {
+            a.href = '#!/restart_emulator/' + device.emulator_name
+          }
+          else {
+            a.removeAttribute('href')
+            li.classList.add('device-is-busy')
+          }
         }
 
         return li

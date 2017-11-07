@@ -3,6 +3,7 @@ module.exports = function StateClassesService() {
 
   service.stateButton = function(state) {
     var stateClasses = {
+      restart_avd: 'state-offline btn-warning-outline',
       using: 'state-using btn-primary',
       busy: 'state-busy btn-warning',
       available: 'state-available btn-primary-outline',
@@ -21,6 +22,7 @@ module.exports = function StateClassesService() {
 
   service.stateColor = function(state) {
     var stateClasses = {
+      restart_avd: 'state-offline',
       using: 'state-using',
       busy: 'state-busy',
       available: 'state-available',

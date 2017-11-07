@@ -2,6 +2,7 @@ module.exports = angular.module('stf.device-status', [])
   .filter('statusNameAction', function(gettext) {
     return function(text) {
       return {
+        restart_avd: gettext('Restart Emulator'),
         absent: gettext('Disconnected'),
         present: gettext('Connected'),
         offline: gettext('Offline'),
@@ -18,6 +19,7 @@ module.exports = angular.module('stf.device-status', [])
   .filter('statusNamePassive', function(gettext) {
     return function(text) {
       return {
+        restart_avd: gettext('Restart Emulator'),
         absent: gettext('Disconnected'),
         present: gettext('Connected'),
         offline: gettext('Offline'),

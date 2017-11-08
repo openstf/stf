@@ -38,16 +38,25 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
           break
       }
     }
-    else if (data.emulator_name.length > 0) {
-      data.state = 'restart_avd'
+    else {
+      if (typeof data.emulator_name !== 'undefined'){
+        if (data.emulator_name.length > 0) {
+        data.state = 'restart_avd'}
+      }
     }
   }
 
   function enhanceDevice(device) {
-    if (device.emulator_name.length > 0){
-      device.enhancedName = device.emulator_name
-    } else {
-    device.enhancedName = device.name || device.model || device.serial || 'Unknown'
+    if (typeof device.emulator_name !== 'undefined'){
+      if (device.emulator_name.length > 0){
+        device.enhancedName = device.emulator_name
+      }
+      else {
+        device.enhancedName = device.name || device.model || device.serial || 'Unknown'
+      }
+    }
+    else {
+      device.enhancedName = device.name || device.model || device.serial || 'Unknown'
     }
     device.enhancedModel = device.model || 'Unknown'
     device.enhancedImage120 = '/static/app/devices/icon/x120/' + (device.image || '_default.jpg')

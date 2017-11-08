@@ -24,18 +24,17 @@ module.exports = function DeviceColumnService($filter, gettext) {
     state: DeviceStatusCell({
       title: gettext('Status')
     , value: function(device) {
-        if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) {
-          return $filter('translate')( device.enhancedStateAction)
-          }
-        else {
-          if (device.enhancedStateAction == "Disconnected") {
-            return $filter('translate')("Restart Emulator")
-          }
-          else{
+        if (typeof device.model !== 'undefined'){
+          if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) {
             return $filter('translate')( device.enhancedStateAction)
+            }
           }
+        if (device.enhancedStateAction == "Disconnected") {
+          return $filter('translate')("Restart Emulator")
+          }
+
+        return $filter('translate')( device.enhancedStateAction)
         }
-      }
     })
   , model: DeviceModelCell({
       title: gettext('Model')
@@ -46,11 +45,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
-        if (device.emulator_name.length > 0) {
-          return device.emulator_name
-        } else {
-          return device.name || device.model || device.serial
+        if (typeof device.emulator_name !== 'undefined'){
+          if (device.emulator_name.length > 0) {
+            return device.emulator_name
+          }
         }
+        return device.name || device.model || device.serial
       }
     })
   , operator: TextCell({
@@ -605,7 +605,7 @@ function DeviceStatusCell(options) {
   , unauthorized: 'state-unauthorized btn-danger-outline'
   , offline: 'state-offline btn-warning-outline'
   , automation: 'state-automation btn-info'
-  , start_emulator: 'state-bringToAlive btn-restart'
+  , start_emulator: 'state-busy btn-warning'
   }
 
   return _.defaults(options, {
@@ -622,32 +622,35 @@ function DeviceStatusCell(options) {
       var a = td.firstChild
       var t = a.firstChild
 
-      if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
+      if (typeof device.model !== 'undefined'){
         a.className = 'btn btn-xs device-status ' +
           (stateClasses[device.state] || 'btn-default-outline')
+      } else {
+            a.className = 'btn btn-xs device-status ' +
+              (stateClasses[device.state] || 'btn-default-outline')
       }
-      else {
-        if (device.state === "restart_avd"){
-          a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
-        }
-        else {
-          a.className = 'btn btn-xs device-status ' +
-            (stateClasses[device.state] || 'btn-default-outline')
-        }
-      }
+
       if (device.usable && !device.using) {
         a.href = '#!/control/' + device.serial
       }
       else {
-        if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
-          a.removeAttribute('href')
-        }
-        else {
-          if (device.state === "restart_avd"){
-            a.href = '#!/restart_emulator/' + device.emulator_name + '/' + device.serial
-          } else {
+        if (typeof device.model !== 'undefined') {
+          if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
             a.removeAttribute('href')
           }
+          else {
+            if (device.state === "restart_avd"){
+              if (typeof device.emulator_name !== 'undefined'){
+                a.href = '#!/restart_emulator/' + device.emulator_name + '/' + device.serial
+                a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
+              }
+              else {
+                a.removeAttribute('href')
+              }
+            }
+          }
+        } else {
+              a.removeAttribute('href')
         }
       }
 

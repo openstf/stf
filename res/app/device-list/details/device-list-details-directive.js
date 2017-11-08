@@ -353,7 +353,14 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          tr.classList.add('device-not-usable')
+          if (typeof device.emulator_name !== 'undefined'){
+            if (device.emulator_name.length === 0) {
+              tr.classList.add('device-not-usable')
+            }
+          }
+          else {
+            tr.classList.add('device-not-usable')
+            }
         }
 
         for (var i = 0, l = activeColumns.length; i < l; ++i) {
@@ -407,7 +414,14 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          tr.classList.add('device-not-usable')
+          if (typeof device.emulator_name !== 'undefined'){
+            if (device.emulator_name.length === 0) {
+              tr.classList.add('device-not-usable')
+            }
+          }
+          else {
+            tr.classList.add('device-not-usable')
+            }
         }
         else {
           tr.classList.remove('device-not-usable')

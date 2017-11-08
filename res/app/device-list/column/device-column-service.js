@@ -605,7 +605,7 @@ function DeviceStatusCell(options) {
   , unauthorized: 'state-unauthorized btn-danger-outline'
   , offline: 'state-offline btn-warning-outline'
   , automation: 'state-automation btn-info'
-  , start_emulator: 'state-busy btn-warning'
+  , start_emulator: 'state-available btn-warning'
   }
 
   return _.defaults(options, {

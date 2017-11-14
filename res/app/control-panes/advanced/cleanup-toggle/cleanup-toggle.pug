@@ -1,0 +1,9 @@
+.widget-container.fluid-height(ng-controller='CleanUpToggleCtrl')
+  .heading
+    stacked-icon(icon='fa-gears', color='color-darkgray')
+    span(translate) Cleanup Toggle
+    .pull-right
+  .widget-content.padded
+    button(ng-click='cleanUp()').btn.btn-sm.btn-danger
+      i.fa.fa-refresh
+      span(translate) Cleanup Device

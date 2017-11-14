@@ -78,6 +78,7 @@ enum MessageType {
   FileSystemGetMessage       = 82;
   ConnectStartedMessage      = 92;
   ConnectStoppedMessage      = 93;
+  WipeOutMessage             = 94;
 }
 
 message ConnectStartedMessage {
@@ -373,6 +374,8 @@ message KeyPressMessage {
 message RebootMessage {
 }
 
+message WipeOutMessage {
+}
 // Output
 
 message DeviceLogcatEntryMessage {

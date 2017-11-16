@@ -263,6 +263,36 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+  /devices/wipedevice/{serial}:
+      x-swagger-router-controller: devices
+      get:
+        summary: Wipe device by serial
+        description: The device enpoint return information about a single device
+        operationId: wipeoutDeviceBySerial
+        tags:
+          - devices
+        parameters:
+          - name: serial
+            in: path
+            description: Device Serial
+            required: true
+            type: string
+          - name: fields
+            in: query
+            description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
+            required: false
+            type: string
+        responses:
+          "200":
+            description: Device Information
+            schema:
+              $ref: "#/definitions/DeviceResponse"
+          default:
+            description: Unexpected Error
+            schema:
+              $ref: "#/definitions/ErrorResponse"
+        security:
+          - accessTokenAuth: []
   /swagger.json:
     x-swagger-pipe: swagger_raw
 definitions:

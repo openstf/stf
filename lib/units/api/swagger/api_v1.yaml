@@ -265,7 +265,7 @@ paths:
         - accessTokenAuth: []
   /devices/wipedevice/{serial}:
       x-swagger-router-controller: devices
-      get:
+      post:
         summary: Wipe device by serial
         description: The device enpoint return information about a single device
         operationId: wipeoutDeviceBySerial

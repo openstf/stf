@@ -110,7 +110,7 @@ As the product has evolved from an internal tool running in our internal network
 
 Note that you need these dependencies even if you've installed STF directly from [NPM](https://www.npmjs.com/), because they can't be included in the package.
 
-On OS X, you can use [homebrew](http://brew.sh/) to install most of the dependencies:
+On Mac OS, you can use [homebrew](http://brew.sh/) to install most of the dependencies:
 
 ```bash
 brew install rethinkdb graphicsmagick zeromq protobuf yasm pkg-config
@@ -122,7 +122,7 @@ We also provide a [Docker](http://docker.com/) container in the [Docker Hub](htt
 
 You should now be ready to [build](#building) or [run](#running) STF.
 
-Note that while OS X can be used for development, it doesn't provide a very reliable experience in production due to (presumed) bugs in ADB's OS X implementation. We use [CoreOS](https://coreos.com/) but any Linux or BSD distribution should do fine.
+Note that while Mac OS can be used for development, it doesn't provide a very reliable experience in production due to (presumed) bugs in ADB's Mac OS implementation. We use [CoreOS](https://coreos.com/) but any Linux or BSD distribution should do fine.
 
 ## Installation
 
@@ -257,7 +257,7 @@ There can be various reasons for this behavior. Some especially common reasons a
 * USB debugging is not enabled
   - Enable it.
 * USB debugging is enabled but the USB connection mode is wrong
-  - Try switching between MTP and PTP modes and see if the device appears. This happens fairly often on OS X but almost never on Linux.
+  - Try switching between MTP and PTP modes and see if the device appears. This happens fairly often on Mac OS but almost never on Linux.
 * You don't have the ADB daemon running
   - Make sure ADB is running with `adb start-server`.
 * You haven't authorized the ADB key yet
@@ -298,8 +298,8 @@ Again, there can be various reasons for this behavior as well. Some common reaso
   - Can't help with that.
 * Someone removed the device physically.
   - Or that.
-* You're on OS X
-  - There's a bug in ADB's OS X implementation that causes devices to be lost on error conditions. The problem is more pronounced when using USB hubs. You have to unplug and then plug it back in again.
+* You're on Mac OS
+  - There's a bug in ADB's Mac OS implementation that causes devices to be lost on error conditions. The problem is more pronounced when using USB hubs. You have to unplug and then plug it back in again.
 * The USB hub broke
   - Happens. Just try a new one.
 

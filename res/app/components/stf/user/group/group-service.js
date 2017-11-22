@@ -8,16 +8,23 @@ module.exports = function GroupServiceFactory(
   var groupService = {
   }
 
+
+  function translateEmulatorSerialForProvider (serial){
+  if(serial.indexOf('-') !== -1){
+    return 'emulator-' + serial.split('-').pop(-1)
+  }
+  return serial
+}
+
   groupService.invite = function(device) {
     if (!device.usable) {
       return Promise.reject(new Error('Device is not usable'))
     }
-
     var tx = TransactionService.create(device)
     socket.emit('group.invite', device.channel, tx.channel, {
       requirements: {
         serial: {
-          value: device.serial
+          value: translateEmulatorSerialForProvider(device.serial)
         , match: 'exact'
         }
       }
@@ -40,7 +47,7 @@ module.exports = function GroupServiceFactory(
     socket.emit('group.kick', device.channel, tx.channel, {
       requirements: {
         serial: {
-          value: device.serial
+          value: translateEmulatorSerialForProvider(device.serial)
         , match: 'exact'
         }
       }

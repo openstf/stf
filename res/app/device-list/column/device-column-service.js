@@ -45,9 +45,9 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
-        if (typeof device.emulator_name !== 'undefined'){
-          if (device.emulator_name.length > 0) {
-            return device.emulator_name
+        if (typeof device.emulatorName !== 'undefined'){
+          if (device.emulatorName.length > 0) {
+            return device.emulatorName
           }
         }
         return device.name || device.model || device.serial
@@ -640,8 +640,8 @@ function DeviceStatusCell(options) {
           }
           else {
             if (device.state === "restart_avd"){
-              if (typeof device.emulator_name !== 'undefined'){
-                a.href = '#!/restart_emulator/' + device.emulator_name + '/' + device.serial
+              if (typeof device.emulatorName !== 'undefined'){
+                a.href = '#!/restart_emulator/' + device.emulatorName + '/' + device.serial
                 a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
               }
               else {

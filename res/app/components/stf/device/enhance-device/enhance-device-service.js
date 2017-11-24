@@ -39,17 +39,17 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
       }
     }
     else {
-      if (typeof data.emulator_name !== 'undefined'){
-        if (data.emulator_name.length > 0) {
+      if (typeof data.emulatorName !== 'undefined'){
+        if (data.emulatorName.length > 0) {
         data.state = 'restart_avd'}
       }
     }
   }
 
   function enhanceDevice(device) {
-    if (typeof device.emulator_name !== 'undefined'){
-      if (device.emulator_name.length > 0){
-        device.enhancedName = device.emulator_name
+    if (typeof device.emulatorName !== 'undefined'){
+      if (device.emulatorName.length > 0){
+        device.enhancedName = device.emulatorName
       }
       else {
         device.enhancedName = device.name || device.model || device.serial || 'Unknown'

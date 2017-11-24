@@ -353,8 +353,8 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          if (typeof device.emulator_name !== 'undefined'){
-            if (device.emulator_name.length === 0) {
+          if (typeof device.emulatorName !== 'undefined'){
+            if (device.emulatorName.length === 0) {
               tr.classList.add('device-not-usable')
             }
           }
@@ -414,8 +414,8 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          if (typeof device.emulator_name !== 'undefined'){
-            if (device.emulator_name.length === 0) {
+          if (typeof device.emulatorName !== 'undefined'){
+            if (device.emulatorName.length === 0) {
               tr.classList.add('device-not-usable')
             }
           }

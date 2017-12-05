@@ -59,6 +59,7 @@ module.exports = function DeviceListIconsDirective(
 
         function getStateClasses(state) {
           var stateClasses = {
+            restart_avd: 'state-busy btn-warning',
             using: 'state-using btn-primary',
             busy: 'state-busy btn-warning',
             available: 'state-available btn-primary-outline',

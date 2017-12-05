@@ -25,7 +25,8 @@ module.exports = function DeviceColumnService($filter, gettext) {
       title: gettext('Status')
     , value: function(device) {
         if (typeof device.model !== 'undefined'){
-          if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) {
+          if ((device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) &&
+              (device.model.indexOf("Emulator") == -1) ){
             return $filter('translate')( device.enhancedStateAction)
             }
           }
@@ -635,7 +636,8 @@ function DeviceStatusCell(options) {
       }
       else {
         if (typeof device.model !== 'undefined') {
-          if (device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ){
+          if ((device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ) &&
+              (device.model.indexOf("Emulator") == -1)) {
             a.removeAttribute('href')
           }
           else {

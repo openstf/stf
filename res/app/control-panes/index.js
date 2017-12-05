@@ -3,7 +3,6 @@ module.exports = angular.module('control-panes', [
   require('stf/device').name,
   require('stf/control').name,
   require('stf/scoped-hotkeys').name,
-  require('stf/settings').name,
   require('./device-control').name,
   require('./advanced').name,
   require('./automation').name,

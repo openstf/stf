@@ -64,6 +64,10 @@ module.exports = function SettingsServiceFactory(
     socket.emit('avd.restart',emulator_name, serial)
   }
 
+  SettingsService.avdGetListOfAvailableAVD = function() {
+    socket.emit('listavailabledevices')
+  }
+
   SettingsService.bind = function(scope, options) {
     function value(possibleValue, defaultValue) {
       return (typeof possibleValue !== 'undefined') ? possibleValue : defaultValue

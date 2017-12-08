@@ -90,7 +90,7 @@ module.exports = function DeviceListIconsDirective(
         }
         else {
           if (typeof device.emulatorName !== 'undefined') {
-            if (device.emulatorName.length > 0 ) {
+            if (device.emulatorName.length > 0  && device.state === 'restart_avd') {
               a.href = '#!/restart_emulator/' + device.emulatorName + '/' + device.serial
             } else {
               a.removeAttribute('href')

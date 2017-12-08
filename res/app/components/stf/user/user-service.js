@@ -12,6 +12,10 @@ module.exports = function UserServiceFactory(
     return (user.adbKeys || (user.adbKeys = []))
   }
 
+  UserService.getAndroidEmulators = function() {
+    return (user.androidEmulators || (user.androidEmulators = []))
+  }
+
   UserService.addAdbKey = function(key) {
     socket.emit('user.keys.adb.add', key)
   }
@@ -23,6 +27,62 @@ module.exports = function UserServiceFactory(
   UserService.removeAdbKey = function(key) {
     socket.emit('user.keys.adb.remove', key)
   }
+
+  UserService.getEmulatorList = function() {
+    socket.emit('get.emulator.list')
+  }
+
+  UserService.updateEmulatorStartArgs = function(serial, args) {
+    var data = {
+    serial: serial
+    , startArgs: args
+    }
+    socket.emit('update.emulator.args', data)
+  }
+
+  UserService.restartAVDEmulator = function(emulator_name, serial, avd_cmd) {
+    UserService.updateEmulatorStartArgs(serial, avd_cmd)
+    var user_data = {
+      email : UserService.currentUser.email
+      , group : UserService.currentUser.group
+      , name : UserService.currentUser.name
+    }
+    socket.emit('avd.restart', emulator_name, serial, user_data)
+  }
+
+  socket.on('emulator.startingArgs.updated', function(serial, startArgs) {
+    var data = {
+      args :startArgs
+      ,deviceSerial : serial
+    }
+    $rootScope.$broadcast('emulator.startargs.updated', data)
+    $rootScope.$apply()
+    }
+    )
+
+  socket.on('restart.unavailable',  function(user, serial) {
+    var data = {
+      userData : user
+      ,deviceSerial : serial
+    }
+    $rootScope.$broadcast('emulator.restart.unavailable', data)
+    $rootScope.$apply()
+  })
+
+  socket.on('emulator.startingArgs.updated.restarted',  function(serial, args) {
+    var data = {
+      userData : args
+      ,deviceSerial : serial
+    }
+    $rootScope.$broadcast('emulator.startingArgs.updated.and.restarted', data)
+    $rootScope.$apply()
+  })
+
+  socket.on('emulator.list.received',  function(key) {
+    UserService.getAndroidEmulators().push(key)
+    $rootScope.$broadcast('emulator.list.collected', user.androidEmulators)
+    $rootScope.$apply()
+  })
 
   socket.on('user.keys.adb.error', function(error) {
     $rootScope.$broadcast('user.keys.adb.error', error)

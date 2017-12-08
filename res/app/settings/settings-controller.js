@@ -10,6 +10,12 @@ module.exports = function SettingsCtrl($scope, gettext) {
       title: gettext('Keys'),
       icon: 'fa-key fa-fw',
       templateUrl: 'settings/keys/keys.pug'
+    },
+    {
+      title: gettext('AVD Emulator'),
+      icon: 'fa-gears fa-fw',
+      templateUrl: 'settings/avd/avd.pug'
     }
+
   ]
 }

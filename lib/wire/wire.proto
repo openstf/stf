@@ -437,6 +437,7 @@ message AVDRestart {
   required string emulator_name = 1;
   required string port = 2;
   required string hostname = 3;
+  required string execArgs = 4;
 }
 
 message ForwardTestMessage {

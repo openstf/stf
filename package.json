@@ -1,6 +1,6 @@
 {
   "name": "stf",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Smartphone Test Farm",
   "keywords": [
     "adb",
@@ -61,7 +61,7 @@
     "lodash": "^4.14.2",
     "markdown-serve": "^0.3.2",
     "mime": "^1.3.4",
-    "minicap-prebuilt": "^2.1.0",
+    "minicap-prebuilt": "^2.2.0",
     "minimatch": "^3.0.3",
     "minitouch-prebuilt": "^1.0.0",
     "my-local-ip": "^1.0.0",

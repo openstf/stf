@@ -25,7 +25,7 @@
           </div>
           <div ng-hide="active">
           stacked-icon(icon='fa-terminal', color='color-darkgray' style='margin-left:10px')
-          <input type="text" name="avd_cmd" ng-model='device.emulatorArgs' style="display:table-cell; width:60%; margin-left:10px" required>
+          <input type="text" name="avdCmd" ng-model='device.emulatorArgs' style="display:table-cell; width:60%; margin-left:10px" required>
           button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='saveStartEmulatorArgs(device.serial, device.emulatorArgs); notification=true',
           uib-tooltip='{{"Save changes without restarting emulator"}}')
             i.fa.fa-floppy-o

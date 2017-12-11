@@ -9,12 +9,12 @@ module.exports = function GroupServiceFactory(
   }
 
 
-  function translateEmulatorSerialForProvider (serial){
-  if(serial.indexOf('-') !== -1){
-    return 'emulator-' + serial.split('-').pop(-1)
+  function translateEmulatorSerialForProvider(serial) {
+    if (serial.indexOf('-') !== -1) {
+      return 'emulator-' + serial.split('-').pop(-1)
+    }
+    return serial
   }
-  return serial
-}
 
   groupService.invite = function(device) {
     if (!device.usable) {

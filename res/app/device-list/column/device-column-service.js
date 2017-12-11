@@ -24,17 +24,17 @@ module.exports = function DeviceColumnService($filter, gettext) {
     state: DeviceStatusCell({
       title: gettext('Status')
     , value: function(device) {
-        if (typeof device.model !== 'undefined'){
-          if ((device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1) &&
-              (device.model.indexOf("Emulator") == -1) ){
-            return $filter('translate')( device.enhancedStateAction)
+        if (typeof device.model !== 'undefined') {
+          if ((device.model.indexOf('SDK') === -1 && device.model.indexOf('built') === -1) &&
+              (device.model.indexOf('Emulator') === -1)) {
+            return $filter('translate')(device.enhancedStateAction)
             }
           }
-        if (device.enhancedStateAction == "Disconnected") {
-          return $filter('translate')("Restart Emulator")
+        if (device.enhancedStateAction === 'Disconnected') {
+          return $filter('translate')('Restart Emulator')
           }
 
-        return $filter('translate')( device.enhancedStateAction)
+        return $filter('translate')(device.enhancedStateAction)
         }
     })
   , model: DeviceModelCell({
@@ -46,7 +46,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
   , name: DeviceNameCell({
       title: gettext('Product')
     , value: function(device) {
-        if (typeof device.emulatorName !== 'undefined'){
+        if (typeof device.emulatorName !== 'undefined') {
           if (device.emulatorName.length > 0) {
             return device.emulatorName
           }
@@ -623,7 +623,7 @@ function DeviceStatusCell(options) {
       var a = td.firstChild
       var t = a.firstChild
 
-      if (typeof device.model !== 'undefined'){
+      if (typeof device.model !== 'undefined') {
         a.className = 'btn btn-xs device-status ' +
           (stateClasses[device.state] || 'btn-default-outline')
       } else {
@@ -636,15 +636,15 @@ function DeviceStatusCell(options) {
       }
       else {
         if (typeof device.model !== 'undefined') {
-          if ((device.model.indexOf("SDK") == -1 && device.model.indexOf("built") == -1 ) &&
-              (device.model.indexOf("Emulator") == -1)) {
+          if ((device.model.indexOf('SDK') === -1 && device.model.indexOf('built') === -1) &&
+              (device.model.indexOf('Emulator') === -1)) {
             a.removeAttribute('href')
           }
           else {
-            if (device.state === "restart_avd"){
-              if (typeof device.emulatorName !== 'undefined'){
+            if (device.state === 'restart_avd') {
+              if (typeof device.emulatorName !== 'undefined') {
                 a.href = '#!/restart_emulator/' + device.emulatorName + '/' + device.serial
-                a.className = 'btn btn-xs device-status ' + stateClasses['start_emulator']
+                a.className = 'btn btn-xs device-status ' + stateClasses.start_emulator
               }
               else {
                 a.removeAttribute('href')

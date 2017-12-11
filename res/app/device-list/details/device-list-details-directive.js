@@ -353,7 +353,7 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          if (typeof device.emulatorName !== 'undefined'){
+          if (typeof device.emulatorName !== 'undefined') {
             if (device.emulatorName.length === 0) {
               tr.classList.add('device-not-usable')
             }
@@ -414,7 +414,7 @@ module.exports = function DeviceListDetailsDirective(
         tr.id = id
 
         if (!device.usable) {
-          if (typeof device.emulatorName !== 'undefined'){
+          if (typeof device.emulatorName !== 'undefined') {
             if (device.emulatorName.length === 0) {
               tr.classList.add('device-not-usable')
             }

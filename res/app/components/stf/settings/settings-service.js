@@ -60,8 +60,8 @@ module.exports = function SettingsServiceFactory(
     applyDelta(null)
   }
 
-  SettingsService.avdreset = function(emulator_name, serial) {
-    socket.emit('avd.restart',emulator_name, serial)
+  SettingsService.avdreset = function(emuName, serial) {
+    socket.emit('avd.restart', emuName, serial)
   }
 
   SettingsService.avdGetListOfAvailableAVD = function() {

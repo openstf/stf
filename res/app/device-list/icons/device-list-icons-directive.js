@@ -59,6 +59,7 @@ module.exports = function DeviceListIconsDirective(
 
         function getStateClasses(state) {
           var stateClasses = {
+            restart_avd: 'state-busy btn-warning',
             using: 'state-using btn-primary',
             busy: 'state-busy btn-warning',
             available: 'state-available btn-primary-outline',
@@ -88,8 +89,17 @@ module.exports = function DeviceListIconsDirective(
           li.classList.remove('device-is-busy')
         }
         else {
-          a.removeAttribute('href')
-          li.classList.add('device-is-busy')
+          if (typeof device.emulatorName !== 'undefined') {
+            if (device.emulatorName.length > 0 && device.state === 'restart_avd') {
+              a.href = '#!/restart_emulator/' + device.emulatorName + '/' + device.serial
+            } else {
+              a.removeAttribute('href')
+            }
+          }
+          else {
+            a.removeAttribute('href')
+            li.classList.add('device-is-busy')
+          }
         }
 
         return li

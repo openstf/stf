@@ -57,7 +57,7 @@ module.exports =
       },
       takeScreenShot: function() {
         // TODO: Switch tab and take screenshot
-        //$scope.takeScreenShot()
+        $scope.takeScreenShot()
       },
       pressMenu: function() {
         $scope.control.menu()

@@ -60,6 +60,14 @@ module.exports = function SettingsServiceFactory(
     applyDelta(null)
   }
 
+  SettingsService.avdreset = function(emuName, serial) {
+    socket.emit('avd.restart', emuName, serial)
+  }
+
+  SettingsService.avdGetListOfAvailableAVD = function() {
+    socket.emit('listavailabledevices')
+  }
+
   SettingsService.bind = function(scope, options) {
     function value(possibleValue, defaultValue) {
       return (typeof possibleValue !== 'undefined') ? possibleValue : defaultValue

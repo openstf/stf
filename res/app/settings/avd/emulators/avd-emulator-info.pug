@@ -1,0 +1,43 @@
+.widget-container.fluid-height.stf-keys.stf-adb-keys(ng-controller='AvdEmulatorCtrl')
+  .heading
+    i.fa.fa-android
+    span(translate) AVD Info
+
+    a(ng-href='/#!/docs/ADB-Keys').pull-right.btn.btn-sm
+      i.fa.fa-question-circle(uib-tooltip='{{"More about AVD Emulator Options you can find lookig at https://developer.android.com/studio/run/emulator-commandline.html. Using -port options is not allowed." | translate}}', tooltip-placement='left')
+
+  .widget-content.padded
+
+    nothing-to-show(icon='fa-android', message='{{"No AVD Emulators " | translate}}',
+    ng-if='!androidEmulators[0].length && !showAdd')
+
+    ul.list-group.key-list
+      li.list-group-item(ng-repeat='device in androidEmulators[0]').animate-repeat
+        a
+          <div>
+          i.fa.fa-mobile.fa-2x.fa-fw
+          .key-list-details.selectable
+            .key-list-title(ng-bind='device.emulatorName')
+            .key-list-fingerprint(ng-bind='device.serial')
+          button.btn.btn-xs.btn-primary-outline.pull-right.key-list-remove(ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}")
+            i.fa.fa-pencil-square-o
+            span(translate) Edit Configuration
+          </div>
+          <div ng-hide="active">
+          stacked-icon(icon='fa-terminal', color='color-darkgray' style='margin-left:10px')
+          <input type="text" name="avdCmd" ng-model='device.emulatorArgs' style="display:table-cell; width:60%; margin-left:10px" required>
+          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='saveStartEmulatorArgs(device.serial, device.emulatorArgs); notification=true',
+          uib-tooltip='{{"Save changes without restarting emulator"}}')
+            i.fa.fa-floppy-o
+            span(translate) Save
+          button.btn.btn-xs.btn-danger-outline.pull-right.key-list-remove(ng-click='RestartEmulator(device.emulatorName, device.serial, device.emulatorArgs); notification=true',
+            uib-tooltip='{{"Save changes and restart emulator"}}')
+            i.fa.fa-refresh
+            span(translate) Restart Emulator
+          <div ng-show='notification' style='margin-top:5px'>
+          stacked-icon(icon='fa-info-circle', color='color-blue' style='margin-left:10px')
+          span(ng-bind='device.notification.text' style='margin-left:5px; font-weight:bold')
+          </div>
+          </div>
+
+

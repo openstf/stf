@@ -63,6 +63,10 @@ module.exports = function DeviceListCtrl(
       name: 'abi'
     , selected: false
     }
+    , {
+      name: 'cpuPlatform'
+      , selected: false
+    }
   , {
       name: 'browser'
     , selected: false

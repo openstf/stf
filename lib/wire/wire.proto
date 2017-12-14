@@ -226,6 +226,7 @@ message DeviceIdentityMessage {
   required DeviceDisplayMessage display = 9;
   required DevicePhoneMessage phone = 11;
   optional string product = 12;
+  optional string cpuPlatform = 13;
 }
 
 message DeviceProperty {

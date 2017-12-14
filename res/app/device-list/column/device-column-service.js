@@ -195,9 +195,9 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.abi || ''
       }
     })
-    , cpuPlatform: TextCell({
+  , cpuPlatform: TextCell({
       title: gettext('CPU Platform')
-      , value: function(device) {
+    , value: function(device) {
         return device.cpuPlatform || ''
       }
     })

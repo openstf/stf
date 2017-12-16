@@ -64,6 +64,10 @@ module.exports = function DeviceListCtrl(
     , selected: false
     }
   , {
+      name: 'cpuPlatform'
+    , selected: false
+    }
+  , {
       name: 'browser'
     , selected: false
     }

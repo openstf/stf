@@ -201,12 +201,6 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.cpuPlatform || ''
       }
     })
-  , openGLESVersion: TextCell({
-      title: gettext('OpenGL ES version')
-    , value: function(device) {
-        return device.openGLESVersion || ''
-      }
-    })
   , phone: TextCell({
       title: gettext('Phone')
     , value: function(device) {

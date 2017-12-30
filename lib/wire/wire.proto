@@ -227,7 +227,6 @@ message DeviceIdentityMessage {
   required DevicePhoneMessage phone = 11;
   optional string product = 12;
   optional string cpuPlatform = 13;
-  optional string openGLESVersion = 14;
 }
 
 message DeviceProperty {

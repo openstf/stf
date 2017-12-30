@@ -68,10 +68,6 @@ module.exports = function DeviceListCtrl(
     , selected: false
     }
   , {
-      name: 'openGLESVersion'
-    , selected: false
-    }
-  , {
       name: 'browser'
     , selected: false
     }

@@ -20,12 +20,14 @@ enum MessageType {
     GET_SD_STATUS = 25;
     GET_VERSION = 8;
     GET_WIFI_STATUS = 23;
+    GET_BLUETOOTH_STATUS = 29;
     SET_CLIPBOARD = 9;
     SET_KEYGUARD_STATE = 10;
     SET_RINGER_MODE = 21;
     SET_ROTATION = 12;
     SET_WAKE_LOCK = 11;
     SET_WIFI_ENABLED = 22;
+    SET_BLUETOOTH_ENABLED = 30;
     SET_MASTER_MUTE = 28;
     EVENT_AIRPLANE_MODE = 13;
     EVENT_BATTERY = 14;
@@ -242,6 +244,22 @@ message GetWifiStatusRequest {
 }
 
 message GetWifiStatusResponse {
+    required bool success = 1;
+    required bool status = 2;
+}
+
+message SetBluetoothEnabledRequest {
+    required bool enabled = 1;
+}
+
+message SetBluetoothEnabledResponse {
+    required bool success = 1;
+}
+
+message GetBluetoothStatusRequest {
+}
+
+message GetBluetoothStatusResponse {
     required bool success = 1;
     required bool status = 2;
 }

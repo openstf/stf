@@ -67,6 +67,8 @@ enum MessageType {
   RingerGetMessage           = 64;
   WifiSetEnabledMessage      = 57;
   WifiGetStatusMessage       = 58;
+  BluetoothSetEnabledMessage = 94;
+  BluetoothGetStatusMessage  = 95;
   AccountAddMenuMessage      = 59;
   AccountAddMessage          = 60;
   AccountCheckMessage        = 63;
@@ -529,6 +531,13 @@ message WifiSetEnabledMessage {
 }
 
 message WifiGetStatusMessage {
+}
+
+message BluetoothSetEnabledMessage {
+  required bool enabled = 1;
+}
+
+message BluetoothGetStatusMessage {
 }
 
 // Events, these must be kept in sync with STFService/wire.proto

@@ -4,7 +4,7 @@
     span(translate) Device Settings
   .widget-content.padded
     .row
-      .col-md-6
+      .col-md-4
         h6(translate) Manner Mode
         .btn-group
           label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', uib-btn-radio='"SILENT"', uib-tooltip='{{"Silent Mode" | translate}}')
@@ -14,12 +14,20 @@
           label.btn.btn-sm.btn-primary-outline(ng-model='ringerMode', uib-btn-radio='"NORMAL"', uib-tooltip='{{"Normal Mode" | translate}}')
             i.fa.fa-volume-up.fa-fw
 
-      .col-md-6
+      .col-md-4
         h6(translate) WiFi
         .btn-group
           label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', ng-click='toggleWifi(false)', uib-btn-radio='false', uib-tooltip='{{"Disable WiFi" | translate}}')
             i.fa.fa-power-off.fa-fw
           label.btn.btn-sm.btn-primary-outline(ng-model='wifiEnabled', ng-click='toggleWifi(true)', uib-btn-radio='true', uib-tooltip='{{"Enable WiFi" | translate}}')
+            i.fa.fa-wifi.fa-fw
+
+      .col-md-4
+        h6(translate) Bluetooth
+        .btn-group
+          label.btn.btn-sm.btn-primary-outline(ng-model='bluetoothEnabled', ng-click='toggleBluetooth(false)', uib-btn-radio='false', uib-tooltip='{{"Disable WiFi" | translate}}')
+            i.fa.fa-power-off.fa-fw
+          label.btn.btn-sm.btn-primary-outline(ng-model='bluetoothEnabled', ng-click='toggleBluetooth(true)', uib-btn-radio='true', uib-tooltip='{{"Enable WiFi" | translate}}')
             i.fa.fa-wifi.fa-fw
 
     //.row

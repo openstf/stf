@@ -19,6 +19,24 @@ module.exports = function DeviceSettingsCtrl($scope, $timeout) {
     }
   }
 
+  function getBluetoothStatus() {
+    if ($scope.control) {
+      $scope.control.getBluetoothStatus().then(function(result) {
+        $scope.$apply(function() {
+          $scope.bluetoothEnabled = (result.lastData === 'bluetooth_enabled')
+        })
+      })
+    }
+  }
+  getBluetoothStatus()
+
+  $scope.toggleBluetooth = function(enable) {
+    if ($scope.control) {
+      $scope.control.setBluetoothEnabled(enable)
+      $timeout(getBluetoothStatus, 2500)
+    }
+  }
+
   $scope.$watch('ringerMode', function(newValue, oldValue) {
     if (oldValue) {
       if ($scope.control) {

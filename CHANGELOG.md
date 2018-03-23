@@ -2,6 +2,10 @@
 
 ## HEAD
 
+### Enhancements
+
+- Added a new column to the device list that displays the OpenGL ES version of each device. Note that you may have to reset the columns once if you can't see it. Thanks @koral--!
+
 ### Fixes
 
 - Fixed a setup issue with TPS650.

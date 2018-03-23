@@ -5,6 +5,7 @@
 ### Enhancements
 
 - Added a new column to the device list that displays the OpenGL ES version of each device. Note that you may have to reset the columns once if you can't see it. Thanks @koral--!
+- Added a new `--no-screen-reset` option to disable the default behavior of resetting rotation and returning to the home screen after a user stops using a device. Thanks @0rzech!
 
 ### Fixes
 

@@ -12,6 +12,7 @@
 
 - Fixed a setup issue with TPS650.
 - Fixed an issue where most uploads would fail due to a breaking configuration change in a dependency.
+- Updated [minitouch](https://github.com/openstf/minitouch) to fix multitouch issues on some devices that require the `BTN_TOUCH` kernel event. Lifting a contact while having and keeping one held down may have prevented any events from being processed until a new touchdown event.
 
 ## 3.2.0 (2017-12-06)
 

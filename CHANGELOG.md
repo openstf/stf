@@ -1,5 +1,11 @@
 # Changelog
 
+## HEAD
+
+### Fixes
+
+- Updated [STFService.apk](https://github.com/openstf/STFService.apk) to fix an issue on high aspect ratio devices like the Mi Mix 2 where a portion of the screen may not have been visible.
+
 ## 3.3.0 (2018-03-25)
 
 ### Enhancements

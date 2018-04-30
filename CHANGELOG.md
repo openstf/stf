@@ -4,7 +4,22 @@
 
 ### Fixes
 
+- Updated [STFService.apk](https://github.com/openstf/STFService.apk) to fix an issue on high aspect ratio devices like the Mi Mix 2 where a portion of the screen may not have been visible.
+- Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve issues with certain APK files that were unparseable and therefore could not be installed. The issue was with long strings in the manifest file.
+
+## 3.3.0 (2018-03-25)
+
+### Enhancements
+
+- Added a new column to the device list that displays the OpenGL ES version of each device. Note that you may have to reset the columns once if you can't see it. Thanks @koral--!
+- Added a new `--no-screen-reset` option to disable the default behavior of resetting rotation and returning to the home screen after a user stops using a device. Thanks @0rzech!
+- Added a new `--saml-id-provider-callback-url` option to the auth-saml2 unit. Thanks @0rzech!
+
+### Fixes
+
 - Fixed a setup issue with TPS650.
+- Fixed an issue where most uploads would fail due to a breaking configuration change in a dependency.
+- Updated [minitouch](https://github.com/openstf/minitouch) to fix multitouch issues on some devices that require the `BTN_TOUCH` kernel event. Lifting a contact while having and keeping one held down may have prevented any events from being processed until a new touchdown event.
 
 ## 3.2.0 (2017-12-06)
 

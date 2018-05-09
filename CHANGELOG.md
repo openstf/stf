@@ -6,6 +6,7 @@
 
 - Updated [STFService.apk](https://github.com/openstf/STFService.apk) to fix an issue on high aspect ratio devices like the Mi Mix 2 where a portion of the screen may not have been visible.
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve issues with certain APK files that were unparseable and therefore could not be installed. The issue was with long strings in the manifest file.
+- Updated [minitouch](https://github.com/openstf/minitouch) to fix touch detection issues on Meizu Pro7 Plus.
 
 ## 3.3.0 (2018-03-25)
 

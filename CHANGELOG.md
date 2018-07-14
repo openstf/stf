@@ -7,6 +7,10 @@
 - The OAuth2 unit now supports state tokens. Thanks @quangola!
 - [STFService.apk](https://github.com/openstf/STFService.apk) can now display the identity activity (red screen) automatically if a device gets disconnected from USB (or ADB), which can make maintenance easier. This feature is in beta, please enable it by running `adb shell pm grant jp.co.cyberagent.stf android.permission.DUMP` on the devices you want to try it on. Thanks @Malinskiy!
 
+### Fixes
+
+- Use `ps -lef` instead of `ps` to list pids on Android 8.x. In new versions, `ps` doesn't return anything. Thanks @thinkhy!
+
 ## 3.3.1 (2018-07-14)
 
 ### Fixes

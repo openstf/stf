@@ -1,5 +1,11 @@
 # Changelog
 
+## HEAD
+
+### Enhancements
+
+- The OAuth2 unit now supports state tokens. Thanks @quangola!
+
 ## 3.3.1 (2018-07-14)
 
 ### Fixes

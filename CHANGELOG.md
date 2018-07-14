@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 3.3.1 (2018-07-14)
 
 ### Fixes
 

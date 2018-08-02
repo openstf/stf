@@ -1,0 +1,32 @@
+.widget-container.fluid-height(ng-controller='UiautomatorviewerCtrl').stf-uiviewer
+  div
+    button.btn.btn-sm.btn-primary-outline(ng-click='takeScreenShot()',
+    title='{{"Take Screenshot"|translate}}')
+      i.fa.fa-camera
+      span(translate) Screenshot
+  
+  nothing-to-show(message='{{"No screenshots taken"|translate}}', icon='fa-camera', ng-show='!screenshot')
+  
+  .row(ng-show="screenshot")
+    .col-md-4
+      canvas#uiviewer-canvas(ng-click="clickCanvas($event)")
+    .col-md-4
+      #uiviewer-tree.tree(ng-show="nodesArray")
+        .tree-node(ng-repeat="node in nodesArray",ng-include="'recursion'")
+      div(ng-show="!nodesArray")
+        i.fa.fa-spinner.fa-spin
+        span Loadding...
+    .col-md-4
+      pre(ng-show='showNode') {{showNode.text}}
+      
+  script#recursion(type='text/ng-template').
+    <div class="tree-heading">
+    <i class="{{node.isCollapsed ? 'fa fa-angle-double-right' : 'fa fa-angle-double-down'}} {{node.children.length?'':'noChildren'}}" ng-click="node.isCollapsed = !node.isCollapsed"></i>
+    <span ng-click="selectNode(node)" class="{{node.selected?'selected':''}}">{{node.text}}<span>
+    </div>
+    <div class="tree-body" uib-collapse="node.isCollapsed" >
+    <div ng-repeat="node in node.children" ng-include="'recursion'" class="tree-node"></div>
+    </div>
+
+
+

@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 3.4.0 (2018-08-09)
 
 ### Enhancements
 

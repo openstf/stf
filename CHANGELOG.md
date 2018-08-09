@@ -4,7 +4,7 @@
 
 ### Enhancements
 
-- Android 9.0 is now supported.
+- Android 9.0 is now supported. This feature was sponsored by [HeadSpin](https://headspin.io/).
 - The OAuth2 unit now supports state tokens. Thanks @quangola!
 - [STFService.apk](https://github.com/openstf/STFService.apk) can now display the identity activity (red screen) automatically if a device gets disconnected from USB (or ADB), which can make maintenance easier. This feature is in beta, please enable it by running `adb shell pm grant jp.co.cyberagent.stf android.permission.DUMP` on the devices you want to try it on. Thanks @Malinskiy!
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## HEAD
+
+### Enhancements
+
+- Exposed the [`ZMQ_IPV6`](http://api.zeromq.org/3-3:zmq-ctx-set#toc5) environment variable, making it possible to enable IPv6 for ZeroMQ. Thanks @aokhotin!
+
 ## 3.4.0 (2018-08-09)
 
 ### Enhancements

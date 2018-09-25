@@ -11,6 +11,12 @@ module.exports =
         filters: ['native', 'web']
       },
       {
+        title: gettext('Ui Viewer'),
+        icon: 'fa-camera color-skyblue color-blue',
+        templateUrl: 'control-panes/uiautomatorviewer/uiautomatorviewer.pug',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Automation'),
         icon: 'fa-road color-lila',
         templateUrl: 'control-panes/automation/automation.pug',

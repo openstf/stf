@@ -297,6 +297,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.owner ? device.enhancedUserProfileUrl : ''
       }
     })
+  , chosen: DeviceChosenCell({
+      title: gettext('Selected')
+    , value: function(input) {
+        return input.checked
+      }
+    })
   }
 }
 
@@ -687,6 +693,33 @@ function DeviceNoteCell(options) {
       return compareIgnoreCase(options.value(a), options.value(b))
     }
   , filter: function(item, filter) {
+      return filterIgnoreCase(options.value(item), filter.query)
+    }
+  })
+}
+
+function DeviceChosenCell(options) {
+  return _.defaults(options, {
+    title: options.title
+    , build: function() {
+      var td = document.createElement('td')
+      var input = document.createElement('input')
+      input.className = 'device-chosen-checkbox'
+      input.type = 'checkbox'
+      input.checked = false
+
+      td.appendChild(input)
+      return td
+    }
+    , update: function(td, device) {
+      var input = td.firstChild
+      input.nodeValue = options.value(input)
+      return td
+    }
+    , compare: function(a, b) {
+      return compareIgnoreCase(options.value(a), options.value(b))
+    }
+    , filter: function(item, filter) {
       return filterIgnoreCase(options.value(item), filter.query)
     }
   })

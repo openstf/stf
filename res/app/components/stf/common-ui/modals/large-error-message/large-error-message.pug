@@ -1,0 +1,13 @@
+.stf-large-error-message.stf-modal
+  .modal-header.dialog-header-errorX
+    button(type='button', ng-click='close()').close &times;
+    h4.modal-title.text-danger
+      i.fa.fa-warning
+      .button-spacer
+      span(translate) {{ headerTitle }}
+  .modal-body
+    span {{ message }}
+
+  .modal-footer
+    button.btn.btn-default-outline.btn-sm.pull-right(ng-click='close()')
+      span(translate) Close

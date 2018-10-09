@@ -13,13 +13,14 @@ module.exports = function StorageServiceFactory($http, $upload) {
     })
   }
 
-  service.storeFile = function(type, files, options) {
+  service.storeFile = function(type, files, options, storeAsApk = false) {
     var resolver = Promise.defer()
     var input = options.filter ? files.filter(options.filter) : files
 
     if (input.length) {
+      let url = storeAsApk ? '/s/uploadapk/' : '/s/upload/'
       $upload.upload({
-          url: '/s/upload/' + type
+          url: url + type
         , method: 'POST'
         , file: input
         })

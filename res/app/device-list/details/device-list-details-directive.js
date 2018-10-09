@@ -46,6 +46,15 @@ module.exports = function DeviceListDetailsDirective(
         })
       }
 
+      function checkDeviceChosenCheckbox(e) {
+        if (e.target.classList.contains('device-chosen-checkbox')) {
+          var id = e.target.parentNode.parentNode.id
+          var device = mapping[id]
+          device.chosen = e.target.checked
+          tracker.emit('change', device)
+        }
+      }
+
       function checkDeviceStatus(e) {
         if (e.target.classList.contains('device-status')) {
           var id = e.target.parentNode.parentNode.id
@@ -151,6 +160,7 @@ module.exports = function DeviceListDetailsDirective(
         checkDeviceStatus(e)
         checkDeviceSmallImage(e)
         checkDeviceNote(e)
+        checkDeviceChosenCheckbox(e)
       })
 
       // Import column definitions

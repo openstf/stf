@@ -1,0 +1,89 @@
+.panel.panel-default.stf-add-testing-tool(ng-show='showAdd')
+  .panel-heading
+    h3.panel-title(translate) Add testing tool
+  .panel-body
+    form.form-horizontal.stf-add-testing-tool.form-tool(name='testingtoolform', ng-submit='addTestingTool(testingTool)')
+
+      .stf-add-testing-tool.clip-board(ng-show='showClipboard')
+
+      .form-group
+        label.control-label(for='testing-tool-title')
+          i.fa.fa-pencil.fa-fw
+          span(translate)  Name
+
+        input(id='testing-tool-title',
+              type='text',
+              name='testingToolTitle',
+              pattern="[a-z0-9]{3,20}",
+              title="3 to 20 alphanumeric characters",
+              ng-model='addForm.title',
+              ng-required='true',
+              text-focus-select,
+              focus-element='focusAddTitle').form-control
+
+      .form-group
+        label.control-label(for='testing-tool-git-repository')
+          i.fa.fa-git.fa-fw
+          span(translate)  Tool git repository
+
+        input(id='testing-tool-git-repository',
+              type='text',
+              name='testingToolGitRepository',
+              pattern=".{3,}",
+              title="At least 3 characters",
+              ng-model='addForm.gitRepository',
+              ng-required='true',
+              text-focus-select,
+              focus-element='focusAddTitle').form-control
+
+      .form-group
+        label.control-label(for='testing-tool-git-commit')
+          i.fa.fa-git.fa-fw
+          span(translate)  Git commit or branch
+
+        input(id='testing-tool-git-commit',
+              type='text',
+              name='testingToolGitCommit',
+              pattern=".{3,}",
+              title="At least 3 characters",
+              ng-model='addForm.gitCommit',
+              ng-required='true',
+              text-focus-select,
+              focus-element='focusAddTitle').form-control
+
+        .form-group
+          label.control-label(for='testing-tool-setup-parameters')
+            i.fa.fa-file-text-o.fa-fw
+            span(translate)  Setup parameters
+
+          input(id='testing-tool-setup-parameters',
+                type='text',
+                name='testingToolSetupParameters',
+                ng-model='addForm.setupParameters',
+                text-focus-select,
+                focus-element='focusAddTitle').form-control
+
+        .form-group
+          label.control-label(for='testing-tool-docker-repository')
+            i.fa.fa-docker.fa-fw
+            span(translate)  Docker repository for the execution environment
+
+          input(id='testing-tool-docker-repository',
+                type='text',
+                name='testingToolDockerRepositoryDefault',
+                pattern=".{3,}",
+                title="At least 3 characters",
+                ng-model='addForm.dockerRepository',
+                ng-required='true',
+                text-focus-select,
+                focus-element='focusAddTitle').form-control
+
+        span Have a look at our &nbsp;
+          a(href='https://github.com/uds-se/stf/wiki/%5Ben%5D-Farm-Testing') guide
+        span &nbsp; to executing your testing tool.
+
+      button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+        i.fa.fa-plus.fa-fw
+        span(translate) Add testing tool
+
+    error-message(message='{{error}}')

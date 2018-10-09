@@ -1,0 +1,43 @@
+.widget-container.fluid-height(ng-controller='JobsCtrl').stf.testing.jobs
+  .widget-content.padded.selectable
+    info-message(message='Your tests will only be stored for 9 days.')
+
+    table.table.table-hover.table-condensed.dataTable.ng-table
+      thead
+        tr
+          th
+            div(translate) Id
+          th
+            div(translate) Start date
+          th
+            div(translate) Time
+          th
+            div(translate) Test configuration
+          th
+            div(translate) Nr. of successful runs / Nr. of total runs
+          th
+            div(translate) Status
+          th
+            div(translate) Result
+      tbody
+        tr.header(ng-repeat='job in jobs | orderBy:"-startDate"')
+          td
+            span {{job.id}}
+          td
+            span {{getFormattedDate(job.startDate)}}
+          td
+            span {{getTimeDifference(job)}}
+          td
+            span {{job.testConfig}}
+          td
+            span {{job.numberOfSuccessfulRuns}} / {{job.numberOfTotalRuns}}
+          td
+            span {{job.status}}
+          td
+            button(ng-click='downloadTestResults(job.id)', ng-show='job.status === "Finished"').btn.btn-sm.btn-success
+              i.fa.fa-archive
+              span(translate) Download test results
+            button(ng-click='showErrorMessage(job.id)', ng-show='job.status === "Failed"').btn.btn-sm.btn-danger
+              i.fa.fa-exclamation-circle
+              span(translate) Show error message
+

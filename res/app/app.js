@@ -13,6 +13,7 @@ require.ensure([], function(require) {
     require('./control-panes').name,
     require('./menu').name,
     require('./settings').name,
+    require('./testing').name,
     require('./docs').name,
     require('./user').name,
     require('./../common/lang').name,

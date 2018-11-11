@@ -2,6 +2,10 @@
 
 ## HEAD
 
+### Fixes
+
+- Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to fix an APK manifest parsing issue on applications processed by 360 encryption services, which changes the `application` key to `com.stub.StubApp`. Thanks @JChord!
+
 ### Enhancements
 
 - Exposed the [`ZMQ_IPV6`](http://api.zeromq.org/3-3:zmq-ctx-set#toc5) environment variable, making it possible to enable IPv6 for ZeroMQ. Thanks @aokhotin!

@@ -88,9 +88,9 @@ acorn@^5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
-adbkit-apkreader@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/adbkit-apkreader/-/adbkit-apkreader-3.0.1.tgz#04de571335c731ea247f0ba78e911ae1b65832c0"
+adbkit-apkreader@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/adbkit-apkreader/-/adbkit-apkreader-3.1.1.tgz#6776266450692426aa0642d1c18cb98a089f2e2d"
   dependencies:
     bluebird "^3.4.7"
     debug "~0.7.4"

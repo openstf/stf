@@ -31,12 +31,12 @@ HeadSpin offers a generous monthly contribution towards STF development.
 
 ### Contributors
 Thank you to all the people who have already contributed to STF!
-	<a href="graphs/contributors"><img src="https://opencollective.com/openstf/contributors.svg?width=890" /></a>
+<a href="graphs/contributors"><img src="https://opencollective.com/openstf/contributors.svg?width=890" /></a>
 
 ### Backers
 Thank you to all our backers! [[Become a backer](https://opencollective.com/openstf#backer)]
-	
-	<a href="https://opencollective.com/openstf#backers" target="_blank"><img src="https://opencollective.com/openstf/backers.svg?width=890"></a>
+
+<a href="https://opencollective.com/openstf#backers" target="_blank"><img src="https://opencollective.com/openstf/backers.svg?width=890"></a>
 
 
 ### How to become a sponsor

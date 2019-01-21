@@ -17,3 +17,6 @@ about: Create a report to help us improve
 **Do you see errors or warnings in the `stf local` output? If so, please paste them or the full log here.**
 
 **Please run `stf doctor` and paste the output here.**
+
+<!-- Love OpenSTF? Please consider supporting our collective:
+	👉  https://opencollective.com/openstf/donate -->

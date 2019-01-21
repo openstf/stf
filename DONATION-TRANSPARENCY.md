@@ -2,7 +2,7 @@
 
 Here we attempt to list, to the best of our abilities, the team's use of donated funds and goods.
 
-If you're interested in supporting future development, [check us out on Bountysource](https://salt.bountysource.com/teams/openstf).
+If you're interested in supporting future development, [check us out on Open Collective](https://opencollective.com/openstf).
 
 ## Hardware purchases
 

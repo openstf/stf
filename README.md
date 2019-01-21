@@ -3,20 +3,25 @@
 [![Build Status](https://travis-ci.org/openstf/stf.svg?branch=master)](https://travis-ci.org/openstf/stf)
 [![Docker Pulls](https://img.shields.io/docker/pulls/openstf/stf.svg)](https://hub.docker.com/r/openstf/stf/)
 [![NPM version](https://img.shields.io/npm/v/stf.svg)](https://www.npmjs.com/package/stf)
+[![Backers on Open Collective](https://opencollective.com/openstf/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/openstf/sponsors/badge.svg)](#sponsors)
 
 **STF** (or Smartphone Test Farm) is a web application for debugging smartphones, smartwatches and other gadgets remotely, from the comfort of your browser.
 
-STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://performance.headspin.io/) and [other individual contributors](https://www.bountysource.com/teams/openstf).
+STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://performance.headspin.io/) and [other individual contributors](https://opencollective.com/openstf).
 
-Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if you'd like to support future development. How are your donations being used? Check out our [donation transparency report](DONATION-TRANSPARENCY.md).
+We  welcome financial contributions in full transparency on our [open collective](https://opencollective.com/openstf).
 
 ![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
 
 ![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
 
-## Sponsors
+## Credits
 
-### Gold Sponsor
+### Sponsors
+
+Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/openstf#sponsor))
+
+#### Gold Sponsor
 
 [<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
 
@@ -24,9 +29,19 @@ Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if
 
 HeadSpin offers a generous monthly contribution towards STF development.
 
+### Contributors
+Thank you to all the people who have already contributed to STF!
+	<a href="graphs/contributors"><img src="https://opencollective.com/openstf/contributors.svg?width=890" /></a>
+
+### Backers
+Thank you to all our backers! [[Become a backer](https://opencollective.com/openstf#backer)]
+	
+	<a href="https://opencollective.com/openstf#backers" target="_blank"><img src="https://opencollective.com/openstf/backers.svg?width=890"></a>
+
+
 ### How to become a sponsor
 
-Please [contact us][contact-link] for sponsor arrangements. Both recurring and one-time contributions are most welcome. Contributions towards a specific issue or feature are also possible, and can be attributed to your company in our release notes and other related materials. Hardware-only contributions, whether new or used, are also extremely helpful and well received, especially if you find a device that doesn't work. Please see our [donation transparency report](DONATION-TRANSPARENCY.md) for past hardware contributions.
+Please use our [open collective](https://opencollective.com/openstf#sponsor) or [contact us][contact-link] directly for sponsor arrangements. Both recurring and one-time contributions are most welcome. Contributions towards a specific issue or feature are also possible, and can be attributed to your company in our release notes and other related materials. Hardware-only contributions, whether new or used, are also extremely helpful and well received, especially if you find a device that doesn't work. Please see our [donation transparency report](DONATION-TRANSPARENCY.md) for past hardware contributions.
 
 ## Features
 

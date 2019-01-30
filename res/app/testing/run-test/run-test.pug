@@ -22,10 +22,11 @@
                 span(translate) Git repository
               th(colspan='1', style='width: 10%')
                 span(translate) Git commit or branch
-              th(colspan='1', style='width: 25%')
+              th(colspan='1', style='width: 23%')
                 span(translate) Setup parameters
-              th(colspan='1', style='width: 30%')
+              th(colspan='1', style='width: 28%')
                 span(translate) Docker repository
+              th(colspan='1', style='width: 4%')
           tbody
             tr(ng-repeat='config in configs track by $index')
               td
@@ -45,6 +46,9 @@
                 span {{config.setupParameters}}
               td
                 span {{config.dockerRepository}}
+              td
+                button.btn.btn-sm.btn-danger-outline(ng-click='removeTestingTool(config)')
+                  i.fa.fa-trash-o
 
       .heading
         span(translate) Devices
@@ -53,21 +57,58 @@
           device-list-details(tracker='groupTracker', columns='columns', sort='sort', filter='filter')
 
       .heading
+        span(translate) Emulators
+
+        button.btn.pull-right.btn-sm(
+        ng-click='showAddEmulator = !showAddEmulator',
+        ng-class='{ "btn-primary-outline": !showAddEmulator, "btn-primary": showAddEmulator }')
+          i.fa.fa-plus.fa-fw
+      .widget-content
+        add-emulator(show-clipboard='true', show-add-emulator='showAddEmulator')
+
+        span(ng-if='emulators.length <= 0') Configure here emulators, which will be spawned for the test execution.
+        table(ng-if='emulators.length > 0').table.table-condensed.stf.testing.run-test.testing-tools-table
+          thead
+            tr
+              th(colspan='1')
+                span(translate) System image
+              th(colspan='1')
+                span(translate) SD card size (MB)
+              th(colspan='1')
+                span(translate) Startup parameters
+              th(colspan='1')
+                span(translate) Number of emulators
+              th(colspan='1')
+          tbody
+            tr(ng-repeat='emulator in emulators track by $index')
+              td
+                span {{emulator.systemImage}}
+              td
+                span {{emulator.sdCardSize}}
+              td
+                span {{emulator.startupParameters}}
+              td
+                span {{emulator.numberEmulators}}
+              td
+                button.btn.btn-sm.btn-danger-outline(ng-click='removeEmulator($index)')
+                  i.fa.fa-trash-o
+
+      .heading
         span(translate) Configuration
       .widget-content
         table.table.table-hover.table-condensed.dataTable.ng-table
           thead
             tr
               th
-                span(translate) Parameter Name
+                span(translate) Parameter name
               th
-                span(translate) Parameter Value
+                span(translate) Parameter value
               th
                 span(translate) Description
           tbody
             tr
               td
-                span Number of tests
+                span Number of test runs
               td
                 input(id='number-of-tests',
                       type='number',
@@ -92,7 +133,7 @@
                       ng-disabled='pressedTest',
                       ng-model='numberOfRetriesOnFailure')
               td
-                span Overall number of retries if a test run fails.
+                span Overall number of retries in case of failing test runs.
 
       .widget-content
         span Tool parameters
@@ -118,7 +159,7 @@
           input(type='file', ng-disabled='pressedTest', ng-file-select='uploadFile($files)')
 
           i.fa.fa-2x.fa-download.drop-area-icon
-          .drop-area-text(translate) Drop your app(s) (.apk and .zip allowed)
+          .drop-area-text(translate) Optionally drop your app(s) (.apk and .zip allowed)
 
         .upload-status(ng-if='upload').selectable
           uib-progressbar(max='100', value='upload.progress', ng-if='!upload.settled',
@@ -154,7 +195,9 @@
       .widget-content.padded
         button(ng-click='downloadTestResults()', ng-show='testFinished()').btn.btn-sm.btn-success
           i.fa.fa-archive
-          span(translate) Download Test Results
+          span(translate) Download test results
+      .widget-content.padded
+        pre.shell-results.selectable {{generalInfoResult}}
 
         uib-tabset.overflow-auto
           uib-tab(ng-repeat='run in tests.runs track by $index')

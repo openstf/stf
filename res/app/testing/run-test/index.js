@@ -10,6 +10,7 @@ module.exports = angular.module('stf.testing.run-test', [
   require('stf/testing-tools').name,
   require('stf/command-executor').name,
   require('./add-testing-tool').name,
+  require('./add-emulator').name,
   require('../../device-list/column').name,
   require('../../device-list/details').name,
   require('../../device-list/empty').name,

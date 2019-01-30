@@ -13,6 +13,10 @@ module.exports = function TestingToolsServiceFactory(
     socket.emit('testing.tool.add', tool)
   }
 
+  TestingToolsService.removeTestingTool = function(tool) {
+    socket.emit('testing.tool.remove', tool)
+  }
+
   socket.on('testing.tool.added', function(tool) {
     $rootScope.$broadcast('testing.tool.updated', tool)
     $rootScope.$apply()

@@ -1,0 +1,61 @@
+.panel.panel-default.stf-emulator(ng-show='showAddEmulator')
+  .panel-heading
+    h3.panel-title(translate) Add emulator
+  .panel-body
+    form.form-horizontal.stf-emulator.form-tool(name='emulatorform', ng-submit='addEmulator(emulator)')
+
+      .stf-emulator.clip-board(ng-show='showClipboard')
+
+      .form-group
+        label.control-label(for='emulator-system-image')
+          span(translate)  System image
+
+        input(id='emulator-system-image',
+              type='text',
+              name='emulatorSystemImage',
+              ng-model='addForm.systemImage',
+              ng-required='true',
+              text-focus-select,
+              focus-element='focusAddTitle').form-control
+
+      .form-group
+        label.control-label(for='emulator-sd-card-size')
+          span(translate)  SD card size (MB)
+
+        input(id='emulator-sd-card-size',
+              type='number',
+              name='emulatorSdCardSize',
+              step="1",
+              ng-model='addForm.sdCardSize').form-control
+
+        .form-group
+          label.control-label(for='emulator-startup-parameters')
+            span(translate)  Startup parameters
+
+          input(id='emulator-startup-parameters',
+                type='text',
+                name='emulatorStartupParameters',
+                ng-model='addForm.startupParameters',
+                text-focus-select,
+                focus-element='focusAddTitle').form-control
+
+          .form-group
+            label.control-label(for='emulator-number-emulators')
+              span(translate)  Number of emulators
+
+            input(id='emulator-number-emulators',
+                  type='number',
+                  name='emulator',
+                  min="1",
+                  step="1",
+                  ng-model='addForm.numberEmulators').form-control
+
+        span Have a look at our &nbsp;
+          a(href='https://github.com/uds-se/stf/wiki/%5Ben%5D-Farm-Testing') guide
+        span &nbsp; to configuring emulators.
+
+      button.btn.btn-primary-outline.btn-sm.pull-right(type='submit')
+        i.fa.fa-plus.fa-fw
+        span(translate) Add emulator(s)
+
+    error-message(message='{{error}}')

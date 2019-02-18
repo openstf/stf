@@ -57,17 +57,39 @@ module.exports = function ShellCtrl($scope) {
   }
 
   $scope.disableAnimations = function() {
-    $scope.control.shell('settings put global window_animation_scale 0')
-    $scope.control.shell('settings put global transition_animation_scale 0')
-    $scope.control.shell('settings put global animator_duration_scale 0')
-    $scope.$digest()
+    $scope.control.shell('settings put global window_animation_scale 0').then(function(result) {
+      $scope.result = result
+      $scope.data = result.data.join('')
+      $scope.$digest()
+      return $scope.control.shell('settings put global transition_animation_scale 0')
+    }).then(function(result) {
+      $scope.result = result
+      $scope.data = result.data.join('')
+      $scope.$digest()
+      return $scope.control.shell('settings put global animator_duration_scale 0')
+    }).then(function(result) {
+      $scope.result = result
+      $scope.data = 'Animations disabled'
+      $scope.$digest()
+    })
   }
 
   $scope.enableAnimations = function() {
-    $scope.control.shell('settings put global window_animation_scale 1')
-    $scope.control.shell('settings put global transition_animation_scale 1')
-    $scope.control.shell('settings put global animator_duration_scale 1')
-    $scope.$digest()
+    $scope.control.shell('settings put global window_animation_scale 1').then(function(result) {
+      $scope.result = result
+      $scope.data = result.data.join('')
+      $scope.$digest()
+      return $scope.control.shell('settings put global transition_animation_scale 1')
+    }).then(function(result) {
+      $scope.result = result
+      $scope.data = result.data.join('')
+      $scope.$digest()
+      return $scope.control.shell('settings put global animator_duration_scale 1')
+    }).then(function(result) {
+      $scope.result = result
+      $scope.data = 'Animations enabled'
+      $scope.$digest()
+    })
   }
   // WANDERA CUSTOM - END
 

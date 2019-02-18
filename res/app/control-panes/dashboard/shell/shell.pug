@@ -5,16 +5,62 @@
     clear-button(ng-click='clear()', ng-disabled='!command && !data').btn-xs
     help-icon(topic='Remote-Shell', uib-tooltip='{{"Executes remote shell commands" | translate}}')
 
+  // WANDERA CUSTOM - START
   .widget-content.padded
+    button.btn.btn-xs.btn-info-outline(ng-click='run("pm uninstall com.wandera.android")',
+    uib-tooltip='{{ "pm uninstall com.wandera.android" | translate }}')
+      i.fa.fa-trash
+      span(translate) Wandera
+    button.btn.btn-xs.btn-info-outline(ng-click='run("pm uninstall com.wandera.android.dev")',
+    uib-tooltip='{{ "pm uninstall com.wandera.android.dev" | translate }}')
+      i.fa.fa-trash
+      span(translate) Wandera Dev
+    button.btn.btn-xs.btn-info-outline(ng-click='run("pm uninstall com.wandera.android.debug")',
+    uib-tooltip='{{ "pm uninstall com.wandera.android.debug" | translate }}')
+      i.fa.fa-trash
+      span(translate) Wandera Debug
 
+    .clearfix
+
+    button.btn.btn-xs.btn-info-outline(ng-click='runIntent("wandera://?action=reset")',
+    uib-tooltip='{{ "am start -d wandera://?action=reset" | translate }}')
+      i.fa.fa-recycle
+      span(translate) Reset Wandera
+    button.btn.btn-xs.btn-info-outline(ng-click='runIntent("wandera://?action=deauthorize")',
+    uib-tooltip='{{ "am start -d wandera://?action=deauthorize" | translate }}')
+      i.fa.fa-magic
+      span(translate) Deauth Wandera
+    button.btn.btn-xs.btn-info-outline(ng-click='runPmListPackages("com.wandera.android")',
+    uib-tooltip='{{ "Show all packages that begins with com.wandera.android" | translate }}')
+      i.fa.fa-list
+      span(translate) Show installed Wandera apps
+
+    .clearfix
+
+    button.btn.btn-xs.btn-info-outline(ng-click='run("input keyevent 82")',
+    uib-tooltip='{{ "input keyevent 82" | translate }}')
+      i.fa.fa-unlock
+      span(translate) Unlock device
+
+    button.btn.btn-xs.btn-info-outline(ng-click='disableAnimations()',
+    uib-tooltip='{{ "window_animation_scale 0, transition_animation_scale 0, animator_duration_scale 0" | translate }}')
+      i.fa.fa-ban
+      span(translate) Disable Animations
+    button.btn.btn-xs.btn-info-outline(ng-click='enableAnimations()',
+    uib-tooltip='{{ "window_animation_scale 1, transition_animation_scale 1, animator_duration_scale 1" | translate }}')
+      i.fa.fa-play
+      span(translate) Enable Animations
     // NOTE: autofill doesn't work here
     form(method='post', enable-autofill, ng-submit='run(command)')
-      .input-group.form-inline
-        input(type=text, ng-model='command', Xtext-focus-select,
-          autocapitalize='off', spellcheck='false',
-          tabindex='30', accesskey='S', autocomplete='on').form-control.shell-input
-        span.input-group-btn
-          button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
-            i.fa.fa-play
-    pre.shell-results.selectable(ng-show='data') {{data}}
-    pre.shell-results.selectable.shell-results-empty(ng-show='result.settled && !data') No output
+
+  .widget-content.padded
+    .input-group.form-inline
+      input(type=text, ng-model='command', Xtext-focus-select,
+      autocapitalize='off', spellcheck='false',
+      tabindex='30', accesskey='S', autocomplete='on').form-control.shell-input
+      span.input-group-btn
+        button.btn.btn-primary-outline(ng-click='run(command)', ng-disabled='!command')
+          i.fa.fa-play
+  pre.shell-results.selectable(ng-show='data') {{data}}
+  pre.shell-results.selectable.shell-results-empty(ng-show='result.settled && !data') No output
+  // WANDERA CUSTOM - END

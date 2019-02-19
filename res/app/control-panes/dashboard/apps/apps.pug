@@ -3,6 +3,7 @@
     stacked-icon(icon='fa-th-large', color='color-lila')
     span(translate) Apps
 
+  .widget-content.padded
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openSettings()')
       i.fa.fa-gear.fa-lg.color-darkgray
       .icon-title {{"Settings" | translate}}
@@ -11,7 +12,6 @@
       i.fa.fa-shopping-cart.fa-lg.color-blue
       .icon-title {{"App Store" | translate}}
 
-  .widget-content.padded
     button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWiFiSettings()')
       i.fa.fa-wifi.fa-lg.color-skyblue
       .icon-title {{"WiFi" | translate}}
@@ -24,4 +24,35 @@
       i.fa.fa-sliders.fa-lg.color-darkgreen
       .icon-title {{"Developer" | translate}}
 
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openBeta()')
+      i.fa.fa-gear.fa-lg.color-red
+      .icon-title {{"Beta" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openAgent()')
+      i.fa.fa-shield.fa-lg.color-skyblue
+      .icon-title {{"Agent" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWandera()')
+      i.fa.fa-bug.fa-lg.color-skyblue
+      .icon-title {{"Wandera" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWanderaDev()')
+      i.fa.fa-bug.fa-lg.color-skyblue
+      .icon-title {{"Wandera Dev" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openWanderaDebug()')
+      i.fa.fa-bug.fa-lg.color-skyblue
+      .icon-title {{"Wandera Debug" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openGMail()')
+      i.fa.fa-envelope.fa-lg.color-red
+      .icon-title {{"Gmail" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openChrome()')
+      i.fa.fa-chrome.fa-lg.color-red
+      .icon-title {{"Chrome" | translate}}
+
+    button.btn.btn-primary-outline.icon-app.pull-right(ng-click='openSettingActivity("ApnSettingsActivity")')
+      i.fa.fa-gear.fa-lg.color-darkgray
+      .icon-title {{"APN Settings" | translate}}
     .clearfix

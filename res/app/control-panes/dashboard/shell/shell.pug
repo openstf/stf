@@ -19,7 +19,10 @@
     uib-tooltip='{{ "pm uninstall com.wandera.android.debug" | translate }}')
       i.fa.fa-trash
       span(translate) Wandera Debug
-
+    button.btn.btn-xs.btn-info-outline(ng-click='run("pkill minitouch")',
+    uib-tooltip='{{ "pkill minitouch" | translate }}')
+      i.fa.fa-recycle
+      span(translate) {{"Restart Minitouch" | translate}}
     .clearfix
 
     button.btn.btn-xs.btn-info-outline(ng-click='runIntent("wandera://?action=reset")',

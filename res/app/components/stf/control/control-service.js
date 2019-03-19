@@ -293,6 +293,9 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('wifi.get')
     }
 
+    this.workerRestart = function() {
+      return sendTwoWay('worker.restart')
+    }
     window.cc = this
   }
 

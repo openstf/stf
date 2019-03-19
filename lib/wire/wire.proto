@@ -78,6 +78,7 @@ enum MessageType {
   FileSystemGetMessage       = 82;
   ConnectStartedMessage      = 92;
   ConnectStoppedMessage      = 93;
+  WorkerRestartMessage        = 94;
 }
 
 message ConnectStartedMessage {
@@ -568,4 +569,7 @@ message PhoneStateEvent {
 message RotationEvent {
   required string serial = 1;
   required int32 rotation = 2;
+}
+
+message WorkerRestartMessage {
 }

@@ -625,6 +625,22 @@ function DeviceStatusCell(options) {
       if (device.usable && !device.using) {
         a.href = '#!/control/' + device.serial
       }
+      else if (!device.usable && !device.using) {
+        a.onmouseenter = function() {
+          this.oldClassName = this.className
+          this.className = 'btn btn-xs device-status state-ready btn-primary-outline'
+          this.oldText = this.text
+          this.style.cursor = 'default'
+          this.href = '#!/reset/' + device.serial
+          this.text = 'Restart'
+        }
+        a.onmouseleave = function() {
+          this.className = this.oldClassName
+          this.text = this.oldText
+          this.style.cursor = 'not-allowed'
+          this.removeAttribute('href')
+        }
+      }
       else {
         a.removeAttribute('href')
       }

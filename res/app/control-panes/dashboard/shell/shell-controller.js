@@ -90,7 +90,6 @@ module.exports = function ShellCtrl($scope) {
 
   $scope.restart = function() {
     $scope.control.workerRestart()
-    //$scope.control.startRemoteConnect()
   }
   // WANDERA CUSTOM - END
 

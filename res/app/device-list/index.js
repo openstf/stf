@@ -21,9 +21,14 @@ module.exports = angular.module('device-list', [
         template: require('./device-list.pug'),
         controller: 'DeviceListCtrl'
       })
+      .when('/reset/:serial', {
+        template: '<div ng-controller="DeviceRestartController"></div>',
+        controller: 'DeviceRestartController'
+      })
   }])
   .run(function(editableOptions) {
     // bootstrap3 theme for xeditables
     editableOptions.theme = 'bs3'
   })
   .controller('DeviceListCtrl', require('./device-list-controller'))
+  .controller('DeviceRestartController', require('./device-restart-controller'))

@@ -12,6 +12,12 @@ module.exports =
         $route.reload()
       }
 
+      $scope.reset = function() {
+        $uibModalInstance.close(true)
+        $route.reload()
+        $scope.control.workerRestart()
+      }
+
       function update() {
         $scope.device = device
         $scope.stateColor = StateClassesService.stateColor(device.state)

@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 3.4.1 (2019-05-03)
 
 ### Fixes
 

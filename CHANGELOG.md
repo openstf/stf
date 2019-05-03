@@ -5,6 +5,7 @@
 ### Fixes
 
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to fix an APK manifest parsing issue on applications processed by 360 encryption services, which changes the `application` key to `com.stub.StubApp`. Thanks @JChord!
+- Updated [adbkit](https://github.com/openstf/adbkit) to public key parsing on recent versions of ADB. Thanks @codeskyblue!
 
 ### Enhancements
 

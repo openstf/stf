@@ -106,16 +106,16 @@ adbkit-monkey@^1.0.1, adbkit-monkey@~1.0.1:
   dependencies:
     async "~0.2.9"
 
-adbkit@^2.9.2:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/adbkit/-/adbkit-2.10.0.tgz#ba2d46c290fc70e70b2422164268f82306303570"
+adbkit@^2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/adbkit/-/adbkit-2.11.1.tgz#7da847fe561254f3121088947bc1907ef053e894"
   dependencies:
     adbkit-logcat "^1.1.0"
     adbkit-monkey "~1.0.1"
     bluebird "~2.9.24"
     commander "^2.3.0"
     debug "~2.6.3"
-    node-forge "^0.6.12"
+    node-forge "^0.7.1"
     split "~0.3.3"
 
 adm-zip@0.4.4:
@@ -4456,9 +4456,9 @@ node-forge@0.2.24:
   version "0.2.24"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.2.24.tgz#fa6f846f42fa93f63a0a30c9fbff7b4e130e0858"
 
-node-forge@^0.6.12:
-  version "0.6.49"
-  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.6.49.tgz#f1ee95d5d74623938fe19d698aa5a26d54d2f60f"
+node-forge@^0.7.1:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.7.6.tgz#fdf3b418aee1f94f0ef642cd63486c77ca9724ac"
 
 node-gyp@^3.3.1:
   version "3.6.2"

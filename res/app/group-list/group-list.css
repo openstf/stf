@@ -1,0 +1,196 @@
+/**
+* Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
+.stf-pager-group-devices-search {
+  width: 160px;
+}
+
+.stf-pager-group-list-total-items {
+  margin-top: 5px;
+}
+
+.stf-group-list .selectable {
+  user-select: text;
+}
+
+.stf-group-list .group-list .stf-pager-group-devices-search i.stf-pager-group-devices-search-icon {
+  font-size: 12px;
+  margin-right: 0px;
+}
+
+.stf-group-list .group-list {
+  min-height: 600px;
+}
+
+.stf-group-list .group-list-header {
+  margin: 20px 0px 20px 15px;
+}
+
+.stf-group-list .btn-devices, .btn-users {
+  padding: 0px;
+  margin: 0px;
+}
+
+.stf-group-list .group-devices {
+  width: auto;
+  min-width: 475px;
+  max-width: 600px;
+}
+
+.stf-group-list .group-users {
+  width: auto;
+  min-width: 475px;
+  max-width: 600px;
+}
+
+.stf-group-list .group-icon {
+  font-size: 15px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.stf-group-list .group-device-icon {
+  font-size: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.stf-group-list .group-user-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.stf-group-list .group-device-details, .group-user-details {
+  display: inline-block;
+  line-height: 2;
+  margin-left: 10px;
+}
+
+.stf-group-list .group-device-name, .group-user-name {
+  color: #007aff;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 2px 0 6px;
+}
+
+.stf-group-list .group-device-id, .group-user-id {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  margin-bottom: 2px;
+  color: #999999;
+  font-weight: 300;
+}
+
+.stf-group-list td,span {
+  white-space: nowrap;
+}
+
+.stf-group-list .user-line, .device-line {
+  padding: 9px 15px 9px 2px;
+  margin-left: 14px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.stf-group-list .mailto {
+  padding-bottom: 1px;
+  margin-top: 5px;
+}
+
+.stf-group-list i.mailto {
+  vertical-align: initial;
+}
+
+.group-stats {
+  min-height: 100px;
+  height: 100px;
+  text-align: center;
+}
+
+
+.group-stats [class^="col-"],
+.group-stats [class*="col-"] {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.group-stats [class^="col-"]:last-child,
+.group-stats [class*="col-"]:last-child {
+  border: 0;
+}
+
+.group-stats [class^="col-"] .number,
+.group-stats [class*="col-"] .number {
+  font-size: 3.4em;
+  font-weight: 100;
+  line-height: 1.5em;
+  letter-spacing: -0.06em;
+}
+
+.group-stats [class^="col-"] .number .icon,
+.group-stats [class*="col-"] .number .icon {
+  width: 50px;
+  height: 38px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px 12px 0 0;
+}
+
+.group-quota-stats {
+  min-height: 75px;
+  height: 75px;
+  text-align: center;
+}
+
+.group-quota-stats .bar {
+  height: 20px;
+  vertical-align: top;
+  margin: 14px 12px 12px 12px;
+}
+
+.group-quota-stats .text,
+.group-stats [class^="col-"] .text,
+.group-stats [class*="col-"] .text {
+  font-weight: 300;
+  color: #aeaeae;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.group-stats .fa {
+  font-size: 0.8em;
+}
+
+
+@media (max-width: 600px) {
+  .group-stats {
+    min-height: 60px;
+    height: 60px;
+    text-align: center;
+  }
+
+  .group-stats .fa {
+    font-size: 0.6em;
+  }
+
+  .group-stats [class^="col-"] .number,
+  .group-stats [class*="col-"] .number {
+    font-size: 1.8em;
+    line-height: normal;
+    font-weight: 300;
+  }
+
+  .group-stats [class^="col-"] .number .icon,
+  .group-stats [class*="col-"] .number .icon {
+    width: 25px;
+    height: 19px;
+    margin: 10px 6px 0 0;
+  }
+
+  .group-stats [class^="col-"] .text,
+  .group-stats [class*="col-"] .text {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,68 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+li.list-group-item.groups-list
+  .heading.group-action-body
+    i.fa.fa-clock-o
+    span(translate) Schedule
+
+  form.form-inline(name='scheduleForm')
+    fieldset(ng-disabled="group.state !== 'pending'")
+      .form-group.group-schedule-item
+        label.group-list-label(translate) Class
+        select(ng-model='groupsEnv[group.id].tmpClass' ng-change='watchGroupClass(group)')
+          option(
+            ng-if="option.privilege === 'user' ||\
+                   option.privilege === currentUser.privilege && currentUser.email === group.owner.email"
+            ng-repeat='option in classOptions'
+            value='{{option.id}}') {{option.name}}
+
+      .form-group.group-schedule-item(ng-if='conditionForRepetitions(group)')
+        label.group-list-label(translate) Repetitions
+        input.form-control.input-sm(
+          type='range'
+          min='0'
+          max='{{getRepetitionsQuotas(group.owner.email)}}'
+          ng-model='groupsEnv[group.id].tmpRepetitions'
+          required)
+        span.group-span-label {{groupsEnv[group.id].tmpRepetitions}}
+
+      .form-group.group-schedule-item
+        label.group-list-label(translate) Starting Date
+        input.form-control.input-sm(
+          size='21'
+          type='datetime-local'
+          ng-model='groupsEnv[group.id].tmpStartDate'
+          placeholder='yyyy-MM-ddTHH:mm:ss:sss'
+          required)
+
+      .form-group.group-schedule-item
+        label.group-list-label(translate) Expiration Date
+        input.form-control.input-sm(
+          size='21'
+          type='datetime-local'
+          ng-model='groupsEnv[group.id].tmpStopDate'
+          placeholder='yyyy-MM-ddTHH:mm:ss:sss'
+          required)
+
+      .form-group.group-schedule-item
+        button.btn.btn-sm.btn-primary(
+          type='button'
+          ng-click='updateGroupSchedule(group)'
+          ng-disabled='!conditionForScheduleSaving(group, scheduleForm.$invalid)')
+            span(translate) Save
+
+        span.group-span-label-warning(
+          translate
+          ng-if="group.state === 'pending' && \
+                 conditionForScheduleSaving(group, scheduleForm.$invalid) && \
+                 (groupsEnv[group.id].tmpClass === 'bookable' || \
+                  groupsEnv[group.id].tmpClass === 'standard')") Saving will also get ready the group!
+
+        span.group-span-label-error(
+          translate
+          ng-if="group.state === 'pending' && \
+                 !conditionForScheduleSaving(group, scheduleForm.$invalid) && \
+                 groupsEnv[group.id].tmpScheduleTooltip !== 'No change'") {{groupsEnv[group.id].tmpScheduleTooltip}}
+

@@ -1,0 +1,24 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.stf-column-choice
+  .btn-group(uib-dropdown auto-close='outsideClick')
+    button.btn.btn-sm.btn-primary-outline(
+      style='margin-top: 5px; {{buttonStyle}}'
+      type='button'
+      uib-dropdown-toggle)
+        i.fa.fa-columns
+        span(translate) Customize
+    ul.dropdown-menu.pointer.stf-column-customize(
+      uib-dropdown-menu role='menu'
+      ng-click='$event.stopPropagation()')
+        li(ng-repeat='column in columnData')
+          label.checkbox.pointer
+            input(type='checkbox' ng-model='column.selected')
+            span.checkbox-label(ng-bind-template='{{::column.name | translate}}')
+        li
+          button.btn.btn-xs.btn-danger-outline.checkbox(ng-click='resetData()')
+            i.fa.fa-trash-o
+            span(ng-bind='"Reset"|translate')
+

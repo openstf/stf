@@ -1,3 +1,7 @@
+//
+// Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
 // Message wrapper
 
 enum MessageType {
@@ -78,6 +82,159 @@ enum MessageType {
   FileSystemGetMessage       = 82;
   ConnectStartedMessage      = 92;
   ConnectStoppedMessage      = 93;
+  GroupUserChangeMessage     = 1200;
+  DeviceGroupChangeMessage   = 1201;
+  DeviceOriginGroupMessage   = 1202;
+  DeleteUserMessage          = 1203;
+  UpdateAccessTokenMessage   = 1204;
+  GroupChangeMessage         = 1205;
+  UserChangeMessage          = 1206;
+  DeviceChangeMessage        = 1207;
+}
+
+message UpdateAccessTokenMessage {
+}
+
+message DeleteUserMessage {
+  required string email = 1;
+}
+
+message DeviceOriginGroupMessage {
+  required string signature = 1;
+}
+
+message UserQuotasDetailField {
+  required double duration = 1;
+  required uint32 number = 2;
+}
+
+message UserQuotasField {
+  required UserQuotasDetailField allocated = 1;
+  required UserQuotasDetailField consumed = 2;
+  required uint32 defaultGroupsDuration = 3;
+  required uint32 defaultGroupsNumber = 4;
+  required uint32 defaultGroupsRepetitions = 5;
+  required uint32 repetitions = 6;
+}
+
+message UserGroupsField {
+  required UserQuotasField quotas = 1;
+  repeated string subscribed = 2;
+}
+
+message UserField {
+  required string email = 1;
+  required string name = 2;
+  required string privilege = 3;
+  required UserGroupsField groups = 4;
+}
+
+message UserChangeMessage {
+  required UserField user = 1;
+  required bool isAddedGroup = 2;
+  repeated string groups = 3;
+  required string action = 4;
+  repeated string targets = 5;
+  required double timeStamp = 6;
+}
+
+message DeviceNetworkField {
+  optional string type = 1;
+  optional string subtype = 2;
+}
+
+message DeviceDisplayField {
+  optional uint32 height = 1;
+  optional uint32 width = 2;
+}
+
+message DevicePhoneField {
+  optional string imei = 1;
+}
+
+message DeviceProviderField {
+  optional string name = 1;
+}
+
+message DeviceGroupField {
+  optional string origin = 1;
+  optional string originName = 2;
+}
+
+message DeviceField {
+  required string serial = 1;
+  optional string model = 2;
+  optional string version = 3;
+  optional string operator = 4;
+  optional DeviceNetworkField network = 5;
+  optional DeviceDisplayField display = 6;
+  optional string manufacturer = 7;
+  optional string sdk = 8;
+  optional string abi = 9;
+  optional string cpuPlatform = 10;
+  optional string openGLESVersion = 11;
+  optional DevicePhoneField phone = 12;
+  optional DeviceProviderField provider = 13;
+  optional DeviceGroupField group = 14;
+}
+
+message DeviceChangeMessage {
+  required DeviceField device = 1;
+  required string action = 2;
+  required string oldOriginGroupId = 3;
+  required double timeStamp = 4;
+}
+
+message GroupDateField {
+  required string start = 1;
+  required string stop = 2;
+}
+
+message GroupOwnerField {
+  required string email = 1;
+  required string name = 2;
+}
+
+message GroupField {
+  required string id = 1;
+  required string name = 2;
+  required string class = 3;
+  required string privilege = 4;
+  required GroupOwnerField owner = 5;
+  repeated GroupDateField dates = 6;
+  required uint32 duration = 7;
+  required uint32 repetitions = 8;
+  repeated string devices = 9;
+  repeated string users = 10;
+  required string state = 11;
+  required bool isActive = 12;
+}
+
+message GroupChangeMessage {
+  required GroupField group = 1;
+  required string action = 2;
+  repeated string subscribers = 3;
+  required bool isChangedDates = 4;
+  required bool isChangedClass = 5;
+  required bool isAddedUser = 6;
+  repeated string users = 7;
+  required bool isAddedDevice = 8;
+  repeated string devices = 9;
+  required double timeStamp = 10;
+}
+
+message DeviceGroupChangeMessage {
+  required string id = 1;
+  required DeviceGroupMessage group = 2;
+  required string serial = 3;
+}
+
+message GroupUserChangeMessage {
+  repeated string users = 1;
+  required bool isAdded = 2;
+  required string id = 3;
+  required bool isDeletedLater = 4;
+  repeated string devices = 5;
 }
 
 message ConnectStartedMessage {
@@ -132,6 +289,26 @@ message DeviceLogMessage {
 
 // Introductions
 
+message DeviceGroupOwnerMessage {
+  required string email = 1;
+  required string name = 2;
+}
+
+message DeviceGroupLifetimeMessage {
+  required double start = 1;
+  required double stop = 2;
+}
+
+message DeviceGroupMessage {
+  required string id = 1;
+  required string name = 2;
+  required DeviceGroupOwnerMessage owner  = 3;
+  required DeviceGroupLifetimeMessage lifeTime  = 4;
+  required string class = 5;
+  required uint32 repetitions = 6;
+  required string originName = 7;
+}
+
 message ProviderMessage {
   required string channel = 1;
   required string name = 2;
@@ -145,6 +322,7 @@ message DeviceIntroductionMessage {
   required string serial = 1;
   required DeviceStatus status = 2;
   required ProviderMessage provider = 3;
+  optional DeviceGroupMessage group = 4;
 }
 
 message DeviceRegisteredMessage {

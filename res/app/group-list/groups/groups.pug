@@ -1,0 +1,167 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.fluid-height.overflow-auto.group-list
+ .heading
+  nothing-to-show(
+    icon='fa-object-group'
+    message='{{"No Groups" | translate}}' ng-if='!groups.length')
+
+  div(ng-if='groups.length')
+    form.form-inline
+      .form-group.group-list-header
+        stf-pager(
+          tooltip-label="{{'Group selection' | translate}}"
+          total-items='filteredGroups.length'
+          total-items-style='stf-pager-group-list-total-items'
+          items-per-page='scopeGroupListCtrl.groupItemsPerPage'
+          items-per-page-options='itemsPerPageOptions'
+          current-page='scopeGroupListCtrl.groupCurrentPage'
+          items-search='search')
+
+      .form-group.group-list-header
+        stf-column-choice(reset-data='resetData()' column-data='groupData.columns')
+
+      button.btn.btn-xs.btn-primary-outline.pull-right(
+        type='button'
+        uib-tooltip="{{'Write an email to the group owner selection' | translate}}"
+        ng-disabled='!filteredGroups.length'
+        ng-click='mailToGroupOwners(filteredGroups)'
+        tooltip-placement='top'
+        tooltip-popup-delay='500')
+          i.fa.fa-envelope-o
+          span(translate) Contact Owners 
+
+    table.table.table-hover.dataTable.ng-table
+      thead
+        tr
+          th.header.sortable(
+            ng-class='[column.sort]'
+            ng-repeat='column in groupData.columns | filter: {selected: true}'
+            ng-click='sortBy(groupData, column)')
+              div.strong(ng-bind-template='{{::column.name | translate}}')
+      tbody
+        tr(ng-repeat="group in groups \
+          | filter:search \
+          | orderBy:groupColumns[groupData.sort.index].property:groupData.sort.reverse \
+          | pagedObjectsFilter:scopeGroupListCtrl:'groupCurrentPage':'groupItemsPerPage':'filteredGroups' \
+          track by group.id")
+
+          td(ng-if='groupData.columns[0].selected'
+            ng-class="{'color-green': group.status === 'Active', \
+                       'color-red': group.status === 'Pending', \
+                       'color-orange': group.status === 'Ready'}") {{group.status | translate}}
+          td.selectable(ng-if='groupData.columns[1].selected')
+            i.fa.fa-object-group.group-icon
+            span {{group.name}}
+          td.selectable(ng-if='groupData.columns[2].selected') {{::group.id}}
+          td(ng-if='groupData.columns[3].selected')
+            a(ng-href="{{::'mailto:' + group.owner.email}}") {{::group.owner.name}}
+
+          td(ng-if='groupData.columns[4].selected')
+            .btn-group.btn-devices(uib-dropdown auto-close='outsideClick')
+              button.btn.btn-sm.btn-primary-outline.btn-devices(
+                type='button'
+                ng-disabled='!group.devices.length'
+                ng-click='initGroupDevices(group)'
+                uib-dropdown-toggle)
+                  span {{group.devices.length}}
+
+              ul.dropdown-menu.group-devices(
+                ng-if='groupsEnv[group.id].deviceCurrentPage && groupsEnv[group.id].devices.length'
+                uib-dropdown-menu role='menu' ng-click='$event.stopPropagation()')
+                  li
+                    a
+                      form.form-inline
+                        .form-group
+                          stf-pager(
+                            items-search-style='stf-pager-group-devices-search'
+                            icon-style='stf-pager-group-devices-search-icon'
+                            tooltip-label="{{'Device selection' | translate}}"
+                            total-items='groupsEnv[group.id].filteredDevices.length'
+                            items-per-page='groupsEnv[group.id].deviceItemsPerPage'
+                            items-per-page-options='itemsPerPageOptions'
+                            current-page='groupsEnv[group.id].deviceCurrentPage'
+                            items-search='deviceSearch')
+
+                  li(ng-repeat="device in groupsEnv[group.id].devices \
+                    | filter:deviceSearch \
+                    | orderBy: 'model' \
+                    | pagedObjectsFilter:groupsEnv[group.id]:'deviceCurrentPage':'deviceItemsPerPage':'filteredDevices' \
+                    track by device.serial")
+
+                    .device-line
+                      i.fa.fa-mobile.group-device-icon
+                      .group-device-details.selectable
+                        a.group-device-name(ng-bind-template="{{device.manufacturer + ' ' + device.model}}")
+                        .group-device-id
+                          span(translate) Serial
+                          span(ng-bind-template="{{::': ' + device.serial + ' - '}}")
+                          span(translate) OS 
+                          span(ng-bind-template="{{': ' + device.version + ' - '}}")
+                          span(translate) Screen
+                          span(ng-bind-template="{{': ' + device.display.width + 'x' + device.display.height + ' - '}}")
+                          span(translate) SDK
+                          span(ng-bind-template="{{': ' + device.sdk}}")
+
+          td(ng-if='groupData.columns[5].selected')
+            .btn-group.btn-users(uib-dropdown auto-close='outsideClick')
+              button.btn.btn-sm.btn-primary-outline.btn-users(
+                type='button'
+                ng-disabled='!group.users.length'
+                ng-click='initGroupUsers(group)'
+                uib-dropdown-toggle)
+                  span {{group.users.length}}
+
+              ul.dropdown-menu.group-users(
+                ng-if='groupsEnv[group.id].userCurrentPage && groupsEnv[group.id].users'
+                uib-dropdown-menu role='menu' ng-click='$event.stopPropagation()')
+                  li
+                    .user-line
+                      form
+                       .form-group.mailto
+                         button.btn.btn-xs.btn-primary-outline.pull-right(
+                          type='button'
+                          uib-tooltip="{{'Write an email to the group user selection' | translate}}"
+                          ng-disabled='!groupsEnv[group.id].filteredUsers.length'
+                          ng-click='mailToGroupUsers(group, groupsEnv[group.id].filteredUsers)'
+                          tooltip-placement='top'
+                          tooltip-popup-delay='500')
+                            i.fa.fa-envelope-o
+                            span(translate) Contact Users
+
+                      form.form-inline
+                        .form-group
+                          stf-pager(
+                            items-search-style='stf-pager-group-devices-search'
+                            icon-style='stf-pager-group-devices-search-icon'
+                            tooltip-label="{{'User selection' | translate}}"
+                            total-items='groupsEnv[group.id].filteredUsers.length'
+                            items-per-page='groupsEnv[group.id].userItemsPerPage'
+                            items-per-page-options='itemsPerPageOptions'
+                            current-page='groupsEnv[group.id].userCurrentPage'
+                            items-search='userSearch')
+
+                  li(ng-repeat="user in groupsEnv[group.id].users \
+                    | filter:userSearch \
+                    | orderBy: 'name' \
+                    | pagedObjectsFilter:groupsEnv[group.id]:'userCurrentPage':'userItemsPerPage':'filteredUsers' \
+                    track by user.email")
+                    .user-line
+                      i.fa.fa-user.group-user-icon
+                      .group-user-details.selectable
+                        a.group-user-name(
+                          ng-href="{{::'mailto:' + user.email}}"
+                          ng-bind-template="{{::user.name}}")
+                        .group-user-id
+                          span(translate) Email
+                          span(ng-bind-template="{{::': ' + user.email + ' - '}}")
+                          span(translate) Privilege
+                          span(ng-bind-template="{{::': ' + user.privilege}}")
+
+          td(ng-if='groupData.columns[6].selected') {{getClassName(group.class) | translate}}
+          td(ng-if='groupData.columns[7].selected') {{group.repetitions}}
+          td(ng-if='groupData.columns[8].selected') {{getDuration(group.duration)}}
+          td(ng-if='groupData.columns[9].selected') {{group.startTime}}
+          td(ng-if='groupData.columns[10].selected') {{group.stopTime}}

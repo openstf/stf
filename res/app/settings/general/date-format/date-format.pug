@@ -1,0 +1,17 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.fluid-height(ng-controller='DateFormatCtrl')
+  .heading
+    i.fa.fa-clock-o
+    span(translate) Date format
+  .widget-content.padded
+    .form-horizontal
+      .form-group
+        .input-group
+          .input-group-addon.input-sm
+            i.fa.fa-clock-o(
+            uib-tooltip="{{'Define your own Date format' | translate}}" tooltip-placement='auto top-right' tooltip-popup-delay='500')
+          input.form-control.input-sm(size='30' type='text' placeholder='M/d/yy h:mm:ss a' ng-model='dateFormat')
+

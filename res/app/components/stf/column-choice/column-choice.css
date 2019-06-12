@@ -1,0 +1,23 @@
+/**
+* Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
+.stf-column-choice .stf-column-customize {
+  white-space: nowrap;
+  padding: 10px;
+  padding-bottom: 0;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  max-width: 800px;
+}
+
+.stf-column-choice .stf-column-customize .checkbox {
+  margin-bottom: 10px;
+}
+
+.stf-column-choice .stf-column-customize .checkbox-label {
+  margin-left: 10px;
+}
+
+

@@ -1,0 +1,195 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+li.list-group-item.groups-list
+  .heading.group-action-body
+    i.fa.fa-mobile
+    span(translate) Devices 
+
+  .row
+    .panel-group
+      .panel.panel-default
+        .panel-heading.text-center
+          button.btn.btn-xs.btn-primary.btn-group-devices-action(
+            type='button'
+            ng-click='showGroupDevices = !showGroupDevices'
+            ng-class='{"btn-primary-outline": showGroupDevices, "btn-primary": !showGroupDevices}')
+              i.fa.fa-mobile
+              span(translate) Group devices 
+
+        .panel-body(ng-show='!showGroupDevices')
+          nothing-to-show(
+            icon='fa-mobile' message='{{"No group devices" | translate}}'
+            ng-if='!groupsEnv[group.id].filteredGroupDevices.length && \
+                   (!groupsEnv[group.id].availableDevices.length || !group.devices.length)')
+
+          div(ng-show='groupsEnv[group.id].filteredGroupDevices.length || \
+                       groupsEnv[group.id].availableDevices.length && group.devices.length')
+            .form-inline
+              .form-group.group-devices-header
+                stf-pager(
+                  tooltip-label="{{'Group device selection' | translate}}"
+                  total-items='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupDevices.length'
+                  total-items-style='stf-pager-groups-total-items'
+                  items-per-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].groupDeviceItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].groupDeviceCurrentPage'
+                  items-search='groupDeviceSearch')
+
+              .form-group.group-devices-header
+                stf-column-choice(
+                  button-style='margin: 5px 0px 0px 15px'
+                  reset-data='resetGroupDeviceData()'
+                  column-data='groupDeviceData.columns')
+
+            .widget-container.fluid-height.overflow-auto
+              table.table.table-hover.dataTable.ng-table
+                thead
+                  tr
+                    th.header
+                      button.btn.btn-sm.btn-danger.btn-group-devices-action(
+                        type='button'
+                        ng-if="groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].hasOwnProperty('filteredGroupDevices')"
+                        ng-disabled="!groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupDevices.length || \
+                                     group.privilege === 'root'"
+                        ng-click='removeGroupDevices(\
+                                    group, \
+                                    groupDeviceSearch, \
+                                    groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupDevices)')
+                          i.fa.fa-trash-o
+                    th.header.sortable(
+                      ng-class='[column.sort]'
+                      ng-repeat='column in groupDeviceData.columns | filter: {selected: true}'
+                      ng-click='sortBy(groupDeviceData, column)')
+                        div.strong(ng-bind-template="{{column.name | translate}}")
+
+                tbody
+                  tr.selectable(ng-repeat="device in filteredGroups[getGroupIndex($parent.$index)].devices \
+                  | groupObjectsFilter:\
+                    groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableDevices:\
+                    groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableDevicesBySerial \
+                  | filter:groupDeviceSearch \
+                  | orderBy:deviceColumns[groupDeviceData.sort.index].property:groupDeviceData.sort.reverse \
+                  | pagedObjectsFilter:\
+                    groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id]:\
+                    'groupDeviceCurrentPage':'groupDeviceItemsPerPage':'filteredGroupDevices' \
+                    track by device.serial")
+                    td
+                      button.btn.btn-danger-outline.btn-xs(
+                        ng-disabled="filteredGroups[getGroupIndex($parent.$index)].privilege === 'root'"
+                        ng-click='removeGroupDevice(filteredGroups[getGroupIndex($parent.$index)], device)')
+                          i.fa.fa-trash-o.fa-fw
+                    td(ng-if='groupDeviceData.columns[0].selected') {{device.model}}
+                    td(ng-if='groupDeviceData.columns[1].selected') {{device.serial}}
+                    td(ng-if='groupDeviceData.columns[2].selected') {{device.operator}}
+                    td(ng-if='groupDeviceData.columns[3].selected') {{device.version}}
+                    td(ng-if='groupDeviceData.columns[4].selected') {{device.networkStr}}
+                    td(ng-if='groupDeviceData.columns[5].selected') {{device.displayStr}}
+                    td(ng-if='groupDeviceData.columns[6].selected') {{device.manufacturer}}
+                    td(ng-if='groupDeviceData.columns[7].selected') {{device.sdk}}
+                    td(ng-if='groupDeviceData.columns[8].selected') {{device.abi}}
+                    td(ng-if='groupDeviceData.columns[9].selected') {{device.cpuPlatform}}
+                    td(ng-if='groupDeviceData.columns[10].selected') {{device.openGLESVersion}}
+                    td(ng-if='groupDeviceData.columns[11].selected') {{device.phone.imei}}
+                    td(ng-if='groupDeviceData.columns[12].selected') {{device.provider.name}}
+                    td(ng-if='groupDeviceData.columns[13].selected') {{device.group.originName}}
+
+      .panel.panel-default
+        .panel-heading.text-center
+          button.btn.btn-xs.btn-primary-outline.btn-group-devices-action(
+            type='button'
+            ng-click='showAvailableDevices = !showAvailableDevices'
+            ng-class='{"btn-primary-outline": !showAvailableDevices, "btn-primary": showAvailableDevices}')
+              i.fa.fa-mobile
+              span(translate) Available devices 
+
+        .panel-body(ng-show='showAvailableDevices')
+          nothing-to-show(
+            icon='fa-mobile' message='{{"No available devices" | translate}}'
+            ng-if='!(groupsEnv[group.id].filteredAvailableDevices && \
+                     groupsEnv[group.id].filteredAvailableDevices.length || \
+                     groupsEnv[group.id].availableDevices.length !== group.devices.length)')
+
+          div(ng-if='groupsEnv[group.id].filteredAvailableDevices && \
+                     groupsEnv[group.id].filteredAvailableDevices.length || \
+                     groupsEnv[group.id].availableDevices.length !== group.devices.length')
+            .form-inline
+              .form-group.group-devices-header
+                stf-pager(
+                  tooltip-label="{{'Available device selection' | translate}}"
+                  total-items='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices.length'
+                  total-items-style='stf-pager-groups-total-items'
+                  items-per-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableDeviceItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableDeviceCurrentPage'
+                  items-search='deviceSearch')
+
+              .form-group.group-devices-header
+                stf-column-choice(
+                  button-style='margin: 5px 0px 0px 15px'
+                  reset-data='resetDeviceData()'
+                  column-data='deviceData.columns')
+
+            .widget-container.fluid-height.overflow-auto
+              table.table.table-hover.dataTable.ng-table
+                thead
+                  tr
+                    th.header
+                      button.btn.btn-sm.btn-primary.btn-group-devices-action(
+                        type='button'
+                        ng-if="groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].hasOwnProperty('filteredAvailableDevices')"
+                        ng-disabled='!groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices.length || \
+                                     !conditionForDevicesAddition(\
+                                       filteredGroups[getGroupIndex($parent.$index)], \
+                                       groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices.length)'
+                        uib-tooltip="{{'Groups duration quota is reached' | translate}}"
+                        tooltip-placement='auto top-right'
+                        tooltip-enable="groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices.length && \
+                                        !conditionForDevicesAddition(\
+                                          filteredGroups[getGroupIndex($parent.$index)], \
+                                          groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices.length)"
+                        tooltip-popup-delay='500'
+                        ng-click='addGroupDevices(group, \
+                                                  deviceSearch, \
+                                                  groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableDevices)')
+                          i.fa.fa-cart-plus
+                    th.header.sortable(
+                      ng-class='[column.sort]'
+                      ng-repeat="column in deviceData.columns | filter: {selected: true}"
+                      ng-click='sortBy(deviceData, column)')
+                        div.strong(ng-bind-template="{{column.name | translate}}")
+
+                tbody
+                  tr.selectable(ng-repeat="device in groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableDevices \
+                  | availableObjectsFilter:filteredGroups[getGroupIndex($parent.$index)]:'devices':'serial' \
+                  | filter:deviceSearch \
+                  | orderBy:deviceColumns[deviceData.sort.index].property:deviceData.sort.reverse \
+                  | pagedObjectsFilter:\
+                    groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id]:\
+                    'availableDeviceCurrentPage':'availableDeviceItemsPerPage':'filteredAvailableDevices' \
+                    track by device.serial")
+                    td
+                      button.btn.btn-primary-outline.btn-xs(
+                        type='button'
+                        ng-disabled='!conditionForDevicesAddition(filteredGroups[getGroupIndex($parent.$index)], 1)'
+                        uib-tooltip="{{'Groups duration quota is reached' | translate}}"
+                        tooltip-placement='auto top-right'
+                        tooltip-enable="!conditionForDevicesAddition(filteredGroups[getGroupIndex($parent.$index)], 1)"
+                        tooltip-popup-delay='500'
+                        ng-click='addGroupDevice(filteredGroups[getGroupIndex($parent.$index)], device)')
+                          i.fa.fa-cart-plus.fa-fw
+                    td(ng-if='deviceData.columns[0].selected') {{device.model}}
+                    td(ng-if='deviceData.columns[1].selected') {{device.serial}}
+                    td(ng-if='deviceData.columns[2].selected') {{device.operator}}
+                    td(ng-if='deviceData.columns[3].selected') {{device.version}}
+                    td(ng-if='deviceData.columns[4].selected') {{device.networkStr}}
+                    td(ng-if='deviceData.columns[5].selected') {{device.displayStr}}
+                    td(ng-if='deviceData.columns[6].selected') {{device.manufacturer}}
+                    td(ng-if='deviceData.columns[7].selected') {{device.sdk}}
+                    td(ng-if='deviceData.columns[8].selected') {{device.abi}}
+                    td(ng-if='deviceData.columns[9].selected') {{device.cpuPlatform}}
+                    td(ng-if='deviceData.columns[10].selected') {{device.openGLESVersion}}
+                    td(ng-if='deviceData.columns[11].selected') {{device.phone.imei}}
+                    td(ng-if='deviceData.columns[12].selected') {{device.provider.name}}
+                    td(ng-if='deviceData.columns[13].selected') {{device.group.originName}}

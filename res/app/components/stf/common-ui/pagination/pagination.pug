@@ -1,0 +1,34 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.input-group(style='margin-right: 5px; {{itemsSearchStyle}}' class='{{itemsSearchStyle}}')
+  .input-group-addon.input-sm
+    i.glyphicon.glyphicon-search(
+      class='{{iconStyle}}'
+      uib-tooltip='{{tooltipLabel}}'
+      tooltip-placement='auto top-right'
+      tooltip-popup-delay='500')
+  input.form-control.input-sm(type='text' placeholder='Search' ng-model='itemsSearch')
+
+select.custon-select.form-control.input-sm(
+  ng-model='itemsPerPage'
+  ng-options='option as option.name for option in itemsPerPageOptions track by option.value')
+
+uib-pagination(
+  style='vertical-align: middle; width: -moz-max-content'
+  total-items='totalItems'
+  items-per-page='itemsPerPage.value'
+  class='pagination-sm'
+  max-size='1'
+  boundary-links='true'
+  boundary-link-numbers='false'
+  previous-text='<' next-text='>' first-text='First' last-text='Last'
+  rotate='true'
+  ng-model='currentPage')
+
+button.btn.btn-sm.btn-info(
+  type='button'
+  class='{{totalItemsStyle}}'
+  style='pointer-events: none')
+    span {{totalItems}}

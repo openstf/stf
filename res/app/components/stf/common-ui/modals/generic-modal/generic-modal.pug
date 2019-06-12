@@ -1,0 +1,36 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.stf-generic-modal.stf-modal
+  .modal-header
+    h4.modal-title.text-warning(ng-if="data.type === 'Warning'")
+      i.fa.fa-warning
+      .button-spacer
+      span(translate) {{data.type}} 
+
+    h4.modal-title.text-info(ng-if="data.type === 'Information'")
+      i.fa.fa-info-circle
+      .button-spacer
+      span(translate) {{data.type}} 
+
+    h4.modal-title.text-danger(ng-if="data.type === 'Error'")
+      i.fa.fa-times-circle
+      .button-spacer
+      span(translate) {{data.type}} 
+
+  .modal-body
+    label.control-label
+      span(translate) {{data.message}} 
+
+  .modal-footer
+    button.btn.btn-primary(
+      type='button'
+      ng-click='ok()')
+        span(translate) OK 
+
+    button.btn.btn-warning(
+      type='button'
+      ng-if='data.cancel'
+      ng-click='cancel()')
+        span(translate) Cancel

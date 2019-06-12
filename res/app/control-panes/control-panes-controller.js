@@ -1,3 +1,7 @@
+/**
+* Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
 module.exports =
   function ControlPanesController($scope, $http, gettext, $routeParams,
     $timeout, $location, DeviceService, GroupService, ControlService,
@@ -85,7 +89,9 @@ module.exports =
 
     $scope.$watch('device.state', function(newValue, oldValue) {
       if (newValue !== oldValue) {
-        if (oldValue === 'using') {
+/*************** fix bug: it seems automation state was forgotten ? *************/
+        if (oldValue === 'using' || oldValue === 'automation') {
+/******************************************************************************/
           FatalMessageService.open($scope.device, false)
         }
       }

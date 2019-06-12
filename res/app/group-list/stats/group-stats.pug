@@ -1,0 +1,25 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.group-stats
+  .col-xs-3
+    .number.color-blue
+      .icon.fa.fa-globe
+      span(ng-bind='groups.length')
+    .text(translate) Total groups
+  .col-xs-3
+    .number.color-green
+      .icon.fa.fa-play
+      span(ng-bind='activeGroups')
+    .text(translate) Active groups
+  .col-xs-3
+    .number.color-orange
+      .icon.fa.fa-pause
+      span(ng-bind='readyGroups')
+    .text(translate) Ready groups
+  .col-xs-3
+    .number.color-pink
+      .icon.fa.fa-stop
+      span(ng-bind='pendingGroups')
+    .text(translate) Pending groups

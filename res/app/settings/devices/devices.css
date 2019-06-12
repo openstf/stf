@@ -1,0 +1,65 @@
+/**
+* Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
+.stf-devices .selectable {
+  user-select: text;
+}
+
+.stf-pager-devices-total-items {
+  margin-top: 5px;
+}
+
+.stf-devices .device-header {
+  margin-left: 10px;
+}
+
+.stf-devices .heading .device-header-icon {
+  font-size: 16px;
+}
+
+.stf-devices .device-list-icon {
+  margin-right: 10px;
+}
+
+.stf-devices .device-filters-items {
+  margin-top: 5px;
+}
+
+.stf-devices .device-filters-item {
+  margin: 0px 10px 15px 15px;
+}
+
+.stf-devices .devices-list .device-line {
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+  margin-left: 0px;
+}
+
+.stf-devices .devices-list .device-line.device-actions {
+  padding-bottom: 23px;
+}
+
+.stf-devices .device-list-details {
+  display: inline-block;
+}
+
+.stf-devices .device-list-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.stf-devices .device-list-name {
+  color: #007aff;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 2px 0 6px;
+}
+
+.stf-devices .device-list-id {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  margin-bottom: 2px;
+  color: #999999;
+  font-weight: 300;
+}

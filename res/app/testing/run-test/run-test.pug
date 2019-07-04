@@ -1,0 +1,211 @@
+.widget-container.fluid-height(ng-controller='RunTestCtrl').stf.testing.run-test
+  .row
+    .col-md-6
+      .heading
+        span(translate) Tools
+
+        button.btn.pull-right.btn-sm(
+        ng-click='showAdd = !showAdd',
+        ng-class='{ "btn-primary-outline": !showAdd, "btn-primary": showAdd }')
+          i.fa.fa-plus.fa-fw
+      .widget-content
+        add-testing-tool(show-clipboard='true', show-add='showAdd')
+
+        table(ng-if='configs.length > 0').table.table-condensed.stf.testing.run-test.testing-tools-table
+          thead
+            tr
+              th(colspan='1', style='width: 8%')
+                span(translate) Used
+              th(colspan='1', style='width: 12%')
+                span(translate) Name
+              th(colspan='1', style='width: 15%')
+                span(translate) Git repository
+              th(colspan='1', style='width: 10%')
+                span(translate) Git commit or branch
+              th(colspan='1', style='width: 23%')
+                span(translate) Setup parameters
+              th(colspan='1', style='width: 28%')
+                span(translate) Docker repository
+              th(colspan='1', style='width: 4%')
+          tbody
+            tr(ng-repeat='config in configs track by $index')
+              td
+                input(type='radio',
+                      name='{{config.title}}',
+                      ng-model="$parent.configSelected",
+                      ng-value="$index",
+                      ng-change='updateConfigSelected($index)',
+                      ng-disabled='pressedTest')
+              td
+                span {{config.title}}
+              td
+                span {{config.gitRepository}}
+              td
+                span {{config.gitCommit}}
+              td
+                span {{config.setupParameters}}
+              td
+                span {{config.dockerRepository}}
+              td
+                button.btn.btn-sm.btn-danger-outline(ng-click='removeTestingTool(config)')
+                  i.fa.fa-trash-o
+
+      .heading
+        span(translate) Devices
+      .widget-content
+        div
+          device-list-details(tracker='groupTracker', columns='columns', sort='sort', filter='filter')
+
+      .heading
+        span(translate) Emulators
+
+        button.btn.pull-right.btn-sm(
+        ng-click='showAddEmulator = !showAddEmulator',
+        ng-class='{ "btn-primary-outline": !showAddEmulator, "btn-primary": showAddEmulator }')
+          i.fa.fa-plus.fa-fw
+      .widget-content
+        add-emulator(show-clipboard='true', show-add-emulator='showAddEmulator')
+
+        span(ng-if='emulators.length <= 0') Configure here emulators, which will be spawned for the test execution.
+        table(ng-if='emulators.length > 0').table.table-condensed.stf.testing.run-test.testing-tools-table
+          thead
+            tr
+              th(colspan='1')
+                span(translate) System image
+              th(colspan='1')
+                span(translate) SD card size (MB)
+              th(colspan='1')
+                span(translate) Startup parameters
+              th(colspan='1')
+                span(translate) Number of emulators
+              th(colspan='1')
+          tbody
+            tr(ng-repeat='emulator in emulators track by $index')
+              td
+                span {{emulator.systemImage}}
+              td
+                span {{emulator.sdCardSize}}
+              td
+                span {{emulator.startupParameters}}
+              td
+                span {{emulator.numberEmulators}}
+              td
+                button.btn.btn-sm.btn-danger-outline(ng-click='removeEmulator($index)')
+                  i.fa.fa-trash-o
+
+      .heading
+        span(translate) Configuration
+      .widget-content
+        table.table.table-hover.table-condensed.dataTable.ng-table
+          thead
+            tr
+              th
+                span(translate) Parameter name
+              th
+                span(translate) Parameter value
+              th
+                span(translate) Description
+          tbody
+            tr
+              td
+                span Number of test runs
+              td
+                input(id='number-of-tests',
+                      type='number',
+                      name='numberOfTests',
+                      min="1",
+                      step="1",
+                      ng-disabled='pressedTest',
+                      ng-model='numberOfTests',
+                      ng-change='updateNumberOfTests()')
+              td
+                span Number of tests in total. Devices will be undeterministically distributed per test run.
+            tr
+              td
+                span Number of retries on failure
+              td
+                input(id='nothing',
+                      type='number',
+                      name='',
+                      min="0",
+                      max="50",
+                      step="1",
+                      ng-disabled='pressedTest',
+                      ng-model='numberOfRetriesOnFailure')
+              td
+                span Overall number of retries in case of failing test runs.
+
+      .widget-content
+        span Tool parameters
+        textarea(id='testing-config-tool-parameters',
+                rows='4',
+                name='configToolParameters',
+                placeholder="Note: You should not configure here the output or input directory or device serial number.",
+                ng-model='configs[configSelected].toolParameters',
+                ng-required='true',
+                autocorrect='off',
+                autocapitalize='off',
+                spellcheck='false',
+                focus-element='focusAddKey',
+                ng-disabled='pressedTest').form-control
+
+        span(ng-if='noToolSelected()') Add a tool to enable configurations
+
+    .col-md-6
+      .heading
+        span(translate) APK
+      .widget-content.padded()
+        .drop-area(ng-file-drop='uploadFile($files)', ng-file-drag-over-class='dragover').file-input.btn-file
+          input(type='file', ng-disabled='pressedTest', ng-file-select='uploadFile($files)')
+
+          i.fa.fa-2x.fa-download.drop-area-icon
+          .drop-area-text(translate) Optionally drop your app(s) (.apk and .zip allowed)
+
+        .upload-status(ng-if='upload').selectable
+          uib-progressbar(max='100', value='upload.progress', ng-if='!upload.settled',
+          ng-class='{"active": !upload.settled}').progress-striped
+
+          div(ng-if='!upload.error')
+            span(ng-switch='upload.state')
+              strong(ng-switch-when='uploading')
+                span(translate) Uploading...
+                span  ({{upload.progress}}%)
+              strong(ng-switch-when='processing')
+                span(translate) Processing...
+                span  ({{upload.progress}}%)
+              strong(ng-switch-when='installed')
+                span  (100%)
+
+          alert(type='danger', close='clear()', ng-if='upload.error')
+            strong(translate) Oops!
+            | &#x20;
+            span {{ upload.error | installError | translate }} ({{ upload.error }})
+
+      .heading
+        span(translate) Run Test
+      .widget-content.padded
+        button(ng-click='test()', ng-disabled='disableTestButton()').btn.btn-sm.btn-success
+          i.fa.fa-bug
+          span(translate) Run Test
+
+      info-message(message='{{ infoText }}')
+
+      .heading
+        span(translate) Results
+      .widget-content.padded
+        button(ng-click='downloadTestResults()', ng-show='testFinished()').btn.btn-sm.btn-success
+          i.fa.fa-archive
+          span(translate) Download test results
+      .widget-content.padded
+        pre.shell-results.selectable {{generalInfoResult}}
+
+        uib-tabset.overflow-auto
+          uib-tab(ng-repeat='run in tests.runs track by $index')
+            uib-tab-heading
+              i.fa.fa-bar-chart
+              span(translate) Test result # {{$index}}
+              loading-wheel(ng-if='!run.finished && pressedTest')
+            .widget-content.padded
+              pre.shell-results.selectable(ng-show='run.result') {{run.result}}
+              pre.shell-results.selectable.shell-results-empty(ng-show='!run.result') Test output will be displayed here.
+              error-message(message='{{run.error}}')

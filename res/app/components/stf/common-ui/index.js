@@ -4,6 +4,8 @@ module.exports = angular.module('stf/common-ui', [
   require('./filter-button').name,
   require('./nothing-to-show').name,
   require('./error-message').name,
+  require('./info-message').name,
+  require('./loading-wheel').name,
   require('./table').name,
   require('./notifications').name,
   require('./ng-enter').name,

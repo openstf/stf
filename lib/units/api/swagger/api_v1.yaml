@@ -24,6 +24,8 @@ tags:
     description: User Operations
   - name: devices
     description: Device Operations
+  - name: jobs
+    description: Jobs Operations
 paths:
   /user:
     x-swagger-router-controller: user
@@ -209,6 +211,69 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+  /user/testingTools:
+    x-swagger-router-controller: user
+    get:
+      summary: Testing Tools
+      description: The Testing Tools endpoint returns all testing tools in the system
+      operationId: getUserTestingTools
+      tags:
+      - user
+      responses:
+        "200":
+          description: List of Testing Tools
+          schema:
+            $ref: "#/definitions/TestingToolsListResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+      - accessTokenAuth: []
+  /jobs:
+    x-swagger-router-controller: jobs
+    get:
+      summary: Jobs
+      description: The jobs enpoint returns information about all jobs of a user
+      operationId: getUserJobs
+      tags:
+      - jobs
+      responses:
+        "200":
+          description: Device Information
+          schema:
+            $ref: "#/definitions/JobsResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+      - accessTokenAuth: []
+  /jobs/error/{storageId}:
+    x-swagger-router-controller: jobs
+    get:
+      summary: Job error message
+      description: The Jobs error message endpoint returns information about a jobs error message
+      operationId: getJobErrorMessage
+      tags:
+      - jobs
+      parameters:
+      - name: storageId
+        in: path
+        description: Storage Id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Error message
+          schema:
+            $ref: "#/definitions/JobsErrorMessageResponse"
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+      - accessTokenAuth: []
   /devices:
     x-swagger-router-controller: devices
     get:
@@ -289,6 +354,28 @@ definitions:
         type: array
         items:
           type: object
+  TestingToolsListResponse:
+    required:
+    - testingTools
+    properties:
+      testingTools:
+        type: array
+        items:
+          type: object
+  JobsResponse:
+    required:
+    - jobs
+    properties:
+      jobs:
+        type: array
+        items:
+          type: object
+  JobsErrorMessageResponse:
+    required:
+    - jobs
+    properties:
+      jobs:
+        type: string
   DeviceResponse:
     required:
       - device

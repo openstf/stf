@@ -189,6 +189,20 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     return tracker
   }
 
+  deviceService.trackFiltered = function($scope, filterFunc) {
+    var tracker = new Tracker($scope, {
+      filter: filterFunc
+      , digest: true
+    })
+
+    oboe('/api/v1/user/devices')
+      .node('devices[*]', function(device) {
+        tracker.add(device)
+      })
+
+    return tracker
+  }
+
   deviceService.load = function(serial) {
     return $http.get('/api/v1/devices/' + serial)
       .then(function(response) {

@@ -209,6 +209,41 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+  /user/adbPublicKeys:
+    x-swagger-router-controller: user
+    post:
+      summary: Adb public keys
+      description: Add adb public key for current user
+      operationId: addAdbPublicKey
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+        - user
+      parameters:
+      - name: adb
+        in: body
+        schema:
+            type: object
+            required:
+              - publickey
+            properties:
+              publickey:
+                type: string
+                description: adb public key (~/.android/id_rsa.pub)
+              title:
+                type: string
+                description: By default will be extracted from public key
+      responses:
+        "200":
+          description: Add adb key response
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
   /devices:
     x-swagger-router-controller: devices
     get:

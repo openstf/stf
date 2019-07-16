@@ -325,7 +325,7 @@ ExecStart=/usr/bin/docker run --rm \
   -e "SECRET=YOUR_SESSION_SECRET_HERE" \
   -e "SAML_ID_PROVIDER_ENTRY_POINT_URL=YOUR_ID_PROVIDER_ENTRY_POINT" \
   -e "SAML_ID_PROVIDER_ISSUER=YOUR_ID_PROVIDER_ISSUER" \
-  -e "SAML_ID_PROVIDER_CERT_PATH=/etc/id_proider.cert" \
+  -e "SAML_ID_PROVIDER_CERT_PATH=/etc/id_provider.cert" \
   -p %i:3000 \
   openstf/stf:latest \
   stf auth-saml2 --port 3000 \

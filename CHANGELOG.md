@@ -1,11 +1,36 @@
 # Changelog
 
-## HEAD
+## 3.4.1 (2019-05-03)
 
 ### Fixes
 
+- Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to fix an APK manifest parsing issue on applications processed by 360 encryption services, which changes the `application` key to `com.stub.StubApp`. Thanks @JChord!
+- Updated [adbkit](https://github.com/openstf/adbkit) to public key parsing on recent versions of ADB. Thanks @codeskyblue!
+
+### Enhancements
+
+- Exposed the [`ZMQ_IPV6`](http://api.zeromq.org/3-3:zmq-ctx-set#toc5) environment variable, making it possible to enable IPv6 for ZeroMQ. Thanks @aokhotin!
+
+## 3.4.0 (2018-08-09)
+
+### Enhancements
+
+- Android 9.0 is now supported. This feature was sponsored by [HeadSpin](https://headspin.io/).
+- The OAuth2 unit now supports state tokens. Thanks @quangola!
+- [STFService.apk](https://github.com/openstf/STFService.apk) can now display the identity activity (red screen) automatically if a device gets disconnected from USB (or ADB), which can make maintenance easier. This feature is in beta, please enable it by running `adb shell pm grant jp.co.cyberagent.stf android.permission.DUMP` on the devices you want to try it on. Thanks @Malinskiy!
+
+### Fixes
+
+- Use `ps -lef` instead of `ps` to list pids on Android 8.x. In new versions, `ps` doesn't return anything. Thanks @thinkhy!
+
+## 3.3.1 (2018-07-14)
+
+### Fixes
+
+- Fixed ADB's new device states (`connecting`, `authorizing`) not being recognized by STF. Thanks @obrie!
 - Updated [STFService.apk](https://github.com/openstf/STFService.apk) to fix an issue on high aspect ratio devices like the Mi Mix 2 where a portion of the screen may not have been visible.
 - Updated [adbkit-apkreader](https://github.com/openstf/adbkit-apkreader) to resolve issues with certain APK files that were unparseable and therefore could not be installed. The issue was with long strings in the manifest file.
+- Updated [minitouch](https://github.com/openstf/minitouch) to fix touch detection issues on Meizu Pro7 Plus.
 
 ## 3.3.0 (2018-03-25)
 

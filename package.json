@@ -1,6 +1,6 @@
 {
   "name": "stf",
-  "version": "3.3.0",
+  "version": "3.4.1",
   "description": "Smartphone Test Farm",
   "keywords": [
     "adb",
@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@slack/client": "^3.5.4",
-    "adbkit": "^2.9.2",
-    "adbkit-apkreader": "^3.0.1",
+    "adbkit": "^2.11.1",
+    "adbkit-apkreader": "^3.1.1",
     "adbkit-monkey": "^1.0.1",
     "aws-sdk": "^2.4.13",
     "basic-auth": "^1.0.3",
@@ -61,9 +61,9 @@
     "lodash": "^4.14.2",
     "markdown-serve": "^0.3.2",
     "mime": "^1.3.4",
-    "minicap-prebuilt": "^2.2.0",
+    "minicap-prebuilt": "^2.3.0",
     "minimatch": "^3.0.3",
-    "minitouch-prebuilt": "^1.1.0",
+    "minitouch-prebuilt": "^1.2.0",
     "my-local-ip": "^1.0.0",
     "openid": "^2.0.1",
     "passport": "^0.3.2",
@@ -87,6 +87,7 @@
     "stf-syrup": "^1.0.0",
     "stf-wiki": "^1.0.0",
     "swagger-express-mw": "^0.7.0",
+    "swagger-tools": "^0.10.3",
     "temp": "^0.8.1",
     "transliteration": "^1.1.6",
     "url-join": "1.1.0",
@@ -161,5 +162,9 @@
     "gm": "~1",
     "adb": "~1"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/openstf"
+  }
 }

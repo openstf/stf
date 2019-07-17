@@ -105,6 +105,38 @@ module.exports =
           clearTable()
         }
 
+        /**
+           * Validate filter.data object value and assign bordercolor to red if value
+           * doesn't match regex(pattern):
+           * - HH:mm:ss.SSS
+           * - H:mm:ss.SSS
+           * - :mm:SS.SSS
+           * - mm:ss.SSS
+           * - m:ss.SSS
+           * -... combinations
+           *  in other case colour will be set to default.
+           *
+           * @param {event} event object
+           */
+        scope.validateDate = function(e) {
+          var regex = /^(?:(?:([0-1]?\d|2[0-3]):)?(:[0-5]\d|[0-5]\d):|\d)?(:[0-5]\d|[0-5]\d{1,2})?(\.[0-9]?\d{0,2}|:[0-5]?\d{0,1})|(\d{0,2})/g;
+          var inputValue = event.srcElement.value;
+          var matchArray = inputValue.match(regex);
+          var isTextValid = false;
+          if ( matchArray) {
+            matchArray.forEach(function (item, index) {
+              if (item === inputValue) {
+                isTextValid = true
+                event.srcElement.style.borderColor='';
+              }
+            })
+          }
+
+          if (isTextValid === false) {
+            event.srcElement.style.borderColor='red';
+          }
+        }
+
         scope.$on('$destroy', function() {
           parent.removeEventListener('scroll', throttledScrollListener)
         })

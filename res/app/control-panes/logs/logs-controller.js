@@ -34,7 +34,25 @@ module.exports = function LogsCtrl($scope, LogcatService) {
     angular.forEach(props, function(prop) {
       $scope.$watch('filters.' + prop, function(newValue, oldValue) {
         if (!angular.equals(newValue, oldValue)) {
-          LogcatService.filters[prop] = newValue
+          var transformedInput = ''
+          switch('filters.' + prop) {
+            case 'filters.pid':
+                var transformedInput = newValue.replace(/[^0-9:]/g, '');
+                if (transformedInput !== newValue) {
+                  $scope.filters.pid = transformedInput;
+                }
+                break;
+            case 'filters.tid':
+                var transformedInput = newValue.replace(/[^0-9]/g, '');
+                if (transformedInput !== newValue) {
+                  $scope.filters.tid = transformedInput;
+                }
+                break;
+            default:
+              transformedInput = newValue;
+          }
+
+          LogcatService.filters[prop] = transformedInput
         }
       })
     })

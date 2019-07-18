@@ -91,7 +91,6 @@ module.exports = function DeviceListIconsDirective(
           a.removeAttribute('href')
           li.classList.add('device-is-busy')
         }
-
         return li
       }
     }
@@ -159,8 +158,11 @@ module.exports = function DeviceListIconsDirective(
           }
 
           if (device.using) {
-            kickDevice(device)
-            e.preventDefault()
+            if (e.target.classList.contains('btn') &&
+                e.target.classList.contains('state-using')) {
+              kickDevice(device)
+              e.preventDefault()
+            }
           }
         }
       })

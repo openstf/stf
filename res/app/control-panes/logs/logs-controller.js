@@ -37,19 +37,19 @@ module.exports = function LogsCtrl($scope, LogcatService) {
           var transformedInput = ''
           switch('filters.' + prop) {
             case 'filters.pid':
-                var transformedInput = newValue.replace(/[^0-9:]/g, '');
+                transformedInput = newValue.replace(/[^0-9:]/g, '')
                 if (transformedInput !== newValue) {
-                  $scope.filters.pid = transformedInput;
+                  $scope.filters.pid = transformedInput
                 }
-                break;
+                break
             case 'filters.tid':
-                var transformedInput = newValue.replace(/[^0-9]/g, '');
+                transformedInput = newValue.replace(/[^0-9]/g, '')
                 if (transformedInput !== newValue) {
-                  $scope.filters.tid = transformedInput;
+                  $scope.filters.tid = transformedInput
                 }
-                break;
+                break
             default:
-              transformedInput = newValue;
+              transformedInput = newValue
           }
 
           LogcatService.filters[prop] = transformedInput

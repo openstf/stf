@@ -226,6 +226,16 @@ module.exports = function ControlServiceFactory(
       return sendTwoWay('screen.capture')
     }
 
+    this.record = function() {
+      return sendTwoWay('screen.record')
+    }
+
+    this.stopRecording = function(path) {
+      return sendTwoWay('screen.stop.record', {
+        path: path
+      })
+    }
+
     this.fsretrieve = function(file) {
       return sendTwoWay('fs.retrieve', {
         file: file

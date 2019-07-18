@@ -1,0 +1,20 @@
+.stf-video-recorder {
+
+}
+
+.stf-video-recorder .video-image {
+  display: block !important;
+}
+
+.stf-video-recorder .video-image {
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+}
+
+.stf-video-recorder .video-image.ng-image-not-loaded {
+  opacity: 0;
+}
+
+.stf-video-recorder .video-image {
+  opacity: 1;
+}

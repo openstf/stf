@@ -52,11 +52,14 @@ module.exports = function ExplorerCtrl($scope) {
   }
 
   $scope.getFile = function(file) {
+    console.log(file)
     var path = $scope.getAbsolutePath() + '/' + file
+    console.log(path)
     $scope.control.fsretrieve(path)
       .then(function(result) {
         if (result.body) {
           location.href = result.body.href + '?download'
+          console.log(location.href)
         }
       })
       .catch(function(err) {

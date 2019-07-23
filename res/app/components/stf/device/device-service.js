@@ -98,7 +98,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       if (index >= 0) {
         devices.splice(index, 1)
         delete devicesBySerial[data.serial]
-        for (let serial in devicesBySerial) {
+        for (var serial in devicesBySerial) {
           if (devicesBySerial[serial] > index) {
             devicesBySerial[serial]--
           }

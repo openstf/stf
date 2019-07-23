@@ -3,5 +3,6 @@
 **/
 
 module.exports = angular.module('stf.users', [
+  require('stf/util/common').name
 ])
 .factory('UsersService', require('./users-service'))

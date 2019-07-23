@@ -3,5 +3,7 @@
 **/
 
 module.exports = angular.module('stf.devices', [
+  require('stf/util/common').name,
+  require('stf/socket').name
 ])
 .factory('DevicesService', require('./devices-service'))

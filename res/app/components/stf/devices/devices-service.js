@@ -8,11 +8,12 @@ module.exports = function DevicesServiceFactory(
   $rootScope
 , $http
 , socket
+, CommonService
 ) {
   const DevicesService = {}
 
   function buildQueryParameters(filters) {
-    let query = ''
+    var query = ''
 
     if (filters.present !== 'Any') {
       query += 'present=' + filters.present.toLowerCase()
@@ -30,7 +31,8 @@ module.exports = function DevicesServiceFactory(
   }
 
   DevicesService.getOboeDevices = function(target, fields, addDevice) {
-    return oboe('/api/v1/devices?target=' + target + '&fields=' + fields)
+    return oboe(CommonService.getBaseUrl()
+    + '/api/v1/devices?target=' + target + '&fields=' + fields)
       .node('devices[*]', function(device) {
         addDevice(device)
       })

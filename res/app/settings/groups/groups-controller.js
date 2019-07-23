@@ -47,7 +47,7 @@ module.exports = function GroupsCtrl(
     'groups.subscribed,' +
     'groups.quotas.allocated,' +
     'groups.quotas.consumed'
-  let rootGroupId
+  var rootGroupId
 
   function publishDevice(device) {
     if (!device.model) {
@@ -113,7 +113,7 @@ module.exports = function GroupsCtrl(
 
   function isBookedDevice(serial) {
     if (CommonService.isExisting(originDevicesBySerial[serial])) {
-      for(let i in $scope.groups) {
+      for(var i in $scope.groups) {
         if (!CommonService.isOriginGroup($scope.groups[i].class) &&
             $scope.groups[i].devices.indexOf(serial) > -1) {
           return true

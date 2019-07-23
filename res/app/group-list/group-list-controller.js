@@ -370,7 +370,7 @@ module.exports = function GroupListCtrl(
   }
 
   $scope.getTooltip = function(objects) {
-    let tooltip = ''
+    var tooltip = ''
 
     objects.forEach(function(object) {
       tooltip += object + '\n'

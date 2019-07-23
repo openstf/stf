@@ -8,11 +8,12 @@ module.exports = function UsersServiceFactory(
   $rootScope
 , $http
 , socket
+, CommonService
 ) {
   const UsersService = {}
 
   function buildQueryParameters(filters) {
-    let query = ''
+    var query = ''
 
     if (filters.groupOwner !== 'Any') {
       query += 'groupOwner=' + filters.groupOwner.toLowerCase()
@@ -21,7 +22,7 @@ module.exports = function UsersServiceFactory(
   }
 
   UsersService.getOboeUsers = function(fields, addUser) {
-    return oboe('/api/v1/users?fields=' + fields)
+    return oboe(CommonService.getBaseUrl() + '/api/v1/users?fields=' + fields)
       .node('users[*]', function(user) {
         addUser(user)
       })

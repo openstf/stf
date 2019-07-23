@@ -8,6 +8,7 @@ module.exports = function GroupsServiceFactory(
   $rootScope
 , $http
 , socket
+, CommonService
 ) {
   const GroupsService = {}
 
@@ -16,7 +17,8 @@ module.exports = function GroupsServiceFactory(
   }
 
   GroupsService.getOboeGroupUsers = function(id, fields, addGroupUser) {
-    return oboe('/api/v1/groups/' + id + '/users?fields=' + fields)
+    return oboe(CommonService.getBaseUrl()
+    + '/api/v1/groups/' + id + '/users?fields=' + fields)
       .node('users[*]', function(user) {
         addGroupUser(user)
       })
@@ -27,7 +29,8 @@ module.exports = function GroupsServiceFactory(
   }
 
   GroupsService.getOboeGroupDevices = function(id, bookable, fields, addGroupDevice) {
-    return oboe('/api/v1/groups/' + id + '/devices?bookable=' + bookable + '&fields=' + fields)
+    return oboe(CommonService.getBaseUrl()
+    + '/api/v1/groups/' + id + '/devices?bookable=' + bookable + '&fields=' + fields)
       .node('devices[*]', function(device) {
         addGroupDevice(device)
       })
@@ -92,7 +95,7 @@ module.exports = function GroupsServiceFactory(
   }
 
   GroupsService.getOboeGroups = function(addGroup) {
-    return oboe('/api/v1/groups')
+    return oboe(CommonService.getBaseUrl() + '/api/v1/groups')
       .node('groups[*]', function(group) {
         addGroup(group)
       })
@@ -103,7 +106,7 @@ module.exports = function GroupsServiceFactory(
   }
 
   GroupsService.getOboeMyGroups = function(addGroup) {
-    return oboe('/api/v1/groups?owner=true')
+    return oboe(CommonService.getBaseUrl() + '/api/v1/groups?owner=true')
       .node('groups[*]', function(group) {
         addGroup(group)
       })

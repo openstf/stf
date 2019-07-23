@@ -36,7 +36,7 @@ module.exports = function DevicesCtrl(
     else {
       device.displayStr = device.display.width + 'x' + device.display.height
     }
-    for (let i in device) {
+    for (var i in device) {
       if (device[i] === null) {
         device[i] = ''
       }

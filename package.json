@@ -117,6 +117,7 @@
     "gulp-run": "^1.6.12",
     "gulp-util": "^3.0.7",
     "html-loader": "^0.4.0",
+    "http-https": "^1.0.0",
     "imports-loader": "^0.6.5",
     "jasmine-core": "^2.4.1",
     "jasmine-reporters": "^2.1.1",

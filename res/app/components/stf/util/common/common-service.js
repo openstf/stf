@@ -6,6 +6,7 @@ const _ = require('lodash')
 
 module.exports = function CommonServiceFactory(
   $window,
+  $location,
   GenericModalService
 ) {
   const service = {}
@@ -20,7 +21,7 @@ module.exports = function CommonServiceFactory(
   const ONE_YEAR = 365 * ONE_DAY
 
   function getClassOptionsField(id, field) {
-    for(let i in service.classOptions) {
+    for(var i in service.classOptions) {
       if (service.classOptions[i].id === id) {
         return service.classOptions[i][field]
       }
@@ -54,14 +55,14 @@ module.exports = function CommonServiceFactory(
     if (ms < 1000) {
       return '0s'
     }
-    let s = Math.floor(ms / 1000)
-    let m = Math.floor(s / 60)
+    var s = Math.floor(ms / 1000)
+    var m = Math.floor(s / 60)
 
     s %= 60
-    let h = Math.floor(m / 60)
+    var h = Math.floor(m / 60)
 
     m %= 60
-    let d = Math.floor(h / 24)
+    var d = Math.floor(h / 24)
 
     h %= 24
     return (d === 0 ? '' : d + 'd') +
@@ -87,7 +88,7 @@ module.exports = function CommonServiceFactory(
   }
 
   service.getIndex = function(array, value, property) {
-    for(let i in array) {
+    for(var i in array) {
       if (array[i][property] === value) {
         return i
       }
@@ -96,7 +97,7 @@ module.exports = function CommonServiceFactory(
   }
 
   service.merge = function(oldObject, newObject) {
-    let undefinedValue
+    var undefinedValue
 
     return _.merge(oldObject, newObject, function(a, b) {
       return _.isArray(b) ? b : undefinedValue
@@ -148,9 +149,9 @@ module.exports = function CommonServiceFactory(
 
       objects[key].index = -1
       objects[key].timeStamp = timeStamp
-      for (let key in objects) {
-        if (objects[key].index > index) {
-          objects[key].index--
+      for (var k in objects) {
+        if (objects[k].index > index) {
+          objects[k].index--
         }
       }
       return value
@@ -207,6 +208,14 @@ module.exports = function CommonServiceFactory(
     $window.document.execCommand('copy')
     $window.document.body.removeChild(input)
     return service
+  }
+
+  service.getBaseUrl = function() {
+    return $location.protocol()
+    + '://'
+    + $location.host()
+    + ':'
+    + $location.port()
   }
 
   return service

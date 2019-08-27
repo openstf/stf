@@ -87,6 +87,7 @@
     "stf-syrup": "^1.0.0",
     "stf-wiki": "^1.0.0",
     "swagger-express-mw": "^0.7.0",
+    "swagger-tools": "^0.10.3",
     "temp": "^0.8.1",
     "transliteration": "^1.1.6",
     "url-join": "1.1.0",

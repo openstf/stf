@@ -114,7 +114,7 @@ As the product has evolved from an internal tool running in our internal network
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/) >= 6.9 (latest stable version preferred)
+* [Node.js](https://nodejs.org/) 8.x **required** (some dependencies don't support newer versions)
 * [ADB](http://developer.android.com/tools/help/adb.html) properly set up
 * [RethinkDB](http://rethinkdb.com/) >= 2.2
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)

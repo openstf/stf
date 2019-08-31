@@ -99,7 +99,7 @@
   },
   "devDependencies": {
     "async": "^2.0.1",
-    "bower": "^1.7.2",
+    "bower": "^1.8.8",
     "chai": "^3.4.1",
     "css-loader": "^0.23.1",
     "del": "^2.0.1",

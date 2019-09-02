@@ -23,9 +23,9 @@ Thank you to all our sponsors! (please ask your company to also support this ope
 
 #### Gold Sponsor
 
-[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://headspin.io/)
+[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://ui.headspin.io/register?referral=start-testing-hs)
 
-> [HeadSpin](https://headspin.io/) provides secure and scalable STF for iOS integrated with Appium/XCTest/Selenium/Espresso, High speed interaction Audio/Video/Game testing and AI based Root cause analysis for Performance Management. It's free to start using HeadSpin in 150+ locations worldwide! [Try it out for free.](https://ui-dev.headspin.io/signup/23feaa95fec34c49a1da309380807795)
+> [HeadSpin](https://headspin.io/) provides secure and scalable STF for iOS integrated with Appium/XCTest/Selenium/Espresso, High speed interaction Audio/Video/Game testing and AI based Root cause analysis for Performance Management. It's free to start using HeadSpin in 150+ locations worldwide! [Try it out for free.](https://ui.headspin.io/register?referral=start-testing-hs)
 
 HeadSpin offers a generous monthly contribution towards STF development.
 

@@ -22,6 +22,7 @@ matrix:
   fast_finish: true
 before_install:
 - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
+- rm .nvmrc
 - source ~/.nvm/nvm.sh
 - nvm install $NODE_VERSION
 - node --version

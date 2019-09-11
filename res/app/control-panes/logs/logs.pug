@@ -9,10 +9,10 @@
               span(ng-if='started') {{"Stop"|translate}}
               span(ng-if='!started') {{"Get"|translate}}
           td(width='6%')
-            select(ng-model='filters.priority', ng-options='l.name for l in filters.levelNumbers')
-              option(value='', disabled, selected) {{"Level"|translate}}
+            select(ng-model='filters.priority', data-ng-options='l.name for l in filters.levelNumbers')
+              option(value='') {{"Logcat Level"|translate}}
           td(width='10%')
-            input(ng-model='filters.date', type='text', placeholder='{{"Time"|translate}}').input-sm.form-control
+            input(ng-model='filters.date', type='text', placeholder='{{"Time"|translate}}', ng-keyup='validateDate(event=$event)').input-sm.form-control
           td(width='8%', ng-if='$root.platform == "native"')
             input(ng-model='filters.pid', type='text', placeholder='{{"PID"|translate}}').input-sm.form-control
           td(width='8%', ng-if='$root.platform == "native"')
@@ -25,5 +25,9 @@
             button(ng-click='clearTable()', ng-disabled='false', title='{{"Clear"|translate}}').btn.btn-xs.btn-danger-outline
               i.fa.fa-trash-o
               span(translate)  Clear
+          td(width='0')
+            button(ng-click='saveLogs()', ng-disabled='false', title='{{"Save Logs"|translate}}').btn.btn-xs.btn-danger-outline
+              i.fa.fa-save
+              span(translate)  Save Logs
 
       logcat-table(add-row='lastEntry')

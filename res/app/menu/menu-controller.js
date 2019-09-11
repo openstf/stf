@@ -1,5 +1,5 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
-  $location) {
+  $location, LogcatService) {
 
   SettingsService.bind($scope, {
     target: 'lastUsedDevice'
@@ -7,7 +7,8 @@ module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
 
   SettingsService.bind($rootScope, {
     target: 'platform',
-    defaultValue: 'native'
+    defaultValue: 'native',
+    deviceEntries: LogcatService.deviceEntries
   })
 
   $scope.$on('$routeChangeSuccess', function() {

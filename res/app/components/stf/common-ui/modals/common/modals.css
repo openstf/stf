@@ -6,6 +6,10 @@
   padding-left: 5px;
 }
 
+.stf-modal .bold {
+  font-weight: bold;
+}
+
 .stf-modal .modal-body {
   background: #fff;
 }

@@ -10,6 +10,7 @@ module.exports = function DeviceListDetailsDirective(
 , DeviceService
 , LightboxImageService
 , StandaloneService
+, LogcatService
 ) {
   return {
     restrict: 'E'
@@ -34,6 +35,11 @@ module.exports = function DeviceListDetailsDirective(
 
 
       function kickDevice(device, force) {
+        LogcatService.allowClean = true
+        if (Object.keys(LogcatService.deviceEntries).includes(device.serial)) {
+          LogcatService.deviceEntries[device.serial].allowClean = true
+        }
+        $rootScope.LogcatService = LogcatService
         return GroupService.kick(device, force).catch(function(e) {
           alert($filter('translate')(gettext('Device cannot get kicked from the group')))
           throw new Error(e)
@@ -41,6 +47,7 @@ module.exports = function DeviceListDetailsDirective(
       }
 
       function inviteDevice(device) {
+        $rootScope.usedDevices.push(device.serial)
         return GroupService.invite(device).then(function() {
           scope.$digest()
         })

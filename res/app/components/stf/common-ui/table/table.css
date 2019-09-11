@@ -99,6 +99,13 @@
   margin-top: 0;
 }
 
+tr.additional-modal, td.additional-modal {
+  border-top: 10px solid;
+  border-top-color: transparent;
+  border-bottom: 1px solid;
+  border-bottom-color: transparent;
+}
+
 @media only screen and (max-width: 800px) {
   .ng-table-responsive {
     border-bottom: 1px solid #999999;

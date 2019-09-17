@@ -1,5 +1,5 @@
 module.exports = function LoginPage() {
-  this.login = protractor.getInstance().params.login
+  this.login = browser.params.login
 
   this.get = function() {
     return browser.get(this.login.url)
@@ -17,17 +17,24 @@ module.exports = function LoginPage() {
   this.setName = function(username) {
     return this.username.sendKeys(username)
   }
+
   this.setEmail = function(email) {
     return this.email.sendKeys(email)
   }
+
   this.setPassword = function(password) {
     return this.password.sendKeys(password)
   }
+
   this.submit = function() {
     return this.username.submit()
   }
+
   this.doLogin = function() {
+    var EC = protractor.ExpectedConditions
+    var timeout = 15000
     this.get()
+    browser.wait(EC.presenceOf(element(by.css('[value="Log In"]'))), timeout)
     this.setName(this.login.username)
     if (this.login.method === 'ldap') {
       this.setPassword(this.login.password)
@@ -43,6 +50,7 @@ module.exports = function LoginPage() {
       })
     })
   }
+
   this.cleanUp = function() {
     this.username = null
     this.password = null

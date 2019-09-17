@@ -1,7 +1,7 @@
 module.exports = function DeviceListPage() {
   this.get = function() {
     // TODO: Let's get rid off the login first
-    browser.get(protractor.getInstance().baseUrl + 'devices')
+    browser.get(browser.baseUrl + 'devices')
   }
   this.devices = element(by.model('tracker.devices'))
   this.devicesByCss = element.all(by.css('ul.devices-icon-view > li'))

@@ -15,13 +15,14 @@ addons:
     - yasm
 env:
   matrix:
-  - NODE_VERSION=6
+  - NODE_VERSION=8.16.1
 matrix:
   allow_failures:
   - os: osx
   fast_finish: true
 before_install:
 - rm -rf ~/.nvm && git clone --depth 1 https://github.com/creationix/nvm.git ~/.nvm
+- rm .nvmrc
 - source ~/.nvm/nvm.sh
 - nvm install $NODE_VERSION
 - node --version

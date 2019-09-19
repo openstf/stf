@@ -15,7 +15,7 @@ module.exports = function BrowserLogs(opts) {
   }
 
   browser.getCapabilities().then(function(cap) {
-    var browserName = ' ' + cap.caps_.browserName + ' log '
+    var browserName = ' ' + cap.browserName + ' log '
     var browserStyled = chalk.bgBlue.white.bold(browserName) + ' '
 
     browser.manage().logs().get('browser').then(function(browserLogs) {

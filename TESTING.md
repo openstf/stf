@@ -41,7 +41,6 @@ Test results can be found in:
 
 ---
 
-===
 ## Multiple Browsers Local STF with a specific suite
 - Connect a device
 - Run stf

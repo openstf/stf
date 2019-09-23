@@ -11,9 +11,9 @@ STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) t
 
 We  welcome financial contributions in full transparency on our [open collective](https://opencollective.com/openstf).
 
-![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
+![Close-up of device shelf](https://stfs3.s3.us-east-2.amazonaws.com/shelf_closeup_790x.jpg?raw=true)
 
-![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
+![Super short screencast showing usage](https://stfs3.s3.us-east-2.amazonaws.com/7s_usage.gif?raw=true)
 
 ## Credits
 
@@ -23,7 +23,7 @@ Thank you to all our sponsors! (please ask your company to also support this ope
 
 #### Gold Sponsor
 
-[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://ui.headspin.io/register?referral=start-testing-hs)
+[<img src="https://stfs3.s3.us-east-2.amazonaws.com/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://ui.headspin.io/register?referral=start-testing-hs)
 
 > [HeadSpin](https://headspin.io/) provides secure and scalable STF for iOS integrated with Appium/XCTest/Selenium/Espresso, High speed interaction Audio/Video/Game testing and AI based Root cause analysis for Performance Management. It's free to start using HeadSpin in 150+ locations worldwide! [Try it out for free.](https://ui.headspin.io/register?referral=start-testing-hs)
 

@@ -152,7 +152,7 @@
     "then-jade": "^2.4.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.11",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^3.1.11"
   },
   "engines": {
     "node": ">= 6.9"

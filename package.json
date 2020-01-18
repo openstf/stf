@@ -37,6 +37,7 @@
     "adbkit": "^2.11.1",
     "adbkit-apkreader": "^3.1.1",
     "adbkit-monkey": "^1.0.1",
+    "android-device-list": "^1.2.1",
     "aws-sdk": "^2.4.13",
     "basic-auth": "^1.0.3",
     "bluebird": "^2.10.1",

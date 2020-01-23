@@ -72,7 +72,7 @@ module.exports = function DevicesCtrl(
 
   function initScope() {
     DevicesService.getOboeDevices('user', deviceFields, function(device) {
-      addDevice(device, -1)
+      addDevice(publishDevice(device), -1)
     })
     .done(function() {
       $scope.$digest()
@@ -153,7 +153,7 @@ module.exports = function DevicesCtrl(
   }
 
   $scope.$on('user.settings.devices.created', function(event, message) {
-    addDevice(message.device, message.timeStamp)
+    addDevice(publishDevice(message.device), message.timeStamp)
   })
 
   $scope.$on('user.settings.devices.deleted', function(event, message) {

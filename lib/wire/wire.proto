@@ -408,6 +408,7 @@ message DeviceIdentityMessage {
   optional string product = 12;
   optional string cpuPlatform = 13;
   optional string openGLESVersion = 14;
+  optional string marketName = 15;
 }
 
 message DeviceProperty {

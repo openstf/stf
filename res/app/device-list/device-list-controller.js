@@ -60,6 +60,10 @@ module.exports = function DeviceListCtrl(
     , selected: false
     }
   , {
+      name: 'marketName'
+    , selected: false
+    }
+  , {
       name: 'sdk'
     , selected: false
     }

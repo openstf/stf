@@ -229,6 +229,12 @@ module.exports = function DeviceColumnService($filter, gettext, SettingsService,
         return device.manufacturer || ''
       }
     })
+  , marketName: TextCell({
+    title: gettext('Market name')
+    , value: function(device) {
+      return device.marketName || ''
+    }
+  })
   , sdk: NumberCell({
       title: gettext('SDK')
     , defaultOrder: 'desc'

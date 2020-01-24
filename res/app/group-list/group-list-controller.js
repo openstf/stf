@@ -30,6 +30,7 @@ module.exports = function GroupListCtrl(
     'serial,' +
     'version,' +
     'manufacturer,' +
+    'marketName,' +
     'sdk,' +
     'display.width,' +
     'display.height,' +

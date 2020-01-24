@@ -176,6 +176,7 @@ message DeviceField {
   optional DevicePhoneField phone = 12;
   optional DeviceProviderField provider = 13;
   optional DeviceGroupField group = 14;
+  optional string marketName = 15;
 }
 
 message DeviceChangeMessage {

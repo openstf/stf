@@ -24,6 +24,7 @@ module.exports = function DevicesCtrl(
     'abi,' +
     'cpuPlatform,' +
     'openGLESVersion,' +
+    'marketName,' +
     'phone.imei,' +
     'provider.name,' +
     'group.originName'

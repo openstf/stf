@@ -37,6 +37,7 @@ module.exports = function GroupsCtrl(
     'abi,' +
     'cpuPlatform,' +
     'openGLESVersion,' +
+    'marketName,' +
     'phone.imei,' +
     'provider.name,' +
     'group.originName'
@@ -384,6 +385,7 @@ module.exports = function GroupsCtrl(
   , {name: 'ABI', property: 'abi'}
   , {name: 'CPU Platform', property: 'cpuPlatform'}
   , {name: 'OpenGL ES version', property: 'openGLESVersion'}
+  , {name: 'Market name', property: 'marketName'}
   , {name: 'Phone IMEI', property: 'phone.imei'}
   , {name: 'Location', property: 'provider.name'}
   , {name: 'Group Origin', property: 'group.originName'}
@@ -401,6 +403,7 @@ module.exports = function GroupsCtrl(
     , {name: 'ABI', selected: false, sort: 'none'}
     , {name: 'CPU Platform', selected: false, sort: 'none'}
     , {name: 'OpenGL ES version', selected: false, sort: 'none'}
+    , {name: 'Market name', selected: true, sort: 'none'}
     , {name: 'Phone IMEI', selected: false, sort: 'none'}
     , {name: 'Location', selected: true, sort: 'none'}
     , {name: 'Group Origin', selected: true, sort: 'none'}

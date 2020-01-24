@@ -91,9 +91,10 @@ li.list-group-item.groups-list
                     td(ng-if='groupDeviceData.columns[8].selected') {{device.abi}}
                     td(ng-if='groupDeviceData.columns[9].selected') {{device.cpuPlatform}}
                     td(ng-if='groupDeviceData.columns[10].selected') {{device.openGLESVersion}}
-                    td(ng-if='groupDeviceData.columns[11].selected') {{device.phone.imei}}
-                    td(ng-if='groupDeviceData.columns[12].selected') {{device.provider.name}}
-                    td(ng-if='groupDeviceData.columns[13].selected') {{device.group.originName}}
+                    td(ng-if='groupDeviceData.columns[11].selected') {{device.marketName}}
+                    td(ng-if='groupDeviceData.columns[12].selected') {{device.phone.imei}}
+                    td(ng-if='groupDeviceData.columns[13].selected') {{device.provider.name}}
+                    td(ng-if='groupDeviceData.columns[14].selected') {{device.group.originName}}
 
       .panel.panel-default
         .panel-heading.text-center
@@ -190,6 +191,7 @@ li.list-group-item.groups-list
                     td(ng-if='deviceData.columns[8].selected') {{device.abi}}
                     td(ng-if='deviceData.columns[9].selected') {{device.cpuPlatform}}
                     td(ng-if='deviceData.columns[10].selected') {{device.openGLESVersion}}
-                    td(ng-if='deviceData.columns[11].selected') {{device.phone.imei}}
-                    td(ng-if='deviceData.columns[12].selected') {{device.provider.name}}
-                    td(ng-if='deviceData.columns[13].selected') {{device.group.originName}}
+                    td(ng-if='deviceData.columns[11].selected') {{device.marketName}}
+                    td(ng-if='deviceData.columns[12].selected') {{device.phone.imei}}
+                    td(ng-if='deviceData.columns[13].selected') {{device.provider.name}}
+                    td(ng-if='deviceData.columns[14].selected') {{device.group.originName}}

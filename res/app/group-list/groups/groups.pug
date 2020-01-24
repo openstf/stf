@@ -94,7 +94,7 @@
                     .device-line
                       i.fa.fa-mobile.group-device-icon
                       .group-device-details.selectable
-                        a.group-device-name(ng-bind-template="{{device.manufacturer + ' ' + device.model}}")
+                        a.group-device-name(ng-bind-template="{{device.manufacturer + ' ' + device.model + ' (' + device.marketName + ')'}}")
                         .group-device-id
                           span(translate) Serial
                           span(ng-bind-template="{{::': ' + device.serial + ' - '}}")

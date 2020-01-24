@@ -115,7 +115,7 @@
           .device-line.device-actions
             i.fa.fa-mobile.fa-2x.fa-fw.device-list-icon
             .device-list-details.selectable
-              .device-list-name(ng-bind-template="{{device.manufacturer + ' ' + device.model}}")
+              .device-list-name(ng-bind-template="{{device.manufacturer + ' ' + device.model + ' (' + device.marketName + ')'}}")
               .device-list-id
                 span(translate) Serial
                 span(ng-bind-template="{{::': ' + device.serial + ' - '}}")

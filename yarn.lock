@@ -401,12 +401,13 @@ asap@~2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.5.tgz#522765b50c3510490e52d7dcfe085ef9ba96958f"
 
-ascli@~0.3:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ascli/-/ascli-0.3.0.tgz#5e66230e5219fe3e8952a4efb4f20fae596a813a"
+ascli@~1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ascli/-/ascli-1.0.1.tgz#bcfa5974a62f18e81cabaeb49732ab4a88f906bc"
+  integrity sha1-vPpZdKYvGOgcq660lzKrSoj5Brw=
   dependencies:
-    colour latest
-    optjs latest
+    colour "~0.7.1"
+    optjs "~3.2.2"
 
 asn1.js@^4.0.0:
   version "4.9.1"
@@ -961,10 +962,6 @@ bufferutil@^1.2.1:
     bindings "~1.2.1"
     nan "~2.4.0"
 
-bufferview@~1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bufferview/-/bufferview-1.0.1.tgz#7afd74a45f937fa422a1d338c08bbfdc76cd725d"
-
 builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
@@ -989,12 +986,12 @@ busboy@^0.2.11:
     dicer "0.2.5"
     readable-stream "1.1.x"
 
-"bytebuffer@~3 >=3.5":
-  version "3.5.5"
-  resolved "https://registry.yarnpkg.com/bytebuffer/-/bytebuffer-3.5.5.tgz#7a6faf1a13514b083f1fcf9541c4c9bfbe7e7fd3"
+bytebuffer@~5:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/bytebuffer/-/bytebuffer-5.0.1.tgz#582eea4b1a873b6d020a48d58df85f0bba6cfddd"
+  integrity sha1-WC7qSxqHO20CCkjVjfhfC7ps/d0=
   dependencies:
-    bufferview "~1"
-    long "~2 >=2.2.3"
+    long "~3"
 
 bytes@2.3.0:
   version "2.3.0"
@@ -1061,7 +1058,7 @@ camelcase@^1.0.2, camelcase@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-1.2.1.tgz#9bb5304d2e0b56698b2c758b08a3eaa9daa58a39"
 
-camelcase@^2.0.0:
+camelcase@^2.0.0, camelcase@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
@@ -1247,7 +1244,7 @@ cliui@^2.1.0:
     right-align "^0.1.1"
     wordwrap "0.0.2"
 
-cliui@^3.2.0:
+cliui@^3.0.3, cliui@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
   dependencies:
@@ -1338,9 +1335,10 @@ colors@^1.1.0, colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
-colour@latest:
+colour@~0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/colour/-/colour-0.7.1.tgz#9cb169917ec5d12c0736d3e8685746df1cadf778"
+  integrity sha1-nLFpkX7F0SwHNtPoaFdG3xyt93g=
 
 combine-lists@^1.0.0:
   version "1.0.1"
@@ -3416,18 +3414,7 @@ glob@^6.0.1:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@~7.1.1:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-glob@^7.0.6, glob@^7.1.3:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.0.6, glob@^7.1.1, glob@^7.1.3, glob@~7.1.1:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -5557,9 +5544,10 @@ lolex@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/lolex/-/lolex-1.3.2.tgz#7c3da62ffcb30f0f5a80a2566ca24e45d8a01f31"
 
-"long@~2 >=2.2.3":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/long/-/long-2.4.0.tgz#9fa180bb1d9500cdc29c4156766a1995e1f4524f"
+long@~3:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
+  integrity sha1-2CG3E4yhy1gcFymQ7xTbIAtcR0s=
 
 longest@^1.0.1:
   version "1.0.1"
@@ -6499,9 +6487,10 @@ options@>=0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/options/-/options-0.0.6.tgz#ec22d312806bb53e731773e7cdaefcf1c643128f"
 
-optjs@latest:
+optjs@~3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/optjs/-/optjs-3.2.2.tgz#69a6ce89c442a44403141ad2f9b370bd5bb6f4ee"
+  integrity sha1-aabOicRCpEQDFBrS+bNwvVu29O4=
 
 orchestrator@^0.3.0:
   version "0.3.8"
@@ -7268,12 +7257,15 @@ promise@~7.1.1:
   dependencies:
     asap "~2.0.3"
 
-protobufjs@^3.8.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-3.8.2.tgz#bc826e34c3af4697e8d0af7a669e4d612aedcd17"
+protobufjs@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-5.0.3.tgz#e4dfe9fb67c90b2630d15868249bcc4961467a17"
+  integrity sha512-55Kcx1MhPZX0zTbVosMQEO5R6/rikNXd9b6RQK4KSPcrSIIwoXTtebIczUrXlwaSrbz4x8XUVThGPob1n8I4QA==
   dependencies:
-    ascli "~0.3"
-    bytebuffer "~3 >=3.5"
+    ascli "~1"
+    bytebuffer "~5"
+    glob "^7.0.5"
+    yargs "^3.10.0"
 
 protractor-html-reporter-2@1.0.4:
   version "1.0.4"
@@ -9964,7 +9956,7 @@ window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
 
-window-size@^0.1.2:
+window-size@^0.1.2, window-size@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
 
@@ -10225,6 +10217,19 @@ yargs@12.0.2:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^10.1.0"
+
+yargs@^3.10.0:
+  version "3.32.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.32.0.tgz#03088e9ebf9e756b69751611d2a5ef591482c995"
+  integrity sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
+  dependencies:
+    camelcase "^2.0.1"
+    cliui "^3.0.3"
+    decamelize "^1.1.1"
+    os-locale "^1.4.0"
+    string-width "^1.0.1"
+    window-size "^0.1.4"
+    y18n "^3.2.0"
 
 yargs@^6.6.0:
   version "6.6.0"

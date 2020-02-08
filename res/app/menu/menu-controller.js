@@ -9,7 +9,7 @@ module.exports = function MenuCtrl(
 , $location
 , $http
 , CommonService
-, LogcatService  
+, LogcatService
 , socket
 , $cookies
 , $window) {

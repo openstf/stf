@@ -28,7 +28,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install wget python build-essential && \
     cd /tmp && \
     wget --progress=dot:mega \
-      https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-x64.tar.xz && \
+      https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-x64.tar.xz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
     rm node-v*.tar.xz && \
     su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
@@ -56,7 +56,6 @@ RUN set -x && \
     bower cache clean && \
     npm prune --production && \
     mv node_modules /app && \
-    npm cache clean && \
     rm -rf ~/.node-gyp && \
     cd /app && \
     rm -rf /tmp/*

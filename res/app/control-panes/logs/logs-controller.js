@@ -157,7 +157,6 @@ module.exports = function LogsCtrl($scope, $rootScope, $routeParams, LogcatServi
                 $scope.filters.tid = transformedInput
               }
               break
-
             default:
               transformedInput = newValue
           }

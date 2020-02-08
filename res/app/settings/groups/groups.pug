@@ -1,0 +1,193 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.fluid-height.stf-groups(ng-controller='GroupsCtrl')
+  .heading
+    i.fa.fa-object-group
+    span(translate) Group list 
+
+    button.btn.btn-xs.btn-primary-outline.pull-right(
+      type='button'
+      ng-disabled='!conditionForGroupCreation() || hideGroupCreation'
+      uib-tooltip="{{'Groups number quota is reached' | translate}}"
+      tooltip-placement='bottom'
+      tooltip-enable="!conditionForGroupCreation()"
+      tooltip-popup-delay='500'
+      ng-click='createGroup()')
+        i.fa.fa-plus.fa-fw
+
+    a.pull-right.btn.btn-xs(ng-href='')
+      i.fa.fa-question-circle.fa-fw(
+        uib-tooltip='{{"More about Groups" | translate}}'
+        tooltip-placement='left'
+        tooltip-popup-delay='500')
+
+  .widget-content.padded
+
+    nothing-to-show(
+      icon='fa-object-group'
+      message='{{"No Groups" | translate}}' ng-if='!groups.length')
+
+    div(ng-if='groups.length')
+      ul.list-group.groups-list
+        li.list-group-item
+          .group-line.group-actions
+            form.form-inline.groups-header
+              .form-group
+                stf-pager(
+                  tooltip-label="{{'Group selection' | translate}}"
+                  total-items='filteredGroups.length'
+                  total-items-style='stf-pager-groups-total-items'
+                  items-per-page='scopeGroupsCtrl.groupItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='scopeGroupsCtrl.groupCurrentPage'
+                  items-search='search')
+
+              button.btn.btn-xs.btn-danger.pull-right(
+                type='button'
+                ng-disabled="!filteredGroups.length || filteredGroups.length === 1 && filteredGroups[0].privilege === 'root'"
+                uib-tooltip="{{'Remove the group selection' | translate}}"
+                tooltip-placement='bottom'
+                tooltip-popup-delay='500'
+                ng-click='removeGroups(search, filteredGroups, confirmRemove.value)')
+                  i.fa.fa-trash-o
+                  span(translate) Remove
+
+              button.btn.btn-xs.btn-success.pull-right(
+                type='button'
+                uib-tooltip="{{'Enable/Disable confirmation for group removing' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='confirmRemove.value = !confirmRemove.value'
+                ng-class='{"btn-warning-outline": !confirmRemove.value, "btn-success": confirmRemove.value}')
+                  i.fa.fa-lock(ng-if='confirmRemove.value')
+                  i.fa.fa-unlock(ng-if='!confirmRemove.value')
+                  span(translate) Confirm Remove
+
+              button.btn.btn-xs.btn-primary-outline.pull-right(
+                ng-if='isAdmin()'
+                type='button'
+                uib-tooltip="{{'Write an email to the group owner selection' | translate}}"
+                ng-disabled='!filteredGroups.length'
+                ng-click='mailToGroupOwners(filteredGroups)'
+                tooltip-placement='top'
+                tooltip-popup-delay='500')
+                  i.fa.fa-envelope-o
+                  span(translate) Contact Owners
+
+        li.list-group-item(ng-repeat="group in groups \
+          | filter:search \
+          | orderBy: 'name' \
+          | pagedObjectsFilter:scopeGroupsCtrl:'groupCurrentPage':'groupItemsPerPage':'filteredGroups' \
+            track by group.id") 
+          .group-line.group-actions
+            i.fa.fa-object-group.fa-2x.fa-fw.group-list-icon
+            .group-list-details.selectable
+              form.form-inline(name='nameForm' ng-if="group.state === 'pending' && showName")
+                input.form-control.input-sm(
+                  size='35' type='text' placeholder="Name"
+                  ng-model='groupsEnv[group.id].tmpName'
+                  ng-pattern="nameRegex"
+                  uib-tooltip="{{'Regex syntax' | translate}}: {{::nameRegexStr}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500'
+                  tooltip-enable="group.state === 'pending' && nameForm.$invalid"
+                  required)
+
+                button.btn.btn-sm.btn-primary.btn-check-name(
+                  type='button'
+                  ng-click='updateGroupName(group)'
+                  ng-disabled='!conditionForNameSaving(group, nameForm.$invalid)')
+                    i.fa.fa-check
+
+              .group-list-name(
+                ng-bind-template='{{group.name}}'
+                ng-if="group.state !== 'pending' || !showName")
+
+              .group-list-id
+                span(translate) Identifier
+                span(ng-bind-template="{{::': ' +  group.id + ' - '}}")
+                span(translate) Class 
+                span(ng-bind-template="{{': ' +  getClassName(group.class) + ' - '}}")
+                span(translate) Devices 
+                span(ng-bind-template="{{': ' +  group.devices.length + ' - '}}")
+                span(translate) Users 
+                span(ng-bind-template="{{': ' +  group.users.length}}")
+                span(ng-if='isAdmin()' ng-bind-template="{{::' - '}}")
+                span(ng-if='isAdmin()' translate) Owner 
+                span(ng-if='isAdmin()' ng-bind-template="{{::': ' + group.owner.name}}")
+
+            button.btn.btn-xs.btn-danger-outline.pull-right(
+              type='button'
+              ng-click='removeGroup(group, confirmRemove.value)'
+              ng-disabled='group.privilege === "root"')
+                i.fa.fa-trash-o
+                span(translate) Remove
+
+            button.btn.btn-xs.btn-danger-outline.pull-right(
+              type='button'
+              ng-if="group.state === 'pending'"
+              ng-click='updateGroupState(group)')
+                i.fa.fa-unlock
+                span(translate) Get ready 
+
+            button.btn.btn-xs.pull-right(
+              type='button'
+              ng-show="group.state === 'pending'"
+              ng-click='initTemporaryName(group); showName = !showName'
+              ng-class='{"btn-primary-outline": !showName && group.state === "pending",\
+                         "btn-primary": showName && group.state === "pending"}')
+                i.fa.fa-tag
+                span(translate) Name 
+
+            button.btn.btn-xs.pull-right(
+              type='button'
+              ng-click='initTemporarySchedule(group); showSchedule = !showSchedule'
+              ng-class='{"btn-primary-outline": !showSchedule && group.state === "pending",\
+                         "btn-primary": showSchedule  && group.state === "pending",\
+                         "btn-warning-outline": !showSchedule && !group.isActive && group.state !== "pending",\
+                         "btn-warning": showSchedule && !group.isActive && group.state !== "pending",\
+                         "btn-success-outline": !showSchedule && group.isActive && group.state !== "pending",\
+                         "btn-success": showSchedule && group.isActive && group.state !== "pending"}')
+                i.fa.fa-clock-o
+                span(translate) Schedule
+
+            button.btn.btn-xs.btn-primary-outline.pull-right(
+              type='button'
+              ng-click='initShowDevices(group, !showDevices); showDevices = !showDevices'
+              ng-class='{"btn-primary-outline": !showDevices, "btn-primary": showDevices}')
+                i.fa.fa-mobile
+                span(translate) Devices
+
+            button.btn.btn-xs.btn-primary-outline.pull-right(
+              type='button'
+              ng-click='initShowUsers(group); showUsers = !showUsers'
+              ng-class='{"btn-primary-outline": !showUsers, "btn-primary": showUsers}')
+                i.fa.fa-user
+                span(translate) Users 
+
+            button.btn.btn-xs.btn-danger.pull-right(
+              type='button'
+              ng-if='groupsEnv[group.id].showConflicts'
+              ng-click='groupsEnv[group.id].showConflicts = !groupsEnv[group.id].showConflicts'
+              ng-class='{"btn-danger-outline": !groupsEnv[group.id].showConflicts, \
+                         "btn-danger": groupsEnv[group.id].showConflicts}')
+                i.fa.fa-ban
+                span(translate) Conflicts
+
+            ul.list-group.groups-action(
+              ng-if='groupsEnv[group.id].showConflicts')
+                div(ng-include="'settings/groups/conflicts/conflicts.pug'")
+
+            ul.list-group.groups-action(
+              ng-if='showSchedule')
+                div(ng-include="'settings/groups/schedule/schedule.pug'")
+
+            ul.list-group.groups-action(
+              ng-if='showDevices')
+                div(ng-include="'settings/groups/devices/devices.pug'")
+
+            ul.list-group.groups-action(
+              ng-if='showUsers')
+                div(ng-include="'settings/groups/users/users.pug'")

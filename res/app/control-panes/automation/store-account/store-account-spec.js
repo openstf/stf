@@ -13,5 +13,4 @@ describe('StoreAccountCtrl', function() {
     expect(1).toEqual(1)
 
   }))
-
 })

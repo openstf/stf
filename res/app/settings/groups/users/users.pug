@@ -1,0 +1,166 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+li.list-group-item.groups-list
+  .heading.group-action-body
+    i.fa.fa-user
+    span(translate) Users 
+
+  .row
+    .panel-group
+      .panel.panel-default
+        .panel-heading.text-center
+          button.btn.btn-xs.btn-primary.btn-group-users-action(
+            type='button'
+            ng-click='showGroupUsers = !showGroupUsers'
+            ng-class='{"btn-primary-outline": showGroupUsers, "btn-primary": !showGroupUsers}')
+              i.fa.fa-user
+              span(translate) Group users 
+
+        .panel-body(ng-show='!showGroupUsers')
+         div
+          .form-inline
+            .form-group.group-users-header
+              stf-pager(
+                tooltip-label="{{'Group user selection' | translate}}"
+                total-items='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupUsers.length'
+                total-items-style='stf-pager-groups-total-items'
+                items-per-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].groupUserItemsPerPage'
+                items-per-page-options='itemsPerPageOptions'
+                current-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].groupUserCurrentPage'
+                items-search='groupUserSearch')
+
+            button.btn.btn-xs.btn-primary-outline.pull-right(
+              type='button'
+              uib-tooltip="{{'Write a mail to the group user selection' | translate}}"
+              ng-disabled='!groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupUsers.length'
+              ng-click='mailToGroupUsers(\
+                filteredGroups[getGroupIndex($parent.$index)],\
+                groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupUsers)'
+              tooltip-placement='top'
+              tooltip-popup-delay='500')
+                i.fa.fa-envelope-o
+                span(translate) Contact Users
+
+          .widget-container.fluid-height.overflow-auto
+            table.table.table-hover.dataTable.ng-table
+              thead
+                tr
+                  th.header
+                    button.btn.btn-sm.btn-danger.btn-group-users-action(
+                      type='button'
+                      ng-if="groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].hasOwnProperty('filteredGroupUsers')"
+                      ng-disabled="!conditionForGroupUsersRemoving(\
+                                      group, \
+                                      groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupUsers)"
+                      ng-click='removeGroupUsers(\
+                                  group,\
+                                  groupUserSearch,\
+                                  groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredGroupUsers)')
+                        i.fa.fa-trash-o
+                  th.header.sortable(
+                    ng-class='[column.sort]'
+                    ng-repeat="column in groupUserData.columns"
+                    ng-click='sortBy(groupUserData, column)')
+                      div.strong(ng-bind-template="{{column.name | translate}}")
+
+              tbody
+                tr.selectable(ng-repeat="user in group.users \
+                | groupObjectsFilter:users:usersByEmail \
+                | filter:groupUserSearch \
+                | orderBy:userColumns[groupUserData.sort.index].property:groupUserData.sort.reverse \
+                | pagedObjectsFilter:\
+                  groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id]:\
+                  'groupUserCurrentPage':'groupUserItemsPerPage':'filteredGroupUsers' \
+                  track by user.email")
+                  td
+                    button.btn.btn-danger-outline.btn-xs(
+                      type='button'
+                      ng-disabled="user.privilege === 'admin' || \
+                                   user.email === filteredGroups[getGroupIndex($parent.$index)].owner.email"
+                      ng-click='removeGroupUser(filteredGroups[getGroupIndex($parent.$index)], user)')
+                        i.fa.fa-trash-o.fa-fw
+                  td {{user.name}}
+                  td
+                    a.link(ng-href="{{'mailto:' + user.email}}"
+                      ng-click='$event.stopPropagation()') {{user.email}}
+                  td {{user.privilege}}
+
+      .panel.panel-default
+        .panel-heading.text-center
+          button.btn.btn-xs.btn-primary-outline.btn-group-users-action(
+            type='button'
+            ng-click='showAvailableUsers = !showAvailableUsers'
+            ng-class='{"btn-primary-outline": !showAvailableUsers, "btn-primary": showAvailableUsers}')
+              i.fa.fa-user
+              span(translate) Available users
+
+        .panel-body(ng-show='showAvailableUsers')
+          nothing-to-show(
+            icon='fa-user'
+            message='{{"No available users" | translate}}'
+            ng-if='!groupsEnv[group.id].filteredAvailableUsers.length && users.length === group.users.length')
+
+          div(ng-if='groupsEnv[group.id].filteredAvailableUsers.length || users.length !== group.users.length')
+            .form-inline
+              .form-group.group-users-header
+                stf-pager(
+                  tooltip-label="{{'Available user selection' | translate}}"
+                  total-items='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableUsers.length'
+                  total-items-style='stf-pager-groups-total-items'
+                  items-per-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableUserItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].availableUserCurrentPage'
+                  items-search='userSearch')
+
+              button.btn.btn-xs.btn-primary-outline.pull-right(
+                type='button'
+                uib-tooltip="{{'Write a mail to the available user selection' | translate}}"
+                ng-disabled='!groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableUsers.length'
+                ng-click='mailToAvailableUsers(groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableUsers)'
+                tooltip-placement='top'
+                tooltip-popup-delay='500')
+                  i.fa.fa-envelope-o
+                  span(translate) Contact Users
+
+
+              .widget-container.fluid-height.overflow-auto
+                table.table.table-hover.dataTable.ng-table
+                  thead
+                    tr
+                      th.header
+                        button.btn.btn-sm.btn-primary.btn-group-users-action(
+                          type='button'
+                          ng-if="groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].hasOwnProperty('filteredAvailableUsers')"
+                          ng-disabled='!groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableUsers.length'
+                          ng-click='addGroupUsers(\
+                                      group,\
+                                      userSearch,\
+                                      groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id].filteredAvailableUsers)')
+                            i.fa.fa-cart-plus
+                      th.header.sortable(
+                        ng-class='[column.sort]'
+                        ng-repeat="column in userData.columns"
+                        ng-click='sortBy(userData, column)')
+                          div.strong(ng-bind-template="{{column.name | translate}}")
+
+                  tbody
+                    tr.selectable(ng-repeat="user in users \
+                    | availableObjectsFilter:filteredGroups[getGroupIndex($parent.$index)]:'users':'email' \
+                    | filter:userSearch \
+                    | orderBy:userColumns[userData.sort.index].property:userData.sort.reverse \
+                    | pagedObjectsFilter:\
+                      groupsEnv[filteredGroups[getGroupIndex($parent.$index)].id]:\
+                      'availableUserCurrentPage':'availableUserItemsPerPage':'filteredAvailableUsers' \
+                      track by user.email")
+                      td
+                        button.btn.btn-primary-outline.btn-xs(
+                          type='button'
+                          ng-click='addGroupUser(filteredGroups[getGroupIndex($parent.$index)], user)')
+                            i.fa.fa-cart-plus.fa-fw
+                      td {{user.name}}
+                      td
+                        a.link(ng-href="{{'mailto:' + user.email}}"
+                          ng-click='$event.stopPropagation()') {{user.email}}
+                      td {{user.privilege}}

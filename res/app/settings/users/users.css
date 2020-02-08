@@ -1,0 +1,87 @@
+/**
+* Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
+.stf-users .selectable {
+  user-select: text;
+}
+
+.stf-pager-users-total-items {
+  margin-top: 5px;
+}
+
+.stf-users .user-creation, .user-default-quotas-item, .user-filters-item, .form-group.user-quotas-item {
+  margin: 0px 10px 15px 15px;
+}
+
+.stf-users .user-save, .user-default-quotas-save, .form-group.user-quotas-save {
+  margin: 5px 10px 15px 15px;
+}
+
+.stf-users .user-header {
+  margin-left: 10px;
+}
+
+.stf-users .user-filters-items {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.stf-users .user-default-quotas-items, .user-quotas-items {
+  margin: 0px 0px 15px 0px;
+}
+
+.stf-users .user-list-icon {
+  margin-right: 10px;
+}
+
+.stf-users .user-list-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.stf-users input.ng-invalid {
+  border-color: red;
+}
+
+.stf-users .user-list .user-list-items {
+  margin: 10px 0px 0px 0px;
+}
+
+.stf-users .user-list .user-line {
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.stf-users .user-list .user-line.user-actions {
+  padding-bottom: 23px;
+}
+
+.stf-users .user-list .heading.user-action-body {
+  margin-top: 22px;
+}
+
+.stf-users .user-list-details.selectable a {
+  padding: 0px;
+  border-bottom: none;
+  color: #167FFC;
+}
+
+.stf-users .user-list-details {
+  display: inline-block;
+}
+
+.stf-users .user-list-name {
+  color: #007aff;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 2px 0 6px;
+}
+
+.stf-users .user-list-id {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  margin-bottom: 2px;
+  color: #999999;
+  font-weight: 300;
+}

@@ -1,6 +1,10 @@
+##
+# Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+##
+
 swagger: "2.0"
 info:
-  version: "2.3.0"
+  version: "2.4.0"
   title: Smartphone Test Farm
   description: Control and manages real Smartphone devices from browser and restful apis
   license:
@@ -22,9 +26,1271 @@ produces:
 tags:
   - name: user
     description: User Operations
+  - name: users
+    description: Users Operations
   - name: devices
     description: Device Operations
+  - name: groups 
+    description: Groups Operations
+  - name: admin 
+    description: Privileged Operations
 paths:
+  /groups:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets groups
+      description: Returns the groups to which you belong
+      operationId: getGroups
+      tags:
+        - groups
+      parameters:
+        - name: fields
+          in: query
+          description: Comma-seperated list of fields; only listed fields will be returned in response
+          required: false
+          type: string
+        - name: owner 
+          in: query
+          description: Selects the groups for which you are the owner (true) or a simple member (false); note that by not providing this parameter, it means all groups to which you belong are selected
+          required: false
+          type: boolean 
+      responses:
+        "200":
+          description: Groups information
+          schema:
+            $ref: "#/definitions/GroupListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes groups
+      description: Removes the groups owned by you
+      operationId: deleteGroups
+      tags:
+        - groups
+      parameters:
+        - name: groups
+          in: body
+          description: Groups to remove as a comma-separated list of group identifiers; note that by not providing this parameter it means all groups owned by you are removed
+          required: false
+          schema:
+            $ref: "#/definitions/GroupsPayload"
+      responses:
+        "200":
+          description: Groups removing is OK (or no groups to remove)
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => a device is currently booked or unremovable built-in group
+              * 404: Not Found => unknown groups
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    post:
+      summary: Creates a group
+      description: Creates a group with you as owner
+      operationId: createGroup
+      tags:
+        - groups
+      parameters:
+        - name: group
+          in: body 
+          description: Group properties; at least one property is required 
+          required: true
+          schema:
+            $ref: "#/definitions/GroupPayload"
+      responses:
+        "201":
+          description: Group information
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => invalid format or semantic of properties
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /groups/{id}:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets a group
+      description: Returns a group to which you belong
+      operationId: getGroup
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of group fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Group information
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    put:
+      summary: Updates a group
+      description: Updates a group owned by you
+      operationId: updateGroup
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier 
+          required: true
+          type: string
+        - name: group
+          in: body
+          description: Group properties; at least one property is required
+          required: true 
+          schema:
+            $ref: "#/definitions/GroupPayload"
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        "409":
+          description: Conflicts information
+          schema:
+            $ref: "#/definitions/ConflictsResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => invalid format or semantic of properties
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => quota is reached or unauthorized property
+              * 404: Not Found => unknown group 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes a group
+      description: Removes a group owned by you
+      operationId: deleteGroup
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier 
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Group removing is OK 
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => a device is currently booked or unremovable built-in group
+              * 404: Not Found => unknown group 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /groups/{id}/devices:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets the devices of a group
+      description: Returns the devices of the group to which you belong
+      operationId: getGroupDevices
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier 
+          required: true
+          type: string
+        - name: bookable 
+          in: query
+          description: Selects devices which could be potentially booked by that transient group (true => irrelevant for an origin group!), or selects all devices of the group (false); note that by not providing this parameter all devices of the group are selected
+          type: boolean
+          default: false
+        - name: fields
+          in: query
+          description: Comma-separated list of device fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Group devices information
+          schema:
+            $ref: "#/definitions/DeviceListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad request => group is not transient
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    put:
+      summary: Adds devices into a transient group
+      description: Adds devices into a transient group owned by you
+      operationId: addGroupDevices
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: devices
+          in: body 
+          description: Devices to add as a comma-separated list of serials; note that by not providing this parameter it means all devices which could be potentially booked by that transient group are added into the latter
+          required: false
+          schema:
+            $ref: "#/definitions/DevicesPayload"
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        "409":
+          description: Conflicts information
+          schema:
+            $ref: "#/definitions/ConflictsResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not transient
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => quota is reached
+              * 404: Not Found => unknown group or devices
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes devices from a transient group
+      description: Removes devices from a transient group owned by you
+      operationId: removeGroupDevices
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier 
+          required: true
+          type: string
+        - name: devices
+          in: body
+          description: Devices to remove as a comma-separated list of serials; note that by not providing this parameter it means all devices of the group are removed 
+          required: false
+          schema:
+            $ref: "#/definitions/DevicesPayload"
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not transient
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or devices
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /groups/{id}/devices/{serial}:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets a device of a group
+      description: Returns a device of a group to which you belong
+      operationId: getGroupDevice
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of device fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Group device information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or device
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    put:
+      summary: Adds a device into a transient group
+      description:  Adds a device into a transient group owned by you
+      operationId: addGroupDevice
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        "409":
+          description: Conflicts information
+          schema:
+            $ref: "#/definitions/ConflictsResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not transient
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => quota is reached
+              * 404: Not Found => unknown group or device 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes a device from a transient group
+      description: Removes a device from a transient group owned by you
+      operationId: removeGroupDevice
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not transient
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or device 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /groups/{id}/users:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets the users of a group
+      description: Gets the users of a group to which you belong; if you are the administrator user then all user fields are returned, otherwise only 'email', 'name' and 'privilege' user fields are returned
+      operationId: getGroupUsers
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of user fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Group users information
+          schema:
+            $ref: "#/definitions/UserListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    put:
+      summary: Adds users into a group
+      description: Adds users into a group owned by you 
+      operationId: addGroupUsers
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: users
+          in: body
+          description: Users to add as a comma-separated list of emails; note that by not providing this parameter it means all available users are added into the group
+          required: false
+          schema:
+            $ref: "#/definitions/UsersPayload"
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or device or users 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes users from a group
+      description: Removes users from a group owned by you
+      operationId: removeGroupUsers
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: users
+          in: body
+          description: Users to remove as a comma-separated list of emails; note that by not providing this parameter it means all users of the group are removed
+          required: false
+          schema:
+            $ref: "#/definitions/UsersPayload"
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => owner or administrator user can't be removed 
+              * 404: Not Found => unknown group or device or users 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /groups/{id}/users/{email}:
+    x-swagger-router-controller: groups
+    get:
+      summary: Gets a user of a group
+      description: Gets a user of a group to which you belong; if you are the administrator user then all user fields are returned, otherwise only 'email', 'name' and 'privilege' user fields are returned
+      operationId: getGroupUser
+      tags:
+        - groups
+      parameters:
+        - name: id 
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of user fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Group user information
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or device or user
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    put:
+      summary: Adds a user into a group
+      description: Adds a user into a group owned by you
+      operationId: addGroupUser
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown group or device or user 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes a user from a group
+      description: Removes a user from a group owned by you
+      operationId: removeGroupUser
+      tags:
+        - groups
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Group information (an empty group is returned if no change is made)
+          schema:
+            $ref: "#/definitions/GroupResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => owner or administrator user can't be removed
+              * 404: Not Found => unknown group or device or user
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users:
+    x-swagger-router-controller: users
+    get:
+      summary: Gets users
+      description: gets users; if you are the administrator user then all user fields are returned, otherwise only 'email', 'name' and 'privilege' user fields are returned
+      operationId: getUsers
+      tags:
+        - users
+      parameters:
+        - name: fields
+          in: query
+          description: Comma-separated list of user fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Users information
+          schema:
+            $ref: "#/definitions/UserListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes users
+      description: Removes users from the database
+      operationId: deleteUsers
+      tags:
+        - admin
+      parameters:
+        - name: groupOwner
+          in: query
+          description: Allows or not the removing of each user depending respectively if the user is a group owner (true) or not (false); note that by not providing the groupOwner parameter it means an unconditionally removing
+          required: false
+          type: boolean
+        - name: users
+          in: body
+          description: Users to remove as a comma-separated list of emails; note that by not providing this parameter it means all users are selected for removing
+          required: false
+          schema:
+            $ref: "#/definitions/UsersPayload"
+      responses:
+        "200":
+          description: Users removing is OK (or no users to remove)
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => administrator user can't be removed
+              * 404: Not Found => unknown users 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/groupsQuotas:
+    x-swagger-router-controller: users
+    put:
+      summary: Updates the default groups quotas of users
+      description: Updates the default groups quotas allocated to each new user
+      operationId: updateDefaultUserGroupsQuotas
+      tags:
+        - admin
+      parameters:
+        - name: number 
+          in: query 
+          description: Number of groups
+          required: false
+          type: integer
+          minimum: 0
+        - name: duration 
+          in: query 
+          description: Total duration of groups (milliseconds) 
+          required: false
+          type: integer
+          minimum: 0
+        - name: repetitions
+          in: query 
+          description: Number of repetitions per Group
+          required: false
+          type: integer
+          minimum: 0
+      responses:
+        "200":
+          description: Administrator user information (an empty user is returned if no change is made)
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}:
+    x-swagger-router-controller: users 
+    post:
+      summary: Creates a user
+      description: Creates a user in the database
+      operationId: createUser
+      tags:
+        - admin 
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: name 
+          in: query
+          description: User name 
+          required: true 
+          type: string
+      responses:
+        "201":
+          description: User information
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => user already exists
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    get:
+      summary: Gets a user
+      description: Gets a user; if you are the administrator user then all user fields are returned, otherwise only 'email', 'name' and 'privilege' user fields are returned
+      operationId: getUserByEmail
+      tags:
+        - users 
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of user fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: User information
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes a user
+      description: Removes a user from the database
+      operationId: deleteUser
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: groupOwner
+          in: query
+          description: Allows or not the removing of the user depending respectively if the user is a group owner (true) or not (false); note that by not providing this parameter it means an unconditionally removing
+          required: false
+          type: boolean
+      responses:
+        "200":
+          description: User removing is OK 
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => administrator user can't be removed
+              * 404: Not Found => unknown user
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/groupsQuotas:
+    x-swagger-router-controller: users
+    put:
+      summary: Updates the groups quotas of a user
+      description: Updates the groups quotas of a user
+      operationId: updateUserGroupsQuotas
+      tags:
+        - admin
+      parameters:
+        - name: email 
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: number
+          in: query
+          description: Number of groups
+          required: false
+          type: integer
+          minimum: 0
+        - name: duration
+          in: query
+          description: Total duration of groups (milliseconds)
+          required: false
+          type: integer
+          minimum: 0
+        - name: repetitions
+          in: query
+          description: Number of repetitions per Group
+          required: false
+          type: integer
+          minimum: 0
+      responses:
+        "200":
+          description: User information (an empty user is returned if no change is made)
+          schema:
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => quotas must be >= actual consumed resources
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/devices:
+    x-swagger-router-controller: users
+    get:
+      summary: Gets the devices controlled by a user
+      description: Gets the devices controlled by a user
+      operationId: getUserDevicesV2
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of device fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Controlled devices information
+          schema:
+            $ref: "#/definitions/DeviceListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/devices/{serial}:
+    x-swagger-router-controller: users
+    post:
+      summary: Places a device under user control
+      description: Places a device under user control; note this is not completely analogous to press the 'Use' button in the UI because that does not authorize remote connection through ADB
+      operationId: addUserDeviceV3
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: timeout
+          in: query
+          description: Means the device will be automatically removed from the user control if it is kept idle for this period (in milliseconds); default value is provided by the provider 'group timeout'
+          required: false
+          type: integer
+          minimum: 0
+      responses:
+        "200":
+          description: Device controlling is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => Device is already controlled or is not available
+              * 404: Not Found => unknown user or device
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    get:
+      summary: Gets a device controlled by a user
+      description: Gets a device controlled by a user
+      operationId: getUserDevice
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (Serial)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-separated list of device fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Controlled device information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown user or device 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Remove a device from the user control
+      description: Remove a device from the user control; note this is analogous to press the 'Stop Using' button in the UI because that forbids also remote connection through ADB
+      operationId: deleteUserDevice
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device releasing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown user or device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/devices/{serial}/remoteConnect:
+    x-swagger-router-controller: users
+    post:
+      summary: Allows to remotely connect to a device controlled by a user
+      description: Allows to remotely connect to a device controlled by a user; returns the remote debug URL in response for use with ADB
+      operationId: remoteConnectUserDevice
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Remote debug URL
+          schema:
+            $ref: "#/definitions/RemoteConnectUserDeviceResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown user or device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Forbids to remotely connect to a device controlled by a user
+      description: Forbids using ADB to remotely connect to a device controlled by a user
+      operationId: remoteDisconnectUserDevice
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Remote debug URL disabling is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown user or device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/accessTokens:
+    x-swagger-router-controller: users
+    post:
+      summary: Create an access token for a user
+      description: Creates an access token for a user.
+      operationId: createUserAccessToken
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path 
+          description: User identifier (email) 
+          required: true
+          type: string
+        - name: title
+          in: query
+          description: Access token title
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access token information
+          schema:
+            $ref: "#/definitions/UserAccessTokenResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    get:
+      summary: Gets the access tokens of a user
+      description: Gets the access tokens of a user
+      operationId: getUserAccessTokensV2
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access tokens information
+          schema:
+            $ref: "#/definitions/UserAccessTokensResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Remove the access tokens of a user
+      description: Remove the access tokens of a user
+      operationId: deleteUserAccessTokens
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access tokens removing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /users/{email}/accessTokens/{id}:
+    x-swagger-router-controller: users
+    get:
+      summary: Gets an access token of a user
+      description: Gets an access token of a user
+      operationId: getUserAccessToken
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: Access token identifier 
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access token information
+          schema:
+            $ref: "#/definitions/UserAccessTokenResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user or token 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes an access token of a user
+      description: Removes an access token of a user
+      operationId: deleteUserAccessToken
+      tags:
+        - admin
+      parameters:
+        - name: email
+          in: path
+          description: User identifier (email)
+          required: true
+          type: string
+        - name: id 
+          in: path
+          description: Access token identifier 
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access token removing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown user or token 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
   /user:
     x-swagger-router-controller: user
     get:
@@ -64,9 +1330,12 @@ paths:
           schema:
             $ref: "#/definitions/DeviceListResponse"
         default:
-          description: Unexpected Error
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
     post:
@@ -86,13 +1355,54 @@ paths:
         "200":
           description: Add User Device Status
         default:
-          description: Unexpected Error
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is already controlled or is not available
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
   /user/devices/{serial}:
     x-swagger-router-controller: user
+    post:
+      summary: Places a device under user control
+      description: Places a device under user control; note this is not completely analogous to press the 'Use' button in the UI because that does not authorize remote connection through ADB
+      operationId: addUserDeviceV2
+      tags:
+        - user
+      parameters:
+        - name: serial 
+          in: path 
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: timeout 
+          in: query 
+          description: Means the device will be automatically removed from the user control if it is kept idle for this period (in milliseconds); default value is provided by the provider 'group timeout'
+          required: false
+          type: integer 
+          minimum: 0
+      responses:
+        "200":
+          description: Device controlling is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is already controlled or is not available
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
     get:
       summary: User Device
       description: The devices enpoint return information about device owned by user
@@ -116,9 +1426,14 @@ paths:
           schema:
             $ref: "#/definitions/DeviceResponse"
         default:
-          description: Unexpected Error
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
     delete:
@@ -136,10 +1451,18 @@ paths:
       responses:
         "200":
           description: Delete User Device Status
-        default:
-          description: Unexpected Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
   # I do know this is against REST principal to use verb as endpoint. But I feel it is more easy to
@@ -164,9 +1487,15 @@ paths:
           schema:
             $ref: "#/definitions/RemoteConnectUserDeviceResponse"
         default:
-          description: Unexpected Error
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
     delete:
@@ -184,14 +1513,70 @@ paths:
       responses:
         "200":
           description: Remote Disonnect User Device Request Status
-        default:
-          description: Unexpected Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 403: Forbidden => device is not controlled by the user
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+              * 504: Gateway Time-out => device is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /user/fullAccessTokens:
+    x-swagger-router-controller: user
+    get:
+      summary: Gets your access tokens
+      description: Gets your access tokens; note that all fields are returned in reponse including the 'id' one 
+      operationId: getAccessTokens
+      tags:
+        - user
+      responses:
+        "200":
+          description: Access tokens information
+          schema:
+            $ref: "#/definitions/UserAccessTokensResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
   /user/accessTokens:
     x-swagger-router-controller: user
+    post:
+      summary: Create an access token
+      description: Create an access token for you
+      operationId: createAccessToken
+      tags:
+        - user
+      parameters:
+        - name: title
+          in: query 
+          description: Access token title 
+          required: true
+          type: string
+      responses:
+        "201":
+          description: Access token information
+          schema:
+            $ref: "#/definitions/UserAccessTokenResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
     get:
       summary: Access Tokens
       description: The Access Tokens endpoints returns titles of all the valid access tokens
@@ -207,6 +1592,82 @@ paths:
           description: Unexpected Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes your access tokens
+      description: Removes your access tokens
+      operationId: deleteAccessTokens
+      tags:
+        - user
+      responses:
+        "200":
+          description: Access tokens removing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /user/accessTokens/{id}:
+    x-swagger-router-controller: user
+    get:
+      summary: Gets an access token
+      description: Gets one of your access tokens
+      operationId: getAccessToken
+      tags:
+        - user
+      parameters:
+        - name: id
+          in: path
+          description: Access token identifier
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access token information
+          schema:
+            $ref: "#/definitions/UserAccessTokenResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown token 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes an access token
+      description: Removes one of your access tokens
+      operationId: deleteAccessToken
+      tags:
+        - user
+      parameters:
+        - name: id 
+          in: path
+          description: Access token identifier
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Access token removing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown token 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
   /user/adbPublicKeys:
@@ -243,9 +1704,9 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
-        - accessTokenAuth: []
+        - accessTokenAuth: []        
   /devices:
-    x-swagger-router-controller: devices
+    x-swagger-router-controller: devices 
     get:
       summary: Device List
       description: The devices endpoint return list of all the STF devices including Disconnected and Offline
@@ -253,6 +1714,23 @@ paths:
       tags:
         - devices
       parameters:
+        - name: target 
+          in: query
+          description: >
+            Targets devices of your universe:
+             * bookable - devices belonging to a bookable group
+             * standard - devices belonging to a standard group
+             * origin - all devices
+             * standardizable - devices which are not yet booked including those belonging to a standard group
+             * user (default value) - devices which are accessible by you at a given time
+          type: string
+          enum:
+            - bookable 
+            - standard
+            - origin 
+            - standardizable 
+            - user
+          default: user
         - name: fields
           in: query
           description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
@@ -260,20 +1738,72 @@ paths:
           type: string
       responses:
         "200":
-          description: List of Devices
+          description: Devices information
           schema:
             $ref: "#/definitions/DeviceListResponse"
         default:
-          description: Unexpected Error
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 500: Internal Server Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes devices
+      description: Removes devices from the database
+      operationId: deleteDevices
+      tags:
+        - admin
+      parameters:
+        - name: present
+          in: query
+          description: Allows or not the removing of each device depending respectively if the device is present (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: booked
+          in: query
+          description: Allows or not the removing of each device depending respectively if the device is booked (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: annotated
+          in: query
+          description: Allows or not the removing of each device depending respectively if the device is annotated (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: controlled
+          in: query
+          description: Allows or not the removing of each device depending respectively if the device is controlled (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: devices 
+          in: body
+          description: Devices to remove as a comma-separated list of serials; note that by not providing this parameter it means all devices are selected for removing
+          required: false
+          schema:
+            $ref: "#/definitions/DevicesPayload"
+      responses:
+        "200":
+          description: Devices removing is OK (or no devices to remove)
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown devices 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
       security:
         - accessTokenAuth: []
   /devices/{serial}:
     x-swagger-router-controller: devices
     get:
       summary: Device Information
-      description: The device enpoint return information about a single device
+      description: The devices serial enpoint return information about a single device
       operationId: getDeviceBySerial
       tags:
         - devices
@@ -299,45 +1829,492 @@ paths:
             $ref: "#/definitions/ErrorResponse"
       security:
         - accessTokenAuth: []
+    delete:
+      summary: Removes a device
+      description: Removes a device from the database
+      operationId: deleteDevice 
+      tags:
+        - admin 
+      parameters:
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: present 
+          in: query
+          description: Allows or not the removing of the device depending respectively if the device is present (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: booked 
+          in: query
+          description: Allows or not the removing of the device depending respectively if the device is booked (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: annotated 
+          in: query
+          description: Allows or not the removing of the device depending respectively if the device is annotated (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+        - name: controlled
+          in: query
+          description: Allows or not the removing of the device depending respectively if the device is controlled (true) or not (false); note that by not providing this parameter it means an unconditional removing
+          required: false
+          type: boolean
+      responses:
+        "200":
+          description: Device removing is OK
+          schema:
+            $ref: "#/definitions/Response"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown device
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /devices/groups/{id}:
+    x-swagger-router-controller: devices
+    put:
+      summary: Adds devices into an origin group
+      description: Adds devices into an origin group along with updating each added device; returns the updated devices
+      operationId: addOriginGroupDevices
+      tags:
+        - admin
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: devices 
+          in: body 
+          description: >
+            Devices to add as a comma-separated list of serials; note that by not providing this parameter it means all 'available devices' are selected for adding:
+             * 'availables devices' means all devices in case of a bookable group
+             * 'availables devices' means all not yet booked devices in case of a standard group
+          required: false
+          schema:
+            $ref: "#/definitions/DevicesPayload"
+        - name: fields
+          in: query
+          description: Comma-seperated list of fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Devices information (an empty device list is returned if no change is made)
+          schema:
+            $ref: "#/definitions/DeviceListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not an origin one
+              * 401: Unauthorized => bad credentials
+              * 403: Fobidden => a device is currently booked 
+              * 404: Not Found => unknown group or devices 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+              * 504: Gateway Time-out => server is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes devices from an origin group
+      description: Removes devices from an origin group along with updating each removed device; returns the updated devices
+      operationId: removeOriginGroupDevices
+      tags:
+        - admin
+      parameters:
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+        - name: devices
+          in: body
+          description: Devices to remove as a comma-separated list of serials; note that by not providing this parameter it means all devices of the group are selected for removing
+          required: false
+          schema:
+            $ref: "#/definitions/DevicesPayload"
+        - name: fields
+          in: query
+          description: Comma-seperated list of fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Devices information (an empty device list is returned if no change is made)
+          schema:
+            $ref: "#/definitions/DeviceListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not an origin one
+              * 401: Unauthorized => bad credentials
+              * 403: Fobidden => a device is currently booked
+              * 404: Not Found => unknown group or devices 
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+              * 504: Gateway Time-out => server is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /devices/{serial}/groups:
+    x-swagger-router-controller: devices
+    get:
+      summary: Gets the groups to which the device belongs
+      description: Gets the groups to which the device belongs
+      operationId: getDeviceGroups
+      tags:
+        - admin
+      parameters:
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Comma-seperated list of fields; only listed fields will be returned in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Groups information
+          schema:
+            $ref: "#/definitions/GroupListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /devices/{serial}/bookings:
+    x-swagger-router-controller: devices
+    get:
+      summary: Gets the bookings to which the device belongs
+      description: Gets the bookings (i.e. transient groups) to which the device belongs
+      operationId: getDeviceBookings
+      tags:
+        - devices
+      parameters:
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: fields
+          in: query
+          description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Bookings information
+          schema:
+            $ref: "#/definitions/GroupListResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 401: Unauthorized => bad credentials
+              * 404: Not Found => unknown device 
+              * 500: Internal Server Error
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+  /devices/{serial}/groups/{id}:
+    x-swagger-router-controller: devices 
+    put:
+      summary: Adds a device into an origin group
+      description: Adds a device into an origin group along with updating the added device; returns the updated device
+      operationId: addOriginGroupDevice
+      tags:
+        - admin 
+      parameters:
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: id 
+          in: path 
+          description: Group identifier
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not an origin one
+              * 401: Unauthorized => bad credentials
+              * 403: Fobidden => the device is currently booked
+              * 404: Not Found => unknown group or device
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+              * 504: Gateway Time-out => server is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
+    delete:
+      summary: Removes a device from an origin group
+      description: Removes a device from an origin group along with updating the removed device; returns the updated device
+      operationId: removeOriginGroupDevice
+      tags:
+        - admin
+      parameters:
+        - name: serial
+          in: path
+          description: Device identifier (serial)
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: Group identifier
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Device information
+          schema:
+            $ref: "#/definitions/DeviceResponse"
+        default:
+          description: >
+            Unexpected Error:
+              * 400: Bad Request => group is not an origin one
+              * 401: Unauthorized => bad credentials
+              * 403: Fobidden => the device is currently booked
+              * 404: Not Found => unknown group or device
+              * 500: Internal Server Error
+              * 503: Service Unavailable => server too busy or a lock on a resource is pending
+              * 504: Gateway Time-out => server is not responding
+          schema:
+            $ref: "#/definitions/UnexpectedErrorResponse"
+      security:
+        - accessTokenAuth: []
   /swagger.json:
     x-swagger-pipe: swagger_raw
 definitions:
+  UnexpectedErrorResponse:
+    required:
+      - success
+      - description
+    properties:
+      success:
+        type: boolean
+        default: false
+      description:
+        type: string
+  Response:
+    required:
+      - success
+      - description
+    properties:
+      success:
+        type: boolean
+        default: true
+      description:
+        type: string
+  GroupResponse:
+    required:
+      - success
+      - description
+      - group
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      group:
+        description: A null value means the group is unchanged
+        type: object
+  Conflict:
+    type: object
+    properties:
+      devices:
+        description: Devices in conflict
+        type: array
+        items:
+          type: string
+      date:
+        description: Timeslot in conflict
+        type: object
+        properties:
+          start:
+            type: string
+            format: date-time
+          stop:
+            type: string
+            format: date-time
+      group:
+        description: Name of the group in conflict
+        type: string
+      owner: 
+        description: Owner of the group in conflict
+        type: object
+        properties:
+          email:
+            type: string
+          name:
+            type: string
+  ConflictsResponse:
+    required:
+      - success
+      - description
+      - conflicts
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      conflicts:
+        description: >
+          List of conflicts with the current group operation:
+           * adding a device into the group
+           * updating the schedule of the group
+        type: array
+        items:
+          $ref: '#/definitions/Conflict'
+  GroupListResponse:
+    required:
+      - success
+      - description
+      - groups
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      groups:
+        type: array
+        items:
+          type: object
+  UserListResponse:
+    required:
+      - success
+      - description
+      - users
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      users:
+        type: array
+        items:
+          type: object
   UserResponse:
     required:
+      - success
+      - description
       - user
     properties:
+      success:
+        type: boolean
+      description:
+        type: string
       user:
         type: object
-  AccessTokensResponse:
+  Token:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+  UserAccessTokenResponse:
     required:
+      - success
+      - description
+      - token
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      token:
+        $ref: '#/definitions/Token'
+  UserAccessTokensResponse:
+    required:
+      - success
+      - description
       - tokens
     properties:
+      success:
+        type: boolean
+      description:
+        type: string
+      tokens:
+        type: array
+        items:
+          $ref: '#/definitions/Token'
+  AccessTokensResponse:
+    required:
+      - success
+      - description
+      - tokens
+    properties:
+      success:
+        type: boolean
+      description:
+        type: string
       tokens:
         type: array
         items:
           type: string
   DeviceListResponse:
     required:
+      - success
+      - description
       - devices
     properties:
+      success:
+        type: boolean
+      description:
+        type: string
       devices:
         type: array
         items:
           type: object
   DeviceResponse:
     required:
+      - success
+      - description
       - device
     properties:
+      success:
+        type: boolean
+      description:
+        type: string
       device:
         type: object
   RemoteConnectUserDeviceResponse:
     required:
+      - success
+      - description
       - remoteConnectUrl
-      - serial
     properties:
-      remoteConnectUrl:
+      success:
+        type: boolean
+      description:
         type: string
-      serial:
+      remoteConnectUrl:
         type: string
   AddUserDevicePayload:
     description: payload object for adding device to user
@@ -350,6 +2327,65 @@ definitions:
       timeout:
         description: Device timeout in ms. If device is kept idle for this period, it will be automatically disconnected. Default is provider group timeout
         type: integer
+  GroupPayload:
+    description: Payload object for creating/updating a group
+    properties:
+      name:
+        description: Group Name; default value => generated at runtime
+        type: string
+        pattern: '^[0-9a-zA-Z-_./: ]{1,50}$'
+      startTime:
+        description: Group starting time; default value => group creation time
+        type: string
+        format: date-time
+      stopTime:
+        description: Group expiration time; default value => startTime + 1 hour
+        type: string
+        format: date-time
+      class:
+        description: Group class; privileged value => debug, bookable, standard
+        type: string
+        enum:
+          - once
+          - bookable 
+          - hourly
+          - daily
+          - weekly
+          - monthly
+          - quaterly
+          - halfyearly
+          - yearly
+          - debug 
+          - standard
+        default: once
+      repetitions:
+        description: Group repetitions; default value => 0
+        type: integer
+        minimum: 0
+      state:
+        description: Group state; default value => pending or ready for bookable/standard classes
+        type: string
+        enum:
+          - pending
+          - ready
+  GroupsPayload:
+    description: Payload object for adding/removing groups
+    properties:
+      ids:
+        description: Comma-separated list of identifiers
+        type: string
+  UsersPayload:
+    description: Payload object for adding/removing users
+    properties:
+      emails:
+        description: Comma-separated list of emails
+        type: string
+  DevicesPayload:
+    description: Payload object for adding/removing devices
+    properties:
+      serials:
+        description: Comma-separated list of serials
+        type: string
   ErrorResponse:
     required:
       - message

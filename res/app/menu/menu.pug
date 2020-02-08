@@ -1,3 +1,7 @@
+//
+  Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
 .navbar.stf-menu(ng-controller='MenuCtrl')
   .container-fluid.stf-top-bar
     a.stf-logo(ng-href="/#!/devices") STF
@@ -9,6 +13,9 @@
         a(ng-href='/#!/devices', accesskey='1')
           span.fa.fa-sitemap
           span(ng-if='!$root.basicMode', translate) Devices
+        a(ng-href='/#!/groups')
+          span.fa.fa-object-group
+          span(ng-if='!$root.basicMode', translate) Groups
         a(ng-href='/#!/settings')
           span.fa.fa-gears
           span(ng-if='!$root.basicMode', translate) Settings
@@ -18,7 +25,22 @@
           button(type='button', ng-model='$root.platform', uib-btn-radio="'web'", translate).btn.btn-sm.btn-default-outline Web
           button(type='button', ng-model='$root.platform', uib-btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
 
+      li.stf-nav-web-native-button(ng-if='!$root.basicMode')
+       button.btn.btn-sm.btn-default-outline(
+        type='button'
+        ng-click='mailToSupport()')
+          i.fa.fa-envelope-o
+          span(translate) Contact Support 
+
+      li.stf-nav-web-native-button(ng-if='!$root.basicMode')
+       button.btn.btn-sm.btn-default-outline(
+        type='button'
+        ng-click='logout()')
+          i.fa.fa-sign-out
+          span(translate) Logout 
+
       li(ng-show='!$root.basicMode')
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}
+

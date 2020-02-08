@@ -1,5 +1,10 @@
+/**
+* Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
 module.exports = function UserServiceFactory(
   $rootScope
+, $http
 , socket
 , AppState
 , AddAdbKeyModalService
@@ -7,6 +12,10 @@ module.exports = function UserServiceFactory(
   var UserService = {}
 
   var user = UserService.currentUser = AppState.user
+
+  UserService.getUser = function() {
+    return $http.get('/api/v1/user')
+  }
 
   UserService.getAdbKeys = function() {
     return (user.adbKeys || (user.adbKeys = []))

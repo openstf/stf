@@ -1,0 +1,31 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+li.list-group-item.groups-list
+  .heading.group-action-body
+    i.fa.fa-ban
+    span(translate) Conflicts
+
+  .widget-container.fluid-height.overflow-auto.group-conflicts
+    table.table.table-hover.dataTable.ng-table
+      thead
+        tr
+          th.header.sortable(
+            ng-class='[column.sort]'
+            ng-repeat='column in conflictData.columns'
+            ng-click='sortBy(conflictData, column)')
+              div.strong(ng-bind-template='{{column.name | translate}}')
+
+      tbody
+        tr.selectable(
+          ng-repeat='conflict in groupsEnv[group.id].conflicts \
+          | orderBy:conflictColumns[conflictData.sort.index].property:conflictData.sort.reverse')
+            td {{conflict.serial}}
+            td {{conflict.startDate}}
+            td {{conflict.stopDate}}
+            td {{conflict.group}}
+            td
+              a.link(ng-href="{{'mailto:' + conflict.ownerEmail}}"
+                ng-click='$event.stopPropagation()') {{conflict.ownerName}}
+

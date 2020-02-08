@@ -1,0 +1,216 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.fluid-height.stf-users(ng-controller='UsersCtrl')
+  .heading
+    i.fa.fa-user
+    span(translate) User list 
+
+    button.btn.btn-primary-outline.pull-right.btn-sm(
+      ng-click='showCreateUser = !showCreateUser; initTemporaryUser()'
+      ng-class='{ "btn-primary-outline": !showCreateUser, "btn-primary": showCreateUser }')
+        i.fa.fa-plus.fa-fw
+
+    a.pull-right.btn.btn-sm(ng-href='')
+      i.fa.fa-question-circle.fa-fw(uib-tooltip='{{"More about Users" | translate}}' tooltip-placement='left')
+
+  .widget-content.padded
+
+    nothing-to-show(icon='fa-user' message='{{"No Users" | translate}}' ng-if='!users.length')
+
+    div(ng-if='users.length')
+      ul.list-group.user-list
+        li.list-group-item(ng-if='showCreateUser')
+          .user-line
+            .heading
+              i.fa.fa-user
+              span(translate) Create new user 
+
+            form.form-inline(name='userForm')
+              .form-group.user-creation
+                label.user-list-label(translate) Name
+                input.form-control.input-sm(
+                  name='nameForm'
+                  uib-tooltip="{{'Regex syntax' | translate}}: {{::nameRegexStr}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500'
+                  tooltip-enable='userForm.nameForm.$invalid'
+                  type='text' ng-model='tmpEnv.userName' ng-pattern="nameRegex" required)
+
+              .form-group.user-creation
+                label.user-list-label(translate) Email
+                input.form-control.input-sm(size='35' type='email' ng-model='tmpEnv.userEmail' required)
+
+              .form-group.user-save
+                button.btn.btn-sm.btn-primary(
+                  type='button'
+                  ng-click='createUser()'
+                  ng-disabled='userForm.$invalid')
+                    span(translate) Save
+
+        li.list-group-item
+          .user-line.user-actions
+            form.form-inline.user-header
+              .form-group
+                stf-pager(
+                  tooltip-label="{{'User selection' | translate}}"
+                  total-items='filteredUsers.length'
+                  total-items-style='stf-pager-users-total-items'
+                  items-per-page='scopeUsersCtrl.userItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='scopeUsersCtrl.userCurrentPage'
+                  items-search='search')
+
+              button.btn.btn-xs.btn-danger.pull-right(
+                type='button'
+                uib-tooltip="{{'Remove the user selection' | translate}}"
+                tooltip-placement='bottom'
+                tooltip-popup-delay='500'
+                ng-disabled="!filteredUsers.length || filteredUsers.length === 1 && filteredUsers[0].privilege === 'admin'"
+                ng-click='removeUsers(search, filteredUsers, confirmRemove.value)')
+                  i.fa.fa-trash-o
+                  span(translate) Remove 
+
+              button.btn.btn-xs.btn-success.pull-right(
+                type='button'
+                uib-tooltip="{{'Enable/Disable confirmation for user removing' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='confirmRemove.value = !confirmRemove.value'
+                ng-class='{"btn-warning-outline": !confirmRemove.value, "btn-success": confirmRemove.value}')
+                  i.fa.fa-lock(ng-if='confirmRemove.value')
+                  i.fa.fa-unlock(ng-if='!confirmRemove.value')
+                  span(translate) Confirm Remove 
+
+              button.btn.btn-xs.btn-danger-outline.pull-right(
+                type='button'
+                uib-tooltip="{{'Set filters for user removing' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='showFilters = !showFilters'
+                ng-class='{"btn-danger-outline": !showFilters, "btn-danger": showFilters}')
+                  i.fa.fa-trash-o
+                  span(translate) Filters
+
+              button.btn.btn-xs.btn-primary-outline.pull-right(
+                type='button'
+                uib-tooltip="{{'Set groups quotas for new users' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='showDefaultGroupsQuotas = !showDefaultGroupsQuotas; initTemporaryDefaultQuotas()'
+                ng-class='{"btn-primary-outline": !showDefaultGroupsQuotas, "btn-primary": showDefaultGroupsQuotas}')
+                  i.fa.fa-object-group
+                  span(translate) Default Groups Quotas 
+
+              button.btn.btn-xs.btn-primary-outline.pull-right(
+                type='button'
+                uib-tooltip="{{'Write an email to the user selection' | translate}}"
+                ng-disabled='!filteredUsers.length'
+                ng-click='mailTo(filteredUsers)'
+                tooltip-placement='top'
+                tooltip-popup-delay='500')
+                  i.fa.fa-envelope-o
+                  span(translate) Contact Users
+
+        li.list-group-item(ng-if='showFilters')
+          .user-line
+            .heading
+              i.fa.fa-trash-o
+              span(translate) Removing filters  
+
+            form.form-inline.user-filters-items
+              .form-group.user-filters-item
+                label.user-list-label(
+                  translate
+                  uib-tooltip="{{'Filter on user group ownership' | translate}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500') Group Owner
+                select(ng-model='removingFilters.groupOwner' ng-options='option for option in removingFilterOptions')
+
+        li.list-group-item(ng-if='showDefaultGroupsQuotas')
+          .user-line
+            .heading
+              i.fa.fa-object-group
+              span(translate) Default groups quotas
+
+            form.form-inline.user-default-quotas-items(name='dafaultQuotasForm')
+              .form-group.user-default-quotas-item
+                label.user-list-label(translate) Number of groups
+                input.form-control.input-sm(type='number' min='0' ng-model='tmpEnv.defaultGroupsNumber' required)
+
+              .form-group.user-default-quotas-item
+                label.user-list-label Total duration of groups (ms)
+                input.form-control.input-sm(type='number' min='0' ng-model='tmpEnv.defaultGroupsDuration' required)
+
+              .form-group.user-default-quotas-item
+                label.user-list-label(translate) Number of repetitions per group
+                input.form-control.input-sm(type='number' min='0' ng-model='tmpEnv.defaultGroupsRepetitions' required)
+
+              .form-group.user-default-quotas-save
+                button.btn.btn-sm.btn-primary(
+                  uib-tooltip='{{tmpEnv.defaultQuotasTooltip | translate}}'
+                  tooltip-enable='tmpEnv.defaultQuotasTooltip'
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500'
+                  ng-click='updateDefaultUserGroupsQuotas()'
+                  ng-disabled='!conditionForDefaultQuotasSaving(defaultQuotasForm.$invalid)')
+                    span(translate) Save
+
+        li.list-group-item(ng-repeat="user in users \
+          | filter:search \
+          | orderBy: 'name'  \
+          | pagedObjectsFilter:scopeUsersCtrl:'userCurrentPage':'userItemsPerPage':'filteredUsers' \
+            track by user.email") 
+          .user-line.user-actions
+            i.fa.fa-user.fa-2x.fa-fw.user-list-icon
+            .user-list-details.selectable
+              a.user-list-name(ng-href="{{::'mailto:' + user.email}}") {{::user.name}}
+              .user-list-id
+                span(translate) Email
+                span(ng-bind-template="{{::': ' + user.email + ' - '}}")
+                span(translate) Privilege
+                span(ng-bind-template="{{::': ' + user.privilege}}")
+
+            button.btn.btn-xs.btn-danger-outline.pull-right(
+              type='button'
+              ng-click='removeUser(user.email, confirmRemove.value)'
+              ng-disabled='user.privilege === "admin"')
+                i.fa.fa-trash-o
+                span(translate) Remove
+
+            button.btn.btn-xs.btn-primary-outline.pull-right(
+              type='button'
+              ng-click='showGroupsQuotas = !showGroupsQuotas; initTemporaryQuotas(user)'
+              ng-class='{"btn-primary-outline": !showGroupsQuotas, "btn-primary": showGroupsQuotas}')
+                i.fa.fa-object-group
+                span(translate) Groups Quotas 
+
+            ul.list-group.user-list.user-list-items(ng-if='showGroupsQuotas')
+              li.list-group-item
+                .heading.user-action-body
+                  i.fa.fa-object-group
+                  span(translate) Groups Quotas
+
+                form.form-inline(name='quotasForm')
+                  .form-group.user-quotas-item
+                    label.user-list-label(translate) Number of groups
+                    input.form-control.input-sm(type='number' min='0' ng-max-length='5' ng-model='user.groupsNumber' required)
+
+                  .form-group.user-quotas-item
+                    label.user-list-label(translate) Total duration of groups (ms)
+                    input.form-control.input-sm(type='number' min='0' ng-model='user.groupsDuration' required)
+
+                  .form-group.user-quotas-item
+                    label.user-list-label(translate) Number of repetitions per group
+                    input.form-control.input-sm(type='number' min='0' ng-model='user.groupsRepetitions' required)
+
+                  .form-group.user-quotas-save
+                    button.btn.btn-sm.btn-primary(
+                      uib-tooltip='{{user.quotasTooltip | translate}}'
+                      tooltip-enable='user.quotasTooltip'
+                      tooltip-placement='top'
+                      tooltip-popup-delay='500'
+                      ng-click='updateUserGroupsQuotas(user)'
+                      ng-disabled='!conditionForQuotasSaving(user, quotasForm.$invalid)')
+                        span(translate) Save 

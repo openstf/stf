@@ -1,19 +1,27 @@
 describe('Control Page', function() {
   var DeviceListPage = require('../devices')
   var deviceListPage = new DeviceListPage()
+  var localhost = browser.baseUrl
 
   var ControlPage = function() {
     this.get = function() {
-      browser.get(protractor.getInstance().baseUrl + 'control')
+      browser.get(localhost + 'control')
     }
-    this.kickDeviceButton = element.all(by.css('.kick-device')).first()
+
+    this.kickDeviceButton = element.all(by.css('.kick-device'))
+    this.devicesDropDown = element(by.css('.device-name-text'))
+
+    this.openDevicesDropDown = function() {
+      return this.devicesDropDown.click()
+    }
+
+    this.getFirstKickDeviceButton = function() {
+      return this.kickDeviceButton.first()
+    }
+
     this.kickDevice = function() {
       this.openDevicesDropDown()
-      this.kickDeviceButton.click()
-    }
-    this.devicesDropDown = element(by.css('.device-name-text'))
-    this.openDevicesDropDown = function() {
-      this.devicesDropDown.click()
+      this.getFirstKickDeviceButton().click()
     }
   }
 
@@ -26,8 +34,8 @@ describe('Control Page', function() {
 
     browser.sleep(500)
 
-    browser.getLocationAbsUrl().then(function(newUrl) {
-      expect(newUrl).toMatch(protractor.getInstance().baseUrl + 'control')
+    browser.getCurrentUrl().then(function(newUrl) {
+      expect(newUrl).toContain(localhost + 'control/')
     })
   })
 
@@ -135,10 +143,10 @@ describe('Control Page', function() {
   it('should stop controlling an usable device', function() {
     controlPage.kickDevice()
 
-    waitUrl(/devices/)
+    browser.wait(waitUrl(/devices/), 5000)
 
-    browser.getLocationAbsUrl().then(function(newUrl) {
-      expect(newUrl).toBe(protractor.getInstance().baseUrl + 'devices')
+    browser.getCurrentUrl().then(function(newUrl) {
+      expect(newUrl).toBe(localhost + 'devices')
     })
   })
 

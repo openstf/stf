@@ -1,3 +1,7 @@
+/**
+* Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
 var QueryParser = require('./util/query-parser')
 
 module.exports = function DeviceListCtrl(
@@ -53,6 +57,10 @@ module.exports = function DeviceListCtrl(
     }
   , {
       name: 'manufacturer'
+    , selected: false
+    }
+  , {
+      name: 'marketName'
     , selected: false
     }
   , {
@@ -122,6 +130,34 @@ module.exports = function DeviceListCtrl(
   , {
       name: 'owner'
     , selected: true
+    }
+  , {
+      name: 'group'
+    , selected: false
+    }
+  , {
+      name: 'groupSchedule'
+    , selected: false
+    }
+  , {
+      name: 'groupStartTime'
+    , selected: false
+    }
+  , {
+      name: 'groupEndTime'
+    , selected: false
+    }
+  , {
+      name: 'groupRepetitions'
+    , selected: false
+    }
+  , {
+      name: 'groupOwner'
+    , selected: false
+    }
+  , {
+      name: 'groupOrigin'
+    , selected: false
     }
   ]
 

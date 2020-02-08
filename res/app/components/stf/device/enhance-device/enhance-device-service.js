@@ -1,3 +1,7 @@
+/**
+* Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
 module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
   var service = {}
 
@@ -62,6 +66,8 @@ module.exports = function EnhanceDeviceServiceFactory($filter, AppState) {
       device.enhancedUserProfileUrl = enhanceUserProfileUrl(device.owner.email)
       device.enhancedUserName = device.owner.name || 'No name'
     }
+
+    device.enhancedGroupOwnerProfileUrl = enhanceUserProfileUrl(device.group.owner.email)
   }
 
   function enhanceUserProfileUrl(email) {

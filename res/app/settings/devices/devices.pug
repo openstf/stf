@@ -1,0 +1,137 @@
+//
+  Copyright © 2019 code initially contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+//
+
+.widget-container.fluid-height.stf-devices(ng-controller='DevicesCtrl')
+  .heading
+    i.fa.fa-mobile.device-header-icon
+    span(translate) Device list 
+
+    a.pull-right.btn.btn-sm(ng-href='')
+      i.fa.fa-question-circle.fa-fw(uib-tooltip='{{"More about Devices" | translate}}' tooltip-placement='left')
+
+  .widget-content.padded
+
+    nothing-to-show(icon='fa-mobile' message='{{"No Devices" | translate}}' ng-if='!devices.length')
+
+    div(ng-if='devices.length')
+      ul.list-group.devices-list
+        li.list-group-item
+          .device-line.device-actions
+            form.form-inline.device-header
+              .form-group
+                stf-pager(
+                  tooltip-label="{{'Device selection' | translate}}"
+                  total-items='filteredDevices.length'
+                  total-items-style='stf-pager-devices-total-items'
+                  items-per-page='scopeDevicesCtrl.deviceItemsPerPage'
+                  items-per-page-options='itemsPerPageOptions'
+                  current-page='scopeDevicesCtrl.deviceCurrentPage'
+                  items-search='search')
+
+              button.btn.btn-xs.btn-danger.pull-right(
+                type='button'
+                uib-tooltip="{{'Remove the device selection' | translate}}"
+                tooltip-placement='bottom'
+                tooltip-popup-delay='500'
+                ng-disabled='!filteredDevices.length'
+                ng-click='removeDevices(search, filteredDevices, confirmRemove.value)')
+                  i.fa.fa-trash-o
+                  span(translate) Remove
+
+              button.btn.btn-xs.btn-success.pull-right(
+                type='button'
+                uib-tooltip="{{'Enable/Disable confirmation for device removing' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='confirmRemove.value = !confirmRemove.value'
+                ng-class='{"btn-warning-outline": !confirmRemove.value, "btn-success": confirmRemove.value}')
+                  i.fa.fa-lock(ng-if='confirmRemove.value')
+                  i.fa.fa-unlock(ng-if='!confirmRemove.value')
+                  span(translate) Confirm Remove
+
+              button.btn.btn-xs.btn-danger-outline.pull-right(
+                type='button'
+                uib-tooltip="{{'Set filters for device removing' | translate}}"
+                tooltip-placement='top'
+                tooltip-popup-delay='500'
+                ng-click='showFilters = !showFilters'
+                ng-class='{"btn-danger-outline": !showFilters, "btn-danger": showFilters}')
+                  i.fa.fa-trash-o
+                  span(translate) Filters
+
+        li.list-group-item(ng-if='showFilters')
+          .device-line
+            .heading
+              i.fa.fa-trash-o
+              span(translate) Removing filters
+
+            form.form-inline.device-filters-items
+              .form-group.device-filters-item
+                label.device-list-label(
+                  translate
+                  uib-tooltip="{{'Device presence state' | translate}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500') Present
+                select(
+                  ng-model='removingFilters.present'
+                  ng-options='option for option in removingFilterOptions')
+
+              .form-group.device-filters-item
+                label.device-list-label(
+                  translate
+                  uib-tooltip="{{'Device booking state' | translate}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500') Booked
+                select(
+                  ng-model='removingFilters.booked'
+                  ng-options='option for option in removingFilterOptions')
+
+              .form-group.device-filters-item
+                label.device-list-label(
+                  translate
+                  uib-tooltip="{{'Device notes state' | translate}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500') Annotated
+                select(
+                  ng-model='removingFilters.annotated'
+                  ng-options='option for option in removingFilterOptions')
+
+              .form-group.device-filters-item
+                label.device-list-label(
+                  translate
+                  uib-tooltip="{{'Device controlling state' | translate}}"
+                  tooltip-placement='top'
+                  tooltip-popup-delay='500') Controlled
+                select(
+                  ng-model='removingFilters.controlled'
+                  ng-options='option for option in removingFilterOptions')
+
+        li.list-group-item(ng-repeat="device in devices \
+          | filter:search \
+          | orderBy: 'model' \
+          | pagedObjectsFilter:scopeDevicesCtrl:'deviceCurrentPage':'deviceItemsPerPage':'filteredDevices' \
+            track by device.serial") 
+          .device-line.device-actions
+            i.fa.fa-mobile.fa-2x.fa-fw.device-list-icon
+            .device-list-details.selectable
+              .device-list-name(ng-bind-template="{{device.manufacturer + ' ' + device.model + ' (' + device.marketName + ')'}}")
+              .device-list-id
+                span(translate) Serial
+                span(ng-bind-template="{{::': ' + device.serial + ' - '}}")
+                span(translate) OS
+                span(ng-bind-template="{{': ' + device.version + ' - '}}")
+                span(translate) Screen 
+                span(ng-bind-template="{{': ' + device.displayStr + ' - '}}")
+                span(translate) SDK
+                span(ng-bind-template="{{': ' + device.sdk + ' - '}}")
+                span(translate) Location 
+                span(ng-bind-template="{{': ' + device.provider.name + ' - '}}")
+                span(translate) Group Origin
+                span(ng-bind-template="{{': ' + device.group.originName}}")
+
+            button.btn.btn-xs.btn-danger-outline.pull-right(
+              type='button'
+              ng-click='removeDevice(device.serial, confirmRemove.value)')
+                i.fa.fa-trash-o
+                span(translate) Remove

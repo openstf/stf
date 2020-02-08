@@ -1,3 +1,7 @@
+/**
+* Copyright © 2019 contains code contributed by Orange SA, authors: Denis Barbaron - Licensed under the Apache license 2.0
+**/
+
 var _ = require('lodash')
 
 var filterOps = {
@@ -18,13 +22,59 @@ var filterOps = {
   }
 }
 
-module.exports = function DeviceColumnService($filter, gettext) {
+module.exports = function DeviceColumnService($filter, gettext, SettingsService, AppState) {
   // Definitions for all possible values.
   return {
     state: DeviceStatusCell({
       title: gettext('Status')
     , value: function(device) {
         return $filter('translate')(device.enhancedStateAction)
+      }
+    })
+  , group: TextCell({
+      title: gettext('Group Name')
+    , value: function(device) {
+        return $filter('translate')(device.group.name)
+      }
+    })
+  , groupSchedule: TextCell({
+      title: gettext('Group Class')
+    , value: function(device) {
+        return $filter('translate')(device.group.class)
+      }
+    })
+  , groupOwner: LinkCell({
+      title: gettext('Group Owner')
+    , target: '_blank'
+    , value: function(device) {
+        return $filter('translate')(device.group.owner.name)
+      }
+    , link: function(device) {
+        return device.enhancedGroupOwnerProfileUrl
+      }
+    })
+  , groupEndTime: TextCell({
+      title: gettext('Group Expiration Date')
+    , value: function(device) {
+        return $filter('date')(device.group.lifeTime.stop, SettingsService.get('dateFormat'))
+      }
+    })
+  , groupStartTime: TextCell({
+      title: gettext('Group Starting Date')
+    , value: function(device) {
+        return $filter('date')(device.group.lifeTime.start, SettingsService.get('dateFormat'))
+      }
+    })
+  , groupRepetitions: TextCell({
+      title: gettext('Group Repetitions')
+    , value: function(device) {
+        return device.group.repetitions
+      }
+    })
+  , groupOrigin: TextCell({
+      title: gettext('Group Origin')
+    , value: function(device) {
+        return $filter('translate')(device.group.originName)
       }
     })
   , model: DeviceModelCell({
@@ -38,7 +88,7 @@ module.exports = function DeviceColumnService($filter, gettext) {
     , value: function(device) {
         return device.name || device.model || device.serial
       }
-    })
+    }, AppState.user.email)
   , operator: TextCell({
       title: gettext('Carrier')
     , value: function(device) {
@@ -179,6 +229,12 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.manufacturer || ''
       }
     })
+  , marketName: TextCell({
+    title: gettext('Market name')
+    , value: function(device) {
+      return device.marketName || ''
+    }
+  })
   , sdk: NumberCell({
       title: gettext('SDK')
     , defaultOrder: 'desc'
@@ -305,8 +361,10 @@ function zeroPadTwoDigit(digit) {
 }
 
 function compareIgnoreCase(a, b) {
-  var la = (a || '').toLowerCase()
-  var lb = (b || '').toLowerCase()
+/***** fix bug: cast to String for Safari compatibility ****/
+  var la = (String(a) || '').toLowerCase()
+  var lb = (String(b) || '').toLowerCase()
+/***********************************************************/
   if (la === lb) {
     return 0
   }
@@ -316,8 +374,10 @@ function compareIgnoreCase(a, b) {
 }
 
 function filterIgnoreCase(a, filterValue) {
-  var va = (a || '').toLowerCase()
-  var vb = filterValue.toLowerCase()
+/***** fix bug: cast to String for Safari compatibility ****/
+  var va = (String(a) || '').toLowerCase()
+  var vb = String(filterValue).toLowerCase()
+/***********************************************************/
   return va.indexOf(vb) !== -1
 }
 
@@ -551,7 +611,7 @@ function DeviceModelCell(options) {
   })
 }
 
-function DeviceNameCell(options) {
+function DeviceNameCell(options, ownerEmail) {
   return _.defaults(options, {
     title: options.title
   , defaultOrder: 'asc'
@@ -566,11 +626,11 @@ function DeviceNameCell(options) {
       var a = td.firstChild
       var t = a.firstChild
 
-      if (device.using) {
+      if (device.using && device.owner.email === ownerEmail) {
         a.className = 'device-product-name-using'
         a.href = '#!/control/' + device.serial
       }
-      else if (device.usable) {
+      else if (device.usable && !device.using) {
         a.className = 'device-product-name-usable'
         a.href = '#!/control/' + device.serial
       }

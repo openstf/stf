@@ -30,16 +30,24 @@ module.exports = function LoginPage() {
     return this.username.submit()
   }
 
-  this.doLogin = function() {
+  this.getUserName = function() {
+    return this.login.username
+  }
+
+  this.doLogin = function(userName, email, password) {
     var EC = protractor.ExpectedConditions
     var timeout = 15000
+    var loginName = (typeof userName !== 'undefined') ? userName : this.login.username
+    var loginEmail = (typeof email !== 'undefined') ? email : this.login.email
+    var loginPassword = (typeof password !== 'undefined') ? email : this.login.password
+
     this.get()
     browser.wait(EC.presenceOf(element(by.css('[value="Log In"]'))), timeout)
-    this.setName(this.login.username)
+    this.setName(loginName)
     if (this.login.method === 'ldap') {
-      this.setPassword(this.login.password)
+      this.setPassword(loginPassword)
     } else {
-      this.setEmail(this.login.email)
+      this.setEmail(loginEmail)
     }
 
     this.submit()
@@ -49,6 +57,16 @@ module.exports = function LoginPage() {
         return /devices/.test(url)
       })
     })
+  }
+
+  this.doFreshLogin = function(userName, email, password) {
+    // Clean up cookies
+    browser.executeScript('window.localStorage.clear();')
+    browser.executeScript('window.sessionStorage.clear();')
+    browser.driver.manage().deleteAllCookies()
+
+    // Procced again through login process
+    this.doLogin(userName, email, password)
   }
 
   this.cleanUp = function() {

@@ -95,7 +95,7 @@ module.exports.config = {
       reportTitle: 'Protractor Test Execution Report',
       outputPath: dashboardReportDirectory,
       outputFilename: 'index',
-      screenshotPath: './',
+      screenshotPath: '.',
       testBrowser: browserName,
       browserVersion: browserVersion,
       modifiedSuiteName: false,

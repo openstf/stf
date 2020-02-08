@@ -7,14 +7,21 @@ describe('Control Page', function() {
     this.get = function() {
       browser.get(localhost + 'control')
     }
-    this.kickDeviceButton = element.all(by.css('.kick-device')).first()
+
+    this.kickDeviceButton = element.all(by.css('.kick-device'))
+    this.devicesDropDown = element(by.css('.device-name-text'))
+
+    this.openDevicesDropDown = function() {
+      return this.devicesDropDown.click()
+    }
+
+    this.getFirstKickDeviceButton = function() {
+      return this.kickDeviceButton.first()
+    }
+
     this.kickDevice = function() {
       this.openDevicesDropDown()
-      this.kickDeviceButton.click()
-    }
-    this.devicesDropDown = element(by.css('.device-name-text'))
-    this.openDevicesDropDown = function() {
-      this.devicesDropDown.click()
+      this.getFirstKickDeviceButton().click()
     }
   }
 

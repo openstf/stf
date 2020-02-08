@@ -1,0 +1,32 @@
+.stf-save-log-message.stf-modal
+  .modal-header.dialog-header-errorX
+    button(type='button', ng-click='cancel()').close &times;
+    h4.modal-title.text-danger
+      i.fa.fa-save
+      .button-spacer
+      span(translate) Save Logs
+  .modal-body
+    table.table(ng-show='true')
+      tr.additional-modal
+        td(width='50%')
+          input(ng-model='saveLogFileName', type='text', placeholder='{{"File Name"|translate}}').input-sm.form-control
+        td(width='1%')
+          span .
+        td(width='20%')
+          select(ng-model='selectedExtension', data-ng-options='l for l in logExtentension')
+
+      tr.additional-modal
+          tr.additional-modal
+            td(width='100%')
+              h5.modal-title.bold
+                span(translate) Sample of log format
+          tr.additional-modal
+            td(width='50%', height='30%')
+              textarea(ng-model='samplePresentation', type='text', placeholder='...', rows="4", readonly="readonly").save-log-textarea
+            td(width="5%", colspan="2")
+              i.fa.fa-file-text-o.fa-5x
+
+  .modal-footer
+    button(ng-click='saveLogs()', ng-disabled='false', title='{{"Save Logs"|translate}}').btn.btn-xs.btn-danger-outline
+            i.fa.fa-save
+            span(translate)  Save Logs

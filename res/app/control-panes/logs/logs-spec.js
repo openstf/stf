@@ -6,6 +6,9 @@ describe('LogsCtrl', function() {
 
   beforeEach(inject(function($rootScope, $controller) {
     scope = $rootScope.$new()
+    if (Object.keys($rootScope.LogcatService).length > 0) {
+      scope.deviceEntries = $rootScope.LogcatService
+    }
     ctrl = $controller('LogsCtrl', {$scope: scope})
   }))
 

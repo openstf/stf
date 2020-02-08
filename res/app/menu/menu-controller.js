@@ -9,6 +9,7 @@ module.exports = function MenuCtrl(
 , $location
 , $http
 , CommonService
+, LogcatService
 , socket
 , $cookies
 , $window) {
@@ -19,7 +20,8 @@ module.exports = function MenuCtrl(
 
   SettingsService.bind($rootScope, {
     target: 'platform',
-    defaultValue: 'native'
+    defaultValue: 'native',
+    deviceEntries: LogcatService.deviceEntries
   })
 
   $scope.$on('$routeChangeSuccess', function() {

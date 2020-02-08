@@ -1,7 +1,7 @@
 var _ = require('lodash')
 
 module.exports =
-  function logcatTableDirective($rootScope, $timeout, LogcatService) {
+  function logcatTableDirective($rootScope, $timeout, LogcatService, SaveLogService) {
     return {
       restrict: 'E',
       replace: true,
@@ -14,28 +14,67 @@ module.exports =
         var parent = element[0]
         var body = element.find('tbody')[0]
         var maxEntriesBuffer = 3000
-        var numberOfEntries = 0
+        var maxVisibleEntries = 100
+        var deviceSerial = (window.location.href).split('/').pop()
 
-        function incrementNumberEntry() {
-          numberOfEntries++
-          if (numberOfEntries > maxEntriesBuffer) {
-            scope.clearTable()
+        scope.started = checkLoggerServiceStatus(true)
+        scope.allowClean = checkAllowClean()
+
+        function checkAllowClean() {
+          if (Object.keys(LogcatService.deviceEntries).includes(deviceSerial)) {
+            return LogcatService.deviceEntries[deviceSerial].allowClean
+          }
+
+          return false
+        }
+
+        function checkLoggerServiceStatus(loadLogs = false) {
+          var collectedLogs = []
+          var isStarted = false
+          if (Object.keys($rootScope).includes('LogcatService')) {
+            LogcatService.deviceEntries = $rootScope.LogcatService.deviceEntries
+          }
+
+          if (Object.keys(LogcatService.deviceEntries).includes(deviceSerial)) {
+            collectedLogs = LogcatService.deviceEntries[deviceSerial].logs
+            isStarted = LogcatService.deviceEntries[deviceSerial].started
+          }
+
+          if (loadLogs) {
+            restoreLogs(collectedLogs)
+          }
+          return isStarted
+        }
+
+        function limitVisibleEntries() {
+          var limiter = ''
+          if (maxVisibleEntries > maxEntriesBuffer) {
+            limiter = maxEntriesBuffer
+          } else {
+            limiter = maxVisibleEntries
+          }
+
+          if (element.find('tbody')[0].rows.length > limiter) {
+            removeFirstLogTableEntry()
           }
         }
 
+        function removeFirstLogTableEntry() {
+          element.find('tbody')[0].deleteRow(0)
+        }
+
         LogcatService.addEntryListener = function(entry) {
-          incrementNumberEntry()
-          addRow(body, entry)
+          if (deviceSerial === entry.serial) {
+            limitVisibleEntries()
+            if (LogcatService.deviceEntries[deviceSerial].logs.length > maxEntriesBuffer) {
+              LogcatService.deviceEntries[deviceSerial].logs.shift()
+            }
+            addRow(body, entry)
+          }
         }
 
         LogcatService.addFilteredEntriesListener = function(entries) {
-          clearTable()
-          //var fragment = document.createDocumentFragment()
-          _.each(entries, function(entry) {
-            // TODO: This is not adding all the entries after first scope creation
-            incrementNumberEntry()
-            addRow(body, entry, true)
-          })
+          checkLoggerServiceStatus()
         }
 
         function shouldAutoScroll() {
@@ -65,11 +104,6 @@ module.exports =
           var newRow = rowParent.insertRow(-1)
 
           newRow.classList.add('log-' + data.priorityLabel)
-
-          //newRow.insertCell(-1)
-          //  .appendChild(document.createTextNode(LogcatService.numberOfEntries))
-          //newRow.insertCell(-1)
-          //  .appendChild(document.createTextNode(data.deviceLabel))
           newRow.insertCell(-1)
             .appendChild(document.createTextNode(data.priorityLabel))
           newRow.insertCell(-1)
@@ -79,8 +113,6 @@ module.exports =
               .appendChild(document.createTextNode(data.pid))
             newRow.insertCell(-1)
               .appendChild(document.createTextNode(data.tid))
-            //newRow.insertCell(-1)
-            //  .appendChild(document.createTextNode(data.app))
             newRow.insertCell(-1)
               .appendChild(document.createTextNode(data.tag))
           }
@@ -101,8 +133,22 @@ module.exports =
 
         scope.clearTable = function() {
           LogcatService.clear()
-          numberOfEntries = 0
           clearTable()
+        }
+
+        function restoreLogs(collectedLogs) {
+          clearTable()
+
+          var startFrom = 0
+          if (collectedLogs.length - maxVisibleEntries >= 0) {
+            startFrom = collectedLogs.length - maxVisibleEntries
+          }
+
+          for (var logLine = startFrom; logLine < collectedLogs.length; logLine++) {
+            if (deviceSerial === collectedLogs[logLine].serial) {
+              addRow(body, collectedLogs[logLine], true)
+            }
+          }
         }
 
         /**
@@ -117,6 +163,7 @@ module.exports =
            *  in other case colour will be set to default.
            *
            * @param {event} event object
+           * @returns {None} NaN
            */
         scope.validateDate = function(e) {
           var pattern = ['^(?:(?:([0-1]?\\d|2[0-3]):)?(:[0-5]\\d|[0-5]\\d):|\\d)',
@@ -137,6 +184,21 @@ module.exports =
           if (isTextValid === false) {
             event.srcElement.style.borderColor = 'red'
           }
+        }
+
+        /**
+         * Show "Save Log" modal.
+         *
+         * @returns {None} NaN
+         */
+        scope.saveLogs = function() {
+          var collectedLogs = []
+
+          if (Object.keys(LogcatService.deviceEntries).includes(deviceSerial)) {
+            collectedLogs = LogcatService.deviceEntries[deviceSerial].logs
+          }
+
+          SaveLogService.open(collectedLogs, false)
         }
 
         scope.$on('$destroy', function() {

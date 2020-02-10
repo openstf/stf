@@ -56,6 +56,7 @@ The app role can contain any of the following units. You may distribute them as 
 * [stf-triproxy-dev.service](#stf-triproxy-devservice)
 * [stf-websocket@.service](#stf-websocketservice)
 * [stf-api@.service](#stf-apiservice)
+* [stf-groups-engine.service](#stf-groups-engineservice)
 
 ### Database role
 
@@ -360,6 +361,9 @@ ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
   --name %p \
   --link rethinkdb-proxy-28015:rethinkdb \
+  -e "STF_ROOT_GROUP_NAME=YOUR_ROOT_GROUP_NAME_HERE" \
+  -e "STF_ADMIN_NAME=YOUR_ADMIN_NAME_HERE" \
+  -e "STF_ADMIN_EMAIL=YOUR_ADMIN_EMAIL_HERE" \
   openstf/stf:latest \
   stf migrate
 ```
@@ -691,8 +695,52 @@ ExecStart=/usr/bin/docker run --rm \
   openstf/stf:latest \
   stf api --port 3000 \
   --connect-sub tcp://appside.stf.example.org:7150 \
-  --connect-push tcp://appside.stf.example.org:7170
+  --connect-push tcp://appside.stf.example.org:7170 \
+  --connect-sub-dev tcp://devside.stf.example.org:7250 \
+  --connect-push-dev tcp://devside.stf.example.org:7270
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
+```
+
+### `stf-groups-engine.service`
+
+**Requires** the `rethinkdb-proxy-28015.service` unit on the same host.
+
+The groups-engine unit is the core of the device booking/partitioning system, it is made of four main functions ensuring in particular the consistency of operations ordered by the client side on groups (i.e. a group is an association of users, devices and a specification of time):
+
+-	groups’ scheduler: triggered each second to manage lifecycle of groups: updates group state and group schedule dates, removes terminated groups, etc.
+
+-	groups’ watcher: relied on changefeeds mechanism of rethinkdb database, so taking actions on group creation, updating and removing: notifies API unit and front-end UI, releases device control, updates device current group, etc.
+
+-	devices’ watcher: relied on changefeeds mechanism of rethinkdb database, so taking actions on device creation, updating and removing: notifies front-end UI, releases device control, etc.
+
+-	users’ watcher: relied on changefeeds mechanism of rethinkdb database, so taking actions on user creation, updating and removing: notifies front-end UI, etc.
+
+Note that it doesn't make sense to have more than one groups-engine unit running at once.
+
+```ini
+[Unit]
+Description=STF groups engine
+After=rethinkdb-proxy-28015.service
+BindsTo=rethinkdb-proxy-28015.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull openstf/stf:latest
+ExecStartPre=-/usr/bin/docker kill %p
+ExecStartPre=-/usr/bin/docker rm %p
+ExecStart=/usr/bin/docker run --rm \
+  --name %p \
+  --link rethinkdb-proxy-28015:rethinkdb \
+  -e "SECRET=YOUR_SESSION_SECRET_HERE" \
+  openstf/stf:latest \
+  stf groups-engine \
+  --connect-sub tcp://appside.stf.example.org:7150 \
+  --connect-push tcp://appside.stf.example.org:7170 \
+  --connect-sub-dev tcp://devside.stf.example.org:7250 \
+  --connect-push-dev tcp://devside.stf.example.org:7270
+ExecStop=-/usr/bin/docker stop -t 10 %p
 ```
 
 ## Optional units

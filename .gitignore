@@ -13,3 +13,4 @@
 /rethinkdb_data/
 /temp/
 /tmp/
+package-lock.json

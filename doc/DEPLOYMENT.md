@@ -883,6 +883,7 @@ So, to recap, our example setup is as follows:
 | [stf-storage-plugin-image@3400.service](#stf-storage-plugin-imageservice) | 192.168.255.100 | 3400 |
 | [stf-storage-temp@3500.service](#stf-storage-tempservice) | 192.168.255.100 | 3500 |
 | [stf-websocket@3600.service](#stf-websocketservice) | 192.168.255.100 | 3600 |
+| [stf-api@3700.service](#stf-apiservice) | 192.168.255.100 | 3700 |
 
 Furthermore, let's assume that we have the following providers set up:
 

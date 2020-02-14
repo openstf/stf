@@ -2335,11 +2335,11 @@ definitions:
         type: string
         pattern: '^[0-9a-zA-Z-_./: ]{1,50}$'
       startTime:
-        description: Group starting time; default value => group creation time
+        description: Group starting time (in UTC, conforming to RFC 3339 section 5.6); default value => group creation time
         type: string
         format: date-time
       stopTime:
-        description: Group expiration time; default value => startTime + 1 hour
+        description: Group expiration time (in UTC, conforming to RFC 3339 section 5.6); default value => startTime + 1 hour
         type: string
         format: date-time
       class:

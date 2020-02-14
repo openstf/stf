@@ -715,7 +715,7 @@ The groups-engine unit is the core of the device booking/partitioning system, it
 
 -	users’ watcher: relied on changefeeds mechanism of rethinkdb database, so taking actions on user creation, updating and removing: notifies front-end UI, etc.
 
-Note that it doesn't make sense to have more than one groups-engine unit running at once.
+Note that it doesn't make sense to have more than one `groups-engine.service` unit running at once.
 
 ```ini
 [Unit]
@@ -869,6 +869,35 @@ ExecStart=/usr/bin/docker run --rm \
 ExecStop=-/usr/bin/docker stop -t 10 %p-%i
 ```
 
+### `swagger-ui@.service`
+
+**Requires** the main HTTP server on the same host.
+
+If you want to play with STF API against your STF platform using swagger UI tool through a web access, then you can use this optional unit. In this example, the unit requires to put the STF swagger file `api_v1.yaml` to the `/opt/stf/swagger` folder of the host. You can have multiple instances running on the same host by using different ports.
+
+```ini
+[Unit]
+Description=Swagger UI (runs on %i port)
+After=docker.service
+BindsTo=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=/usr/bin/docker pull swaggerapi/swagger-ui:latest
+ExecStartPre=-/usr/bin/docker kill %p-%i
+ExecStartPre=-/usr/bin/docker rm %p-%i
+ExecStart=/usr/bin/docker run --rm \
+  --name %p-%i \
+  -e "VALIDATOR_URL=null" \
+  -e "SWAGGER_JSON=/foo/api_v1.yaml" \
+  -p %i:8080 \
+  -v /opt/stf/swagger:/foo \
+  swaggerapi/swagger-ui:latest
+ExecStop=/usr/bin/docker stop -t 2 %p-%i
+```
+
 ## Nginx configuration
 
 Now that you've got all the units ready, it's time to set up [nginx](http://nginx.org/) to tie all the processes together with a clean URL.
@@ -884,6 +913,7 @@ So, to recap, our example setup is as follows:
 | [stf-storage-temp@3500.service](#stf-storage-tempservice) | 192.168.255.100 | 3500 |
 | [stf-websocket@3600.service](#stf-websocketservice) | 192.168.255.100 | 3600 |
 | [stf-api@3700.service](#stf-apiservice) | 192.168.255.100 | 3700 |
+| [swagger-ui@.service](#swagger-uiservice) | 192.168.255.100 | 3800 |
 
 Furthermore, let's assume that we have the following providers set up:
 
@@ -929,6 +959,10 @@ http {
 
   upstream stf_api {
     server 192.168.255.100:3700 max_fails=0;
+  }
+  
+  upstream swagger_ui {
+    server 192.168.255.100:3800 max_fails=0;
   }
 
   types {
@@ -1026,6 +1060,12 @@ http {
       proxy_set_header X-Real-IP $http_x_real_ip;
     }
 
+    location /swaggerui/ {
+      proxy_pass http://swagger_ui/;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Real-IP $http_x_real_ip;
+    }
+
     location / {
       proxy_pass http://stf_app;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -1052,7 +1092,7 @@ ConditionPathExists=/srv/nginx/nginx.conf
 EnvironmentFile=/etc/environment
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=/usr/bin/docker pull nginx:1.7.10
+ExecStartPre=/usr/bin/docker pull nginx:1.17.4
 ExecStartPre=-/usr/bin/docker kill %p
 ExecStartPre=-/usr/bin/docker rm %p
 ExecStart=/usr/bin/docker run --rm \
@@ -1062,7 +1102,7 @@ ExecStart=/usr/bin/docker run --rm \
   -v /srv/ssl/stf.example.org.key:/etc/nginx/ssl/cert.key:ro \
   -v /srv/ssl/dhparam.pem:/etc/nginx/ssl/dhparam.pem:ro \
   -v /srv/nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
-  nginx:1.7.10 \
+  nginx:1.17.4 \
   nginx
 ExecStop=/usr/bin/docker stop -t 2 %p
 ```

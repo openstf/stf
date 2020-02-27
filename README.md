@@ -75,15 +75,41 @@ Please use our [open collective](https://opencollective.com/openstf#sponsor) or 
     * Supports [Chrome remote debug tools](https://developer.chrome.com/devtools/docs/remote-debugging)
   - File Explorer to access device file system
   - Experimental VNC support (work in progress)
-* Manage your device inventory
+* Monitor your device inventory
   - See which devices are connected, offline/unavailable (indicating a weak USB connection), unauthorized or unplugged
   - See who's using a device
-  - Search devices by phone number, IMEI, ICCID, Android version, operator, product name and/or many other attributes with easy but powerful queries
+  - Search devices by phone number, IMEI, ICCID, Android version, operator, product name, group name and/or many other attributes with easy but powerful queries
   - Show a bright red screen with identifying information on a device you need to locate physically
   - Track battery level and health
   - Rudimentary Play Store account management
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
+* Use the Booking & Partitioning systems
+  - Overview
+    * The partitioning system allow you `[administrator level]` to allocate distinct sets of devices to different projects or organizations (i.e. represented by user sets) for an unlimited period
+    * The booking system allows you to reserve a set of devices for a set of users during a limited time (e.g. from 3:00 am to 4:00 am during 5 days)
+    * What is common to the booking & partitioning systems is the concept of Group, that is, an association of devices, users and a specification of time
+    * Report to [GroupFeature.pdf](doc/GroupFeature.pdf) for detailed documentation on how to use this feature
+  - Monitor your group inventory
+    * See which groups are active, ready or pending, as well as other group properties: name, identifier, owner, devices, users, class, duration, repetition, starting date, expiration date
+    * Search groups by their property values
+    * Contact by email the owners of the selected groups 
+  - Manage your groups
+    * Create a group by specifying its name, devices, users and schedule
+    * Get ready your group in order it is scheduled by the system
+    * Search groups by their property values
+    * Remove your group or a selection of your groups
+    * Contact by email the owners of the selected groups `[administrator level]`
+* Manage the devices `[administrator level]`
+  - Search the devices by their property values
+  - Remove a  device or a selection of devices meeting a set of filters: present, booked, annotated, controlled
+* Manage the users `[administrator level]`
+  - Create a user by providing his name and his email
+  - Search the users by their property values
+  - Remove a user or a selection of users meeting a set of filters: group owner
+  - Contact a user or a selection of users by email
+  - Set the default groups quotas applicable to all users
+  - Set the groups quotas applicable to a specific user
 * Simple REST [API](doc/API.md)
 
 ## Status
@@ -182,6 +208,19 @@ rethinkdb
 _Note: if it takes a long time for RethinkDB to start up, you may be running into [rethinkdb/rethinkdb#4600](https://github.com/rethinkdb/rethinkdb/issues/4600) (or [rethinkdb/rethinkdb#6047](https://github.com/rethinkdb/rethinkdb/issues/6047)). This usually happens on macOS Sierra. To fix this on macOS, first run `scutil --get HostName` to check if the HostName variable is unset. RethinkDB needs it to generate a server name for your instance. If you find that it's empty, running `sudo scutil --set HostName $(hostname)` has been confirmed to fix the issue on at least one occasion. See the issues for more complete solutions._
 
 You should now have RethinkDB running locally. Running the command again in the same folder will reuse the data from the previous session.
+
+An administrator level is available in STF in addition of the native user one, with increased rights on some features (e.g.  booking & partitioning systems, management of users & devices, ...). The corresponding built-in administrator user has the following default credentials:
+- name: `administrator`
+- email: `administrator@fakedomain.com`
+
+Another built-in object exists, this is the root standard group to which the users and devices belong the first time they register to the STF database, its default name is `Common`
+
+These built-in objects are created in the STF database if they do not already exist 
+
+Of course, you can override the default values of these built-in objects by settings the following environment variables before to initialize the STF database through `stf local` or `stf migrate` commands:
+-	root standard group name: `STF_ROOT_GROUP_NAME` 
+-	administrator user name: `STF_ADMIN_NAME`
+-	administrator user email: `STF_ADMIN_EMAIL`
 
 You're now ready to start up STF itself:
 

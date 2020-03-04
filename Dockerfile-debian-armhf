@@ -42,6 +42,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     cd /tmp/build && \
     export PATH=$PWD/node_modules/.bin:$PATH && \
     sed -i'' -e '/phantomjs/d' package.json && \
+    npm config set unsafe-perm true && \
     npm install -g npm && \
     echo 'npm cache clean --force' | su stf -s /bin/bash && \
     echo 'npm install --no-optional --loglevel http' | su stf -s /bin/bash && \

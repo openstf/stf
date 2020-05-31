@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.4.2 (2020-05-31)
+
+### Fixes
+
+- Fixed SAML_ID_PROVIDER_CERT_PATH in example SAML auth provider unit [#1061](https://github.com/openstf/stf/pull/1061). Thanks @mitchtech!
+- Fixed Chinese characters handling [#1204](https://github.com/openstf/stf/pull/1204). Thanks @xu-duqing!
+
+### Enhancements
+
+- Updated STFService.apk, minitouch and minicap to support Android 11. Thanks @denis99999 and @pcrepieux!
+- Added addAdbPublicKey endpoint [#770](https://github.com/openstf/stf/pull/770). Thanks @neofreko!
+- Added pt_BR translation [#1038](https://github.com/openstf/stf/pull/1038). Thanks @esmiralha!
+- Added market name to device properties [#1002](https://github.com/openstf/stf/pull/1002).
+- Added [group feature](https://github.com/openstf/stf/blob/master/doc/GroupFeature.pdf) [#1056](https://github.com/openstf/stf/pull/1056). Thanks @denis99999!
+- Added validation for filter.pid/ filter.tid/ filter.data input objects [#1074](https://github.com/openstf/stf/pull/1074). Thanks @lukzeg!
+- Added opening device view via reselecting device from device view [#1077](https://github.com/openstf/stf/pull/1077). Thanks @lukzeg!
+ - Added device logs separation [#1095](https://github.com/openstf/stf/pull/1095). Thanks @lukzeg!
+ - Updated NodeJS to 8.9.3 [#1169](https://github.com/openstf/stf/pull/1169).
+ - Added alternative dockerfiles for armhf and x86_64 architectures [#1174](https://github.com/openstf/stf/pull/1174), [#1191](https://github.com/openstf/stf/pull/1191). Thanks @denis99999 and @petemyron!
+ - Added touchMove error handling [#1189](https://github.com/openstf/stf/pull/1189). Thanks @att55!
+ 
+
 ## 3.4.1 (2019-05-03)
 
 ### Fixes

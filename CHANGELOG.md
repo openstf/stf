@@ -9,7 +9,7 @@
 
 ### Enhancements
 
-- Updated STFService.apk, minitouch and minicap to support Android 11. Thanks @denis99999 and @pcrepieux!
+- Updated STFService.apk, minitouch and minicap to support Android 10. Thanks @denis99999 and @pcrepieux!
 - Added addAdbPublicKey endpoint [#770](https://github.com/openstf/stf/pull/770). Thanks @neofreko!
 - Added pt_BR translation [#1038](https://github.com/openstf/stf/pull/1038). Thanks @esmiralha!
 - Added market name to device properties [#1002](https://github.com/openstf/stf/pull/1002).

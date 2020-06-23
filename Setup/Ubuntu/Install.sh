@@ -3,7 +3,6 @@
 # SPDX-License-Identifier:Apache2.0
 # 
 
-# ./Setup/Ubuntu/Install.sh
 # Ubuntu Installer
 
 # Basic Req
@@ -11,13 +10,16 @@ sudo apt-get install -y python-software-properties
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java7-installer
+sudo apt-get install -y lib32stdc++6
 
 #adb
-sudo apt-get install -y lib32stdc++6
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt-get install android-tools-adb
 
 #Set Vars
 export ANDROID_SDK="$HOME/android-sdk-linux"
-PATH=$PATH:$ANDROID_SDK/platform-tools;$ANDROID_SDK/tools
+PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_SDK/tools
 
 
 ##PREREQ

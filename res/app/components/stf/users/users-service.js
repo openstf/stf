@@ -72,6 +72,10 @@ module.exports = function UsersServiceFactory(
     return $http.post('/api/v1/users/' + email + '?name=' + name)
   }
 
+  UsersService.updatePrivilege = function(email, privilege) {
+    return $http.put('/api/v1/users/' + email + '?privilege=' + privilege)
+  }
+
   socket.on('user.settings.users.created', function(user) {
     $rootScope.$broadcast('user.settings.users.created', user)
     $rootScope.$apply()

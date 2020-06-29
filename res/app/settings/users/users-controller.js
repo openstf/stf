@@ -213,6 +213,26 @@ module.exports = function UsersCtrl(
     )
   }
 
+  $scope.updatePrivilege = function(user) {
+    CommonService.errorWrapper(UsersService.updatePrivilege, [
+      user.email
+    , user.privilege
+    ])
+    .then(res => {
+      if (res.data && res.data.user && res.data.description === 'Updated (user privilege)') {
+        const updatedUsers = $scope.users.map(user => {
+          if (user.email === res.data.user.email) {
+            user.privilege = res.data.user.privilege
+          }
+
+          return user
+        })
+
+        $scope.users = updatedUsers
+      }
+    })
+  }
+
   $scope.$on('user.settings.users.created', function(event, message) {
     addUser(message.user, message.timeStamp)
   })

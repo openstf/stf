@@ -170,7 +170,7 @@
                 span(translate) Email
                 span(ng-bind-template="{{::': ' + user.email + ' - '}}")
                 span(translate) Privilege
-                span(ng-bind-template="{{::': ' + user.privilege}}")
+                span(translate) {{': ' + user.privilege}}
 
             button.btn.btn-xs.btn-danger-outline.pull-right(
               type='button'
@@ -184,7 +184,17 @@
               ng-click='showGroupsQuotas = !showGroupsQuotas; initTemporaryQuotas(user)'
               ng-class='{"btn-primary-outline": !showGroupsQuotas, "btn-primary": showGroupsQuotas}')
                 i.fa.fa-object-group
-                span(translate) Groups Quotas 
+                span(translate) Groups Quotas
+                
+            button.btn.btn-xs.btn-primary-outline.pull-right(
+              type='button'
+              uib-tooltip="{{'Change privilege' | translate}}"
+              tooltip-placement='top'
+              tooltip-popup-delay='500'
+              ng-click='updatePrivilege(user)'
+              ng-disabled='userForm.$invalid')
+                i.fa.fa-refresh
+                span(translate) Privilege
 
             ul.list-group.user-list.user-list-items(ng-if='showGroupsQuotas')
               li.list-group-item

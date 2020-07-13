@@ -1,3 +1,7 @@
+# Warning
+This repository (along with other ones in [OpenSTF](https://github.com/openstf) organisation) is no longer maintained.
+Active development has been moved to [DeviceFarmer](https://github.com/DeviceFarmer) organisation. Version **3.4.2** is the last release of OpenSTF and first one of DeviceFarmer.
+
 <img src="res/common/logo/exports/STF-128.png?raw=true" style="width:100px;height:100px;" alt="STF">
 
 [![Build Status](https://travis-ci.org/openstf/stf.svg?branch=master)](https://travis-ci.org/openstf/stf)

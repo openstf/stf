@@ -1,0 +1,37 @@
+.stf-uiviewer {
+
+}
+
+
+.stf-uiviewer #uiviewer-canvas {
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+}
+
+.stf-uiviewer pre {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select:text;
+  user-select: text; 
+}
+
+.stf-uiviewer .tree{
+  overflow: auto;
+}
+.stf-uiviewer .tree-node{
+  display:block;
+  word-break:keep-all;
+  white-space:nowrap;
+  margin-left:10px;
+}
+
+.stf-uiviewer .tree i.noChildren{
+  visibility:hidden
+}
+
+.stf-uiviewer .tree .selected{
+  background: #bebebe;
+  color: white;
+}

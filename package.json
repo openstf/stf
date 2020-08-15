@@ -44,6 +44,7 @@
     "body-parser": "^1.13.3",
     "bufferutil": "^1.2.1",
     "chalk": "~1.1.1",
+    "chart.js": "^2.7.2",
     "compression": "^1.5.2",
     "cookie-session": "^2.0.0-alpha.1",
     "csurf": "^1.7.0",

@@ -1,7 +1,35 @@
 .row.stf-info.selectable(ng-controller='InfoCtrl',
   angular-packery='{draggable: true, draggableHandle: ".heading i"}')
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
+    .widget-content.padded-small
+      table.table.table-condensed.table-hover.table-infocard
+        button.btn.btn-primary-outline(ng-click='reCollect()', style='border：2；align:center;') 重新收集数据
+        tbody
+          tr
+            td(translate) app包名
+            td
+              input(ng-model="appName")
+          tr
+            td(translate) 收集间隔（毫秒）
+            td
+              input(ng-model="timeGap")
+
+
+  .col-md-6.packery-item
+    .widget-content(style='height: 230px;')
+      canvas#cpuchart
+
+  .col-md-6.packery-item
+    .widget-content(style='height: 230px;')
+      canvas#mmchart
+
+  .col-md-6.packery-item
+    .widget-content(style='height: 230px;')
+      canvas#trafficchart
+
+
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-location-arrow', color='color-pink')
@@ -24,7 +52,7 @@
                   i.fa.fa-picture-o
                   span(translate) Device Photo
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-bolt', color='color-yellow')
@@ -53,7 +81,7 @@
               td(translate) Voltage
               td {{device.battery.voltage}} v
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-tablet', color='color-blue')
@@ -92,7 +120,7 @@
               td(translate) Y DPI
               td {{device.display.ydpi}}
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-signal', color='color-brown')
@@ -119,7 +147,7 @@
               td(translate) Sub Type
               td {{device.network.subtype | networkSubType | translate}}
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-credit-card', color='color-lila')
@@ -148,7 +176,7 @@
                 small {{device.phone.iccid}}
 
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-phone', color='color-green')
@@ -172,7 +200,7 @@
               td(translate) Released
               td {{device.releasedAt ? (device.releasedAt | date:longDate) : '-'}}
 
-  .col-md-4-x.packery-item
+  .col-md-6.packery-item
     .widget-container.fluid-height
       .heading
         stacked-icon(icon='fa-mobile', color='color-skyblue')
@@ -193,38 +221,4 @@
               td(translate) ABI
               td {{device.abi}}
 
-  .col-md-4-x.packery-item
-    .widget-container.fluid-height
-      .heading
-        stacked-icon(icon='fa-slack', color='color-black')
-        span(translate) CPU
-      .widget-content.padded-small
-        table.table.table-condensed.table-hover.table-infocard
-          tbody
-            tr
-              td(translate) Name
-              td {{device.cpu.name ? device.cpu.name : '-'}}
-            tr
-              td(translate) Cores
-              td {{device.cpu.cores ? device.cpu.cores : '-'}}
-            tr
-              td(translate) Frequency
-              td {{device.cpu.freq ? device.cpu.freq + ' GHz' : '-'}}
 
-  .col-md-4-x.packery-item
-    .widget-container.fluid-height
-      .heading
-        stacked-icon(icon='fa-database', color='color-orange')
-        span(translate) Memory
-      .widget-content.padded-small
-        table.table.table-condensed.table-hover.table-infocard
-          tbody
-            tr
-              td(translate) RAM
-              td {{device.memory.ram ? device.memory.ram + ' MB' : '-'}}
-            tr
-              td(translate) ROM
-              td {{device.memory.rom ? device.memory.rom + ' MB' : '-'}}
-            tr
-              td(translate) SD Card Mounted
-              td {{ sdCardMounted | humanizedBool }}

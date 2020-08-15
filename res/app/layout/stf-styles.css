@@ -145,6 +145,17 @@ ul.screenshots-icon-view li {
   margin: 8px;
 }
 
+ul.videos-icon-view {
+  list-style-type: none;
+  font-family: 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
+}
+
+ul.videos-icon-view li {
+  float: left;
+  clear: none;
+  margin: 8px;
+}
+
 /* Progress */
 .value-next-to-progress {
   float: left;

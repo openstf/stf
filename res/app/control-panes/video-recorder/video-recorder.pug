@@ -1,0 +1,20 @@
+.widget-container.fluid-height(ng-controller='VideoRecorderCtrl').stf-video-recorder
+  .heading
+    button.btn.btn-sm.btn-primary-outline(ng-click='recordVideo()',
+    title='{{"Take Video"|translate}}', ng-show='!recording')
+      i.fa.fa-video-camera
+      span(translate) Record
+    button.btn.btn-sm.btn-primary-outline(ng-click='stopRecordVideo()',
+    title='{{"Stop Video"|translate}}', ng-show='recording')
+      i.fa.fa-video-camera
+      span(translate) Stop Recording
+    clear-button(ng-click='clear()', ng-disabled='videos.length == 0')
+  .widget-content.padded
+    nothing-to-show(message='{{"No Video taken"|translate}}', icon='fa-video-camera', ng-show='videos.length == 0')
+    ul.videos-icon-view.clear-fix.selectable(ng-show='videos.length > 0')
+      li.videos-icon-item(ng-repeat='video in videos').cursor-select
+        h5 {{ video.body.name }}
+        h6 {{ video.body.date | date:'HH:mm:ss' }}
+        video(width='180', height='320', controls='')
+          source(src='{{ video.body.href }}', type='video/mp4')
+    .clearfix

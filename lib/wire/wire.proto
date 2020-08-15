@@ -63,6 +63,8 @@ enum MessageType {
   RotationEvent              = 48;
   StoreOpenMessage           = 49;
   ScreenCaptureMessage       = 50;
+  ScreenRecordMessage        = 51;
+  ScreenStopRecordMessage    = 75;
   DeviceHeartbeatMessage     = 73;
   RebootMessage              = 52;
   ConnectStartMessage        = 53;
@@ -658,6 +660,13 @@ message StoreOpenMessage {
 }
 
 message ScreenCaptureMessage {
+}
+
+message ScreenRecordMessage {
+}
+
+message ScreenStopRecordMessage {
+  required string path = 1;
 }
 
 message ConnectStartMessage {

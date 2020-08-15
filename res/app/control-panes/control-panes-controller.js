@@ -15,6 +15,12 @@ module.exports =
         filters: ['native', 'web']
       },
       {
+        title: gettext('Screen Recorder'),
+        icon: 'fa fa-video-camera color-darkgreen',
+        templateUrl: 'control-panes/video-recorder/video-recorder.pug',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Automation'),
         icon: 'fa-road color-lila',
         templateUrl: 'control-panes/automation/automation.pug',

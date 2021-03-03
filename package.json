@@ -74,7 +74,7 @@
     "please-update-dependencies": "^2.0.0",
     "protobufjs": "^3.8.2",
     "proxy-addr": "^1.0.10",
-    "pug": "^2.0.0-beta4",
+    "pug": "^3.0.1",
     "request": "^2.67.0",
     "request-progress": "^2.0.1",
     "rethinkdb": "^2.0.2",

@@ -125,7 +125,7 @@
     "jasmine-core": "^2.4.1",
     "jasmine-reporters": "^2.3.2",
     "json-loader": "^0.5.4",
-    "karma": "^1.7.1",
+    "karma": "^6.3.16",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-ie-launcher": "^1.0.0",

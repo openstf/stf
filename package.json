@@ -72,7 +72,7 @@
     "passport-oauth2": "^1.1.2",
     "passport-saml": "^0.15.0",
     "please-update-dependencies": "^2.0.0",
-    "protobufjs": "^3.8.2",
+    "protobufjs": "^6.11.3",
     "proxy-addr": "^1.0.10",
     "pug": "^2.0.0-beta4",
     "request": "^2.67.0",

@@ -70,7 +70,7 @@
     "openid": "^2.0.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",
-    "passport-saml": "^0.15.0",
+    "passport-saml": "^3.2.2",
     "please-update-dependencies": "^2.0.0",
     "protobufjs": "^3.8.2",
     "proxy-addr": "^1.0.10",

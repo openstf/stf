@@ -1,0 +1,21 @@
+FROM ubuntu:18.04
+
+LABEL maintainer="dubrovin.v@bstd.ru"
+
+WORKDIR /app
+
+EXPOSE 3000
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+    apt-get update && \
+    apt-get install -y sudo graphicsmagick libzmq3-dev protobuf-compiler libprotobuf-dev yasm pkg-config android-tools-adb curl wget
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    sudo apt install -y nodejs
+
+RUN source /etc/lsb-release && echo "deb https://download.rethinkdb.com/repository/ubuntu-$DISTRIB_CODENAME $DISTRIB_CODENAME main" | \ 
+    sudo tee /etc/apt/sources.list.d/rethinkdb.list && \
+    wget -qO- https://download.rethinkdb.com/repository/raw/pubkey.gpg | sudo apt-key add - && \
+    sudo apt-get update && \
+    sudo apt-get install rethinkdb && \
+    sudo npm install -g --unsafe-perm stf
